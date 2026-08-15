@@ -190,13 +190,19 @@ def _latest_running_high_pullback_peak(
     *,
     max_pullback_bars: int,
 ) -> int | None:
-    """Find the latest running-high peak followed by 1..N completed pullback bars."""
+    """Find the latest *strict* running-high peak followed by 1..N pullback bars.
+
+    A later candle that merely retests the same high remains part of the
+    pullback. It cannot replace the original peak unless it exceeds every prior
+    high. This matches ``detect_running_high_pullbacks`` and prevents an equal
+    high from silently shrinking the measured impulse and pullback history.
+    """
     latest = len(bars) - 1
     start = max(0, latest - max_pullback_bars)
     highs = pd.to_numeric(bars["high"], errors="coerce")
     for peak_index in range(latest - 1, start - 1, -1):
         peak_high = float(highs.iloc[peak_index])
-        if peak_high != float(highs.iloc[: peak_index + 1].max()):
+        if peak_index > 0 and peak_high <= float(highs.iloc[:peak_index].max()):
             continue
         pullback = bars.iloc[peak_index + 1 :]
         if pullback.empty or len(pullback) > max_pullback_bars:
