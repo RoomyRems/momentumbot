@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "momentumbot"
+version = "0.1.0"
+description = "Leakage-safe research and paper-trading framework for a small-cap momentum strategy."
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "Proprietary"}
+authors = [{name = "MomentumBot"}]
+dependencies = []
+
+[project.scripts]
+momentumbot-corpus-audit = "momentumbot.research.corpus:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+momentumbot = ["py.typed"]
