@@ -3,6 +3,8 @@ import unittest
 import pandas as pd
 
 from momentumbot.micro_setup import (
+    MicroPsychologicalLevel,
+    build_psychological_level_continuation_plan,
     canonical_micro_setup_policy,
     detect_running_high_pullbacks,
     evaluate_micro_pullback_plan,
@@ -119,6 +121,40 @@ class MicroSetupTests(unittest.TestCase):
         self.assertEqual(result.features.peak_high, 4.80)
         self.assertEqual(result.features.pullback_bars, 3)
         self.assertEqual(result.features.pullback_start, index[3].to_pydatetime())
+
+    def test_psychological_levels_are_context_not_canonical_trigger(self):
+        bars = self.strong_micro_pullback().copy()
+        for column in ("open", "high", "low", "close"):
+            bars[column] = bars[column] + 0.61
+        result = evaluate_micro_pullback_plan(
+            "ABC",
+            bars,
+            candidate_qualified_at=bars.index[0],
+            policy=geometry_only_micro_research_policy(),
+        )
+        self.assertEqual(result.reason, "plan")
+        assert result.plan is not None
+        assert result.features is not None
+        self.assertEqual(result.features.peak_high, 5.41)
+        self.assertEqual(result.plan.minimum_new_high_price, 5.32)
+        self.assertEqual(result.features.next_half_dollar_above_peak, 5.50)
+        self.assertEqual(result.features.next_whole_dollar_above_peak, 6.00)
+        self.assertAlmostEqual(result.features.distance_to_next_half_dollar, 0.09)
+        self.assertAlmostEqual(result.features.distance_to_next_whole_dollar, 0.59)
+
+        half_plan = build_psychological_level_continuation_plan(
+            result, MicroPsychologicalLevel.HALF_DOLLAR
+        )
+        whole_plan = build_psychological_level_continuation_plan(
+            result, MicroPsychologicalLevel.WHOLE_DOLLAR
+        )
+        assert half_plan is not None
+        assert whole_plan is not None
+        self.assertEqual(half_plan.minimum_new_high_price, 5.50)
+        self.assertEqual(whole_plan.minimum_new_high_price, 6.00)
+        self.assertEqual(result.plan.minimum_new_high_price, 5.32)
+        self.assertEqual(half_plan.stop_price, result.plan.stop_price)
+        self.assertEqual(whole_plan.stop_price, result.plan.stop_price)
 
     def test_canonical_policy_fails_closed_without_support_context(self):
         bars = self.strong_micro_pullback()
