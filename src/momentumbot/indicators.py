@@ -43,6 +43,43 @@ def session_vwap(bars: pd.DataFrame) -> pd.Series:
     return result
 
 
+def completed_bar_support_series(
+    bars: pd.DataFrame,
+    *,
+    ema_span: int = 9,
+    bar_duration: str | pd.Timedelta = "1min",
+) -> pd.DataFrame:
+    """Return VWAP/EMA values indexed by when the completed bar became knowable.
+
+    Input bars are expected to be indexed by bar *start* time. Indicator values
+    are calculated causally from each row and its predecessors, then the output
+    timestamp is shifted by ``bar_duration``. A one-minute bar stamped 07:31:00
+    therefore first contributes support context at 07:32:00.
+
+    ``session_vwap`` starts at the first supplied row, so callers must pass the
+    intended session history rather than a benchmark-only slice when they need
+    true session VWAP. Historical rows after the decision time are safe to
+    include because their availability timestamps remain in the future.
+    """
+    validate_bars(bars)
+    if bars.index.tz is None:
+        raise ValueError("bars must use timezone-aware timestamps for causal availability")
+    duration = pd.Timedelta(bar_duration)
+    if duration <= pd.Timedelta(0):
+        raise ValueError("bar_duration must be positive")
+
+    values = pd.DataFrame(
+        {
+            "vwap": session_vwap(bars),
+            "ema": ema(bars["close"], ema_span),
+        },
+        index=bars.index,
+    )
+    values.index = values.index + duration
+    values.index.name = "available_at"
+    return values
+
+
 def macd(
     close: pd.Series,
     fast: int = 12,
