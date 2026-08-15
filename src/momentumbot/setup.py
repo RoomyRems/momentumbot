@@ -28,21 +28,47 @@ def _latest_pullback_peak(bars: pd.DataFrame, max_pullback_bars: int) -> int | N
     return None
 
 
+def _indicator_bars(
+    session_bars: pd.DataFrame,
+    indicator_warmup: pd.DataFrame | None,
+) -> pd.DataFrame:
+    """Combine prior bars with the current session for EMA/MACD only.
+
+    VWAP and pullback geometry deliberately continue to use `session_bars`.
+    A real EMA/MACD chart does not reset simply because our acquisition window
+    starts at 04:00 ET, so historical replay must carry prior bars forward.
+    """
+    if indicator_warmup is None or indicator_warmup.empty:
+        return session_bars
+    validate_bars(indicator_warmup)
+    if indicator_warmup.index.tz is None:
+        raise ValueError("indicator warmup timestamps must be timezone-aware")
+    if session_bars.empty:
+        return indicator_warmup
+    prior = indicator_warmup.loc[indicator_warmup.index < session_bars.index[0]]
+    combined = pd.concat([prior, session_bars]).sort_index()
+    return combined.loc[~combined.index.duplicated(keep="last")]
+
+
 def evaluate_first_pullback_plan(
     symbol: str,
     bars_so_far: pd.DataFrame,
     profile: StrategyProfile,
     *,
     pullback_number: int | None = None,
+    indicator_warmup: pd.DataFrame | None = None,
 ) -> PullbackPlanEvaluation:
     """Evaluate the deterministic pullback plan and preserve its first rejection reason.
 
-    The returned plan is identical to `build_first_pullback_plan`; the reason is
-    diagnostics-only and must not be used to relax strategy rules during a run.
+    `bars_so_far` is the current-session history used for VWAP, peaks, pullback
+    geometry and volume. `indicator_warmup` is prior history used only to warm
+    EMA9/MACD. This separation prevents an arbitrary snapshot start time from
+    resetting continuous indicators while still resetting session VWAP.
     """
     validate_bars(bars_so_far)
+    indicators = _indicator_bars(bars_so_far, indicator_warmup)
     minimum = max(profile.macd_slow + profile.macd_signal, profile.ema_span) + 1
-    if len(bars_so_far) < minimum:
+    if len(indicators) < minimum:
         return PullbackPlanEvaluation(None, "insufficient_history")
 
     peak_index = _latest_pullback_peak(bars_so_far, profile.max_pullback_bars)
@@ -71,12 +97,13 @@ def evaluate_first_pullback_plan(
     if not has_pause:
         return PullbackPlanEvaluation(None, "no_pullback_pause")
 
-    ema9 = ema(bars_so_far["close"], profile.ema_span)
-    vwap = session_vwap(bars_so_far)
+    ema9 = ema(indicators["close"], profile.ema_span)
     macd_values = macd(
-        bars_so_far["close"], profile.macd_fast, profile.macd_slow, profile.macd_signal
+        indicators["close"], profile.macd_fast, profile.macd_slow, profile.macd_signal
     )
-    latest_macd = macd_values.iloc[-1]
+    vwap = session_vwap(bars_so_far)
+    latest_timestamp = bars_so_far.index[-1]
+    latest_macd = macd_values.loc[latest_timestamp]
     if pd.isna(latest_macd["macd"]) or pd.isna(latest_macd["signal"]):
         return PullbackPlanEvaluation(None, "macd_unavailable")
     phase = (
@@ -157,19 +184,13 @@ def build_first_pullback_plan(
     profile: StrategyProfile,
     *,
     pullback_number: int | None = None,
+    indicator_warmup: pd.DataFrame | None = None,
 ) -> EntryPlan | None:
-    """Build a next-bar stop entry using completed one-minute bars only.
-
-    Research translation notes:
-    - the most recent *session high* anchors the impulse/pullback;
-    - the impulse base is the lowest low of the five completed bars leading into
-      that high. Ross defines the 50% concept but not a machine swing algorithm,
-      so this five-bar anchor is deliberately isolated here for ablation;
-    - a large topping tail is translated as an upper wick >= half the candle range.
-    """
+    """Build a next-bar stop entry using completed one-minute session bars."""
     return evaluate_first_pullback_plan(
         symbol,
         bars_so_far,
         profile,
         pullback_number=pullback_number,
+        indicator_warmup=indicator_warmup,
     ).plan
