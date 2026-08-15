@@ -22,6 +22,7 @@ jobs:
       ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT }}
       FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
       MARKETAUX_API_KEY: ${{ secrets.MARKETAUX_API_KEY }}
+      SEC_API_D2V_KEY: ${{ secrets.SEC_API_D2V_KEY }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
