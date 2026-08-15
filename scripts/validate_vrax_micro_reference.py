@@ -9,11 +9,13 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 
+from momentumbot.indicators import completed_bar_support_series
 from momentumbot.micro_bars import aggregate_trade_bars, minute_trade_eligibility
 from momentumbot.micro_execution import MicroTriggerMode, simulate_micro_entries
 from momentumbot.micro_setup import (
     MicroPsychologicalLevel,
     build_psychological_level_continuation_plan,
+    canonical_micro_setup_policy,
     detect_running_high_pullbacks,
     evaluate_micro_pullback_plan,
     geometry_only_micro_research_policy,
@@ -225,6 +227,75 @@ def _micro_geometry_diagnostics(
     }
 
 
+def _canonical_support_diagnostics(
+    bars_10s: pd.DataFrame,
+    trades: pd.DataFrame,
+    support: pd.DataFrame,
+    *,
+    end: datetime,
+) -> dict[str, object]:
+    """Run the canonical setup with only completed one-minute support values."""
+    policy = canonical_micro_setup_policy()
+    reasons: Counter[str] = Counter()
+    plans = []
+    metadata: list[dict[str, object]] = []
+    for timestamp in bars_10s.loc[QUALIFIED_AT:].index:
+        evaluation = evaluate_micro_pullback_plan(
+            "VRAX",
+            bars_10s.loc[:timestamp],
+            candidate_qualified_at=QUALIFIED_AT,
+            policy=policy,
+            vwap_available=support["vwap"],
+            ema9_available=support["ema"],
+        )
+        reasons[evaluation.reason] += 1
+        if evaluation.plan is None or evaluation.features is None:
+            continue
+        plans.append(evaluation.plan)
+        features = evaluation.features
+        metadata.append(
+            {
+                "evaluated_at": features.evaluated_at.isoformat(),
+                "peak_time": features.peak_time.isoformat(),
+                "peak_high": features.peak_high,
+                "pullback_start": features.pullback_start.isoformat(),
+                "pullback_bars": features.pullback_bars,
+                "trough_time": features.trough_time.isoformat(),
+                "pullback_low": features.pullback_low,
+                "retrace_fraction": features.retrace_fraction,
+                "pullback_mean_volume": features.pullback_mean_volume,
+                "impulse_mean_volume": features.impulse_mean_volume,
+                "vwap_at_low": features.vwap_at_low,
+                "ema9_at_low": features.ema9_at_low,
+                "trigger_price": evaluation.plan.minimum_new_high_price,
+                "stop_price": evaluation.plan.stop_price,
+            }
+        )
+
+    outcomes = simulate_micro_entries(
+        plans,
+        trades,
+        trigger_mode=MicroTriggerMode.CHART_PRICE,
+        entry_latency_ms=0.0,
+        exit_until=pd.Timestamp(end),
+    )
+    return {
+        "policy": policy.name,
+        "policy_role": "canonical_setup_with_completed_one_minute_support_context",
+        "candidate_anchor": QUALIFIED_AT.isoformat(),
+        "support_filters_enforced": True,
+        "support_availability": "one_minute_values_indexed_at_bar_end_not_bar_start",
+        "support_session_start": support.index[0].isoformat() if not support.empty else None,
+        "evaluation_reason_counts": dict(sorted(reasons.items())),
+        "plan_count": len(plans),
+        "chart_confirmed_fill_count": sum(outcome.fill_price is not None for outcome in outcomes),
+        "plans": [
+            _outcome_row(row, outcome)
+            for row, outcome in zip(metadata, outcomes)
+        ],
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(
         description="Validate the July 9 VRAX micro-timeframe reference trade."
@@ -234,6 +305,7 @@ def main() -> int:
     args.output.mkdir(parents=True, exist_ok=True)
     trading_date = date(2026, 7, 9)
     start, end = _utc(trading_date, 7, 29, 30), _utc(trading_date, 7, 34, 30)
+    support_start = _utc(trading_date, 4, 0)
     client = AlpacaDataClient.from_env()
     trades = historical_trades(
         client, "VRAX", start=start, end=end, feed="sip", asof=trading_date
@@ -251,10 +323,29 @@ def main() -> int:
         adjustment="raw",
         asof=trading_date,
     )["VRAX"]
+    support_bars = client.bars(
+        ["VRAX"],
+        timeframe="1Min",
+        start=support_start,
+        end=end,
+        feed="sip",
+        adjustment="raw",
+        asof=trading_date,
+    )["VRAX"]
+    if support_bars.empty:
+        raise RuntimeError("Alpaca returned no VRAX one-minute support history")
+    support = completed_bar_support_series(
+        support_bars,
+        ema_span=9,
+        bar_duration="1min",
+    )
+
     _write_frame(trades, args.output / "trades.csv")
     _write_frame(bars_10s, args.output / "bars-10s.csv")
     _write_frame(reconstructed_1m, args.output / "reconstructed-1m.csv")
     _write_frame(official, args.output / "official-1m.csv")
+    _write_frame(support_bars, args.output / "support-history-1m.csv")
+    _write_frame(support, args.output / "support-available.csv")
 
     levels = {
         str(level): _first_eligible_at_or_above(trades, level)
@@ -300,6 +391,9 @@ def main() -> int:
         "micro_geometry_research_diagnostics": _micro_geometry_diagnostics(
             bars_10s, trades, end=end
         ),
+        "canonical_micro_support_diagnostics": _canonical_support_diagnostics(
+            bars_10s, trades, support, end=end
+        ),
         "raw_min_price": float(trades["price"].min()),
         "raw_max_price": float(trades["price"].max()),
         "minute_comparison": _compare_minute_bars(reconstructed_1m, official),
@@ -308,6 +402,7 @@ def main() -> int:
             "official_bars": "alpaca_historical_sip_1min",
             "micro_geometry_policy": "research_only_and_independent_of_recap_labels",
             "psychological_level_context": "rule-derived_context_candidates_not_ground_truth_selected",
+            "canonical_support": "session_vwap_and_ema9_from_alpaca_sip_1min_history_available_only_at_bar_completion",
         },
     }
     (args.output / "summary.json").write_text(
