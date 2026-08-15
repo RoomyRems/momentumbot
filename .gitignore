@@ -16,6 +16,11 @@ data/raw/
 data/transcripts/
 *.jsonl.txt
 
+# SEC nightly bulk archives are large local inputs, never repository data.
+data/sec/
+companyfacts.zip
+submissions.zip
+
 # Generated research outputs and market snapshots.
 artifacts/
 reports/generated/
