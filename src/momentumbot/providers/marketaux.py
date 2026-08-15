@@ -2,12 +2,18 @@ from __future__ import annotations
 
 import os
 import urllib.parse
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Any
 
 from .http_json import get_json
 
 BASE_URL = "https://api.marketaux.com/v1/news/all"
+
+
+def _marketaux_timestamp(value: datetime) -> str:
+    if value.tzinfo is None:
+        raise ValueError("MarketAux timestamp must be timezone-aware")
+    return value.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S")
 
 
 class MarketAuxClient:
@@ -39,8 +45,8 @@ class MarketAuxClient:
         for page in range(1, max_pages + 1):
             params = {
                 "symbols": symbol.upper(),
-                "published_after": published_after.isoformat(),
-                "published_before": published_before.isoformat(),
+                "published_after": _marketaux_timestamp(published_after),
+                "published_before": _marketaux_timestamp(published_before),
                 "language": "en",
                 "group_similar": "false",
                 "limit": page_size,
