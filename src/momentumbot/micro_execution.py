@@ -2,17 +2,20 @@
 
 The execution engine intentionally does not decide whether a setup is good.
 A plan may only be armed from a fully completed micro bar. Once armed, ordered
-SIP prints determine whether the next forming bar actually makes a new high,
-the first observable fill proxy, and the ordering of later stop or target events.
+SIP prints determine whether the next forming bar makes a new high, the first
+observable fill proxy, and the ordering of later stop or target events.
 
-Chart construction and execution availability are deliberately separate. Odd
-lots do not set derived chart highs/lows under Alpaca minute-bar semantics, but
-an otherwise-clean odd-lot print is still evidence that shares traded at that
-price. The execution path may therefore observe such prints while the chart path
-remains strict. This is a price-availability proxy, not a guarantee that a
-simulated order of arbitrary size would receive that fill.
+Chart construction, trigger confirmation, and execution availability are
+separate concepts. Odd lots do not set derived chart highs/lows under Alpaca
+minute-bar semantics, but an otherwise-clean odd-lot print is still evidence
+that shares traded at that price. The default canonical mode therefore requires
+a strict chart-price print to trigger the first-new-high entry, then uses the
+broader execution path only to estimate a fill after that trigger. A separate
+transaction-print trigger mode exists only for sensitivity research.
 
-This module is research-only. It never places brokerage orders.
+Observed trade prints do not model displayed/hidden depth, queue position, or
+whether an order of arbitrary size would receive the same fill. This module is
+research-only and never places brokerage orders.
 """
 
 from __future__ import annotations
@@ -29,9 +32,15 @@ from .micro_bars import minute_trade_eligibility
 
 class MicroExecutionStatus(str, Enum):
     NOT_TRIGGERED = "not_triggered"
+    TRIGGERED_NO_FILL = "triggered_no_fill"
     FILLED_OPEN = "filled_open"
     STOPPED = "stopped"
     TARGET_HIT = "target_hit"
+
+
+class MicroTriggerMode(str, Enum):
+    CHART_PRICE = "chart_price"
+    EXECUTION_PROXY = "execution_proxy"
 
 
 @dataclass(frozen=True, slots=True)
@@ -63,11 +72,14 @@ class MicroEntryPlan:
 class MicroExecutionOutcome:
     plan: MicroEntryPlan
     status: MicroExecutionStatus
+    trigger_mode: MicroTriggerMode = MicroTriggerMode.CHART_PRICE
+    entry_latency_ms: float = 0.0
     trigger_time: pd.Timestamp | None = None
     trigger_print_price: float | None = None
     trigger_via_odd_lot: bool | None = None
     fill_time: pd.Timestamp | None = None
     fill_price: float | None = None
+    fill_via_odd_lot: bool | None = None
     exit_time: pd.Timestamp | None = None
     exit_price: float | None = None
     exit_via_odd_lot: bool | None = None
@@ -159,9 +171,8 @@ def _ordered_trade_path(
         if not allowed and allow_otherwise_clean_odd_lots and "I" in conditions:
             # Odd lots are excluded from Alpaca bar highs/lows. For execution
             # research we can still observe their transaction price, but only
-            # when removing the I condition leaves an otherwise price-eligible
-            # trade. Average-price, out-of-sequence, unknown, and other
-            # disqualifying conditions therefore remain fail-closed.
+            # when removing I leaves an otherwise price-eligible trade. Other
+            # disqualifying and unknown conditions remain fail-closed.
             without_odd_lot = tuple(code for code in conditions if code != "I")
             remaining = minute_trade_eligibility(tape, without_odd_lot)
             allowed = remaining.updates_price and not remaining.unknown_conditions
@@ -188,12 +199,10 @@ def execution_eligible_trades(trades: pd.DataFrame) -> pd.DataFrame:
 
     Normal chart-price-eligible prints are retained. An odd-lot print is also
     retained when the odd-lot condition is the only reason it cannot update a
-    chart price. This acknowledges that an actual transaction occurred without
-    allowing the odd lot to rewrite the derived chart.
+    chart price. This acknowledges an actual transaction without allowing the
+    odd lot to rewrite the derived chart.
 
-    The result is intentionally only a price-availability proxy. It does not
-    model displayed/hidden depth, queue position, order latency, or whether the
-    print size was sufficient to fill the strategy's desired quantity.
+    This path does not model depth, queue position, latency, or fill quantity.
     """
     return _ordered_trade_path(trades, allow_otherwise_clean_odd_lots=True)
 
@@ -310,44 +319,115 @@ def _odd_lot_flag(row: pd.Series) -> bool:
     return bool(row.get("_execution_via_odd_lot", False))
 
 
-def _simulate_on_execution_path(
+def _first_crossing(
     plan: MicroEntryPlan,
-    path: pd.DataFrame,
+    trigger_path: pd.DataFrame,
+) -> tuple[pd.Timestamp, pd.Series] | None:
+    entry_window = trigger_path[
+        (trigger_path.index >= plan.armed_at) & (trigger_path.index < plan.expires_at)
+    ]
+    prices = pd.to_numeric(entry_window["price"], errors="coerce")
+    crossing = entry_window[prices >= plan.minimum_new_high_price]
+    if crossing.empty:
+        return None
+    return pd.Timestamp(crossing.index[0]), crossing.iloc[0]
+
+
+def _first_fill_after_trigger(
+    trigger_time: pd.Timestamp,
+    trigger_row: pd.Series,
+    execution_path: pd.DataFrame,
     *,
+    entry_latency_ms: float,
+) -> tuple[pd.Timestamp, pd.Series] | None:
+    if entry_latency_ms < 0:
+        raise ValueError("entry_latency_ms cannot be negative")
+    ready_at = trigger_time + pd.Timedelta(milliseconds=entry_latency_ms)
+    source_sequence = int(trigger_row["_source_sequence"])
+    if entry_latency_ms == 0:
+        candidates = execution_path[
+            (execution_path.index > ready_at)
+            | (
+                (execution_path.index == ready_at)
+                & (execution_path["_source_sequence"] >= source_sequence)
+            )
+        ]
+    else:
+        candidates = execution_path[execution_path.index >= ready_at]
+    if candidates.empty:
+        return None
+    return pd.Timestamp(candidates.index[0]), candidates.iloc[0]
+
+
+def _simulate_on_paths(
+    plan: MicroEntryPlan,
+    chart_path: pd.DataFrame,
+    execution_path: pd.DataFrame,
+    *,
+    trigger_mode: MicroTriggerMode,
+    entry_latency_ms: float,
     target_price: float | None,
     exit_limit: pd.Timestamp | None,
 ) -> MicroExecutionOutcome:
     if target_price is not None and target_price <= plan.minimum_new_high_price:
         raise ValueError("target_price must exceed the planned trigger")
-    if path.empty:
-        return MicroExecutionOutcome(plan=plan, status=MicroExecutionStatus.NOT_TRIGGERED)
+    if entry_latency_ms < 0:
+        raise ValueError("entry_latency_ms cannot be negative")
 
-    entry_window = path[
-        (path.index >= plan.armed_at) & (path.index < plan.expires_at)
-    ]
-    prices = pd.to_numeric(entry_window["price"], errors="coerce")
-    crossing = entry_window[prices >= plan.minimum_new_high_price]
-    if crossing.empty:
-        return MicroExecutionOutcome(plan=plan, status=MicroExecutionStatus.NOT_TRIGGERED)
-
-    trigger_row = crossing.iloc[0]
-    trigger_sequence = int(trigger_row["_sequence"])
-    trigger_time = pd.Timestamp(crossing.index[0])
+    trigger_path = (
+        chart_path
+        if trigger_mode is MicroTriggerMode.CHART_PRICE
+        else execution_path
+    )
+    crossing = _first_crossing(plan, trigger_path)
+    if crossing is None:
+        return MicroExecutionOutcome(
+            plan=plan,
+            status=MicroExecutionStatus.NOT_TRIGGERED,
+            trigger_mode=trigger_mode,
+            entry_latency_ms=entry_latency_ms,
+        )
+    trigger_time, trigger_row = crossing
     trigger_price = float(trigger_row["price"])
     trigger_via_odd_lot = _odd_lot_flag(trigger_row)
 
-    after_fill = path[path["_sequence"] > trigger_sequence]
+    fill = _first_fill_after_trigger(
+        trigger_time,
+        trigger_row,
+        execution_path,
+        entry_latency_ms=entry_latency_ms,
+    )
+    if fill is None:
+        return MicroExecutionOutcome(
+            plan=plan,
+            status=MicroExecutionStatus.TRIGGERED_NO_FILL,
+            trigger_mode=trigger_mode,
+            entry_latency_ms=entry_latency_ms,
+            trigger_time=trigger_time,
+            trigger_print_price=trigger_price,
+            trigger_via_odd_lot=trigger_via_odd_lot,
+        )
+    fill_time, fill_row = fill
+    fill_price = float(fill_row["price"])
+    fill_source_sequence = int(fill_row["_source_sequence"])
+
+    after_fill = execution_path[
+        execution_path["_source_sequence"] > fill_source_sequence
+    ]
     if exit_limit is not None:
         after_fill = after_fill[after_fill.index <= exit_limit]
     if after_fill.empty:
         return MicroExecutionOutcome(
             plan=plan,
             status=MicroExecutionStatus.FILLED_OPEN,
+            trigger_mode=trigger_mode,
+            entry_latency_ms=entry_latency_ms,
             trigger_time=trigger_time,
             trigger_print_price=trigger_price,
             trigger_via_odd_lot=trigger_via_odd_lot,
-            fill_time=trigger_time,
-            fill_price=trigger_price,
+            fill_time=fill_time,
+            fill_price=fill_price,
+            fill_via_odd_lot=_odd_lot_flag(fill_row),
         )
 
     future_prices = pd.to_numeric(after_fill["price"], errors="coerce")
@@ -362,32 +442,37 @@ def _simulate_on_execution_path(
 
     if first_stop is not None and (
         first_target is None
-        or int(first_stop["_sequence"]) < int(first_target["_sequence"])
+        or int(first_stop["_source_sequence"])
+        < int(first_target["_source_sequence"])
     ):
-        stop_time = pd.Timestamp(stop_hits.index[0])
         return MicroExecutionOutcome(
             plan=plan,
             status=MicroExecutionStatus.STOPPED,
+            trigger_mode=trigger_mode,
+            entry_latency_ms=entry_latency_ms,
             trigger_time=trigger_time,
             trigger_print_price=trigger_price,
             trigger_via_odd_lot=trigger_via_odd_lot,
-            fill_time=trigger_time,
-            fill_price=trigger_price,
-            exit_time=stop_time,
+            fill_time=fill_time,
+            fill_price=fill_price,
+            fill_via_odd_lot=_odd_lot_flag(fill_row),
+            exit_time=pd.Timestamp(stop_hits.index[0]),
             exit_price=float(first_stop["price"]),
             exit_via_odd_lot=_odd_lot_flag(first_stop),
         )
     if first_target is not None:
-        target_time = pd.Timestamp(target_hits.index[0])
         return MicroExecutionOutcome(
             plan=plan,
             status=MicroExecutionStatus.TARGET_HIT,
+            trigger_mode=trigger_mode,
+            entry_latency_ms=entry_latency_ms,
             trigger_time=trigger_time,
             trigger_print_price=trigger_price,
             trigger_via_odd_lot=trigger_via_odd_lot,
-            fill_time=trigger_time,
-            fill_price=trigger_price,
-            exit_time=target_time,
+            fill_time=fill_time,
+            fill_price=fill_price,
+            fill_via_odd_lot=_odd_lot_flag(fill_row),
+            exit_time=pd.Timestamp(target_hits.index[0]),
             exit_price=float(target_price),
             exit_via_odd_lot=_odd_lot_flag(first_target),
         )
@@ -395,11 +480,14 @@ def _simulate_on_execution_path(
     return MicroExecutionOutcome(
         plan=plan,
         status=MicroExecutionStatus.FILLED_OPEN,
+        trigger_mode=trigger_mode,
+        entry_latency_ms=entry_latency_ms,
         trigger_time=trigger_time,
         trigger_print_price=trigger_price,
         trigger_via_odd_lot=trigger_via_odd_lot,
-        fill_time=trigger_time,
-        fill_price=trigger_price,
+        fill_time=fill_time,
+        fill_price=fill_price,
+        fill_via_odd_lot=_odd_lot_flag(fill_row),
     )
 
 
@@ -407,27 +495,26 @@ def simulate_micro_entry(
     plan: MicroEntryPlan,
     trades: pd.DataFrame,
     *,
+    trigger_mode: MicroTriggerMode = MicroTriggerMode.CHART_PRICE,
+    entry_latency_ms: float = 0.0,
     target_price: float | None = None,
     exit_until: pd.Timestamp | None = None,
 ) -> MicroExecutionOutcome:
     """Execute one causal long stop-entry plan against ordered SIP prints.
 
-    Entry uses the first execution-eligible print at or above the minimum
-    new-high price during the plan's one-bar lifetime. Its observed print price
-    is the fill proxy, so a gap from the planned trigger is recorded as adverse
-    slippage.
-
-    After a fill, a stop is modeled as stop-market: the first later
-    execution-eligible print at or below the stop becomes the exit proxy and may
-    be worse than the stop. An optional profit target is modeled as a limit: the
-    first execution-eligible print at or above the target establishes event
-    ordering, but the fill is capped at the target rather than granting
-    favorable print slippage.
+    Canonical mode confirms the trigger on the strict chart-price path. Once the
+    trigger occurs, the first execution-proxy print at or after the configured
+    latency becomes the observed fill proxy. The broader transaction trigger is
+    available only as an explicit sensitivity mode.
     """
-    path = execution_eligible_trades(trades)
-    return _simulate_on_execution_path(
+    chart_path = price_eligible_trades(trades)
+    execution_path = execution_eligible_trades(trades)
+    return _simulate_on_paths(
         plan,
-        path,
+        chart_path,
+        execution_path,
+        trigger_mode=MicroTriggerMode(trigger_mode),
+        entry_latency_ms=entry_latency_ms,
         target_price=target_price,
         exit_limit=_exit_limit(exit_until),
     )
@@ -437,16 +524,23 @@ def simulate_micro_entries(
     plans: Iterable[MicroEntryPlan],
     trades: pd.DataFrame,
     *,
+    trigger_mode: MicroTriggerMode = MicroTriggerMode.CHART_PRICE,
+    entry_latency_ms: float = 0.0,
     target_price: float | None = None,
     exit_until: pd.Timestamp | None = None,
 ) -> tuple[MicroExecutionOutcome, ...]:
-    """Execute many plans while normalizing the execution SIP path only once."""
-    path = execution_eligible_trades(trades)
+    """Execute many plans while normalizing both SIP paths only once."""
+    chart_path = price_eligible_trades(trades)
+    execution_path = execution_eligible_trades(trades)
+    mode = MicroTriggerMode(trigger_mode)
     exit_limit = _exit_limit(exit_until)
     return tuple(
-        _simulate_on_execution_path(
+        _simulate_on_paths(
             plan,
-            path,
+            chart_path,
+            execution_path,
+            trigger_mode=mode,
+            entry_latency_ms=entry_latency_ms,
             target_price=target_price,
             exit_limit=exit_limit,
         )
