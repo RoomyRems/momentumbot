@@ -7,6 +7,8 @@ on:
       - phase-3-historical-snapshot
     paths:
       - scripts/validate_dsy_micro_reference.py
+      - src/momentumbot/micro_bars.py
+      - src/momentumbot/micro_execution.py
       - research/benchmarks/2026-06-10-dsy.json
       - .github/workflows/dsy-micro-reference.yml
 
