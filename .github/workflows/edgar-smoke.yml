@@ -1,0 +1,30 @@
+name: SEC EDGAR smoke
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - phase-2-provider-smoke
+    paths:
+      - scripts/edgar_smoke.py
+      - src/momentumbot/providers/sec_edgar.py
+      - .github/workflows/edgar-smoke.yml
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      SEC_USER_AGENT: MomentumBot/0.2 https://github.com/RoomyRems/momentumbot
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Probe free SEC data APIs
+        run: python scripts/edgar_smoke.py
