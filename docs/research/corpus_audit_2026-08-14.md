@@ -1,6 +1,6 @@
 # Corpus audit — 2026-08-14
 
-This audit describes the eight metadata-enriched Warrior Trading JSONL files supplied for MomentumBot research. Raw transcripts are not committed to this repository.
+This audit describes the eight metadata-enriched Warrior Trading JSONL files supplied for MomentumBot research. Raw transcript text is not committed to this repository.
 
 ## Integrity summary
 
@@ -18,7 +18,7 @@ This audit describes the eight metadata-enriched Warrior Trading JSONL files sup
 | Approximate normalized caption words | 9,139,448 |
 | Channel IDs represented | 1 |
 
-All 2,292 records identify the same Ross Cameron / Warrior Trading channel ID. The 129 undated records are useful for non-chronological discovery, but they are quarantined from walk-forward experiments until publication dates are resolved.
+The 129 undated records are useful for non-chronological discovery but remain quarantined from walk-forward experiments until publication dates are resolved.
 
 ## Explicit-date distribution
 
@@ -39,32 +39,24 @@ All 2,292 records identify the same Ross Cameron / Warrior Trading channel ID. T
 | 2025 | 365 |
 | 2026 | 224 |
 
-## Strategy-topic coverage
+## Chronology smoke test
 
-The counts below are coarse discovery counts, not claims that every mention is a rule. A video is counted when normalized captions contain at least one keyword/phrase in the corresponding topic group.
+Freezing strategy knowledge at 2025-01-01 produces:
 
-| Topic | Videos mentioning topic |
-|---|---:|
-| Stock selection / float / RVOL / scanners | 1,421 |
-| Halts / spreads / slippage / microstructure | 1,240 |
-| Catalyst / breaking news / theme | 1,048 |
-| Pullbacks / micro pullbacks / bull flags | 1,086 |
-| FOMO / discipline / emotional state | 1,009 |
-| Daily chart / major levels | 905 |
-| Exit / topping-tail / false-breakout language | 854 |
-| Risk / max loss / profit-loss ratio | 766 |
-| Level 2 / tape / hidden liquidity | 719 |
-| Hot/cold market regime | 715 |
-| Reverse splits / offerings / dilution | 674 |
+- 1,575 eligible videos;
+- 588 future videos that must remain hidden;
+- 129 undated/quarantined videos.
 
-These frequencies justify treating the corpus as a behavioral dataset rather than a small set of isolated lessons. They also warn against simple keyword-to-rule extraction: the same concepts appear in teaching, successful trades, failed trades and explicit self-critique.
+At 2026-01-01 the split becomes 1,940 eligible, 223 future, and the same 129 quarantined records.
 
-## Research implications
+## Coarse strategy-topic coverage
 
-1. **Chronology is mandatory.** Strategy language materially evolves across 2013-2026. Current-era rules cannot be projected backward without versioning.
-2. **Normative and behavioral evidence must be separate.** A training video can state a rule; a recap can show an exception; a red-day recap can show a violation that should be labeled as a mistake rather than copied into policy.
-3. **Raw transcripts cannot be live RAG.** A retrospective recap can reveal the outcome of the exact historical event being backtested.
-4. **Missing dates are a leakage risk.** The 129 undated videos stay out of chronology-sensitive datasets until resolved.
-5. **Missing captions are not filled by inference.** Fourteen records are metadata-only unless captions are later recovered.
+Keyword/phrase discovery found broad coverage across the corpus: stock selection, pullbacks, catalysts, Level 2/tape, risk, market regime, daily chart, exits, halts/slippage, psychology, and reverse-split/dilution topics all appear in hundreds of videos. These are discovery counts, not rule votes; a mention may be teaching, a successful trade, an exception, or a mistake.
 
-The reproducible audit command is implemented by `momentumbot-corpus-audit`.
+## Consequences for the project
+
+1. Strategy knowledge must be versioned by era.
+2. Normative teaching, observed behavior, and self-critique are separate evidence modes.
+3. Raw recap transcripts can never be live RAG for historical replay.
+4. Unknown publication dates fail closed.
+5. Missing captions remain missing rather than being silently inferred.

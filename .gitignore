@@ -11,11 +11,12 @@ venv/
 !.env.example
 .DS_Store
 
-# Raw/source datasets must remain outside git.
+# Raw/source transcript datasets stay outside Git.
 data/raw/
 data/transcripts/
 *.jsonl.txt
 
-# Generated research outputs
+# Generated research outputs and market snapshots.
 artifacts/
 reports/generated/
+snapshots/

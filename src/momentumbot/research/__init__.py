@@ -1,4 +1,4 @@
-"""Research utilities for corpus analysis and evidence-backed strategy rules."""
+"""Offline corpus research utilities."""
 
 from .corpus import CorpusAudit, CorpusRecord, audit_corpus, load_jsonl, split_as_of
 from .evidence import DecisionRole, EvidenceMode, ObservationType, StrategyRule

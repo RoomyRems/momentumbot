@@ -4,7 +4,13 @@ import unittest
 from datetime import date
 from pathlib import Path
 
-from momentumbot.research.corpus import audit_corpus, load_jsonl, normalize_captions, parse_publication_date, split_as_of
+from momentumbot.research.corpus import (
+    audit_corpus,
+    load_jsonl,
+    normalize_captions,
+    parse_publication_date,
+    split_as_of,
+)
 
 
 class CorpusTests(unittest.TestCase):
@@ -22,22 +28,58 @@ class CorpusTests(unittest.TestCase):
         return tmp, path
 
     def test_as_of_quarantines_future_and_unknown_dates(self):
-        base = {"channelName":"Ross Cameron - Warrior Trading","channelID":"channel","relativeDateText":None,"thumbnailUrl":None,"status":"OK","reason":None}
+        base = {
+            "channelName": "Ross Cameron - Warrior Trading",
+            "channelID": "channel",
+            "relativeDateText": None,
+            "thumbnailUrl": None,
+            "status": "OK",
+            "reason": None,
+        }
         rows = [
-            dict(base, videoId="past", title="Past", dateText="Jan 1, 2025", captions="first pullback"),
-            dict(base, videoId="future", title="Future", dateText="Jan 1, 2027", captions="hidden seller"),
-            dict(base, videoId="unknown", title="Unknown", dateText=None, captions="relative volume"),
+            dict(
+                base,
+                videoId="past",
+                title="Past",
+                dateText="Jan 1, 2025",
+                captions="first pullback",
+            ),
+            dict(
+                base,
+                videoId="future",
+                title="Future",
+                dateText="Jan 1, 2027",
+                captions="hidden seller",
+            ),
+            dict(
+                base,
+                videoId="unknown",
+                title="Unknown",
+                dateText=None,
+                captions="relative volume",
+            ),
         ]
-        tmp, path = self._write_records(rows); self.addCleanup(tmp.cleanup)
+        tmp, path = self._write_records(rows)
+        self.addCleanup(tmp.cleanup)
         eligible, future, undated = split_as_of(load_jsonl([path]), date(2026, 1, 1))
         self.assertEqual([r.video_id for r in eligible], ["past"])
         self.assertEqual([r.video_id for r in future], ["future"])
         self.assertEqual([r.video_id for r in undated], ["unknown"])
 
     def test_audit_detects_duplicate_ids(self):
-        base = {"channelName":"Ross Cameron - Warrior Trading","channelID":"channel","dateText":"Jan 1, 2025","relativeDateText":None,"thumbnailUrl":None,"captions":"five pillars relative volume","status":"OK","reason":None}
+        base = {
+            "channelName": "Ross Cameron - Warrior Trading",
+            "channelID": "channel",
+            "dateText": "Jan 1, 2025",
+            "relativeDateText": None,
+            "thumbnailUrl": None,
+            "captions": "five pillars relative volume",
+            "status": "OK",
+            "reason": None,
+        }
         rows = [dict(base, videoId="same", title="A"), dict(base, videoId="same", title="B")]
-        tmp, path = self._write_records(rows); self.addCleanup(tmp.cleanup)
+        tmp, path = self._write_records(rows)
+        self.addCleanup(tmp.cleanup)
         audit = audit_corpus(load_jsonl([path]))
         self.assertEqual(audit.records, 2)
         self.assertEqual(audit.unique_video_ids, 1)

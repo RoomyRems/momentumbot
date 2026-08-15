@@ -1,5 +1,3 @@
-"""Typed schema for evidence-backed strategy observations."""
-
 from __future__ import annotations
 
 import re
@@ -72,11 +70,15 @@ class StrategyRule:
 
     def __post_init__(self) -> None:
         if not _RULE_ID.fullmatch(self.rule_id):
-            raise ValueError(f"Invalid rule id: {self.rule_id}")
+            raise ValueError(f"invalid rule id: {self.rule_id}")
         if not 0.0 <= self.confidence <= 1.0:
             raise ValueError(f"confidence must be in [0, 1]: {self.rule_id}")
         if not self.evidence and self.observation_type is not ObservationType.RESEARCH_GUARD:
-            raise ValueError(f"Evidence required for strategy rule: {self.rule_id}")
+            raise ValueError(f"evidence required for strategy rule: {self.rule_id}")
+        if self.applies_from and self.evidence:
+            dated = [ref.published_at for ref in self.evidence if ref.published_at]
+            if dated and min(dated) > self.applies_from:
+                raise ValueError(f"rule predates all of its evidence: {self.rule_id}")
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "StrategyRule":
