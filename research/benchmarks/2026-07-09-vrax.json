@@ -18,14 +18,21 @@
     "reported_fill_approx": 6.3,
     "slippage_changed_risk_reward": true
   },
-  "decision_window": {
-    "start": "2026-07-09T11:31:00Z",
-    "end": "2026-07-09T11:33:30Z",
-    "precision": "broad_until_trade_print_reconstruction"
+  "market_reconstruction": {
+    "candidate_qualified_at": "2026-07-09T11:31:00Z",
+    "first_pullback_resumption_10s": "2026-07-09T11:31:40Z",
+    "second_pullback_resumption_10s": "2026-07-09T11:32:30Z",
+    "first_price_eligible_print_at_6": "2026-07-09T11:32:38.840075035Z",
+    "first_price_eligible_print_at_or_above_6_30": {
+      "timestamp": "2026-07-09T11:32:43.738195212Z",
+      "price": 6.31
+    },
+    "elapsed_seconds_6_to_6_30_plus": 4.898120177,
+    "interpretation": "The historical SIP path is consistent with the recap's report of entering around the $6 break and receiving a roughly $6.30 fill seconds later; it does not prove the human order's exact send/receive timestamps."
   },
   "research_notes": [
-    "This file is a benchmark label extracted from a same-day recap. It must never be supplied to a historical trading policy evaluating July 9, 2026.",
-    "The consolidated one-minute 11:32 UTC bar spans roughly the entire reported micro-pullback sequence, so the reference behavior cannot be faithfully evaluated using minute bars alone.",
-    "Exact sub-minute timing must be refined from historical SIP trade prints before this benchmark is scored."
+    "This benchmark label is retrospective ground truth and must never be supplied to a policy replaying July 9, 2026.",
+    "The official one-minute 11:32 UTC bar compresses the second micro pullback, breakout through $6, surge to $7.49 and rejection into one bar.",
+    "Derived ten-second bars were validated by reconstructing complete minute bars from SIP trades with zero OHLCV difference versus Alpaca's official minute bars in the complete reference minutes."
   ]
 }
