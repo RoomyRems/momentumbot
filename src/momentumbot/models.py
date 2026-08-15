@@ -42,6 +42,8 @@ class StrategyProfile:
     require_fresh_news_for_a_quality: bool = True
     allow_obvious_no_news_exception: bool = True
     require_top_gainer_rank: int | None = None
+    volume_feature_start: time = time(4, 0)
+    rvol_lookback_sessions: int = 50
     session_start: time = time(7, 0)
     no_new_entries_after: time = time(10, 0)
     flatten_at: time = time(10, 0)
