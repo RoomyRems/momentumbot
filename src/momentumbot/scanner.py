@@ -13,8 +13,15 @@ def evaluate_candidate(
     profile: StrategyProfile,
     *,
     top_gainer_rank: int | None,
+    relative_volume_override: float | None = None,
 ) -> CandidateSnapshot:
-    """Evaluate only information available through the final completed bar."""
+    """Evaluate only information available through the final completed bar.
+
+    `relative_volume_override` is the preferred research/live path: a causal
+    same-time-of-day RVOL value calculated from historical intraday volume
+    profiles. The daily-volume ratio remains only as a backward-compatible
+    fallback for old fixtures and must not be used by production snapshots.
+    """
     validate_bars(bars_so_far)
     if bars_so_far.empty:
         raise ValueError("cannot evaluate an empty bar series")
@@ -26,7 +33,11 @@ def evaluate_candidate(
     last = bars_so_far.iloc[-1]
     price = float(last["close"])
     cumulative_volume = int(bars_so_far["volume"].sum())
-    relative_volume = cumulative_volume / context.average_daily_volume_50
+    relative_volume = (
+        float(relative_volume_override)
+        if relative_volume_override is not None
+        else cumulative_volume / context.average_daily_volume_50
+    )
     percent_gain = (price / context.previous_close - 1.0) * 100.0
     float_rotation = (
         cumulative_volume / context.float_shares
