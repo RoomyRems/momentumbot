@@ -4,6 +4,10 @@ Alpaca publishes minute-bar aggregation rules based on SIP trade conditions.
 For ten-second research bars we apply the *minute* price/volume eligibility
 rules to each trade and then aggregate into ten-second buckets. This is not an
 exchange-published bar; provenance must therefore identify it as a derived bar.
+
+Unlike ordinary OHLC, research micro-bars also preserve the timestamps of the
+price-eligible high and low. That lets setup logic distinguish a genuine
+pullback *after* a new high from a bar whose low happened before its high.
 """
 
 from __future__ import annotations
@@ -13,8 +17,6 @@ from typing import Iterable
 
 import pandas as pd
 
-# Minute-bar semantics from Alpaca's Market Data FAQ. Values are
-# (updates_price, updates_volume). Context-dependent codes are handled below.
 _ALWAYS: dict[str, tuple[bool, bool]] = {
     "": (True, True),
     " ": (True, True),
@@ -86,6 +88,26 @@ def minute_trade_eligibility(tape: str | None, conditions: Iterable[str]) -> Tra
     return TradeEligibility(price_ok, volume_ok, tuple(sorted(set(unknown))))
 
 
+def _empty_bars() -> pd.DataFrame:
+    columns = [
+        "open",
+        "high",
+        "low",
+        "close",
+        "volume",
+        "trade_count",
+        "vwap",
+        "open_time",
+        "high_time",
+        "low_time",
+        "close_time",
+        "unknown_condition_count",
+    ]
+    return pd.DataFrame(columns=columns).set_axis(
+        pd.DatetimeIndex([], name="timestamp", tz="UTC")
+    )
+
+
 def aggregate_trade_bars(trades: pd.DataFrame, frequency: str = "10s") -> pd.DataFrame:
     """Aggregate normalized trade prints into derived OHLCV micro-bars."""
     required = {"price", "size", "conditions", "tape"}
@@ -97,9 +119,7 @@ def aggregate_trade_bars(trades: pd.DataFrame, frequency: str = "10s") -> pd.Dat
     if trades.index.tz is None:
         raise ValueError("trade timestamps must be timezone-aware")
     if trades.empty:
-        return pd.DataFrame(
-            columns=["open", "high", "low", "close", "volume", "trade_count", "vwap", "unknown_condition_count"]
-        ).set_axis(pd.DatetimeIndex([], name="timestamp", tz="UTC"))
+        return _empty_bars()
 
     buckets: dict[pd.Timestamp, dict[str, object]] = {}
     for timestamp, row in trades.sort_index().iterrows():
@@ -111,6 +131,10 @@ def aggregate_trade_bars(trades: pd.DataFrame, frequency: str = "10s") -> pd.Dat
                 "high": None,
                 "low": None,
                 "close": None,
+                "open_time": None,
+                "high_time": None,
+                "low_time": None,
+                "close_time": None,
                 "volume": 0,
                 "trade_count": 0,
                 "vwap_numerator": 0.0,
@@ -118,22 +142,32 @@ def aggregate_trade_bars(trades: pd.DataFrame, frequency: str = "10s") -> pd.Dat
                 "unknown_conditions": set(),
             },
         )
-        eligibility = minute_trade_eligibility(row.get("tape"), row.get("conditions") or ())
+        eligibility = minute_trade_eligibility(
+            row.get("tape"), row.get("conditions") or ()
+        )
         state["unknown_conditions"].update(eligibility.unknown_conditions)
         price = float(row["price"])
         size = int(row["size"])
         if eligibility.updates_volume:
             state["volume"] += size
             state["trade_count"] += 1
-        if eligibility.updates_price:
-            if state["open"] is None:
-                state["open"] = price
-            state["high"] = price if state["high"] is None else max(float(state["high"]), price)
-            state["low"] = price if state["low"] is None else min(float(state["low"]), price)
-            state["close"] = price
-            if eligibility.updates_volume:
-                state["vwap_numerator"] += price * size
-                state["vwap_volume"] += size
+        if not eligibility.updates_price:
+            continue
+
+        if state["open"] is None:
+            state["open"] = price
+            state["open_time"] = timestamp
+        if state["high"] is None or price > float(state["high"]):
+            state["high"] = price
+            state["high_time"] = timestamp
+        if state["low"] is None or price < float(state["low"]):
+            state["low"] = price
+            state["low_time"] = timestamp
+        state["close"] = price
+        state["close_time"] = timestamp
+        if eligibility.updates_volume:
+            state["vwap_numerator"] += price * size
+            state["vwap_volume"] += size
 
     rows: list[dict[str, object]] = []
     index: list[pd.Timestamp] = []
@@ -150,7 +184,15 @@ def aggregate_trade_bars(trades: pd.DataFrame, frequency: str = "10s") -> pd.Dat
                 "close": float(state["close"]),
                 "volume": int(state["volume"]),
                 "trade_count": int(state["trade_count"]),
-                "vwap": float(state["vwap_numerator"]) / vwap_volume if vwap_volume else float("nan"),
+                "vwap": (
+                    float(state["vwap_numerator"]) / vwap_volume
+                    if vwap_volume
+                    else float("nan")
+                ),
+                "open_time": state["open_time"],
+                "high_time": state["high_time"],
+                "low_time": state["low_time"],
+                "close_time": state["close_time"],
                 "unknown_condition_count": len(state["unknown_conditions"]),
             }
         )
