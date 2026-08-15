@@ -246,6 +246,102 @@ def completed_bar_breakout_plans(
     return tuple(plans)
 
 
+def _exit_limit(value: pd.Timestamp | None) -> pd.Timestamp | None:
+    if value is None:
+        return None
+    timestamp = pd.Timestamp(value)
+    if timestamp.tzinfo is None:
+        raise ValueError("exit_until must be timezone-aware")
+    return timestamp
+
+
+def _simulate_on_price_path(
+    plan: MicroEntryPlan,
+    path: pd.DataFrame,
+    *,
+    target_price: float | None,
+    exit_limit: pd.Timestamp | None,
+) -> MicroExecutionOutcome:
+    if target_price is not None and target_price <= plan.minimum_new_high_price:
+        raise ValueError("target_price must exceed the planned trigger")
+    if path.empty:
+        return MicroExecutionOutcome(plan=plan, status=MicroExecutionStatus.NOT_TRIGGERED)
+
+    entry_window = path[
+        (path.index >= plan.armed_at) & (path.index < plan.expires_at)
+    ]
+    prices = pd.to_numeric(entry_window["price"], errors="coerce")
+    crossing = entry_window[prices >= plan.minimum_new_high_price]
+    if crossing.empty:
+        return MicroExecutionOutcome(plan=plan, status=MicroExecutionStatus.NOT_TRIGGERED)
+
+    trigger_row = crossing.iloc[0]
+    trigger_sequence = int(trigger_row["_sequence"])
+    trigger_time = pd.Timestamp(crossing.index[0])
+    trigger_price = float(trigger_row["price"])
+    fill_price = trigger_price
+
+    after_fill = path[path["_sequence"] > trigger_sequence]
+    if exit_limit is not None:
+        after_fill = after_fill[after_fill.index <= exit_limit]
+    if after_fill.empty:
+        return MicroExecutionOutcome(
+            plan=plan,
+            status=MicroExecutionStatus.FILLED_OPEN,
+            trigger_time=trigger_time,
+            trigger_print_price=trigger_price,
+            fill_time=trigger_time,
+            fill_price=fill_price,
+        )
+
+    future_prices = pd.to_numeric(after_fill["price"], errors="coerce")
+    stop_hits = after_fill[future_prices <= plan.stop_price]
+    target_hits = (
+        after_fill[future_prices >= target_price]
+        if target_price is not None
+        else after_fill.iloc[0:0]
+    )
+    first_stop = stop_hits.iloc[0] if not stop_hits.empty else None
+    first_target = target_hits.iloc[0] if not target_hits.empty else None
+
+    if first_stop is not None and (
+        first_target is None
+        or int(first_stop["_sequence"]) < int(first_target["_sequence"])
+    ):
+        stop_time = pd.Timestamp(stop_hits.index[0])
+        return MicroExecutionOutcome(
+            plan=plan,
+            status=MicroExecutionStatus.STOPPED,
+            trigger_time=trigger_time,
+            trigger_print_price=trigger_price,
+            fill_time=trigger_time,
+            fill_price=fill_price,
+            exit_time=stop_time,
+            exit_price=float(first_stop["price"]),
+        )
+    if first_target is not None:
+        target_time = pd.Timestamp(target_hits.index[0])
+        return MicroExecutionOutcome(
+            plan=plan,
+            status=MicroExecutionStatus.TARGET_HIT,
+            trigger_time=trigger_time,
+            trigger_print_price=trigger_price,
+            fill_time=trigger_time,
+            fill_price=fill_price,
+            exit_time=target_time,
+            exit_price=float(target_price),
+        )
+
+    return MicroExecutionOutcome(
+        plan=plan,
+        status=MicroExecutionStatus.FILLED_OPEN,
+        trigger_time=trigger_time,
+        trigger_print_price=trigger_price,
+        fill_time=trigger_time,
+        fill_price=fill_price,
+    )
+
+
 def simulate_micro_entry(
     plan: MicroEntryPlan,
     trades: pd.DataFrame,
@@ -265,80 +361,31 @@ def simulate_micro_entry(
     or above the target establishes event ordering, but the fill is capped at
     the target rather than granting favorable print slippage.
     """
-    if target_price is not None and target_price <= plan.minimum_new_high_price:
-        raise ValueError("target_price must exceed the planned trigger")
-    if exit_until is not None:
-        exit_limit = pd.Timestamp(exit_until)
-        if exit_limit.tzinfo is None:
-            raise ValueError("exit_until must be timezone-aware")
-    else:
-        exit_limit = None
-
     path = price_eligible_trades(trades)
-    if path.empty:
-        return MicroExecutionOutcome(plan=plan, status=MicroExecutionStatus.NOT_TRIGGERED)
+    return _simulate_on_price_path(
+        plan,
+        path,
+        target_price=target_price,
+        exit_limit=_exit_limit(exit_until),
+    )
 
-    entry_window = path[
-        (path.index >= plan.armed_at) & (path.index < plan.expires_at)
-    ]
-    crossing = entry_window[
-        pd.to_numeric(entry_window["price"], errors="coerce")
-        >= plan.minimum_new_high_price
-    ]
-    if crossing.empty:
-        return MicroExecutionOutcome(plan=plan, status=MicroExecutionStatus.NOT_TRIGGERED)
 
-    trigger_row = crossing.iloc[0]
-    trigger_sequence = int(trigger_row["_sequence"])
-    trigger_time = pd.Timestamp(crossing.index[0])
-    trigger_price = float(trigger_row["price"])
-    fill_time = trigger_time
-    fill_price = trigger_price
-
-    after_fill = path[path["_sequence"] > trigger_sequence]
-    if exit_limit is not None:
-        after_fill = after_fill[after_fill.index <= exit_limit]
-
-    if after_fill.empty:
-        return MicroExecutionOutcome(
-            plan=plan,
-            status=MicroExecutionStatus.FILLED_OPEN,
-            trigger_time=trigger_time,
-            trigger_print_price=trigger_price,
-            fill_time=fill_time,
-            fill_price=fill_price,
+def simulate_micro_entries(
+    plans: Iterable[MicroEntryPlan],
+    trades: pd.DataFrame,
+    *,
+    target_price: float | None = None,
+    exit_until: pd.Timestamp | None = None,
+) -> tuple[MicroExecutionOutcome, ...]:
+    """Execute many plans while normalizing the SIP price path only once."""
+    path = price_eligible_trades(trades)
+    exit_limit = _exit_limit(exit_until)
+    return tuple(
+        _simulate_on_price_path(
+            plan,
+            path,
+            target_price=target_price,
+            exit_limit=exit_limit,
         )
-
-    for timestamp, row in after_fill.iterrows():
-        price = float(row["price"])
-        if price <= plan.stop_price:
-            return MicroExecutionOutcome(
-                plan=plan,
-                status=MicroExecutionStatus.STOPPED,
-                trigger_time=trigger_time,
-                trigger_print_price=trigger_price,
-                fill_time=fill_time,
-                fill_price=fill_price,
-                exit_time=pd.Timestamp(timestamp),
-                exit_price=price,
-            )
-        if target_price is not None and price >= target_price:
-            return MicroExecutionOutcome(
-                plan=plan,
-                status=MicroExecutionStatus.TARGET_HIT,
-                trigger_time=trigger_time,
-                trigger_print_price=trigger_price,
-                fill_time=fill_time,
-                fill_price=fill_price,
-                exit_time=pd.Timestamp(timestamp),
-                exit_price=float(target_price),
-            )
-
-    return MicroExecutionOutcome(
-        plan=plan,
-        status=MicroExecutionStatus.FILLED_OPEN,
-        trigger_time=trigger_time,
-        trigger_print_price=trigger_price,
-        fill_time=fill_time,
-        fill_price=fill_price,
+        for plan in plans
     )
