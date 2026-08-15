@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
-      SEC_USER_AGENT: MomentumBot/0.2 https://github.com/RoomyRems/momentumbot
+      SEC_USER_AGENT: MomentumBot/0.2 RoomyRems 168698529+RoomyRems@users.noreply.github.com
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
