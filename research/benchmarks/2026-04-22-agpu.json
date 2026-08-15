@@ -1,0 +1,29 @@
+{
+  "benchmark_id": "ross-agpu-2026-04-22-micro-01",
+  "trading_date": "2026-04-22",
+  "symbol": "AGPU",
+  "knowledge_policy": "ground_truth_label_only_never_runtime_context",
+  "source": {
+    "video_id": "6P25hNn_H00",
+    "title": "The Micro Pullback Trading Strategy (Small Account Challenge)",
+    "published_date": "2026-04-22",
+    "evidence_type": "same_day_normative_class_plus_behavioral_case_study"
+  },
+  "observed_human_behavior": {
+    "setup_type": "micro_pullback",
+    "chart_timeframe": "10_seconds",
+    "reported_initial_high_approx": 8.5,
+    "reported_pullback_support_approx": 8.0,
+    "reported_entry_fills": [8.33, 8.5],
+    "reported_initial_position_shares": 10000,
+    "reported_stop_approx": 8.0,
+    "reported_confirmation_level": 8.5,
+    "reported_initial_target": 9.0,
+    "reported_second_pullback_add_break_level": 10.5
+  },
+  "research_notes": [
+    "This file is retrospective ground truth and must never be supplied to a policy replaying April 22, 2026.",
+    "The case is intended to validate the canonical first-new-high/hold-support micro setup, not to calibrate profit magnitude or share size.",
+    "Historical SIP reconstruction must determine exact market timestamps independently of the video narration."
+  ]
+}

@@ -1,0 +1,39 @@
+name: AGPU micro reference
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - scripts/validate_agpu_micro_reference.py
+      - research/benchmarks/2026-04-22-agpu.json
+      - .github/workflows/agpu-micro-reference.yml
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+      ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+      ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Reconstruct AGPU reference
+        run: python scripts/validate_agpu_micro_reference.py --output agpu-micro-reference
+      - name: Upload AGPU micro reference
+        uses: actions/upload-artifact@v4
+        with:
+          name: agpu-micro-reference-2026-04-22
+          path: agpu-micro-reference
+          if-no-files-found: error
+          retention-days: 14
