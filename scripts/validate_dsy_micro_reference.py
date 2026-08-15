@@ -12,7 +12,7 @@ from momentumbot.micro_bars import aggregate_trade_bars, minute_trade_eligibilit
 from momentumbot.micro_execution import (
     MicroExecutionOutcome,
     completed_bar_breakout_plans,
-    simulate_micro_entry,
+    simulate_micro_entries,
 )
 from momentumbot.providers.alpaca import AlpacaDataClient
 from momentumbot.providers.alpaca_trades import historical_trades
@@ -128,10 +128,7 @@ def main() -> int:
         tick_size=0.01,
         start_at=tape_start,
     )
-    outcomes = [
-        simulate_micro_entry(plan, trades, exit_until=tape_end)
-        for plan in plans
-    ]
+    outcomes = simulate_micro_entries(plans, trades, exit_until=tape_end)
     filled_outcomes = [outcome for outcome in outcomes if outcome.fill_price is not None]
     nearest_source_outcome = None
     if filled_outcomes:
@@ -163,6 +160,7 @@ def main() -> int:
             "fill_model": "first_price_eligible_sip_print_at_or_above_prior_high_plus_tick",
             "stop_model": "first_later_price_eligible_sip_print_at_or_below_completed_bar_low",
             "runtime_uses_reported_fill_zone": False,
+            "sip_price_path_normalized_once_for_all_plans": True,
             "plan_count": len(plans),
             "filled_plan_count": len(filled_outcomes),
             "nearest_reported_fill_after_the_fact": (
