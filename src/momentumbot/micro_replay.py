@@ -12,8 +12,11 @@ Retrospective benchmark labels belong in a separate post-replay comparison step.
 from __future__ import annotations
 
 from collections import Counter
-from dataclasses import dataclass
-from datetime import datetime
+from dataclasses import dataclass, fields, is_dataclass
+from datetime import date, datetime
+from enum import Enum
+from numbers import Integral, Real
+from typing import Any
 
 import pandas as pd
 
@@ -193,3 +196,53 @@ def replay_micro_candidate(
         entry_latency_ms=float(entry_latency_ms),
         steps=steps,
     )
+
+
+def _json_safe(value: Any) -> Any:
+    if value is None or isinstance(value, (str, bool)):
+        return value
+    if isinstance(value, Enum):
+        return _json_safe(value.value)
+    if isinstance(value, pd.Timestamp):
+        return value.isoformat()
+    if isinstance(value, (datetime, date)):
+        return value.isoformat()
+    if is_dataclass(value):
+        return {
+            field.name: _json_safe(getattr(value, field.name))
+            for field in fields(value)
+        }
+    if isinstance(value, dict):
+        return {str(key): _json_safe(item) for key, item in value.items()}
+    if isinstance(value, (tuple, list)):
+        return [_json_safe(item) for item in value]
+    if isinstance(value, Integral):
+        return int(value)
+    if isinstance(value, Real):
+        numeric = float(value)
+        return None if pd.isna(numeric) else numeric
+    return value
+
+
+def micro_replay_runtime_artifact(replay: MicroCandidateReplay) -> dict[str, object]:
+    """Serialize a replay without adding any retrospective benchmark context.
+
+    This is the stable boundary between runtime reconstruction and imitation
+    scoring. Downstream benchmark code may load a retrospective label only after
+    this payload has already been produced.
+    """
+    return {
+        "artifact_type": "micro_candidate_runtime_replay",
+        "schema_version": 1,
+        "knowledge_policy": "runtime_market_data_only_no_retrospective_labels",
+        "symbol": replay.symbol,
+        "candidate_qualified_at": replay.candidate_qualified_at.isoformat(),
+        "policy_name": replay.policy_name,
+        "trigger_mode": replay.trigger_mode.value,
+        "entry_latency_ms": replay.entry_latency_ms,
+        "plan_count": replay.plan_count,
+        "filled_count": replay.filled_count,
+        "filled_pullback_numbers": list(replay.filled_pullback_numbers),
+        "reason_counts": replay.reason_counts,
+        "steps": _json_safe(replay.steps),
+    }
