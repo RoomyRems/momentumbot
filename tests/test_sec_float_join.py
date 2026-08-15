@@ -20,7 +20,7 @@ _estimate_row = module._estimate_row
 class SecFloatJoinTests(unittest.TestCase):
     def test_reverse_split_share_basis_normalization(self):
         basis = BasisObservation("2026-05-13", "2026-05-13", 0.12, 7.20, 1 / 60)
-        self.assertEqual(_normalize_shares(590_254_769, basis), 9_837_580)
+        self.assertEqual(_normalize_shares(590_254_769, basis), 9_837_579)
 
     def test_missing_public_float_can_pass_only_from_outstanding_upper_bound(self):
         candidate = {
