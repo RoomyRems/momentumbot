@@ -16,6 +16,22 @@ def _marketaux_timestamp(value: datetime) -> str:
     return value.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S")
 
 
+def _marketaux_response_timestamp(value: object) -> str:
+    """Normalize MarketAux's UTC response timestamp to an aware ISO value.
+
+    MarketAux documents all returned dates as UTC/GMT, while examples may omit
+    an explicit offset. Snapshot data must never carry a naive timestamp, so a
+    missing offset is interpreted as UTC rather than local runner time.
+    """
+    text = str(value).strip()
+    if not text:
+        raise ValueError("MarketAux published_at cannot be empty")
+    parsed = datetime.fromisoformat(text.replace("Z", "+00:00"))
+    if parsed.tzinfo is None:
+        parsed = parsed.replace(tzinfo=timezone.utc)
+    return parsed.astimezone(timezone.utc).isoformat()
+
+
 class MarketAuxClient:
     def __init__(self, api_key: str, *, timeout_seconds: int = 30) -> None:
         if not api_key:
@@ -63,9 +79,16 @@ class MarketAuxClient:
             rows = payload.get("data", [])
             if not isinstance(rows, list):
                 break
-            for row in rows:
-                if not isinstance(row, dict):
+            for raw_row in rows:
+                if not isinstance(raw_row, dict):
                     continue
+                row = dict(raw_row)
+                published = row.get("published_at")
+                if published:
+                    try:
+                        row["published_at"] = _marketaux_response_timestamp(published)
+                    except (TypeError, ValueError):
+                        continue
                 key = str(row.get("uuid") or row.get("url") or row.get("title"))
                 if key in seen:
                     continue
