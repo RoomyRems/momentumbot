@@ -29,6 +29,21 @@ class ScannerTests(unittest.TestCase):
         self.assertEqual(candidate.pillar_count, 5)
         self.assertEqual(candidate.quality, CandidateQuality.A_QUALITY)
 
+    def test_time_of_day_rvol_override_replaces_legacy_daily_ratio(self):
+        # Legacy fixture ratio is 6x (1.2M / 200k). A causal same-time value
+        # below 5x must therefore fail the RVOL pillar when supplied.
+        candidate = evaluate_candidate(
+            self.bars,
+            self.context,
+            NewsContext(True),
+            current_general_2026(),
+            top_gainer_rank=1,
+            relative_volume_override=4.9,
+        )
+        self.assertAlmostEqual(candidate.relative_volume, 4.9)
+        self.assertFalse(candidate.pillars["relative_volume"])
+        self.assertEqual(candidate.quality, CandidateQuality.REJECT)
+
     def test_missing_news_is_conditional_only_for_number_one_gainer(self):
         candidate = evaluate_candidate(
             self.bars,
