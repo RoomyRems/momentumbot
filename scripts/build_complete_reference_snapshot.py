@@ -4,7 +4,7 @@ import argparse
 import json
 import os
 from dataclasses import asdict
-from datetime import date, datetime, time, timezone
+from datetime import date, datetime, time, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -12,18 +12,30 @@ import pandas as pd
 
 from momentumbot.backtest import Backtester
 from momentumbot.historical_data import discover_market_day
-from momentumbot.models import SymbolContext, current_general_2026, paper_safe_risk
+from momentumbot.models import current_general_2026, paper_safe_risk
 from momentumbot.providers.alpaca import AlpacaDataClient
 from momentumbot.providers.marketaux import MarketAuxClient
-from momentumbot.snapshot import load_snapshot
+from momentumbot.snapshot import load_indicator_warmup, load_snapshot
 
 ET = ZoneInfo("America/New_York")
+WARMUP_CALENDAR_DAYS = 10
+WARMUP_MAX_BARS = 240
 
 
 def _bounds(trading_date: date) -> tuple[datetime, datetime]:
     start = datetime.combine(trading_date, time(4, 0), ET).astimezone(timezone.utc)
     end = datetime.combine(trading_date, time(10, 1), ET).astimezone(timezone.utc)
     return start, end
+
+
+def _warmup_bounds(trading_date: date) -> tuple[datetime, datetime]:
+    session_start, _ = _bounds(trading_date)
+    start = datetime.combine(
+        trading_date - timedelta(days=WARMUP_CALENDAR_DAYS),
+        time(4, 0),
+        ET,
+    ).astimezone(timezone.utc)
+    return start, session_start
 
 
 def _news_bounds(trading_date: date) -> tuple[datetime, datetime]:
@@ -101,12 +113,11 @@ def _load_rvol(root: Path, symbols: set[str]) -> dict[str, pd.Series]:
     output: dict[str, pd.Series] = {}
     for symbol in sorted(symbols):
         frame = pd.read_csv(root / "rvol" / f"{symbol}.csv", parse_dates=["timestamp"])
-        series = pd.Series(
+        output[symbol] = pd.Series(
             pd.to_numeric(frame["relative_volume"], errors="coerce").to_numpy(),
             index=pd.DatetimeIndex(frame["timestamp"]),
             name="relative_volume",
         )
-        output[symbol] = series
     return output
 
 
@@ -114,6 +125,46 @@ def _safe_int(value: object) -> int | None:
     if value is None or pd.isna(value) or str(value).strip() == "":
         return None
     return int(float(value))
+
+
+def _build_indicator_warmup(
+    alpaca: AlpacaDataClient,
+    symbols: set[str],
+    *,
+    trading_date: date,
+    root: Path,
+) -> tuple[dict[str, int], dict[str, str]]:
+    """Freeze recent split-normalized bars for EMA/MACD initialization only."""
+    warmup_dir = root / "warmup"
+    warmup_dir.mkdir(parents=True, exist_ok=True)
+    if not symbols:
+        return {}, {}
+    start, end = _warmup_bounds(trading_date)
+    downloaded = alpaca.bars_batched(
+        sorted(symbols),
+        batch_size=20,
+        timeframe="1Min",
+        start=start,
+        end=end,
+        feed="sip",
+        adjustment="split",
+        asof=trading_date,
+    )
+    counts: dict[str, int] = {}
+    status: dict[str, str] = {}
+    for symbol in sorted(symbols):
+        frame = downloaded.get(symbol, pd.DataFrame())
+        if frame.empty:
+            status[symbol] = "missing_fail_closed"
+            continue
+        frame = frame.loc[frame.index < end].tail(WARMUP_MAX_BARS)
+        if frame.empty:
+            status[symbol] = "missing_fail_closed"
+            continue
+        frame.reset_index().to_csv(warmup_dir / f"{symbol}.csv", index=False)
+        counts[symbol] = len(frame)
+        status[symbol] = "split_adjusted_prior_1m"
+    return counts, status
 
 
 def main() -> int:
@@ -135,13 +186,11 @@ def main() -> int:
     float_symbols = set(float_frame["symbol"].astype(str))
     if float_symbols != market_symbols:
         raise RuntimeError(
-            f"final float table must exactly match market candidates; floats={sorted(float_symbols)}, market={sorted(market_symbols)}"
+            "final float table must exactly match market candidates; "
+            f"floats={sorted(float_symbols)}, market={sorted(market_symbols)}"
         )
     floats = {str(row["symbol"]): row for row in float_frame.to_dict(orient="records")}
 
-    # Discovery rows are the complete deterministic acquisition universe after
-    # requiring the 50-session history needed for same-time RVOL. Full-day high
-    # was used only to acquire a superset; strategy evaluation never receives it.
     universe_rows = list(discovery.rows)
     universe_symbols = [row.symbol for row in universe_rows]
     universe_set = set(universe_symbols)
@@ -159,7 +208,9 @@ def main() -> int:
         adjustment="raw",
         asof=trading_date,
     )
-    missing_bars = sorted(symbol for symbol in universe_symbols if bars.get(symbol, pd.DataFrame()).empty)
+    missing_bars = sorted(
+        symbol for symbol in universe_symbols if bars.get(symbol, pd.DataFrame()).empty
+    )
     if missing_bars:
         raise RuntimeError(f"research universe has missing intraday bars: {missing_bars}")
 
@@ -168,6 +219,13 @@ def main() -> int:
     rvol_dir = root / "rvol"
     bars_dir.mkdir(parents=True, exist_ok=True)
     rvol_dir.mkdir(parents=True, exist_ok=True)
+
+    warmup_counts, warmup_status = _build_indicator_warmup(
+        alpaca,
+        market_symbols,
+        trading_date=trading_date,
+        root=root,
+    )
 
     contexts: list[dict] = []
     discovery_by_symbol = {row.symbol: row for row in universe_rows}
@@ -180,10 +238,6 @@ def main() -> int:
             curve = exact_curve.reindex(frame.index)
             rvol_status = "exact_same_time_1m"
         else:
-            # Discovery already proved these securities never satisfied the
-            # combined gain/price/RVOL market mask. NaN is a conservative
-            # fail-closed value for strategy evaluation while retaining their
-            # bars for cross-sectional gainer ranking.
             curve = pd.Series(float("nan"), index=frame.index, name="relative_volume")
             rvol_status = "fail_closed_not_exact_market_candidate"
         curve.rename("relative_volume").to_csv(
@@ -221,10 +275,11 @@ def main() -> int:
                 "market_candidate": symbol in market_symbols,
                 "first_market_qualified_at": discovery_by_symbol[symbol].first_market_qualified_at,
                 "rvol_status": rvol_status,
+                "indicator_warmup_status": warmup_status.get(symbol, "not_market_candidate"),
+                "indicator_warmup_bars": warmup_counts.get(symbol, 0),
             }
         )
     pd.DataFrame(contexts).to_csv(root / "contexts.csv", index=False)
-
     pd.DataFrame([asdict(row) for row in universe_rows]).to_csv(root / "discovery.csv", index=False)
     float_frame.to_csv(root / "candidate_float_evidence.csv", index=False)
 
@@ -241,8 +296,6 @@ def main() -> int:
     for row in normalized_news:
         by_symbol[str(row["symbol"])] += 1
 
-    # MarketAux is a fallback only for candidates with no Alpaca/Benzinga item,
-    # limiting external quota use while avoiding a single-provider blind spot.
     if os.getenv("MARKETAUX_API_KEY"):
         marketaux = MarketAuxClient.from_env()
         for symbol in sorted(market_symbols):
@@ -269,14 +322,15 @@ def main() -> int:
     ).to_csv(root / "news.csv", index=False)
 
     classified = float_frame["float_pillar_pass"]
+    warmup_start, warmup_end = _warmup_bounds(trading_date)
     manifest = {
-        "schema_version": 3,
+        "schema_version": 4,
         "kind": "complete_historical_snapshot",
         "snapshot_id": f"current-general-2026:{trading_date.isoformat()}",
         "trading_date": trading_date.isoformat(),
         "strategy_profile": profile.name,
         "universe_complete": True,
-        "universe_definition": "complete daily acquisition superset with the required 50-session RVOL history and intraday bars",
+        "universe_definition": "complete daily acquisition superset with required 50-session RVOL history and intraday bars",
         "research_universe_count": len(universe_symbols),
         "listed_asset_count": discovery.listed_asset_count,
         "daily_superset_count": discovery.daily_superset_count,
@@ -294,13 +348,25 @@ def main() -> int:
         "rvol_bar_adjustment": "split",
         "rvol_method": "same_time_cumulative_1m over 50 prior sessions",
         "rvol_fail_closed_for_non_market_candidates": True,
+        "indicator_warmup": {
+            "symbols_requested": len(market_symbols),
+            "symbols_available": len(warmup_counts),
+            "max_bars_per_symbol": WARMUP_MAX_BARS,
+            "start": warmup_start.isoformat(),
+            "end_exclusive": warmup_end.isoformat(),
+            "adjustment": "split",
+            "uses": ["ema9", "macd"],
+            "excluded_from": ["vwap", "scanner", "rank", "pullback_geometry", "execution"],
+            "bars_by_symbol": dict(sorted(warmup_counts.items())),
+        },
         "acquisition_prefilter_uses_full_day_high": True,
         "prefilter_is_not_available_to_strategy": True,
         "data_window": {"start": start.isoformat(), "end_exclusive": end.isoformat()},
         "notes": [
             "The full-day high is used only to choose the acquisition superset and is never exposed as a strategy feature.",
-            "All securities that can satisfy the market price/gain/RVOL screen are retained with exact RVOL; other acquisition-universe names remain in bars for causal cross-sectional gain ranking and receive fail-closed RVOL.",
+            "All securities that can satisfy the market price/gain/RVOL screen retain exact RVOL; other acquisition-universe names remain for causal gainer ranking and receive fail-closed RVOL.",
             "Unknown float remains null and therefore fails the float pillar closed.",
+            "Prior minute bars warm continuous EMA/MACD only; session VWAP and all setup geometry reset at the simulated session start.",
         ],
     }
     (root / "manifest.json").write_text(
@@ -308,8 +374,11 @@ def main() -> int:
     )
 
     loaded_bars, loaded_contexts, loaded_news, loaded_manifest = load_snapshot(root)
+    loaded_warmup = load_indicator_warmup(root)
     if set(loaded_bars) != universe_set or set(loaded_contexts) != universe_set:
         raise RuntimeError("snapshot loader changed the research universe")
+    if not set(loaded_warmup).issubset(market_symbols):
+        raise RuntimeError("indicator warmup contains a non-candidate symbol")
     curves = _load_rvol(root, universe_set)
     result = Backtester(profile, paper_safe_risk()).run_day(
         loaded_bars,
@@ -317,9 +386,10 @@ def main() -> int:
         loaded_news,
         starting_equity=args.starting_equity,
         relative_volume_by_symbol=curves,
+        indicator_warmup_by_symbol=loaded_warmup,
     )
 
-    trades = []
+    trades: list[dict] = []
     for trade in result.trades:
         row = asdict(trade)
         row["entry_time"] = trade.entry_time.isoformat()
@@ -333,6 +403,7 @@ def main() -> int:
         "trade_count": len(result.trades),
         "candidate_events": result.candidate_events,
         "plan_events": result.plan_events,
+        "setup_rejections": result.setup_rejections,
         "rejected_for_fill_slippage": result.rejected_for_fill_slippage,
         "pnl_dollars": result.pnl_dollars,
         "total_r": result.total_r,

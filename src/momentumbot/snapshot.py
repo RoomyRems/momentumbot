@@ -23,6 +23,14 @@ def _parse_optional_datetime(value: object) -> datetime | None:
     return pd.Timestamp(value).to_pydatetime()
 
 
+def _load_bar_file(path: Path, *, label: str) -> pd.DataFrame:
+    frame = pd.read_csv(path, parse_dates=["timestamp"]).set_index("timestamp")
+    if frame.index.tz is None:
+        raise SnapshotError(f"{label} timestamps must contain timezone offsets: {path.name}")
+    validate_bars(frame)
+    return frame
+
+
 def load_snapshot(
     path: str | Path,
 ) -> tuple[dict[str, pd.DataFrame], dict[str, SymbolContext], tuple[NewsEvent, ...], dict]:
@@ -39,7 +47,13 @@ def load_snapshot(
         raise SnapshotError("snapshot must explicitly declare universe_complete=true")
 
     context_frame = pd.read_csv(contexts_path)
-    required = {"symbol", "previous_close", "average_daily_volume_50", "float_shares", "float_asof"}
+    required = {
+        "symbol",
+        "previous_close",
+        "average_daily_volume_50",
+        "float_shares",
+        "float_asof",
+    }
     if not required.issubset(context_frame.columns):
         missing = sorted(required - set(context_frame.columns))
         raise SnapshotError(f"contexts.csv missing columns: {missing}")
@@ -62,11 +76,7 @@ def load_snapshot(
         bar_path = bars_dir / f"{symbol}.csv"
         if not bar_path.exists():
             raise SnapshotError(f"missing bars file for {symbol}: {bar_path}")
-        bars = pd.read_csv(bar_path, parse_dates=["timestamp"]).set_index("timestamp")
-        if bars.index.tz is None:
-            raise SnapshotError(f"bar timestamps must contain timezone offsets: {symbol}")
-        validate_bars(bars)
-        bars_by_symbol[symbol] = bars
+        bars_by_symbol[symbol] = _load_bar_file(bar_path, label="bar")
 
     news_events: list[NewsEvent] = []
     if news_path.exists():
@@ -88,6 +98,29 @@ def load_snapshot(
             )
 
     return bars_by_symbol, contexts, tuple(news_events), manifest
+
+
+def load_indicator_warmup(path: str | Path) -> dict[str, pd.DataFrame]:
+    """Load optional prior-session bars used only to warm continuous indicators.
+
+    The warmup directory is deliberately separate from `bars/` so prior prices
+    cannot accidentally enter current-session VWAP, scanner rank, pullback
+    geometry, or execution. Consumers must opt into this data explicitly.
+    """
+    root = Path(path)
+    warmup_dir = root / "warmup"
+    if not warmup_dir.exists():
+        return {}
+    if not warmup_dir.is_dir():
+        raise SnapshotError("warmup must be a directory")
+
+    output: dict[str, pd.DataFrame] = {}
+    for path_item in sorted(warmup_dir.glob("*.csv")):
+        symbol = path_item.stem
+        if symbol in output:
+            raise SnapshotError(f"duplicate warmup symbol: {symbol}")
+        output[symbol] = _load_bar_file(path_item, label="warmup")
+    return output
 
 
 def write_contexts(path: str | Path, contexts: list[SymbolContext]) -> None:

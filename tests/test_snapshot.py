@@ -7,7 +7,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from momentumbot.snapshot import SnapshotError, load_snapshot
+from momentumbot.snapshot import SnapshotError, load_indicator_warmup, load_snapshot
 
 
 class SnapshotTests(unittest.TestCase):
@@ -74,6 +74,27 @@ class SnapshotTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             with self.assertRaises(SnapshotError):
                 load_snapshot(tmp)
+
+    def test_indicator_warmup_is_optional_and_loaded_separately(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self._write_base(root)
+            self.assertEqual(load_indicator_warmup(root), {})
+            (root / "warmup").mkdir()
+            pd.DataFrame(
+                [{
+                    "timestamp": "2026-08-11T19:59:00Z",
+                    "open": 3.8,
+                    "high": 3.9,
+                    "low": 3.7,
+                    "close": 3.85,
+                    "volume": 90_000,
+                }]
+            ).to_csv(root / "warmup" / "TEST.csv", index=False)
+            warmup = load_indicator_warmup(root)
+            self.assertEqual(set(warmup), {"TEST"})
+            self.assertEqual(float(warmup["TEST"].iloc[0]["close"]), 3.85)
+            self.assertIsNotNone(warmup["TEST"].index.tz)
 
 
 if __name__ == "__main__":

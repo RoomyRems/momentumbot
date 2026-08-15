@@ -7,6 +7,9 @@ on:
       - phase-3-historical-snapshot
     paths:
       - scripts/build_complete_reference_snapshot.py
+      - src/momentumbot/snapshot.py
+      - src/momentumbot/setup.py
+      - src/momentumbot/backtest.py
       - src/momentumbot/providers/marketaux.py
       - .github/workflows/complete-reference-snapshot.yml
 
