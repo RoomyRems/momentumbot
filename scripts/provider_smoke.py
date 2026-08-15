@@ -24,6 +24,7 @@ def _secrets() -> list[str]:
             "ALPACA_PAPER_ENDPOINT",
             "FMP_API_KEY",
             "MARKETAUX_API_KEY",
+            "SEC_API_D2V_KEY",
         )
         if (value := os.getenv(name))
     ]
@@ -219,9 +220,6 @@ def probe_fmp() -> dict[str, Any]:
     current_query = urllib.parse.urlencode({"symbol": "AAPL", "apikey": key})
     current = request_json(f"{base}/stable/shares-float?{current_query}")
 
-    # FMP's public material is currently inconsistent about historical float.
-    # Probe the stable historical route without treating success as a promise of
-    # full point-in-time coverage; later validation must inspect dates/symbols.
     historical = request_json(f"{base}/stable/historical/shares-float?{current_query}")
     return {
         "available": True,
@@ -264,6 +262,71 @@ def probe_marketaux() -> dict[str, Any]:
     return {"available": True, "historical_news": summary}
 
 
+def probe_sec_api() -> dict[str, Any]:
+    """Spend exactly one SEC-API trial call to validate its historical float dataset."""
+    key = os.getenv("SEC_API_D2V_KEY")
+    if not key:
+        return {"available": False, "reason": "missing SEC-API key"}
+    query = urllib.parse.urlencode({"ticker": "AAPL"})
+    response = request_json(
+        f"https://api.sec-api.io/float?{query}",
+        headers={"Authorization": key},
+    )
+    summary: dict[str, Any] = {
+        "available": True,
+        "trial_calls_consumed_by_this_probe": 1,
+        "historical_outstanding_and_public_float": {
+            "ok": response["ok"],
+            "status": response["status"],
+        },
+    }
+    target = summary["historical_outstanding_and_public_float"]
+    if not response["ok"]:
+        target["error"] = response.get("error")
+        return summary
+
+    payload = response["payload"]
+    data = payload.get("data", []) if isinstance(payload, dict) else []
+    if not isinstance(data, list):
+        target["error"] = "unexpected data shape"
+        return summary
+
+    reported = sorted(
+        str(row.get("reportedAt"))
+        for row in data
+        if isinstance(row, dict) and row.get("reportedAt")
+    )
+    outstanding_points = 0
+    public_float_points = 0
+    source_filings: set[str] = set()
+    for row in data:
+        if not isinstance(row, dict):
+            continue
+        float_data = row.get("float") if isinstance(row.get("float"), dict) else {}
+        outstanding = float_data.get("outstandingShares", [])
+        public_float = float_data.get("publicFloat", [])
+        if isinstance(outstanding, list):
+            outstanding_points += len(outstanding)
+        if isinstance(public_float, list):
+            public_float_points += len(public_float)
+        if row.get("sourceFilingAccessionNo"):
+            source_filings.add(str(row["sourceFilingAccessionNo"]))
+
+    target["record_count"] = len(data)
+    target["reported_at_first"] = reported[0] if reported else None
+    target["reported_at_last"] = reported[-1] if reported else None
+    target["outstanding_share_points"] = outstanding_points
+    target["public_float_dollar_points"] = public_float_points
+    target["distinct_source_filings"] = len(source_filings)
+    target["public_float_unit"] = "USD, not shares"
+    target["notes"] = (
+        "SEC-API returns all issuer history in one lookup. Public-float disclosures are "
+        "dollar market value; MomentumBot must convert them to implied non-affiliate "
+        "shares using causal historical price data and preserve that value as an estimate."
+    )
+    return summary
+
+
 def run() -> dict[str, Any]:
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
@@ -271,6 +334,7 @@ def run() -> dict[str, Any]:
         "alpaca": probe_alpaca(),
         "fmp": probe_fmp(),
         "marketaux": probe_marketaux(),
+        "sec_api": probe_sec_api(),
     }
 
 
