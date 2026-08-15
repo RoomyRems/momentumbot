@@ -2,9 +2,15 @@
 
 The execution engine intentionally does not decide whether a setup is good.
 A plan may only be armed from a fully completed micro bar. Once armed, ordered
-price-eligible SIP prints determine whether the next forming bar actually makes
-a new high, the first observable fill price, and the ordering of later stop or
-target events.
+SIP prints determine whether the next forming bar actually makes a new high,
+the first observable fill proxy, and the ordering of later stop or target events.
+
+Chart construction and execution availability are deliberately separate. Odd
+lots do not set derived chart highs/lows under Alpaca minute-bar semantics, but
+an otherwise-clean odd-lot print is still evidence that shares traded at that
+price. The execution path may therefore observe such prints while the chart path
+remains strict. This is a price-availability proxy, not a guarantee that a
+simulated order of arbitrary size would receive that fill.
 
 This module is research-only. It never places brokerage orders.
 """
@@ -59,10 +65,12 @@ class MicroExecutionOutcome:
     status: MicroExecutionStatus
     trigger_time: pd.Timestamp | None = None
     trigger_print_price: float | None = None
+    trigger_via_odd_lot: bool | None = None
     fill_time: pd.Timestamp | None = None
     fill_price: float | None = None
     exit_time: pd.Timestamp | None = None
     exit_price: float | None = None
+    exit_via_odd_lot: bool | None = None
 
     @property
     def planned_trigger_price(self) -> float:
@@ -117,8 +125,11 @@ def _conditions(value: object) -> tuple[str, ...]:
     return (str(value),)
 
 
-def price_eligible_trades(trades: pd.DataFrame) -> pd.DataFrame:
-    """Return a stable ordered price path using Alpaca minute-bar eligibility."""
+def _ordered_trade_path(
+    trades: pd.DataFrame,
+    *,
+    allow_otherwise_clean_odd_lots: bool,
+) -> pd.DataFrame:
     required = {"price", "conditions", "tape"}
     missing = sorted(required - set(trades.columns))
     if missing:
@@ -130,21 +141,61 @@ def price_eligible_trades(trades: pd.DataFrame) -> pd.DataFrame:
     if trades.empty:
         result = trades.copy()
         result["_sequence"] = pd.Series(dtype="int64")
+        result["_execution_via_odd_lot"] = pd.Series(dtype="bool")
         return result
 
     ordered = trades.copy()
     ordered["_source_sequence"] = range(len(ordered))
     ordered = ordered.sort_index(kind="stable")
-    mask: list[bool] = []
+    include: list[bool] = []
+    via_odd_lot: list[bool] = []
     for _, row in ordered.iterrows():
-        eligibility = minute_trade_eligibility(
-            str(row.get("tape") or ""),
-            _conditions(row.get("conditions")),
-        )
-        mask.append(eligibility.updates_price)
-    eligible = ordered.loc[mask].copy()
+        tape = str(row.get("tape") or "")
+        conditions = _conditions(row.get("conditions"))
+        chart_eligibility = minute_trade_eligibility(tape, conditions)
+        allowed = chart_eligibility.updates_price
+        odd_lot_proxy = False
+
+        if not allowed and allow_otherwise_clean_odd_lots and "I" in conditions:
+            # Odd lots are excluded from Alpaca bar highs/lows. For execution
+            # research we can still observe their transaction price, but only
+            # when removing the I condition leaves an otherwise price-eligible
+            # trade. Average-price, out-of-sequence, unknown, and other
+            # disqualifying conditions therefore remain fail-closed.
+            without_odd_lot = tuple(code for code in conditions if code != "I")
+            remaining = minute_trade_eligibility(tape, without_odd_lot)
+            allowed = remaining.updates_price and not remaining.unknown_conditions
+            odd_lot_proxy = allowed
+
+        include.append(allowed)
+        via_odd_lot.append(odd_lot_proxy)
+
+    ordered["_include_in_path"] = include
+    ordered["_execution_via_odd_lot"] = via_odd_lot
+    eligible = ordered.loc[ordered["_include_in_path"]].copy()
+    eligible.drop(columns=["_include_in_path"], inplace=True)
     eligible["_sequence"] = range(len(eligible))
     return eligible
+
+
+def price_eligible_trades(trades: pd.DataFrame) -> pd.DataFrame:
+    """Strict chart-price path using Alpaca minute-bar price eligibility."""
+    return _ordered_trade_path(trades, allow_otherwise_clean_odd_lots=False)
+
+
+def execution_eligible_trades(trades: pd.DataFrame) -> pd.DataFrame:
+    """Observed execution-price proxy from SIP trades.
+
+    Normal chart-price-eligible prints are retained. An odd-lot print is also
+    retained when the odd-lot condition is the only reason it cannot update a
+    chart price. This acknowledges that an actual transaction occurred without
+    allowing the odd lot to rewrite the derived chart.
+
+    The result is intentionally only a price-availability proxy. It does not
+    model displayed/hidden depth, queue position, order latency, or whether the
+    print size was sufficient to fill the strategy's desired quantity.
+    """
+    return _ordered_trade_path(trades, allow_otherwise_clean_odd_lots=True)
 
 
 def build_completed_bar_breakout_plan(
@@ -255,7 +306,11 @@ def _exit_limit(value: pd.Timestamp | None) -> pd.Timestamp | None:
     return timestamp
 
 
-def _simulate_on_price_path(
+def _odd_lot_flag(row: pd.Series) -> bool:
+    return bool(row.get("_execution_via_odd_lot", False))
+
+
+def _simulate_on_execution_path(
     plan: MicroEntryPlan,
     path: pd.DataFrame,
     *,
@@ -279,7 +334,7 @@ def _simulate_on_price_path(
     trigger_sequence = int(trigger_row["_sequence"])
     trigger_time = pd.Timestamp(crossing.index[0])
     trigger_price = float(trigger_row["price"])
-    fill_price = trigger_price
+    trigger_via_odd_lot = _odd_lot_flag(trigger_row)
 
     after_fill = path[path["_sequence"] > trigger_sequence]
     if exit_limit is not None:
@@ -290,8 +345,9 @@ def _simulate_on_price_path(
             status=MicroExecutionStatus.FILLED_OPEN,
             trigger_time=trigger_time,
             trigger_print_price=trigger_price,
+            trigger_via_odd_lot=trigger_via_odd_lot,
             fill_time=trigger_time,
-            fill_price=fill_price,
+            fill_price=trigger_price,
         )
 
     future_prices = pd.to_numeric(after_fill["price"], errors="coerce")
@@ -314,10 +370,12 @@ def _simulate_on_price_path(
             status=MicroExecutionStatus.STOPPED,
             trigger_time=trigger_time,
             trigger_print_price=trigger_price,
+            trigger_via_odd_lot=trigger_via_odd_lot,
             fill_time=trigger_time,
-            fill_price=fill_price,
+            fill_price=trigger_price,
             exit_time=stop_time,
             exit_price=float(first_stop["price"]),
+            exit_via_odd_lot=_odd_lot_flag(first_stop),
         )
     if first_target is not None:
         target_time = pd.Timestamp(target_hits.index[0])
@@ -326,10 +384,12 @@ def _simulate_on_price_path(
             status=MicroExecutionStatus.TARGET_HIT,
             trigger_time=trigger_time,
             trigger_print_price=trigger_price,
+            trigger_via_odd_lot=trigger_via_odd_lot,
             fill_time=trigger_time,
-            fill_price=fill_price,
+            fill_price=trigger_price,
             exit_time=target_time,
             exit_price=float(target_price),
+            exit_via_odd_lot=_odd_lot_flag(first_target),
         )
 
     return MicroExecutionOutcome(
@@ -337,8 +397,9 @@ def _simulate_on_price_path(
         status=MicroExecutionStatus.FILLED_OPEN,
         trigger_time=trigger_time,
         trigger_print_price=trigger_price,
+        trigger_via_odd_lot=trigger_via_odd_lot,
         fill_time=trigger_time,
-        fill_price=fill_price,
+        fill_price=trigger_price,
     )
 
 
@@ -351,18 +412,20 @@ def simulate_micro_entry(
 ) -> MicroExecutionOutcome:
     """Execute one causal long stop-entry plan against ordered SIP prints.
 
-    Entry uses the first price-eligible print at or above the minimum new-high
-    price during the plan's one-bar lifetime. Its observed print price is the
-    fill, so a gap from the planned trigger is recorded as adverse slippage.
+    Entry uses the first execution-eligible print at or above the minimum
+    new-high price during the plan's one-bar lifetime. Its observed print price
+    is the fill proxy, so a gap from the planned trigger is recorded as adverse
+    slippage.
 
-    After a fill, a stop is modeled as stop-market: the first eligible print at
-    or below the stop becomes the exit fill and may be worse than the stop.
-    An optional profit target is modeled as a limit: the first eligible print at
-    or above the target establishes event ordering, but the fill is capped at
-    the target rather than granting favorable print slippage.
+    After a fill, a stop is modeled as stop-market: the first later
+    execution-eligible print at or below the stop becomes the exit proxy and may
+    be worse than the stop. An optional profit target is modeled as a limit: the
+    first execution-eligible print at or above the target establishes event
+    ordering, but the fill is capped at the target rather than granting
+    favorable print slippage.
     """
-    path = price_eligible_trades(trades)
-    return _simulate_on_price_path(
+    path = execution_eligible_trades(trades)
+    return _simulate_on_execution_path(
         plan,
         path,
         target_price=target_price,
@@ -377,11 +440,11 @@ def simulate_micro_entries(
     target_price: float | None = None,
     exit_until: pd.Timestamp | None = None,
 ) -> tuple[MicroExecutionOutcome, ...]:
-    """Execute many plans while normalizing the SIP price path only once."""
-    path = price_eligible_trades(trades)
+    """Execute many plans while normalizing the execution SIP path only once."""
+    path = execution_eligible_trades(trades)
     exit_limit = _exit_limit(exit_until)
     return tuple(
-        _simulate_on_price_path(
+        _simulate_on_execution_path(
             plan,
             path,
             target_price=target_price,
