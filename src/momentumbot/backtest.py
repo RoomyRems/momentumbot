@@ -88,6 +88,20 @@ class Backtester:
         latest = max(available, key=lambda event: event.published_at)
         return NewsContext(True, latest.published_at, latest.headline_id)
 
+    @staticmethod
+    def _rvol_at(
+        symbol: str,
+        timestamp: pd.Timestamp,
+        curves: dict[str, pd.Series] | None,
+    ) -> float | None:
+        if curves is None:
+            return None
+        curve = curves[symbol]
+        if curve.index.tz is None:
+            raise ValueError("RVOL curve timestamps must be timezone-aware")
+        available = curve.loc[:timestamp].dropna()
+        return float(available.iloc[-1]) if not available.empty else float("nan")
+
     def run_day(
         self,
         bars_by_symbol: dict[str, pd.DataFrame],
@@ -95,9 +109,14 @@ class Backtester:
         news_events: Iterable[NewsEvent],
         *,
         starting_equity: float = 100_000.0,
+        relative_volume_by_symbol: dict[str, pd.Series] | None = None,
     ) -> BacktestResult:
         if set(bars_by_symbol) != set(contexts):
             raise ValueError("bars_by_symbol and contexts must contain identical symbols")
+        if relative_volume_by_symbol is not None and set(relative_volume_by_symbol) != set(
+            bars_by_symbol
+        ):
+            raise ValueError("RVOL curves and bars must contain identical symbols")
         if starting_equity <= 0:
             raise ValueError("starting_equity must be positive")
         for bars in bars_by_symbol.values():
@@ -269,6 +288,9 @@ class Backtester:
                     self._news_at(symbol, timestamp, news_events),
                     self.profile,
                     top_gainer_rank=rank_by_symbol[symbol],
+                    relative_volume_override=self._rvol_at(
+                        symbol, timestamp, relative_volume_by_symbol
+                    ),
                 )
                 if candidate.quality is not CandidateQuality.REJECT:
                     candidate_events += 1
