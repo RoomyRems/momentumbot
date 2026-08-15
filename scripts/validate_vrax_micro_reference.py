@@ -12,6 +12,8 @@ import pandas as pd
 from momentumbot.micro_bars import aggregate_trade_bars, minute_trade_eligibility
 from momentumbot.micro_execution import MicroTriggerMode, simulate_micro_entries
 from momentumbot.micro_setup import (
+    MicroPsychologicalLevel,
+    build_psychological_level_continuation_plan,
     detect_running_high_pullbacks,
     evaluate_micro_pullback_plan,
     geometry_only_micro_research_policy,
@@ -60,17 +62,69 @@ def _compare_minute_bars(reconstructed: pd.DataFrame, official: pd.DataFrame) ->
     return output
 
 
+def _outcome_row(metadata: dict[str, object], outcome) -> dict[str, object]:
+    row = dict(metadata)
+    row.update(
+        {
+            "execution_status": outcome.status.value,
+            "trigger_time": (
+                outcome.trigger_time.isoformat() if outcome.trigger_time is not None else None
+            ),
+            "trigger_print_price": outcome.trigger_print_price,
+            "fill_time": (
+                outcome.fill_time.isoformat() if outcome.fill_time is not None else None
+            ),
+            "fill_price": outcome.fill_price,
+            "entry_slippage": outcome.entry_slippage,
+        }
+    )
+    return row
+
+
+def _context_sensitivity(
+    metadata: list[dict[str, object]],
+    plans,
+    trades: pd.DataFrame,
+    *,
+    end: datetime,
+) -> dict[str, object]:
+    outcomes = simulate_micro_entries(
+        plans,
+        trades,
+        trigger_mode=MicroTriggerMode.CHART_PRICE,
+        entry_latency_ms=0.0,
+        exit_until=pd.Timestamp(end),
+    )
+    return {
+        "plan_count": len(plans),
+        "chart_confirmed_fill_count": sum(outcome.fill_price is not None for outcome in outcomes),
+        "plans": [
+            _outcome_row(row, outcome)
+            for row, outcome in zip(metadata, outcomes)
+        ],
+    }
+
+
 def _micro_geometry_diagnostics(
     bars_10s: pd.DataFrame,
     trades: pd.DataFrame,
     *,
     end: datetime,
 ) -> dict[str, object]:
-    """Run the geometry-only research setup without using recap labels."""
+    """Run geometry-only setup and level context without using recap labels."""
     policy = geometry_only_micro_research_policy()
     reasons: Counter[str] = Counter()
     plans = []
-    plan_features = []
+    plan_features: list[dict[str, object]] = []
+    context_plans = {
+        MicroPsychologicalLevel.HALF_DOLLAR: [],
+        MicroPsychologicalLevel.WHOLE_DOLLAR: [],
+    }
+    context_metadata: dict[MicroPsychologicalLevel, list[dict[str, object]]] = {
+        MicroPsychologicalLevel.HALF_DOLLAR: [],
+        MicroPsychologicalLevel.WHOLE_DOLLAR: [],
+    }
+
     for timestamp in bars_10s.loc[QUALIFIED_AT:].index:
         evaluation = evaluate_micro_pullback_plan(
             "VRAX",
@@ -81,27 +135,53 @@ def _micro_geometry_diagnostics(
         reasons[evaluation.reason] += 1
         if evaluation.plan is None or evaluation.features is None:
             continue
+
         plans.append(evaluation.plan)
         features = evaluation.features
-        plan_features.append(
-            {
-                "evaluated_at": features.evaluated_at.isoformat(),
-                "peak_time": features.peak_time.isoformat(),
-                "peak_high": features.peak_high,
-                "impulse_base": features.impulse_base,
-                "pullback_start": features.pullback_start.isoformat(),
-                "pullback_bars": features.pullback_bars,
-                "trough_time": features.trough_time.isoformat(),
-                "pullback_low": features.pullback_low,
-                "retrace_fraction": features.retrace_fraction,
-                "impulse_mean_volume": features.impulse_mean_volume,
-                "pullback_mean_volume": features.pullback_mean_volume,
-                "peak_upper_wick_fraction": features.peak_upper_wick_fraction,
-                "previous_candle_high": features.previous_candle_high,
-                "trigger_price": evaluation.plan.minimum_new_high_price,
-                "stop_price": evaluation.plan.stop_price,
-            }
-        )
+        base_row = {
+            "evaluated_at": features.evaluated_at.isoformat(),
+            "peak_time": features.peak_time.isoformat(),
+            "peak_high": features.peak_high,
+            "impulse_base": features.impulse_base,
+            "pullback_start": features.pullback_start.isoformat(),
+            "pullback_bars": features.pullback_bars,
+            "trough_time": features.trough_time.isoformat(),
+            "pullback_low": features.pullback_low,
+            "retrace_fraction": features.retrace_fraction,
+            "impulse_mean_volume": features.impulse_mean_volume,
+            "pullback_mean_volume": features.pullback_mean_volume,
+            "peak_upper_wick_fraction": features.peak_upper_wick_fraction,
+            "previous_candle_high": features.previous_candle_high,
+            "next_half_dollar_above_peak": features.next_half_dollar_above_peak,
+            "next_whole_dollar_above_peak": features.next_whole_dollar_above_peak,
+            "distance_to_next_half_dollar": features.distance_to_next_half_dollar,
+            "distance_to_next_whole_dollar": features.distance_to_next_whole_dollar,
+            "trigger_price": evaluation.plan.minimum_new_high_price,
+            "stop_price": evaluation.plan.stop_price,
+        }
+        plan_features.append(base_row)
+
+        for level in context_plans:
+            context_plan = build_psychological_level_continuation_plan(
+                evaluation,
+                level,
+                tick_size=policy.tick_size,
+            )
+            if context_plan is None:
+                continue
+            context_plans[level].append(context_plan)
+            context_metadata[level].append(
+                {
+                    "evaluated_at": features.evaluated_at.isoformat(),
+                    "peak_time": features.peak_time.isoformat(),
+                    "peak_high": features.peak_high,
+                    "pullback_low": features.pullback_low,
+                    "context_level": level.value,
+                    "context_trigger_price": context_plan.minimum_new_high_price,
+                    "canonical_trigger_price": evaluation.plan.minimum_new_high_price,
+                    "stop_price": context_plan.stop_price,
+                }
+            )
 
     outcomes = simulate_micro_entries(
         plans,
@@ -110,27 +190,17 @@ def _micro_geometry_diagnostics(
         entry_latency_ms=0.0,
         exit_until=pd.Timestamp(end),
     )
-    outcome_rows = []
-    for features, outcome in zip(plan_features, outcomes):
-        row = dict(features)
-        row.update(
-            {
-                "execution_status": outcome.status.value,
-                "trigger_time": (
-                    outcome.trigger_time.isoformat()
-                    if outcome.trigger_time is not None
-                    else None
-                ),
-                "trigger_print_price": outcome.trigger_print_price,
-                "fill_time": (
-                    outcome.fill_time.isoformat() if outcome.fill_time is not None else None
-                ),
-                "fill_price": outcome.fill_price,
-                "entry_slippage": outcome.entry_slippage,
-            }
-        )
-        outcome_rows.append(row)
+    outcome_rows = [
+        _outcome_row(features, outcome)
+        for features, outcome in zip(plan_features, outcomes)
+    ]
 
+    level_sensitivities = {
+        level.value: _context_sensitivity(
+            context_metadata[level], context_plans[level], trades, end=end
+        )
+        for level in context_plans
+    }
     return {
         "policy": policy.name,
         "policy_role": "geometry_only_research_diagnostic_not_canonical_strategy",
@@ -146,6 +216,12 @@ def _micro_geometry_diagnostics(
         "plan_count": len(plans),
         "chart_confirmed_fill_count": sum(outcome.fill_price is not None for outcome in outcomes),
         "plans": outcome_rows,
+        "psychological_level_context": {
+            "role": "research_sensitivity_only_not_a_chart_only_selection_rule",
+            "selection_policy": "none; half-dollar and whole-dollar alternatives are both reported",
+            "canonical_trigger_unchanged": True,
+            "sensitivities": level_sensitivities,
+        },
     }
 
 
@@ -231,6 +307,7 @@ def main() -> int:
             "micro_bars": "derived_from_historical_sip_trade_prints_using_alpaca_minute_trade_condition_rules",
             "official_bars": "alpaca_historical_sip_1min",
             "micro_geometry_policy": "research_only_and_independent_of_recap_labels",
+            "psychological_level_context": "rule-derived_context_candidates_not_ground_truth_selected",
         },
     }
     (args.output / "summary.json").write_text(
