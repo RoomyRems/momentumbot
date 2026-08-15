@@ -39,9 +39,35 @@ class MicroBarTests(unittest.TestCase):
         self.assertEqual(float(bars.iloc[0]["high"]), 6.0)
         self.assertEqual(int(bars.iloc[0]["volume"]), 105)
         self.assertEqual(float(bars.iloc[1]["close"]), 6.2)
+        self.assertEqual(bars.iloc[0]["high_time"], index[0])
+        self.assertEqual(bars.iloc[0]["low_time"], index[0])
+
+    def test_high_low_timestamps_preserve_intrabar_sequence(self):
+        index = pd.to_datetime(
+            [
+                "2026-04-22T12:00:51Z",
+                "2026-04-22T12:00:52Z",
+                "2026-04-22T12:00:55Z",
+            ],
+            utc=True,
+        )
+        trades = pd.DataFrame(
+            [
+                {"price":8.40,"size":100,"conditions":("@",),"tape":"C"},
+                {"price":8.64,"size":100,"conditions":("@",),"tape":"C"},
+                {"price":7.78,"size":100,"conditions":("@",),"tape":"C"},
+            ],
+            index=index,
+        )
+        bar = aggregate_trade_bars(trades, "10s").iloc[0]
+        self.assertEqual(bar["high_time"], index[1])
+        self.assertEqual(bar["low_time"], index[2])
+        self.assertLess(bar["high_time"], bar["low_time"])
 
     def test_unknown_condition_fails_closed_and_is_counted(self):
-        index = pd.to_datetime(["2026-07-09T11:32:01Z","2026-07-09T11:32:02Z"], utc=True)
+        index = pd.to_datetime(
+            ["2026-07-09T11:32:01Z","2026-07-09T11:32:02Z"], utc=True
+        )
         trades = pd.DataFrame(
             [
                 {"price":6.00,"size":100,"conditions":("@",),"tape":"C"},
