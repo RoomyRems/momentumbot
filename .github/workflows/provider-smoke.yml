@@ -1,0 +1,38 @@
+name: Provider coverage smoke
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - phase-2-provider-smoke
+    paths:
+      - scripts/provider_smoke.py
+      - .github/workflows/provider-smoke.yml
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+      ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+      ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT }}
+      FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+      MARKETAUX_API_KEY: ${{ secrets.MARKETAUX_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run sanitized provider smoke
+        run: python scripts/provider_smoke.py --output provider-smoke.json
+      - name: Upload sanitized report
+        uses: actions/upload-artifact@v4
+        with:
+          name: provider-smoke
+          path: provider-smoke.json
+          if-no-files-found: error
+          retention-days: 14
