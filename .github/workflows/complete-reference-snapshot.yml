@@ -7,6 +7,7 @@ on:
       - phase-3-historical-snapshot
     paths:
       - scripts/build_complete_reference_snapshot.py
+      - src/momentumbot/providers/marketaux.py
       - .github/workflows/complete-reference-snapshot.yml
 
 permissions:
@@ -20,6 +21,7 @@ jobs:
       ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
       ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
       ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT }}
+      MARKETAUX_API_KEY: ${{ secrets.MARKETAUX_API_KEY }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
