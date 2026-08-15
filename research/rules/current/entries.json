@@ -9,7 +9,15 @@
     "confidence": 0.99,
     "status": "active_current_era",
     "applies_from": "2026-08-05",
-    "evidence": [{"video_id":"xGIa8Vg0PWM","title":"Growing a $2k Account to $65,662.04 in 30 Days (My Day Trading Strategy)","published_at":"2026-08-05","mode":"normative_teaching","note":"The August course explicitly teaches <=50% retracement, lighter red volume, VWAP/9EMA support and topping-tail caution."}]
+    "evidence": [
+      {
+        "video_id": "xGIa8Vg0PWM",
+        "title": "Growing a $2k Account to $65,662.04 in 30 Days (My Day Trading Strategy)",
+        "published_at": "2026-08-05",
+        "mode": "normative_teaching",
+        "note": "The August course explicitly teaches <=50% retracement, lighter red volume, VWAP/9EMA support and topping-tail caution."
+      }
+    ]
   },
   {
     "rule_id": "MB-ENT-002",
@@ -21,7 +29,15 @@
     "confidence": 0.99,
     "status": "active_current_era",
     "applies_from": "2025-12-20",
-    "evidence": [{"video_id":"oKlhUSSHe2Q","title":"How To Start Day Trading in 2026 (full training)","published_at":"2025-12-20","mode":"normative_teaching","note":"The full training defines the first candle to make a new high as the entry."}]
+    "evidence": [
+      {
+        "video_id": "oKlhUSSHe2Q",
+        "title": "How To Start Day Trading in 2026 (full training)",
+        "published_at": "2025-12-20",
+        "mode": "normative_teaching",
+        "note": "The full training defines the first candle to make a new high as the entry."
+      }
+    ]
   },
   {
     "rule_id": "MB-ENT-003",
@@ -33,31 +49,68 @@
     "confidence": 0.99,
     "status": "active_current_era",
     "applies_from": "2025-12-20",
-    "evidence": [{"video_id":"oKlhUSSHe2Q","title":"How To Start Day Trading in 2026 (full training)","published_at":"2025-12-20","mode":"normative_teaching","note":"The full training places max loss at the pullback low."}]
+    "evidence": [
+      {
+        "video_id": "oKlhUSSHe2Q",
+        "title": "How To Start Day Trading in 2026 (full training)",
+        "published_at": "2025-12-20",
+        "mode": "normative_teaching",
+        "note": "The full training places max loss at the pullback low."
+      }
+    ]
   },
   {
     "rule_id": "MB-ENT-004",
     "title": "Two-R opportunity to prior high",
     "category": "entry",
-    "statement": "Before entry, the distance to the prior/high-of-day target should plausibly provide about 2R relative to the pullback-low risk.",
+    "statement": "For the canonical slower pullback entry, the distance to the prior/high-of-day target should plausibly provide about 2R relative to pullback-low risk.",
+    "observation_type": "rule",
+    "decision_role": "deterministic",
+    "confidence": 0.98,
+    "status": "active_current_era",
+    "applies_from": "2025-12-20",
+    "implementation_notes": [
+      "Do not automatically apply this exact prior-high target test to an advanced continuation entry that is intentionally taken at or above the former high; that is a separate setup family."
+    ],
+    "evidence": [
+      {
+        "video_id": "oKlhUSSHe2Q",
+        "title": "How To Start Day Trading in 2026 (full training)",
+        "published_at": "2025-12-20",
+        "mode": "normative_teaching",
+        "note": "The full training uses a retest of high-of-day and requires roughly twice the planned risk."
+      }
+    ]
+  },
+  {
+    "rule_id": "MB-ENT-005",
+    "title": "Micro pullback is a compressed fast-timeframe pullback",
+    "category": "entry",
+    "statement": "A micro pullback is the compressed version of the pullback setup used when a fast stock does not provide a proper slower pullback. It may be a single pullback candle in the simple beginner formulation or several candles on a faster chart such as 10 seconds.",
     "observation_type": "rule",
     "decision_role": "deterministic",
     "confidence": 0.99,
     "status": "active_current_era",
-    "applies_from": "2025-12-20",
-    "evidence": [{"video_id":"oKlhUSSHe2Q","title":"How To Start Day Trading in 2026 (full training)","published_at":"2025-12-20","mode":"normative_teaching","note":"The full training uses a retest of high-of-day and requires roughly twice the planned risk."}]
-  },
-  {
-    "rule_id": "MB-ENT-005",
-    "title": "Micro pullback definition",
-    "category": "entry",
-    "statement": "A micro pullback is the fast one-candle version of the pullback setup; the same first-new-high logic applies.",
-    "observation_type": "rule",
-    "decision_role": "deterministic",
-    "confidence": 0.97,
-    "status": "active_current_era",
     "applies_from": "2026-01-03",
-    "evidence": [{"video_id":"oaHTe5lotSQ","title":"I Reset My Account to $2,000 (AGAIN) Robinhood Challenge Ep 1","published_at":"2026-01-03","mode":"normative_teaching","note":"The small-account lesson explicitly defines a micro pullback as only one pullback candle."}]
+    "contradictions_or_exceptions": [
+      "The January small-account lesson describes the simple micro pullback as one pullback candle, while the April dedicated class explicitly demonstrates multi-candle pullbacks on a 10-second chart. MomentumBot therefore treats 'micro' as timeframe-relative rather than hard-coding one candle."
+    ],
+    "evidence": [
+      {
+        "video_id": "oaHTe5lotSQ",
+        "title": "I Reset My Account to $2,000 (AGAIN) Robinhood Challenge Ep 1",
+        "published_at": "2026-01-03",
+        "mode": "normative_teaching",
+        "note": "The small-account lesson presents the simplest micro form as a one-candle pullback."
+      },
+      {
+        "video_id": "6P25hNn_H00",
+        "title": "The Micro Pullback Trading Strategy (Small Account Challenge)",
+        "published_at": "2026-04-22",
+        "mode": "normative_teaching",
+        "note": "The dedicated class explains that fast stocks may never form a proper one-minute pullback and demonstrates the setup on a 10-second chart with more than one pullback candle."
+      }
+    ]
   },
   {
     "rule_id": "MB-ENT-006",
@@ -69,7 +122,152 @@
     "confidence": 0.93,
     "status": "active_current_era",
     "applies_from": "2025-12-20",
-    "evidence": [{"video_id":"oKlhUSSHe2Q","title":"How To Start Day Trading in 2026 (full training)","published_at":"2025-12-20","mode":"normative_teaching","note":"Current training calls the first pullback a pocket of consistency and notes later pullbacks get choppier."}]
+    "evidence": [
+      {
+        "video_id": "oKlhUSSHe2Q",
+        "title": "How To Start Day Trading in 2026 (full training)",
+        "published_at": "2025-12-20",
+        "mode": "normative_teaching",
+        "note": "Current training calls the first pullback a pocket of consistency and notes later pullbacks get choppier."
+      }
+    ]
+  },
+  {
+    "rule_id": "MB-ENT-007",
+    "title": "Micro pullback retracement quality",
+    "category": "entry",
+    "statement": "The dedicated micro-pullback teaching carries over the requirement that the pullback should not retrace more than roughly 50% of the initial momentum move.",
+    "observation_type": "rule",
+    "decision_role": "deterministic",
+    "confidence": 0.99,
+    "status": "active_current_era",
+    "applies_from": "2026-04-22",
+    "implementation_notes": [
+      "The source defines the rule but not a unique machine swing-origin algorithm. The impulse origin must therefore be isolated as a research translation and validated against labeled examples rather than optimized silently."
+    ],
+    "evidence": [
+      {
+        "video_id": "6P25hNn_H00",
+        "title": "The Micro Pullback Trading Strategy (Small Account Challenge)",
+        "published_at": "2026-04-22",
+        "mode": "normative_teaching",
+        "note": "The dedicated class explicitly says the micro pullback, like a proper pullback, should hold the 50% retracement of the initial move."
+      }
+    ]
+  },
+  {
+    "rule_id": "MB-ENT-008",
+    "title": "Canonical micro confirmation trigger",
+    "category": "entry",
+    "statement": "The canonical micro-pullback confirmation is the first fast-timeframe candle to make a new high over the preceding candle; entry occurs while the candle is forming rather than after its close.",
+    "observation_type": "rule",
+    "decision_role": "deterministic",
+    "confidence": 0.99,
+    "status": "active_current_era",
+    "applies_from": "2025-11-10",
+    "evidence": [
+      {
+        "video_id": "HB1IbyuJ37s",
+        "title": "Level 2 for Day Trading (+$65k in 2hrs After Spotting Hidden Buyers)",
+        "published_at": "2025-11-10",
+        "mode": "normative_teaching",
+        "note": "The Level-2 lesson calls first-candle-new-high the usual rule-of-thumb micro entry."
+      },
+      {
+        "video_id": "6P25hNn_H00",
+        "title": "The Micro Pullback Trading Strategy (Small Account Challenge)",
+        "published_at": "2026-04-22",
+        "mode": "normative_teaching",
+        "note": "The dedicated class repeatedly demonstrates entry on the first candle to make a new high, including on the 10-second chart."
+      }
+    ]
+  },
+  {
+    "rule_id": "MB-ENT-009",
+    "title": "Hidden-buyer anticipation is an exception",
+    "category": "entry",
+    "statement": "An experienced discretionary exception may anticipate the first-new-high trigger when Level 2 and tape show a very clear hidden/stacked buyer supporting the pullback; this is not part of the deterministic chart-only baseline.",
+    "observation_type": "exception",
+    "decision_role": "mixed",
+    "confidence": 0.98,
+    "status": "shadow_context_only",
+    "applies_from": "2025-11-10",
+    "implementation_notes": [
+      "Requires historical quote/order-book/tape features or an AI context review. Do not proxy this by lowering the deterministic trigger price."
+    ],
+    "evidence": [
+      {
+        "video_id": "HB1IbyuJ37s",
+        "title": "Level 2 for Day Trading (+$65k in 2hrs After Spotting Hidden Buyers)",
+        "published_at": "2025-11-10",
+        "mode": "normative_teaching",
+        "note": "Ross says he normally buys when the first candle makes a new high unless a very clear hidden buyer at support gives him reason to anticipate."
+      },
+      {
+        "video_id": "6P25hNn_H00",
+        "title": "The Micro Pullback Trading Strategy (Small Account Challenge)",
+        "published_at": "2026-04-22",
+        "mode": "observed_behavior",
+        "note": "The AGPU case study describes buyers stacked at the $8 bid plus green time-and-sales prints as the reason to punch the trade around whole-dollar support."
+      }
+    ]
+  },
+  {
+    "rule_id": "MB-ENT-010",
+    "title": "Half-dollar and whole-dollar context",
+    "category": "entry",
+    "statement": "Half-dollar and whole-dollar prices are recurring psychological support/resistance and continuation targets. They are context features, not by themselves sufficient entry signals.",
+    "observation_type": "preference",
+    "decision_role": "mixed",
+    "confidence": 0.98,
+    "status": "active_current_era",
+    "applies_from": "2026-04-22",
+    "implementation_notes": [
+      "The canonical micro baseline may expose distance to the next half/whole dollar as a feature; anticipatory entries at those levels remain context-dependent until supported by market-microstructure data."
+    ],
+    "evidence": [
+      {
+        "video_id": "6P25hNn_H00",
+        "title": "The Micro Pullback Trading Strategy (Small Account Challenge)",
+        "published_at": "2026-04-22",
+        "mode": "normative_teaching",
+        "note": "The dedicated class describes retest/continuation targets at the next half or whole dollar and notes buyers often support dips around those levels."
+      },
+      {
+        "video_id": "miyJZq-5uIg",
+        "title": "My Account Is Up Over 1,000% in 17 Days...",
+        "published_at": "2026-07-09",
+        "mode": "observed_behavior",
+        "note": "The VRAX recap describes taking a second micro-pullback continuation for a break of $6."
+      }
+    ]
+  },
+  {
+    "rule_id": "MB-ENT-011",
+    "title": "Use the faster chart when the slower pullback never forms",
+    "category": "entry",
+    "statement": "On extremely fast momentum, a 10-second chart can be used to observe micro pullbacks that are invisible or compressed inside a one-minute candle; the slower one-minute strategy should not be loosened simply to manufacture those trades.",
+    "observation_type": "rule",
+    "decision_role": "deterministic",
+    "confidence": 0.99,
+    "status": "active_current_era",
+    "applies_from": "2026-04-22",
+    "evidence": [
+      {
+        "video_id": "6P25hNn_H00",
+        "title": "The Micro Pullback Trading Strategy (Small Account Challenge)",
+        "published_at": "2026-04-22",
+        "mode": "normative_teaching",
+        "note": "The dedicated class explicitly says waiting for a proper one-minute setup can leave the trader on the sidelines and demonstrates micro pullbacks on a 10-second chart."
+      },
+      {
+        "video_id": "miyJZq-5uIg",
+        "title": "My Account Is Up Over 1,000% in 17 Days...",
+        "published_at": "2026-07-09",
+        "mode": "observed_behavior",
+        "note": "The VRAX recap identifies the actual trade as a second micro pullback; reconstructed SIP data shows that sequence is compressed inside one consolidated one-minute bar."
+      }
+    ]
   },
   {
     "rule_id": "MB-POS-001",
@@ -81,7 +279,15 @@
     "confidence": 0.97,
     "status": "active_current_era",
     "applies_from": "2026-05-21",
-    "evidence": [{"video_id":"5AV2OLWD1gc","title":"Top 5 Reasons Why Traders Lose Money 💰Don’t Make These Mistakes!!!","published_at":"2026-05-21","mode":"normative_teaching","note":"Ross explicitly describes using a starter on the first trade to test the water and only gaining confidence after a successful first trade."}]
+    "evidence": [
+      {
+        "video_id": "5AV2OLWD1gc",
+        "title": "Top 5 Reasons Why Traders Lose Money 💰Don’t Make These Mistakes!!!",
+        "published_at": "2026-05-21",
+        "mode": "normative_teaching",
+        "note": "Ross explicitly describes using a starter on the first trade to test the water and only gaining confidence after a successful first trade."
+      }
+    ]
   },
   {
     "rule_id": "MB-POS-002",
@@ -93,7 +299,15 @@
     "confidence": 0.99,
     "status": "active_current_era",
     "applies_from": "2025-06-28",
-    "evidence": [{"video_id":"Wsq8zdtCcis","title":"How I Made $500,000 in 7 Days of Day Trading (Full Training)","published_at":"2025-06-28","mode":"normative_teaching","note":"The full training explicitly states do not average down and defines it as adding to losing trades."}]
+    "evidence": [
+      {
+        "video_id": "Wsq8zdtCcis",
+        "title": "How I Made $500,000 in 7 Days of Day Trading (Full Training)",
+        "published_at": "2025-06-28",
+        "mode": "normative_teaching",
+        "note": "The full training explicitly states do not average down and defines it as adding to losing trades."
+      }
+    ]
   },
   {
     "rule_id": "MB-EXE-001",
@@ -105,6 +319,14 @@
     "confidence": 0.98,
     "status": "active_current_era",
     "applies_from": "2026-07-09",
-    "evidence": [{"video_id":"miyJZq-5uIg","title":"My Account Is Up Over 1,000% in 17 Days...","published_at":"2026-07-09","mode":"observed_behavior","note":"A current recap explicitly explains that ~15-20 cents of entry slippage doubled planned risk and made the original reward/risk much worse."}]
+    "evidence": [
+      {
+        "video_id": "miyJZq-5uIg",
+        "title": "My Account Is Up Over 1,000% in 17 Days...",
+        "published_at": "2026-07-09",
+        "mode": "observed_behavior",
+        "note": "A current recap explains that roughly 15-20 cents of entry slippage materially increased planned risk and made the original reward/risk much worse."
+      }
+    ]
   }
 ]
