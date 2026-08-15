@@ -14,12 +14,20 @@ roughly <=50% retracement, lighter pullback volume, support above VWAP/9 EMA,
 and no major topping-tail rejection. The machine definitions of the impulse
 lookback and maximum micro-pullback duration are isolated as research
 translations rather than presented as source-authored constants.
+
+Half-dollar and whole-dollar prices are exposed as context only. They never
+replace the canonical first-new-high trigger inside the setup evaluator. A
+separate helper can create research continuation plans at those levels so
+benchmarks can measure whether psychological-level context adds information
+without silently turning an observed example into a universal rule.
 """
 
 from __future__ import annotations
 
+import math
 from dataclasses import dataclass
 from datetime import datetime
+from enum import Enum
 
 import pandas as pd
 
@@ -43,6 +51,11 @@ class MicroPullbackObservation:
     @property
     def peak_drawdown_fraction(self) -> float:
         return (self.peak_high - self.trough_low) / self.peak_high
+
+
+class MicroPsychologicalLevel(str, Enum):
+    HALF_DOLLAR = "half_dollar"
+    WHOLE_DOLLAR = "whole_dollar"
 
 
 @dataclass(frozen=True, slots=True)
@@ -87,6 +100,10 @@ class MicroPullbackFeatures:
     pullback_mean_volume: float
     peak_upper_wick_fraction: float
     previous_candle_high: float
+    next_half_dollar_above_peak: float
+    next_whole_dollar_above_peak: float
+    distance_to_next_half_dollar: float
+    distance_to_next_whole_dollar: float
     vwap_at_low: float | None
     ema9_at_low: float | None
 
@@ -213,6 +230,58 @@ def _latest_running_high_pullback_peak(
     return None
 
 
+def _next_half_dollar_above(price: float) -> float:
+    if price <= 0:
+        raise ValueError("price must be positive")
+    return round((math.floor(price * 2 + 1e-12) + 1) / 2, 10)
+
+
+def _next_whole_dollar_above(price: float) -> float:
+    if price <= 0:
+        raise ValueError("price must be positive")
+    return round(float(math.floor(price + 1e-12) + 1), 10)
+
+
+def build_psychological_level_continuation_plan(
+    evaluation: MicroSetupEvaluation,
+    level: MicroPsychologicalLevel,
+    *,
+    tick_size: float = 0.01,
+) -> MicroEntryPlan | None:
+    """Create a research-only continuation plan from a valid micro setup.
+
+    The base setup must already be valid. This helper does not claim that a
+    half-dollar or whole-dollar should be chosen; it merely makes either context
+    level executable for sensitivity analysis. The canonical plan stored on the
+    evaluation remains unchanged.
+    """
+    if tick_size <= 0:
+        raise ValueError("tick_size must be positive")
+    if evaluation.plan is None or evaluation.features is None:
+        return None
+
+    features = evaluation.features
+    if level is MicroPsychologicalLevel.HALF_DOLLAR:
+        trigger = features.next_half_dollar_above_peak
+    elif level is MicroPsychologicalLevel.WHOLE_DOLLAR:
+        trigger = features.next_whole_dollar_above_peak
+    else:
+        raise ValueError(f"unsupported psychological level: {level}")
+
+    if trigger <= evaluation.plan.minimum_new_high_price:
+        return None
+    breakout_level = round(trigger - tick_size, 10)
+    return MicroEntryPlan(
+        symbol=evaluation.plan.symbol,
+        source_bar_start=evaluation.plan.source_bar_start,
+        armed_at=evaluation.plan.armed_at,
+        expires_at=evaluation.plan.expires_at,
+        breakout_level=breakout_level,
+        minimum_new_high_price=trigger,
+        stop_price=evaluation.plan.stop_price,
+    )
+
+
 def _support_asof(series: pd.Series | None, timestamp: pd.Timestamp) -> float | None:
     """Read a support series whose index represents when each value became available."""
     if series is None:
@@ -313,6 +382,8 @@ def evaluate_micro_pullback_plan(
     if trigger <= stop:
         return MicroSetupEvaluation(None, "nonpositive_micro_risk")
 
+    next_half = _next_half_dollar_above(peak_high)
+    next_whole = _next_whole_dollar_above(peak_high)
     features = MicroPullbackFeatures(
         symbol=symbol,
         evaluated_at=window.index[-1].to_pydatetime(),
@@ -329,6 +400,10 @@ def evaluate_micro_pullback_plan(
         pullback_mean_volume=pullback_mean_volume,
         peak_upper_wick_fraction=peak_wick,
         previous_candle_high=previous_candle_high,
+        next_half_dollar_above_peak=next_half,
+        next_whole_dollar_above_peak=next_whole,
+        distance_to_next_half_dollar=next_half - peak_high,
+        distance_to_next_whole_dollar=next_whole - peak_high,
         vwap_at_low=vwap_at_low,
         ema9_at_low=ema9_at_low,
     )
