@@ -1,0 +1,24 @@
+{
+  "benchmark_id": "ross-dsy-2026-06-10-micro-01",
+  "trading_date": "2026-06-10",
+  "symbol": "DSY",
+  "knowledge_policy": "ground_truth_label_only_never_runtime_context",
+  "source": {
+    "video_id": "ltdLO7sAzow",
+    "title": "We Just Had A Stock Go Up 950% in 2hrs",
+    "published_date": "2026-06-10",
+    "evidence_type": "same_day_behavioral_recap"
+  },
+  "observed_human_behavior": {
+    "setup_type": "micro_pullback",
+    "chart_timeframe": "10_seconds",
+    "reported_entry_fills_approx": [3.07, 3.11],
+    "canonical_entry_language": "crossing candle / first candle to make a new high",
+    "hidden_buyer_justification_for_first_trade": false
+  },
+  "research_notes": [
+    "This file is retrospective ground truth and must never be supplied to a policy replaying June 10, 2026.",
+    "The recap says DSY became the attention successor as VSME rolled over, then identifies the first DSY trade as a 10-second micro pullback around $3.10.",
+    "Historical SIP reconstruction must determine the exact chart sequence independently of the narration."
+  ]
+}
