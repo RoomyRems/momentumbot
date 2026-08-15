@@ -7,8 +7,11 @@ on:
       - phase-3-historical-snapshot
     paths:
       - research/reference_days/2026-07-09/sec_float_compact.json
+      - research/reference_days/2026-07-09/sec_float_manual_overrides.json
       - scripts/build_sec_float_join.py
+      - scripts/finalize_sec_float_join.py
       - tests/test_sec_float_join.py
+      - tests/test_finalize_sec_float_join.py
       - .github/workflows/sec-float-join.yml
 
 permissions:
@@ -31,6 +34,8 @@ jobs:
         run: python -m pip install -e .
       - name: Build split-normalized SEC float join
         run: python scripts/build_sec_float_join.py --output sec-float-join-artifact
+      - name: Apply manual filing resolutions
+        run: python scripts/finalize_sec_float_join.py --join-dir sec-float-join-artifact
       - name: Upload SEC float join
         uses: actions/upload-artifact@v4
         with:
