@@ -43,23 +43,42 @@ def session_vwap(bars: pd.DataFrame) -> pd.Series:
     return result
 
 
+def _ema_bars(
+    session_bars: pd.DataFrame,
+    ema_warmup: pd.DataFrame | None,
+) -> pd.DataFrame:
+    """Combine strictly prior history with the session for continuous EMA only."""
+    if ema_warmup is None or ema_warmup.empty:
+        return session_bars
+    validate_bars(ema_warmup)
+    if ema_warmup.index.tz is None:
+        raise ValueError("EMA warmup timestamps must be timezone-aware")
+    if session_bars.empty:
+        return ema_warmup
+    prior = ema_warmup.loc[ema_warmup.index < session_bars.index[0]]
+    combined = pd.concat([prior, session_bars]).sort_index()
+    return combined.loc[~combined.index.duplicated(keep="last")]
+
+
 def completed_bar_support_series(
     bars: pd.DataFrame,
     *,
     ema_span: int = 9,
     bar_duration: str | pd.Timedelta = "1min",
+    ema_warmup: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
-    """Return VWAP/EMA values indexed by when the completed bar became knowable.
+    """Return completed-bar VWAP/EMA indexed by when each value became knowable.
 
-    Input bars are expected to be indexed by bar *start* time. Indicator values
-    are calculated causally from each row and its predecessors, then the output
-    timestamp is shifted by ``bar_duration``. A one-minute bar stamped 07:31:00
-    therefore first contributes support context at 07:32:00.
+    ``bars`` are the current-session bars used for session VWAP. ``ema_warmup``
+    may contain strictly prior bars used only to warm the continuous EMA. This
+    mirrors the one-minute strategy contract: VWAP resets with the trading
+    session, while EMA does not reset merely because the current data window
+    begins at 04:00 ET.
 
-    ``session_vwap`` starts at the first supplied row, so callers must pass the
-    intended session history rather than a benchmark-only slice when they need
-    true session VWAP. Historical rows after the decision time are safe to
-    include because their availability timestamps remain in the future.
+    Input bars are indexed by bar *start* time. Indicator values are calculated
+    causally and then shifted by ``bar_duration``. A one-minute bar stamped
+    07:31:00 therefore first contributes support context at 07:32:00. Warmup
+    rows never appear in the returned support frame and cannot alter VWAP.
     """
     validate_bars(bars)
     if bars.index.tz is None:
@@ -68,10 +87,12 @@ def completed_bar_support_series(
     if duration <= pd.Timedelta(0):
         raise ValueError("bar_duration must be positive")
 
+    indicator_bars = _ema_bars(bars, ema_warmup)
+    ema_values = ema(indicator_bars["close"], ema_span).reindex(bars.index)
     values = pd.DataFrame(
         {
             "vwap": session_vwap(bars),
-            "ema": ema(bars["close"], ema_span),
+            "ema": ema_values,
         },
         index=bars.index,
     )
