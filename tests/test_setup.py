@@ -5,7 +5,7 @@ import unittest
 import pandas as pd
 
 from momentumbot.models import MomentumPhase, current_general_2026
-from momentumbot.setup import build_first_pullback_plan
+from momentumbot.setup import build_first_pullback_plan, evaluate_first_pullback_plan
 from tests.helpers import frame, strong_pullback_bars
 
 
@@ -22,17 +22,30 @@ class SetupTests(unittest.TestCase):
         self.assertAlmostEqual(plan.stop_price, 6.02)
         self.assertGreaterEqual(plan.reward_r_to_prior_high, 2.0)
         self.assertEqual(plan.features.momentum_phase, MomentumPhase.FRONT_SIDE)
+        evaluation = evaluate_first_pullback_plan(
+            "TEST", self.bars, self.profile, pullback_number=1
+        )
+        self.assertEqual(evaluation.reason, "plan")
+        self.assertEqual(evaluation.plan, plan)
 
     def test_deep_retrace_rejected(self):
         bars = self.bars.copy()
         bars.iloc[-1, bars.columns.get_loc("low")] = 5.3
         bars.iloc[-1, bars.columns.get_loc("close")] = 5.4
         self.assertIsNone(build_first_pullback_plan("TEST", bars, self.profile))
+        self.assertEqual(
+            evaluate_first_pullback_plan("TEST", bars, self.profile).reason,
+            "retrace_above_half",
+        )
 
     def test_heavy_pullback_volume_rejected(self):
         bars = self.bars.copy()
         bars.iloc[-2:, bars.columns.get_loc("volume")] = 2_000_000
         self.assertIsNone(build_first_pullback_plan("TEST", bars, self.profile))
+        self.assertEqual(
+            evaluate_first_pullback_plan("TEST", bars, self.profile).reason,
+            "pullback_volume_not_lower",
+        )
 
     def test_break_below_vwap_or_ema_rejected(self):
         bars = self.bars.copy()
