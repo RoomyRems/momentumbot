@@ -1,0 +1,42 @@
+name: Historical reference day
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - src/momentumbot/providers/alpaca.py
+      - src/momentumbot/providers/marketaux.py
+      - src/momentumbot/historical_data.py
+      - scripts/build_reference_day.py
+      - .github/workflows/historical-reference.yml
+
+permissions:
+  contents: read
+
+jobs:
+  build-reference:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+      ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+      ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT }}
+      MARKETAUX_API_KEY: ${{ secrets.MARKETAUX_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Build July 9 reference + market discovery
+        run: python scripts/build_reference_day.py --date 2026-07-09 --symbol VRAX --output historical-artifact
+      - name: Upload historical artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: historical-reference-2026-07-09
+          path: historical-artifact
+          if-no-files-found: error
+          retention-days: 14
