@@ -1,6 +1,6 @@
 # Current-era strategy rulebook — bootstrap version
 
-This document is a human-readable view of `research/rules/current_rules.json`. The JSON file is the machine-validated source of truth. This is a bootstrap rulebook, not a claim that extraction from all 2,292 videos is complete.
+This is the current research map extracted from the corpus. `research/rules/current_rules.json` contains the **first machine-validated subset** that is safe to consume in code; the broader table below is the candidate registry still being evidence-reviewed before promotion. This is deliberately staged so an attractive idea does not become executable policy merely because it appeared in a transcript.
 
 ## Core hierarchy
 
@@ -18,7 +18,7 @@ market regime
     -> campaign journal and replay
 ```
 
-## Bootstrap rules
+## Candidate rule registry
 
 | Rule | Policy | Role |
 |---|---|---|
@@ -50,8 +50,12 @@ market regime
 | MB-RES-001 | Raw transcripts are offline research only | Research hard guard |
 | MB-RES-002 | Undated transcripts are quarantined from walk-forward work | Research hard guard |
 
+## Promotion policy
+
+A candidate rule is promoted into the machine registry only after its evidence has been checked for publication date, evidence mode (teaching/behavior/self-critique), contradictory examples and deterministic-versus-contextual responsibility. The first promoted subset establishes the schema and chronology controls; subsequent research commits will promote the remaining candidates in evidence-reviewed batches.
+
 ## Known conflicts to preserve, not hide
 
-The corpus contains genuine policy evolution and context-dependent differences. For example, historical float ceilings are often looser than the current under-10M preference, and max-daily-loss calibration is described differently across account sizes and time periods. These are not reasons to add arbitrary configuration. They are reasons to create named policy versions and compare them honestly.
+The corpus contains genuine policy evolution and context-dependent differences. Historical float ceilings are often looser than the current under-10M preference, and max-daily-loss calibration is described differently across account sizes and time periods. These are not reasons to add arbitrary configuration. They are reasons to create named policy versions and compare them honestly.
 
-Likewise, the beginner teaching is intentionally stricter than experienced discretionary behavior. The baseline should implement the stricter, auditable version first. Exceptions only earn implementation after they improve out-of-sample results without increasing tail risk beyond the risk governor's constraints.
+Likewise, beginner teaching is intentionally stricter than experienced discretionary behavior. The baseline should implement the stricter, auditable version first. Exceptions only earn implementation after they improve out-of-sample results without increasing tail risk beyond the risk governor's constraints.
