@@ -1,0 +1,40 @@
+name: SEC float join
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - research/reference_days/2026-07-09/sec_float_compact.json
+      - scripts/build_sec_float_join.py
+      - tests/test_sec_float_join.py
+      - .github/workflows/sec-float-join.yml
+
+permissions:
+  contents: read
+
+jobs:
+  join:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+      ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+      ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Build split-normalized SEC float join
+        run: python scripts/build_sec_float_join.py --output sec-float-join-artifact
+      - name: Upload SEC float join
+        uses: actions/upload-artifact@v4
+        with:
+          name: sec-float-join-2026-07-09
+          path: sec-float-join-artifact
+          if-no-files-found: error
+          retention-days: 14
