@@ -76,8 +76,40 @@ def _normalize_shares(shares: int, basis: BasisObservation) -> int | None:
     return max(1, int(round(shares * basis.share_factor_to_target_basis)))
 
 
+def _row(
+    candidate: dict,
+    *,
+    method: str,
+    estimated_float_shares: int | None,
+    current_norm: int | None,
+    float_pillar_pass: bool | None,
+    public: dict | None,
+    public_basis: BasisObservation | None,
+    anchor_norm: int | None,
+    notes: list[str],
+) -> FloatJoinRow:
+    current = candidate.get("current_outstanding")
+    return FloatJoinRow(
+        symbol=candidate["symbol"],
+        cik=candidate["cik"],
+        first_market_qualified_at=candidate["first_market_qualified_at"],
+        method=method,
+        estimated_float_shares=estimated_float_shares,
+        current_outstanding_target_basis=current_norm,
+        float_pillar_pass=float_pillar_pass,
+        public_float_usd=float(public["public_float_usd"]) if public else None,
+        public_float_measure_date=public["measure_date"] if public else None,
+        public_float_accession=public["accession"] if public else None,
+        public_float_price_used=public_basis.split_close if public_basis else None,
+        public_float_price_date=public_basis.observed_date if public_basis else None,
+        anchor_outstanding_target_basis=anchor_norm,
+        current_outstanding_accession=current["accession"] if current else None,
+        current_outstanding_measure_date=current["measure_date"] if current else None,
+        notes=tuple(notes),
+    )
+
+
 def _estimate_row(candidate: dict, observations: dict[str, BasisObservation]) -> FloatJoinRow:
-    symbol = candidate["symbol"]
     notes: list[str] = []
     public = candidate.get("public_float")
     anchor = candidate.get("anchor_outstanding")
@@ -93,64 +125,56 @@ def _estimate_row(candidate: dict, observations: dict[str, BasisObservation]) ->
 
     if not public:
         if current_norm is not None and current_norm < FLOAT_LIMIT:
-            return FloatJoinRow(
-                symbol=symbol,
-                cik=candidate["cik"],
-                first_market_qualified_at=candidate["first_market_qualified_at"],
+            return _row(
+                candidate,
                 method="sec_outstanding_shares_upper_bound",
                 estimated_float_shares=current_norm,
-                current_outstanding_target_basis=current_norm,
+                current_norm=current_norm,
                 float_pillar_pass=True,
-                public_float_usd=None,
-                public_float_measure_date=None,
-                public_float_accession=None,
-                public_float_price_used=None,
-                public_float_price_date=None,
-                anchor_outstanding_target_basis=None,
-                current_outstanding_accession=current["accession"] if current else None,
-                current_outstanding_measure_date=current["measure_date"] if current else None,
-                notes=tuple(notes + ["float is at most total common shares outstanding"]),
+                public=None,
+                public_basis=None,
+                anchor_norm=None,
+                notes=notes + ["float is at most total common shares outstanding"],
             )
         notes.append("no eligible SEC EntityPublicFloat disclosure before qualification")
-        return FloatJoinRow(
-            symbol=symbol,
-            cik=candidate["cik"],
-            first_market_qualified_at=candidate["first_market_qualified_at"],
+        return _row(
+            candidate,
             method="unknown_missing_public_float",
             estimated_float_shares=None,
-            current_outstanding_target_basis=current_norm,
+            current_norm=current_norm,
             float_pillar_pass=None,
-            public_float_usd=None,
-            public_float_measure_date=None,
-            public_float_accession=None,
-            public_float_price_used=None,
-            public_float_price_date=None,
-            anchor_outstanding_target_basis=None,
-            current_outstanding_accession=current["accession"] if current else None,
-            current_outstanding_measure_date=current["measure_date"] if current else None,
-            notes=tuple(notes),
+            public=None,
+            public_basis=None,
+            anchor_norm=None,
+            notes=notes,
         )
 
     public_basis = observations.get(f"public:{public['measure_date']}")
     if not public_basis or not public_basis.split_close or public_basis.split_close <= 0:
         notes.append("historical split-adjusted price unavailable for public-float measure date")
-        return FloatJoinRow(
-            symbol=symbol,
-            cik=candidate["cik"],
-            first_market_qualified_at=candidate["first_market_qualified_at"],
+        if current_norm is not None and current_norm < FLOAT_LIMIT:
+            notes.append("float still passes because total common shares outstanding are below the limit")
+            return _row(
+                candidate,
+                method="sec_outstanding_shares_upper_bound",
+                estimated_float_shares=current_norm,
+                current_norm=current_norm,
+                float_pillar_pass=True,
+                public=public,
+                public_basis=None,
+                anchor_norm=None,
+                notes=notes,
+            )
+        return _row(
+            candidate,
             method="unknown_missing_public_float_price",
             estimated_float_shares=None,
-            current_outstanding_target_basis=current_norm,
+            current_norm=current_norm,
             float_pillar_pass=None,
-            public_float_usd=float(public["public_float_usd"]),
-            public_float_measure_date=public["measure_date"],
-            public_float_accession=public["accession"],
-            public_float_price_used=None,
-            public_float_price_date=None,
-            anchor_outstanding_target_basis=None,
-            current_outstanding_accession=current["accession"] if current else None,
-            current_outstanding_measure_date=current["measure_date"] if current else None,
-            notes=tuple(notes),
+            public=public,
+            public_basis=None,
+            anchor_norm=None,
+            notes=notes,
         )
 
     anchor_float = max(1, int(round(float(public["public_float_usd"]) / public_basis.split_close)))
@@ -163,29 +187,49 @@ def _estimate_row(candidate: dict, observations: dict[str, BasisObservation]) ->
         if anchor_basis:
             anchor_norm = _normalize_shares(int(anchor["shares"]), anchor_basis)
         if anchor_norm is not None and current_norm is not None:
-            affiliate = max(anchor_norm - anchor_float, 0)
-            estimated = max(anchor_float, current_norm - affiliate)
-            method = "sec_public_float_anchor_plus_split_normalized_outstanding_rollforward"
+            if anchor_float > anchor_norm:
+                notes.append(
+                    "implied public float exceeds anchor outstanding shares; historical-price inversion is noisy"
+                )
+            else:
+                affiliate = anchor_norm - anchor_float
+                estimated = max(anchor_float, current_norm - affiliate)
+                method = "sec_public_float_anchor_plus_split_normalized_outstanding_rollforward"
         else:
             notes.append("outstanding-share roll-forward skipped because a share basis was unavailable")
 
-    return FloatJoinRow(
-        symbol=symbol,
-        cik=candidate["cik"],
-        first_market_qualified_at=candidate["first_market_qualified_at"],
+    # Total common shares are a hard ceiling on float. When the normalized total
+    # itself is below the strategy threshold, use that deterministic upper bound
+    # instead of allowing a noisy dollar-float/price inversion to reject the name.
+    if current_norm is not None and current_norm < FLOAT_LIMIT:
+        if estimated > current_norm:
+            notes.append(
+                "public-float estimate exceeds current outstanding; current total outstanding is used as the deterministic upper bound"
+            )
+        else:
+            notes.append("total common shares outstanding independently prove float below the limit")
+        return _row(
+            candidate,
+            method="sec_outstanding_shares_upper_bound",
+            estimated_float_shares=current_norm,
+            current_norm=current_norm,
+            float_pillar_pass=True,
+            public=public,
+            public_basis=public_basis,
+            anchor_norm=anchor_norm,
+            notes=notes,
+        )
+
+    return _row(
+        candidate,
         method=method,
         estimated_float_shares=estimated,
-        current_outstanding_target_basis=current_norm,
+        current_norm=current_norm,
         float_pillar_pass=estimated < FLOAT_LIMIT,
-        public_float_usd=float(public["public_float_usd"]),
-        public_float_measure_date=public["measure_date"],
-        public_float_accession=public["accession"],
-        public_float_price_used=public_basis.split_close,
-        public_float_price_date=public_basis.observed_date,
-        anchor_outstanding_target_basis=anchor_norm,
-        current_outstanding_accession=current["accession"] if current else None,
-        current_outstanding_measure_date=current["measure_date"] if current else None,
-        notes=tuple(notes),
+        public=public,
+        public_basis=public_basis,
+        anchor_norm=anchor_norm,
+        notes=notes,
     )
 
 
@@ -255,7 +299,8 @@ def main() -> int:
         "notes": [
             "Public float is converted from SEC dollars using Alpaca split-adjusted historical close as of the test date.",
             "Outstanding-share disclosures are normalized to the test-date share basis using raw/split price ratios before roll-forward.",
-            "A missing public-float disclosure can only pass via the conservative upper bound that float cannot exceed total common shares outstanding.",
+            "Normalized total common shares below the threshold are used as a deterministic upper bound on float.",
+            "Names without sufficient SEC evidence remain unknown and fail closed until manually resolved.",
         ],
     }
     (root / "summary.json").write_text(json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8")
