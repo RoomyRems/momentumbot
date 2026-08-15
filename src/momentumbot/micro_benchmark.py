@@ -12,7 +12,7 @@ variant, or modify any replay input. Benchmark labels are evaluation data only.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from numbers import Real
+from numbers import Integral, Real
 from typing import Mapping, Sequence
 
 RUNTIME_KNOWLEDGE_POLICY = "runtime_market_data_only_no_retrospective_labels"
@@ -187,9 +187,12 @@ def compare_micro_runtime_to_label(
 
     observed = _as_mapping(label.get("observed_human_behavior"), name="observed_human_behavior")
     steps = _runtime_steps(runtime)
+    raw_filled_numbers = runtime.get("filled_pullback_numbers", ())
+    if not isinstance(raw_filled_numbers, Sequence) or isinstance(raw_filled_numbers, (str, bytes)):
+        raise ValueError("runtime filled_pullback_numbers must be a sequence")
     filled_numbers = tuple(
         int(value)
-        for value in runtime.get("filled_pullback_numbers", ())
+        for value in raw_filled_numbers
         if isinstance(value, Integral) and not isinstance(value, bool)
     )
     first_filled_number = filled_numbers[0] if filled_numbers else None
