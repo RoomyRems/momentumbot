@@ -92,6 +92,34 @@ class MicroSetupTests(unittest.TestCase):
             result.features.impulse_mean_volume,
         )
 
+    def test_equal_high_retest_does_not_replace_strict_running_high_peak(self):
+        index = pd.date_range("2026-08-12T11:00:00Z", periods=6, freq="10s")
+        bars = pd.DataFrame(
+            [
+                (4.00, 4.20, 4.00, 4.15, 100),
+                (4.15, 4.50, 4.10, 4.45, 200),
+                (4.45, 4.80, 4.40, 4.75, 300),
+                (4.75, 4.70, 4.60, 4.65, 100),
+                (4.65, 4.80, 4.62, 4.70, 90),
+                (4.70, 4.72, 4.58, 4.60, 80),
+            ],
+            columns=["open", "high", "low", "close", "volume"],
+            index=index,
+        )
+        result = evaluate_micro_pullback_plan(
+            "ABC",
+            bars,
+            candidate_qualified_at=index[0],
+            policy=geometry_only_micro_research_policy(),
+        )
+        self.assertEqual(result.reason, "plan")
+        self.assertIsNotNone(result.features)
+        assert result.features is not None
+        self.assertEqual(result.features.peak_time, index[2].to_pydatetime())
+        self.assertEqual(result.features.peak_high, 4.80)
+        self.assertEqual(result.features.pullback_bars, 3)
+        self.assertEqual(result.features.pullback_start, index[3].to_pydatetime())
+
     def test_canonical_policy_fails_closed_without_support_context(self):
         bars = self.strong_micro_pullback()
         result = evaluate_micro_pullback_plan(
