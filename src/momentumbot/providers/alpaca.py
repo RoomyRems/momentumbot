@@ -188,6 +188,54 @@ class AlpacaDataClient:
                     working = [symbol for symbol in working if symbol != invalid]
         return output
 
+    def news(
+        self,
+        symbols: Iterable[str],
+        *,
+        start: datetime,
+        end: datetime,
+        include_content: bool = False,
+    ) -> list[dict[str, Any]]:
+        names = list(dict.fromkeys(str(symbol).upper() for symbol in symbols if symbol))
+        if not names:
+            return []
+        if start.tzinfo is None or end.tzinfo is None:
+            raise ValueError("news bounds must be timezone-aware")
+        if start >= end:
+            raise ValueError("news start must precede news end")
+        output: list[dict[str, Any]] = []
+        page_token: str | None = None
+        seen_tokens: set[str] = set()
+        while True:
+            params: dict[str, object] = {
+                "symbols": ",".join(names),
+                "start": start.isoformat(),
+                "end": end.isoformat(),
+                "sort": "asc",
+                "limit": 50,
+                "include_content": str(include_content).lower(),
+            }
+            if page_token:
+                params["page_token"] = page_token
+            payload = get_json(
+                f"{DATA_BASE}/v1beta1/news?{urllib.parse.urlencode(params)}",
+                headers=self.headers,
+                timeout_seconds=self.timeout_seconds,
+            )
+            if not isinstance(payload, dict):
+                raise ValueError("Alpaca news response must be an object")
+            rows = payload.get("news", [])
+            if isinstance(rows, list):
+                output.extend(row for row in rows if isinstance(row, dict))
+            next_token = payload.get("next_page_token")
+            if not next_token:
+                break
+            page_token = str(next_token)
+            if page_token in seen_tokens:
+                raise RuntimeError("Alpaca news pagination token repeated")
+            seen_tokens.add(page_token)
+        return output
+
     def corporate_actions(
         self,
         *,
