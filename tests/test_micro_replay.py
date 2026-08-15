@@ -1,9 +1,11 @@
+import json
 import unittest
 
 import pandas as pd
 
 from momentumbot.micro_replay import (
     causal_active_pullback_number,
+    micro_replay_runtime_artifact,
     replay_micro_candidate,
 )
 from momentumbot.micro_setup import geometry_only_micro_research_policy
@@ -33,6 +35,29 @@ def _vrax_like_bars() -> pd.DataFrame:
     )
 
 
+def _filled_replay():
+    bars = _vrax_like_bars()
+    trades = _trade_frame(
+        [
+            {
+                "timestamp": "2026-07-09T11:32:31Z",
+                "price": 5.25,
+                "size": 100,
+                "conditions": ("@",),
+                "tape": "C",
+            }
+        ]
+    )
+    return replay_micro_candidate(
+        "ABC",
+        bars,
+        trades,
+        candidate_qualified_at=bars.index[0],
+        policy=geometry_only_micro_research_policy(),
+        exit_until=pd.Timestamp("2026-07-09T11:33:00Z"),
+    )
+
+
 class MicroReplayTests(unittest.TestCase):
     def test_active_pullback_number_advances_only_after_confirmed_resumption(self):
         bars = _vrax_like_bars()
@@ -56,26 +81,7 @@ class MicroReplayTests(unittest.TestCase):
         )
 
     def test_replay_attaches_only_second_pullback_fill_without_labels(self):
-        bars = _vrax_like_bars()
-        trades = _trade_frame(
-            [
-                {
-                    "timestamp": "2026-07-09T11:32:31Z",
-                    "price": 5.25,
-                    "size": 100,
-                    "conditions": ("@",),
-                    "tape": "C",
-                }
-            ]
-        )
-        replay = replay_micro_candidate(
-            "ABC",
-            bars,
-            trades,
-            candidate_qualified_at=bars.index[0],
-            policy=geometry_only_micro_research_policy(),
-            exit_until=pd.Timestamp("2026-07-09T11:33:00Z"),
-        )
+        replay = _filled_replay()
 
         self.assertGreaterEqual(replay.plan_count, 2)
         self.assertEqual(replay.filled_count, 1)
@@ -91,6 +97,21 @@ class MicroReplayTests(unittest.TestCase):
         ]
         self.assertTrue(first_pullback_plans)
         self.assertTrue(all(not step.filled for step in first_pullback_plans))
+
+    def test_runtime_artifact_is_json_safe_and_label_blind(self):
+        payload = micro_replay_runtime_artifact(_filled_replay())
+        encoded = json.dumps(payload, sort_keys=True, allow_nan=False)
+
+        self.assertEqual(payload["artifact_type"], "micro_candidate_runtime_replay")
+        self.assertEqual(
+            payload["knowledge_policy"],
+            "runtime_market_data_only_no_retrospective_labels",
+        )
+        self.assertEqual(payload["filled_pullback_numbers"], [2])
+        self.assertIn('"fill_price": 5.25', encoded)
+        self.assertNotIn("benchmark_id", encoded)
+        self.assertNotIn("reported_fill", encoded)
+        self.assertNotIn("observed_human_behavior", encoded)
 
     def test_replay_rejects_timezone_naive_candidate_anchor(self):
         bars = _vrax_like_bars()
