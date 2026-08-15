@@ -12,6 +12,7 @@ from momentumbot.micro_bars import aggregate_trade_bars, minute_trade_eligibilit
 from momentumbot.micro_execution import (
     MicroExecutionOutcome,
     completed_bar_breakout_plans,
+    execution_eligible_trades,
     simulate_micro_entries,
 )
 from momentumbot.providers.alpaca import AlpacaDataClient
@@ -29,7 +30,7 @@ def _utc(hour: int, minute: int) -> datetime:
     return datetime.combine(TRADING_DATE, time(hour, minute), ET).astimezone(timezone.utc)
 
 
-def _eligible_rows(trades: pd.DataFrame) -> pd.DataFrame:
+def _chart_price_eligible_rows(trades: pd.DataFrame) -> pd.DataFrame:
     mask: list[bool] = []
     for _, row in trades.iterrows():
         eligibility = minute_trade_eligibility(row.get("tape"), row.get("conditions") or ())
@@ -38,7 +39,13 @@ def _eligible_rows(trades: pd.DataFrame) -> pd.DataFrame:
 
 
 def _event(timestamp: pd.Timestamp, row: pd.Series) -> dict[str, object]:
-    return {"timestamp": timestamp.isoformat(), "price": float(row["price"]), "size": int(row["size"])}
+    return {
+        "timestamp": timestamp.isoformat(),
+        "price": float(row["price"]),
+        "size": int(row["size"]),
+        "conditions": str(row.get("conditions")),
+        "via_odd_lot_proxy": bool(row.get("_execution_via_odd_lot", False)),
+    }
 
 
 def _outcome_row(outcome: MicroExecutionOutcome) -> dict[str, object]:
@@ -53,11 +60,13 @@ def _outcome_row(outcome: MicroExecutionOutcome) -> dict[str, object]:
         "status": outcome.status.value,
         "trigger_time": outcome.trigger_time.isoformat() if outcome.trigger_time is not None else None,
         "trigger_print_price": outcome.trigger_print_price,
+        "trigger_via_odd_lot": outcome.trigger_via_odd_lot,
         "fill_time": outcome.fill_time.isoformat() if outcome.fill_time is not None else None,
         "fill_price": outcome.fill_price,
         "entry_slippage": outcome.entry_slippage,
         "exit_time": outcome.exit_time.isoformat() if outcome.exit_time is not None else None,
         "exit_price": outcome.exit_price,
+        "exit_via_odd_lot": outcome.exit_via_odd_lot,
         "realized_r": outcome.realized_r,
     }
 
@@ -68,8 +77,20 @@ def _distance_to_reported_fill(price: float) -> float:
     return min(abs(price - REPORTED_FILL_LOW), abs(price - REPORTED_FILL_HIGH))
 
 
+def _first_in_zone(frame: pd.DataFrame) -> dict[str, object] | None:
+    if frame.empty:
+        return None
+    prices = pd.to_numeric(frame["price"], errors="coerce")
+    in_zone = frame[(prices >= REPORTED_FILL_LOW) & (prices <= REPORTED_FILL_HIGH)]
+    if in_zone.empty:
+        return None
+    return _event(in_zone.index[0], in_zone.iloc[0])
+
+
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Reconstruct the June 10 DSY chart-confirmed micro reference from SIP prints.")
+    parser = argparse.ArgumentParser(
+        description="Reconstruct the June 10 DSY chart-confirmed micro reference from SIP prints."
+    )
     parser.add_argument("--output", type=Path, default=Path("dsy-micro-reference"))
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
@@ -104,23 +125,23 @@ def main() -> int:
     )
     if trades.empty:
         raise RuntimeError("Alpaca returned no DSY trades around the reference move")
-    eligible = _eligible_rows(trades)
-    in_fill_zone = eligible[
-        (pd.to_numeric(eligible["price"]) >= REPORTED_FILL_LOW)
-        & (pd.to_numeric(eligible["price"]) <= REPORTED_FILL_HIGH)
-    ]
 
+    chart_path = _chart_price_eligible_rows(trades)
+    execution_path = execution_eligible_trades(trades)
     bars_10s = aggregate_trade_bars(trades, "10s")
     bars_1s = aggregate_trade_bars(trades, "1s")
+
     trades.reset_index().to_csv(args.output / "trades.csv", index=False)
     bars_10s.reset_index().to_csv(args.output / "bars-10s.csv", index=False)
     bars_1s.reset_index().to_csv(args.output / "bars-1s.csv", index=False)
-    minute.loc[tape_start:tape_end].reset_index().to_csv(args.output / "official-1m.csv", index=False)
+    minute.loc[tape_start:tape_end].reset_index().to_csv(
+        args.output / "official-1m.csv", index=False
+    )
 
     # Runtime candidate generation is deliberately independent of the recap's
     # reported fill prices. Every completed 10-second bar that finishes below
     # its own high may arm a next-bar new-high plan. The reported fills are used
-    # only below, after simulation, to score imitation fidelity.
+    # only after simulation to score imitation fidelity.
     plans = completed_bar_breakout_plans(
         SYMBOL,
         bars_10s,
@@ -144,23 +165,33 @@ def main() -> int:
         <= REPORTED_FILL_HIGH + 0.35
     ]
 
-    first_fill_zone = None
-    if not in_fill_zone.empty:
-        first_fill_zone = _event(in_fill_zone.index[0], in_fill_zone.iloc[0])
-
     summary = {
         "symbol": SYMBOL,
         "trading_date": TRADING_DATE.isoformat(),
         "first_minute_high_at_or_above_3": first_reference_minute.isoformat(),
-        "first_price_eligible_print_in_reported_fill_zone": first_fill_zone,
         "reported_fill_zone": [REPORTED_FILL_LOW, REPORTED_FILL_HIGH],
+        "retrospective_ground_truth_diagnostics": {
+            "runtime_uses_reported_fill_zone": False,
+            "first_chart_price_eligible_print_in_reported_fill_zone": _first_in_zone(
+                chart_path
+            ),
+            "first_execution_proxy_print_in_reported_fill_zone": _first_in_zone(
+                execution_path
+            ),
+        },
         "causal_intrabar_execution": {
             "plan_generation": "completed_10s_bar_finishes_below_its_high_then_next_bar_must_make_new_high",
             "entry_window": "immediately_following_10s_bar_only",
-            "fill_model": "first_price_eligible_sip_print_at_or_above_prior_high_plus_tick",
-            "stop_model": "first_later_price_eligible_sip_print_at_or_below_completed_bar_low",
-            "runtime_uses_reported_fill_zone": False,
-            "sip_price_path_normalized_once_for_all_plans": True,
+            "fill_model": "first_execution_eligible_sip_print_at_or_above_prior_high_plus_tick",
+            "stop_model": "first_later_execution_eligible_sip_print_at_or_below_completed_bar_low",
+            "chart_price_path": "alpaca_minute_price_eligible_sip_prints_only",
+            "execution_price_proxy": "chart_price_eligible_plus_otherwise_clean_odd_lot_sip_prints",
+            "execution_proxy_limitations": [
+                "observed print price does not guarantee a fill for the strategy order",
+                "print size, displayed depth, hidden depth, queue priority, and order latency are not yet modeled",
+                "odd lots remain excluded from derived chart OHLC",
+            ],
+            "sip_execution_path_normalized_once_for_all_plans": True,
             "plan_count": len(plans),
             "filled_plan_count": len(filled_outcomes),
             "nearest_reported_fill_after_the_fact": (
@@ -173,16 +204,24 @@ def main() -> int:
             ],
         },
         "trade_count": len(trades),
+        "chart_price_eligible_trade_count": len(chart_path),
+        "execution_proxy_trade_count": len(execution_path),
+        "execution_proxy_odd_lot_trade_count": int(
+            execution_path["_execution_via_odd_lot"].fillna(False).astype(bool).sum()
+        ),
         "ten_second_bar_count": len(bars_10s),
         "one_second_bar_count": len(bars_1s),
         "tape_window": {"start": tape_start.isoformat(), "end": tape_end.isoformat()},
         "provenance": {
             "trades": "alpaca_historical_sip",
             "micro_bars": "derived_from_sip_trades_using_alpaca_minute_trade_condition_rules",
-            "execution": "ordered_price_eligible_sip_prints_after_completed_micro_bar",
+            "chart_execution_separation": "odd_lots_cannot_set_chart_price_but_otherwise_clean_odd_lots_can_inform_execution_price_proxy",
+            "execution": "ordered_execution_proxy_sip_prints_after_completed_micro_bar",
         },
     }
-    (args.output / "summary.json").write_text(json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    (args.output / "summary.json").write_text(
+        json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
     print(json.dumps(summary, indent=2, sort_keys=True))
     return 0
 
