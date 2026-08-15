@@ -7,6 +7,7 @@ from momentumbot.micro_execution import (
     MicroExecutionStatus,
     build_completed_bar_breakout_plan,
     price_eligible_trades,
+    simulate_micro_entries,
     simulate_micro_entry,
 )
 
@@ -211,6 +212,49 @@ class MicroExecutionTests(unittest.TestCase):
         targeted = simulate_micro_entry(plan, target_first, target_price=5.40)
         self.assertEqual(targeted.status, MicroExecutionStatus.TARGET_HIT)
         self.assertEqual(targeted.exit_price, 5.40)
+
+    def test_batch_execution_matches_single_plan_semantics(self):
+        plans = (
+            MicroEntryPlan(
+                symbol="ABC",
+                source_bar_start=pd.Timestamp("2026-01-02T12:00:00Z"),
+                armed_at=pd.Timestamp("2026-01-02T12:00:10Z"),
+                expires_at=pd.Timestamp("2026-01-02T12:00:20Z"),
+                breakout_level=5.00,
+                minimum_new_high_price=5.01,
+                stop_price=4.80,
+            ),
+            MicroEntryPlan(
+                symbol="ABC",
+                source_bar_start=pd.Timestamp("2026-01-02T12:00:10Z"),
+                armed_at=pd.Timestamp("2026-01-02T12:00:20Z"),
+                expires_at=pd.Timestamp("2026-01-02T12:00:30Z"),
+                breakout_level=5.30,
+                minimum_new_high_price=5.31,
+                stop_price=5.00,
+            ),
+        )
+        trades = trade_frame(
+            [
+                {
+                    "timestamp": "2026-01-02T12:00:12Z",
+                    "price": 5.02,
+                    "size": 100,
+                    "conditions": ("@",),
+                    "tape": "C",
+                },
+                {
+                    "timestamp": "2026-01-02T12:00:22Z",
+                    "price": 5.35,
+                    "size": 100,
+                    "conditions": ("@",),
+                    "tape": "C",
+                },
+            ]
+        )
+        batch = simulate_micro_entries(plans, trades)
+        singles = tuple(simulate_micro_entry(plan, trades) for plan in plans)
+        self.assertEqual(batch, singles)
 
 
 if __name__ == "__main__":
