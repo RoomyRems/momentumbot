@@ -2,13 +2,6 @@ name: SEC EDGAR smoke
 
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - phase-2-provider-smoke
-    paths:
-      - scripts/edgar_smoke.py
-      - src/momentumbot/providers/sec_edgar.py
-      - .github/workflows/edgar-smoke.yml
 
 permissions:
   contents: read
