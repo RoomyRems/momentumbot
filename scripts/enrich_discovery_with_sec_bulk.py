@@ -29,7 +29,7 @@ def main() -> int:
     args = parser.parse_args()
 
     discovery = pd.read_csv(args.discovery)
-    required = {"symbol", "first_nonfloat_qualified_at"}
+    required = {"symbol", "first_market_qualified_at"}
     missing = required.difference(discovery.columns)
     if missing:
         raise ValueError(f"discovery CSV missing columns: {sorted(missing)}")
@@ -38,7 +38,7 @@ def main() -> int:
         {
             str(symbol).upper()
             for symbol in discovery.loc[
-                discovery["first_nonfloat_qualified_at"].notna(), "symbol"
+                discovery["first_market_qualified_at"].notna(), "symbol"
             ]
         }
     )
