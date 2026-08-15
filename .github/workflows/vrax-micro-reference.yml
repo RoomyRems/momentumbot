@@ -8,6 +8,8 @@ on:
     paths:
       - src/momentumbot/providers/alpaca_trades.py
       - src/momentumbot/micro_bars.py
+      - src/momentumbot/micro_setup.py
+      - src/momentumbot/micro_execution.py
       - scripts/validate_vrax_micro_reference.py
       - research/benchmarks/2026-07-09-vrax.json
       - .github/workflows/vrax-micro-reference.yml
