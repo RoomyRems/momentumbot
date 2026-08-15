@@ -26,6 +26,7 @@ from momentumbot.providers.alpaca_trades import historical_trades
 ET = ZoneInfo("America/New_York")
 QUALIFIED_AT = pd.Timestamp("2026-07-09T11:31:00Z")
 EMA_WARMUP_CALENDAR_DAYS = 7
+ENTRY_LATENCY_SENSITIVITY_MS = (0.0, 100.0, 250.0, 500.0, 1000.0, 2500.0, 5000.0)
 
 
 def _utc(day: date, hour: int, minute: int, second: int = 0) -> datetime:
@@ -70,6 +71,7 @@ def _outcome_row(metadata: dict[str, object], outcome) -> dict[str, object]:
     row.update(
         {
             "execution_status": outcome.status.value,
+            "entry_latency_ms": outcome.entry_latency_ms,
             "trigger_time": (
                 outcome.trigger_time.isoformat() if outcome.trigger_time is not None else None
             ),
@@ -82,6 +84,12 @@ def _outcome_row(metadata: dict[str, object], outcome) -> dict[str, object]:
         }
     )
     return row
+
+
+def _active_pullback_number(bars_so_far: pd.DataFrame) -> int:
+    """Causal ordinal: already-confirmed pullbacks plus the current active one."""
+    confirmed = detect_running_high_pullbacks(bars_so_far, start_at=QUALIFIED_AT)
+    return len(confirmed) + 1
 
 
 def _context_sensitivity(
@@ -108,6 +116,36 @@ def _context_sensitivity(
     }
 
 
+def _latency_sensitivity(
+    metadata: list[dict[str, object]],
+    plans,
+    trades: pd.DataFrame,
+    *,
+    end: datetime,
+) -> dict[str, object]:
+    runs: dict[str, object] = {}
+    for latency_ms in ENTRY_LATENCY_SENSITIVITY_MS:
+        outcomes = simulate_micro_entries(
+            plans,
+            trades,
+            trigger_mode=MicroTriggerMode.CHART_PRICE,
+            entry_latency_ms=latency_ms,
+            exit_until=pd.Timestamp(end),
+        )
+        runs[str(int(latency_ms))] = {
+            "filled_count": sum(outcome.fill_price is not None for outcome in outcomes),
+            "plans": [
+                _outcome_row(row, outcome)
+                for row, outcome in zip(metadata, outcomes)
+            ],
+        }
+    return {
+        "role": "fixed_grid_total_post_trigger_reaction_and_order_latency_sensitivity_not_calibration",
+        "latencies_ms": list(ENTRY_LATENCY_SENSITIVITY_MS),
+        "runs": runs,
+    }
+
+
 def _micro_geometry_diagnostics(
     bars_10s: pd.DataFrame,
     trades: pd.DataFrame,
@@ -129,11 +167,14 @@ def _micro_geometry_diagnostics(
     }
 
     for timestamp in bars_10s.loc[QUALIFIED_AT:].index:
+        bars_so_far = bars_10s.loc[:timestamp]
+        pullback_number = _active_pullback_number(bars_so_far)
         evaluation = evaluate_micro_pullback_plan(
             "VRAX",
-            bars_10s.loc[:timestamp],
+            bars_so_far,
             candidate_qualified_at=QUALIFIED_AT,
             policy=policy,
+            pullback_number=pullback_number,
         )
         reasons[evaluation.reason] += 1
         if evaluation.plan is None or evaluation.features is None:
@@ -143,6 +184,7 @@ def _micro_geometry_diagnostics(
         features = evaluation.features
         base_row = {
             "evaluated_at": features.evaluated_at.isoformat(),
+            "pullback_number": features.pullback_number,
             "peak_time": features.peak_time.isoformat(),
             "peak_high": features.peak_high,
             "impulse_base": features.impulse_base,
@@ -176,6 +218,7 @@ def _micro_geometry_diagnostics(
             context_metadata[level].append(
                 {
                     "evaluated_at": features.evaluated_at.isoformat(),
+                    "pullback_number": features.pullback_number,
                     "peak_time": features.peak_time.isoformat(),
                     "peak_high": features.peak_high,
                     "pullback_low": features.pullback_low,
@@ -204,11 +247,13 @@ def _micro_geometry_diagnostics(
         )
         for level in context_plans
     }
+    whole_level = MicroPsychologicalLevel.WHOLE_DOLLAR
     return {
         "policy": policy.name,
         "policy_role": "geometry_only_research_diagnostic_not_canonical_strategy",
         "candidate_anchor": QUALIFIED_AT.isoformat(),
         "support_filters_enforced": False,
+        "pullback_ordinal": "confirmed_running_high_pullbacks_plus_current_active_pullback",
         "machine_translation": {
             "max_pullback_bars": policy.max_pullback_bars,
             "impulse_lookback_bars": policy.impulse_lookback_bars,
@@ -224,6 +269,12 @@ def _micro_geometry_diagnostics(
             "selection_policy": "none; half-dollar and whole-dollar alternatives are both reported",
             "canonical_trigger_unchanged": True,
             "sensitivities": level_sensitivities,
+            "whole_dollar_execution_latency_sensitivity": _latency_sensitivity(
+                context_metadata[whole_level],
+                context_plans[whole_level],
+                trades,
+                end=end,
+            ),
         },
     }
 
@@ -253,11 +304,14 @@ def _canonical_support_diagnostics(
     plans = []
     metadata: list[dict[str, object]] = []
     for timestamp in bars_10s.loc[QUALIFIED_AT:].index:
+        bars_so_far = bars_10s.loc[:timestamp]
+        pullback_number = _active_pullback_number(bars_so_far)
         evaluation = evaluate_micro_pullback_plan(
             "VRAX",
-            bars_10s.loc[:timestamp],
+            bars_so_far,
             candidate_qualified_at=QUALIFIED_AT,
             policy=policy,
+            pullback_number=pullback_number,
             vwap_available=support["vwap"],
             ema9_available=support["ema"],
         )
@@ -269,6 +323,7 @@ def _canonical_support_diagnostics(
         metadata.append(
             {
                 "evaluated_at": features.evaluated_at.isoformat(),
+                "pullback_number": features.pullback_number,
                 "peak_time": features.peak_time.isoformat(),
                 "peak_high": features.peak_high,
                 "pullback_start": features.pullback_start.isoformat(),
@@ -300,6 +355,7 @@ def _canonical_support_diagnostics(
         "support_availability": "one_minute_values_indexed_at_bar_end_not_bar_start",
         "vwap_history": "current_0400_ET_session_only",
         "ema_history": "continuous_prior_one_minute_warmup_plus_current_session",
+        "pullback_ordinal": "confirmed_running_high_pullbacks_plus_current_active_pullback",
         "support_session_bar_count": len(support_session_bars),
         "ema_warmup_bar_count": len(ema_warmup_bars),
         "first_session_bar": (
@@ -444,8 +500,9 @@ def main() -> int:
             "official_bars": "alpaca_historical_sip_1min",
             "micro_geometry_policy": "research_only_and_independent_of_recap_labels",
             "psychological_level_context": "rule-derived_context_candidates_not_ground_truth_selected",
-            "canonical_support": "session_vwap_from_current_0400_ET_session_plus_continuous_ema9_warmed_from_prior_sip_1min_history; both available only at bar completion",
+            "canonical_support": "session_vwap_from_current_0400_ET_session_plus_continuous_ema9_warmed_from_prior_sip_1min_history; both available only at bar_completion",
             "ema_warmup_acquisition_calendar_days": EMA_WARMUP_CALENDAR_DAYS,
+            "entry_latency_sensitivity_ms": list(ENTRY_LATENCY_SENSITIVITY_MS),
         },
     }
     (args.output / "summary.json").write_text(
