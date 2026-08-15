@@ -5,6 +5,7 @@ import pandas as pd
 from momentumbot.micro_execution import (
     MicroEntryPlan,
     MicroExecutionStatus,
+    MicroTriggerMode,
     build_completed_bar_breakout_plan,
     execution_eligible_trades,
     price_eligible_trades,
@@ -87,11 +88,22 @@ class MicroExecutionTests(unittest.TestCase):
         self.assertEqual(len(execution_path), 2)
         self.assertTrue(bool(execution_path.iloc[0]["_execution_via_odd_lot"]))
 
-        outcome = simulate_micro_entry(plan, trades)
-        self.assertEqual(outcome.status, MicroExecutionStatus.FILLED_OPEN)
-        self.assertEqual(outcome.fill_time, pd.Timestamp("2026-01-02T12:00:11Z"))
-        self.assertEqual(outcome.fill_price, 5.05)
-        self.assertTrue(outcome.trigger_via_odd_lot)
+        canonical = simulate_micro_entry(plan, trades)
+        self.assertEqual(canonical.trigger_mode, MicroTriggerMode.CHART_PRICE)
+        self.assertEqual(canonical.trigger_time, pd.Timestamp("2026-01-02T12:00:12Z"))
+        self.assertEqual(canonical.fill_price, 5.02)
+        self.assertFalse(canonical.trigger_via_odd_lot)
+        self.assertFalse(canonical.fill_via_odd_lot)
+
+        sensitivity = simulate_micro_entry(
+            plan,
+            trades,
+            trigger_mode=MicroTriggerMode.EXECUTION_PROXY,
+        )
+        self.assertEqual(sensitivity.trigger_time, pd.Timestamp("2026-01-02T12:00:11Z"))
+        self.assertEqual(sensitivity.fill_price, 5.05)
+        self.assertTrue(sensitivity.trigger_via_odd_lot)
+        self.assertTrue(sensitivity.fill_via_odd_lot)
 
     def test_odd_lot_does_not_override_another_disqualifying_condition(self):
         trades = trade_frame(
@@ -117,7 +129,7 @@ class MicroExecutionTests(unittest.TestCase):
         self.assertEqual(float(execution_path.iloc[0]["price"]), 5.10)
         self.assertFalse(bool(execution_path.iloc[0]["_execution_via_odd_lot"]))
 
-    def test_dsy_shaped_odd_lot_can_reduce_observed_fill_proxy(self):
+    def test_dsy_shaped_trigger_modes_bracket_observed_price_path(self):
         plan = MicroEntryPlan(
             symbol="DSY",
             source_bar_start=pd.Timestamp("2026-06-10T11:44:50Z"),
@@ -152,11 +164,64 @@ class MicroExecutionTests(unittest.TestCase):
                 },
             ]
         )
-        outcome = simulate_micro_entry(plan, trades)
-        self.assertEqual(outcome.fill_price, 3.12)
-        self.assertAlmostEqual(outcome.entry_slippage or 0.0, 0.01)
-        self.assertTrue(outcome.trigger_via_odd_lot)
-        self.assertEqual(float(price_eligible_trades(trades).iloc[-1]["price"]), 3.15)
+        canonical = simulate_micro_entry(plan, trades)
+        self.assertEqual(canonical.trigger_print_price, 3.15)
+        self.assertEqual(canonical.fill_price, 3.15)
+        self.assertFalse(canonical.trigger_via_odd_lot)
+        self.assertFalse(canonical.fill_via_odd_lot)
+
+        sensitivity = simulate_micro_entry(
+            plan,
+            trades,
+            trigger_mode=MicroTriggerMode.EXECUTION_PROXY,
+        )
+        self.assertEqual(sensitivity.trigger_print_price, 3.12)
+        self.assertEqual(sensitivity.fill_price, 3.12)
+        self.assertTrue(sensitivity.trigger_via_odd_lot)
+        self.assertTrue(sensitivity.fill_via_odd_lot)
+
+    def test_entry_latency_delays_fill_without_changing_trigger(self):
+        plan = MicroEntryPlan(
+            symbol="ABC",
+            source_bar_start=pd.Timestamp("2026-01-02T12:00:00Z"),
+            armed_at=pd.Timestamp("2026-01-02T12:00:10Z"),
+            expires_at=pd.Timestamp("2026-01-02T12:00:20Z"),
+            breakout_level=5.00,
+            minimum_new_high_price=5.01,
+            stop_price=4.80,
+        )
+        trades = trade_frame(
+            [
+                {
+                    "timestamp": "2026-01-02T12:00:11.000Z",
+                    "price": 5.02,
+                    "size": 100,
+                    "conditions": ("@",),
+                    "tape": "C",
+                },
+                {
+                    "timestamp": "2026-01-02T12:00:11.020Z",
+                    "price": 5.05,
+                    "size": 20,
+                    "conditions": ("@", "I"),
+                    "tape": "C",
+                },
+                {
+                    "timestamp": "2026-01-02T12:00:11.060Z",
+                    "price": 5.10,
+                    "size": 100,
+                    "conditions": ("@",),
+                    "tape": "C",
+                },
+            ]
+        )
+        zero = simulate_micro_entry(plan, trades, entry_latency_ms=0)
+        delayed = simulate_micro_entry(plan, trades, entry_latency_ms=50)
+        self.assertEqual(zero.trigger_time, delayed.trigger_time)
+        self.assertEqual(zero.fill_price, 5.02)
+        self.assertEqual(delayed.fill_time, pd.Timestamp("2026-01-02T12:00:11.060Z"))
+        self.assertEqual(delayed.fill_price, 5.10)
+        self.assertEqual(delayed.entry_latency_ms, 50)
 
     def test_gap_above_trigger_is_recorded_as_entry_slippage(self):
         plan = MicroEntryPlan(
