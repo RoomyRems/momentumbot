@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+import re
 import urllib.parse
 from datetime import date, datetime
 from typing import Any, Iterable
@@ -11,6 +12,7 @@ from .http_json import get_json
 
 DATA_BASE = "https://data.alpaca.markets"
 _ALLOWED_TRADING_HOSTS = {"paper-api.alpaca.markets", "api.alpaca.markets"}
+_SYMBOL_RE = re.compile(r"^[A-Z][A-Z0-9.-]{0,9}$")
 _BAR_COLUMNS = {
     "o": "open",
     "h": "high",
@@ -90,7 +92,12 @@ class AlpacaDataClient:
         )
         if not isinstance(payload, list):
             raise ValueError("Alpaca assets response must be a list")
-        return [row for row in payload if isinstance(row, dict)]
+        rows = [row for row in payload if isinstance(row, dict)]
+        return [
+            row
+            for row in rows
+            if _SYMBOL_RE.fullmatch(str(row.get("symbol", "")).strip().upper())
+        ]
 
     def bars(
         self,
