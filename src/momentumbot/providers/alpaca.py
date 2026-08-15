@@ -13,6 +13,7 @@ from .http_json import get_json
 DATA_BASE = "https://data.alpaca.markets"
 _ALLOWED_TRADING_HOSTS = {"paper-api.alpaca.markets", "api.alpaca.markets"}
 _SYMBOL_RE = re.compile(r"^[A-Z][A-Z0-9.-]{0,9}$")
+_INVALID_SYMBOL_RE = re.compile(r"invalid symbol:\s*([A-Z0-9.\-]+)", re.IGNORECASE)
 _BAR_COLUMNS = {
     "o": "open",
     "h": "high",
@@ -65,6 +66,7 @@ class AlpacaDataClient:
         self.api_secret = api_secret
         self.paper_endpoint = endpoint
         self.timeout_seconds = timeout_seconds
+        self.invalid_symbols: set[str] = set()
 
     @classmethod
     def from_env(cls) -> "AlpacaDataClient":
@@ -161,9 +163,29 @@ class AlpacaDataClient:
         batch_size: int = 250,
         **kwargs: Any,
     ) -> dict[str, pd.DataFrame]:
+        """Download batches while quarantining only provider-declared invalid symbols.
+
+        Alpaca's asset master can contain security identifiers that its historical
+        stock-bars endpoint rejects. A named `invalid symbol` response therefore
+        removes exactly that identifier and retries the remaining batch. Every
+        other provider error is re-raised rather than being silently swallowed.
+        """
         output: dict[str, pd.DataFrame] = {}
         for batch in chunked(symbols, batch_size):
-            output.update(self.bars(batch, **kwargs))
+            working = [symbol for symbol in batch if symbol not in self.invalid_symbols]
+            while working:
+                try:
+                    output.update(self.bars(working, **kwargs))
+                    break
+                except RuntimeError as exc:
+                    match = _INVALID_SYMBOL_RE.search(str(exc))
+                    if not match:
+                        raise
+                    invalid = match.group(1).upper()
+                    if invalid not in working:
+                        raise
+                    self.invalid_symbols.add(invalid)
+                    working = [symbol for symbol in working if symbol != invalid]
         return output
 
     def corporate_actions(
