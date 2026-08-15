@@ -11,6 +11,7 @@ import pandas as pd
 from momentumbot.micro_bars import aggregate_trade_bars, minute_trade_eligibility
 from momentumbot.micro_execution import (
     MicroExecutionOutcome,
+    MicroTriggerMode,
     completed_bar_breakout_plans,
     execution_eligible_trades,
     simulate_micro_entries,
@@ -58,11 +59,14 @@ def _outcome_row(outcome: MicroExecutionOutcome) -> dict[str, object]:
         "minimum_new_high_price": plan.minimum_new_high_price,
         "stop_price": plan.stop_price,
         "status": outcome.status.value,
+        "trigger_mode": outcome.trigger_mode.value,
+        "entry_latency_ms": outcome.entry_latency_ms,
         "trigger_time": outcome.trigger_time.isoformat() if outcome.trigger_time is not None else None,
         "trigger_print_price": outcome.trigger_print_price,
         "trigger_via_odd_lot": outcome.trigger_via_odd_lot,
         "fill_time": outcome.fill_time.isoformat() if outcome.fill_time is not None else None,
         "fill_price": outcome.fill_price,
+        "fill_via_odd_lot": outcome.fill_via_odd_lot,
         "entry_slippage": outcome.entry_slippage,
         "exit_time": outcome.exit_time.isoformat() if outcome.exit_time is not None else None,
         "exit_price": outcome.exit_price,
@@ -85,6 +89,34 @@ def _first_in_zone(frame: pd.DataFrame) -> dict[str, object] | None:
     if in_zone.empty:
         return None
     return _event(in_zone.index[0], in_zone.iloc[0])
+
+
+def _scenario_summary(
+    outcomes: tuple[MicroExecutionOutcome, ...],
+) -> dict[str, object]:
+    filled = [outcome for outcome in outcomes if outcome.fill_price is not None]
+    nearest = None
+    if filled:
+        nearest = min(
+            filled,
+            key=lambda outcome: _distance_to_reported_fill(float(outcome.fill_price)),
+        )
+    nearby = [
+        outcome
+        for outcome in filled
+        if REPORTED_FILL_LOW - 0.35
+        <= float(outcome.fill_price)
+        <= REPORTED_FILL_HIGH + 0.35
+    ]
+    return {
+        "filled_plan_count": len(filled),
+        "nearest_reported_fill_after_the_fact": (
+            _outcome_row(nearest) if nearest is not None else None
+        ),
+        "filled_events_near_reported_price_for_diagnostics": [
+            _outcome_row(outcome) for outcome in nearby
+        ],
+    }
 
 
 def main() -> int:
@@ -149,21 +181,20 @@ def main() -> int:
         tick_size=0.01,
         start_at=tape_start,
     )
-    outcomes = simulate_micro_entries(plans, trades, exit_until=tape_end)
-    filled_outcomes = [outcome for outcome in outcomes if outcome.fill_price is not None]
-    nearest_source_outcome = None
-    if filled_outcomes:
-        nearest_source_outcome = min(
-            filled_outcomes,
-            key=lambda outcome: _distance_to_reported_fill(float(outcome.fill_price)),
-        )
-    nearby_outcomes = [
-        outcome
-        for outcome in filled_outcomes
-        if REPORTED_FILL_LOW - 0.35
-        <= float(outcome.fill_price)
-        <= REPORTED_FILL_HIGH + 0.35
-    ]
+    canonical = simulate_micro_entries(
+        plans,
+        trades,
+        trigger_mode=MicroTriggerMode.CHART_PRICE,
+        entry_latency_ms=0.0,
+        exit_until=tape_end,
+    )
+    transaction_sensitivity = simulate_micro_entries(
+        plans,
+        trades,
+        trigger_mode=MicroTriggerMode.EXECUTION_PROXY,
+        entry_latency_ms=0.0,
+        exit_until=tape_end,
+    )
 
     summary = {
         "symbol": SYMBOL,
@@ -182,26 +213,21 @@ def main() -> int:
         "causal_intrabar_execution": {
             "plan_generation": "completed_10s_bar_finishes_below_its_high_then_next_bar_must_make_new_high",
             "entry_window": "immediately_following_10s_bar_only",
-            "fill_model": "first_execution_eligible_sip_print_at_or_above_prior_high_plus_tick",
-            "stop_model": "first_later_execution_eligible_sip_print_at_or_below_completed_bar_low",
+            "canonical_trigger": "strict_chart_price_path_at_or_above_prior_high_plus_tick",
+            "fill_model": "first_execution_proxy_print_at_or_after_trigger_plus_latency",
+            "stop_model": "first_later_execution_proxy_print_at_or_below_completed_bar_low",
             "chart_price_path": "alpaca_minute_price_eligible_sip_prints_only",
             "execution_price_proxy": "chart_price_eligible_plus_otherwise_clean_odd_lot_sip_prints",
             "execution_proxy_limitations": [
                 "observed print price does not guarantee a fill for the strategy order",
-                "print size, displayed depth, hidden depth, queue priority, and order latency are not yet modeled",
+                "print size, displayed depth, hidden depth, queue priority, and full order latency are not yet modeled",
                 "odd lots remain excluded from derived chart OHLC",
             ],
-            "sip_execution_path_normalized_once_for_all_plans": True,
             "plan_count": len(plans),
-            "filled_plan_count": len(filled_outcomes),
-            "nearest_reported_fill_after_the_fact": (
-                _outcome_row(nearest_source_outcome)
-                if nearest_source_outcome is not None
-                else None
+            "canonical_chart_trigger_zero_latency": _scenario_summary(canonical),
+            "transaction_trigger_zero_latency_sensitivity": _scenario_summary(
+                transaction_sensitivity
             ),
-            "filled_events_near_reported_price_for_diagnostics": [
-                _outcome_row(outcome) for outcome in nearby_outcomes
-            ],
         },
         "trade_count": len(trades),
         "chart_price_eligible_trade_count": len(chart_path),
@@ -216,7 +242,8 @@ def main() -> int:
             "trades": "alpaca_historical_sip",
             "micro_bars": "derived_from_sip_trades_using_alpaca_minute_trade_condition_rules",
             "chart_execution_separation": "odd_lots_cannot_set_chart_price_but_otherwise_clean_odd_lots_can_inform_execution_price_proxy",
-            "execution": "ordered_execution_proxy_sip_prints_after_completed_micro_bar",
+            "canonical_trigger": "chart_price_eligible_only",
+            "execution": "ordered_execution_proxy_sip_prints_after_trigger",
         },
     }
     (args.output / "summary.json").write_text(
