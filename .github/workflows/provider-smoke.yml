@@ -22,7 +22,10 @@ jobs:
       ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT }}
       FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
       MARKETAUX_API_KEY: ${{ secrets.MARKETAUX_API_KEY }}
-      SEC_API_D2V_KEY: ${{ secrets.SEC_API_D2V_KEY }}
+      # SEC-API's free allowance is finite (100 calls total). Never expose the
+      # key to automatic push runs; only a deliberate workflow_dispatch may
+      # consume another validation call.
+      SEC_API_D2V_KEY: ${{ github.event_name == 'workflow_dispatch' && secrets.SEC_API_D2V_KEY || '' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
