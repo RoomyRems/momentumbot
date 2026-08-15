@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from collections import defaultdict
+from collections import Counter, defaultdict
 from dataclasses import dataclass, replace
 from datetime import datetime
 from typing import Iterable
@@ -20,7 +20,7 @@ from .models import (
 )
 from .risk import SessionRiskState, size_entry
 from .scanner import evaluate_candidate, rank_candidates
-from .setup import build_first_pullback_plan
+from .setup import evaluate_first_pullback_plan
 
 
 @dataclass(frozen=True, slots=True)
@@ -48,6 +48,7 @@ class BacktestResult:
     trades: tuple[Trade, ...]
     candidate_events: int
     plan_events: int
+    setup_rejections: dict[str, int]
     rejected_for_fill_slippage: int
     session_locked: bool
     session_lock_reason: str | None
@@ -131,6 +132,7 @@ class Backtester:
         trades: list[Trade] = []
         pullback_plan_count: defaultdict[str, int] = defaultdict(int)
         entry_count: defaultdict[str, int] = defaultdict(int)
+        setup_rejections: Counter[str] = Counter()
         candidate_events = 0
         plan_events = 0
         rejected_for_fill_slippage = 0
@@ -300,17 +302,20 @@ class Backtester:
                 symbol = candidate.symbol
                 history = bars_by_symbol[symbol].loc[:timestamp]
                 next_pullback_number = pullback_plan_count[symbol] + 1
-                plan = build_first_pullback_plan(
+                evaluation = evaluate_first_pullback_plan(
                     symbol,
                     history,
                     self.profile,
                     pullback_number=next_pullback_number,
                 )
+                plan = evaluation.plan
                 if plan is None:
+                    setup_rejections[evaluation.reason] += 1
                     continue
                 # Later pullbacks remain observable, but the deterministic baseline
                 # deliberately only arms the first two documented preferred attempts.
                 if next_pullback_number > 2:
+                    setup_rejections["later_than_second_pullback"] += 1
                     continue
                 prior = pending.get(symbol)
                 if prior is None or prior.features.peak_high != plan.features.peak_high:
@@ -334,6 +339,7 @@ class Backtester:
             trades=tuple(trades),
             candidate_events=candidate_events,
             plan_events=plan_events,
+            setup_rejections=dict(sorted(setup_rejections.items())),
             rejected_for_fill_slippage=rejected_for_fill_slippage,
             session_locked=risk_state.locked,
             session_lock_reason=risk_state.lock_reason,
