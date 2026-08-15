@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 from collections import Counter
-from datetime import date, datetime, time, timezone
+from datetime import date, datetime, time, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -25,6 +25,7 @@ from momentumbot.providers.alpaca_trades import historical_trades
 
 ET = ZoneInfo("America/New_York")
 QUALIFIED_AT = pd.Timestamp("2026-07-09T11:31:00Z")
+EMA_WARMUP_CALENDAR_DAYS = 7
 
 
 def _utc(day: date, hour: int, minute: int, second: int = 0) -> datetime:
@@ -227,14 +228,26 @@ def _micro_geometry_diagnostics(
     }
 
 
+def _last_available_value(series: pd.Series, timestamp: pd.Timestamp) -> float | None:
+    available = pd.to_numeric(series.loc[:timestamp], errors="coerce").dropna()
+    return float(available.iloc[-1]) if not available.empty else None
+
+
+def _first_available_timestamp(series: pd.Series) -> str | None:
+    available = pd.to_numeric(series, errors="coerce").dropna()
+    return available.index[0].isoformat() if not available.empty else None
+
+
 def _canonical_support_diagnostics(
     bars_10s: pd.DataFrame,
     trades: pd.DataFrame,
     support: pd.DataFrame,
+    support_session_bars: pd.DataFrame,
+    ema_warmup_bars: pd.DataFrame,
     *,
     end: datetime,
 ) -> dict[str, object]:
-    """Run the canonical setup with only completed one-minute support values."""
+    """Run canonical setup with completed session VWAP and continuously warmed EMA9."""
     policy = canonical_micro_setup_policy()
     reasons: Counter[str] = Counter()
     plans = []
@@ -285,7 +298,23 @@ def _canonical_support_diagnostics(
         "candidate_anchor": QUALIFIED_AT.isoformat(),
         "support_filters_enforced": True,
         "support_availability": "one_minute_values_indexed_at_bar_end_not_bar_start",
-        "support_session_start": support.index[0].isoformat() if not support.empty else None,
+        "vwap_history": "current_0400_ET_session_only",
+        "ema_history": "continuous_prior_one_minute_warmup_plus_current_session",
+        "support_session_bar_count": len(support_session_bars),
+        "ema_warmup_bar_count": len(ema_warmup_bars),
+        "first_session_bar": (
+            support_session_bars.index[0].isoformat() if not support_session_bars.empty else None
+        ),
+        "last_ema_warmup_bar": (
+            ema_warmup_bars.index[-1].isoformat() if not ema_warmup_bars.empty else None
+        ),
+        "first_non_null_ema_available_at": _first_available_timestamp(support["ema"]),
+        "latest_ema_at_candidate_qualification": _last_available_value(
+            support["ema"], QUALIFIED_AT
+        ),
+        "latest_vwap_at_candidate_qualification": _last_available_value(
+            support["vwap"], QUALIFIED_AT
+        ),
         "evaluation_reason_counts": dict(sorted(reasons.items())),
         "plan_count": len(plans),
         "chart_confirmed_fill_count": sum(outcome.fill_price is not None for outcome in outcomes),
@@ -306,6 +335,7 @@ def main() -> int:
     trading_date = date(2026, 7, 9)
     start, end = _utc(trading_date, 7, 29, 30), _utc(trading_date, 7, 34, 30)
     support_start = _utc(trading_date, 4, 0)
+    ema_warmup_start = support_start - timedelta(days=EMA_WARMUP_CALENDAR_DAYS)
     client = AlpacaDataClient.from_env()
     trades = historical_trades(
         client, "VRAX", start=start, end=end, feed="sip", asof=trading_date
@@ -323,27 +353,34 @@ def main() -> int:
         adjustment="raw",
         asof=trading_date,
     )["VRAX"]
-    support_bars = client.bars(
+    indicator_history = client.bars(
         ["VRAX"],
         timeframe="1Min",
-        start=support_start,
+        start=ema_warmup_start,
         end=end,
         feed="sip",
         adjustment="raw",
         asof=trading_date,
     )["VRAX"]
+    if indicator_history.empty:
+        raise RuntimeError("Alpaca returned no VRAX one-minute indicator history")
+    session_cut = pd.Timestamp(support_start)
+    ema_warmup_bars = indicator_history.loc[indicator_history.index < session_cut]
+    support_bars = indicator_history.loc[indicator_history.index >= session_cut]
     if support_bars.empty:
-        raise RuntimeError("Alpaca returned no VRAX one-minute support history")
+        raise RuntimeError("Alpaca returned no VRAX current-session one-minute support history")
     support = completed_bar_support_series(
         support_bars,
         ema_span=9,
         bar_duration="1min",
+        ema_warmup=ema_warmup_bars,
     )
 
     _write_frame(trades, args.output / "trades.csv")
     _write_frame(bars_10s, args.output / "bars-10s.csv")
     _write_frame(reconstructed_1m, args.output / "reconstructed-1m.csv")
     _write_frame(official, args.output / "official-1m.csv")
+    _write_frame(ema_warmup_bars, args.output / "ema-warmup-1m.csv")
     _write_frame(support_bars, args.output / "support-history-1m.csv")
     _write_frame(support, args.output / "support-available.csv")
 
@@ -392,7 +429,12 @@ def main() -> int:
             bars_10s, trades, end=end
         ),
         "canonical_micro_support_diagnostics": _canonical_support_diagnostics(
-            bars_10s, trades, support, end=end
+            bars_10s,
+            trades,
+            support,
+            support_bars,
+            ema_warmup_bars,
+            end=end,
         ),
         "raw_min_price": float(trades["price"].min()),
         "raw_max_price": float(trades["price"].max()),
@@ -402,7 +444,8 @@ def main() -> int:
             "official_bars": "alpaca_historical_sip_1min",
             "micro_geometry_policy": "research_only_and_independent_of_recap_labels",
             "psychological_level_context": "rule-derived_context_candidates_not_ground_truth_selected",
-            "canonical_support": "session_vwap_and_ema9_from_alpaca_sip_1min_history_available_only_at_bar_completion",
+            "canonical_support": "session_vwap_from_current_0400_ET_session_plus_continuous_ema9_warmed_from_prior_sip_1min_history; both available only at bar completion",
+            "ema_warmup_acquisition_calendar_days": EMA_WARMUP_CALENDAR_DAYS,
         },
     }
     (args.output / "summary.json").write_text(
