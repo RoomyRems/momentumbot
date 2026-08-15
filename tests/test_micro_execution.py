@@ -6,6 +6,7 @@ from momentumbot.micro_execution import (
     MicroEntryPlan,
     MicroExecutionStatus,
     build_completed_bar_breakout_plan,
+    execution_eligible_trades,
     price_eligible_trades,
     simulate_micro_entries,
     simulate_micro_entry,
@@ -51,7 +52,7 @@ class MicroExecutionTests(unittest.TestCase):
         )
         self.assertIsNone(build_completed_bar_breakout_plan("DSY", start, bar))
 
-    def test_odd_lot_can_add_volume_but_cannot_trigger_price_entry(self):
+    def test_clean_odd_lot_is_execution_visible_but_not_chart_visible(self):
         plan = MicroEntryPlan(
             symbol="ABC",
             source_bar_start=pd.Timestamp("2026-01-02T12:00:00Z"),
@@ -79,12 +80,83 @@ class MicroExecutionTests(unittest.TestCase):
                 },
             ]
         )
-        eligible = price_eligible_trades(trades)
-        self.assertEqual(len(eligible), 1)
+        chart_path = price_eligible_trades(trades)
+        execution_path = execution_eligible_trades(trades)
+        self.assertEqual(len(chart_path), 1)
+        self.assertEqual(float(chart_path.iloc[0]["price"]), 5.02)
+        self.assertEqual(len(execution_path), 2)
+        self.assertTrue(bool(execution_path.iloc[0]["_execution_via_odd_lot"]))
+
         outcome = simulate_micro_entry(plan, trades)
         self.assertEqual(outcome.status, MicroExecutionStatus.FILLED_OPEN)
-        self.assertEqual(outcome.fill_time, pd.Timestamp("2026-01-02T12:00:12Z"))
-        self.assertEqual(outcome.fill_price, 5.02)
+        self.assertEqual(outcome.fill_time, pd.Timestamp("2026-01-02T12:00:11Z"))
+        self.assertEqual(outcome.fill_price, 5.05)
+        self.assertTrue(outcome.trigger_via_odd_lot)
+
+    def test_odd_lot_does_not_override_another_disqualifying_condition(self):
+        trades = trade_frame(
+            [
+                {
+                    "timestamp": "2026-01-02T12:00:11Z",
+                    "price": 5.20,
+                    "size": 7,
+                    "conditions": ("B", "I"),
+                    "tape": "A",
+                },
+                {
+                    "timestamp": "2026-01-02T12:00:12Z",
+                    "price": 5.10,
+                    "size": 100,
+                    "conditions": ("@",),
+                    "tape": "A",
+                },
+            ]
+        )
+        execution_path = execution_eligible_trades(trades)
+        self.assertEqual(len(execution_path), 1)
+        self.assertEqual(float(execution_path.iloc[0]["price"]), 5.10)
+        self.assertFalse(bool(execution_path.iloc[0]["_execution_via_odd_lot"]))
+
+    def test_dsy_shaped_odd_lot_can_reduce_observed_fill_proxy(self):
+        plan = MicroEntryPlan(
+            symbol="DSY",
+            source_bar_start=pd.Timestamp("2026-06-10T11:44:50Z"),
+            armed_at=pd.Timestamp("2026-06-10T11:45:00Z"),
+            expires_at=pd.Timestamp("2026-06-10T11:45:10Z"),
+            breakout_level=3.10,
+            minimum_new_high_price=3.11,
+            stop_price=2.82,
+        )
+        trades = trade_frame(
+            [
+                {
+                    "timestamp": "2026-06-10T11:45:04.159Z",
+                    "price": 3.10,
+                    "size": 100,
+                    "conditions": ("@", "T"),
+                    "tape": "C",
+                },
+                {
+                    "timestamp": "2026-06-10T11:45:04.165425Z",
+                    "price": 3.12,
+                    "size": 98,
+                    "conditions": ("@", "T", "I"),
+                    "tape": "C",
+                },
+                {
+                    "timestamp": "2026-06-10T11:45:04.211Z",
+                    "price": 3.15,
+                    "size": 163,
+                    "conditions": ("@", "T"),
+                    "tape": "C",
+                },
+            ]
+        )
+        outcome = simulate_micro_entry(plan, trades)
+        self.assertEqual(outcome.fill_price, 3.12)
+        self.assertAlmostEqual(outcome.entry_slippage or 0.0, 0.01)
+        self.assertTrue(outcome.trigger_via_odd_lot)
+        self.assertEqual(float(price_eligible_trades(trades).iloc[-1]["price"]), 3.15)
 
     def test_gap_above_trigger_is_recorded_as_entry_slippage(self):
         plan = MicroEntryPlan(
@@ -117,6 +189,7 @@ class MicroExecutionTests(unittest.TestCase):
         outcome = simulate_micro_entry(plan, trades)
         self.assertEqual(outcome.fill_price, 3.15)
         self.assertAlmostEqual(outcome.entry_slippage or 0.0, 0.04)
+        self.assertFalse(outcome.trigger_via_odd_lot)
 
     def test_plan_expires_before_late_breakout(self):
         plan = MicroEntryPlan(
