@@ -1,0 +1,31 @@
+{
+  "benchmark_id": "ross-vrax-2026-07-09-micro-01",
+  "trading_date": "2026-07-09",
+  "symbol": "VRAX",
+  "knowledge_policy": "ground_truth_label_only_never_runtime_context",
+  "source": {
+    "video_id": "miyJZq-5uIg",
+    "title": "My Account Is Up Over 1,000% in 17 Days...",
+    "published_date": "2026-07-09",
+    "evidence_type": "post_trade_behavioral_recap"
+  },
+  "observed_human_behavior": {
+    "stock_became_obvious_number_one_gainer": true,
+    "first_pullback_taken": false,
+    "setup_type": "micro_pullback",
+    "pullback_ordinal": 2,
+    "intended_break_level": 6.0,
+    "reported_fill_approx": 6.3,
+    "slippage_changed_risk_reward": true
+  },
+  "decision_window": {
+    "start": "2026-07-09T11:31:00Z",
+    "end": "2026-07-09T11:33:30Z",
+    "precision": "broad_until_trade_print_reconstruction"
+  },
+  "research_notes": [
+    "This file is a benchmark label extracted from a same-day recap. It must never be supplied to a historical trading policy evaluating July 9, 2026.",
+    "The consolidated one-minute 11:32 UTC bar spans roughly the entire reported micro-pullback sequence, so the reference behavior cannot be faithfully evaluated using minute bars alone.",
+    "Exact sub-minute timing must be refined from historical SIP trade prints before this benchmark is scored."
+  ]
+}
