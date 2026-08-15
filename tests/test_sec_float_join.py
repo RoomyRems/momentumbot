@@ -1,11 +1,14 @@
 import importlib.util
+import sys
 import unittest
 from pathlib import Path
 
+MODULE_NAME = "build_sec_float_join"
 spec = importlib.util.spec_from_file_location(
-    "build_sec_float_join", Path("scripts/build_sec_float_join.py")
+    MODULE_NAME, Path("scripts/build_sec_float_join.py")
 )
 module = importlib.util.module_from_spec(spec)
+sys.modules[MODULE_NAME] = module
 assert spec.loader is not None
 spec.loader.exec_module(module)
 
