@@ -1,4 +1,4 @@
-name: Micro YOLO boundary control
+name: Micro YOUL boundary control
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
     branches:
       - phase-3-historical-snapshot
     paths:
-      - .github/workflows/micro-yolo-boundary-control.yml
+      - .github/workflows/micro-youl-boundary-control.yml
       - scripts/summarize_micro_control_cells.py
 
 permissions:
@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   replay:
-    name: YOLO ${{ matrix.cell }} label-blind runtime
+    name: YOUL ${{ matrix.cell }} label-blind runtime
     runs-on: ubuntu-latest
     timeout-minutes: 25
     strategy:
@@ -53,27 +53,27 @@ jobs:
           python-version: "3.12"
       - name: Install package
         run: python -m pip install -e .
-      - name: Reconstruct label-blind YOLO control cell
+      - name: Reconstruct label-blind YOUL control cell
         run: >-
           python "${{ matrix.reconstruct_script }}"
-          --case-id yolo-2025-09-09
-          --symbol YOLO
+          --case-id youl-2025-09-09
+          --symbol YOUL
           --trading-date 2025-09-09
           ${{ matrix.reconstruct_extra }}
           --output "runtime-${{ matrix.cell }}"
       - name: Require label-blind runtime provenance
         run: >-
-          python -c "import json,pathlib; d=json.loads(pathlib.Path('runtime-${{ matrix.cell }}/runtime-replay.json').read_text()); assert d.get('knowledge_policy')=='runtime_market_data_only_no_retrospective_labels'; assert d.get('case_id')=='yolo-2025-09-09'; assert d.get('${{ matrix.identity_field }}')=='${{ matrix.expected_identity }}'"
-      - name: Upload frozen YOLO runtime
+          python -c "import json,pathlib; d=json.loads(pathlib.Path('runtime-${{ matrix.cell }}/runtime-replay.json').read_text()); assert d.get('knowledge_policy')=='runtime_market_data_only_no_retrospective_labels'; assert d.get('case_id')=='youl-2025-09-09'; assert d.get('${{ matrix.identity_field }}')=='${{ matrix.expected_identity }}'"
+      - name: Upload frozen YOUL runtime
         uses: actions/upload-artifact@v4
         with:
-          name: micro-yolo-boundary-runtime-${{ matrix.cell }}
+          name: micro-youl-boundary-runtime-${{ matrix.cell }}
           path: runtime-${{ matrix.cell }}
           if-no-files-found: error
           retention-days: 14
 
   score:
-    name: YOLO ${{ matrix.cell }} post-replay score
+    name: YOUL ${{ matrix.cell }} post-replay score
     needs: replay
     runs-on: ubuntu-latest
     strategy:
@@ -102,7 +102,7 @@ jobs:
       - name: Download frozen label-blind runtime
         uses: actions/download-artifact@v4
         with:
-          name: micro-yolo-boundary-runtime-${{ matrix.cell }}
+          name: micro-youl-boundary-runtime-${{ matrix.cell }}
           path: runtime-${{ matrix.cell }}
       - name: Require runtime before loading retrospective benchmark
         run: test -s "runtime-${{ matrix.cell }}/runtime-replay.json"
@@ -110,23 +110,23 @@ jobs:
         run: >-
           python "${{ matrix.score_script }}"
           --runtime "runtime-${{ matrix.cell }}/runtime-replay.json"
-          --benchmark research/benchmarks/2025-09-09-yolo.json
+          --benchmark research/benchmarks/2025-09-09-youl.json
           --suite research/benchmarks/suites/micro-v0.1-seed.json
           ${{ matrix.score_extra }}
           --output "score-${{ matrix.cell }}/case-score.json"
       - name: Require boundary-only scoring contract
         run: >-
           python -c "import json,pathlib; d=json.loads(pathlib.Path('score-${{ matrix.cell }}/case-score.json').read_text()); assert d.get('case_role')=='boundary_context_only'; assert d.get('scored_dimensions')=={}; assert d.get('exact_human_trade_identity_scored') is False"
-      - name: Upload post-replay YOLO score
+      - name: Upload post-replay YOUL score
         uses: actions/upload-artifact@v4
         with:
-          name: micro-yolo-boundary-score-${{ matrix.cell }}
+          name: micro-youl-boundary-score-${{ matrix.cell }}
           path: score-${{ matrix.cell }}
           if-no-files-found: error
           retention-days: 14
 
   summarize:
-    name: Summarize YOLO four-cell boundary control
+    name: Summarize YOUL four-cell boundary control
     needs: score
     runs-on: ubuntu-latest
     steps:
@@ -139,20 +139,21 @@ jobs:
       - name: Download all post-replay scores
         uses: actions/download-artifact@v4
         with:
-          pattern: micro-yolo-boundary-score-*
-          path: yolo-control-scores
+          pattern: micro-youl-boundary-score-*
+          path: youl-control-scores
       - name: Build four-cell boundary comparison
         run: >-
           python scripts/summarize_micro_control_cells.py
-          --root yolo-control-scores
-          --output micro-yolo-boundary-comparison.json
+          --root youl-control-scores
+          --output micro-youl-boundary-comparison.json
       - name: Require unscored boundary interpretation
         run: >-
-          python -c "import json,pathlib; d=json.loads(pathlib.Path('micro-yolo-boundary-comparison.json').read_text()); assert d.get('case_role')=='boundary_context_only'; assert d.get('manifest_scored_dimensions')==[]; assert d.get('strategy_feedback')=='none'"
-      - name: Upload YOLO boundary comparison
+          python -c "import json,pathlib; d=json.loads(pathlib.Path('micro-youl-boundary-comparison.json').read_text()); assert d.get('case_role')=='boundary_context_only'; assert d.get('manifest_scored_dimensions')==[]; assert d.get('strategy_feedback')=='none'"
+      - name: Upload YOUL boundary comparison
         uses: actions/upload-artifact@v4
         with:
-          name: micro-yolo-boundary-comparison
-          path: micro-yolo-boundary-comparison.json
+          name: micro-youl-boundary-comparison
+          path: micro-youl-boundary-comparison.json
           if-no-files-found: error
           retention-days: 30
+

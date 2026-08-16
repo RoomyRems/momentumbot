@@ -1,0 +1,36 @@
+{
+  "artifact_type": "invalidated_micro_boundary_control",
+  "schema_version": 1,
+  "knowledge_policy": "post_replay_retrospective_evaluation_only",
+  "strategy_feedback": "none",
+  "attempted_symbol": "YOLO",
+  "trading_date": "2025-09-09",
+  "workflow": {
+    "name": "Micro YOLO boundary control",
+    "run_id": 31950276161,
+    "head_sha": "08f0911a2e2ee69026a5cba57c2254c55feeb9f1",
+    "comparison_artifact_id": 9264457839,
+    "baseline_runtime_artifact_id": 9264443322
+  },
+  "four_cell_runtime_result": {
+    "baseline": "target_did_not_reach_direct_price_gain_rvol_qualification",
+    "context_only": "target_did_not_reach_direct_price_gain_rvol_qualification",
+    "volume_only": "target_did_not_reach_direct_price_gain_rvol_qualification",
+    "context_plus_volume": "target_did_not_reach_direct_price_gain_rvol_qualification"
+  },
+  "attempted_symbol_market_facts": {
+    "previous_close": 3.195,
+    "session_high": 3.34,
+    "maximum_session_gain_pct": 1.6651,
+    "maximum_same_time_rvol": 2.7114,
+    "first_qualified_timestamp": null
+  },
+  "invalidation_reason": "The listed security YOLO is incompatible with the frozen benchmark evidence near $5.20 and $8.00. A separate market-wide identity audit resolved the transcript-derived label to YOUL.",
+  "resolved_by": {
+    "corrected_symbol": "YOUL",
+    "identity_audit_workflow_run_id": 31950941920,
+    "identity_audit_artifact_id": 9264667316,
+    "result_path": "research/benchmarks/results/youl-symbol-identity-audit.json"
+  },
+  "interpretation": "This successful workflow execution is not a valid behavioral control and supports no inference about any micro policy cell. It is preserved as failed experimental provenance."
+}

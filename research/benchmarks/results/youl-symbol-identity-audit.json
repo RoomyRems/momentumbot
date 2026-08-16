@@ -1,0 +1,57 @@
+{
+  "artifact_type": "benchmark_symbol_identity_resolution",
+  "schema_version": 1,
+  "knowledge_policy": "retrospective_benchmark_identity_audit_only_never_runtime_context",
+  "strategy_feedback": "none",
+  "source_benchmark_label": "YOLO",
+  "resolved_symbol": "YOUL",
+  "resolution_status": "high_confidence_corrected",
+  "provenance": {
+    "workflow_name": "Benchmark symbol identity audit",
+    "workflow_run_id": 31950941920,
+    "workflow_head_sha": "7cc49382ab57ce2320e6e8acee6daefcb0b63105",
+    "artifact_id": 9264667316,
+    "artifact_digest": "sha256:914d83381f969f74e4b1fc16bbdbe1b1afad4f36ec950df6bbabe18c13753c5a",
+    "provider": "Alpaca SIP",
+    "adjustment": "raw",
+    "asof": "2025-09-09"
+  },
+  "audit_scope": {
+    "asset_master_rows": 33034,
+    "unique_symbols": 32786,
+    "coarse_candidates": 11,
+    "refined_candidates": 11,
+    "rejection_level": 5.20,
+    "rejection_tolerance": 0.20,
+    "later_high": 8.00,
+    "later_high_tolerance": 1.25
+  },
+  "resolved_market_path": {
+    "symbol": "YOUL",
+    "company": "Youlife Group Inc.",
+    "previous_regular_close": 1.77,
+    "rejection_bar_at": "2025-09-09T07:20:00-04:00",
+    "rejection_bar": {
+      "open": 4.19,
+      "high": 5.20,
+      "low": 4.19,
+      "close": 4.80
+    },
+    "later_peak_at": "2025-09-09T07:25:00-04:00",
+    "later_peak": 8.27,
+    "raw_session_high": 8.27,
+    "raw_session_low": 1.76,
+    "raw_session_volume": 91178693
+  },
+  "independent_share_count_corroboration": {
+    "source": "SEC Form 20-F shell company report",
+    "url": "https://www.sec.gov/Archives/edgar/data/2028177/000121390025065134/ea0248530-20f_youlife.htm",
+    "as_of": "2025-07-09",
+    "class_a_ordinary_shares": 64887792,
+    "class_b_ordinary_shares": 11160808,
+    "total_ordinary_shares": 76048600,
+    "caveat": "The Class A count corroborates the approximate 64M narration but is not treated as a formal free-float calculation."
+  },
+  "conclusion": "YOUL matches three independent, unusually specific identifiers: the $5.20 rejection, a later high near $8, and a contemporaneous approximately 64M Class A share count. YOLO matches none of the cited market behavior. Correct the benchmark identity to YOUL without altering its behavioral labels.",
+  "policy_implication": "none; benchmark identity correction only"
+}

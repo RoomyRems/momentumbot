@@ -1,0 +1,61 @@
+{
+  "benchmark_id": "ross-youl-2025-09-09-micro-boundary-01",
+  "trading_date": "2025-09-09",
+  "symbol": "YOUL",
+  "knowledge_policy": "ground_truth_label_only_never_runtime_context",
+  "source": {
+    "video_id": "SLpD6pVlpT8",
+    "title": "Top Gainer in the Market is +2,493% TODAY!",
+    "published_date": "2025-09-09",
+    "evidence_type": "same_day_behavioral_recap"
+  },
+  "symbol_correction": {
+    "original_transcript_derived_symbol": "YOLO",
+    "corrected_symbol": "YOUL",
+    "status": "raw_sip_and_point_in_time_filing_verified_correction",
+    "confidence": "high",
+    "reason": "The listed security YOLO is incompatible with the recap. A retrospective market-wide raw-SIP audit found YOUL rejecting at exactly $5.20 at 07:20 ET and reaching $8.27 five minutes later. A point-in-time SEC filing reports 64,887,792 Class A ordinary shares as of July 9, 2025, closely matching the recap's approximate 64 million share figure.",
+    "verification": {
+      "workflow_run_id": 31950941920,
+      "workflow_head_sha": "7cc49382ab57ce2320e6e8acee6daefcb0b63105",
+      "artifact_id": 9264667316,
+      "artifact_digest": "sha256:914d83381f969f74e4b1fc16bbdbe1b1afad4f36ec950df6bbabe18c13753c5a",
+      "market_universe_unique_symbols": 32786,
+      "raw_sip_observations": {
+        "previous_regular_close": 1.77,
+        "rejection_bar_at": "2025-09-09T07:20:00-04:00",
+        "rejection_bar_high": 5.20,
+        "rejection_bar_close": 4.80,
+        "later_peak_at": "2025-09-09T07:25:00-04:00",
+        "later_peak": 8.27,
+        "session_volume": 91178693
+      },
+      "point_in_time_filing": {
+        "source": "SEC Form 20-F shell company report",
+        "url": "https://www.sec.gov/Archives/edgar/data/2028177/000121390025065134/ea0248530-20f_youlife.htm",
+        "as_of": "2025-07-09",
+        "class_a_ordinary_shares": 64887792,
+        "class_b_ordinary_shares": 11160808,
+        "total_ordinary_shares": 76048600,
+        "interpretation": "The Class A count corroborates the recap's approximate 64M scanner figure; it is not asserted here to be a formal free-float calculation."
+      }
+    }
+  },
+  "observed_human_behavior": {
+    "attempted_micro_pullback_entry": true,
+    "attempted_order_filled": false,
+    "reported_reason_for_later_caution": [
+      "approximately 64 million share float",
+      "topping-tail rejection near 5.20",
+      "unwillingness to chase after extension"
+    ],
+    "reported_no_completed_trade_on_symbol": true,
+    "reported_later_high_approx": 8.0
+  },
+  "research_notes": [
+    "This is a boundary case for upstream stock selection, execution/no-fill behavior and discretionary skip logic, not a primary Micro v0.1 setup score.",
+    "The transcript-derived YOLO ticker was corrected to YOUL only in the retrospective evidence layer; no identity-audit price or share-count fact may be supplied to runtime replay.",
+    "The fact that price later went higher must not retroactively convert the skipped/no-fill behavior into a strategy error.",
+    "The behavioral labels were not changed to fit any runtime policy."
+  ]
+}

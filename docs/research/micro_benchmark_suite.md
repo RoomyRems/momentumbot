@@ -27,7 +27,7 @@ Including ARTL is intentional. A benchmark suite made only from clean winners wo
 These cases are valuable precisely because they expose information Micro v0.1 does not own. They must not be silently converted into primary failures.
 
 - **AGPU — 2026-04-22.** The narration explicitly credits stacked Level-2 buyers and green time-and-sales with the anticipatory decision around support. This belongs to the future order-flow/context layer.
-- **YOLO — 2025-09-09.** Attempted micro order was skipped/no-fill; later caution involved approximately 64M float, a topping tail and refusal to chase. This is primarily an upstream-selection/execution boundary case.
+- **YOUL — 2025-09-09.** Attempted micro order was skipped/no-fill; later caution involved approximately 64M float, a topping tail and refusal to chase. The transcript-derived `YOLO` label was corrected to `YOUL` only after an independent retrospective identity audit matched the $5.20 rejection, later ~$8 high and point-in-time share count. This is primarily an upstream-selection/execution boundary case; see `docs/research/youl_symbol_identity_correction.md`.
 - **LABT — 2026-05-18.** Useful for front-side versus back-side behavior, whole-dollar heavy selling and later dip risk; several setup families are interleaved, so it is not reduced to one primary micro score.
 
 ### Ambiguous/excluded
@@ -72,3 +72,4 @@ This first ten-case set is deliberately small. It validates the benchmark archit
 Keep Micro v0.1 unchanged and evaluate isolated candidate improvements against the same frozen cases before combining them. The first recommended ablation is bounded **pre-qualification structural context**: completed 10-second bars that already existed before the causal scanner alert may inform the first post-qualification pattern, while no order may be armed or filled before qualification. A separate local-impulse-peak ablation should then test the strict-running-high hypothesis independently.
 
 Any rule motivated by these results must become a separately named research policy/version and later be checked on additional held-out transcript cases and broader walk-forward days rather than optimized only against this seed suite.
+
