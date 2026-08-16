@@ -312,6 +312,163 @@ def summarize_massive_splits(
     }
 
 
+def resolve_name_change_paths(
+    transitions: Iterable[dict[str, object]],
+    actions: Iterable[dict[str, object]],
+    *,
+    earlier_date: date,
+    later_date: date,
+    lookback_days: int,
+    alias_records: Iterable[dict[str, object]],
+) -> dict[str, object]:
+    edges: list[dict[str, str]] = []
+    for action in actions:
+        if str(action.get("action_type")) != "name_changes":
+            continue
+        old_symbol = str(action.get("old_symbol") or "").strip().upper()
+        new_symbol = str(action.get("new_symbol") or "").strip().upper()
+        process_date = str(action.get("process_date") or "").strip()
+        if (
+            _SYMBOL_RE.fullmatch(old_symbol)
+            and _SYMBOL_RE.fullmatch(new_symbol)
+            and process_date
+        ):
+            parsed = date.fromisoformat(process_date)
+            if earlier_date < parsed <= later_date:
+                edges.append(
+                    {
+                        "id": str(action.get("id") or ""),
+                        "old_symbol": old_symbol,
+                        "new_symbol": new_symbol,
+                        "process_date": process_date,
+                        "old_cusip": str(action.get("old_cusip") or ""),
+                        "new_cusip": str(action.get("new_cusip") or ""),
+                    }
+                )
+    edges.sort(
+        key=lambda row: (
+            row["process_date"],
+            row["old_symbol"],
+            row["new_symbol"],
+            row["id"],
+        )
+    )
+    by_old: dict[str, list[dict[str, str]]] = {}
+    for edge in edges:
+        by_old.setdefault(edge["old_symbol"], []).append(edge)
+    alias_by_identifier = {
+        (str(row["identifier_kind"]), str(row["identifier"])): row
+        for row in alias_records
+    }
+    late_lookback_start = later_date - timedelta(days=lookback_days)
+    records: list[dict[str, object]] = []
+    for transition in transitions:
+        if not bool(transition.get("ticker_changed")):
+            continue
+        start_symbol = str(transition["earlier_ticker"])
+        target_symbol = str(transition["later_ticker"])
+        queue: list[tuple[str, str, list[dict[str, str]]]] = [
+            (start_symbol, earlier_date.isoformat(), [])
+        ]
+        seen: set[tuple[str, str]] = {(start_symbol, earlier_date.isoformat())}
+        path: list[dict[str, str]] | None = None
+        while queue:
+            current_symbol, last_date, current_path = queue.pop(0)
+            if len(current_path) >= 20:
+                continue
+            for edge in by_old.get(current_symbol, []):
+                if edge["process_date"] < last_date:
+                    continue
+                next_path = [*current_path, edge]
+                if edge["new_symbol"] == target_symbol:
+                    path = next_path
+                    queue.clear()
+                    break
+                state = (edge["new_symbol"], edge["process_date"])
+                if state not in seen:
+                    seen.add(state)
+                    queue.append((edge["new_symbol"], edge["process_date"], next_path))
+
+        alias = alias_by_identifier.get(
+            (str(transition["identifier_kind"]), str(transition["identifier"]))
+        )
+        full_gap_match = bool(alias and alias.get("bidirectional_match"))
+        latest_change = max(
+            (date.fromisoformat(edge["process_date"]) for edge in (path or [])),
+            default=None,
+        )
+        outside_late_lookback = bool(
+            latest_change is not None and latest_change < late_lookback_start
+        )
+        snapshot_window_safe = full_gap_match or outside_late_lookback
+        records.append(
+            {
+                "identifier_kind": transition["identifier_kind"],
+                "identifier": transition["identifier"],
+                "earlier_ticker": start_symbol,
+                "later_ticker": target_symbol,
+                "full_gap_alias_match": full_gap_match,
+                "name_change_path_found": path is not None,
+                "name_change_path": path or [],
+                "latest_name_change_process_date": (
+                    latest_change.isoformat() if latest_change else None
+                ),
+                "later_snapshot_lookback_start": late_lookback_start.isoformat(),
+                "name_change_precedes_later_lookback": outside_late_lookback,
+                "snapshot_window_safe": snapshot_window_safe,
+                "resolution": (
+                    "provider_alias_mapping_verified"
+                    if full_gap_match
+                    else (
+                        "alias_gap_outside_both_snapshot_lookbacks"
+                        if outside_late_lookback
+                        else "unresolved_snapshot_window_alias_gap"
+                    )
+                ),
+            }
+        )
+    records.sort(
+        key=lambda row: (
+            str(row["identifier_kind"]),
+            str(row["identifier"]),
+        )
+    )
+    unresolved = [row for row in records if not bool(row["snapshot_window_safe"])]
+    return {
+        "schema_version": 1,
+        "scope": {
+            "earlier_date": earlier_date.isoformat(),
+            "later_date": later_date.isoformat(),
+            "later_snapshot_lookback_start": late_lookback_start.isoformat(),
+            "lookback_days": lookback_days,
+            "uses_benchmark_labels": False,
+        },
+        "summary": {
+            "transition_count": len(records),
+            "name_change_path_found_count": sum(
+                bool(row["name_change_path_found"]) for row in records
+            ),
+            "full_gap_alias_match_count": sum(
+                bool(row["full_gap_alias_match"]) for row in records
+            ),
+            "alias_gap_outside_snapshot_lookback_count": sum(
+                row["resolution"] == "alias_gap_outside_both_snapshot_lookbacks"
+                for row in records
+            ),
+            "unresolved_snapshot_window_alias_count": len(unresolved),
+            "unresolved_snapshot_window_alias_tickers": sorted(
+                {
+                    str(value)
+                    for row in unresolved
+                    for value in (row["earlier_ticker"], row["later_ticker"])
+                }
+            ),
+            "snapshot_window_alias_validation_complete": not unresolved,
+        },
+        "records": records,
+    }
+
+
 def audit_ticker_event_sample(
     client: MassiveReferenceClient,
     transitions: Iterable[dict[str, object]],
@@ -410,6 +567,24 @@ def main() -> int:
         later_date=later_date,
         batch_size=args.batch_size,
     )
+    transition_actions = alpaca.corporate_actions(
+        start=earlier_date + timedelta(days=1),
+        end=later_date,
+        types=("name_change",),
+        data_quality="complete",
+    )
+    transition_resolution = resolve_name_change_paths(
+        bridge["transitions"],
+        transition_actions.rows,
+        earlier_date=earlier_date,
+        later_date=later_date,
+        lookback_days=args.lookback_days,
+        alias_records=alias_validation["records"],
+    )
+    transition_resolution["provider_query"] = transition_actions.query
+    transition_resolution["provider_pages"] = [
+        asdict(page) for page in transition_actions.pages
+    ]
     massive = MassiveReferenceClient.from_env(
         minimum_request_interval_seconds=args.minimum_massive_request_interval
     )
@@ -461,6 +636,7 @@ def main() -> int:
     for name, payload in (
         ("identity-bridge.json", bridge),
         ("alias-validation.json", alias_validation),
+        ("transition-name-change-resolution.json", transition_resolution),
         ("corporate-action-windows.json", action_windows),
         ("massive-ticker-event-sample.json", ticker_event_sample),
     ):
@@ -470,6 +646,7 @@ def main() -> int:
 
     bridge_summary = bridge["summary"]
     alias_summary = alias_validation["summary"]
+    transition_summary = transition_resolution["summary"]
     failed_alias_records = [
         record
         for record in alias_validation["records"]
@@ -478,13 +655,14 @@ def main() -> int:
     date_status = bridge["date_identity_status"]
     earlier_quarantine = date_status[earlier_date.isoformat()]["quarantined"]
     later_quarantine = date_status[later_date.isoformat()]["quarantined"]
-    alias_gate = bool(alias_summary["exact_figi_alias_validation_complete"]) and bool(
-        alias_summary["unique_cik_fallback_alias_validation_complete"]
-    )
+    full_gap_alias_complete = bool(
+        alias_summary["exact_figi_alias_validation_complete"]
+    ) and bool(alias_summary["unique_cik_fallback_alias_validation_complete"])
+    alias_gate = bool(transition_summary["snapshot_window_alias_validation_complete"])
     corporate_action_gate = all(
         bool(window["alpaca"]["pages"]) and bool(window["massive"]["pages"])
         for window in action_windows.values()
-    )
+    ) and bool(transition_actions.pages)
     manifest: dict[str, object] = {
         "schema_version": 1,
         "audit_id": "historical-identity-corporate-action-audit-v0.1",
@@ -513,6 +691,7 @@ def main() -> int:
         "summary": {
             **bridge_summary,
             **alias_summary,
+            **transition_summary,
             "earlier_identity_quarantine_tickers": [
                 row["ticker"] for row in earlier_quarantine
             ],
@@ -520,6 +699,7 @@ def main() -> int:
                 row["ticker"] for row in later_quarantine
             ],
             "failed_alias_records": failed_alias_records,
+            "full_gap_alias_mapping_complete": full_gap_alias_complete,
             "alias_mapping_gate_pass": alias_gate,
             "bulk_corporate_action_gate_pass": corporate_action_gate,
         },
@@ -534,6 +714,7 @@ def main() -> int:
         "files": {
             "identity_bridge": "identity-bridge.json",
             "alias_validation": "alias-validation.json",
+            "transition_name_change_resolution": "transition-name-change-resolution.json",
             "corporate_action_windows": "corporate-action-windows.json",
             "massive_ticker_event_sample": "massive-ticker-event-sample.json",
         },
@@ -542,6 +723,7 @@ def main() -> int:
         {
             "bridge": bridge,
             "alias_validation": alias_validation,
+            "transition_resolution": transition_resolution,
             "action_windows": action_windows,
             "ticker_event_sample": ticker_event_sample,
         }
