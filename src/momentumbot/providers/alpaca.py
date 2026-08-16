@@ -217,6 +217,7 @@ class AlpacaDataClient:
         start: datetime,
         end: datetime,
         include_content: bool = False,
+        max_pages: int = 100,
     ) -> list[dict[str, Any]]:
         names = list(dict.fromkeys(str(symbol).upper() for symbol in symbols if symbol))
         if not names:
@@ -225,10 +226,12 @@ class AlpacaDataClient:
             raise ValueError("news bounds must be timezone-aware")
         if start >= end:
             raise ValueError("news start must precede news end")
+        if max_pages <= 0:
+            raise ValueError("news max_pages must be positive")
         output: list[dict[str, Any]] = []
         page_token: str | None = None
         seen_tokens: set[str] = set()
-        while True:
+        for _page_number in range(1, max_pages + 1):
             params: dict[str, object] = {
                 "symbols": ",".join(names),
                 "start": start.isoformat(),
@@ -251,12 +254,12 @@ class AlpacaDataClient:
                 output.extend(row for row in rows if isinstance(row, dict))
             next_token = payload.get("next_page_token")
             if not next_token:
-                break
+                return output
             page_token = str(next_token)
             if page_token in seen_tokens:
                 raise RuntimeError("Alpaca news pagination token repeated")
             seen_tokens.add(page_token)
-        return output
+        raise RuntimeError("Alpaca news exceeded max_pages")
 
     def corporate_actions(
         self,

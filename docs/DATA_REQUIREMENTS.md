@@ -43,7 +43,7 @@ Conditional snapshots must declare `universe_complete=false`, `universe_complete
 
 ## News snapshot scope
 
-For a single trading-day snapshot, `news.csv` should contain only events considered eligible for that active momentum session (for example news released after the prior regular close through the simulated morning). The exact freshness boundary is still a declared research translation; the backtester never searches old news on its own.
+For a single trading-day snapshot, `news.csv` should contain only events considered eligible for that active momentum session; the backtester never searches old news on its own. The frozen `causal-alpaca-news-v0.1` research contract uses the previous regular-session close at 16:00 ET through 10:01 ET on the target session, with the prior session derived from SPY daily bars rather than calendar-day arithmetic. Alpaca/Benzinga stories become available conservatively at the provider's `updated_at` timestamp, falling back to `created_at` only when no update timestamp exists. Pagination must be exhausted. A successful zero-row response means no story in this provider only; provider errors remain unknown and fail closed. This deterministic layer records provider association and timing but does not classify headline quality.
 
 ## Not required yet
 

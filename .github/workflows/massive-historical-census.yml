@@ -41,6 +41,11 @@ on:
       - tests/test_build_causal_float_enrichment.py
       - tests/test_sec_edgar.py
       - tests/test_sec_float_join.py
+      - src/momentumbot/providers/alpaca.py
+      - src/momentumbot/historical_news.py
+      - scripts/build_causal_news_enrichment.py
+      - tests/test_alpaca_provider.py
+      - tests/test_historical_news.py
       - research/data-audits/massive-identity-corporate-actions-v0.1-2026-08-16.json
       - .github/workflows/massive-historical-census.yml
 
@@ -84,6 +89,8 @@ jobs:
           tests.test_build_causal_float_enrichment
           tests.test_sec_edgar
           tests.test_sec_float_join
+          tests.test_alpaca_provider
+          tests.test_historical_news
           -v
       - name: Verify declared SEC fair-access identity
         run: python scripts/edgar_smoke.py
@@ -134,6 +141,12 @@ jobs:
           --dates 2025-04-03 2026-07-09
           --minimum-sec-request-interval 0.2
           --sec-attempts 3
+      - name: Build provider-relative publication-timed news
+        run: >-
+          python scripts/build_causal_news_enrichment.py
+          --census-root massive-historical-census
+          --dates 2025-04-03 2026-07-09
+          --news-batch-size 50
       - name: Enforce research-only eligibility
         run: >-
           python -c "import json,pathlib;
@@ -213,7 +226,29 @@ jobs:
           assert all(x['knowledge_policy']['uses_benchmark_labels'] is False for x in f['date_manifests']);
           assert all(x['knowledge_policy']['uses_future_filings'] is False for x in f['date_manifests']);
           assert all(x['knowledge_policy']['raw_future_disclosures_persisted'] is False for x in f['date_manifests']);
-          assert all(x['knowledge_policy']['unknown_float_fails_closed'] is True for x in f['date_manifests'])"
+          assert all(x['knowledge_policy']['unknown_float_fails_closed'] is True for x in f['date_manifests']);
+          n=json.loads((root/'causal-alpaca-news-v0.1'/'manifest.json').read_text());
+          assert n['eligibility']['complete_relative_to_provider'] is True;
+          assert n['eligibility']['publication_timed_news_frozen'] is True;
+          assert n['eligibility']['full_feature_snapshot_complete'] is False;
+          assert n['eligibility']['universe_complete'] is False;
+          assert n['eligibility']['full_walk_forward_eligible'] is False;
+          assert n['eligibility']['policy_promotion_eligible'] is False;
+          assert n['knowledge_policy']['uses_benchmark_labels'] is False;
+          assert n['knowledge_policy']['uses_retrospective_trade_outcomes'] is False;
+          assert n['knowledge_policy']['uses_future_publications'] is False;
+          assert n['knowledge_policy']['candidate_acquisition_depends_on_news'] is False;
+          assert n['knowledge_policy']['absence_means_no_news_in_all_sources'] is False;
+          assert n['fatal_provider_errors']==[];
+          fm={x['trading_date']:x for x in f['date_manifests']};
+          assert all(x['summary']['market_candidate_count']==fm[x['trading_date']]['summary']['float_decision_count'] for x in n['date_manifests']);
+          assert all(x['summary']['candidate_decision_count']==x['summary']['market_candidate_count'] for x in n['date_manifests']);
+          assert all(x['summary']['provider_error_count']==0 for x in n['date_manifests']);
+          assert all(x['summary']['provider_unknown_fail_closed_count']==0 for x in n['date_manifests']);
+          assert all(x['knowledge_policy']['uses_benchmark_labels'] is False for x in n['date_manifests']);
+          assert all(x['knowledge_policy']['uses_future_publications'] is False for x in n['date_manifests']);
+          assert all(x['knowledge_policy']['candidate_acquisition_depends_on_news'] is False for x in n['date_manifests']);
+          assert all(x['knowledge_policy']['absence_means_no_news_in_all_sources'] is False for x in n['date_manifests'])"
       - name: Upload historical census prototype
         if: always()
         uses: actions/upload-artifact@v4

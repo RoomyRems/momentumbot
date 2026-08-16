@@ -1,5 +1,5 @@
 import unittest
-from datetime import date
+from datetime import date, datetime, timezone
 from unittest.mock import patch
 
 import pandas as pd
@@ -96,6 +96,52 @@ class AlpacaProviderTests(unittest.TestCase):
                 client.corporate_actions(
                     start=date(2025, 1, 1),
                     end=date(2025, 4, 3),
+                )
+
+    def test_news_exhausts_pagination(self):
+        client = AlpacaDataClient("key", "secret")
+        payloads = [
+            {
+                "news": [{"id": 1, "symbols": ["AAA"]}],
+                "next_page_token": "next-token",
+            },
+            {
+                "news": [{"id": 2, "symbols": ["AAA"]}],
+                "next_page_token": None,
+            },
+        ]
+        calls = []
+
+        def fake_get(url, **_kwargs):
+            calls.append(url)
+            return payloads.pop(0)
+
+        with patch("momentumbot.providers.alpaca.get_json", side_effect=fake_get):
+            rows = client.news(
+                ["AAA"],
+                start=datetime(2025, 4, 2, tzinfo=timezone.utc),
+                end=datetime(2025, 4, 3, tzinfo=timezone.utc),
+            )
+
+        self.assertEqual([row["id"] for row in rows], [1, 2])
+        self.assertIn("page_token=next-token", calls[1])
+
+    def test_news_rejects_unbounded_unique_pagination(self):
+        client = AlpacaDataClient("key", "secret")
+        responses = [
+            {"news": [], "next_page_token": "one"},
+            {"news": [], "next_page_token": "two"},
+        ]
+        with patch(
+            "momentumbot.providers.alpaca.get_json",
+            side_effect=responses,
+        ):
+            with self.assertRaisesRegex(RuntimeError, "exceeded max_pages"):
+                client.news(
+                    ["AAA"],
+                    start=datetime(2025, 4, 2, tzinfo=timezone.utc),
+                    end=datetime(2025, 4, 3, tzinfo=timezone.utc),
+                    max_pages=2,
                 )
 
 
