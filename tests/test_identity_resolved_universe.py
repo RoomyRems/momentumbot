@@ -1,10 +1,15 @@
 from __future__ import annotations
 
 import unittest
+import json
+from pathlib import Path
+import tempfile
 
 from momentumbot.identity_resolved_universe import (
     identity_resolved_membership_fingerprint,
     identity_resolved_universe_v0_1_manifest,
+    json_fingerprint,
+    load_identity_resolved_universe,
     provisional_membership_fingerprint,
     resolve_identity_membership,
 )
@@ -118,6 +123,108 @@ class IdentityResolvedUniverseTests(unittest.TestCase):
             provisional_membership_fingerprint([first, second]),
             provisional_membership_fingerprint([second, first]),
         )
+
+    def test_loader_verifies_complete_bundle_before_returning_rows(self) -> None:
+        row = _row("AAA", cik="1", figi="FIGI-AAA")
+        row.update(
+            {
+                "identity_identifier_kind": "composite_figi",
+                "identity_identifier": "FIGI-AAA",
+            }
+        )
+        policy = identity_resolved_universe_v0_1_manifest()
+        source = {
+            "provisional_universe_policy_fingerprint": "source-policy",
+            "provisional_membership_sha256_by_date": {
+                "2025-04-03": "membership"
+            },
+            "identity_audit_id": "audit-v0.1",
+            "identity_audit_content_sha256": "audit-content",
+            "identity_bridge_sha256": "bridge",
+        }
+        summary = {
+            "provisional_ticker_count": 1,
+            "identity_accepted_ticker_count": 1,
+            "identity_quarantine_count": 0,
+            "identity_quarantine_tickers": [],
+            "membership_sha256": identity_resolved_membership_fingerprint([row]),
+        }
+        payload = {
+            "schema_version": 1,
+            "artifact_id": "identity-resolved-universe-v0.1",
+            "trading_date": "2025-04-03",
+            "policy_fingerprint": policy["fingerprint"],
+            "source_artifacts": {
+                "provisional_policy_fingerprint": "source-policy",
+                "provisional_membership_sha256": "membership",
+                "identity_audit_id": "audit-v0.1",
+                "identity_audit_content_sha256": "audit-content",
+                "identity_bridge_sha256": "bridge",
+            },
+            "summary": summary,
+            "eligibility": {
+                "complete_relative_to_provisional_membership": True,
+                "identity_gate_pass": True,
+                "full_feature_snapshot_candidate": True,
+                "universe_complete": False,
+                "full_walk_forward_eligible": False,
+                "policy_promotion_eligible": False,
+            },
+            "knowledge_policy": {
+                "uses_benchmark_labels": False,
+                "uses_future_market_outcomes": False,
+                "membership_change": "explicit_identity_quarantine_only",
+            },
+            "rows": [row],
+        }
+        manifest = {
+            "schema_version": 1,
+            "artifact_id": "identity-resolved-universe-v0.1",
+            "dates": ["2025-04-03"],
+            "universe_policy": policy,
+            "source_artifacts": source,
+            "date_summaries": {"2025-04-03": summary},
+            "eligibility": {
+                "complete_relative_to_provisional_membership": True,
+                "identity_gate_pass": True,
+                "full_feature_snapshot_candidate": True,
+                "universe_complete": False,
+            },
+            "knowledge_policy": {
+                "uses_benchmark_labels": False,
+                "uses_future_market_outcomes": False,
+            },
+        }
+        manifest["content_sha256"] = json_fingerprint(
+            {
+                "universe_policy": policy,
+                "source_artifacts": source,
+                "date_payloads": [payload],
+            }
+        )
+        with tempfile.TemporaryDirectory() as raw:
+            root = Path(raw)
+            (root / "manifest.json").write_text(
+                json.dumps(manifest), encoding="utf-8"
+            )
+            member_path = root / "2025-04-03-included.json"
+            member_path.write_text(json.dumps(payload), encoding="utf-8")
+
+            rows, loaded_payload, loaded_manifest = load_identity_resolved_universe(
+                root,
+                trading_date="2025-04-03",
+            )
+
+            self.assertEqual(rows, [row])
+            self.assertEqual(loaded_payload, payload)
+            self.assertEqual(loaded_manifest, manifest)
+            payload["rows"][0]["identity_identifier"] = "TAMPERED"
+            member_path.write_text(json.dumps(payload), encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "membership hash"):
+                load_identity_resolved_universe(
+                    root,
+                    trading_date="2025-04-03",
+                )
 
 
 if __name__ == "__main__":

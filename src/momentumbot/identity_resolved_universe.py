@@ -11,6 +11,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 import hashlib
 import json
+from pathlib import Path
 from typing import Iterable
 
 from .historical_universe import HISTORICAL_UNIVERSE_POLICY_ID
@@ -253,3 +254,122 @@ def identity_resolved_membership_fingerprint(
             }
         )
     return json_fingerprint(sorted(projection, key=lambda row: row["ticker"]))
+
+
+def load_identity_resolved_universe(
+    root: str | Path,
+    *,
+    trading_date: str,
+) -> tuple[list[dict[str, object]], dict[str, object], dict[str, object]]:
+    """Load a frozen membership only after verifying its complete bundle."""
+
+    artifact_root = Path(root)
+    manifest = json.loads(
+        (artifact_root / "manifest.json").read_text(encoding="utf-8")
+    )
+    if not isinstance(manifest, dict):
+        raise ValueError("identity-resolved manifest must be an object")
+    if manifest.get("artifact_id") != IDENTITY_RESOLVED_UNIVERSE_POLICY_ID:
+        raise ValueError("unsupported identity-resolved universe artifact")
+    expected_policy = identity_resolved_universe_v0_1_manifest()
+    if manifest.get("universe_policy") != expected_policy:
+        raise ValueError("identity-resolved universe policy mismatch")
+    eligibility = manifest.get("eligibility", {})
+    if eligibility.get("complete_relative_to_provisional_membership") is not True:
+        raise ValueError("identity-resolved universe is incomplete")
+    if eligibility.get("identity_gate_pass") is not True:
+        raise ValueError("identity-resolved universe did not pass identity gate")
+    if eligibility.get("full_feature_snapshot_candidate") is not True:
+        raise ValueError("identity-resolved universe is not a feature candidate")
+    if eligibility.get("universe_complete") is not False:
+        raise ValueError("identity-resolved universe overclaims completeness")
+    knowledge = manifest.get("knowledge_policy", {})
+    if knowledge.get("uses_benchmark_labels") is not False:
+        raise ValueError("identity-resolved universe must be label-blind")
+    if knowledge.get("uses_future_market_outcomes") is not False:
+        raise ValueError("identity-resolved universe cannot use future outcomes")
+
+    dates = manifest.get("dates")
+    if not isinstance(dates, list) or not dates:
+        raise ValueError("identity-resolved universe must declare dates")
+    if trading_date not in dates:
+        raise ValueError(f"identity-resolved universe lacks {trading_date}")
+
+    date_payloads: list[dict[str, object]] = []
+    selected: dict[str, object] | None = None
+    source_artifacts = manifest.get("source_artifacts")
+    for value in dates:
+        payload = json.loads(
+            (artifact_root / f"{value}-included.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        if not isinstance(payload, dict):
+            raise ValueError(f"identity-resolved payload is invalid for {value}")
+        if payload.get("artifact_id") != IDENTITY_RESOLVED_UNIVERSE_POLICY_ID:
+            raise ValueError(f"identity-resolved artifact id mismatch for {value}")
+        if payload.get("trading_date") != value:
+            raise ValueError(f"identity-resolved date mismatch for {value}")
+        if payload.get("policy_fingerprint") != expected_policy["fingerprint"]:
+            raise ValueError(f"identity-resolved policy mismatch for {value}")
+        if payload.get("source_artifacts") != {
+            "provisional_policy_fingerprint": manifest.get("source_artifacts", {}).get(
+                "provisional_universe_policy_fingerprint"
+            ),
+            "provisional_membership_sha256": manifest.get(
+                "source_artifacts", {}
+            ).get("provisional_membership_sha256_by_date", {}).get(value),
+            "identity_audit_id": manifest.get("source_artifacts", {}).get(
+                "identity_audit_id"
+            ),
+            "identity_audit_content_sha256": manifest.get("source_artifacts", {}).get(
+                "identity_audit_content_sha256"
+            ),
+            "identity_bridge_sha256": manifest.get("source_artifacts", {}).get(
+                "identity_bridge_sha256"
+            ),
+        }:
+            raise ValueError(f"identity-resolved provenance mismatch for {value}")
+        rows = payload.get("rows")
+        summary = payload.get("summary", {})
+        date_eligibility = payload.get("eligibility", {})
+        if not isinstance(rows, list):
+            raise ValueError(f"identity-resolved rows are invalid for {value}")
+        if identity_resolved_membership_fingerprint(rows) != summary.get(
+            "membership_sha256"
+        ):
+            raise ValueError(f"identity-resolved membership hash mismatch for {value}")
+        if len(rows) != summary.get("identity_accepted_ticker_count"):
+            raise ValueError(f"identity-resolved accepted count mismatch for {value}")
+        quarantined = summary.get("identity_quarantine_tickers")
+        if not isinstance(quarantined, list):
+            raise ValueError(f"identity-resolved quarantine is invalid for {value}")
+        if set(quarantined) & {str(row.get("ticker")) for row in rows}:
+            raise ValueError(f"quarantined ticker remains in membership for {value}")
+        if len(rows) + len(quarantined) != summary.get(
+            "provisional_ticker_count"
+        ):
+            raise ValueError(f"identity-resolved accounting mismatch for {value}")
+        if date_eligibility.get(
+            "complete_relative_to_provisional_membership"
+        ) is not True:
+            raise ValueError(f"identity-resolved date is incomplete for {value}")
+        if date_eligibility.get("universe_complete") is not False:
+            raise ValueError(f"identity-resolved date overclaims completeness for {value}")
+        if manifest.get("date_summaries", {}).get(value) != summary:
+            raise ValueError(f"identity-resolved root summary mismatch for {value}")
+        date_payloads.append(payload)
+        if value == trading_date:
+            selected = payload
+
+    expected_content = json_fingerprint(
+        {
+            "universe_policy": expected_policy,
+            "source_artifacts": source_artifacts,
+            "date_payloads": date_payloads,
+        }
+    )
+    if expected_content != manifest.get("content_sha256"):
+        raise ValueError("identity-resolved bundle content hash mismatch")
+    assert selected is not None
+    return list(selected["rows"]), selected, manifest

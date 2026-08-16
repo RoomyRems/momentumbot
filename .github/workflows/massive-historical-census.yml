@@ -27,6 +27,11 @@ on:
       - scripts/build_identity_resolved_universe.py
       - tests/test_identity_resolved_universe.py
       - tests/test_build_identity_resolved_universe.py
+      - src/momentumbot/causal_market_discovery.py
+      - src/momentumbot/historical_data.py
+      - scripts/build_identity_resolved_market_discovery.py
+      - tests/test_causal_market_discovery.py
+      - tests/test_historical_data.py
       - research/data-audits/massive-identity-corporate-actions-v0.1-2026-08-16.json
       - .github/workflows/massive-historical-census.yml
 
@@ -36,7 +41,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 90
     env:
       MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
       POLYGON_API_KEY: ${{ secrets.POLYGON_API_KEY }}
@@ -63,6 +68,8 @@ jobs:
           tests.test_historical_identity_audit
           tests.test_identity_resolved_universe
           tests.test_build_identity_resolved_universe
+          tests.test_causal_market_discovery
+          tests.test_historical_data
           -v
       - name: Fetch fully paginated historical censuses
         run: >-
@@ -98,6 +105,12 @@ jobs:
           --census-root massive-historical-census
           --expected-audit-result
           research/data-audits/massive-identity-corporate-actions-v0.1-2026-08-16.json
+      - name: Build label-blind causal market discovery
+        run: >-
+          python scripts/build_identity_resolved_market_discovery.py
+          --census-root massive-historical-census
+          --dates 2025-04-03 2026-07-09
+          --asset-batch-size 250
       - name: Enforce research-only eligibility
         run: >-
           python -c "import json,pathlib;
@@ -141,7 +154,21 @@ jobs:
           assert r['date_summaries']['2025-04-03']['identity_accepted_ticker_count']==5442;
           assert r['date_summaries']['2026-07-09']['identity_accepted_ticker_count']==5571;
           assert r['date_summaries']['2025-04-03']['identity_quarantine_tickers']==['FRMEP','LBTYA','LBTYB','LBTYK','LILA','LILAK'];
-          assert r['date_summaries']['2026-07-09']['identity_quarantine_tickers']==['FRMEP','LBTYA','LBTYB','LBTYK','LILA','LILAK']"
+          assert r['date_summaries']['2026-07-09']['identity_quarantine_tickers']==['FRMEP','LBTYA','LBTYB','LBTYK','LILA','LILAK'];
+          q=json.loads((root/'causal-market-discovery-v0.1'/'manifest.json').read_text());
+          assert q['eligibility']['causal_market_discovery_complete'] is True;
+          assert q['eligibility']['full_feature_snapshot_complete'] is False;
+          assert q['eligibility']['universe_complete'] is False;
+          assert q['eligibility']['full_walk_forward_eligible'] is False;
+          assert q['eligibility']['policy_promotion_eligible'] is False;
+          assert q['knowledge_policy']['uses_benchmark_labels'] is False;
+          assert q['knowledge_policy']['uses_retrospective_trade_outcomes'] is False;
+          assert q['knowledge_policy']['selection_applied'] is False;
+          assert q['date_manifests'][0]['summary']['identity_resolved_ticker_count']==5442;
+          assert q['date_manifests'][1]['summary']['identity_resolved_ticker_count']==5571;
+          assert q['date_manifests'][0]['summary']['acquisition_decision_count']==5442;
+          assert q['date_manifests'][1]['summary']['acquisition_decision_count']==5571;
+          assert all(x['acquisition']['prefilter_values_exposed_to_runtime_strategy'] is False for x in q['date_manifests'])"
       - name: Upload historical census prototype
         if: always()
         uses: actions/upload-artifact@v4

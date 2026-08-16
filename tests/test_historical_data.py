@@ -1,14 +1,95 @@
 import unittest
-from datetime import date
+from datetime import date, datetime, time, timezone
+from zoneinfo import ZoneInfo
 
 import pandas as pd
 
 from momentumbot.historical_data import (
     _daily_scan_basis,
+    _discovery_disposition,
     asset_master_fingerprint,
     asset_master_status_counts,
+    discover_market_day,
     normalize_asset_master,
 )
+from momentumbot.models import current_general_2026
+
+
+ET = ZoneInfo("America/New_York")
+
+
+def _market_timestamp(day: date, at: time) -> pd.Timestamp:
+    return pd.Timestamp(datetime.combine(day, at, ET)).tz_convert("UTC")
+
+
+class _CompleteDiscoveryClient:
+    def __init__(self, target: date) -> None:
+        prior = [stamp.date() for stamp in pd.bdate_range(end=target, periods=61)][:-1]
+        daily_rows = []
+        for day in prior:
+            daily_rows.append(
+                {
+                    "timestamp": pd.Timestamp(datetime.combine(day, time(20), timezone.utc)),
+                    "open": 2.0,
+                    "high": 2.1,
+                    "low": 1.9,
+                    "close": 2.0,
+                    "volume": 100_000,
+                }
+            )
+        daily_rows.append(
+            {
+                "timestamp": pd.Timestamp(datetime.combine(target, time(20), timezone.utc)),
+                "open": 2.2,
+                "high": 3.0,
+                "low": 2.1,
+                "close": 2.8,
+                "volume": 1_000_000,
+            }
+        )
+        self.daily = pd.DataFrame(daily_rows).set_index("timestamp")
+        current_timestamp = _market_timestamp(target, time(7, 0))
+        self.current = pd.DataFrame(
+            [
+                {
+                    "timestamp": current_timestamp,
+                    "open": 2.4,
+                    "high": 2.6,
+                    "low": 2.3,
+                    "close": 2.5,
+                    "volume": 1_000,
+                }
+            ]
+        ).set_index("timestamp")
+        history_rows = [
+            {
+                "timestamp": _market_timestamp(day, time(7, 0)),
+                "open": 2.0,
+                "high": 2.0,
+                "low": 2.0,
+                "close": 2.0,
+                "volume": 100,
+            }
+            for day in prior[-50:]
+        ]
+        self.exact = pd.concat(
+            [pd.DataFrame(history_rows).set_index("timestamp"), self.current]
+        ).sort_index()
+        self.coarse = pd.DataFrame(history_rows).set_index("timestamp")
+
+    def bars_batched(self, symbols, **kwargs):
+        timeframe = kwargs["timeframe"]
+        if timeframe == "1Day":
+            frame = self.daily
+        elif timeframe == "15Min":
+            frame = self.coarse
+        elif timeframe == "1Min":
+            start = pd.Timestamp(kwargs["start"])
+            end = pd.Timestamp(kwargs["end"])
+            frame = self.exact if (end - start).days > 1 else self.current
+        else:
+            raise AssertionError(timeframe)
+        return {symbol: frame.copy() for symbol in symbols}
 
 
 class HistoricalDataTests(unittest.TestCase):
@@ -130,6 +211,62 @@ class HistoricalDataTests(unittest.TestCase):
             asset_master_status_counts(rows),
             {"active": 1, "inactive": 2},
         )
+
+    def test_discovery_disposition_fails_closed_at_first_missing_stage(self):
+        complete = {
+            "daily_scan_basis_available": True,
+            "daily_price_gain_prefilter_pass": True,
+            "average_daily_volume_50_available": True,
+            "raw_target_minute_bars_present": True,
+            "split_target_minute_bars_present": True,
+            "rvol_history_sessions": 50,
+            "coarse_rvol_prefilter_pass": True,
+            "causal_market_qualified": True,
+        }
+        self.assertEqual(
+            _discovery_disposition(complete, required_rvol_sessions=50),
+            "causal_market_candidate",
+        )
+        missing = dict(complete, raw_target_minute_bars_present=False)
+        self.assertEqual(
+            _discovery_disposition(missing, required_rvol_sessions=50),
+            "excluded_missing_raw_target_minute_bars",
+        )
+        insufficient = dict(complete, rvol_history_sessions=49)
+        self.assertEqual(
+            _discovery_disposition(insufficient, required_rvol_sessions=50),
+            "excluded_insufficient_rvol_history_sessions",
+        )
+
+    def test_discovery_audit_accounts_for_complete_candidate_path(self):
+        target = date(2025, 4, 3)
+        result = discover_market_day(
+            _CompleteDiscoveryClient(target),
+            trading_date=target,
+            profile=current_general_2026(),
+            assets=[
+                {
+                    "id": "FIGI-AAA",
+                    "class": "us_equity",
+                    "exchange": "NASDAQ",
+                    "symbol": "AAA",
+                    "name": "AAA Incorporated",
+                    "status": "active",
+                    "tradable": True,
+                    "attributes": [],
+                }
+            ],
+        )
+
+        self.assertEqual(result.market_candidate_count, 1)
+        self.assertEqual(len(result.acquisition_audit), 1)
+        audit = result.acquisition_audit[0]
+        self.assertEqual(audit.symbol, "AAA")
+        self.assertEqual(audit.disposition, "causal_market_candidate")
+        self.assertTrue(audit.daily_scan_basis_available)
+        self.assertTrue(audit.coarse_rvol_prefilter_pass)
+        self.assertTrue(audit.exact_rvol_observation_available)
+        self.assertTrue(audit.causal_market_qualified)
 
 
 if __name__ == "__main__":

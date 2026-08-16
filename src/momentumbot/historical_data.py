@@ -99,6 +99,25 @@ class DiscoveryRow:
 
 
 @dataclass(frozen=True, slots=True)
+class DiscoveryAuditRow:
+    symbol: str
+    disposition: str
+    daily_scan_basis_available: bool
+    daily_price_gain_prefilter_pass: bool
+    average_daily_volume_50_available: bool
+    raw_target_minute_bars_present: bool
+    split_target_minute_bars_present: bool
+    rvol_history_sessions: int
+    coarse_rvol_evaluated: bool
+    coarse_rvol_observation_available: bool
+    coarse_rvol_prefilter_pass: bool
+    exact_rvol_evaluated: bool
+    exact_rvol_observation_available: bool
+    causal_market_qualified: bool
+    first_market_qualified_at: str | None
+
+
+@dataclass(frozen=True, slots=True)
 class DiscoveryResult:
     asset_count: int
     listed_asset_count: int
@@ -111,6 +130,31 @@ class DiscoveryResult:
     minutes: dict[str, pd.DataFrame]
     contexts: dict[str, SymbolContext]
     rvol_curves: dict[str, pd.Series]
+    acquisition_audit: tuple[DiscoveryAuditRow, ...] = ()
+
+
+def _discovery_disposition(
+    state: dict[str, object],
+    *,
+    required_rvol_sessions: int,
+) -> str:
+    if not bool(state["daily_scan_basis_available"]):
+        return "excluded_missing_daily_scan_basis"
+    if not bool(state["daily_price_gain_prefilter_pass"]):
+        return "excluded_daily_price_or_gain_acquisition_filter"
+    if not bool(state["average_daily_volume_50_available"]):
+        return "excluded_missing_50_session_average_volume"
+    if not bool(state["raw_target_minute_bars_present"]):
+        return "excluded_missing_raw_target_minute_bars"
+    if int(state["rvol_history_sessions"]) < required_rvol_sessions:
+        return "excluded_insufficient_rvol_history_sessions"
+    if not bool(state["split_target_minute_bars_present"]):
+        return "excluded_missing_split_target_minute_bars"
+    if not bool(state["coarse_rvol_prefilter_pass"]):
+        return "excluded_coarse_rvol_acquisition_filter"
+    if not bool(state["causal_market_qualified"]):
+        return "excluded_exact_causal_market_rules"
+    return "causal_market_candidate"
 
 
 def _local_date(index: pd.DatetimeIndex) -> pd.Index:
@@ -259,6 +303,24 @@ def discover_market_day(
     ]
     symbols = sorted({str(row["symbol"]).upper() for row in listed})
     asset_meta = {str(row["symbol"]).upper(): row for row in listed}
+    audit_state: dict[str, dict[str, object]] = {
+        symbol: {
+            "daily_scan_basis_available": False,
+            "daily_price_gain_prefilter_pass": False,
+            "average_daily_volume_50_available": False,
+            "raw_target_minute_bars_present": False,
+            "split_target_minute_bars_present": False,
+            "rvol_history_sessions": 0,
+            "coarse_rvol_evaluated": False,
+            "coarse_rvol_observation_available": False,
+            "coarse_rvol_prefilter_pass": False,
+            "exact_rvol_evaluated": False,
+            "exact_rvol_observation_available": False,
+            "causal_market_qualified": False,
+            "first_market_qualified_at": None,
+        }
+        for symbol in symbols
+    }
 
     coarse_start, coarse_end = _daily_window(trading_date, 8)
     coarse_raw = alpaca.bars_batched(
@@ -292,10 +354,12 @@ def discover_market_day(
         )
         if basis is None:
             continue
+        audit_state[symbol]["daily_scan_basis_available"] = True
         prior_close, high, low = basis
         gain_at_high = (high / prior_close - 1.0) * 100.0
         price_intersects = high >= profile.min_price and low <= profile.max_price
         if gain_at_high >= profile.min_percent_gain and price_intersects:
+            audit_state[symbol]["daily_price_gain_prefilter_pass"] = True
             superset.append(symbol)
             previous_close[symbol] = prior_close
             target_high[symbol] = high
@@ -360,12 +424,20 @@ def discover_market_day(
         )
         frame = raw_minutes.get(symbol, pd.DataFrame())
         current_split = split_current.get(symbol, pd.DataFrame())
+        audit_state[symbol]["average_daily_volume_50_available"] = (
+            average is not None
+        )
+        audit_state[symbol]["raw_target_minute_bars_present"] = not frame.empty
+        audit_state[symbol]["split_target_minute_bars_present"] = (
+            not current_split.empty
+        )
         prior_dates = prior_session_dates(
             daily,
             trading_date=trading_date,
             lookback_sessions=profile.rvol_lookback_sessions,
         )
         session_dates_by_symbol[symbol] = prior_dates
+        audit_state[symbol]["rvol_history_sessions"] = len(prior_dates)
         if average is None or frame.empty:
             continue
         contexts[symbol] = SymbolContext(
@@ -394,6 +466,7 @@ def discover_market_day(
         if len(prior_dates) < profile.rvol_lookback_sessions or current_split.empty:
             continue
         coarse_history = coarse_rvol_history.get(symbol, pd.DataFrame())
+        audit_state[symbol]["coarse_rvol_evaluated"] = True
         upper = coarse_rvol_upper_bound(
             current_split,
             coarse_history,
@@ -403,6 +476,9 @@ def discover_market_day(
             end_time=profile.no_new_entries_after,
         )
         upper_curves[symbol] = upper
+        audit_state[symbol]["coarse_rvol_observation_available"] = bool(
+            upper.values.notna().any()
+        )
         _, _, _, upper_mask = _scan_values(
             frame,
             previous_close=previous_close[symbol],
@@ -410,6 +486,7 @@ def discover_market_day(
             profile=profile,
         )
         if upper_mask.any():
+            audit_state[symbol]["coarse_rvol_prefilter_pass"] = True
             narrowed.append(symbol)
 
     exact_history = alpaca.bars_batched(
@@ -427,6 +504,7 @@ def discover_market_day(
     for symbol in narrowed:
         full = exact_history.get(symbol, pd.DataFrame())
         prior_dates = session_dates_by_symbol[symbol]
+        audit_state[symbol]["exact_rvol_evaluated"] = True
         exact = same_time_rvol(
             full,
             trading_date=trading_date,
@@ -435,6 +513,9 @@ def discover_market_day(
             end_time=profile.no_new_entries_after,
         )
         exact_curves[symbol] = exact
+        audit_state[symbol]["exact_rvol_observation_available"] = bool(
+            exact.values.notna().any()
+        )
         frame = raw_minutes[symbol]
         _, _, _, mask = _scan_values(
             frame,
@@ -444,6 +525,10 @@ def discover_market_day(
         )
         if mask.any():
             first_qualified[symbol] = frame.index[mask][0].isoformat()
+            audit_state[symbol]["causal_market_qualified"] = True
+            audit_state[symbol]["first_market_qualified_at"] = (
+                first_qualified[symbol]
+            )
 
     rows: list[DiscoveryRow] = []
     qualified_minutes: dict[str, pd.DataFrame] = {}
@@ -505,6 +590,17 @@ def discover_market_day(
         ),
         reverse=True,
     )
+    acquisition_audit = tuple(
+        DiscoveryAuditRow(
+            symbol=symbol,
+            disposition=_discovery_disposition(
+                audit_state[symbol],
+                required_rvol_sessions=profile.rvol_lookback_sessions,
+            ),
+            **audit_state[symbol],
+        )
+        for symbol in symbols
+    )
     return DiscoveryResult(
         asset_count=len(assets),
         listed_asset_count=len(symbols),
@@ -517,6 +613,7 @@ def discover_market_day(
         minutes=qualified_minutes,
         contexts=contexts,
         rvol_curves=rvol_curves,
+        acquisition_audit=acquisition_audit,
     )
 
 

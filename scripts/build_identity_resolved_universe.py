@@ -303,6 +303,12 @@ def main(argv: list[str] | None = None) -> int:
             "provisional_universe_policy_fingerprint": expected_source_policy[
                 "fingerprint"
             ],
+            "provisional_membership_sha256_by_date": {
+                str(payload["trading_date"]): payload["source_artifacts"][
+                    "provisional_membership_sha256"
+                ]
+                for payload in date_payloads
+            },
             "identity_audit_id": identity_manifest["audit_id"],
             "identity_audit_content_sha256": identity_manifest["content_sha256"],
             "identity_bridge_sha256": bridge["bridge_sha256"],

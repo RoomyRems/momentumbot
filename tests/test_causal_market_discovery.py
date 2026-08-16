@@ -1,0 +1,211 @@
+from __future__ import annotations
+
+from dataclasses import replace
+import unittest
+
+from momentumbot.causal_market_discovery import (
+    build_causal_market_discovery_manifest,
+    causal_market_discovery_v0_1_manifest,
+    identity_membership_as_acquisition_assets,
+    strategy_profile_manifest,
+)
+from momentumbot.historical_data import (
+    DiscoveryAuditRow,
+    DiscoveryResult,
+    DiscoveryRow,
+)
+from momentumbot.identity_resolved_universe import (
+    identity_resolved_membership_fingerprint,
+)
+from momentumbot.models import current_general_2026
+
+
+def _member(ticker: str, mic: str) -> dict[str, object]:
+    return {
+        "ticker": ticker,
+        "included": True,
+        "reason": "included_provisional_common_equity",
+        "security_record_count": 1,
+        "common_type_record_count": 1,
+        "accepted_identity_count": 1,
+        "metadata_statuses": ["no_name_conflict_detected"],
+        "selected_security_type": "CS",
+        "selected_primary_exchange": mic,
+        "selected_cik": "1",
+        "selected_composite_figi": f"FIGI-{ticker}",
+        "identity_identifier_kind": "composite_figi",
+        "identity_identifier": f"FIGI-{ticker}",
+    }
+
+
+class CausalMarketDiscoveryTests(unittest.TestCase):
+    def test_exchange_translation_preserves_every_frozen_member(self) -> None:
+        rows = [
+            _member("AAA", "XNAS"),
+            _member("BBB", "XNYS"),
+            _member("CCC", "XASE"),
+            _member("DDD", "ARCX"),
+            _member("EEE", "BATS"),
+        ]
+
+        assets = identity_membership_as_acquisition_assets(rows)
+
+        self.assertEqual(len(assets), 5)
+        self.assertEqual(
+            {row["exchange"] for row in assets},
+            {"NASDAQ", "NYSE", "AMEX", "ARCA", "BATS"},
+        )
+        self.assertEqual(
+            [row["symbol"] for row in assets],
+            ["AAA", "BBB", "CCC", "DDD", "EEE"],
+        )
+
+    def test_strategy_profile_fingerprint_changes_with_policy(self) -> None:
+        profile = current_general_2026()
+        changed = replace(profile, min_percent_gain=11.0)
+
+        self.assertNotEqual(
+            strategy_profile_manifest(profile)["fingerprint"],
+            strategy_profile_manifest(changed)["fingerprint"],
+        )
+
+    def test_manifest_is_complete_only_through_market_discovery(self) -> None:
+        member = _member("AAA", "XNAS")
+        membership_hash = identity_resolved_membership_fingerprint([member])
+        assets = identity_membership_as_acquisition_assets([member])
+        from momentumbot.historical_data import asset_master_fingerprint
+
+        row = DiscoveryRow(
+            symbol="AAA",
+            status="active",
+            exchange="NASDAQ",
+            previous_close=2.0,
+            target_high=3.0,
+            max_session_gain_pct=50.0,
+            max_session_rvol_upper_bound=6.0,
+            max_session_rvol=5.5,
+            rvol_history_sessions=50,
+            average_daily_volume_50=100_000.0,
+            first_market_qualified_at="2025-04-03T11:00:00+00:00",
+            minute_bars=100,
+        )
+        result = DiscoveryResult(
+            asset_count=1,
+            listed_asset_count=1,
+            daily_superset_count=1,
+            rvol_prefilter_count=1,
+            market_candidate_count=1,
+            asset_master_sha256=asset_master_fingerprint(assets),
+            asset_status_counts={"active": 1},
+            rows=(row,),
+            minutes={},
+            contexts={},
+            rvol_curves={},
+            acquisition_audit=(
+                DiscoveryAuditRow(
+                    symbol="AAA",
+                    disposition="causal_market_candidate",
+                    daily_scan_basis_available=True,
+                    daily_price_gain_prefilter_pass=True,
+                    average_daily_volume_50_available=True,
+                    raw_target_minute_bars_present=True,
+                    split_target_minute_bars_present=True,
+                    rvol_history_sessions=50,
+                    coarse_rvol_evaluated=True,
+                    coarse_rvol_observation_available=True,
+                    coarse_rvol_prefilter_pass=True,
+                    exact_rvol_evaluated=True,
+                    exact_rvol_observation_available=True,
+                    causal_market_qualified=True,
+                    first_market_qualified_at="2025-04-03T11:00:00+00:00",
+                ),
+            ),
+        )
+        payload = {
+            "artifact_id": "identity-resolved-universe-v0.1",
+            "trading_date": "2025-04-03",
+            "policy_fingerprint": "identity-policy",
+            "summary": {
+                "identity_accepted_ticker_count": 1,
+                "membership_sha256": membership_hash,
+            },
+        }
+
+        manifest = build_causal_market_discovery_manifest(
+            trading_date="2025-04-03",
+            membership_rows=[member],
+            membership_payload=payload,
+            membership_bundle_manifest={"content_sha256": "bundle"},
+            result=result,
+            profile=current_general_2026(),
+        )
+
+        self.assertEqual(len(causal_market_discovery_v0_1_manifest()["fingerprint"]), 64)
+        self.assertTrue(
+            manifest["eligibility"]["causal_market_discovery_complete"]
+        )
+        self.assertEqual(manifest["summary"]["acquisition_decision_count"], 1)
+        self.assertFalse(manifest["eligibility"]["full_feature_snapshot_complete"])
+        self.assertFalse(manifest["eligibility"]["universe_complete"])
+        self.assertFalse(manifest["knowledge_policy"]["uses_benchmark_labels"])
+
+    def test_manifest_rejects_member_without_required_daily_basis(self) -> None:
+        member = _member("AAA", "XNAS")
+        membership_hash = identity_resolved_membership_fingerprint([member])
+        assets = identity_membership_as_acquisition_assets([member])
+        from momentumbot.historical_data import asset_master_fingerprint
+
+        audit = DiscoveryAuditRow(
+            symbol="AAA",
+            disposition="excluded_missing_daily_scan_basis",
+            daily_scan_basis_available=False,
+            daily_price_gain_prefilter_pass=False,
+            average_daily_volume_50_available=False,
+            raw_target_minute_bars_present=False,
+            split_target_minute_bars_present=False,
+            rvol_history_sessions=0,
+            coarse_rvol_evaluated=False,
+            coarse_rvol_observation_available=False,
+            coarse_rvol_prefilter_pass=False,
+            exact_rvol_evaluated=False,
+            exact_rvol_observation_available=False,
+            causal_market_qualified=False,
+            first_market_qualified_at=None,
+        )
+        result = DiscoveryResult(
+            asset_count=1,
+            listed_asset_count=1,
+            daily_superset_count=0,
+            rvol_prefilter_count=0,
+            market_candidate_count=0,
+            asset_master_sha256=asset_master_fingerprint(assets),
+            asset_status_counts={"active": 1},
+            rows=(),
+            minutes={},
+            contexts={},
+            rvol_curves={},
+            acquisition_audit=(audit,),
+        )
+        payload = {
+            "artifact_id": "identity-resolved-universe-v0.1",
+            "trading_date": "2025-04-03",
+            "policy_fingerprint": "identity-policy",
+            "summary": {
+                "identity_accepted_ticker_count": 1,
+                "membership_sha256": membership_hash,
+            },
+        }
+
+        with self.assertRaisesRegex(ValueError, "daily scan basis"):
+            build_causal_market_discovery_manifest(
+                trading_date="2025-04-03",
+                membership_rows=[member],
+                membership_payload=payload,
+                membership_bundle_manifest={"content_sha256": "bundle"},
+                result=result,
+                profile=current_general_2026(),
+            )
+
+
+if __name__ == "__main__":
+    unittest.main()
