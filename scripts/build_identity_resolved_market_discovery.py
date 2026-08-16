@@ -11,6 +11,7 @@ import pandas as pd
 from momentumbot.causal_market_discovery import (
     CAUSAL_MARKET_DISCOVERY_POLICY_ID,
     build_causal_market_discovery_manifest,
+    build_market_candidate_payload,
     causal_market_discovery_v0_1_manifest,
     identity_membership_as_acquisition_assets,
 )
@@ -93,10 +94,21 @@ def main(argv: list[str] | None = None) -> int:
             date_root / "identity-resolved-membership.json",
             membership_payload,
         )
+        candidate_payload = build_market_candidate_payload(
+            trading_date=value,
+            membership_rows=rows,
+            result=result,
+        )
+        if candidate_payload["content_sha256"] != manifest["summary"][
+            "causal_market_candidate_set_sha256"
+        ]:
+            raise RuntimeError("market candidate payload fingerprint mismatch")
+        _write_json(date_root / "market-candidates.json", candidate_payload)
         manifest["files"] = {
             "discovery_records": "discovery.csv",
             "acquisition_audit": "acquisition-audit.csv",
             "identity_resolved_membership": "identity-resolved-membership.json",
+            "market_candidates": "market-candidates.json",
         }
         _write_json(date_root / "manifest.json", manifest)
         date_manifests.append(manifest)

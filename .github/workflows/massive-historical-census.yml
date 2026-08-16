@@ -32,6 +32,14 @@ on:
       - scripts/build_identity_resolved_market_discovery.py
       - tests/test_causal_market_discovery.py
       - tests/test_historical_data.py
+      - src/momentumbot/historical_float.py
+      - src/momentumbot/providers/sec_edgar.py
+      - scripts/build_causal_float_enrichment.py
+      - scripts/build_sec_float_join.py
+      - tests/test_historical_float.py
+      - tests/test_build_causal_float_enrichment.py
+      - tests/test_sec_edgar.py
+      - tests/test_sec_float_join.py
       - research/data-audits/massive-identity-corporate-actions-v0.1-2026-08-16.json
       - .github/workflows/massive-historical-census.yml
 
@@ -70,6 +78,10 @@ jobs:
           tests.test_build_identity_resolved_universe
           tests.test_causal_market_discovery
           tests.test_historical_data
+          tests.test_historical_float
+          tests.test_build_causal_float_enrichment
+          tests.test_sec_edgar
+          tests.test_sec_float_join
           -v
       - name: Fetch fully paginated historical censuses
         run: >-
@@ -111,6 +123,13 @@ jobs:
           --census-root massive-historical-census
           --dates 2025-04-03 2026-07-09
           --asset-batch-size 250
+      - name: Build causal point-in-time SEC float enrichment
+        run: >-
+          python scripts/build_causal_float_enrichment.py
+          --census-root massive-historical-census
+          --dates 2025-04-03 2026-07-09
+          --minimum-sec-request-interval 0.2
+          --sec-attempts 3
       - name: Enforce research-only eligibility
         run: >-
           python -c "import json,pathlib;
@@ -168,7 +187,29 @@ jobs:
           assert q['date_manifests'][1]['summary']['identity_resolved_ticker_count']==5571;
           assert q['date_manifests'][0]['summary']['acquisition_decision_count']==5442;
           assert q['date_manifests'][1]['summary']['acquisition_decision_count']==5571;
-          assert all(x['acquisition']['prefilter_values_exposed_to_runtime_strategy'] is False for x in q['date_manifests'])"
+          assert all(x['acquisition']['prefilter_values_exposed_to_runtime_strategy'] is False for x in q['date_manifests']);
+          f=json.loads((root/'causal-sec-float-v0.1'/'manifest.json').read_text());
+          assert f['eligibility']['complete_relative_to_market_candidates'] is True;
+          assert f['eligibility']['point_in_time_float_decisions_frozen'] is True;
+          assert f['eligibility']['publication_timed_news_complete'] is False;
+          assert f['eligibility']['full_feature_snapshot_complete'] is False;
+          assert f['eligibility']['universe_complete'] is False;
+          assert f['eligibility']['full_walk_forward_eligible'] is False;
+          assert f['eligibility']['policy_promotion_eligible'] is False;
+          assert f['knowledge_policy']['uses_benchmark_labels'] is False;
+          assert f['knowledge_policy']['uses_future_filings'] is False;
+          assert f['knowledge_policy']['raw_future_disclosures_persisted'] is False;
+          assert f['knowledge_policy']['unknown_float_fails_closed'] is True;
+          assert f['fatal_provider_errors']==[];
+          qm={x['trading_date']:x for x in q['date_manifests']};
+          assert all(x['summary']['market_candidate_count']==qm[x['trading_date']]['summary']['causal_market_candidate_count'] for x in f['date_manifests']);
+          assert all(x['summary']['float_decision_count']==x['summary']['market_candidate_count'] for x in f['date_manifests']);
+          assert all(x['summary']['provider_error_count']==0 for x in f['date_manifests']);
+          assert all(x['summary']['float_pass_count']+x['summary']['float_fail_count']+x['summary']['float_unknown_fail_closed_count']==x['summary']['float_decision_count'] for x in f['date_manifests']);
+          assert all(x['knowledge_policy']['uses_benchmark_labels'] is False for x in f['date_manifests']);
+          assert all(x['knowledge_policy']['uses_future_filings'] is False for x in f['date_manifests']);
+          assert all(x['knowledge_policy']['raw_future_disclosures_persisted'] is False for x in f['date_manifests']);
+          assert all(x['knowledge_policy']['unknown_float_fails_closed'] is True for x in f['date_manifests'])"
       - name: Upload historical census prototype
         if: always()
         uses: actions/upload-artifact@v4

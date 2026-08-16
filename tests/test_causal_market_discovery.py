@@ -1,12 +1,17 @@
 from __future__ import annotations
 
 from dataclasses import replace
+import json
+from pathlib import Path
+import tempfile
 import unittest
 
 from momentumbot.causal_market_discovery import (
     build_causal_market_discovery_manifest,
+    build_market_candidate_payload,
     causal_market_discovery_v0_1_manifest,
     identity_membership_as_acquisition_assets,
+    load_market_candidate_payload,
     strategy_profile_manifest,
 )
 from momentumbot.historical_data import (
@@ -148,6 +153,35 @@ class CausalMarketDiscoveryTests(unittest.TestCase):
         self.assertFalse(manifest["eligibility"]["full_feature_snapshot_complete"])
         self.assertFalse(manifest["eligibility"]["universe_complete"])
         self.assertFalse(manifest["knowledge_policy"]["uses_benchmark_labels"])
+        candidates = build_market_candidate_payload(
+            trading_date="2025-04-03",
+            membership_rows=[member],
+            result=result,
+        )
+        self.assertEqual(candidates["candidate_count"], 1)
+        self.assertEqual(candidates["rows"][0]["symbol"], "AAA")
+        self.assertEqual(
+            candidates["rows"][0]["selected_cik"], member["selected_cik"]
+        )
+        self.assertEqual(
+            manifest["summary"]["causal_market_candidate_set_sha256"],
+            candidates["content_sha256"],
+        )
+        with tempfile.TemporaryDirectory() as raw:
+            root = Path(raw)
+            manifest["files"] = {"market_candidates": "market-candidates.json"}
+            (root / "manifest.json").write_text(
+                json.dumps(manifest), encoding="utf-8"
+            )
+            (root / "market-candidates.json").write_text(
+                json.dumps(candidates), encoding="utf-8"
+            )
+            loaded_rows, loaded_payload, loaded_manifest = (
+                load_market_candidate_payload(root)
+            )
+            self.assertEqual(loaded_rows, candidates["rows"])
+            self.assertEqual(loaded_payload, candidates)
+            self.assertEqual(loaded_manifest, manifest)
 
     def test_manifest_rejects_member_without_required_daily_basis(self) -> None:
         member = _member("AAA", "XNAS")

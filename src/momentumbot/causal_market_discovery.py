@@ -4,9 +4,10 @@ from __future__ import annotations
 
 from collections import Counter
 from dataclasses import asdict, dataclass
-from datetime import time
+from datetime import datetime, time
 import hashlib
 import json
+from pathlib import Path
 from typing import Iterable
 
 from .historical_data import DiscoveryResult, asset_master_fingerprint
@@ -141,6 +142,126 @@ def discovery_audit_fingerprint(result: DiscoveryResult) -> str:
     return _json_fingerprint(rows)
 
 
+def build_market_candidate_payload(
+    *,
+    trading_date: str,
+    membership_rows: list[dict[str, object]],
+    result: DiscoveryResult,
+) -> dict[str, object]:
+    membership = {str(row["ticker"]): row for row in membership_rows}
+    candidates: list[dict[str, object]] = []
+    for row in sorted(result.rows, key=lambda item: item.symbol):
+        if row.first_market_qualified_at is None:
+            continue
+        source = membership.get(row.symbol)
+        if source is None:
+            raise ValueError(f"market candidate {row.symbol} is absent from membership")
+        candidates.append(
+            {
+                "symbol": row.symbol,
+                "first_market_qualified_at": row.first_market_qualified_at,
+                "previous_close": row.previous_close,
+                "average_daily_volume_50": row.average_daily_volume_50,
+                "rvol_history_sessions": row.rvol_history_sessions,
+                "selected_cik": source.get("selected_cik", ""),
+                "selected_composite_figi": source.get(
+                    "selected_composite_figi", ""
+                ),
+                "identity_identifier_kind": source.get(
+                    "identity_identifier_kind", ""
+                ),
+                "identity_identifier": source.get("identity_identifier", ""),
+            }
+        )
+    payload: dict[str, object] = {
+        "schema_version": 1,
+        "artifact_id": "causal-market-candidates-v0.1",
+        "trading_date": trading_date,
+        "source_discovery_policy_fingerprint": (
+            causal_market_discovery_v0_1_manifest()["fingerprint"]
+        ),
+        "source_discovery_records_sha256": discovery_records_fingerprint(result),
+        "knowledge_policy": {
+            "uses_benchmark_labels": False,
+            "uses_retrospective_trade_outcomes": False,
+            "selection_applied": False,
+        },
+        "candidate_count": len(candidates),
+        "rows": candidates,
+    }
+    payload["content_sha256"] = _json_fingerprint(
+        {key: value for key, value in payload.items() if key != "content_sha256"}
+    )
+    return payload
+
+
+def load_market_candidate_payload(
+    date_root: str | Path,
+) -> tuple[list[dict[str, object]], dict[str, object], dict[str, object]]:
+    root = Path(date_root)
+    manifest = json.loads((root / "manifest.json").read_text(encoding="utf-8"))
+    if not isinstance(manifest, dict):
+        raise ValueError("market discovery manifest must be an object")
+    if manifest.get("artifact_id") != CAUSAL_MARKET_DISCOVERY_POLICY_ID:
+        raise ValueError("unsupported market discovery artifact")
+    if manifest.get("discovery_policy") != causal_market_discovery_v0_1_manifest():
+        raise ValueError("market discovery policy mismatch")
+    if manifest.get("eligibility", {}).get(
+        "causal_market_discovery_complete"
+    ) is not True:
+        raise ValueError("market discovery is incomplete")
+    if manifest.get("knowledge_policy", {}).get("uses_benchmark_labels") is not False:
+        raise ValueError("market discovery must be label-blind")
+    relative = manifest.get("files", {}).get("market_candidates")
+    if not isinstance(relative, str) or not relative:
+        raise ValueError("market discovery lacks candidate artifact")
+    candidate_path = Path(relative)
+    if candidate_path.is_absolute() or ".." in candidate_path.parts:
+        raise ValueError("market candidate path must stay inside discovery artifact")
+    payload = json.loads((root / candidate_path).read_text(encoding="utf-8"))
+    if not isinstance(payload, dict):
+        raise ValueError("market candidate payload must be an object")
+    claimed = payload.get("content_sha256")
+    actual = _json_fingerprint(
+        {key: value for key, value in payload.items() if key != "content_sha256"}
+    )
+    if claimed != actual:
+        raise ValueError("market candidate payload fingerprint mismatch")
+    if claimed != manifest.get("summary", {}).get(
+        "causal_market_candidate_set_sha256"
+    ):
+        raise ValueError("market discovery candidate summary mismatch")
+    if payload.get("source_discovery_policy_fingerprint") != manifest.get(
+        "discovery_policy", {}
+    ).get("fingerprint"):
+        raise ValueError("market candidate source policy mismatch")
+    if payload.get("source_discovery_records_sha256") != manifest.get(
+        "summary", {}
+    ).get("discovery_records_sha256"):
+        raise ValueError("market candidate discovery fingerprint mismatch")
+    if payload.get("trading_date") != manifest.get("trading_date"):
+        raise ValueError("market candidate date mismatch")
+    if payload.get("knowledge_policy", {}).get("uses_benchmark_labels") is not False:
+        raise ValueError("market candidates must be label-blind")
+    rows = payload.get("rows")
+    if not isinstance(rows, list) or payload.get("candidate_count") != len(rows):
+        raise ValueError("market candidate count mismatch")
+    symbols: set[str] = set()
+    for row in rows:
+        if not isinstance(row, dict):
+            raise ValueError("market candidate row must be an object")
+        symbol = str(row.get("symbol") or "")
+        if not symbol or symbol in symbols:
+            raise ValueError("market candidate symbols must be unique and nonblank")
+        symbols.add(symbol)
+        timestamp = datetime.fromisoformat(
+            str(row.get("first_market_qualified_at") or "")
+        )
+        if timestamp.tzinfo is None:
+            raise ValueError("market qualification timestamps must be timezone-aware")
+    return rows, payload, manifest
+
+
 def build_causal_market_discovery_manifest(
     *,
     trading_date: str,
@@ -225,6 +346,11 @@ def build_causal_market_discovery_manifest(
     disposition_counts = Counter(
         row.disposition for row in result.acquisition_audit
     )
+    candidate_payload = build_market_candidate_payload(
+        trading_date=trading_date,
+        membership_rows=membership_rows,
+        result=result,
+    )
 
     return {
         "schema_version": 1,
@@ -257,6 +383,9 @@ def build_causal_market_discovery_manifest(
             "daily_price_superset_count": result.daily_superset_count,
             "coarse_rvol_prefilter_count": result.rvol_prefilter_count,
             "causal_market_candidate_count": result.market_candidate_count,
+            "causal_market_candidate_set_sha256": candidate_payload[
+                "content_sha256"
+            ],
             "discovery_record_count": len(result.rows),
             "discovery_records_sha256": discovery_records_fingerprint(result),
             "acquisition_decision_count": len(result.acquisition_audit),
