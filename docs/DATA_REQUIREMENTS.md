@@ -60,5 +60,8 @@ The repository is designed to eventually consume the already-configured secret n
 - `MARKETAUX_API_KEY`
 - `MASSIVE_API_KEY` (preferred for the historical ticker-census probe)
 - `POLYGON_API_KEY` (legacy-compatible fallback for the same provider)
+- `SEC_USER_AGENT` (declared application identity plus monitored contact email,
+  for example `RoomyRems MomentumBot contact@example.com`; required by SEC
+  fair-access policy and never written into an artifact)
 
 Provider adapters are intentionally deferred until the deterministic contracts/tests are stable. Secrets must never be printed to workflow logs or stored in snapshots.

@@ -1,0 +1,53 @@
+{
+  "artifact": {
+    "content_sha256": "c16087e380e6a79fee00bb2dec95c2b6013df2956e4366e749f46f3a3b6992d6",
+    "digest_sha256": "fbe696b54d13fe056f4a764ad4675da7421813721a14d338ea6df931ca38510d",
+    "id": 9270578640,
+    "manifest_file_sha256": "85705809d032d8063a99ffe56d118233048341d6b8f2a7b50940fd75c2a3721d",
+    "name": "massive-historical-census-prototype"
+  },
+  "candidate_counts": {
+    "2025-04-03": 7,
+    "2026-07-09": 14,
+    "total": 21
+  },
+  "conclusion": "provider_access_blocked_no_float_decision_frozen",
+  "eligibility": {
+    "complete_relative_to_market_candidates": false,
+    "full_feature_snapshot_complete": false,
+    "full_walk_forward_eligible": false,
+    "point_in_time_float_decisions_frozen": false,
+    "policy_promotion_eligible": false,
+    "publication_timed_news_complete": false,
+    "universe_complete": false
+  },
+  "failure": {
+    "all_candidates_failed_same_way": true,
+    "error": "HTTPError:403",
+    "provider": "SEC data.sec.gov",
+    "provider_error_count": 21,
+    "root_cause_classification": "undeclared_or_unaccepted_automated_client_identity",
+    "treatment": "unknown_float_fail_closed"
+  },
+  "knowledge_policy": {
+    "raw_future_disclosures_persisted": false,
+    "unknown_float_fails_closed": true,
+    "uses_benchmark_labels": false,
+    "uses_future_filings": false
+  },
+  "market_discovery": {
+    "completed_before_failure": true,
+    "content_sha256": "288d48d56f693e584ebbc2353ec42698a3e546c3628824927288c906fbaacee2"
+  },
+  "next_action": "require SEC_USER_AGENT with application identity and contact email, then rerun without changing the causal float policy",
+  "recorded_at_utc": "2026-08-16T21:39:05Z",
+  "schema_version": 1,
+  "workflow": {
+    "branch": "phase-3-historical-snapshot",
+    "head_sha": "1d79836e4457d9e8b0b60108b37cd7bc35d7f08f",
+    "job_id": 95229010766,
+    "name": "Massive historical ticker census",
+    "run_id": 31973322123,
+    "status": "failure"
+  }
+}
