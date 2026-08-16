@@ -50,6 +50,14 @@ The source corpus supports the 10-second micro concept, controlled pullback, rou
 
 Research-only helpers such as geometry-only evaluation and psychological-level continuation remain available, but a result using them must not be labeled Micro v0.1.
 
+## Seed benchmark status
+
+The first leakage-safe five-case primary benchmark has now completed. The authoritative result is documented in `docs/research/micro_v0_1_seed_results.md`.
+
+The frozen policy often finds some later micro-pullback participation on the same momentum stock, but it does **not** yet reproduce the specific early human trade reliably. The strongest observed boundaries are the strict session-running-high peak translation and the decision to discard completed chart structure from before the candidate qualification timestamp. These findings do not modify the v0.1 contract; they define controlled hypotheses for future named ablations.
+
+Authoritative seed fingerprint: `49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa`.
+
 ## Promotion criterion
 
-Freezing does **not** mean production-ready. Micro v0.1 remains a research baseline until it has been evaluated across multiple leakage-safe labeled examples and broader walk-forward historical days. No live-money execution is in scope.
+Freezing does **not** mean production-ready. Micro v0.1 remains a research baseline until it has been evaluated across additional leakage-safe labeled examples and broader walk-forward historical days. The completed seed suite is a diagnostic milestone, not production validation. No live-money execution is in scope.
