@@ -32,3 +32,41 @@ The aggregate readout reports paired plan-count and modeled-fill-count deltas, c
 Each plan is an independently refreshed diagnostic opportunity. Repeated modeled fills do not represent portfolio position state, buying-power limits, campaign re-entry rules or realized P&L.
 
 The cohort is never scored against retrospective behavior labels and is not policy-promotion eligible. A favorable result could justify a separately designed validation stage; it cannot promote either volume-off ablation by itself.
+
+## Completed result
+
+Workflow run `31952684371` completed successfully at design commit `086f4b2ccdda9b3b7f9e8ab86707c0d019544920`. All six discovery jobs, the frozen selection step, all 12 shared-input four-cell replays and the aggregate summarizer succeeded.
+
+The precommitted selection produced 12 candidates across six dates: AIFF, CLMT, ABSI, FNGR, HBM, LPL, RDCM, SI, BETA, LABX, EOSE and GENK.
+
+| Cell | Plans | Modeled fills | Cases with plan | Cases with fill | Median plans/case |
+|---|---:|---:|---:|---:|---:|
+| Baseline | 31 | 6 | 7/12 | 2/12 | 2.0 |
+| Context only | 30 | 4 | 7/12 | 2/12 | 2.5 |
+| Volume only | 48 | 7 | 8/12 | 3/12 | 4.0 |
+| Context + volume | 51 | 5 | 9/12 | 3/12 | 4.0 |
+
+The paired volume contrasts show the same pattern in both context strata:
+
+| Contrast | Plan delta | Fill delta | Cases with more plans | Cases with more fills |
+|---|---:|---:|---:|---:|
+| Volume only minus baseline | +17 (+54.8%) | +1 | 6/12 | 1/12 |
+| Context + volume minus context only | +21 (+70.0%) | +1 | 7/12 | 1/12 |
+
+Removing the hard volume gate never reduced plan count in either paired contrast. It added a modeled fill only for LPL, at `$4.89` on pullback `#3`. It did not move the first modeled fill for AIFF or EOSE, the two candidates that baseline already filled. FNGR's first plan moved 1,390 seconds earlier without gaining a fill, and the other extra opportunities were likewise mostly non-participating activity.
+
+Prequalification context was not a universally inert factor outside the five-case seed. In EOSE it changed baseline from six plans/three fills with first fill `$10.97`/`#1` to four plans/one fill with first fill `$11.47`/`#4`. In HBM, plans appeared only in the context-plus-volume cell. LABX also received an earlier first plan from context. These candidate-specific structural effects mean the seed-suite interaction cannot be treated as general.
+
+## Decision
+
+Do not promote either volume-off cell. The ablation increases setup activity by roughly 55–70% while changing modeled participation in only one of 12 candidates. This is adverse activity/safety evidence, not a convincing reproduction improvement. The frozen `micro-v0.1` policy remains the parent policy.
+
+The experiment does not establish imitation quality, trade quality, realized P&L or full-scanner false-positive rate. Discovery used the currently accessible listed-symbol asset master rather than a reconstructed point-in-time symbol universe, so survivorship and coverage limit cohort representativeness. The paired results remain valid conditional evidence for these frozen candidates because every cell within a candidate used the same market inputs.
+
+## Frozen artifacts
+
+- Selection: `research/benchmarks/results/micro-volume-activity-cohort-selection.json`
+- Aggregate comparison: `research/benchmarks/results/micro-volume-activity-cohort-summary.json`
+- Workflow and artifact provenance: `research/benchmarks/results/micro-volume-activity-cohort-provenance.json`
+- Selection SHA-256: `303b752c0a18fc1677e89f825816e7a242a7230a1594712fa8640e29bed0cf42`
+- Summary artifact: `9265392291`, digest `sha256:ac44a057fce3a423526db5405161dc9edcd3f6e9aadd495dba71fea783405355`

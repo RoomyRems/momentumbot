@@ -1,0 +1,129 @@
+{
+  "artifact_type": "micro_volume_activity_cohort_provenance",
+  "branch": "phase-3-historical-snapshot",
+  "design": {
+    "commit_sha": "086f4b2ccdda9b3b7f9e8ab86707c0d019544920",
+    "path": "research/benchmarks/suites/micro-volume-activity-cohort-v0.1.json",
+    "sha256": "06ab789cf792902ba8098a05ac8a5ffe065626b820996503e36174c98dcd45c1"
+  },
+  "discovery_artifacts": [
+    {
+      "artifact_id": 9265122693,
+      "digest": "sha256:f94424c97b9ccc8f717f29b6648f0306fbec23bc686a8904978b69b6bd57742c",
+      "trading_date": "2025-02-12"
+    },
+    {
+      "artifact_id": 9265146495,
+      "digest": "sha256:911b7d4d195f18aaa05c81ae3549191330cd8c0de23f9884d1860d5a98dbbdd5",
+      "trading_date": "2025-05-14"
+    },
+    {
+      "artifact_id": 9265199290,
+      "digest": "sha256:9e740ce4ce657fef54ecae2c5973a97ae4b0b1cd37b5d654022ad2bee218336f",
+      "trading_date": "2025-08-13"
+    },
+    {
+      "artifact_id": 9265198110,
+      "digest": "sha256:b1be4aae876d2cf2ccffbd7a7cf3680ad0bc2a6212f7e025bda3fa5e336bab67",
+      "trading_date": "2025-11-12"
+    },
+    {
+      "artifact_id": 9265253141,
+      "digest": "sha256:306309e042437aed99f2fbe73433fc181dbf3a4699b9fcf1dee77ba3cb64a399",
+      "trading_date": "2026-02-11"
+    },
+    {
+      "artifact_id": 9265258003,
+      "digest": "sha256:47d61490209b73ce9d110d7e35bfcb7e95e2b8c4497ad4efcdba47997829a2b4",
+      "trading_date": "2026-05-13"
+    }
+  ],
+  "knowledge_policy": "runtime_market_data_only_no_retrospective_labels",
+  "limitations": [
+    "Discovery used the currently accessible listed-symbol asset master, not a reconstructed point-in-time symbol universe.",
+    "The paired micro-policy effects are valid conditional evidence for the selected candidates, but the cohort is not representative enough to estimate full-scanner false-positive rate.",
+    "No retrospective human behavior labels, trade-quality labels or P&L targets were used or scored."
+  ],
+  "repository": "RoomyRems/momentumbot",
+  "runtime_artifacts": [
+    {
+      "artifact_id": 9265328112,
+      "case_id": "2025-02-12-aiff-q1",
+      "digest": "sha256:35aa3523fde684ab5ffba0953085ee0c1bdfd31ec450425c4a5919fb1a0e5432"
+    },
+    {
+      "artifact_id": 9265269979,
+      "case_id": "2025-02-12-clmt-q2",
+      "digest": "sha256:702230ec18862896db43657ad0c6109ab4fd85b69c797660b7e6abb914ce5890"
+    },
+    {
+      "artifact_id": 9265279589,
+      "case_id": "2025-05-14-absi-q1",
+      "digest": "sha256:aab591011cee611bb984aa89857216d154cf87f15e558534732116261eab5b20"
+    },
+    {
+      "artifact_id": 9265289629,
+      "case_id": "2025-05-14-fngr-q2",
+      "digest": "sha256:fb91b129038b1ba7215476ff95ac309dda6a348dc5f947c0e31cc3bdc2934f4b"
+    },
+    {
+      "artifact_id": 9265300853,
+      "case_id": "2025-08-13-hbm-q1",
+      "digest": "sha256:2366f0442b57056de8979409c0ecb23fbbc6f80db47f9b4171f019b025468cc9"
+    },
+    {
+      "artifact_id": 9265307081,
+      "case_id": "2025-08-13-lpl-q2",
+      "digest": "sha256:4f1fc1969cc1ee2ab7fbc87117f1e3fb73379f0a70392d088e2c8a2d266b7aa1"
+    },
+    {
+      "artifact_id": 9265312984,
+      "case_id": "2025-11-12-rdcm-q1",
+      "digest": "sha256:6a5d8b42dcfa5d7ae636034e3637ef926d4a24dddc7f3d2bb5db5370f9236602"
+    },
+    {
+      "artifact_id": 9265319486,
+      "case_id": "2025-11-12-si-q2",
+      "digest": "sha256:d6a95404f1ecf55b1b3d4cddce744b463ec7d423be2b817376f0889fd6447804"
+    },
+    {
+      "artifact_id": 9265328216,
+      "case_id": "2026-02-11-beta-q1",
+      "digest": "sha256:4e4a7e8c86da4298583208b10281f9f131baeaaa76a7140a4209b772926a0ddf"
+    },
+    {
+      "artifact_id": 9265337260,
+      "case_id": "2026-02-11-labx-q2",
+      "digest": "sha256:fd48fbfea66fda1c57c030d7ba6b3be37b900c02f7e1043e3107ee01e69483b7"
+    },
+    {
+      "artifact_id": 9265387444,
+      "case_id": "2026-05-13-eose-q1",
+      "digest": "sha256:ace4fdf2acff1a3bc0632ad2e11c1a34314e9a65137665699c95fa0dbd9ddd53"
+    },
+    {
+      "artifact_id": 9265342144,
+      "case_id": "2026-05-13-genk-q2",
+      "digest": "sha256:b44635904b211408c121a9bcac7320c60142cf2d5002bd1e5aa29d9a119630ff"
+    }
+  ],
+  "schema_version": 1,
+  "selection": {
+    "artifact_id": 9265262659,
+    "digest": "sha256:7380773608fb62060ca81ea05fbfe30ebfed79a97c2b6d9853edc7fdb69906fb",
+    "path": "research/benchmarks/results/micro-volume-activity-cohort-selection.json",
+    "sha256": "303b752c0a18fc1677e89f825816e7a242a7230a1594712fa8640e29bed0cf42"
+  },
+  "strategy_feedback": "activity_stress_only",
+  "summary": {
+    "artifact_id": 9265392291,
+    "digest": "sha256:ac44a057fce3a423526db5405161dc9edcd3f6e9aadd495dba71fea783405355",
+    "path": "research/benchmarks/results/micro-volume-activity-cohort-summary.json"
+  },
+  "workflow": {
+    "conclusion": "success",
+    "head_sha": "086f4b2ccdda9b3b7f9e8ab86707c0d019544920",
+    "run_id": 31952684371,
+    "url": "https://github.com/RoomyRems/momentumbot/actions/runs/31952684371"
+  }
+}
