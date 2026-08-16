@@ -1,0 +1,154 @@
+name: Micro v0.1 seed benchmark
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - src/momentumbot/historical_data.py
+      - src/momentumbot/indicators.py
+      - src/momentumbot/micro_bars.py
+      - src/momentumbot/micro_execution.py
+      - src/momentumbot/micro_policy.py
+      - src/momentumbot/micro_replay.py
+      - src/momentumbot/micro_setup.py
+      - src/momentumbot/research/benchmark_suite.py
+      - scripts/reconstruct_micro_v0_1_case.py
+      - scripts/score_micro_suite_case.py
+      - scripts/summarize_micro_suite_scores.py
+      - research/benchmarks/*.json
+      - research/benchmarks/suites/micro-v0.1-seed.json
+      - research/benchmarks/suites/micro-v0.1-primary-runtime-cases.json
+      - .github/workflows/micro-v0.1-seed-benchmark.yml
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    name: Runtime ${{ matrix.case_id }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        include:
+          - case_id: dsy-2026-06-10
+            symbol: DSY
+            trading_date: "2026-06-10"
+          - case_id: tivc-2025-04-03
+            symbol: TIVC
+            trading_date: "2025-04-03"
+          - case_id: upxi-2025-04-21
+            symbol: UPXI
+            trading_date: "2025-04-21"
+          - case_id: mma-2025-09-09
+            symbol: MMA
+            trading_date: "2025-09-09"
+          - case_id: oncs-2026-03-27
+            symbol: ONCS
+            trading_date: "2026-03-27"
+    env:
+      ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+      ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+      ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Reconstruct label-blind runtime case
+        run: >-
+          python scripts/reconstruct_micro_v0_1_case.py
+          --case-id "${{ matrix.case_id }}"
+          --symbol "${{ matrix.symbol }}"
+          --trading-date "${{ matrix.trading_date }}"
+          --output "runtime-${{ matrix.case_id }}"
+      - name: Require frozen policy provenance
+        run: >-
+          python -c "import json,pathlib; p=pathlib.Path('runtime-${{ matrix.case_id }}/runtime-replay.json'); d=json.loads(p.read_text()); assert d.get('frozen_policy_id')=='micro-v0.1'; assert len(d.get('frozen_policy_fingerprint',''))==64"
+      - name: Upload label-blind runtime artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: micro-v0.1-runtime-${{ matrix.case_id }}
+          path: runtime-${{ matrix.case_id }}
+          if-no-files-found: error
+          retention-days: 14
+
+  score:
+    name: Score ${{ matrix.case_id }}
+    needs: replay
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - case_id: dsy-2026-06-10
+            benchmark: research/benchmarks/2026-06-10-dsy.json
+          - case_id: tivc-2025-04-03
+            benchmark: research/benchmarks/2025-04-03-tivc.json
+          - case_id: upxi-2025-04-21
+            benchmark: research/benchmarks/2025-04-21-upxi.json
+          - case_id: mma-2025-09-09
+            benchmark: research/benchmarks/2025-09-09-mma.json
+          - case_id: oncs-2026-03-27
+            benchmark: research/benchmarks/2026-03-27-oncs.json
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Download completed runtime replay
+        uses: actions/download-artifact@v4
+        with:
+          name: micro-v0.1-runtime-${{ matrix.case_id }}
+          path: runtime-${{ matrix.case_id }}
+      - name: Require runtime before labels are scored
+        run: test -s "runtime-${{ matrix.case_id }}/runtime-replay.json"
+      - name: Score manifest-approved dimensions post replay
+        run: >-
+          python scripts/score_micro_suite_case.py
+          --runtime "runtime-${{ matrix.case_id }}/runtime-replay.json"
+          --benchmark "${{ matrix.benchmark }}"
+          --suite research/benchmarks/suites/micro-v0.1-seed.json
+          --output "score-${{ matrix.case_id }}/case-score.json"
+      - name: Upload post-replay score
+        uses: actions/upload-artifact@v4
+        with:
+          name: micro-v0.1-score-${{ matrix.case_id }}
+          path: score-${{ matrix.case_id }}
+          if-no-files-found: error
+          retention-days: 14
+
+  summarize:
+    name: Summarize seed suite
+    needs: score
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download all post-replay scores
+        uses: actions/download-artifact@v4
+        with:
+          pattern: micro-v0.1-score-*
+          path: seed-scores
+      - name: Build descriptive seed-suite summary
+        run: >-
+          python scripts/summarize_micro_suite_scores.py
+          --root seed-scores
+          --output seed-suite-summary.json
+      - name: Upload seed-suite summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: micro-v0.1-seed-suite-summary
+          path: seed-suite-summary.json
+          if-no-files-found: error
+          retention-days: 30
