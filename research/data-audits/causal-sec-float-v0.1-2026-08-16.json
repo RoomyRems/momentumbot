@@ -1,0 +1,144 @@
+{
+  "artifact": {
+    "content_sha256": "0673e20bc22c531afa1a6712458b0b8ad7b29898856b5e384aba46774f4d7624",
+    "digest_sha256": "69945b58afeefe0fbe50248b62e06fc5b4b2297b6a4daa1b99cba387a11b9082",
+    "id": 9271119548,
+    "manifest_file_sha256": "5f983f537296b1580057fd92533b9810a71334501d319a7ffd3b20eec4497063",
+    "name": "massive-historical-census-prototype",
+    "size_bytes": 5131580
+  },
+  "causality_audit": {
+    "basis_observation_after_requested_date_count": 0,
+    "candidate_decision_count": 21,
+    "future_selected_disclosure_count": 0,
+    "loader_validation_passed": true,
+    "missing_nondecision_basis_observations": [
+      {
+        "basis_keys": [
+          "anchor:2023-08-10",
+          "public:2023-06-30"
+        ],
+        "classification_basis": "current_outstanding_target_basis_upper_bound",
+        "classification_affected": false,
+        "symbol": "ICCT",
+        "trading_date": "2025-04-03"
+      }
+    ],
+    "provider_error_count": 0,
+    "raw_future_disclosures_persisted": false,
+    "uses_benchmark_labels": false
+  },
+  "date_results": {
+    "2025-04-03": {
+      "classifications": {
+        "fail": [
+          "GT"
+        ],
+        "pass": [
+          "ICCT",
+          "OSRH",
+          "TCRT",
+          "TIVC"
+        ],
+        "unknown_fail_closed": [
+          "FLX",
+          "ZYBT"
+        ]
+      },
+      "float_decision_count": 7,
+      "float_method_counts": {
+        "sec_outstanding_shares_upper_bound": 4,
+        "sec_public_float_anchor_plus_split_normalized_outstanding_rollforward": 1,
+        "unknown_missing_public_float": 2
+      },
+      "records_sha256": "f17ad61fa5906ce6e1bccd2b095e0a5fab49763fa38655faa5aaefd48a9f6b71",
+      "sec_status_counts": {
+        "success_no_eligible_sec_evidence": 2,
+        "success_selected_evidence_exact_acceptance": 5
+      }
+    },
+    "2026-07-09": {
+      "classifications": {
+        "fail": [
+          "AP",
+          "SMPL",
+          "WRAP"
+        ],
+        "pass": [
+          "HOUR",
+          "NDRA",
+          "PTLE",
+          "SRXH",
+          "SUNE",
+          "VRAX"
+        ],
+        "unknown_fail_closed": [
+          "JLHL",
+          "MAAS",
+          "PLBL",
+          "RPGL",
+          "TDTH"
+        ]
+      },
+      "float_decision_count": 14,
+      "float_method_counts": {
+        "sec_outstanding_shares_upper_bound": 5,
+        "sec_public_float_anchor_plus_split_normalized_outstanding_rollforward": 4,
+        "unknown_missing_public_float": 5
+      },
+      "records_sha256": "b5e6fe02e7e47e4b654e1252c7dda044e64fd7390c6ba4d76dfeaf288c9377b7",
+      "sec_status_counts": {
+        "success_no_eligible_sec_evidence": 3,
+        "success_selected_evidence_exact_acceptance": 11
+      }
+    }
+  },
+  "eligibility": {
+    "complete_relative_to_market_candidates": true,
+    "full_feature_snapshot_complete": false,
+    "full_walk_forward_eligible": false,
+    "point_in_time_float_decisions_frozen": true,
+    "policy_promotion_eligible": false,
+    "publication_timed_news_complete": false,
+    "universe_complete": false
+  },
+  "float_policy": {
+    "fingerprint": "00252a48e20d684d08a5163a3d8a776e541ad6e59dfd4c7a7fcf87f623a71803",
+    "max_float_shares_exclusive": 10000000,
+    "policy_id": "causal-sec-float-v0.1",
+    "status": "frozen_research_feature_contract_not_promotable"
+  },
+  "predecessor_failure": {
+    "artifact_id": 9270578640,
+    "audit_file": "research/data-audits/causal-sec-float-provider-access-2026-08-16.json",
+    "error": "HTTPError:403",
+    "run_id": 31973322123
+  },
+  "recorded_at_utc": "2026-08-16T22:24:22Z",
+  "schema_version": 1,
+  "sec_acquisition": {
+    "attempts_per_endpoint": 3,
+    "cache_hit_count": 0,
+    "endpoint_request_count": 42,
+    "minimum_request_interval_seconds": 0.2,
+    "unique_successfully_cached_cik_count": 21
+  },
+  "source_market_discovery_bundle_sha256": "288d48d56f693e584ebbc2353ec42698a3e546c3628824927288c906fbaacee2",
+  "tivc_boundary_check": {
+    "classification": "pass",
+    "current_outstanding_target_basis": 620137,
+    "estimated_float_shares": 620137,
+    "first_market_qualified_at": "2025-04-03T11:00:00+00:00",
+    "float_asof": "2025-03-21T20:24:58+00:00",
+    "method": "sec_outstanding_shares_upper_bound",
+    "selected_evidence_acceptance_precision": "exact"
+  },
+  "workflow": {
+    "branch": "phase-3-historical-snapshot",
+    "head_sha": "8a0030ae2530e550d567b5c753144c338d9796f2",
+    "job_id": 95234343258,
+    "name": "Massive historical ticker census",
+    "run_id": 31975539545,
+    "status": "success"
+  }
+}
