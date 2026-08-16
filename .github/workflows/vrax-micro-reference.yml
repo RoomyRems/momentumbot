@@ -11,8 +11,11 @@ on:
       - src/momentumbot/micro_setup.py
       - src/momentumbot/micro_execution.py
       - src/momentumbot/micro_replay.py
+      - src/momentumbot/micro_benchmark.py
       - src/momentumbot/indicators.py
       - scripts/validate_vrax_micro_reference.py
+      - scripts/build_micro_runtime_replay.py
+      - scripts/score_micro_benchmark.py
       - research/benchmarks/2026-07-09-vrax.json
       - .github/workflows/vrax-micro-reference.yml
 
@@ -36,6 +39,25 @@ jobs:
         run: python -m pip install -e .
       - name: Reconstruct VRAX micro window
         run: python scripts/validate_vrax_micro_reference.py --output vrax-micro-reference
+      - name: Build label-blind canonical runtime replay
+        run: >-
+          python scripts/build_micro_runtime_replay.py
+          --symbol VRAX
+          --candidate-qualified-at 2026-07-09T11:31:00Z
+          --bars-csv vrax-micro-reference/bars-10s.csv
+          --trades-csv vrax-micro-reference/trades.csv
+          --support-csv vrax-micro-reference/support-available.csv
+          --policy canonical
+          --exit-until 2026-07-09T11:34:30Z
+          --output vrax-micro-reference/runtime-replay.json
+      - name: Require runtime artifact before retrospective scoring
+        run: test -s vrax-micro-reference/runtime-replay.json
+      - name: Score retrospective benchmark after replay
+        run: >-
+          python scripts/score_micro_benchmark.py
+          --runtime vrax-micro-reference/runtime-replay.json
+          --benchmark research/benchmarks/2026-07-09-vrax.json
+          --output vrax-micro-reference/benchmark-comparison.json
       - name: Upload micro reference
         uses: actions/upload-artifact@v4
         with:
