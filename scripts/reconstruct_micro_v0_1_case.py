@@ -9,7 +9,6 @@ from zoneinfo import ZoneInfo
 
 import pandas as pd
 
-from momentumbot.historical_data import discover_market_day
 from momentumbot.indicators import completed_bar_support_series
 from momentumbot.micro_bars import aggregate_trade_bars
 from momentumbot.micro_execution import MicroTriggerMode
@@ -41,16 +40,12 @@ def _write_frame(frame: pd.DataFrame, path: Path) -> None:
     frame.reset_index().to_csv(path, index=False)
 
 
-def _candidate_row(discovery, symbol: str):
-    return next((row for row in discovery.rows if row.symbol == symbol), None)
-
-
 def main() -> int:
     parser = argparse.ArgumentParser(
         description=(
-            "Reconstruct one benchmark case using market data only and replay the "
-            "frozen deterministic Micro v0.1 policy. No retrospective benchmark "
-            "file is accepted by this program."
+            "Reconstruct one benchmark case using target-symbol historical market data "
+            "only and replay the frozen deterministic Micro v0.1 policy. No "
+            "retrospective benchmark file is accepted by this program."
         )
     )
     parser.add_argument("--case-id", required=True)
@@ -68,64 +63,43 @@ def main() -> int:
     frozen = micro_v0_1_policy()
     client = AlpacaDataClient.from_env()
 
-    discovery = discover_market_day(
+    # Benchmark reconstruction intentionally uses the known historical symbol/date
+    # only. This validates whether the frozen micro layer can reproduce behavior
+    # once a named historical candidate satisfies the measurable price/gain/RVOL
+    # gate. It does not use the human entry/outcome label and it does not claim to
+    # reconstruct historical cross-sectional rank or the complete point-in-time
+    # tradable universe; those belong to the later full-market backtest phase.
+    direct = direct_historical_target_qualification(
         client,
+        symbol=symbol,
         trading_date=trading_date,
         profile=profile,
     )
-    row = _candidate_row(discovery, symbol)
-    direct = None
-    if row is None:
-        direct = direct_historical_target_qualification(
-            client,
-            symbol=symbol,
-            trading_date=trading_date,
-            profile=profile,
-        )
+    target_row = asdict(direct) if direct is not None else None
+    first_acquisition_minute = (
+        direct.first_market_qualified_at if direct is not None else None
+    )
+    previous_close = direct.previous_close if direct is not None else None
+    anchor_source = "direct_historical_target_price_gain_same_time_rvol"
 
-    if row is not None:
-        target_row = asdict(row)
-        first_acquisition_minute = row.first_market_qualified_at
-        previous_close = row.previous_close
-        anchor_source = "full_market_discovery_current_provider_asset_master"
-    elif direct is not None:
-        target_row = asdict(direct)
-        first_acquisition_minute = direct.first_market_qualified_at
-        previous_close = direct.previous_close
-        anchor_source = "direct_historical_target_fallback_missing_from_current_asset_master"
-    else:
-        target_row = None
-        first_acquisition_minute = None
-        previous_close = None
-        anchor_source = "unresolved_historical_target"
-
-    discovery_summary = {
+    context = {
         "case_id": args.case_id,
         "symbol": symbol,
         "trading_date": trading_date.isoformat(),
         "knowledge_policy": "market_data_only_no_retrospective_behavior_labels",
         "candidate_anchor_scope": (
-            "causal_market_momentum_stage_price_gain_same_time_rvol_price_band; "
-            "full point_in_time_float/news quality is not scored in this micro setup benchmark"
+            "target_symbol_historical_price_gain_same_time_rvol_price_band; "
+            "historical cross_sectional rank, point_in_time universe, float, and news "
+            "are deliberately outside this micro setup benchmark"
         ),
         "candidate_anchor_source": anchor_source,
-        "historical_target_fallback_limitations": (
-            [
-                "fallback proves only causal target-symbol price/gain/RVOL qualification",
-                "fallback does not establish historical cross-sectional rank",
-                "fallback does not claim the provider's current asset master is a point-in-time universe",
-            ]
-            if direct is not None and row is None
-            else []
-        ),
-        "market_discovery": {
-            "asset_count": discovery.asset_count,
-            "listed_asset_count": discovery.listed_asset_count,
-            "daily_superset_count": discovery.daily_superset_count,
-            "rvol_prefilter_count": discovery.rvol_prefilter_count,
-            "market_candidate_count": discovery.market_candidate_count,
-        },
-        "target_discovery_row": target_row,
+        "target_qualification": target_row,
+        "benchmark_scope_limitations": [
+            "symbol/date identity is benchmark metadata, not a human behavior label",
+            "target-only qualification does not establish historical top-gainer rank",
+            "target-only qualification does not reconstruct the full historical tradable universe",
+            "float/news quality belongs to the later stock-selection benchmark/backtest layer",
+        ],
         "frozen_policy_id": frozen.policy_id,
         "frozen_policy_fingerprint": frozen.fingerprint,
     }
@@ -138,18 +112,17 @@ def main() -> int:
             "case_id": args.case_id,
             "symbol": symbol,
             "trading_date": trading_date.isoformat(),
-            "status": "target_did_not_reach_market_momentum_qualification",
+            "status": "target_did_not_reach_direct_price_gain_rvol_qualification",
             "candidate_anchor_source": anchor_source,
             "frozen_policy_id": frozen.policy_id,
             "frozen_policy_fingerprint": frozen.fingerprint,
-            "market_discovery": discovery_summary["market_discovery"],
-            "target_discovery_row": target_row,
+            "target_qualification": target_row,
         }
         (output / "runtime-replay.json").write_text(
             json.dumps(runtime, indent=2, sort_keys=True) + "\n", encoding="utf-8"
         )
         (output / "runtime-context.json").write_text(
-            json.dumps(discovery_summary, indent=2, sort_keys=True, default=str) + "\n",
+            json.dumps(context, indent=2, sort_keys=True, default=str) + "\n",
             encoding="utf-8",
         )
         print(json.dumps(runtime, indent=2, sort_keys=True))
@@ -171,18 +144,17 @@ def main() -> int:
         qualified_at = pd.Timestamp(refined.qualified_at)
         decision_time_source = "sip_intraminute_refinement"
     else:
-        # The acquisition bar's close/volume are only knowable after completion.
-        # If the conservative intraminute test does not cross earlier, never use
-        # the provider's one-minute bar-start timestamp as a decision time.
+        # The one-minute acquisition bar's close/volume are only knowable after
+        # completion. Never expose its bar-start timestamp to the micro policy.
         qualified_at = acquisition_minute + pd.Timedelta(minutes=1)
         decision_time_source = "completed_acquisition_minute_fallback"
     if qualified_at.tzinfo is None:
         raise RuntimeError("qualification timestamp is not timezone-aware")
 
-    discovery_summary["acquisition_minute_start"] = acquisition_minute.isoformat()
-    discovery_summary["intraminute_refinement"] = asdict(refined)
-    discovery_summary["candidate_qualified_at"] = qualified_at.isoformat()
-    discovery_summary["decision_time_source"] = decision_time_source
+    context["acquisition_minute_start"] = acquisition_minute.isoformat()
+    context["intraminute_refinement"] = asdict(refined)
+    context["candidate_qualified_at"] = qualified_at.isoformat()
+    context["decision_time_source"] = decision_time_source
 
     cutoff = pd.Timestamp(_utc_entry_cutoff(trading_date))
     replay_end = min(qualified_at + pd.Timedelta(minutes=REPLAY_HORIZON_MINUTES), cutoff)
@@ -254,7 +226,7 @@ def main() -> int:
             "frozen_policy_id": frozen.policy_id,
             "frozen_policy_fingerprint": frozen.fingerprint,
             "frozen_policy_status": frozen.status,
-            "candidate_anchor_scope": discovery_summary["candidate_anchor_scope"],
+            "candidate_anchor_scope": context["candidate_anchor_scope"],
             "replay_horizon_minutes": REPLAY_HORIZON_MINUTES,
             "replay_end": replay_end.isoformat(),
             "support_contract": {
@@ -275,8 +247,8 @@ def main() -> int:
     (output / "runtime-replay.json").write_text(
         json.dumps(runtime, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
-    discovery_summary["replay_end"] = replay_end.isoformat()
-    discovery_summary["runtime_counts"] = {
+    context["replay_end"] = replay_end.isoformat()
+    context["runtime_counts"] = {
         "trade_prints": len(trades),
         "micro_bars": len(bars_10s),
         "plans": replay.plan_count,
@@ -284,7 +256,7 @@ def main() -> int:
         "filled_pullback_numbers": list(replay.filled_pullback_numbers),
     }
     (output / "runtime-context.json").write_text(
-        json.dumps(discovery_summary, indent=2, sort_keys=True, default=str) + "\n",
+        json.dumps(context, indent=2, sort_keys=True, default=str) + "\n",
         encoding="utf-8",
     )
     print(json.dumps(runtime, indent=2, sort_keys=True))
