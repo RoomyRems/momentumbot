@@ -24,44 +24,67 @@ def main() -> int:
     cases = []
     total_comparable = 0
     total_matching = 0
+    available_cases = 0
+    unavailable_cases = 0
     for score in scores:
         comparable = int(score.get("comparable_dimensions") or 0)
         matching = int(score.get("matching_dimensions") or 0)
         total_comparable += comparable
         total_matching += matching
+        available = bool(score.get("upstream_runtime_available"))
+        if available:
+            available_cases += 1
+        else:
+            unavailable_cases += 1
+        price = score.get("price_references_descriptive_only") or {}
         cases.append(
             {
                 "benchmark_id": score.get("benchmark_id"),
                 "symbol": score.get("symbol"),
                 "case_role": score.get("case_role"),
+                "upstream_runtime_available": available,
                 "runtime_status": score.get("runtime_status"),
                 "runtime_plan_count": score.get("runtime_plan_count"),
                 "runtime_filled_count": score.get("runtime_filled_count"),
                 "runtime_filled_pullback_numbers": score.get("runtime_filled_pullback_numbers"),
                 "comparable_dimensions": comparable,
                 "matching_dimensions": matching,
-                "scored_dimensions": score.get("scored_dimensions"),
-                "price_references_descriptive_only": score.get(
-                    "price_references_descriptive_only"
+                "exact_human_trade_identity_scored": score.get(
+                    "exact_human_trade_identity_scored"
                 ),
+                "scored_dimensions": score.get("scored_dimensions"),
+                "first_runtime_fill_price": price.get("first_runtime_fill_price"),
+                "reported_fill_references": price.get("reported_fill_references"),
+                "first_runtime_fill_absolute_differences": price.get(
+                    "first_runtime_fill_absolute_differences"
+                ),
+                "price_references_descriptive_only": price,
             }
         )
 
+    broad_fraction = total_matching / total_comparable if total_comparable else None
     artifact = {
         "artifact_type": "micro_v0_1_seed_suite_post_replay_summary",
-        "schema_version": 1,
+        "schema_version": 2,
         "knowledge_policy": "post_replay_retrospective_evaluation_only",
         "strategy_feedback": "none",
         "case_count": len(cases),
+        "upstream_runtime_available_case_count": available_cases,
+        "upstream_runtime_unavailable_case_count": unavailable_cases,
         "frozen_policy_fingerprint": next(iter(fingerprints)),
-        "total_comparable_dimensions": total_comparable,
-        "total_matching_dimensions": total_matching,
-        "dimension_match_fraction_descriptive_only": (
-            total_matching / total_comparable if total_comparable else None
-        ),
+        "total_comparable_broad_behavior_dimensions": total_comparable,
+        "total_matching_broad_behavior_dimensions": total_matching,
+        "broad_behavior_match_fraction_descriptive_only": broad_fraction,
+        "exact_human_trade_identity_aggregate_score": None,
+        "interpretation": [
+            "setup_detected and entry_participation mean any plan/fill during the eligible post-qualification window, not the same human trade",
+            "an upstream-unavailable case is non-comparable for micro behavior rather than counted as a micro failure",
+            "reported-entry price differences are descriptive evidence of trade-identity mismatch and are never fed back into Micro v0.1",
+            "the broad behavior fraction must not be described as imitation accuracy or strategy profitability",
+        ],
         "warning": (
-            "This is an imitation/behavioral diagnostic on a deliberately selected seed suite, "
-            "not a profitability estimate, statistical validation, or optimization objective."
+            "This is a deliberately selected behavioral seed-suite diagnostic, not a profitability estimate, "
+            "statistical validation, exact-trade imitation score, or optimization objective."
         ),
         "cases": cases,
     }
