@@ -1,0 +1,29 @@
+{
+  "benchmark_id": "ross-zevai-2026-06-26-micro-ambiguous-01",
+  "trading_date": "2026-06-26",
+  "symbol": "ZEVAI",
+  "knowledge_policy": "ground_truth_label_only_never_runtime_context",
+  "source": {
+    "video_id": "hUb-n3kzqjI",
+    "title": "HUGE LOSS",
+    "published_date": "2026-06-26",
+    "evidence_type": "same_day_self_critique_recap"
+  },
+  "observed_human_behavior": {
+    "market_regime_described_as_cooler": true,
+    "breaking_news_present": false,
+    "initial_micro_pullback_taken": false,
+    "initial_micro_pullback_hindsight_language": "could have, maybe should have",
+    "second_pullback_small_account_trade_taken": true,
+    "second_pullback_small_account_profit_approx": 1000,
+    "later_big_account_average_entry_zone_approx": [4.25, 4.45],
+    "later_position_rolled_over": true,
+    "reported_big_account_loss_approx": 25000,
+    "self_critique_too_aggressive_before_building_cushion": true
+  },
+  "research_notes": [
+    "This case is intentionally excluded from primary imitation scoring because the recap itself is ambiguous about whether skipping the initial micro was correct.",
+    "It is valuable negative behavioral evidence for regime, size/cushion and campaign-risk research.",
+    "This retrospective label must never be supplied to a policy replaying June 26, 2026."
+  ]
+}
