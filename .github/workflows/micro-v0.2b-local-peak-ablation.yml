@@ -1,0 +1,148 @@
+name: Micro v0.2b local peak ablation
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - src/momentumbot/research/micro_local_peak_ablation.py
+      - scripts/reconstruct_micro_v0_2b_local_peak_case.py
+      - scripts/score_micro_local_peak_ablation_case.py
+      - scripts/summarize_micro_local_peak_ablation.py
+      - research/benchmarks/*.json
+      - research/benchmarks/suites/micro-v0.1-seed.json
+      - research/benchmarks/results/micro-v0.1-seed-summary.json
+      - .github/workflows/micro-v0.2b-local-peak-ablation.yml
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    name: Local peak runtime ${{ matrix.case_id }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        include:
+          - case_id: dsy-2026-06-10
+            symbol: DSY
+            trading_date: "2026-06-10"
+          - case_id: tivc-2025-04-03
+            symbol: TIVC
+            trading_date: "2025-04-03"
+          - case_id: upxi-2025-04-21
+            symbol: UPXI
+            trading_date: "2025-04-21"
+          - case_id: mma-2025-09-09
+            symbol: MMA
+            trading_date: "2025-09-09"
+          - case_id: artl-2026-03-27
+            symbol: ARTL
+            trading_date: "2026-03-27"
+    env:
+      ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+      ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+      ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Reconstruct label-blind local peak ablation
+        run: >-
+          python scripts/reconstruct_micro_v0_2b_local_peak_case.py
+          --case-id "${{ matrix.case_id }}"
+          --symbol "${{ matrix.symbol }}"
+          --trading-date "${{ matrix.trading_date }}"
+          --output "runtime-${{ matrix.case_id }}"
+      - name: Require isolated local peak provenance
+        run: >-
+          python -c "import json,pathlib; d=json.loads(pathlib.Path('runtime-${{ matrix.case_id }}/runtime-replay.json').read_text()); assert d.get('ablation_id')=='micro-v0.2b-local-impulse-peak'; assert d.get('parent_frozen_policy_id')=='micro-v0.1'; assert d.get('peak_scope_bars')==5; assert len(d.get('ablation_fingerprint',''))==64; assert len(d.get('parent_frozen_policy_fingerprint',''))==64"
+      - name: Upload label-blind local peak runtime
+        uses: actions/upload-artifact@v4
+        with:
+          name: micro-v0.2b-local-peak-runtime-${{ matrix.case_id }}
+          path: runtime-${{ matrix.case_id }}
+          if-no-files-found: error
+          retention-days: 14
+
+  score:
+    name: Local peak score ${{ matrix.case_id }}
+    needs: replay
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - case_id: dsy-2026-06-10
+            benchmark: research/benchmarks/2026-06-10-dsy.json
+          - case_id: tivc-2025-04-03
+            benchmark: research/benchmarks/2025-04-03-tivc.json
+          - case_id: upxi-2025-04-21
+            benchmark: research/benchmarks/2025-04-21-upxi.json
+          - case_id: mma-2025-09-09
+            benchmark: research/benchmarks/2025-09-09-mma.json
+          - case_id: artl-2026-03-27
+            benchmark: research/benchmarks/2026-03-27-artl.json
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Download completed local peak runtime
+        uses: actions/download-artifact@v4
+        with:
+          name: micro-v0.2b-local-peak-runtime-${{ matrix.case_id }}
+          path: runtime-${{ matrix.case_id }}
+      - name: Require runtime before retrospective scoring
+        run: test -s "runtime-${{ matrix.case_id }}/runtime-replay.json"
+      - name: Score manifest-approved dimensions after replay
+        run: >-
+          python scripts/score_micro_local_peak_ablation_case.py
+          --runtime "runtime-${{ matrix.case_id }}/runtime-replay.json"
+          --benchmark "${{ matrix.benchmark }}"
+          --suite research/benchmarks/suites/micro-v0.1-seed.json
+          --output "score-${{ matrix.case_id }}/case-score.json"
+      - name: Upload post-replay local peak score
+        uses: actions/upload-artifact@v4
+        with:
+          name: micro-v0.2b-local-peak-score-${{ matrix.case_id }}
+          path: score-${{ matrix.case_id }}
+          if-no-files-found: error
+          retention-days: 14
+
+  summarize:
+    name: Compare local peak ablation to frozen baseline
+    needs: score
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Download all post-replay local peak scores
+        uses: actions/download-artifact@v4
+        with:
+          pattern: micro-v0.2b-local-peak-score-*
+          path: local-peak-scores
+      - name: Build baseline comparison
+        run: >-
+          python scripts/summarize_micro_local_peak_ablation.py
+          --root local-peak-scores
+          --baseline-summary research/benchmarks/results/micro-v0.1-seed-summary.json
+          --output micro-v0.2b-local-peak-comparison.json
+      - name: Upload local-peak comparison
+        uses: actions/upload-artifact@v4
+        with:
+          name: micro-v0.2b-local-peak-comparison
+          path: micro-v0.2b-local-peak-comparison.json
+          if-no-files-found: error
+          retention-days: 30
