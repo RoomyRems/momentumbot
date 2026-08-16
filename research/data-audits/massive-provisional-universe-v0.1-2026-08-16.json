@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "audit_id": "massive-provisional-universe-v0.1-2026-08-16",
+  "generated_at": "2026-08-16T19:37:11Z",
+  "knowledge_policy": "provider_metadata_and_coverage_only_no_benchmark_labels_no_strategy_feedback",
+  "runtime_provenance": {
+    "head_sha": "9032213997cabfd4034c94841e40799dfc33e94e",
+    "workflow_run_id": 31967637937,
+    "job_id": 95215133705,
+    "artifact_id": 9269016533,
+    "artifact_digest": "sha256:c28bec5b1251daf76a144f3523dc9f83dfa6f0070a95cb3edba46deca2a16ea9",
+    "conclusion": "success",
+    "ci_workflow_run_id": 31967637944,
+    "ci_conclusion": "success"
+  },
+  "frozen_contracts": {
+    "instrument_metadata_audit_id": "massive-instrument-metadata-audit-v0.1",
+    "instrument_metadata_audit_fingerprint": "34a8545ca01f8504328549f4fe321453e0928cfca4afa5486592860bfa907213",
+    "universe_policy_id": "massive-common-equity-v0.1",
+    "universe_policy_fingerprint": "c5bfa91596071de464135269301a948feafe3556a503c809543512a28e40062d",
+    "common_type_family": [
+      "ADRC",
+      "CS"
+    ],
+    "allowed_primary_exchanges": [
+      "ARCX",
+      "BATS",
+      "XASE",
+      "XNAS",
+      "XNYS"
+    ],
+    "identity_rule": "exactly_one_semantically_accepted_identity_per_ticker",
+    "market_data_rule": "raw_and_split_daily_series_require_prior_and_target_sessions"
+  },
+  "date_results": {
+    "2025-04-03": {
+      "source_census_membership_sha256": "cefa58a5a28ce739cbf81f983d07b30a47cf36e1f6659bf732b2421332e3e67f",
+      "decision_count": 11274,
+      "included_ticker_count": 5448,
+      "excluded_ticker_count": 5826,
+      "included_membership_sha256": "bddb7a0f4bcfb29501ddcba83efa8b989e92986d89aa1521962beaf098c068e4",
+      "decisions_sha256": "78efcfe6ebb80685801678a87610fb3eb1639f4a4041d8a366f1bea43c743cb3",
+      "included_security_type_counts": {
+        "ADRC": 388,
+        "CS": 5060
+      },
+      "reason_counts": {
+        "included_provisional_common_equity": 5448,
+        "instrument_metadata_conflict": 62,
+        "instrument_structure_review": 13,
+        "missing_prior_session": 2,
+        "missing_target_session": 3,
+        "outside_common_type_family": 5746
+      },
+      "semantic_audit": {
+        "explicit_debt_flag_count": 28,
+        "explicit_preferred_flag_count": 34,
+        "explicit_rights_flag_count": 0,
+        "review_tickers": [
+          "BBU",
+          "BIP",
+          "CAPL",
+          "CDZIP",
+          "ET",
+          "FITBI",
+          "KRP",
+          "MNSBP",
+          "OCFCP",
+          "PAA",
+          "PAGP",
+          "SGU",
+          "WAFDP"
+        ]
+      },
+      "source_collision_ticker_count": 2,
+      "included_collision_ticker_count": 2,
+      "included_missing_cik_count": 2,
+      "included_missing_composite_figi_count": 762
+    },
+    "2026-07-09": {
+      "source_census_membership_sha256": "bdeaf2c912c1725217bb1ab794d730750ba66eccdcb23d724d97aa3941f31d4e",
+      "decision_count": 12975,
+      "included_ticker_count": 5577,
+      "excluded_ticker_count": 7398,
+      "included_membership_sha256": "e548c97fc020eb672ddb0543e33c1f891e0369d63cbec39b95d1e344c909da01",
+      "decisions_sha256": "89ec54a28cb49adbc9fbb62c5b39c28e4999d6b303ca2cd22022de2c5ad3f8e2",
+      "included_security_type_counts": {
+        "ADRC": 373,
+        "CS": 5204
+      },
+      "reason_counts": {
+        "included_provisional_common_equity": 5577,
+        "instrument_metadata_conflict": 95,
+        "instrument_structure_review": 12,
+        "missing_target_session": 1,
+        "no_daily_bars_in_window": 2,
+        "outside_common_type_family": 7288
+      },
+      "semantic_audit": {
+        "explicit_debt_flag_count": 58,
+        "explicit_preferred_flag_count": 36,
+        "explicit_rights_flag_count": 1,
+        "review_tickers": [
+          "BIP",
+          "CAPL",
+          "CDZIP",
+          "ET",
+          "KRP",
+          "MNSBP",
+          "OBTC",
+          "OIMAU",
+          "PAA",
+          "PAGP",
+          "SGU",
+          "WAFDP"
+        ]
+      },
+      "source_collision_ticker_count": 2,
+      "included_collision_ticker_count": 2,
+      "included_missing_cik_count": 2,
+      "included_missing_composite_figi_count": 1015
+    }
+  },
+  "decision": {
+    "complete_relative_to_fetched_census": true,
+    "point_in_time_membership_translated": true,
+    "universe_complete": false,
+    "full_walk_forward_eligible": false,
+    "policy_promotion_eligible": false,
+    "interpretation": "The frozen label-blind contract produces exactly one include/exclude decision for every point-in-time census ticker and reproduces local membership fingerprints in the live artifact. It deliberately excludes explicit preferred, debt and rights contradictions, quarantines nonstandard unit/depositary structures, requires one accepted identity and requires usable raw/split prior and target sessions. This is a provisional acquisition universe, not a completed scanner snapshot.",
+    "remaining_gates": [
+      "validate symbol continuity and corporate actions",
+      "resolve missing identity fields without current-data leakage",
+      "build point-in-time float and publication-timed news for every market candidate",
+      "build full causal daily and intraday feature snapshots",
+      "repeat across a representative walk-forward date panel"
+    ]
+  }
+}

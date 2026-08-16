@@ -50,6 +50,6 @@ The simulator uses the separate `paper-safe` risk policy by default. The aggress
 
 ## Next phase
 
-Provider adapters and the first complete-relative-to-source historical snapshot now exist. The next phase is a representative walk-forward panel built from genuinely point-in-time universe membership, float, corporate actions, consolidated premarket data and publication-timed news.
+Provider adapters, reproducible point-in-time ticker censuses and the first frozen provisional membership translation now exist. The next phase is identity/corporate-action validation followed by complete causal feature snapshots with point-in-time float, consolidated premarket data and publication-timed news, then a representative walk-forward panel.
 
-A current provider asset census—even one containing inactive rows—is preserved only as conditional diagnostic evidence. It cannot support full-scanner performance or policy promotion until historical membership coverage is established. AI remains shadow-only until the deterministic baseline has credible walk-forward results.
+The provisional universe makes an auditable decision for every fetched historical ticker but remains explicitly non-promotable until those downstream gates are complete. A current provider asset census—even one containing inactive rows—remains conditional diagnostic evidence only. AI remains shadow-only until the deterministic baseline has credible walk-forward results.
