@@ -1,0 +1,65 @@
+name: Massive historical ticker census
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - src/momentumbot/providers/massive.py
+      - scripts/build_massive_historical_census.py
+      - tests/test_massive_provider.py
+      - tests/test_build_massive_historical_census.py
+      - .github/workflows/massive-historical-census.yml
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
+      POLYGON_API_KEY: ${{ secrets.POLYGON_API_KEY }}
+      ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+      ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+      ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Test census client and builder contracts
+        run: >-
+          python -m unittest
+          tests.test_massive_provider
+          tests.test_build_massive_historical_census
+          -v
+      - name: Fetch fully paginated historical censuses
+        run: >-
+          python scripts/build_massive_historical_census.py
+          --dates 2025-04-03 2026-07-09
+          --minimum-request-interval 12.5
+          --limit 1000
+          --output massive-historical-census
+      - name: Enforce research-only eligibility
+        run: >-
+          python -c "import json,pathlib;
+          root=pathlib.Path('massive-historical-census');
+          d=json.loads((root/'manifest.json').read_text());
+          assert d['all_fetches_complete'] is True;
+          assert d['universe_complete'] is False;
+          assert d['full_walk_forward_eligible'] is False;
+          assert d['policy_promotion_eligible'] is False;
+          assert all(x['eligibility']['point_in_time_membership_candidate'] is True for x in d['date_manifests']);
+          assert all(x['eligibility']['universe_complete'] is False for x in d['date_manifests'])"
+      - name: Upload historical census prototype
+        uses: actions/upload-artifact@v4
+        with:
+          name: massive-historical-census-prototype
+          path: massive-historical-census
+          if-no-files-found: error
+          retention-days: 30

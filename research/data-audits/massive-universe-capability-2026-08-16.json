@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "audit_id": "massive-universe-capability-2026-08-16",
+  "generated_at": "2026-08-16T18:26:08.547275+00:00",
+  "knowledge_policy": "provider_schema_only_no_benchmark_labels_no_strategy_feedback",
+  "raw_provider_rows_persisted": false,
+  "runtime_provenance": {
+    "head_sha": "0e6c8dcf3617e98893a5726fa81f2c63bb4e97ad",
+    "workflow_run_id": 31964071514,
+    "run_attempt": 2,
+    "job_id": 95207644664,
+    "artifact_id": 9268128911,
+    "artifact_digest": "sha256:343f1a7d93e5d0e348c863e0a2dd8d2216285857df38e4f422ce639d18039cd3",
+    "conclusion": "success"
+  },
+  "credential_name": "MASSIVE_API_KEY",
+  "provider_observations": {
+    "2025-04-03": {
+      "status": 200,
+      "sample_row_count": 10,
+      "next_page_present": true,
+      "active_filter_respected": true,
+      "ticker_exchange_type_fields_present": true
+    },
+    "2026-07-09": {
+      "status": 200,
+      "sample_row_count": 10,
+      "next_page_present": true,
+      "active_filter_respected": true,
+      "ticker_exchange_type_fields_present": true
+    }
+  },
+  "decision": {
+    "eligible_for_paginated_fetch_prototype": true,
+    "point_in_time_universe_complete": false,
+    "full_walk_forward_eligible": false,
+    "policy_promotion_eligible": false,
+    "remaining_gates": [
+      "fully exhaust and fingerprint pagination",
+      "measure exchange and security-type coverage",
+      "reconcile symbol identity and corporate actions",
+      "prove historical market-data coverage for every eligible member"
+    ]
+  }
+}

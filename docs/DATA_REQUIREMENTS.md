@@ -29,6 +29,8 @@ The sanitized FMP capability audit on 2026-08-16 found that the configured entit
 
 Massive/Polygon's official [All Tickers](https://massive.com/docs/rest/stocks/tickers/all-tickers) contract is the next provider gate because it accepts a `date` and defines `active` relative to the queried date. Its free Stocks Basic history window is currently documented as two years, which covers the present seed/reference period. This documentation is not evidence of our entitlement or complete coverage: the repository first runs a sanitized two-date schema probe, then requires a fully paginated and independently reconciled census before setting `universe_complete=true`.
 
+The live schema probe passed on 2026-08-16 for both 2025-04-03 and 2026-07-09. Its frozen result authorizes only a paginated census prototype; see `research/data-audits/massive-universe-capability-2026-08-16.json`. The free tier is officially limited to [five requests per minute](https://massive.com/knowledge-base/article/what-is-the-request-limit-for-massives-restful-apis), so the full-census workflow spaces page requests by 12.5 seconds and retains bounded retry/loop guards. A completed fetch remains non-promotable until its entire historical membership set has usable downstream market data and its identity/type/exchange coverage is reconciled.
+
 Conditional snapshots must declare `universe_complete=false`, `universe_complete_relative_to_asset_master=true`, and explicitly prohibit full-scanner walk-forward and policy-promotion claims. Loading one requires an intentional diagnostic override.
 
 ## News snapshot scope
