@@ -1,0 +1,170 @@
+{
+  "ablation_fingerprint": "cdd9c1a18abf23a03aac67568f1c3b976bd4ab968a07f46966940b5e81feb49e",
+  "ablation_id": "micro-v0.2a-prequalification-context",
+  "artifact_type": "micro_prequalification_context_ablation_comparison",
+  "authoritative_workflow_run_id": 31925898386,
+  "baseline_authoritative_workflow_run_id": 31925087895,
+  "baseline_broad_behavior_match_fraction_descriptive_only": 0.6666666666666666,
+  "broad_behavior_match_fraction_descriptive_only": 0.6666666666666666,
+  "case_count": 5,
+  "cases": [
+    {
+      "ablation": {
+        "closest_reported_fill_difference_from_first_fill": null,
+        "comparable_dimensions": 2,
+        "filled_count": 0,
+        "first_fill_price": null,
+        "first_filled_pullback_number": null,
+        "matching_dimensions": 0,
+        "plan_count": 0,
+        "structural_context_bars_available": 10,
+        "structural_context_bars_requested": 10,
+        "structural_context_start": "2026-03-27T12:13:10+00:00"
+      },
+      "baseline": {
+        "closest_reported_fill_difference_from_first_fill": null,
+        "comparable_dimensions": 2,
+        "filled_count": 0,
+        "first_fill_price": null,
+        "first_filled_pullback_number": null,
+        "matching_dimensions": 0,
+        "plan_count": 0
+      },
+      "benchmark_id": "ross-artl-2026-03-27-micro-01",
+      "exact_human_trade_identity_scored": false,
+      "price_alignment_direction_descriptive_only": "no_fill_either",
+      "reported_fill_references": [5.25],
+      "symbol": "ARTL"
+    },
+    {
+      "ablation": {
+        "closest_reported_fill_difference_from_first_fill": 5.390000000000001,
+        "comparable_dimensions": 2,
+        "filled_count": 1,
+        "first_fill_price": 8.5,
+        "first_filled_pullback_number": 10,
+        "matching_dimensions": 2,
+        "plan_count": 2,
+        "structural_context_bars_available": 6,
+        "structural_context_bars_requested": 10,
+        "structural_context_start": "2026-06-10T11:40:20+00:00"
+      },
+      "baseline": {
+        "closest_reported_fill_difference_from_first_fill": 5.390000000000001,
+        "comparable_dimensions": 2,
+        "filled_count": 1,
+        "first_fill_price": 8.5,
+        "first_filled_pullback_number": 10,
+        "matching_dimensions": 2,
+        "plan_count": 2
+      },
+      "benchmark_id": "ross-dsy-2026-06-10-micro-01",
+      "exact_human_trade_identity_scored": false,
+      "price_alignment_direction_descriptive_only": "unchanged",
+      "reported_fill_references": [3.07, 3.11],
+      "symbol": "DSY"
+    },
+    {
+      "ablation": {
+        "closest_reported_fill_difference_from_first_fill": 1.6199999999999997,
+        "comparable_dimensions": 2,
+        "filled_count": 1,
+        "first_fill_price": 4.02,
+        "first_filled_pullback_number": 3,
+        "matching_dimensions": 2,
+        "plan_count": 1,
+        "structural_context_bars_available": 10,
+        "structural_context_bars_requested": 10,
+        "structural_context_start": "2025-09-09T11:28:40+00:00"
+      },
+      "baseline": {
+        "closest_reported_fill_difference_from_first_fill": 1.6199999999999997,
+        "comparable_dimensions": 2,
+        "filled_count": 1,
+        "first_fill_price": 4.02,
+        "first_filled_pullback_number": 3,
+        "matching_dimensions": 2,
+        "plan_count": 1
+      },
+      "benchmark_id": "ross-mma-2025-09-09-micro-01",
+      "exact_human_trade_identity_scored": false,
+      "price_alignment_direction_descriptive_only": "unchanged",
+      "reported_fill_references": [2.4],
+      "symbol": "MMA"
+    },
+    {
+      "ablation": {
+        "closest_reported_fill_difference_from_first_fill": 0.20999999999999996,
+        "comparable_dimensions": 4,
+        "filled_count": 1,
+        "first_fill_price": 5.1,
+        "first_filled_pullback_number": 7,
+        "matching_dimensions": 2,
+        "plan_count": 3,
+        "structural_context_bars_available": 4,
+        "structural_context_bars_requested": 10,
+        "structural_context_start": "2025-04-03T10:59:00+00:00"
+      },
+      "baseline": {
+        "closest_reported_fill_difference_from_first_fill": 0.20999999999999996,
+        "comparable_dimensions": 4,
+        "filled_count": 1,
+        "first_fill_price": 5.1,
+        "first_filled_pullback_number": 7,
+        "matching_dimensions": 2,
+        "plan_count": 3
+      },
+      "benchmark_id": "ross-tivc-2025-04-03-micro-01",
+      "exact_human_trade_identity_scored": false,
+      "price_alignment_direction_descriptive_only": "unchanged",
+      "reported_fill_references": [4.73, 4.76, 4.89],
+      "symbol": "TIVC"
+    },
+    {
+      "ablation": {
+        "closest_reported_fill_difference_from_first_fill": 4.390000000000001,
+        "comparable_dimensions": 2,
+        "filled_count": 4,
+        "first_fill_price": 7.23,
+        "first_filled_pullback_number": 8,
+        "matching_dimensions": 2,
+        "plan_count": 5,
+        "structural_context_bars_available": 3,
+        "structural_context_bars_requested": 10,
+        "structural_context_start": "2025-04-21T12:02:00+00:00"
+      },
+      "baseline": {
+        "closest_reported_fill_difference_from_first_fill": 4.390000000000001,
+        "comparable_dimensions": 2,
+        "filled_count": 4,
+        "first_fill_price": 7.23,
+        "first_filled_pullback_number": 8,
+        "matching_dimensions": 2,
+        "plan_count": 5
+      },
+      "benchmark_id": "ross-upxi-2025-04-21-micro-01",
+      "exact_human_trade_identity_scored": false,
+      "price_alignment_direction_descriptive_only": "unchanged",
+      "reported_fill_references": [2.84],
+      "symbol": "UPXI"
+    }
+  ],
+  "exact_human_trade_identity_aggregate_score": null,
+  "interpretation": [
+    "this isolates only bounded prequalification structural context; frozen v0.1 setup geometry remains the parent",
+    "broad setup/participation matches are not exact-trade imitation accuracy",
+    "first-fill price alignment is retrospective descriptive evidence only and was unavailable during runtime replay",
+    "the seed suite is diagnostic and must not by itself promote or optimize an ablation"
+  ],
+  "knowledge_policy": "post_replay_retrospective_evaluation_only",
+  "parent_frozen_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+  "price_alignment_direction_counts_descriptive_only": {
+    "no_fill_either": 1,
+    "unchanged": 4
+  },
+  "runtime_commit": "257f6a32b9ec0b089df1c97db29040d91c6c0150",
+  "schema_version": 1,
+  "strategy_feedback": "none",
+  "total_comparable_broad_behavior_dimensions": 12,
+  "total_matching_broad_behavior_dimensions": 8
+}
