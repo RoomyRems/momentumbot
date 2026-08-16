@@ -1,0 +1,70 @@
+name: Benchmark symbol identity audit
+
+on:
+  workflow_dispatch:
+    inputs:
+      trading_date:
+        description: Historical trading date
+        required: true
+        default: "2025-09-09"
+      rejection_level:
+        description: Transcript-derived rejection price (retrospective only)
+        required: true
+        default: "5.20"
+      later_high:
+        description: Transcript-derived later high (retrospective only)
+        required: true
+        default: "8.00"
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - .github/workflows/benchmark-symbol-identity-audit.yml
+      - scripts/audit_benchmark_symbol_candidates.py
+      - tests/test_audit_benchmark_symbol_candidates.py
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Retrospective market-wide identity audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+      ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+      ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT }}
+      AUDIT_DATE: ${{ inputs.trading_date || '2025-09-09' }}
+      REJECTION_LEVEL: ${{ inputs.rejection_level || '5.20' }}
+      LATER_HIGH: ${{ inputs.later_high || '8.00' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Test identity-audit logic
+        run: python -m unittest tests.test_audit_benchmark_symbol_candidates -v
+      - name: Screen raw historical SIP paths
+        run: >-
+          python scripts/audit_benchmark_symbol_candidates.py
+          --trading-date "$AUDIT_DATE"
+          --rejection-level "$REJECTION_LEVEL"
+          --later-high "$LATER_HIGH"
+          --rejection-tolerance 0.20
+          --later-high-tolerance 1.25
+          --coarse-max-high 20.0
+          --minimum-volume 100000
+          --output benchmark-symbol-identity-candidates.json
+      - name: Enforce retrospective-only contract
+        run: >-
+          python -c "import json,pathlib; d=json.loads(pathlib.Path('benchmark-symbol-identity-candidates.json').read_text()); assert d['knowledge_policy']=='retrospective_benchmark_identity_audit_only_never_runtime_context'; assert d['strategy_feedback']=='none'; assert d['provider']['adjustment']=='raw'"
+      - name: Upload identity candidates
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-symbol-identity-candidates
+          path: benchmark-symbol-identity-candidates.json
+          if-no-files-found: error
+          retention-days: 30
