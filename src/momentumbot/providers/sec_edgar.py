@@ -2,13 +2,18 @@ from __future__ import annotations
 
 import gzip
 import json
+import os
+import re
 import urllib.request
 from dataclasses import dataclass, replace
 from datetime import date, datetime, time, timedelta, timezone
 from typing import Any, Iterable, TypeVar
 
 SEC_DATA_BASE = "https://data.sec.gov"
-DEFAULT_USER_AGENT = "MomentumBot/0.2 https://github.com/RoomyRems/momentumbot"
+_CONTACT_EMAIL_RE = re.compile(
+    r"(?<![A-Z0-9._%+-])[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}(?![A-Z0-9._%+-])",
+    re.IGNORECASE,
+)
 _ALLOWED_PUBLIC_FLOAT_FORMS = {"10-K", "10-K/A", "20-F", "20-F/A", "40-F", "40-F/A"}
 _ALLOWED_OUTSTANDING_FORMS = _ALLOWED_PUBLIC_FLOAT_FORMS | {"10-Q", "10-Q/A"}
 
@@ -267,11 +272,25 @@ class SecEdgarClient:
     client is intended for targeted fills, current updates, and validation.
     """
 
-    def __init__(self, user_agent: str = DEFAULT_USER_AGENT, timeout_seconds: int = 30):
-        if not user_agent.strip():
-            raise ValueError("SEC user agent must identify the application")
-        self.user_agent = user_agent.strip()
+    def __init__(self, user_agent: str, timeout_seconds: int = 30):
+        normalized = user_agent.strip()
+        if "\r" in normalized or "\n" in normalized:
+            raise ValueError("SEC user agent cannot contain line breaks")
+        if not _CONTACT_EMAIL_RE.search(normalized):
+            raise ValueError(
+                "SEC user agent must identify the application and include a contact email"
+            )
+        self.user_agent = normalized
         self.timeout_seconds = timeout_seconds
+
+    @classmethod
+    def from_env(cls, *, timeout_seconds: int = 30) -> "SecEdgarClient":
+        user_agent = os.getenv("SEC_USER_AGENT", "")
+        if not user_agent.strip():
+            raise ValueError(
+                "SEC_USER_AGENT is required for declared SEC fair-access requests"
+            )
+        return cls(user_agent, timeout_seconds=timeout_seconds)
 
     def _json(self, url: str) -> dict[str, Any]:
         request = urllib.request.Request(

@@ -120,6 +120,20 @@ def _selected_evidence_status(
     return "success_selected_evidence_includes_conservative_fallback"
 
 
+def _validate_sec_entity(
+    payload: dict[str, Any],
+    *,
+    expected_cik: str,
+    label: str,
+) -> None:
+    try:
+        observed = normalize_cik(payload.get("cik", ""))
+    except ValueError as exc:
+        raise ValueError(f"{label} payload lacks a valid CIK") from exc
+    if observed != expected_cik:
+        raise ValueError(f"{label} payload CIK does not match candidate identity")
+
+
 def _empty_float_record(
     candidate: dict[str, object],
     *,
@@ -168,7 +182,7 @@ def main(argv: list[str] | None = None) -> int:
 
     output_root = args.output or args.census_root / CAUSAL_FLOAT_POLICY_ID
     output_root.mkdir(parents=True, exist_ok=False)
-    sec = SecEdgarClient()
+    sec = SecEdgarClient.from_env()
     alpaca = AlpacaDataClient.from_env()
     date_manifests: list[dict[str, object]] = []
     fatal_provider_errors: list[dict[str, str]] = []
@@ -275,6 +289,17 @@ def main(argv: list[str] | None = None) -> int:
                 continue
 
             try:
+                if submissions is not None:
+                    _validate_sec_entity(
+                        submissions,
+                        expected_cik=cik,
+                        label="submissions",
+                    )
+                _validate_sec_entity(
+                    companyfacts,
+                    expected_cik=cik,
+                    label="companyfacts",
+                )
                 acceptance = (
                     parse_submission_acceptance_times(submissions)
                     if submissions is not None

@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 from scripts.build_causal_float_enrichment import (
     _sec_call,
     _selected_evidence_status,
+    _validate_sec_entity,
 )
 
 
@@ -87,6 +88,19 @@ class BuildCausalFloatEnrichmentTests(unittest.TestCase):
             status,
             "success_selected_evidence_includes_conservative_fallback",
         )
+
+    def test_sec_payload_must_match_frozen_candidate_cik(self) -> None:
+        _validate_sec_entity(
+            {"cik": 1},
+            expected_cik="0000000001",
+            label="companyfacts",
+        )
+        with self.assertRaisesRegex(ValueError, "does not match"):
+            _validate_sec_entity(
+                {"cik": 2},
+                expected_cik="0000000001",
+                label="companyfacts",
+            )
 
 
 if __name__ == "__main__":

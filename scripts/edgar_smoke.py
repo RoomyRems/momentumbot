@@ -1,17 +1,11 @@
 from __future__ import annotations
 
 import json
-import os
-
 from momentumbot.providers.sec_edgar import SecEdgarClient
 
 
 def main() -> int:
-    user_agent = os.getenv(
-        "SEC_USER_AGENT",
-        "MomentumBot/0.2 https://github.com/RoomyRems/momentumbot",
-    )
-    client = SecEdgarClient(user_agent=user_agent)
+    client = SecEdgarClient.from_env()
     parsed = client.parsed_companyfacts("320193")  # Apple; stable smoke fixture issuer.
     public = parsed.public_float
     outstanding = parsed.outstanding_shares

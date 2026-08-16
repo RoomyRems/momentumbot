@@ -1,7 +1,9 @@
 import unittest
 from datetime import datetime, timezone
+from unittest.mock import patch
 
 from momentumbot.providers.sec_edgar import (
+    SecEdgarClient,
     implied_float_shares,
     latest_available,
     parse_companyfacts,
@@ -131,6 +133,28 @@ class SecEdgarFloatTests(unittest.TestCase):
         self.companyfacts["facts"]["dei"]["EntityPublicFloat"]["units"]["USD"].append(dict(row))
         parsed = parse_companyfacts(self.companyfacts)
         self.assertEqual(len(parsed.public_float), 1)
+
+    def test_client_requires_declared_contact_email(self):
+        with self.assertRaisesRegex(ValueError, "contact email"):
+            SecEdgarClient("MomentumBot https://github.com/RoomyRems/momentumbot")
+        client = SecEdgarClient("RoomyRems MomentumBot research@example.com")
+        self.assertEqual(
+            client.user_agent,
+            "RoomyRems MomentumBot research@example.com",
+        )
+
+    def test_client_reads_declared_identity_from_environment(self):
+        with patch.dict(
+            "os.environ",
+            {"SEC_USER_AGENT": "RoomyRems MomentumBot research@example.com"},
+        ):
+            client = SecEdgarClient.from_env()
+        self.assertIn("research@example.com", client.user_agent)
+
+    def test_client_fails_before_network_without_declared_identity(self):
+        with patch.dict("os.environ", {}, clear=True):
+            with self.assertRaisesRegex(ValueError, "SEC_USER_AGENT"):
+                SecEdgarClient.from_env()
 
 
 if __name__ == "__main__":

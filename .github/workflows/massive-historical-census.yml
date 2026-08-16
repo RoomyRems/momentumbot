@@ -34,6 +34,7 @@ on:
       - tests/test_historical_data.py
       - src/momentumbot/historical_float.py
       - src/momentumbot/providers/sec_edgar.py
+      - scripts/edgar_smoke.py
       - scripts/build_causal_float_enrichment.py
       - scripts/build_sec_float_join.py
       - tests/test_historical_float.py
@@ -56,6 +57,7 @@ jobs:
       ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
       ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
       ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT }}
+      SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -83,6 +85,8 @@ jobs:
           tests.test_sec_edgar
           tests.test_sec_float_join
           -v
+      - name: Verify declared SEC fair-access identity
+        run: python scripts/edgar_smoke.py
       - name: Fetch fully paginated historical censuses
         run: >-
           python scripts/build_massive_historical_census.py
