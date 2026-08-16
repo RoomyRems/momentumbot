@@ -52,6 +52,7 @@ class PrequalificationContextAblationTests(unittest.TestCase):
         self.assertEqual(spec.context_bars, 10)
         self.assertEqual(spec.bar_interval_seconds, 10)
         self.assertEqual(spec.context_seconds, 100)
+        self.assertEqual(spec.pullback_ordinal_rule, "actual_candidate_qualification")
         self.assertEqual(len(spec.fingerprint), 64)
 
     def test_context_start_uses_only_bars_completed_before_qualification(self):
@@ -94,6 +95,7 @@ class PrequalificationContextAblationTests(unittest.TestCase):
         self.assertEqual(result.available_prequalification_context_bars, 3)
         self.assertEqual(replay.filled_count, 1)
         self.assertEqual(replay.filled_steps[0].outcome.fill_price, 4.41)
+        self.assertEqual(replay.filled_pullback_numbers, (1,))
         self.assertTrue(
             all(
                 step.plan is None
@@ -123,6 +125,7 @@ class PrequalificationContextAblationTests(unittest.TestCase):
         self.assertEqual(payload["ablation_id"], "micro-v0.2a-prequalification-context")
         self.assertEqual(payload["parent_frozen_policy_id"], "micro-v0.1")
         self.assertEqual(payload["structural_context_bars_requested"], 10)
+        self.assertEqual(payload["pullback_ordinal_rule"], "actual_candidate_qualification")
         self.assertEqual(payload["filled_count"], 1)
         self.assertNotIn("benchmark_id", encoded)
         self.assertNotIn("reported_fill", encoded)
