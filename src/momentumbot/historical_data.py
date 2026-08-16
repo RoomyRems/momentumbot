@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+import hashlib
 import json
+from collections import Counter
 from dataclasses import asdict, dataclass
 from datetime import date, datetime, time, timedelta, timezone
 from pathlib import Path
@@ -21,6 +23,63 @@ from .rvol import RvolCurve, coarse_rvol_upper_bound, prior_session_dates, same_
 
 ET = ZoneInfo("America/New_York")
 _ALLOWED_EXCHANGES = {"NASDAQ", "NYSE", "AMEX", "ARCA", "BATS", "NYSEARCA"}
+
+
+def normalize_asset_master(
+    rows: list[dict[str, object]],
+) -> tuple[dict[str, object], ...]:
+    """Return the stable membership fields from one downloaded asset census.
+
+    Alpaca's assets endpoint is a current provider census, not a historical
+    membership endpoint. Freezing the exact response fields and a fingerprint
+    makes that limitation auditable; it does not convert the census into a
+    point-in-time universe.
+    """
+    normalized: list[dict[str, object]] = []
+    for row in rows:
+        symbol = str(row.get("symbol", "")).strip().upper()
+        if not symbol:
+            continue
+        raw_attributes = row.get("attributes")
+        attributes = (
+            sorted(str(value) for value in raw_attributes)
+            if isinstance(raw_attributes, list)
+            else []
+        )
+        raw_tradable = row.get("tradable")
+        normalized.append(
+            {
+                "asset_class": str(row.get("class") or row.get("asset_class") or ""),
+                "asset_id": str(row.get("id") or row.get("asset_id") or ""),
+                "attributes": attributes,
+                "exchange": str(row.get("exchange") or "").upper(),
+                "name": str(row.get("name") or ""),
+                "status": str(row.get("status") or "unknown").lower(),
+                "symbol": symbol,
+                "tradable": raw_tradable if isinstance(raw_tradable, bool) else None,
+            }
+        )
+    return tuple(
+        sorted(
+            normalized,
+            key=lambda row: (str(row["symbol"]), str(row["asset_id"])),
+        )
+    )
+
+
+def asset_master_fingerprint(rows: list[dict[str, object]]) -> str:
+    payload = json.dumps(
+        normalize_asset_master(rows),
+        ensure_ascii=True,
+        separators=(",", ":"),
+        sort_keys=True,
+    ).encode("utf-8")
+    return hashlib.sha256(payload).hexdigest()
+
+
+def asset_master_status_counts(rows: list[dict[str, object]]) -> dict[str, int]:
+    counts = Counter(str(row["status"]) for row in normalize_asset_master(rows))
+    return dict(sorted(counts.items()))
 
 
 @dataclass(frozen=True, slots=True)
@@ -46,6 +105,8 @@ class DiscoveryResult:
     daily_superset_count: int
     rvol_prefilter_count: int
     market_candidate_count: int
+    asset_master_sha256: str
+    asset_status_counts: dict[str, int]
     rows: tuple[DiscoveryRow, ...]
     minutes: dict[str, pd.DataFrame]
     contexts: dict[str, SymbolContext]
@@ -174,6 +235,7 @@ def discover_market_day(
     trading_date: date,
     profile: StrategyProfile,
     asset_batch_size: int = 250,
+    assets: list[dict[str, object]] | None = None,
 ) -> DiscoveryResult:
     """Build a causal market-day acquisition set with exact time-of-day RVOL.
 
@@ -188,7 +250,7 @@ def discover_market_day(
     target-session prices. This prevents a split itself from masquerading as a
     momentum gap while retaining genuine post-split price action.
     """
-    assets = alpaca.assets()
+    assets = list(normalize_asset_master(alpaca.assets() if assets is None else assets))
     listed = [
         row
         for row in assets
@@ -449,6 +511,8 @@ def discover_market_day(
         daily_superset_count=len(superset),
         rvol_prefilter_count=len(narrowed),
         market_candidate_count=len(first_qualified),
+        asset_master_sha256=asset_master_fingerprint(assets),
+        asset_status_counts=asset_master_status_counts(assets),
         rows=tuple(rows),
         minutes=qualified_minutes,
         contexts=contexts,
@@ -503,11 +567,16 @@ def write_discovery(result: DiscoveryResult, root: Path, *, trading_date: date) 
         "kind": "market_day_discovery",
         "trading_date": trading_date.isoformat(),
         "asset_count": result.asset_count,
+        "asset_master_sha256": result.asset_master_sha256,
+        "asset_master_status_counts": result.asset_status_counts,
+        "asset_master_source": "alpaca_v2_assets_current_census_all_statuses",
         "listed_asset_count": result.listed_asset_count,
         "daily_superset_count": result.daily_superset_count,
         "rvol_prefilter_count": result.rvol_prefilter_count,
         "market_candidate_count": result.market_candidate_count,
         "universe_complete": False,
+        "point_in_time_universe_complete": False,
+        "full_scanner_walk_forward_eligible": False,
         "acquisition_prefilter_uses_full_day_high": True,
         "prefilter_is_not_available_to_strategy": True,
         "execution_price_bar_adjustment": "raw",

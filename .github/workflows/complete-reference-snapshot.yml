@@ -1,4 +1,4 @@
-name: Complete July 9 snapshot
+name: Conditional July 9 snapshot
 
 on:
   workflow_dispatch:
@@ -7,10 +7,12 @@ on:
       - phase-3-historical-snapshot
     paths:
       - scripts/build_complete_reference_snapshot.py
+      - src/momentumbot/historical_data.py
       - src/momentumbot/snapshot.py
       - src/momentumbot/setup.py
       - src/momentumbot/backtest.py
       - src/momentumbot/providers/marketaux.py
+      - src/momentumbot/providers/alpaca.py
       - .github/workflows/complete-reference-snapshot.yml
 
 permissions:
@@ -36,12 +38,12 @@ jobs:
         run: python scripts/build_sec_float_join.py --output sec-float-join-artifact
       - name: Finalize SEC float classifications
         run: python scripts/finalize_sec_float_join.py --join-dir sec-float-join-artifact
-      - name: Build and backtest complete snapshot
+      - name: Build and backtest conditional current-master snapshot
         run: python scripts/build_complete_reference_snapshot.py --date 2026-07-09 --floats sec-float-join-artifact/final_float_estimates.csv --output complete-reference-snapshot
-      - name: Upload complete snapshot
+      - name: Upload conditional snapshot
         uses: actions/upload-artifact@v4
         with:
-          name: complete-reference-snapshot-2026-07-09
+          name: conditional-reference-snapshot-2026-07-09
           path: complete-reference-snapshot
           if-no-files-found: error
           retention-days: 14

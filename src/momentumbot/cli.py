@@ -22,13 +22,24 @@ def build_parser() -> argparse.ArgumentParser:
         default="general-2026",
     )
     backtest.add_argument("--starting-equity", type=float, default=100_000.0)
+    backtest.add_argument(
+        "--allow-conditional-universe",
+        action="store_true",
+        help=(
+            "allow a diagnostic snapshot that is complete only relative to a "
+            "frozen current asset master; never use its result for policy promotion"
+        ),
+    )
     return parser
 
 
 def main() -> None:
     args = build_parser().parse_args()
     if args.command == "backtest":
-        bars, contexts, news_events, manifest = load_snapshot(args.snapshot)
+        bars, contexts, news_events, manifest = load_snapshot(
+            args.snapshot,
+            allow_conditional_universe=args.allow_conditional_universe,
+        )
         profile = (
             current_general_2026()
             if args.profile == "general-2026"
@@ -46,6 +57,17 @@ def main() -> None:
                     "snapshot": manifest.get("snapshot_id"),
                     "profile": profile.name,
                     "risk_policy": paper_safe_risk().name,
+                    "universe_scope": (
+                        "point_in_time"
+                        if manifest.get("universe_complete", False)
+                        else "conditional_current_asset_master"
+                    ),
+                    "policy_promotion_eligible": bool(
+                        manifest.get("evaluation_eligibility", {}).get(
+                            "policy_promotion",
+                            manifest.get("universe_complete", False),
+                        )
+                    ),
                     "trades": len(result.trades),
                     "candidate_events": result.candidate_events,
                     "plan_events": result.plan_events,

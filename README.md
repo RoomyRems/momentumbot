@@ -50,4 +50,6 @@ The simulator uses the separate `paper-safe` risk policy by default. The aggress
 
 ## Next phase
 
-The next phase is provider integration and real snapshot construction using the existing GitHub secrets. We will validate Alpaca/FMP/MarketAux coverage independently before trusting any backtest, especially point-in-time universe/float, premarket consolidated volume, corporate actions and headline timestamps. AI remains shadow-only until the deterministic baseline has walk-forward results.
+Provider adapters and the first complete-relative-to-source historical snapshot now exist. The next phase is a representative walk-forward panel built from genuinely point-in-time universe membership, float, corporate actions, consolidated premarket data and publication-timed news.
+
+A current provider asset census—even one containing inactive rows—is preserved only as conditional diagnostic evidence. It cannot support full-scanner performance or policy promotion until historical membership coverage is established. AI remains shadow-only until the deterministic baseline has credible walk-forward results.

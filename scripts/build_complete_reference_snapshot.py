@@ -11,7 +11,11 @@ from zoneinfo import ZoneInfo
 import pandas as pd
 
 from momentumbot.backtest import Backtester
-from momentumbot.historical_data import discover_market_day
+from momentumbot.historical_data import (
+    asset_master_fingerprint,
+    discover_market_day,
+    normalize_asset_master,
+)
 from momentumbot.models import current_general_2026, paper_safe_risk
 from momentumbot.providers.alpaca import AlpacaDataClient
 from momentumbot.providers.marketaux import MarketAuxClient
@@ -178,7 +182,40 @@ def main() -> int:
     trading_date = date.fromisoformat(args.date)
     profile = current_general_2026()
     alpaca = AlpacaDataClient.from_env()
-    discovery = discover_market_day(alpaca, trading_date=trading_date, profile=profile)
+    raw_asset_master = alpaca.assets()
+    asset_master_retrieved_at = datetime.now(timezone.utc).isoformat()
+    normalized_asset_master = normalize_asset_master(raw_asset_master)
+    discovery = discover_market_day(
+        alpaca,
+        trading_date=trading_date,
+        profile=profile,
+        assets=raw_asset_master,
+    )
+    if discovery.asset_master_sha256 != asset_master_fingerprint(raw_asset_master):
+        raise RuntimeError("asset master fingerprint changed during discovery normalization")
+
+    root = args.output
+    root.mkdir(parents=True, exist_ok=True)
+    (root / "asset_master.json").write_text(
+        json.dumps(
+            {
+                "schema_version": 1,
+                "source": "alpaca_v2_assets",
+                "query": {"asset_class": "us_equity", "status": "all_default"},
+                "retrieved_at_utc": asset_master_retrieved_at,
+                "target_trading_date": trading_date.isoformat(),
+                "point_in_time_membership": False,
+                "asset_count": len(normalized_asset_master),
+                "status_counts": discovery.asset_status_counts,
+                "sha256": discovery.asset_master_sha256,
+                "assets": normalized_asset_master,
+            },
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
 
     market_rows = [row for row in discovery.rows if row.first_market_qualified_at is not None]
     market_symbols = {row.symbol for row in market_rows}
@@ -214,7 +251,6 @@ def main() -> int:
     if missing_bars:
         raise RuntimeError(f"research universe has missing intraday bars: {missing_bars}")
 
-    root = args.output
     bars_dir = root / "bars"
     rvol_dir = root / "rvol"
     bars_dir.mkdir(parents=True, exist_ok=True)
@@ -324,13 +360,31 @@ def main() -> int:
     classified = float_frame["float_pillar_pass"]
     warmup_start, warmup_end = _warmup_bounds(trading_date)
     manifest = {
-        "schema_version": 4,
+        "schema_version": 5,
         "kind": "complete_historical_snapshot",
         "snapshot_id": f"current-general-2026:{trading_date.isoformat()}",
         "trading_date": trading_date.isoformat(),
         "strategy_profile": profile.name,
-        "universe_complete": True,
-        "universe_definition": "complete daily acquisition superset with required 50-session RVOL history and intraday bars",
+        "universe_complete": False,
+        "point_in_time_universe_complete": False,
+        "universe_complete_relative_to_asset_master": True,
+        "universe_definition": "complete daily acquisition superset conditional on one frozen current Alpaca asset census",
+        "universe_membership": {
+            "source": "alpaca_v2_assets",
+            "source_artifact": "asset_master.json",
+            "source_sha256": discovery.asset_master_sha256,
+            "retrieved_at_utc": asset_master_retrieved_at,
+            "target_trading_date": trading_date.isoformat(),
+            "status_scope": "all_statuses_default",
+            "status_counts": discovery.asset_status_counts,
+            "point_in_time": False,
+            "coverage": "conditional_current_asset_master",
+        },
+        "evaluation_eligibility": {
+            "conditional_diagnostic": True,
+            "full_scanner_walk_forward": False,
+            "policy_promotion": False,
+        },
         "research_universe_count": len(universe_symbols),
         "listed_asset_count": discovery.listed_asset_count,
         "daily_superset_count": discovery.daily_superset_count,
@@ -363,6 +417,8 @@ def main() -> int:
         "prefilter_is_not_available_to_strategy": True,
         "data_window": {"start": start.isoformat(), "end_exclusive": end.isoformat()},
         "notes": [
+            "The asset census includes all statuses returned by Alpaca but has no historical membership as-of parameter; delisted or otherwise absent historical symbols can still be missing.",
+            "This snapshot is complete only relative to asset_master.json and is ineligible for full-scanner walk-forward claims or policy promotion.",
             "The full-day high is used only to choose the acquisition superset and is never exposed as a strategy feature.",
             "All securities that can satisfy the market price/gain/RVOL screen retain exact RVOL; other acquisition-universe names remain for causal gainer ranking and receive fail-closed RVOL.",
             "Unknown float remains null and therefore fails the float pillar closed.",
@@ -373,7 +429,10 @@ def main() -> int:
         json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
 
-    loaded_bars, loaded_contexts, loaded_news, loaded_manifest = load_snapshot(root)
+    loaded_bars, loaded_contexts, loaded_news, loaded_manifest = load_snapshot(
+        root,
+        allow_conditional_universe=True,
+    )
     loaded_warmup = load_indicator_warmup(root)
     if set(loaded_bars) != universe_set or set(loaded_contexts) != universe_set:
         raise RuntimeError("snapshot loader changed the research universe")
@@ -399,6 +458,8 @@ def main() -> int:
     pd.DataFrame(trades).to_csv(root / "trades.csv", index=False)
     backtest_summary = {
         "snapshot_id": loaded_manifest["snapshot_id"],
+        "universe_scope": "conditional_current_asset_master",
+        "policy_promotion_eligible": False,
         "starting_equity": args.starting_equity,
         "trade_count": len(result.trades),
         "candidate_events": result.candidate_events,

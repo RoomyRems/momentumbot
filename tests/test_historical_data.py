@@ -3,7 +3,12 @@ from datetime import date
 
 import pandas as pd
 
-from momentumbot.historical_data import _daily_scan_basis
+from momentumbot.historical_data import (
+    _daily_scan_basis,
+    asset_master_fingerprint,
+    asset_master_status_counts,
+    normalize_asset_master,
+)
 
 
 class HistoricalDataTests(unittest.TestCase):
@@ -83,6 +88,48 @@ class HistoricalDataTests(unittest.TestCase):
         self.assertEqual(prior_close, 5.00)
         self.assertEqual(high, 6.50)
         self.assertEqual(low, 5.50)
+
+    def test_asset_master_fingerprint_is_order_independent(self):
+        first = [
+            {
+                "id": "2",
+                "class": "us_equity",
+                "exchange": "nyse",
+                "symbol": "BBB",
+                "name": "Beta",
+                "status": "inactive",
+                "tradable": False,
+                "attributes": ["z", "a"],
+            },
+            {
+                "id": "1",
+                "class": "us_equity",
+                "exchange": "nasdaq",
+                "symbol": "AAA",
+                "name": "Alpha",
+                "status": "active",
+                "tradable": True,
+                "attributes": [],
+            },
+        ]
+        second = [dict(first[1]), dict(first[0], attributes=["a", "z"])]
+
+        self.assertEqual(asset_master_fingerprint(first), asset_master_fingerprint(second))
+        self.assertEqual(
+            [row["symbol"] for row in normalize_asset_master(first)],
+            ["AAA", "BBB"],
+        )
+
+    def test_asset_master_status_counts_preserve_inactive_members(self):
+        rows = [
+            {"symbol": "AAA", "status": "active"},
+            {"symbol": "BBB", "status": "inactive"},
+            {"symbol": "CCC", "status": "inactive"},
+        ]
+        self.assertEqual(
+            asset_master_status_counts(rows),
+            {"active": 1, "inactive": 2},
+        )
 
 
 if __name__ == "__main__":

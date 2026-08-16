@@ -27,9 +27,17 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("snapshot", type=Path)
     parser.add_argument("--starting-equity", type=float, default=100_000.0)
+    parser.add_argument(
+        "--allow-conditional-universe",
+        action="store_true",
+        help="allow current-asset-master diagnostics that are ineligible for promotion",
+    )
     args = parser.parse_args()
 
-    bars, contexts, news, manifest = load_snapshot(args.snapshot)
+    bars, contexts, news, manifest = load_snapshot(
+        args.snapshot,
+        allow_conditional_universe=args.allow_conditional_universe,
+    )
     curves = _load_rvol(args.snapshot, set(bars))
     result = Backtester(current_general_2026(), paper_safe_risk()).run_day(
         bars,
@@ -40,6 +48,17 @@ def main() -> int:
     )
     report = {
         "snapshot_id": manifest["snapshot_id"],
+        "universe_scope": (
+            "point_in_time"
+            if manifest.get("universe_complete", False)
+            else "conditional_current_asset_master"
+        ),
+        "policy_promotion_eligible": bool(
+            manifest.get("evaluation_eligibility", {}).get(
+                "policy_promotion",
+                manifest.get("universe_complete", False),
+            )
+        ),
         "candidate_events": result.candidate_events,
         "plan_events": result.plan_events,
         "trade_count": len(result.trades),

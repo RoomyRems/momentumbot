@@ -13,6 +13,20 @@ The deterministic baseline is cheap compared with a Level-2 replay, but the *qua
 7. **Publication-timed news/headlines**. A backtest may use only headlines published before the decision timestamp.
 8. **Complete cross-section for ranking**. Top-gainer/obviousness rank is invalid if the snapshot contains only hand-picked winners.
 
+## Universe completeness levels
+
+`universe_complete=true` is reserved for a universe whose membership is known as of the simulated date. A present-day provider asset census does not meet that definition merely because it includes both active and inactive rows.
+
+MomentumBot distinguishes:
+
+1. **Point-in-time complete:** membership, symbol identity and exchange eligibility are reconstructed as of the simulated date. This is eligible for full-scanner walk-forward evaluation.
+2. **Complete relative to a frozen asset census:** every security in one downloaded provider master is handled consistently, but historically absent/delisted names may still be missing. This is conditional diagnostic evidence only.
+3. **Candidate/reference subset:** selected symbols only. This can validate feature or execution mechanics, never scanner selectivity.
+
+Alpaca's [`/v2/assets`](https://docs.alpaca.markets/us/reference/get-v2-assets-1) endpoint is frozen with all statuses and a SHA-256 census fingerprint when it is used. The endpoint has no historical membership `asof` parameter. The historical-bars [`asof`](https://docs.alpaca.markets/us/reference/stockbars) parameter supports symbol-name mapping for the queried entity; it does not prove that the input symbol list was historically complete.
+
+Conditional snapshots must declare `universe_complete=false`, `universe_complete_relative_to_asset_master=true`, and explicitly prohibit full-scanner walk-forward and policy-promotion claims. Loading one requires an intentional diagnostic override.
+
 ## News snapshot scope
 
 For a single trading-day snapshot, `news.csv` should contain only events considered eligible for that active momentum session (for example news released after the prior regular close through the simulated morning). The exact freshness boundary is still a declared research translation; the backtester never searches old news on its own.

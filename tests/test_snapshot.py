@@ -7,6 +7,7 @@ from pathlib import Path
 
 import pandas as pd
 
+from momentumbot.historical_data import asset_master_fingerprint
 from momentumbot.snapshot import SnapshotError, load_indicator_warmup, load_snapshot
 
 
@@ -16,11 +17,56 @@ class SnapshotTests(unittest.TestCase):
         root: Path,
         *,
         universe_complete=True,
+        conditional_universe=False,
         float_asof="2026-08-11T12:00:00-04:00",
+        manifest_overrides=None,
     ):
         (root / "bars").mkdir()
+        manifest = {"snapshot_id": "test", "universe_complete": universe_complete}
+        if conditional_universe:
+            assets = [
+                {
+                    "asset_class": "us_equity",
+                    "asset_id": "test-id",
+                    "attributes": [],
+                    "exchange": "NASDAQ",
+                    "name": "Test Corp",
+                    "status": "active",
+                    "symbol": "TEST",
+                    "tradable": True,
+                }
+            ]
+            asset_master_sha256 = asset_master_fingerprint(assets)
+            (root / "asset_master.json").write_text(
+                json.dumps(
+                    {
+                        "point_in_time_membership": False,
+                        "sha256": asset_master_sha256,
+                        "assets": assets,
+                    }
+                ),
+                encoding="utf-8",
+            )
+            manifest.update(
+                {
+                    "universe_complete": False,
+                    "point_in_time_universe_complete": False,
+                    "universe_complete_relative_to_asset_master": True,
+                    "universe_membership": {
+                        "source_artifact": "asset_master.json",
+                        "source_sha256": asset_master_sha256,
+                    },
+                    "evaluation_eligibility": {
+                        "conditional_diagnostic": True,
+                        "full_scanner_walk_forward": False,
+                        "policy_promotion": False,
+                    },
+                }
+            )
+        if manifest_overrides:
+            manifest.update(manifest_overrides)
         (root / "manifest.json").write_text(
-            json.dumps({"snapshot_id": "test", "universe_complete": universe_complete}),
+            json.dumps(manifest),
             encoding="utf-8",
         )
         pd.DataFrame(
@@ -62,6 +108,68 @@ class SnapshotTests(unittest.TestCase):
             self.assertIsNotNone(contexts["TEST"].float_asof)
             self.assertEqual(news[0].headline_id, "n1")
             self.assertIsNotNone(bars["TEST"].index.tz)
+
+    def test_conditional_asset_master_universe_is_rejected_by_default(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self._write_base(root, conditional_universe=True)
+            with self.assertRaisesRegex(SnapshotError, "allow_conditional_universe"):
+                load_snapshot(root)
+
+    def test_conditional_asset_master_universe_requires_explicit_opt_in(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self._write_base(root, conditional_universe=True)
+            bars, contexts, news, manifest = load_snapshot(
+                root,
+                allow_conditional_universe=True,
+            )
+            self.assertEqual(set(bars), {"TEST"})
+            self.assertEqual(set(contexts), {"TEST"})
+            self.assertEqual(news, ())
+            self.assertFalse(manifest["evaluation_eligibility"]["policy_promotion"])
+
+    def test_conditional_universe_must_prohibit_policy_promotion(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self._write_base(
+                root,
+                conditional_universe=True,
+                manifest_overrides={
+                    "evaluation_eligibility": {
+                        "conditional_diagnostic": True,
+                        "full_scanner_walk_forward": False,
+                        "policy_promotion": True,
+                    }
+                },
+            )
+            with self.assertRaisesRegex(SnapshotError, "prohibit policy promotion"):
+                load_snapshot(root, allow_conditional_universe=True)
+
+    def test_conditional_universe_asset_master_tampering_fails_closed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self._write_base(root, conditional_universe=True)
+            asset_master = json.loads(
+                (root / "asset_master.json").read_text(encoding="utf-8")
+            )
+            asset_master["assets"][0]["symbol"] = "ALTERED"
+            (root / "asset_master.json").write_text(
+                json.dumps(asset_master),
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(SnapshotError, "fingerprint mismatch"):
+                load_snapshot(root, allow_conditional_universe=True)
+
+    def test_contradictory_universe_claim_fails_closed(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self._write_base(
+                root,
+                manifest_overrides={"point_in_time_universe_complete": False},
+            )
+            with self.assertRaisesRegex(SnapshotError, "cannot declare"):
+                load_snapshot(root, allow_conditional_universe=True)
 
     def test_float_without_asof_fails_closed(self):
         with tempfile.TemporaryDirectory() as tmp:

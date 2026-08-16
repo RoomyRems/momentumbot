@@ -86,6 +86,12 @@ class AlpacaDataClient:
         }
 
     def assets(self) -> list[dict[str, Any]]:
+        """Return Alpaca's current US-equity census across all statuses.
+
+        `status` is intentionally omitted because Alpaca documents that omission
+        as including every status. The endpoint has no historical membership
+        `asof`; callers must not label this response point-in-time complete.
+        """
         query = urllib.parse.urlencode({"asset_class": "us_equity"})
         payload = get_json(
             f"{self.paper_endpoint}/v2/assets?{query}",

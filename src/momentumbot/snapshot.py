@@ -31,8 +31,65 @@ def _load_bar_file(path: Path, *, label: str) -> pd.DataFrame:
     return frame
 
 
+def _validate_conditional_asset_master(root: Path, manifest: dict) -> None:
+    if manifest.get("point_in_time_universe_complete") is not False:
+        raise SnapshotError(
+            "conditional universe must explicitly declare "
+            "point_in_time_universe_complete=false"
+        )
+    eligibility = manifest.get("evaluation_eligibility")
+    if not isinstance(eligibility, dict):
+        raise SnapshotError("conditional universe requires an evaluation_eligibility object")
+    if eligibility.get("conditional_diagnostic") is not True:
+        raise SnapshotError(
+            "conditional universe must explicitly allow conditional diagnostics"
+        )
+    if eligibility.get("policy_promotion") is not False:
+        raise SnapshotError("conditional universe must explicitly prohibit policy promotion")
+    if eligibility.get("full_scanner_walk_forward") is not False:
+        raise SnapshotError(
+            "conditional universe must explicitly prohibit full-scanner walk-forward claims"
+        )
+
+    membership = manifest.get("universe_membership")
+    if not isinstance(membership, dict):
+        raise SnapshotError("conditional universe requires universe_membership provenance")
+    source_artifact = membership.get("source_artifact")
+    if not isinstance(source_artifact, str) or not source_artifact:
+        raise SnapshotError("conditional universe requires a source_artifact")
+    relative = Path(source_artifact)
+    if relative.is_absolute() or ".." in relative.parts:
+        raise SnapshotError("conditional universe source_artifact must stay inside snapshot")
+    artifact_path = root / relative
+    if not artifact_path.is_file():
+        raise SnapshotError(f"missing conditional universe source artifact: {source_artifact}")
+    asset_master = json.loads(artifact_path.read_text(encoding="utf-8"))
+    assets = asset_master.get("assets") if isinstance(asset_master, dict) else None
+    if not isinstance(assets, list):
+        raise SnapshotError("conditional universe source artifact requires an assets list")
+    actual_sha256 = hashlib.sha256(
+        json.dumps(
+            assets,
+            ensure_ascii=True,
+            separators=(",", ":"),
+            sort_keys=True,
+        ).encode("utf-8")
+    ).hexdigest()
+    expected_sha256 = membership.get("source_sha256")
+    if not isinstance(expected_sha256, str) or actual_sha256 != expected_sha256:
+        raise SnapshotError("conditional universe asset-master fingerprint mismatch")
+    if asset_master.get("sha256") != expected_sha256:
+        raise SnapshotError("conditional universe artifact fingerprint mismatch")
+    if asset_master.get("point_in_time_membership") is not False:
+        raise SnapshotError(
+            "conditional universe artifact must explicitly deny point-in-time membership"
+        )
+
+
 def load_snapshot(
     path: str | Path,
+    *,
+    allow_conditional_universe: bool = False,
 ) -> tuple[dict[str, pd.DataFrame], dict[str, SymbolContext], tuple[NewsEvent, ...], dict]:
     root = Path(path)
     manifest_path = root / "manifest.json"
@@ -43,8 +100,24 @@ def load_snapshot(
         raise SnapshotError("snapshot requires manifest.json, contexts.csv, and bars/")
 
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    if not manifest.get("universe_complete", False):
-        raise SnapshotError("snapshot must explicitly declare universe_complete=true")
+    point_in_time_complete = bool(manifest.get("universe_complete", False))
+    explicitly_not_point_in_time = manifest.get("point_in_time_universe_complete") is False
+    if point_in_time_complete and explicitly_not_point_in_time:
+        raise SnapshotError(
+            "snapshot cannot declare universe_complete=true while "
+            "point_in_time_universe_complete=false"
+        )
+    conditional_complete = bool(
+        manifest.get("universe_complete_relative_to_asset_master", False)
+    )
+    if not point_in_time_complete:
+        if not allow_conditional_universe or not conditional_complete:
+            raise SnapshotError(
+                "snapshot must explicitly declare universe_complete=true for a "
+                "point-in-time universe; current-asset-master diagnostics require "
+                "allow_conditional_universe=True"
+            )
+        _validate_conditional_asset_master(root, manifest)
 
     context_frame = pd.read_csv(contexts_path)
     required = {
