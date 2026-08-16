@@ -114,11 +114,15 @@ def main() -> int:
     plan_count = int(runtime.get("plan_count") or 0)
     filled_count = int(runtime.get("filled_count") or 0)
     raw_numbers = runtime.get("filled_pullback_numbers", [])
-    filled_numbers = tuple(
-        int(value)
-        for value in raw_numbers
-        if isinstance(value, int) and not isinstance(value, bool)
-    ) if isinstance(raw_numbers, Sequence) and not isinstance(raw_numbers, (str, bytes)) else ()
+    filled_numbers = (
+        tuple(
+            int(value)
+            for value in raw_numbers
+            if isinstance(value, int) and not isinstance(value, bool)
+        )
+        if isinstance(raw_numbers, Sequence) and not isinstance(raw_numbers, (str, bytes))
+        else ()
+    )
 
     observed_setup = observed.get("setup_type")
     observed_trade_taken = _bool(observed.get("trade_taken"))
@@ -138,7 +142,7 @@ def main() -> int:
         ),
     }
 
-    dimensions: dict[str, object] = {}
+    dimensions: dict[str, dict[str, object]] = {}
     for dimension in suite_case.scored_dimensions:
         if dimension not in candidates:
             raise ValueError(f"unsupported scored dimension {dimension!r}")
@@ -178,7 +182,7 @@ def main() -> int:
             "runtime_fill_prices": list(runtime_fills),
             "reported_fill_references": list(reported_fills),
             "absolute_difference_matrix": _difference_matrix(runtime_fills, reported_fills),
-            "used_for_policy_selection": false if False else False
+            "used_for_policy_selection": False,
         },
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
