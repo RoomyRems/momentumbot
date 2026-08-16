@@ -75,6 +75,29 @@ class MassiveProviderTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "official API hosts"):
             client.active_tickers_as_of(date(2025, 4, 3), limit=1)
 
+    def test_cursor_order_regression_is_recorded_not_rejected(self) -> None:
+        calls = 0
+
+        def requester(_: str, **__: object) -> object:
+            nonlocal calls
+            calls += 1
+            if calls == 1:
+                return {
+                    "count": 1,
+                    "results": [_row("ZZZ")],
+                    "next_url": "https://api.massive.com/v3/reference/tickers?cursor=next",
+                }
+            return {"count": 1, "results": [_row("AAA")]}
+
+        census = MassiveReferenceClient(
+            "secret",
+            requester=requester,
+        ).active_tickers_as_of(date(2025, 4, 3), limit=1)
+
+        self.assertEqual([row["ticker"] for row in census.rows], ["AAA", "ZZZ"])
+        self.assertFalse(census.pages[0].order_regression_from_previous_page)
+        self.assertTrue(census.pages[1].order_regression_from_previous_page)
+
     def test_non_active_row_fails_closed(self) -> None:
         row = _row("AAA")
         row["active"] = False

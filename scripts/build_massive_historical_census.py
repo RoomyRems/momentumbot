@@ -177,6 +177,9 @@ def build_date_manifest(
     credential_name: str,
 ) -> dict[str, object]:
     page_rows = sum(page.row_count for page in census.pages)
+    page_order_regressions = sum(
+        page.order_regression_from_previous_page for page in census.pages
+    )
     pagination_exhausted = bool(census.pages and not census.pages[-1].next_page_present)
     fetch_complete = pagination_exhausted and page_rows == len(census.rows)
     membership_candidate = bool(
@@ -198,6 +201,7 @@ def build_date_manifest(
         "pages": [asdict(page) for page in census.pages],
         "pagination_exhausted": pagination_exhausted,
         "page_row_sum": page_rows,
+        "page_order_regression_count": page_order_regressions,
         "fetch_complete": fetch_complete,
         "census_summary": census_summary,
         "census_content_sha256": reference_ticker_fingerprint(census.rows),

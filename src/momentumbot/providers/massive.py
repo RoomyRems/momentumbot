@@ -39,6 +39,7 @@ class MassiveTickerPage:
     first_ticker: str
     last_ticker: str
     next_page_present: bool
+    order_regression_from_previous_page: bool = False
 
 
 @dataclass(frozen=True, slots=True)
@@ -287,8 +288,11 @@ class MassiveReferenceClient:
                 raise RuntimeError(
                     "Massive reference-tickers page contains a duplicate membership identity"
                 )
-            if previous_ticker is not None and page_tickers and page_tickers[0] < previous_ticker:
-                raise RuntimeError("Massive reference-tickers pagination is not strictly ordered")
+            order_regression = bool(
+                previous_ticker is not None
+                and page_tickers
+                and page_tickers[0] < previous_ticker
+            )
             duplicate_identity = next(
                 (identity for identity in page_identities if identity in seen_identities),
                 None,
@@ -312,6 +316,7 @@ class MassiveReferenceClient:
                     first_ticker=page_tickers[0] if page_tickers else "",
                     last_ticker=page_tickers[-1] if page_tickers else "",
                     next_page_present=next_page_present,
+                    order_regression_from_previous_page=order_regression,
                 )
             )
             rows.extend(normalized_page)

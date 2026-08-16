@@ -97,6 +97,7 @@ class MassiveHistoricalCensusBuilderTests(unittest.TestCase):
         )
 
         self.assertTrue(manifest["fetch_complete"])
+        self.assertEqual(manifest["page_order_regression_count"], 0)
         self.assertTrue(manifest["eligibility"]["point_in_time_membership_candidate"])
         self.assertFalse(manifest["eligibility"]["universe_complete"])
         self.assertFalse(manifest["eligibility"]["full_walk_forward_eligible"])
