@@ -1,0 +1,25 @@
+{
+  "benchmark_id": "ross-tivc-2025-04-03-micro-01",
+  "trading_date": "2025-04-03",
+  "symbol": "TIVC",
+  "knowledge_policy": "ground_truth_label_only_never_runtime_context",
+  "source": {
+    "video_id": "ZjT_CsTKB80",
+    "title": "S&P 500 is Down But Penny Stocks Are Up!",
+    "published_date": "2025-04-03",
+    "evidence_type": "same_day_behavioral_recap"
+  },
+  "observed_human_behavior": {
+    "setup_type": "micro_pullback",
+    "first_micro_pullback_taken": true,
+    "reported_entry_fills": [4.73, 4.76, 4.89],
+    "reported_position_shares": 10000,
+    "reported_first_trade_profit_approx": 3000,
+    "later_one_minute_new_high_skipped_for_topping_tail_history": true
+  },
+  "research_notes": [
+    "Primary Micro v0.1 evidence is the early first micro pullback; the later one-minute topping-tail skip is context, not the same setup instance.",
+    "This retrospective label must never be supplied to a policy replaying April 3, 2025.",
+    "Historical SIP reconstruction must identify the exact candidate qualification and micro trigger independently of the recap."
+  ]
+}
