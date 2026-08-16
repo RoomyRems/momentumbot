@@ -1,19 +1,19 @@
 """Research-only pre-qualification structural-context ablation.
 
-Micro v0.1 deliberately remains unchanged.  This module isolates one information-
+Micro v0.1 deliberately remains unchanged. This module isolates one information-
 boundary hypothesis discovered by the frozen seed benchmark: a trader can see
 completed chart structure that existed before a scanner threshold was crossed,
 while still being prohibited from acting before that causal qualification time.
 
-The ablation therefore changes *only* the structural-history start.  Setup
-geometry, support rules, trigger semantics, and execution remain the frozen
-parent policy's rules.  It is not permitted to arm or fill a plan before the
-actual candidate qualification timestamp.
+The ablation therefore changes *only* the structural-history start used by setup
+detection. Setup geometry, post-qualification pullback numbering, support rules,
+trigger semantics, and execution remain the frozen parent policy's rules. It is
+not permitted to arm or fill a plan before the actual candidate qualification
+timestamp.
 """
 
 from __future__ import annotations
 
-from collections import Counter
 from dataclasses import asdict, dataclass
 from datetime import datetime
 import hashlib
@@ -50,6 +50,7 @@ class PrequalificationContextAblation:
     bar_interval_seconds: int
     action_gate: str = "actual_candidate_qualification"
     context_rule: str = "completed_bars_before_qualification_only"
+    pullback_ordinal_rule: str = "actual_candidate_qualification"
 
     def __post_init__(self) -> None:
         if self.context_bars < 1:
@@ -83,7 +84,7 @@ class PrequalificationContextReplay:
 def micro_v0_2a_context_ablation() -> PrequalificationContextAblation:
     """Return the fixed first context ablation derived from v0.1 geometry.
 
-    Ten context bars is not fitted to the seed examples.  It is the minimum
+    Ten context bars is not fitted to the seed examples. It is the minimum
     bounded history implied by the parent's existing five-bar impulse lookback
     plus five-bar maximum pullback duration.
     """
@@ -152,9 +153,10 @@ def replay_micro_candidate_with_prequalification_context(
     """Replay post-qualification actions with bounded earlier completed structure.
 
     Evaluation still starts only on micro bars whose bucket start is at or after
-    the actual qualification timestamp.  Earlier completed bars may define the
-    running-high/pullback structure, but cannot themselves cause a plan to be
-    armed.  Every emitted plan is checked against the actual qualification gate.
+    the actual qualification timestamp. Earlier completed bars may define setup
+    geometry, but cannot themselves cause a plan to be armed. Pullback ordinal
+    metadata remains anchored at the actual qualification timestamp so the
+    experiment does not quietly change a second variable.
     """
     _validate_micro_index(bars)
     qualified = pd.Timestamp(candidate_qualified_at)
@@ -179,10 +181,12 @@ def replay_micro_candidate_with_prequalification_context(
 
     for timestamp in bars.loc[qualified:].index:
         prefix = bars.loc[:timestamp]
+        # Ordinal remains exactly qualification-anchored as in the frozen parent.
         pullback_number = causal_active_pullback_number(
             prefix,
-            candidate_qualified_at=structural_start,
+            candidate_qualified_at=qualified,
         )
+        # Only setup geometry receives the earlier completed structural context.
         evaluation = evaluate_micro_pullback_plan(
             symbol,
             prefix,
@@ -258,6 +262,7 @@ def prequalification_context_runtime_artifact(
             "structural_context_bars_available": result.available_prequalification_context_bars,
             "structural_context_start": result.structural_context_start.isoformat(),
             "action_gate": result.spec.action_gate,
+            "pullback_ordinal_rule": result.spec.pullback_ordinal_rule,
         }
     )
     return payload
