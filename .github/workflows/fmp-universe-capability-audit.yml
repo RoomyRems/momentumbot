@@ -1,0 +1,47 @@
+name: FMP universe capability audit
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - scripts/audit_fmp_universe_capability.py
+      - tests/test_audit_fmp_universe_capability.py
+      - .github/workflows/fmp-universe-capability-audit.yml
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      FMP_API_KEY: ${{ secrets.FMP_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test sanitized audit contract
+        run: python -m unittest tests.test_audit_fmp_universe_capability -v
+      - name: Probe FMP universe schemas
+        run: >-
+          python scripts/audit_fmp_universe_capability.py
+          --output fmp-universe-capability-audit.json
+      - name: Enforce non-promotable capability scope
+        run: >-
+          python -c "import json,pathlib;
+          d=json.loads(pathlib.Path('fmp-universe-capability-audit.json').read_text());
+          assert d['raw_provider_rows_persisted'] is False;
+          assert d['assessment']['point_in_time_universe_complete'] is False;
+          assert d['assessment']['full_walk_forward_eligible'] is False;
+          assert d['assessment']['policy_promotion_eligible'] is False"
+      - name: Upload sanitized capability report
+        uses: actions/upload-artifact@v4
+        with:
+          name: fmp-universe-capability-audit
+          path: fmp-universe-capability-audit.json
+          if-no-files-found: error
+          retention-days: 30
