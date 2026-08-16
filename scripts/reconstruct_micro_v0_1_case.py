@@ -2,7 +2,8 @@ from __future__ import annotations
 
 import argparse
 import json
-from datetime import date, datetime, time, timedelta, timezone
+from dataclasses import asdict
+from datetime import date, datetime, time, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -85,7 +86,7 @@ def main() -> int:
             "rvol_prefilter_count": discovery.rvol_prefilter_count,
             "market_candidate_count": discovery.market_candidate_count,
         },
-        "target_discovery_row": row.__dict__ if row is not None else None,
+        "target_discovery_row": asdict(row) if row is not None else None,
         "frozen_policy_id": frozen.policy_id,
         "frozen_policy_fingerprint": frozen.fingerprint,
     }
