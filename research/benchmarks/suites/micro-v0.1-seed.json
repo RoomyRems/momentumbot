@@ -37,12 +37,12 @@
       "rationale": "Explicit 10-second micro pullback entry near $2.40 followed by continuation through $3."
     },
     {
-      "benchmark_id": "ross-oncs-2026-03-27-micro-01",
-      "benchmark_path": "research/benchmarks/2026-03-27-oncs.json",
+      "benchmark_id": "ross-artl-2026-03-27-micro-01",
+      "benchmark_path": "research/benchmarks/2026-03-27-artl.json",
       "role": "primary_scored",
-      "tags": ["canonical_candidate", "10_second", "loser", "false_breakout", "topping_tail"],
+      "tags": ["canonical_candidate", "10_second", "loser", "false_breakout", "topping_tail", "symbol_corrected_by_public_research"],
       "scored_dimensions": ["setup_detected", "entry_participation"],
-      "rationale": "Negative-outcome example prevents the primary suite from containing only successful micro trades. Exit/failure handling is preserved as a future campaign-engine label, not scored yet."
+      "rationale": "Negative-outcome example prevents the primary suite from containing only successful micro trades. The transcript-derived ONCS ticker was corrected to ARTL after independent same-day market-data verification; behavioral labels remain unchanged. Exit/failure handling is preserved as a future campaign-engine label, not scored yet."
     },
     {
       "benchmark_id": "ross-vrax-2026-07-09-micro-01",
