@@ -18,7 +18,10 @@ from momentumbot.micro_replay import micro_replay_runtime_artifact, replay_micro
 from momentumbot.models import current_general_2026
 from momentumbot.providers.alpaca import AlpacaDataClient
 from momentumbot.providers.alpaca_trades import historical_trades
-from momentumbot.research.benchmark_market import direct_historical_target_qualification
+from momentumbot.research.benchmark_market import (
+    direct_historical_target_qualification,
+    refine_candidate_minute_with_sip,
+)
 
 ET = ZoneInfo("America/New_York")
 EMA_WARMUP_CALENDAR_DAYS = 7
@@ -82,15 +85,18 @@ def main() -> int:
 
     if row is not None:
         target_row = asdict(row)
-        first_qualified_at = row.first_market_qualified_at
+        first_acquisition_minute = row.first_market_qualified_at
+        previous_close = row.previous_close
         anchor_source = "full_market_discovery_current_provider_asset_master"
     elif direct is not None:
         target_row = asdict(direct)
-        first_qualified_at = direct.first_market_qualified_at
+        first_acquisition_minute = direct.first_market_qualified_at
+        previous_close = direct.previous_close
         anchor_source = "direct_historical_target_fallback_missing_from_current_asset_master"
     else:
         target_row = None
-        first_qualified_at = None
+        first_acquisition_minute = None
+        previous_close = None
         anchor_source = "unresolved_historical_target"
 
     discovery_summary = {
@@ -124,7 +130,7 @@ def main() -> int:
         "frozen_policy_fingerprint": frozen.fingerprint,
     }
 
-    if first_qualified_at is None:
+    if first_acquisition_minute is None or previous_close is None:
         runtime = {
             "artifact_type": "micro_candidate_runtime_replay_unavailable",
             "schema_version": 1,
@@ -149,9 +155,35 @@ def main() -> int:
         print(json.dumps(runtime, indent=2, sort_keys=True))
         return 0
 
-    qualified_at = pd.Timestamp(first_qualified_at)
+    acquisition_minute = pd.Timestamp(first_acquisition_minute)
+    if acquisition_minute.tzinfo is None:
+        raise RuntimeError("acquisition-minute timestamp is not timezone-aware")
+    acquisition_minute = acquisition_minute.floor("min")
+    refined = refine_candidate_minute_with_sip(
+        client,
+        symbol=symbol,
+        trading_date=trading_date,
+        candidate_minute_start=acquisition_minute,
+        previous_close=float(previous_close),
+        profile=profile,
+    )
+    if refined.qualified_at is not None:
+        qualified_at = pd.Timestamp(refined.qualified_at)
+        decision_time_source = "sip_intraminute_refinement"
+    else:
+        # The acquisition bar's close/volume are only knowable after completion.
+        # If the conservative intraminute test does not cross earlier, never use
+        # the provider's one-minute bar-start timestamp as a decision time.
+        qualified_at = acquisition_minute + pd.Timedelta(minutes=1)
+        decision_time_source = "completed_acquisition_minute_fallback"
     if qualified_at.tzinfo is None:
         raise RuntimeError("qualification timestamp is not timezone-aware")
+
+    discovery_summary["acquisition_minute_start"] = acquisition_minute.isoformat()
+    discovery_summary["intraminute_refinement"] = asdict(refined)
+    discovery_summary["candidate_qualified_at"] = qualified_at.isoformat()
+    discovery_summary["decision_time_source"] = decision_time_source
+
     cutoff = pd.Timestamp(_utc_entry_cutoff(trading_date))
     replay_end = min(qualified_at + pd.Timedelta(minutes=REPLAY_HORIZON_MINUTES), cutoff)
     if replay_end <= qualified_at:
@@ -216,6 +248,9 @@ def main() -> int:
             "case_id": args.case_id,
             "trading_date": trading_date.isoformat(),
             "candidate_anchor_source": anchor_source,
+            "candidate_acquisition_minute_start": acquisition_minute.isoformat(),
+            "candidate_decision_time_source": decision_time_source,
+            "intraminute_refinement": asdict(refined),
             "frozen_policy_id": frozen.policy_id,
             "frozen_policy_fingerprint": frozen.fingerprint,
             "frozen_policy_status": frozen.status,
@@ -240,7 +275,6 @@ def main() -> int:
     (output / "runtime-replay.json").write_text(
         json.dumps(runtime, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
-    discovery_summary["candidate_qualified_at"] = qualified_at.isoformat()
     discovery_summary["replay_end"] = replay_end.isoformat()
     discovery_summary["runtime_counts"] = {
         "trade_prints": len(trades),
