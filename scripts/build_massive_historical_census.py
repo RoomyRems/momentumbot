@@ -21,6 +21,7 @@ from momentumbot.providers.massive import (
     MassiveReferenceClient,
     MassiveTickerCensus,
     normalize_reference_tickers,
+    reference_membership_identity,
     reference_membership_fingerprint,
     reference_ticker_fingerprint,
 )
@@ -51,6 +52,8 @@ def summarize_census(
 ) -> dict[str, object]:
     normalized = normalize_reference_tickers(rows)
     tickers = [str(row["ticker"]) for row in normalized]
+    membership_identities = [reference_membership_identity(row) for row in normalized]
+    ticker_counts = Counter(tickers)
     active_counts = Counter(str(row["active"]).lower() for row in normalized)
     exchange_counts = Counter(str(row["primary_exchange"]) or "missing" for row in normalized)
     type_counts = Counter(str(row["type"]) or "missing" for row in normalized)
@@ -60,6 +63,13 @@ def summarize_census(
         "row_count": len(normalized),
         "unique_ticker_count": len(set(tickers)),
         "duplicate_ticker_count": len(tickers) - len(set(tickers)),
+        "ticker_collision_group_count": sum(
+            count > 1 for count in ticker_counts.values()
+        ),
+        "unique_membership_identity_count": len(set(membership_identities)),
+        "duplicate_membership_identity_count": (
+            len(membership_identities) - len(set(membership_identities))
+        ),
         "active_counts": dict(sorted(active_counts.items())),
         "market_counts": dict(sorted(market_counts.items())),
         "locale_counts": dict(sorted(locale_counts.items())),
@@ -81,29 +91,38 @@ def build_reconciliation(
     massive_rows: list[dict[str, object]] | tuple[dict[str, object], ...],
     alpaca_rows: list[dict[str, object]] | tuple[dict[str, object], ...],
 ) -> tuple[list[dict[str, object]], dict[str, object]]:
-    massive = {
-        str(row["ticker"]): row
-        for row in normalize_reference_tickers(massive_rows)
-    }
+    normalized_massive = normalize_reference_tickers(massive_rows)
+    massive_groups: dict[str, list[dict[str, object]]] = {}
+    for row in normalized_massive:
+        massive_groups.setdefault(str(row["ticker"]), []).append(row)
     normalized_alpaca = normalize_asset_master(list(alpaca_rows))
     alpaca_groups: dict[str, list[dict[str, object]]] = {}
     for row in normalized_alpaca:
         alpaca_groups.setdefault(str(row["symbol"]), []).append(row)
 
     records: list[dict[str, object]] = []
-    for ticker in sorted(set(massive) | set(alpaca_groups)):
-        massive_row = massive.get(ticker)
+    for ticker in sorted(set(massive_groups) | set(alpaca_groups)):
+        massive_matches = massive_groups.get(ticker, [])
         alpaca_matches = alpaca_groups.get(ticker, [])
         records.append(
             {
                 "ticker": ticker,
-                "massive_asof_member": massive_row is not None,
-                "massive_primary_exchange": (
-                    massive_row.get("primary_exchange", "") if massive_row else ""
+                "massive_asof_member": bool(massive_matches),
+                "massive_asof_match_count": len(massive_matches),
+                "massive_primary_exchanges": "|".join(
+                    sorted({str(row["primary_exchange"]) for row in massive_matches})
                 ),
-                "massive_security_type": massive_row.get("type", "") if massive_row else "",
-                "massive_composite_figi": (
-                    massive_row.get("composite_figi", "") if massive_row else ""
+                "massive_security_types": "|".join(
+                    sorted({str(row["type"]) for row in massive_matches})
+                ),
+                "massive_composite_figis": "|".join(
+                    sorted(
+                        {
+                            str(row["composite_figi"])
+                            for row in massive_matches
+                            if row["composite_figi"]
+                        }
+                    )
                 ),
                 "alpaca_current_member": bool(alpaca_matches),
                 "alpaca_current_match_count": len(alpaca_matches),
@@ -116,13 +135,17 @@ def build_reconciliation(
             }
         )
 
-    massive_symbols = set(massive)
+    massive_symbols = set(massive_groups)
     alpaca_symbols = set(alpaca_groups)
     overlap = massive_symbols & alpaca_symbols
     summary: dict[str, object] = {
         "comparison_scope": "massive_point_in_time_vs_alpaca_current_all_status_census",
         "alpaca_comparison_is_point_in_time": False,
         "massive_asof_count": len(massive_symbols),
+        "massive_asof_security_record_count": len(normalized_massive),
+        "massive_duplicate_ticker_count": (
+            len(normalized_massive) - len(massive_symbols)
+        ),
         "alpaca_current_unique_symbol_count": len(alpaca_symbols),
         "overlap_count": len(overlap),
         "massive_not_in_alpaca_current_count": len(massive_symbols - alpaca_symbols),
@@ -158,7 +181,7 @@ def build_date_manifest(
     fetch_complete = pagination_exhausted and page_rows == len(census.rows)
     membership_candidate = bool(
         fetch_complete
-        and census_summary["duplicate_ticker_count"] == 0
+        and census_summary["duplicate_membership_identity_count"] == 0
         and census_summary["all_rows_active"]
         and census_summary["all_rows_us_stocks"]
     )
@@ -200,9 +223,10 @@ def _write_reconciliation(path: Path, rows: list[dict[str, object]]) -> None:
     fields = [
         "ticker",
         "massive_asof_member",
-        "massive_primary_exchange",
-        "massive_security_type",
-        "massive_composite_figi",
+        "massive_asof_match_count",
+        "massive_primary_exchanges",
+        "massive_security_types",
+        "massive_composite_figis",
         "alpaca_current_member",
         "alpaca_current_match_count",
         "alpaca_current_exchanges",

@@ -84,7 +84,31 @@ def normalize_reference_tickers(
                 "type": _text(row.get("type"), upper=True),
             }
         )
-    return tuple(sorted(normalized, key=lambda row: str(row["ticker"])))
+    return tuple(
+        sorted(
+            normalized,
+            key=lambda row: tuple(
+                str(row[field])
+                for field in (
+                    *_MEMBERSHIP_FIELDS,
+                    "currency_name",
+                    "delisted_utc",
+                    "last_updated_utc",
+                    "name",
+                )
+            ),
+        )
+    )
+
+
+def reference_membership_identity(row: dict[str, object]) -> str:
+    normalized = normalize_reference_tickers([row])[0]
+    return json.dumps(
+        {field: normalized[field] for field in _MEMBERSHIP_FIELDS},
+        ensure_ascii=True,
+        separators=(",", ":"),
+        sort_keys=True,
+    )
 
 
 def _fingerprint_payload(rows: object) -> str:
@@ -238,7 +262,7 @@ class MassiveReferenceClient:
         rows: list[dict[str, object]] = []
         pages: list[MassiveTickerPage] = []
         seen_cursors: set[str] = set()
-        seen_tickers: set[str] = set()
+        seen_identities: set[str] = set()
         previous_ticker: str | None = None
 
         for page_number in range(1, max_pages + 1):
@@ -256,13 +280,23 @@ class MassiveReferenceClient:
 
             normalized_page = normalize_reference_tickers(raw_page)
             page_tickers = [str(row["ticker"]) for row in normalized_page]
-            if len(page_tickers) != len(set(page_tickers)):
-                raise RuntimeError("Massive reference-tickers page contains duplicate tickers")
-            if previous_ticker is not None and page_tickers and page_tickers[0] <= previous_ticker:
+            page_identities = [
+                reference_membership_identity(row) for row in normalized_page
+            ]
+            if len(page_identities) != len(set(page_identities)):
+                raise RuntimeError(
+                    "Massive reference-tickers page contains a duplicate membership identity"
+                )
+            if previous_ticker is not None and page_tickers and page_tickers[0] < previous_ticker:
                 raise RuntimeError("Massive reference-tickers pagination is not strictly ordered")
-            duplicate = next((ticker for ticker in page_tickers if ticker in seen_tickers), None)
-            if duplicate is not None:
-                raise RuntimeError("Massive reference-tickers repeated a ticker across pages")
+            duplicate_identity = next(
+                (identity for identity in page_identities if identity in seen_identities),
+                None,
+            )
+            if duplicate_identity is not None:
+                raise RuntimeError(
+                    "Massive reference-tickers repeated a membership identity across pages"
+                )
             for row in normalized_page:
                 if row["active"] is not True:
                     raise RuntimeError("Massive active census returned a non-active ticker")
@@ -281,7 +315,7 @@ class MassiveReferenceClient:
                 )
             )
             rows.extend(normalized_page)
-            seen_tickers.update(page_tickers)
+            seen_identities.update(page_identities)
             if page_tickers:
                 previous_ticker = page_tickers[-1]
             if not next_page_present:

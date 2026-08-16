@@ -48,6 +48,17 @@ class MassiveHistoricalCensusBuilderTests(unittest.TestCase):
         self.assertTrue(summary["all_rows_active"])
         self.assertTrue(summary["all_rows_us_stocks"])
 
+    def test_summary_distinguishes_ticker_collision_from_identity_duplicate(self) -> None:
+        common = _massive("AAA")
+        preferred = _massive("AAA", exchange="XNYS", security_type="PFD")
+        preferred["composite_figi"] = "FIGI-PREFERRED"
+
+        summary = summarize_census([common, preferred])
+
+        self.assertEqual(summary["duplicate_ticker_count"], 1)
+        self.assertEqual(summary["ticker_collision_group_count"], 1)
+        self.assertEqual(summary["duplicate_membership_identity_count"], 0)
+
     def test_reconciliation_is_explicitly_current_only(self) -> None:
         records, summary = build_reconciliation(
             [_massive("AAA"), _massive("PAST")],

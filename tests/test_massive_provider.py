@@ -85,6 +85,41 @@ class MassiveProviderTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "non-active"):
             client.active_tickers_as_of(date(2025, 4, 3))
 
+    def test_same_ticker_with_distinct_security_identities_is_preserved(self) -> None:
+        common = _row("AAA")
+        preferred = {
+            **_row("AAA"),
+            "primary_exchange": "XNYS",
+            "type": "PFD",
+            "composite_figi": "BBG-DISTINCT",
+        }
+        client = MassiveReferenceClient(
+            "secret",
+            requester=lambda *_args, **_kwargs: {
+                "count": 2,
+                "results": [common, preferred],
+            },
+        )
+
+        census = client.active_tickers_as_of(date(2025, 4, 3))
+
+        self.assertEqual(len(census.rows), 2)
+        self.assertEqual({row["ticker"] for row in census.rows}, {"AAA"})
+        self.assertEqual({row["type"] for row in census.rows}, {"CS", "PFD"})
+
+    def test_exact_membership_identity_duplicate_fails_closed(self) -> None:
+        row = _row("AAA")
+        client = MassiveReferenceClient(
+            "secret",
+            requester=lambda *_args, **_kwargs: {
+                "count": 2,
+                "results": [row, {**row, "name": "Metadata-only rename"}],
+            },
+        )
+
+        with self.assertRaisesRegex(RuntimeError, "duplicate membership identity"):
+            client.active_tickers_as_of(date(2025, 4, 3))
+
     def test_fingerprints_are_order_independent_and_membership_scoped(self) -> None:
         first = _row("AAA")
         second = _row("BBB")
