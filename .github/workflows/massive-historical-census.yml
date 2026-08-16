@@ -19,6 +19,10 @@ on:
       - scripts/build_massive_provisional_universe.py
       - tests/test_historical_universe.py
       - tests/test_build_massive_provisional_universe.py
+      - src/momentumbot/identity_continuity.py
+      - scripts/audit_historical_identity_continuity.py
+      - tests/test_identity_continuity.py
+      - tests/test_historical_identity_audit.py
       - .github/workflows/massive-historical-census.yml
 
 permissions:
@@ -27,7 +31,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 40
+    timeout-minutes: 60
     env:
       MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
       POLYGON_API_KEY: ${{ secrets.POLYGON_API_KEY }}
@@ -50,6 +54,8 @@ jobs:
           tests.test_instrument_metadata
           tests.test_historical_universe
           tests.test_build_massive_provisional_universe
+          tests.test_identity_continuity
+          tests.test_historical_identity_audit
           -v
       - name: Fetch fully paginated historical censuses
         run: >-
@@ -71,6 +77,14 @@ jobs:
         run: >-
           python scripts/build_massive_provisional_universe.py
           --census-root massive-historical-census
+      - name: Audit historical identity and corporate actions
+        run: >-
+          python scripts/audit_historical_identity_continuity.py
+          --census-root massive-historical-census
+          --lookback-days 120
+          --batch-size 200
+          --minimum-massive-request-interval 12.5
+          --ticker-event-sample-size 10
       - name: Enforce research-only eligibility
         run: >-
           python -c "import json,pathlib;
@@ -96,7 +110,13 @@ jobs:
           assert u['complete_relative_to_census'] is True;
           assert u['universe_complete'] is False;
           assert u['full_walk_forward_eligible'] is False;
-          assert u['policy_promotion_eligible'] is False"
+          assert u['policy_promotion_eligible'] is False;
+          i=json.loads((root/'identity-continuity-v0.1'/'manifest.json').read_text());
+          assert i['knowledge_policy']['uses_benchmark_labels'] is False;
+          assert i['eligibility']['identity_gate_passes_after_explicit_quarantine'] is True;
+          assert i['eligibility']['universe_complete'] is False;
+          assert i['eligibility']['full_walk_forward_eligible'] is False;
+          assert i['eligibility']['policy_promotion_eligible'] is False"
       - name: Upload historical census prototype
         uses: actions/upload-artifact@v4
         with:

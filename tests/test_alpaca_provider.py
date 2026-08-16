@@ -1,4 +1,5 @@
 import unittest
+from datetime import date
 from unittest.mock import patch
 
 import pandas as pd
@@ -30,6 +31,72 @@ class AlpacaProviderTests(unittest.TestCase):
         with patch.object(client, "bars", side_effect=RuntimeError("HTTP 429 rate limit")):
             with self.assertRaisesRegex(RuntimeError, "429"):
                 client.bars_batched(["AAPL"])
+
+    def test_corporate_actions_paginates_grouped_response(self):
+        client = AlpacaDataClient("key", "secret")
+        payloads = [
+            {
+                "corporate_actions": {
+                    "reverse_splits": [
+                        {
+                            "id": "split-1",
+                            "initiating_symbol": "AAA",
+                            "process_date": "2025-04-02",
+                        }
+                    ],
+                    "name_changes": [],
+                },
+                "next_page_token": "next-token",
+            },
+            {
+                "corporate_actions": {
+                    "name_changes": [
+                        {
+                            "id": "name-1",
+                            "old_symbol": "BBB",
+                            "new_symbol": "CCC",
+                        }
+                    ]
+                },
+                "next_page_token": None,
+            },
+        ]
+        calls = []
+
+        def fake_get(url, **_kwargs):
+            calls.append(url)
+            return payloads.pop(0)
+
+        with patch("momentumbot.providers.alpaca.get_json", side_effect=fake_get):
+            result = client.corporate_actions(
+                start=date(2025, 1, 1),
+                end=date(2025, 4, 3),
+                types=("reverse_split", "name_change"),
+            )
+
+        self.assertEqual([page.row_count for page in result.pages], [1, 1])
+        self.assertEqual({row["id"] for row in result.rows}, {"split-1", "name-1"})
+        self.assertEqual(
+            {row["action_type"] for row in result.rows},
+            {"reverse_splits", "name_changes"},
+        )
+        self.assertNotIn("symbols", result.query)
+        self.assertIn("page_token=next-token", calls[1])
+
+    def test_corporate_actions_rejects_repeated_page_token(self):
+        client = AlpacaDataClient("key", "secret")
+        with patch(
+            "momentumbot.providers.alpaca.get_json",
+            return_value={
+                "corporate_actions": {},
+                "next_page_token": "same",
+            },
+        ):
+            with self.assertRaisesRegex(RuntimeError, "token repeated"):
+                client.corporate_actions(
+                    start=date(2025, 1, 1),
+                    end=date(2025, 4, 3),
+                )
 
 
 if __name__ == "__main__":

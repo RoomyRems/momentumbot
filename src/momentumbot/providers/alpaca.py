@@ -1,8 +1,10 @@
 from __future__ import annotations
 
+import json
 import os
 import re
 import urllib.parse
+from dataclasses import dataclass
 from datetime import date, datetime
 from typing import Any, Iterable
 
@@ -23,6 +25,20 @@ _BAR_COLUMNS = {
     "n": "trade_count",
     "vw": "vwap",
 }
+
+
+@dataclass(frozen=True, slots=True)
+class AlpacaCorporateActionPage:
+    page_number: int
+    row_count: int
+    next_page_present: bool
+
+
+@dataclass(frozen=True, slots=True)
+class AlpacaCorporateActionCensus:
+    query: dict[str, object]
+    pages: tuple[AlpacaCorporateActionPage, ...]
+    rows: tuple[dict[str, Any], ...]
 
 
 def chunked(values: list[str], size: int) -> Iterable[list[str]]:
@@ -245,32 +261,116 @@ class AlpacaDataClient:
     def corporate_actions(
         self,
         *,
-        symbols: Iterable[str],
+        symbols: Iterable[str] | None = None,
         start: date,
         end: date,
-        types: str = "forward_split,reverse_split,name_change",
-    ) -> list[dict[str, Any]]:
-        params = {
-            "symbols": ",".join(symbols),
+        types: Iterable[str] | str | None = None,
+        region: str = "us",
+        data_quality: str = "complete",
+        limit: int = 1000,
+        max_pages: int = 100,
+    ) -> AlpacaCorporateActionCensus:
+        if start > end:
+            raise ValueError("corporate-action start must not follow end")
+        if limit <= 0 or limit > 1000:
+            raise ValueError("corporate-action limit must be between 1 and 1000")
+        if max_pages <= 0:
+            raise ValueError("corporate-action max_pages must be positive")
+        if region not in {"us", "non_us", "all"}:
+            raise ValueError("corporate-action region is invalid")
+        if data_quality not in {"complete", "all"}:
+            raise ValueError("corporate-action data_quality is invalid")
+
+        names = list(
+            dict.fromkeys(
+                str(symbol).strip().upper()
+                for symbol in (symbols or ())
+                if str(symbol).strip()
+            )
+        )
+        if isinstance(types, str):
+            rendered_types = types.strip()
+        elif types is None:
+            rendered_types = ""
+        else:
+            rendered_types = ",".join(
+                dict.fromkeys(str(value).strip() for value in types if str(value).strip())
+            )
+        query: dict[str, object] = {
             "start": start.isoformat(),
             "end": end.isoformat(),
-            "types": types,
-            "region": "us",
-            "limit": 1000,
+            "region": region,
+            "data_quality": data_quality,
+            "limit": limit,
+            "sort": "asc",
         }
-        payload = get_json(
-            f"{DATA_BASE}/v1/corporate-actions?{urllib.parse.urlencode(params)}",
-            headers=self.headers,
-            timeout_seconds=self.timeout_seconds,
-        )
-        if not isinstance(payload, dict):
-            return []
-        groups = payload.get("corporate_actions", payload)
+        if names:
+            query["symbols"] = ",".join(names)
+        if rendered_types:
+            query["types"] = rendered_types
+
         rows: list[dict[str, Any]] = []
-        if isinstance(groups, dict):
+        pages: list[AlpacaCorporateActionPage] = []
+        page_token: str | None = None
+        seen_tokens: set[str] = set()
+        for page_number in range(1, max_pages + 1):
+            params = dict(query)
+            if page_token:
+                params["page_token"] = page_token
+            payload = get_json(
+                f"{DATA_BASE}/v1/corporate-actions?{urllib.parse.urlencode(params)}",
+                headers=self.headers,
+                timeout_seconds=self.timeout_seconds,
+            )
+            if not isinstance(payload, dict):
+                raise RuntimeError("Alpaca corporate-actions response must be an object")
+            groups = payload.get("corporate_actions")
+            if not isinstance(groups, dict):
+                raise RuntimeError(
+                    "Alpaca corporate-actions payload is missing grouped actions"
+                )
+            page_row_count = 0
             for action_type, values in groups.items():
                 if isinstance(values, list):
                     for value in values:
                         if isinstance(value, dict):
-                            rows.append({"type": action_type, **value})
-        return rows
+                            rows.append(
+                                {
+                                    **value,
+                                    "action_type": str(action_type),
+                                }
+                            )
+                            page_row_count += 1
+            next_token = payload.get("next_page_token")
+            pages.append(
+                AlpacaCorporateActionPage(
+                    page_number=page_number,
+                    row_count=page_row_count,
+                    next_page_present=bool(next_token),
+                )
+            )
+            if not next_token:
+                break
+            page_token = str(next_token)
+            if page_token in seen_tokens:
+                raise RuntimeError("Alpaca corporate-actions pagination token repeated")
+            seen_tokens.add(page_token)
+        else:
+            raise RuntimeError("Alpaca corporate-actions exceeded max_pages")
+
+        normalized = tuple(
+            sorted(
+                rows,
+                key=lambda row: json.dumps(
+                    row,
+                    ensure_ascii=True,
+                    separators=(",", ":"),
+                    sort_keys=True,
+                ),
+            )
+        )
+        return AlpacaCorporateActionCensus(
+            query=query,
+            pages=tuple(pages),
+            rows=normalized,
+        )

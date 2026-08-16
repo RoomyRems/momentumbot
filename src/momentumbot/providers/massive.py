@@ -53,6 +53,27 @@ class MassiveTickerCensus:
     rows: tuple[dict[str, object], ...]
 
 
+@dataclass(frozen=True, slots=True)
+class MassiveSplitPage:
+    page_number: int
+    row_count: int
+    next_page_present: bool
+
+
+@dataclass(frozen=True, slots=True)
+class MassiveSplitCensus:
+    query: dict[str, object]
+    pages: tuple[MassiveSplitPage, ...]
+    rows: tuple[dict[str, object], ...]
+
+
+@dataclass(frozen=True, slots=True)
+class MassiveTickerEventTimeline:
+    identifier: str
+    name: str
+    events: tuple[dict[str, object], ...]
+
+
 def _text(value: object, *, upper: bool = False, lower: bool = False) -> str:
     rendered = "" if value is None else str(value).strip()
     if upper:
@@ -245,13 +266,18 @@ class MassiveReferenceClient:
             timeout_seconds=self.timeout_seconds,
         )
 
-    def _authenticated_url(self, raw_url: str) -> tuple[str, str]:
+    def _authenticated_pagination_url(
+        self,
+        raw_url: str,
+        *,
+        expected_path: str,
+    ) -> tuple[str, str]:
         absolute = urllib.parse.urljoin(f"{self.base_url}/", raw_url)
         parsed = urllib.parse.urlparse(absolute)
         if parsed.scheme != "https" or parsed.hostname not in _ALLOWED_HOSTS:
             raise RuntimeError("Massive pagination escaped the official API hosts")
-        if parsed.path != "/v3/reference/tickers":
-            raise RuntimeError("Massive pagination changed the reference-tickers path")
+        if parsed.path != expected_path:
+            raise RuntimeError("Massive pagination changed the expected endpoint path")
         safe_parameters = [
             (key, value)
             for key, value in urllib.parse.parse_qsl(
@@ -269,6 +295,12 @@ class MassiveReferenceClient:
             parsed._replace(query=authenticated_query)
         )
         return authenticated, cursor_identity
+
+    def _authenticated_url(self, raw_url: str) -> tuple[str, str]:
+        return self._authenticated_pagination_url(
+            raw_url,
+            expected_path="/v3/reference/tickers",
+        )
 
     def active_tickers_as_of(
         self,
@@ -405,3 +437,144 @@ class MassiveReferenceClient:
             if row["asset_class"] != "stocks" or row["locale"] != "us":
                 raise RuntimeError("Massive ticker-type dictionary violated its filters")
         return normalized
+
+    def stock_splits(
+        self,
+        *,
+        start: date,
+        end: date,
+        limit: int = 5000,
+        max_pages: int = 20,
+    ) -> MassiveSplitCensus:
+        if start > end:
+            raise ValueError("split start must not follow end")
+        if limit <= 0 or limit > 5000:
+            raise ValueError("split limit must be between 1 and 5000")
+        if max_pages <= 0:
+            raise ValueError("split max_pages must be positive")
+        query: dict[str, object] = {
+            "execution_date.gte": start.isoformat(),
+            "execution_date.lte": end.isoformat(),
+            "limit": limit,
+            "sort": "execution_date.asc,ticker.asc",
+        }
+        initial_query = urllib.parse.urlencode({**query, "apiKey": self._api_key})
+        url = f"{self.base_url}/stocks/v1/splits?{initial_query}"
+        rows: list[dict[str, object]] = []
+        pages: list[MassiveSplitPage] = []
+        seen_cursors: set[str] = set()
+        for page_number in range(1, max_pages + 1):
+            payload = self._paced_get(url)
+            if not isinstance(payload, dict):
+                raise RuntimeError("Massive splits response must be an object")
+            raw_page = payload.get("results")
+            if not isinstance(raw_page, list) or any(
+                not isinstance(row, dict) for row in raw_page
+            ):
+                raise RuntimeError("Massive splits results must be objects")
+            normalized_page: list[dict[str, object]] = []
+            for row in raw_page:
+                execution_date = _text(row.get("execution_date"))
+                ticker = _text(row.get("ticker"), upper=True)
+                if not execution_date or not ticker:
+                    raise RuntimeError("Massive split is missing date or ticker")
+                if not start.isoformat() <= execution_date <= end.isoformat():
+                    raise RuntimeError("Massive split escaped the requested date range")
+                normalized_page.append(
+                    {
+                        "adjustment_type": _text(row.get("adjustment_type"), lower=True),
+                        "execution_date": execution_date,
+                        "historical_adjustment_factor": row.get(
+                            "historical_adjustment_factor"
+                        ),
+                        "id": _text(row.get("id")),
+                        "split_from": row.get("split_from"),
+                        "split_to": row.get("split_to"),
+                        "ticker": ticker,
+                    }
+                )
+            rows.extend(normalized_page)
+            next_url = payload.get("next_url")
+            pages.append(
+                MassiveSplitPage(
+                    page_number=page_number,
+                    row_count=len(normalized_page),
+                    next_page_present=bool(next_url),
+                )
+            )
+            if not next_url:
+                break
+            if not isinstance(next_url, str):
+                raise RuntimeError("Massive split next_url must be a string")
+            url, cursor_identity = self._authenticated_pagination_url(
+                next_url,
+                expected_path="/stocks/v1/splits",
+            )
+            if cursor_identity in seen_cursors:
+                raise RuntimeError("Massive split pagination cursor repeated")
+            seen_cursors.add(cursor_identity)
+        else:
+            raise RuntimeError("Massive splits exceeded max_pages")
+
+        normalized = tuple(
+            sorted(
+                rows,
+                key=lambda row: (
+                    str(row["execution_date"]),
+                    str(row["ticker"]),
+                    str(row["id"]),
+                ),
+            )
+        )
+        return MassiveSplitCensus(
+            query=query,
+            pages=tuple(pages),
+            rows=normalized,
+        )
+
+    def ticker_events(
+        self,
+        identifier: str,
+        *,
+        types: tuple[str, ...] = ("ticker_change",),
+    ) -> MassiveTickerEventTimeline:
+        rendered_identifier = str(identifier).strip().upper()
+        if not rendered_identifier:
+            raise ValueError("ticker-event identifier is required")
+        query: dict[str, object] = {"apiKey": self._api_key}
+        rendered_types = ",".join(
+            dict.fromkeys(str(value).strip() for value in types if str(value).strip())
+        )
+        if rendered_types:
+            query["types"] = rendered_types
+        encoded_identifier = urllib.parse.quote(rendered_identifier, safe="")
+        payload = self._paced_get(
+            f"{self.base_url}/vX/reference/tickers/{encoded_identifier}/events?"
+            f"{urllib.parse.urlencode(query)}"
+        )
+        if not isinstance(payload, dict):
+            raise RuntimeError("Massive ticker-events response must be an object")
+        results = payload.get("results")
+        if not isinstance(results, dict):
+            raise RuntimeError("Massive ticker-events results must be an object")
+        raw_events = results.get("events", [])
+        if not isinstance(raw_events, list) or any(
+            not isinstance(event, dict) for event in raw_events
+        ):
+            raise RuntimeError("Massive ticker-events events must be objects")
+        events = tuple(
+            sorted(
+                (dict(event) for event in raw_events),
+                key=lambda event: json.dumps(
+                    event,
+                    ensure_ascii=True,
+                    separators=(",", ":"),
+                    sort_keys=True,
+                ),
+            )
+        )
+        return MassiveTickerEventTimeline(
+            identifier=rendered_identifier,
+            name=_text(results.get("name")),
+            events=events,
+        )

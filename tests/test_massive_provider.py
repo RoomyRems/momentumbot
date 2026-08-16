@@ -184,6 +184,86 @@ class MassiveProviderTests(unittest.TestCase):
         self.assertEqual([row["code"] for row in rows], ["CS", "PFD"])
         self.assertEqual(ticker_type_fingerprint(list(rows)), ticker_type_fingerprint(list(reversed(rows))))
 
+    def test_stock_splits_paginate_and_keep_secret_out_of_result(self) -> None:
+        calls: list[str] = []
+
+        def requester(url: str, **_: object) -> object:
+            calls.append(url)
+            if len(calls) == 1:
+                return {
+                    "results": [
+                        {
+                            "id": "s2",
+                            "ticker": "BBB",
+                            "execution_date": "2025-03-02",
+                            "adjustment_type": "reverse_split",
+                            "split_from": 10,
+                            "split_to": 1,
+                        }
+                    ],
+                    "next_url": (
+                        "https://api.massive.com/stocks/v1/splits?cursor=opaque"
+                        "&apiKey=PROVIDER_ECHOED_SECRET"
+                    ),
+                }
+            return {
+                "results": [
+                    {
+                        "id": "s1",
+                        "ticker": "AAA",
+                        "execution_date": "2025-02-01",
+                        "adjustment_type": "forward_split",
+                        "split_from": 1,
+                        "split_to": 2,
+                    }
+                ]
+            }
+
+        result = MassiveReferenceClient(
+            "actual-secret",
+            requester=requester,
+        ).stock_splits(start=date(2025, 1, 1), end=date(2025, 4, 3), limit=1)
+
+        self.assertEqual([row["ticker"] for row in result.rows], ["AAA", "BBB"])
+        self.assertEqual([page.row_count for page in result.pages], [1, 1])
+        self.assertIn("apiKey=actual-secret", calls[1])
+        self.assertNotIn("PROVIDER_ECHOED_SECRET", calls[1])
+        self.assertNotIn("actual-secret", repr(result))
+
+    def test_ticker_events_accept_composite_figi_and_normalize_events(self) -> None:
+        calls: list[str] = []
+
+        def requester(url: str, **_: object) -> object:
+            calls.append(url)
+            return {
+                "results": {
+                    "name": "Example Incorporated",
+                    "events": [
+                        {
+                            "date": "2025-03-01",
+                            "type": "ticker_change",
+                            "ticker_change": {"ticker": "NEW"},
+                        },
+                        {
+                            "date": "2020-01-01",
+                            "type": "ticker_change",
+                            "ticker_change": {"ticker": "OLD"},
+                        },
+                    ],
+                }
+            }
+
+        result = MassiveReferenceClient(
+            "secret",
+            requester=requester,
+        ).ticker_events("bbg000example")
+
+        self.assertEqual(result.identifier, "BBG000EXAMPLE")
+        self.assertEqual(result.name, "Example Incorporated")
+        self.assertEqual(len(result.events), 2)
+        self.assertIn("/vX/reference/tickers/BBG000EXAMPLE/events", calls[0])
+        self.assertNotIn("secret", repr(result))
+
 
 if __name__ == "__main__":
     unittest.main()
