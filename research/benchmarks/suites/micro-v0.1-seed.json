@@ -9,7 +9,7 @@
       "benchmark_path": "research/benchmarks/2026-06-10-dsy.json",
       "role": "primary_scored",
       "tags": ["canonical", "10_second", "first_new_high", "winner"],
-      "scored_dimensions": ["setup_family", "entry_participation", "chart_confirmed_trigger"],
+      "scored_dimensions": ["setup_detected", "entry_participation"],
       "rationale": "Current-era chart-only example with explicit 10-second micro and first-new-high language, without a hidden-buyer justification for the first trade."
     },
     {
@@ -17,7 +17,7 @@
       "benchmark_path": "research/benchmarks/2025-04-03-tivc.json",
       "role": "primary_scored",
       "tags": ["canonical", "first_pullback", "winner", "reported_fills"],
-      "scored_dimensions": ["setup_family", "entry_participation", "first_pullback_taken"],
+      "scored_dimensions": ["setup_detected", "entry_participation", "first_pullback_taken", "pullback_ordinal"],
       "rationale": "Explicit first micro pullback trade with reported fills and a profitable first campaign."
     },
     {
@@ -25,7 +25,7 @@
       "benchmark_path": "research/benchmarks/2025-04-21-upxi.json",
       "role": "primary_scored",
       "tags": ["canonical", "10_second", "first_new_high", "picture_perfect"],
-      "scored_dimensions": ["setup_family", "entry_participation", "first_new_high_trigger"],
+      "scored_dimensions": ["setup_detected", "entry_participation"],
       "rationale": "Same-day recap explicitly identifies a 10-second first-candle-new-high entry and later describes another pullback as picture perfect."
     },
     {
@@ -33,7 +33,7 @@
       "benchmark_path": "research/benchmarks/2025-09-09-mma.json",
       "role": "primary_scored",
       "tags": ["canonical", "10_second", "winner", "early_entry"],
-      "scored_dimensions": ["setup_family", "entry_participation"],
+      "scored_dimensions": ["setup_detected", "entry_participation"],
       "rationale": "Explicit 10-second micro pullback entry near $2.40 followed by continuation through $3."
     },
     {
@@ -41,16 +41,16 @@
       "benchmark_path": "research/benchmarks/2026-03-27-oncs.json",
       "role": "primary_scored",
       "tags": ["canonical_candidate", "10_second", "loser", "false_breakout", "topping_tail"],
-      "scored_dimensions": ["setup_family", "entry_participation", "failure_to_resolve"],
-      "rationale": "Negative-outcome example prevents the primary suite from containing only successful micro trades."
+      "scored_dimensions": ["setup_detected", "entry_participation"],
+      "rationale": "Negative-outcome example prevents the primary suite from containing only successful micro trades. Exit/failure handling is preserved as a future campaign-engine label, not scored yet."
     },
     {
       "benchmark_id": "ross-vrax-2026-07-09-micro-01",
       "benchmark_path": "research/benchmarks/2026-07-09-vrax.json",
       "role": "partial_scored",
       "tags": ["second_pullback", "whole_dollar_context", "slippage", "advanced_continuation"],
-      "scored_dimensions": ["setup_family", "first_pullback_taken", "pullback_ordinal"],
-      "rationale": "Micro v0.1 can be judged on the pullback family/ordinal, but the human $6 continuation trigger and ~$6.30 fill require context not present in the canonical chart-only baseline."
+      "scored_dimensions": ["setup_detected", "entry_participation", "first_pullback_taken", "pullback_ordinal"],
+      "rationale": "Micro v0.1 can be judged on detecting/participating in the pullback family and ordinal, but the human $6 continuation trigger and ~$6.30 fill require context not present in the canonical chart-only baseline."
     },
     {
       "benchmark_id": "ross-agpu-2026-04-22-micro-01",
