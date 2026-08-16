@@ -1,0 +1,56 @@
+{
+  "artifact_type": "micro_volume_context_factorial_comparison",
+  "schema_version": 1,
+  "knowledge_policy": "post_replay_retrospective_evaluation_only",
+  "strategy_feedback": "none",
+  "authoritative_workflow_run_id": 31927848897,
+  "runtime_commit": "2b7b40b433d0fb11f742632166a47bfc61393b5d",
+  "parent_frozen_policy_id": "micro-v0.1",
+  "parent_frozen_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+  "existing_context_ablation_id": "micro-v0.2a-prequalification-context",
+  "existing_context_ablation_fingerprint": "cdd9c1a18abf23a03aac67568f1c3b976bd4ab968a07f46966940b5e81feb49e",
+  "volume_only_ablation_id": "micro-v0.2c-no-hard-volume-gate",
+  "volume_only_ablation_fingerprint": "a1c28368322a9eb45101339b79d62ca82221d5d27b3f19c3aa7525db2f023efc",
+  "context_plus_volume_ablation_id": "micro-v0.2d-context-no-hard-volume-gate",
+  "context_plus_volume_ablation_fingerprint": "8ac8e9eaf306c09d6481f41492d268388458ed53eb920e42c0fe105ac0108530",
+  "factor_definition": {
+    "prequalification_context": "off = frozen v0.1 boundary; on = measured v0.2a 10-completed-bar bound",
+    "hard_lower_pullback_volume_gate": "on = frozen v0.1 mean-volume rejection; off = volume retained as feature but not a rejection gate"
+  },
+  "cell_summary": {
+    "baseline": {"matching_broad_behavior_dimensions": 8, "comparable_broad_behavior_dimensions": 12, "broad_behavior_match_fraction_descriptive_only": 0.6666666666666666},
+    "context_only": {"matching_broad_behavior_dimensions": 8, "comparable_broad_behavior_dimensions": 12, "broad_behavior_match_fraction_descriptive_only": 0.6666666666666666},
+    "volume_only": {"matching_broad_behavior_dimensions": 10, "comparable_broad_behavior_dimensions": 12, "broad_behavior_match_fraction_descriptive_only": 0.8333333333333334},
+    "context_plus_volume": {"matching_broad_behavior_dimensions": 10, "comparable_broad_behavior_dimensions": 12, "broad_behavior_match_fraction_descriptive_only": 0.8333333333333334}
+  },
+  "activity_summary": {
+    "baseline": {"plans": 11, "fills": 7},
+    "context_only": {"plans": 11, "fills": 7},
+    "volume_only": {"plans": 34, "fills": 12},
+    "context_plus_volume": {"plans": 36, "fills": 14}
+  },
+  "case_count": 5,
+  "cases": [
+    {"benchmark_id":"ross-artl-2026-03-27-micro-01","symbol":"ARTL","reported_fill_references":[5.25],"cells":{"baseline":{"plan_count":0,"filled_count":0,"first_fill_price":null,"first_filled_pullback_number":null,"closest_reported_fill_difference_from_first_fill":null},"context_only":{"plan_count":0,"filled_count":0,"first_fill_price":null,"first_filled_pullback_number":null,"closest_reported_fill_difference_from_first_fill":null},"volume_only":{"plan_count":2,"filled_count":1,"first_fill_price":9.3,"first_filled_pullback_number":7,"closest_reported_fill_difference_from_first_fill":4.05},"context_plus_volume":{"plan_count":2,"filled_count":1,"first_fill_price":9.3,"first_filled_pullback_number":7,"closest_reported_fill_difference_from_first_fill":4.05}},"interpretation":"late participation only; current upstream 5x-RVOL gate qualifies near $5.41, already above the retrospective ~$5.25 human entry"},
+    {"benchmark_id":"ross-dsy-2026-06-10-micro-01","symbol":"DSY","reported_fill_references":[3.07,3.11],"cells":{"baseline":{"plan_count":2,"filled_count":1,"first_fill_price":8.5,"first_filled_pullback_number":10,"closest_reported_fill_difference_from_first_fill":5.39},"context_only":{"plan_count":2,"filled_count":1,"first_fill_price":8.5,"first_filled_pullback_number":10,"closest_reported_fill_difference_from_first_fill":5.39},"volume_only":{"plan_count":11,"filled_count":2,"first_fill_price":8.5,"first_filled_pullback_number":10,"closest_reported_fill_difference_from_first_fill":5.39},"context_plus_volume":{"plan_count":11,"filled_count":2,"first_fill_price":8.5,"first_filled_pullback_number":10,"closest_reported_fill_difference_from_first_fill":5.39}},"interpretation":"no first-trade change; early blocker remains outside the tested context/volume factors"},
+    {"benchmark_id":"ross-mma-2025-09-09-micro-01","symbol":"MMA","reported_fill_references":[2.4],"cells":{"baseline":{"plan_count":1,"filled_count":1,"first_fill_price":4.02,"first_filled_pullback_number":3,"closest_reported_fill_difference_from_first_fill":1.62},"context_only":{"plan_count":1,"filled_count":1,"first_fill_price":4.02,"first_filled_pullback_number":3,"closest_reported_fill_difference_from_first_fill":1.62},"volume_only":{"plan_count":3,"filled_count":1,"first_fill_price":4.02,"first_filled_pullback_number":3,"closest_reported_fill_difference_from_first_fill":1.62},"context_plus_volume":{"plan_count":4,"filled_count":2,"first_fill_price":2.59,"first_filled_pullback_number":1,"closest_reported_fill_difference_from_first_fill":0.19}},"interpretation":"interaction: neither main effect changes the first fill, while context plus non-hard volume moves first fill to pullback #1 near the human reference"},
+    {"benchmark_id":"ross-tivc-2025-04-03-micro-01","symbol":"TIVC","reported_fill_references":[4.73,4.76,4.89],"cells":{"baseline":{"plan_count":3,"filled_count":1,"first_fill_price":5.1,"first_filled_pullback_number":7,"closest_reported_fill_difference_from_first_fill":0.21},"context_only":{"plan_count":3,"filled_count":1,"first_fill_price":5.1,"first_filled_pullback_number":7,"closest_reported_fill_difference_from_first_fill":0.21},"volume_only":{"plan_count":9,"filled_count":2,"first_fill_price":4.98,"first_filled_pullback_number":5,"closest_reported_fill_difference_from_first_fill":0.09},"context_plus_volume":{"plan_count":9,"filled_count":2,"first_fill_price":4.98,"first_filled_pullback_number":5,"closest_reported_fill_difference_from_first_fill":0.09}},"interpretation":"pure volume-gate main effect; context adds nothing to the first trade"},
+    {"benchmark_id":"ross-upxi-2025-04-21-micro-01","symbol":"UPXI","reported_fill_references":[2.84],"cells":{"baseline":{"plan_count":5,"filled_count":4,"first_fill_price":7.23,"first_filled_pullback_number":8,"closest_reported_fill_difference_from_first_fill":4.39},"context_only":{"plan_count":5,"filled_count":4,"first_fill_price":7.23,"first_filled_pullback_number":8,"closest_reported_fill_difference_from_first_fill":4.39},"volume_only":{"plan_count":9,"filled_count":6,"first_fill_price":6.66,"first_filled_pullback_number":7,"closest_reported_fill_difference_from_first_fill":3.82},"context_plus_volume":{"plan_count":10,"filled_count":7,"first_fill_price":2.81,"first_filled_pullback_number":1,"closest_reported_fill_difference_from_first_fill":0.03}},"interpretation":"strong interaction: context plus non-hard volume uniquely recovers the first pullback and fills within $0.03 of the retrospective reference"}
+  ],
+  "interaction_diagnostic": {
+    "cases_where_context_plus_volume_first_fill_differs_from_all_three_other_cells": 2,
+    "cases": ["MMA", "UPXI"],
+    "interpretation": "descriptive interaction signal only; not a fitted effect estimate or promotion criterion"
+  },
+  "exact_human_trade_identity_aggregate_score": null,
+  "decision": "promising_mechanism_not_promoted_requires_negative_controls_and_broader_walk_forward",
+  "interpretation": [
+    "the two new cells were replayed label-blind before retrospective scoring",
+    "turning off the hard volume gate introduces no fitted ratio threshold",
+    "the broad 10/12 diagnostic is not the main evidence because ARTL gains only a late, behaviorally misaligned fill",
+    "volume-off approximately triples plan count across these five trade-taken examples, so false-positive cost cannot be estimated from this suite",
+    "UPXI and MMA provide independent evidence of a context-by-volume interaction in early-entry recovery",
+    "TIVC provides a separate volume-gate main effect",
+    "the seed suite cannot by itself promote a policy"
+  ]
+}
