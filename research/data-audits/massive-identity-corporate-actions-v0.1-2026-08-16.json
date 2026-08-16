@@ -1,0 +1,144 @@
+{
+  "audit_id": "historical-identity-corporate-action-audit-v0.1",
+  "branch": "phase-3-historical-snapshot",
+  "conclusion": {
+    "full_feature_snapshot_candidate": true,
+    "full_walk_forward_eligible": false,
+    "identity_gate_passes_after_explicit_quarantine": true,
+    "policy_promotion_eligible": false,
+    "universe_complete": false
+  },
+  "evidence_separation": {
+    "benchmark_labels_used": false,
+    "corporate_actions_used_as_data_normalization_only": true,
+    "runtime_strategy_inputs_created": false,
+    "ticker_event_sample_is_corroborative_only": true
+  },
+  "final_artifact": {
+    "artifact_digest": "sha256:dfd859e1cc063b558fbf4eb472a9fc423e1e282ec0bea4a8da77b57c1e29f9dd",
+    "artifact_id": 9269762885,
+    "artifact_name": "massive-historical-census-prototype",
+    "audit_content_sha256": "1bdd6ba7fd646f8d5bc775f699a6faf171c8026f6bed4a8220221bb3449c7d24",
+    "head_sha": "3b483851d2c862228226855a24bbe37535ddf0a5",
+    "job_id": 95221918410,
+    "run_id": 31970415702,
+    "workflow": "Massive historical ticker census"
+  },
+  "identity_contract": {
+    "different_nonblank_figis_collapsed_by_cik": false,
+    "primary_identifier": "composite_figi",
+    "provisional_fallback": "unique_nonblank_cik_when_composite_figi_is_missing",
+    "snapshot_feature_lookback_days": 120
+  },
+  "results": {
+    "alias_validation": {
+      "bidirectional_full_gap_match_count": 203,
+      "changed_transition_count": 205,
+      "exact_figi_full_gap_match_count": 157,
+      "exact_figi_transition_count": 158,
+      "full_gap_alias_mapping_complete": false,
+      "symbol_reuse_full_gap_match_count": 4,
+      "symbol_reuse_transition_count": 4,
+      "unique_cik_fallback_full_gap_match_count": 46,
+      "unique_cik_fallback_transition_count": 47
+    },
+    "corporate_action_windows": {
+      "2025-04-03": {
+        "alpaca_action_count": 803,
+        "alpaca_pages": 1,
+        "alpaca_provisional_member_action_count": 332,
+        "massive_provisional_member_split_count": 156,
+        "massive_split_count": 440,
+        "massive_split_pages": 1,
+        "start": "2024-12-04"
+      },
+      "2026-07-09": {
+        "alpaca_action_count": 1162,
+        "alpaca_pages": 2,
+        "alpaca_provisional_member_action_count": 474,
+        "massive_provisional_member_split_count": 254,
+        "massive_split_count": 625,
+        "massive_split_pages": 1,
+        "start": "2026-03-11"
+      },
+      "bulk_corporate_action_gate_pass": true
+    },
+    "cross_date_bridge": {
+      "bridge_sha256": "2c7eda03679c403652f2be8ac3607a6d1626be974660d5518e8b7687c8104155",
+      "changed_ticker_exact_figi_count": 158,
+      "changed_ticker_transition_count": 205,
+      "changed_ticker_unique_cik_fallback_count": 47,
+      "cross_date_transition_count": 4927,
+      "exact_figi_transition_count": 4247,
+      "same_ticker_different_figi_count": 22,
+      "symbol_reuse_transition_count": 4,
+      "unique_cik_fallback_transition_count": 680
+    },
+    "explicit_identity_quarantine": {
+      "2025-04-03": {
+        "accepted_after_quarantine": 5442,
+        "provisional_before_quarantine": 5448,
+        "quarantined_tickers": [
+          "FRMEP",
+          "LBTYA",
+          "LBTYB",
+          "LBTYK",
+          "LILA",
+          "LILAK"
+        ]
+      },
+      "2026-07-09": {
+        "accepted_after_quarantine": 5571,
+        "provisional_before_quarantine": 5577,
+        "quarantined_tickers": [
+          "FRMEP",
+          "LBTYA",
+          "LBTYB",
+          "LBTYK",
+          "LILA",
+          "LILAK"
+        ]
+      },
+      "rule": "missing_composite_figi_and_no_unique_cik_fallback"
+    },
+    "full_gap_alias_exceptions": [
+      {
+        "earlier_ticker": "NAYA",
+        "identifier": "BBG000GHH9P9",
+        "identifier_kind": "composite_figi",
+        "later_ticker": "IVF",
+        "provider_name_change_process_date": "2025-04-28",
+        "resolution": "alias_gap_outside_both_snapshot_lookbacks"
+      },
+      {
+        "earlier_ticker": "SAG",
+        "identifier": "0001933951",
+        "identifier_kind": "unique_cik_fallback",
+        "later_ticker": "INEO",
+        "provider_name_change_process_date": "2025-04-28",
+        "resolution": "alias_gap_outside_both_snapshot_lookbacks"
+      }
+    ],
+    "snapshot_window_resolution": {
+      "alias_gap_outside_snapshot_lookback_count": 2,
+      "cross_date_name_change_count": 829,
+      "cross_date_name_change_pages": 1,
+      "snapshot_window_alias_validation_complete": true,
+      "unresolved_snapshot_window_alias_count": 0
+    },
+    "ticker_event_sample": {
+      "both_expected_symbols_observed_count": 9,
+      "sample_count": 10,
+      "selection_rule": "first_composite_figi_changed_transitions_sorted_by_figi"
+    }
+  },
+  "schema_version": 1,
+  "superseded_broad_gate_run": {
+    "artifact_digest": "sha256:56f887e88fdb36c43b43b0fa3fe4ec92a40bbaaab20e7b4793a8545a8f292009",
+    "artifact_id": 9269559480,
+    "broad_full_gap_gate_pass": false,
+    "head_sha": "47bce8d38c951437f2c0547ce63cb796ad72bac1",
+    "reason_superseded": "The broad gate required aliases to bridge the entire 15-month interval even when the name change was outside both frozen 120-day feature windows.",
+    "run_id": 31969660432
+  }
+}
