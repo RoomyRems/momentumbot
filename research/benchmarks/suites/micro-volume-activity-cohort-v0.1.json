@@ -1,0 +1,61 @@
+{
+  "artifact_type": "micro_volume_activity_cohort_design",
+  "schema_version": 1,
+  "design_id": "micro-volume-activity-cohort-v0.1",
+  "status": "precommitted_before_market_discovery",
+  "knowledge_policy": "market_data_only_no_retrospective_behavior_labels",
+  "strategy_feedback": "activity_stress_only",
+  "policy_promotion_eligible": false,
+  "parent_frozen_policy": {
+    "policy_id": "micro-v0.1",
+    "fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa"
+  },
+  "factorial_cells": [
+    "baseline",
+    "context_only",
+    "volume_only",
+    "context_plus_volume"
+  ],
+  "trading_dates": [
+    "2025-02-12",
+    "2025-05-14",
+    "2025-08-13",
+    "2025-11-12",
+    "2026-02-11",
+    "2026-05-13"
+  ],
+  "date_selection_rule": "second Wednesday of February, May, August and November 2025, then February and May 2026; fixed before querying any market observation for the cohort",
+  "candidates_per_date": 2,
+  "candidate_selection_rule": "among symbols that causally reach the current-general-2026 price/gain/same-time-RVOL gate, select the earliest first_market_qualified_at values with symbol ascending as the only tie-breaker",
+  "qualification_scope": {
+    "session_window_et": "07:00:00-10:00:00",
+    "price_range": [
+      2.0,
+      20.0
+    ],
+    "minimum_percent_gain": 10.0,
+    "minimum_same_time_rvol": 5.0,
+    "rvol_lookback_sessions": 50,
+    "float": "excluded_from_this_conditional_micro_activity_cohort",
+    "news": "excluded_from_this_conditional_micro_activity_cohort",
+    "cross_sectional_rank": "excluded_from_this_conditional_micro_activity_cohort"
+  },
+  "selection_prohibitions": [
+    "do not select on maximum later gain, maximum later RVOL, session high, plan count, fill count, P&L or any Ross behavior label",
+    "do not replace a date or candidate because the replay is inactive, unavailable or unfavorable to an ablation",
+    "do not call an unlabelled candidate a false positive or a human-trade mismatch"
+  ],
+  "primary_readout": [
+    "paired plan-count and modeled-fill-count deltas for volume-only versus baseline",
+    "paired plan-count and modeled-fill-count deltas for context-plus-volume versus context-only",
+    "changes in first modeled plan and fill timing or pullback ordinal",
+    "context main effects and volume-by-context interaction counts"
+  ],
+  "interpretation_limits": [
+    "this is a conditional micro-layer activity stress test, not a full scanner backtest",
+    "modeled fills are independent diagnostic opportunities and do not represent portfolio or campaign state",
+    "without retrospective behavior labels this cohort cannot score imitation accuracy",
+    "without point-in-time float, news and rank this cohort cannot estimate scanner false-positive rate",
+    "no result from this cohort alone may promote a policy"
+  ]
+}

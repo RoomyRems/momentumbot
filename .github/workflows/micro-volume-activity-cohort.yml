@@ -1,0 +1,200 @@
+name: Micro volume activity cohort
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - .github/workflows/micro-volume-activity-cohort.yml
+      - research/benchmarks/suites/micro-volume-activity-cohort-v0.1.json
+      - scripts/build_micro_activity_cohort_discovery.py
+      - scripts/select_micro_activity_cohort.py
+      - scripts/reconstruct_micro_volume_cohort_case.py
+      - scripts/summarize_micro_activity_cohort.py
+      - tests/test_select_micro_activity_cohort.py
+      - tests/test_reconstruct_micro_volume_cohort_case.py
+      - tests/test_summarize_micro_activity_cohort.py
+
+permissions:
+  contents: read
+
+env:
+  COHORT_DESIGN: research/benchmarks/suites/micro-volume-activity-cohort-v0.1.json
+
+jobs:
+  prepare:
+    name: Freeze calendar-only date matrix
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.dates.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: dates
+        name: Read precommitted dates
+        run: >-
+          python -c "import json,os,pathlib; d=json.loads(pathlib.Path(os.environ['COHORT_DESIGN']).read_text()); assert d['status']=='precommitted_before_market_discovery'; print('matrix='+json.dumps({'include':[{'trading_date': x} for x in d['trading_dates']]},separators=(',',':')))"
+          >> "$GITHUB_OUTPUT"
+
+  discover:
+    name: ${{ matrix.trading_date }} label-blind market discovery
+    needs: prepare
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix: ${{ fromJson(needs.prepare.outputs.matrix) }}
+    env:
+      ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+      ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+      ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Build causal market-day discovery
+        run: >-
+          python scripts/build_micro_activity_cohort_discovery.py
+          --trading-date "${{ matrix.trading_date }}"
+          --output-root cohort-discovery
+      - name: Require unselected label-blind discovery
+        run: >-
+          python -c "import json,pathlib; p=pathlib.Path('cohort-discovery/${{ matrix.trading_date }}/day-summary.json'); d=json.loads(p.read_text()); assert d['knowledge_policy']=='runtime_market_data_only_no_retrospective_labels'; assert d['selection_applied'] is False"
+      - name: Upload frozen day discovery
+        uses: actions/upload-artifact@v4
+        with:
+          name: micro-volume-activity-discovery-${{ matrix.trading_date }}
+          path: cohort-discovery
+          if-no-files-found: error
+          retention-days: 14
+
+  select:
+    name: Apply precommitted causal candidate selection
+    needs: discover
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.cases.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Download all frozen day discoveries
+        uses: actions/download-artifact@v4
+        with:
+          pattern: micro-volume-activity-discovery-*
+          path: cohort-discovery
+          merge-multiple: true
+      - name: Select only by earliest causal qualification
+        run: >-
+          python scripts/select_micro_activity_cohort.py
+          --design "$COHORT_DESIGN"
+          --discovery-root cohort-discovery
+          --output cohort-selection.json
+      - name: Require label-blind selection contract
+        run: >-
+          python -c "import json,pathlib; d=json.loads(pathlib.Path('cohort-selection.json').read_text()); assert d['knowledge_policy']=='runtime_market_data_only_no_retrospective_labels'; assert d['selection_columns_used']==['first_market_qualified_at','symbol']; assert d['policy_promotion_eligible'] is False; assert 0 < len(d['cases']) <= 12"
+      - id: cases
+        name: Export frozen replay matrix
+        run: >-
+          python -c "import json,pathlib; d=json.loads(pathlib.Path('cohort-selection.json').read_text()); print('matrix='+json.dumps(d['matrix'],separators=(',',':')))"
+          >> "$GITHUB_OUTPUT"
+      - name: Upload frozen cohort selection
+        uses: actions/upload-artifact@v4
+        with:
+          name: micro-volume-activity-cohort-selection
+          path: cohort-selection.json
+          if-no-files-found: error
+          retention-days: 30
+
+  replay:
+    name: ${{ matrix.case_id }} shared-input four-cell replay
+    needs: select
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix: ${{ fromJson(needs.select.outputs.matrix) }}
+    env:
+      ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+      ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+      ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Download frozen label-blind selection
+        uses: actions/download-artifact@v4
+        with:
+          name: micro-volume-activity-cohort-selection
+      - name: Replay all frozen cells on one shared input
+        run: >-
+          python scripts/reconstruct_micro_volume_cohort_case.py
+          --selection cohort-selection.json
+          --case-id "${{ matrix.case_id }}"
+          --output "cohort-case-${{ matrix.case_id }}"
+      - name: Require runtime-only four-cell contract
+        run: >-
+          python -c "import json,pathlib; root=pathlib.Path('cohort-case-${{ matrix.case_id }}'); c=json.loads((root/'case-comparison.json').read_text()); assert c['knowledge_policy']=='runtime_market_data_only_no_retrospective_labels'; assert c['policy_promotion_eligible'] is False; assert set(c['cells'])=={'baseline','context_only','volume_only','context_plus_volume'}; [(_ for _ in ()).throw(AssertionError('runtime policy')) if json.loads(p.read_text())['knowledge_policy']!='runtime_market_data_only_no_retrospective_labels' else None for p in (root/'runtime').glob('*/runtime-replay.json')]"
+      - name: Upload frozen shared inputs and four runtimes
+        uses: actions/upload-artifact@v4
+        with:
+          name: micro-volume-activity-runtime-${{ matrix.case_id }}
+          path: cohort-case-${{ matrix.case_id }}
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 6
+      - name: Upload small case comparison
+        uses: actions/upload-artifact@v4
+        with:
+          name: micro-volume-activity-case-${{ matrix.case_id }}
+          path: cohort-case-${{ matrix.case_id }}/case-comparison.json
+          if-no-files-found: error
+          retention-days: 30
+
+  summarize:
+    name: Summarize label-free activity stress cohort
+    needs: replay
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Download all case comparisons
+        uses: actions/download-artifact@v4
+        with:
+          pattern: micro-volume-activity-case-*
+          path: activity-case-comparisons
+      - name: Download frozen cohort selection
+        uses: actions/download-artifact@v4
+        with:
+          name: micro-volume-activity-cohort-selection
+          path: activity-selection
+      - name: Build aggregate activity comparison
+        run: >-
+          python scripts/summarize_micro_activity_cohort.py
+          --root activity-case-comparisons
+          --output micro-volume-activity-cohort-summary.json
+      - name: Require complete non-promotional readout
+        run: >-
+          python -c "import json,pathlib; s=json.loads(pathlib.Path('micro-volume-activity-cohort-summary.json').read_text()); q=json.loads(pathlib.Path('activity-selection/cohort-selection.json').read_text()); assert s['case_count']==len(q['cases']); assert s['knowledge_policy']=='runtime_market_data_only_no_retrospective_labels'; assert s['policy_promotion_eligible'] is False; assert s['strategy_feedback']=='activity_stress_only'"
+      - name: Upload aggregate activity summary
+        uses: actions/upload-artifact@v4
+        with:
+          name: micro-volume-activity-cohort-summary
+          path: micro-volume-activity-cohort-summary.json
+          if-no-files-found: error
+          retention-days: 30
