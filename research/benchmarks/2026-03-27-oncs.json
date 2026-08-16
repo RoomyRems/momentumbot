@@ -1,0 +1,27 @@
+{
+  "benchmark_id": "ross-oncs-2026-03-27-micro-01",
+  "trading_date": "2026-03-27",
+  "symbol": "ONCS",
+  "knowledge_policy": "ground_truth_label_only_never_runtime_context",
+  "source": {
+    "video_id": "w9byEpm5IQE",
+    "title": "Breaking News Sends Stock from $3.00 to $12.45 in 2hrs!",
+    "published_date": "2026-03-27",
+    "evidence_type": "same_day_behavioral_recap"
+  },
+  "observed_human_behavior": {
+    "setup_type": "micro_pullback",
+    "chart_timeframe": "10_seconds",
+    "reported_entry": 5.25,
+    "reported_immediate_expected_zone": [5.35, 5.45],
+    "reported_trade_became_heavy": true,
+    "reported_local_high_approx": 5.50,
+    "reported_topping_tail_rejection": true,
+    "reported_first_trade_loss_approx": 2400
+  },
+  "research_notes": [
+    "This is a deliberately included negative outcome: a micro entry was taken, initially moved slightly higher, then rejected and stopped out.",
+    "Primary scoring should test whether Micro v0.1 causally produces a comparable setup/entry and whether the later campaign engine exits on failure; profit magnitude is not a calibration target.",
+    "This retrospective label must never be supplied to a policy replaying March 27, 2026."
+  ]
+}
