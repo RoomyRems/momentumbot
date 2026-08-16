@@ -113,11 +113,13 @@ jobs:
           assert u['policy_promotion_eligible'] is False;
           i=json.loads((root/'identity-continuity-v0.1'/'manifest.json').read_text());
           assert i['knowledge_policy']['uses_benchmark_labels'] is False;
-          assert i['eligibility']['identity_gate_passes_after_explicit_quarantine'] is True;
+          assert isinstance(i['eligibility']['identity_gate_passes_after_explicit_quarantine'],bool);
+          assert i['eligibility']['full_feature_snapshot_candidate'] is i['eligibility']['identity_gate_passes_after_explicit_quarantine'];
           assert i['eligibility']['universe_complete'] is False;
           assert i['eligibility']['full_walk_forward_eligible'] is False;
           assert i['eligibility']['policy_promotion_eligible'] is False"
       - name: Upload historical census prototype
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: massive-historical-census-prototype

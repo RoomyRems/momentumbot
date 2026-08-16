@@ -470,6 +470,11 @@ def main() -> int:
 
     bridge_summary = bridge["summary"]
     alias_summary = alias_validation["summary"]
+    failed_alias_records = [
+        record
+        for record in alias_validation["records"]
+        if not bool(record["bidirectional_match"])
+    ]
     date_status = bridge["date_identity_status"]
     earlier_quarantine = date_status[earlier_date.isoformat()]["quarantined"]
     later_quarantine = date_status[later_date.isoformat()]["quarantined"]
@@ -514,6 +519,7 @@ def main() -> int:
             "later_identity_quarantine_tickers": [
                 row["ticker"] for row in later_quarantine
             ],
+            "failed_alias_records": failed_alias_records,
             "alias_mapping_gate_pass": alias_gate,
             "bulk_corporate_action_gate_pass": corporate_action_gate,
         },
@@ -549,4 +555,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
