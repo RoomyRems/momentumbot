@@ -8,8 +8,9 @@ from pathlib import Path
 import pandas as pd
 
 from momentumbot.micro_execution import MicroTriggerMode
+from momentumbot.micro_policy import micro_v0_1_policy
 from momentumbot.micro_replay import micro_replay_runtime_artifact, replay_micro_candidate
-from momentumbot.micro_setup import canonical_micro_setup_policy, geometry_only_micro_research_policy
+from momentumbot.micro_setup import geometry_only_micro_research_policy
 
 
 def _read_indexed_csv(path: Path, index_column: str) -> pd.DataFrame:
@@ -69,7 +70,12 @@ def main() -> int:
     parser.add_argument("--bars-csv", type=Path, required=True)
     parser.add_argument("--trades-csv", type=Path, required=True)
     parser.add_argument("--support-csv", type=Path)
-    parser.add_argument("--policy", choices=("canonical", "geometry"), default="canonical")
+    parser.add_argument(
+        "--policy",
+        choices=("micro-v0.1", "canonical", "geometry"),
+        default="micro-v0.1",
+        help="'canonical' is retained as a compatibility alias for frozen micro-v0.1.",
+    )
     parser.add_argument("--entry-latency-ms", type=float, default=0.0)
     parser.add_argument("--exit-until")
     parser.add_argument("--output", type=Path, required=True)
@@ -85,10 +91,12 @@ def main() -> int:
         raise ValueError("--exit-until must be timezone-aware")
 
     support = _read_support(args.support_csv) if args.support_csv is not None else None
-    if args.policy == "canonical":
+    frozen = None
+    if args.policy in {"micro-v0.1", "canonical"}:
         if support is None:
-            raise ValueError("canonical replay requires --support-csv")
-        policy = canonical_micro_setup_policy()
+            raise ValueError("Micro v0.1 replay requires --support-csv")
+        frozen = micro_v0_1_policy()
+        policy = frozen.setup
         vwap_available = support["vwap"]
         ema9_available = support["ema"]
     else:
@@ -109,6 +117,13 @@ def main() -> int:
         exit_until=exit_until,
     )
     artifact = micro_replay_runtime_artifact(replay)
+    if frozen is not None:
+        artifact["frozen_policy_id"] = frozen.policy_id
+        artifact["frozen_policy_fingerprint"] = frozen.fingerprint
+        artifact["frozen_policy_status"] = frozen.status
+    else:
+        artifact["research_policy"] = policy.name
+
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(
         json.dumps(artifact, indent=2, sort_keys=True) + "\n",
