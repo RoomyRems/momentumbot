@@ -48,8 +48,8 @@ jobs:
           - case_id: mma-2025-09-09
             symbol: MMA
             trading_date: "2025-09-09"
-          - case_id: oncs-2026-03-27
-            symbol: ONCS
+          - case_id: artl-2026-03-27
+            symbol: ARTL
             trading_date: "2026-03-27"
     env:
       ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
@@ -96,8 +96,8 @@ jobs:
             benchmark: research/benchmarks/2025-04-21-upxi.json
           - case_id: mma-2025-09-09
             benchmark: research/benchmarks/2025-09-09-mma.json
-          - case_id: oncs-2026-03-27
-            benchmark: research/benchmarks/2026-03-27-oncs.json
+          - case_id: artl-2026-03-27
+            benchmark: research/benchmarks/2026-03-27-artl.json
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
