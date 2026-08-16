@@ -15,6 +15,10 @@ on:
       - src/momentumbot/instrument_metadata.py
       - scripts/audit_massive_instrument_metadata.py
       - tests/test_instrument_metadata.py
+      - src/momentumbot/historical_universe.py
+      - scripts/build_massive_provisional_universe.py
+      - tests/test_historical_universe.py
+      - tests/test_build_massive_provisional_universe.py
       - .github/workflows/massive-historical-census.yml
 
 permissions:
@@ -44,6 +48,8 @@ jobs:
           tests.test_build_massive_historical_census
           tests.test_massive_market_coverage
           tests.test_instrument_metadata
+          tests.test_historical_universe
+          tests.test_build_massive_provisional_universe
           -v
       - name: Fetch fully paginated historical censuses
         run: >-
@@ -61,6 +67,10 @@ jobs:
           python scripts/audit_massive_alpaca_market_coverage.py
           --census-root massive-historical-census
           --batch-size 250
+      - name: Build provisional point-in-time universe
+        run: >-
+          python scripts/build_massive_provisional_universe.py
+          --census-root massive-historical-census
       - name: Enforce research-only eligibility
         run: >-
           python -c "import json,pathlib;
@@ -81,7 +91,12 @@ jobs:
           assert m['instrument_translation_frozen'] is False;
           assert m['universe_complete'] is False;
           assert m['full_walk_forward_eligible'] is False;
-          assert m['policy_promotion_eligible'] is False"
+          assert m['policy_promotion_eligible'] is False;
+          u=json.loads((root/'provisional-universe-v0.1'/'manifest.json').read_text());
+          assert u['complete_relative_to_census'] is True;
+          assert u['universe_complete'] is False;
+          assert u['full_walk_forward_eligible'] is False;
+          assert u['policy_promotion_eligible'] is False"
       - name: Upload historical census prototype
         uses: actions/upload-artifact@v4
         with:

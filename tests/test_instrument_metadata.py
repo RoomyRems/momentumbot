@@ -92,9 +92,32 @@ class InstrumentMetadataTests(unittest.TestCase):
 
         self.assertEqual(
             result.status,
-            InstrumentMetadataStatus.UNIT_STRUCTURE_REVIEW,
+            InstrumentMetadataStatus.STRUCTURE_REVIEW,
         )
         self.assertEqual(result.flags, ("unit_structure_review",))
+
+    def test_plain_depositary_structure_is_reviewed_but_american_adr_is_not(self) -> None:
+        plain = audit_instrument_metadata(
+            _row("PREF", "Issuer Bancorp Depositary Shares")
+        )
+        american = audit_instrument_metadata(
+            _row(
+                "ADR",
+                "Foreign IssuerAmerican Depositary Shares",
+                security_type="ADRC",
+            )
+        )
+
+        self.assertEqual(
+            plain.status,
+            InstrumentMetadataStatus.STRUCTURE_REVIEW,
+        )
+        self.assertIn("depositary_structure_review", plain.flags)
+        self.assertEqual(
+            american.status,
+            InstrumentMetadataStatus.NO_NAME_CONFLICT_DETECTED,
+        )
+        self.assertNotIn("depositary_structure_review", american.flags)
 
     def test_non_common_provider_type_stays_outside_common_family(self) -> None:
         result = audit_instrument_metadata(

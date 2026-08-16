@@ -39,11 +39,22 @@ _RULE_PATTERNS: dict[str, tuple[str, ...]] = {
     ),
     "explicit_rights": (r"\bRIGHTS\b",),
     "explicit_warrant": (r"\bWARRANTS?\b",),
+    "depositary_structure_review": (r"\bDEPOSITARY\s+SHARES\b",),
     "unit_structure_review": (r"\bUNITS?\b",),
+}
+_RULE_EXCLUSION_PATTERNS: dict[str, tuple[str, ...]] = {
+    "depositary_structure_review": (
+        r"AMERICAN\s+DEPOSITARY\s+SHARES\b",
+        r"GLOBAL\s+DEPOSITARY\s+SHARES\b",
+    ),
 }
 _COMPILED_RULES = {
     rule: tuple(re.compile(pattern, re.IGNORECASE) for pattern in patterns)
     for rule, patterns in _RULE_PATTERNS.items()
+}
+_COMPILED_RULE_EXCLUSIONS = {
+    rule: tuple(re.compile(pattern, re.IGNORECASE) for pattern in patterns)
+    for rule, patterns in _RULE_EXCLUSION_PATTERNS.items()
 }
 _EXPLICIT_NON_COMMON_FLAGS = frozenset(
     {
@@ -59,7 +70,7 @@ class InstrumentMetadataStatus(str, Enum):
     OUTSIDE_COMMON_TYPE_FAMILY = "outside_common_type_family"
     MISSING_NAME_REVIEW = "missing_name_review"
     EXPLICIT_NON_COMMON_CONFLICT = "explicit_non_common_name_conflict"
-    UNIT_STRUCTURE_REVIEW = "unit_structure_review"
+    STRUCTURE_REVIEW = "instrument_structure_review"
     NO_NAME_CONFLICT_DETECTED = "no_name_conflict_detected"
 
 
@@ -89,6 +100,10 @@ def instrument_metadata_audit_manifest() -> dict[str, object]:
         "rule_patterns": {
             key: list(value) for key, value in sorted(_RULE_PATTERNS.items())
         },
+        "rule_exclusion_patterns": {
+            key: list(value)
+            for key, value in sorted(_RULE_EXCLUSION_PATTERNS.items())
+        },
         "interpretation": (
             "No detected name contradiction is not proof of common-equity "
             "eligibility. Explicit conflicts fail closed; unit structures and "
@@ -109,6 +124,10 @@ def instrument_name_flags(name: str) -> tuple[str, ...]:
         rule
         for rule, patterns in sorted(_COMPILED_RULES.items())
         if any(pattern.search(name) for pattern in patterns)
+        and not any(
+            pattern.search(name)
+            for pattern in _COMPILED_RULE_EXCLUSIONS.get(rule, ())
+        )
     )
 
 
@@ -125,8 +144,11 @@ def audit_instrument_metadata(row: dict[str, object]) -> InstrumentMetadataAudit
         status = InstrumentMetadataStatus.MISSING_NAME_REVIEW
     elif _EXPLICIT_NON_COMMON_FLAGS.intersection(flags):
         status = InstrumentMetadataStatus.EXPLICIT_NON_COMMON_CONFLICT
-    elif "unit_structure_review" in flags:
-        status = InstrumentMetadataStatus.UNIT_STRUCTURE_REVIEW
+    elif {
+        "depositary_structure_review",
+        "unit_structure_review",
+    }.intersection(flags):
+        status = InstrumentMetadataStatus.STRUCTURE_REVIEW
     else:
         status = InstrumentMetadataStatus.NO_NAME_CONFLICT_DETECTED
 

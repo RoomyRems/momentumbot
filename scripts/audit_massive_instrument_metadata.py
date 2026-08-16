@@ -72,7 +72,7 @@ def summarize_records(records: list[dict[str, object]]) -> dict[str, object]:
         InstrumentMetadataStatus.EXPLICIT_NON_COMMON_CONFLICT.value,
         InstrumentMetadataStatus.MISSING_NAME_REVIEW.value,
         InstrumentMetadataStatus.NO_NAME_CONFLICT_DETECTED.value,
-        InstrumentMetadataStatus.UNIT_STRUCTURE_REVIEW.value,
+        InstrumentMetadataStatus.STRUCTURE_REVIEW.value,
     }
     common_family_flags = Counter(
         flag
@@ -105,7 +105,7 @@ def summarize_records(records: list[dict[str, object]]) -> dict[str, object]:
                 if record["status"]
                 in {
                     InstrumentMetadataStatus.MISSING_NAME_REVIEW.value,
-                    InstrumentMetadataStatus.UNIT_STRUCTURE_REVIEW.value,
+                    InstrumentMetadataStatus.STRUCTURE_REVIEW.value,
                 }
             }
         ),
