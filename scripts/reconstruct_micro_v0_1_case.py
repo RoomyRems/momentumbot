@@ -18,6 +18,7 @@ from momentumbot.micro_replay import micro_replay_runtime_artifact, replay_micro
 from momentumbot.models import current_general_2026
 from momentumbot.providers.alpaca import AlpacaDataClient
 from momentumbot.providers.alpaca_trades import historical_trades
+from momentumbot.research.benchmark_market import direct_historical_target_qualification
 
 ET = ZoneInfo("America/New_York")
 EMA_WARMUP_CALENDAR_DAYS = 7
@@ -70,6 +71,28 @@ def main() -> int:
         profile=profile,
     )
     row = _candidate_row(discovery, symbol)
+    direct = None
+    if row is None:
+        direct = direct_historical_target_qualification(
+            client,
+            symbol=symbol,
+            trading_date=trading_date,
+            profile=profile,
+        )
+
+    if row is not None:
+        target_row = asdict(row)
+        first_qualified_at = row.first_market_qualified_at
+        anchor_source = "full_market_discovery_current_provider_asset_master"
+    elif direct is not None:
+        target_row = asdict(direct)
+        first_qualified_at = direct.first_market_qualified_at
+        anchor_source = "direct_historical_target_fallback_missing_from_current_asset_master"
+    else:
+        target_row = None
+        first_qualified_at = None
+        anchor_source = "unresolved_historical_target"
+
     discovery_summary = {
         "case_id": args.case_id,
         "symbol": symbol,
@@ -79,6 +102,16 @@ def main() -> int:
             "causal_market_momentum_stage_price_gain_same_time_rvol_price_band; "
             "full point_in_time_float/news quality is not scored in this micro setup benchmark"
         ),
+        "candidate_anchor_source": anchor_source,
+        "historical_target_fallback_limitations": (
+            [
+                "fallback proves only causal target-symbol price/gain/RVOL qualification",
+                "fallback does not establish historical cross-sectional rank",
+                "fallback does not claim the provider's current asset master is a point-in-time universe",
+            ]
+            if direct is not None and row is None
+            else []
+        ),
         "market_discovery": {
             "asset_count": discovery.asset_count,
             "listed_asset_count": discovery.listed_asset_count,
@@ -86,12 +119,12 @@ def main() -> int:
             "rvol_prefilter_count": discovery.rvol_prefilter_count,
             "market_candidate_count": discovery.market_candidate_count,
         },
-        "target_discovery_row": asdict(row) if row is not None else None,
+        "target_discovery_row": target_row,
         "frozen_policy_id": frozen.policy_id,
         "frozen_policy_fingerprint": frozen.fingerprint,
     }
 
-    if row is None or row.first_market_qualified_at is None:
+    if first_qualified_at is None:
         runtime = {
             "artifact_type": "micro_candidate_runtime_replay_unavailable",
             "schema_version": 1,
@@ -100,10 +133,11 @@ def main() -> int:
             "symbol": symbol,
             "trading_date": trading_date.isoformat(),
             "status": "target_did_not_reach_market_momentum_qualification",
+            "candidate_anchor_source": anchor_source,
             "frozen_policy_id": frozen.policy_id,
             "frozen_policy_fingerprint": frozen.fingerprint,
             "market_discovery": discovery_summary["market_discovery"],
-            "target_discovery_row": discovery_summary["target_discovery_row"],
+            "target_discovery_row": target_row,
         }
         (output / "runtime-replay.json").write_text(
             json.dumps(runtime, indent=2, sort_keys=True) + "\n", encoding="utf-8"
@@ -115,9 +149,9 @@ def main() -> int:
         print(json.dumps(runtime, indent=2, sort_keys=True))
         return 0
 
-    qualified_at = pd.Timestamp(row.first_market_qualified_at)
+    qualified_at = pd.Timestamp(first_qualified_at)
     if qualified_at.tzinfo is None:
-        raise RuntimeError("discovery returned a non-timezone-aware qualification time")
+        raise RuntimeError("qualification timestamp is not timezone-aware")
     cutoff = pd.Timestamp(_utc_entry_cutoff(trading_date))
     replay_end = min(qualified_at + pd.Timedelta(minutes=REPLAY_HORIZON_MINUTES), cutoff)
     if replay_end <= qualified_at:
@@ -181,6 +215,7 @@ def main() -> int:
         {
             "case_id": args.case_id,
             "trading_date": trading_date.isoformat(),
+            "candidate_anchor_source": anchor_source,
             "frozen_policy_id": frozen.policy_id,
             "frozen_policy_fingerprint": frozen.fingerprint,
             "frozen_policy_status": frozen.status,
