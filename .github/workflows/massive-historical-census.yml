@@ -23,6 +23,11 @@ on:
       - scripts/audit_historical_identity_continuity.py
       - tests/test_identity_continuity.py
       - tests/test_historical_identity_audit.py
+      - src/momentumbot/identity_resolved_universe.py
+      - scripts/build_identity_resolved_universe.py
+      - tests/test_identity_resolved_universe.py
+      - tests/test_build_identity_resolved_universe.py
+      - research/data-audits/massive-identity-corporate-actions-v0.1-2026-08-16.json
       - .github/workflows/massive-historical-census.yml
 
 permissions:
@@ -56,6 +61,8 @@ jobs:
           tests.test_build_massive_provisional_universe
           tests.test_identity_continuity
           tests.test_historical_identity_audit
+          tests.test_identity_resolved_universe
+          tests.test_build_identity_resolved_universe
           -v
       - name: Fetch fully paginated historical censuses
         run: >-
@@ -85,6 +92,12 @@ jobs:
           --batch-size 200
           --minimum-massive-request-interval 12.5
           --ticker-event-sample-size 10
+      - name: Build frozen identity-resolved universe
+        run: >-
+          python scripts/build_identity_resolved_universe.py
+          --census-root massive-historical-census
+          --expected-audit-result
+          research/data-audits/massive-identity-corporate-actions-v0.1-2026-08-16.json
       - name: Enforce research-only eligibility
         run: >-
           python -c "import json,pathlib;
@@ -117,7 +130,18 @@ jobs:
           assert i['eligibility']['full_feature_snapshot_candidate'] is i['eligibility']['identity_gate_passes_after_explicit_quarantine'];
           assert i['eligibility']['universe_complete'] is False;
           assert i['eligibility']['full_walk_forward_eligible'] is False;
-          assert i['eligibility']['policy_promotion_eligible'] is False"
+          assert i['eligibility']['policy_promotion_eligible'] is False;
+          r=json.loads((root/'identity-resolved-universe-v0.1'/'manifest.json').read_text());
+          assert r['eligibility']['complete_relative_to_provisional_membership'] is True;
+          assert r['eligibility']['identity_gate_pass'] is True;
+          assert r['eligibility']['full_feature_snapshot_candidate'] is True;
+          assert r['eligibility']['universe_complete'] is False;
+          assert r['eligibility']['full_walk_forward_eligible'] is False;
+          assert r['eligibility']['policy_promotion_eligible'] is False;
+          assert r['date_summaries']['2025-04-03']['identity_accepted_ticker_count']==5442;
+          assert r['date_summaries']['2026-07-09']['identity_accepted_ticker_count']==5571;
+          assert r['date_summaries']['2025-04-03']['identity_quarantine_tickers']==['FRMEP','LBTYA','LBTYB','LBTYK','LILA','LILAK'];
+          assert r['date_summaries']['2026-07-09']['identity_quarantine_tickers']==['FRMEP','LBTYA','LBTYB','LBTYK','LILA','LILAK']"
       - name: Upload historical census prototype
         if: always()
         uses: actions/upload-artifact@v4

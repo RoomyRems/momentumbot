@@ -126,10 +126,25 @@
       "snapshot_window_alias_validation_complete": true,
       "unresolved_snapshot_window_alias_count": 0
     },
+    "source_provisional_universe": {
+      "2025-04-03": {
+        "included_membership_sha256": "bddb7a0f4bcfb29501ddcba83efa8b989e92986d89aa1521962beaf098c068e4",
+        "policy_fingerprint": "c5bfa91596071de464135269301a948feafe3556a503c809543512a28e40062d"
+      },
+      "2026-07-09": {
+        "included_membership_sha256": "e548c97fc020eb672ddb0543e33c1f891e0369d63cbec39b95d1e344c909da01",
+        "policy_fingerprint": "c5bfa91596071de464135269301a948feafe3556a503c809543512a28e40062d"
+      }
+    },
     "ticker_event_sample": {
       "both_expected_symbols_observed_count": 9,
       "sample_count": 10,
       "selection_rule": "first_composite_figi_changed_transitions_sorted_by_figi"
+    },
+    "versioned_metadata_follow_up": {
+      "disposition": "do_not_mutate_frozen_v0.1_consider_only_in_a_versioned_metadata_audit",
+      "observation": "The provider name uses Depository Shares, while metadata v0.1 recognizes the more common Depositary Shares spelling.",
+      "ticker": "FRMEP"
     }
   },
   "schema_version": 1,
