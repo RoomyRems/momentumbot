@@ -10,6 +10,8 @@ on:
       - scripts/build_massive_historical_census.py
       - tests/test_massive_provider.py
       - tests/test_build_massive_historical_census.py
+      - scripts/audit_massive_alpaca_market_coverage.py
+      - tests/test_massive_market_coverage.py
       - .github/workflows/massive-historical-census.yml
 
 permissions:
@@ -18,7 +20,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 40
     env:
       MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
       POLYGON_API_KEY: ${{ secrets.POLYGON_API_KEY }}
@@ -37,6 +39,7 @@ jobs:
           python -m unittest
           tests.test_massive_provider
           tests.test_build_massive_historical_census
+          tests.test_massive_market_coverage
           -v
       - name: Fetch fully paginated historical censuses
         run: >-
@@ -45,6 +48,11 @@ jobs:
           --minimum-request-interval 12.5
           --limit 1000
           --output massive-historical-census
+      - name: Audit Alpaca historical daily-bar coverage
+        run: >-
+          python scripts/audit_massive_alpaca_market_coverage.py
+          --census-root massive-historical-census
+          --batch-size 250
       - name: Enforce research-only eligibility
         run: >-
           python -c "import json,pathlib;
@@ -56,7 +64,11 @@ jobs:
           assert d['policy_promotion_eligible'] is False;
           assert all(x['eligibility']['point_in_time_membership_candidate'] is True for x in d['date_manifests']);
           assert all(x['eligibility']['universe_complete'] is False for x in d['date_manifests']);
-          assert all(x['census_summary']['unrecognized_security_type_row_count']==0 for x in d['date_manifests'])"
+          assert all(x['census_summary']['unrecognized_security_type_row_count']==0 for x in d['date_manifests']);
+          c=json.loads((root/'market-data-coverage'/'manifest.json').read_text());
+          assert c['universe_complete'] is False;
+          assert c['full_walk_forward_eligible'] is False;
+          assert c['policy_promotion_eligible'] is False"
       - name: Upload historical census prototype
         uses: actions/upload-artifact@v4
         with:
