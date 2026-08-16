@@ -1,0 +1,158 @@
+name: Micro YOLO boundary control
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - .github/workflows/micro-yolo-boundary-control.yml
+      - scripts/summarize_micro_control_cells.py
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    name: YOLO ${{ matrix.cell }} label-blind runtime
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        include:
+          - cell: baseline
+            reconstruct_script: scripts/reconstruct_micro_v0_1_case.py
+            reconstruct_extra: ""
+            identity_field: frozen_policy_id
+            expected_identity: micro-v0.1
+          - cell: context-only
+            reconstruct_script: scripts/reconstruct_micro_v0_2a_context_case.py
+            reconstruct_extra: ""
+            identity_field: ablation_id
+            expected_identity: micro-v0.2a-prequalification-context
+          - cell: volume-only
+            reconstruct_script: scripts/reconstruct_micro_volume_factorial_case.py
+            reconstruct_extra: --ablation-id micro-v0.2c-no-hard-volume-gate
+            identity_field: ablation_id
+            expected_identity: micro-v0.2c-no-hard-volume-gate
+          - cell: context-plus-volume
+            reconstruct_script: scripts/reconstruct_micro_volume_factorial_case.py
+            reconstruct_extra: --ablation-id micro-v0.2d-context-no-hard-volume-gate
+            identity_field: ablation_id
+            expected_identity: micro-v0.2d-context-no-hard-volume-gate
+    env:
+      ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+      ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+      ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Reconstruct label-blind YOLO control cell
+        run: >-
+          python "${{ matrix.reconstruct_script }}"
+          --case-id yolo-2025-09-09
+          --symbol YOLO
+          --trading-date 2025-09-09
+          ${{ matrix.reconstruct_extra }}
+          --output "runtime-${{ matrix.cell }}"
+      - name: Require label-blind runtime provenance
+        run: >-
+          python -c "import json,pathlib; d=json.loads(pathlib.Path('runtime-${{ matrix.cell }}/runtime-replay.json').read_text()); assert d.get('knowledge_policy')=='runtime_market_data_only_no_retrospective_labels'; assert d.get('case_id')=='yolo-2025-09-09'; assert d.get('${{ matrix.identity_field }}')=='${{ matrix.expected_identity }}'"
+      - name: Upload frozen YOLO runtime
+        uses: actions/upload-artifact@v4
+        with:
+          name: micro-yolo-boundary-runtime-${{ matrix.cell }}
+          path: runtime-${{ matrix.cell }}
+          if-no-files-found: error
+          retention-days: 14
+
+  score:
+    name: YOLO ${{ matrix.cell }} post-replay score
+    needs: replay
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - cell: baseline
+            score_script: scripts/score_micro_suite_case.py
+            score_extra: ""
+          - cell: context-only
+            score_script: scripts/score_micro_context_ablation_case.py
+            score_extra: ""
+          - cell: volume-only
+            score_script: scripts/score_micro_volume_factorial_case.py
+            score_extra: --expected-ablation-id micro-v0.2c-no-hard-volume-gate
+          - cell: context-plus-volume
+            score_script: scripts/score_micro_volume_factorial_case.py
+            score_extra: --expected-ablation-id micro-v0.2d-context-no-hard-volume-gate
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Download frozen label-blind runtime
+        uses: actions/download-artifact@v4
+        with:
+          name: micro-yolo-boundary-runtime-${{ matrix.cell }}
+          path: runtime-${{ matrix.cell }}
+      - name: Require runtime before loading retrospective benchmark
+        run: test -s "runtime-${{ matrix.cell }}/runtime-replay.json"
+      - name: Score manifest-approved dimensions after replay
+        run: >-
+          python "${{ matrix.score_script }}"
+          --runtime "runtime-${{ matrix.cell }}/runtime-replay.json"
+          --benchmark research/benchmarks/2025-09-09-yolo.json
+          --suite research/benchmarks/suites/micro-v0.1-seed.json
+          ${{ matrix.score_extra }}
+          --output "score-${{ matrix.cell }}/case-score.json"
+      - name: Require boundary-only scoring contract
+        run: >-
+          python -c "import json,pathlib; d=json.loads(pathlib.Path('score-${{ matrix.cell }}/case-score.json').read_text()); assert d.get('case_role')=='boundary_context_only'; assert d.get('scored_dimensions')=={}; assert d.get('exact_human_trade_identity_scored') is False"
+      - name: Upload post-replay YOLO score
+        uses: actions/upload-artifact@v4
+        with:
+          name: micro-yolo-boundary-score-${{ matrix.cell }}
+          path: score-${{ matrix.cell }}
+          if-no-files-found: error
+          retention-days: 14
+
+  summarize:
+    name: Summarize YOLO four-cell boundary control
+    needs: score
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Download all post-replay scores
+        uses: actions/download-artifact@v4
+        with:
+          pattern: micro-yolo-boundary-score-*
+          path: yolo-control-scores
+      - name: Build four-cell boundary comparison
+        run: >-
+          python scripts/summarize_micro_control_cells.py
+          --root yolo-control-scores
+          --output micro-yolo-boundary-comparison.json
+      - name: Require unscored boundary interpretation
+        run: >-
+          python -c "import json,pathlib; d=json.loads(pathlib.Path('micro-yolo-boundary-comparison.json').read_text()); assert d.get('case_role')=='boundary_context_only'; assert d.get('manifest_scored_dimensions')==[]; assert d.get('strategy_feedback')=='none'"
+      - name: Upload YOLO boundary comparison
+        uses: actions/upload-artifact@v4
+        with:
+          name: micro-yolo-boundary-comparison
+          path: micro-yolo-boundary-comparison.json
+          if-no-files-found: error
+          retention-days: 30
