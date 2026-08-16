@@ -9,6 +9,7 @@ from momentumbot.research.benchmark_suite import load_benchmark_suite
 
 RUNTIME_POLICY = "runtime_market_data_only_no_retrospective_labels"
 LABEL_POLICY = "ground_truth_label_only_never_runtime_context"
+RUNTIME_ARTIFACT = "micro_candidate_runtime_replay"
 
 
 def _load(path: Path) -> dict[str, object]:
@@ -111,9 +112,11 @@ def main() -> int:
         raise TypeError("benchmark observed_human_behavior must be a mapping")
     observed = observed_raw
 
-    plan_count = int(runtime.get("plan_count") or 0)
-    filled_count = int(runtime.get("filled_count") or 0)
-    raw_numbers = runtime.get("filled_pullback_numbers", [])
+    runtime_available = runtime.get("artifact_type") == RUNTIME_ARTIFACT
+    runtime_status = str(runtime.get("status") or ("replayed" if runtime_available else "unavailable"))
+    plan_count = int(runtime.get("plan_count") or 0) if runtime_available else 0
+    filled_count = int(runtime.get("filled_count") or 0) if runtime_available else 0
+    raw_numbers = runtime.get("filled_pullback_numbers", []) if runtime_available else []
     filled_numbers = (
         tuple(
             int(value)
@@ -129,17 +132,25 @@ def main() -> int:
     observed_first_taken = _bool(observed.get("first_pullback_taken"))
     observed_ordinal = _int(observed.get("pullback_ordinal"))
 
+    # These are deliberately broad behavioral dimensions. A positive runtime
+    # value means the frozen policy produced *some* plan/fill during the eligible
+    # post-qualification window; it does not prove that it identified the same
+    # setup instance or entry as the human. Price/ordinal evidence below remains
+    # separate so later participation cannot masquerade as exact imitation.
+    runtime_setup = (plan_count > 0) if runtime_available else None
+    runtime_participation = (filled_count > 0) if runtime_available else None
+    runtime_first_taken = (1 in filled_numbers) if runtime_available else None
+    runtime_first_ordinal = (
+        filled_numbers[0] if runtime_available and filled_numbers else None
+    )
     candidates: dict[str, tuple[object, object]] = {
         "setup_detected": (
             observed_setup == "micro_pullback" if isinstance(observed_setup, str) else None,
-            plan_count > 0,
+            runtime_setup,
         ),
-        "entry_participation": (observed_trade_taken, filled_count > 0),
-        "first_pullback_taken": (observed_first_taken, 1 in filled_numbers),
-        "pullback_ordinal": (
-            observed_ordinal,
-            filled_numbers[0] if filled_numbers else None,
-        ),
+        "entry_participation": (observed_trade_taken, runtime_participation),
+        "first_pullback_taken": (observed_first_taken, runtime_first_taken),
+        "pullback_ordinal": (observed_ordinal, runtime_first_ordinal),
     }
 
     dimensions: dict[str, dict[str, object]] = {}
@@ -155,12 +166,18 @@ def main() -> int:
         }
 
     reported_fills = _reported_fills(observed)
-    runtime_fills = _runtime_fills(runtime)
+    runtime_fills = _runtime_fills(runtime) if runtime_available else ()
+    first_runtime_fill = runtime_fills[0] if runtime_fills else None
+    first_fill_differences = (
+        [abs(first_runtime_fill - reference) for reference in reported_fills]
+        if first_runtime_fill is not None
+        else []
+    )
     comparable = sum(bool(value["comparable"]) for value in dimensions.values())
     matching = sum(value["match"] is True for value in dimensions.values())
     artifact = {
         "artifact_type": "micro_v0_1_suite_case_post_replay_score",
-        "schema_version": 1,
+        "schema_version": 2,
         "knowledge_policy": "post_replay_retrospective_evaluation_only",
         "strategy_feedback": "none",
         "suite_id": suite.suite_id,
@@ -171,16 +188,26 @@ def main() -> int:
         "rationale": suite_case.rationale,
         "frozen_policy_id": runtime.get("frozen_policy_id"),
         "frozen_policy_fingerprint": runtime.get("frozen_policy_fingerprint"),
-        "runtime_status": runtime.get("status", "replayed"),
-        "runtime_plan_count": plan_count,
-        "runtime_filled_count": filled_count,
-        "runtime_filled_pullback_numbers": list(filled_numbers),
+        "upstream_runtime_available": runtime_available,
+        "runtime_status": runtime_status,
+        "runtime_plan_count": plan_count if runtime_available else None,
+        "runtime_filled_count": filled_count if runtime_available else None,
+        "runtime_filled_pullback_numbers": list(filled_numbers) if runtime_available else None,
+        "dimension_semantics": {
+            "setup_detected": "any frozen-policy plan during the eligible replay window; not exact setup identity",
+            "entry_participation": "any frozen-policy fill during the eligible replay window; not exact human-trade identity",
+            "first_pullback_taken": "whether frozen-policy filled pullback ordinal 1",
+            "pullback_ordinal": "first frozen-policy filled pullback ordinal versus explicit human ordinal",
+        },
+        "exact_human_trade_identity_scored": False,
         "scored_dimensions": dimensions,
         "comparable_dimensions": comparable,
         "matching_dimensions": matching,
         "price_references_descriptive_only": {
             "runtime_fill_prices": list(runtime_fills),
+            "first_runtime_fill_price": first_runtime_fill,
             "reported_fill_references": list(reported_fills),
+            "first_runtime_fill_absolute_differences": first_fill_differences,
             "absolute_difference_matrix": _difference_matrix(runtime_fills, reported_fills),
             "used_for_policy_selection": False,
         },
