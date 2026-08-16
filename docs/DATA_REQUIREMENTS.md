@@ -25,6 +25,10 @@ MomentumBot distinguishes:
 
 Alpaca's [`/v2/assets`](https://docs.alpaca.markets/us/reference/get-v2-assets-1) endpoint is frozen with all statuses and a SHA-256 census fingerprint when it is used. The endpoint has no historical membership `asof` parameter. The historical-bars [`asof`](https://docs.alpaca.markets/us/reference/stockbars) parameter supports symbol-name mapping for the queried entity; it does not prove that the input symbol list was historically complete.
 
+The sanitized FMP capability audit on 2026-08-16 found that the configured entitlement can read a delisted-company page with symbol, exchange, IPO and delisting dates, but its active-universe and symbol-change endpoints both return HTTP 402. That combination is not eligible for a reconstruction prototype. The result and workflow provenance are frozen in `research/data-audits/fmp-universe-capability-2026-08-16.json`.
+
+Massive/Polygon's official [All Tickers](https://massive.com/docs/rest/stocks/tickers/all-tickers) contract is the next provider gate because it accepts a `date` and defines `active` relative to the queried date. Its free Stocks Basic history window is currently documented as two years, which covers the present seed/reference period. This documentation is not evidence of our entitlement or complete coverage: the repository first runs a sanitized two-date schema probe, then requires a fully paginated and independently reconciled census before setting `universe_complete=true`.
+
 Conditional snapshots must declare `universe_complete=false`, `universe_complete_relative_to_asset_master=true`, and explicitly prohibit full-scanner walk-forward and policy-promotion claims. Loading one requires an intentional diagnostic override.
 
 ## News snapshot scope
@@ -44,5 +48,7 @@ The repository is designed to eventually consume the already-configured secret n
 - `ALPACA_PAPER_ENDPOINT`
 - `FMP_API_KEY`
 - `MARKETAUX_API_KEY`
+- `MASSIVE_API_KEY` (preferred for the historical ticker-census probe)
+- `POLYGON_API_KEY` (legacy-compatible fallback for the same provider)
 
 Provider adapters are intentionally deferred until the deterministic contracts/tests are stable. Secrets must never be printed to workflow logs or stored in snapshots.

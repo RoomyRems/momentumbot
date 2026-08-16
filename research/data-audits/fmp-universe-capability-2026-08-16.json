@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "audit_id": "fmp-universe-capability-2026-08-16",
+  "generated_at": "2026-08-16T18:09:53.768121+00:00",
+  "knowledge_policy": "provider_schema_only_no_benchmark_labels_no_strategy_feedback",
+  "raw_provider_rows_persisted": false,
+  "runtime_provenance": {
+    "head_sha": "7c137c69792629b124696b8645705066a79b5f5a",
+    "workflow_run_id": 31963763062,
+    "artifact_id": 9267916347,
+    "artifact_digest": "sha256:93544876cf3ea003890923541a07266355d64ccbc5779ec96ab6d0f2d89d647a",
+    "conclusion": "success"
+  },
+  "provider_observations": {
+    "current_actively_trading": {
+      "ok": false,
+      "status": 402,
+      "error_kind": "http_error"
+    },
+    "delisted_page_0": {
+      "ok": true,
+      "status": 200,
+      "row_count": 100,
+      "fields": [
+        "companyName",
+        "delistedDate",
+        "exchange",
+        "ipoDate",
+        "symbol"
+      ],
+      "ipo_date_minimum": "1981-06-09",
+      "ipo_date_maximum": "2026-05-27",
+      "delisted_date_minimum": "2026-07-27",
+      "delisted_date_maximum": "2026-08-17",
+      "distinct_exchange_count": 12
+    },
+    "symbol_changes": {
+      "ok": false,
+      "status": 402,
+      "error_kind": "http_error"
+    }
+  },
+  "decision": {
+    "eligible_for_reconstruction_prototype": false,
+    "point_in_time_universe_complete": false,
+    "full_walk_forward_eligible": false,
+    "policy_promotion_eligible": false,
+    "reason": "The accessible delisted-company page has useful lifecycle fields, but the current active-universe and symbol-change feeds are not entitled. The three-feed lineage is incomplete.",
+    "next_candidate": "Massive/Polygon date-parameterized all-tickers census"
+  }
+}
