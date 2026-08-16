@@ -1,0 +1,325 @@
+{
+  "artifact_type": "micro_v0_1_seed_suite_post_replay_summary",
+  "authoritative_workflow_run_id": 31925087895,
+  "broad_behavior_match_fraction_descriptive_only": 0.6666666666666666,
+  "case_count": 5,
+  "cases": [
+    {
+      "benchmark_id": "ross-artl-2026-03-27-micro-01",
+      "case_role": "primary_scored",
+      "comparable_dimensions": 2,
+      "exact_human_trade_identity_scored": false,
+      "first_runtime_fill_absolute_differences": [],
+      "first_runtime_fill_price": null,
+      "matching_dimensions": 0,
+      "price_references_descriptive_only": {
+        "absolute_difference_matrix": [],
+        "first_runtime_fill_absolute_differences": [],
+        "first_runtime_fill_price": null,
+        "reported_fill_references": [
+          5.25
+        ],
+        "runtime_fill_prices": [],
+        "used_for_policy_selection": false
+      },
+      "reported_fill_references": [
+        5.25
+      ],
+      "runtime_filled_count": 0,
+      "runtime_filled_pullback_numbers": [],
+      "runtime_plan_count": 0,
+      "runtime_status": "replayed",
+      "scored_dimensions": {
+        "entry_participation": {
+          "comparable": true,
+          "match": false,
+          "observed": true,
+          "runtime": false
+        },
+        "setup_detected": {
+          "comparable": true,
+          "match": false,
+          "observed": true,
+          "runtime": false
+        }
+      },
+      "symbol": "ARTL",
+      "upstream_runtime_available": true
+    },
+    {
+      "benchmark_id": "ross-dsy-2026-06-10-micro-01",
+      "case_role": "primary_scored",
+      "comparable_dimensions": 2,
+      "exact_human_trade_identity_scored": false,
+      "first_runtime_fill_absolute_differences": [
+        5.43,
+        5.390000000000001
+      ],
+      "first_runtime_fill_price": 8.5,
+      "matching_dimensions": 2,
+      "price_references_descriptive_only": {
+        "absolute_difference_matrix": [
+          [
+            5.43,
+            5.390000000000001
+          ]
+        ],
+        "first_runtime_fill_absolute_differences": [
+          5.43,
+          5.390000000000001
+        ],
+        "first_runtime_fill_price": 8.5,
+        "reported_fill_references": [
+          3.07,
+          3.11
+        ],
+        "runtime_fill_prices": [
+          8.5
+        ],
+        "used_for_policy_selection": false
+      },
+      "reported_fill_references": [
+        3.07,
+        3.11
+      ],
+      "runtime_filled_count": 1,
+      "runtime_filled_pullback_numbers": [
+        10
+      ],
+      "runtime_plan_count": 2,
+      "runtime_status": "replayed",
+      "scored_dimensions": {
+        "entry_participation": {
+          "comparable": true,
+          "match": true,
+          "observed": true,
+          "runtime": true
+        },
+        "setup_detected": {
+          "comparable": true,
+          "match": true,
+          "observed": true,
+          "runtime": true
+        }
+      },
+      "symbol": "DSY",
+      "upstream_runtime_available": true
+    },
+    {
+      "benchmark_id": "ross-mma-2025-09-09-micro-01",
+      "case_role": "primary_scored",
+      "comparable_dimensions": 2,
+      "exact_human_trade_identity_scored": false,
+      "first_runtime_fill_absolute_differences": [
+        1.6199999999999997
+      ],
+      "first_runtime_fill_price": 4.02,
+      "matching_dimensions": 2,
+      "price_references_descriptive_only": {
+        "absolute_difference_matrix": [
+          [
+            1.6199999999999997
+          ]
+        ],
+        "first_runtime_fill_absolute_differences": [
+          1.6199999999999997
+        ],
+        "first_runtime_fill_price": 4.02,
+        "reported_fill_references": [
+          2.4
+        ],
+        "runtime_fill_prices": [
+          4.02
+        ],
+        "used_for_policy_selection": false
+      },
+      "reported_fill_references": [
+        2.4
+      ],
+      "runtime_filled_count": 1,
+      "runtime_filled_pullback_numbers": [
+        3
+      ],
+      "runtime_plan_count": 1,
+      "runtime_status": "replayed",
+      "scored_dimensions": {
+        "entry_participation": {
+          "comparable": true,
+          "match": true,
+          "observed": true,
+          "runtime": true
+        },
+        "setup_detected": {
+          "comparable": true,
+          "match": true,
+          "observed": true,
+          "runtime": true
+        }
+      },
+      "symbol": "MMA",
+      "upstream_runtime_available": true
+    },
+    {
+      "benchmark_id": "ross-tivc-2025-04-03-micro-01",
+      "case_role": "primary_scored",
+      "comparable_dimensions": 4,
+      "exact_human_trade_identity_scored": false,
+      "first_runtime_fill_absolute_differences": [
+        0.3699999999999992,
+        0.33999999999999986,
+        0.20999999999999996
+      ],
+      "first_runtime_fill_price": 5.1,
+      "matching_dimensions": 2,
+      "price_references_descriptive_only": {
+        "absolute_difference_matrix": [
+          [
+            0.3699999999999992,
+            0.33999999999999986,
+            0.20999999999999996
+          ]
+        ],
+        "first_runtime_fill_absolute_differences": [
+          0.3699999999999992,
+          0.33999999999999986,
+          0.20999999999999996
+        ],
+        "first_runtime_fill_price": 5.1,
+        "reported_fill_references": [
+          4.73,
+          4.76,
+          4.89
+        ],
+        "runtime_fill_prices": [
+          5.1
+        ],
+        "used_for_policy_selection": false
+      },
+      "reported_fill_references": [
+        4.73,
+        4.76,
+        4.89
+      ],
+      "runtime_filled_count": 1,
+      "runtime_filled_pullback_numbers": [
+        7
+      ],
+      "runtime_plan_count": 3,
+      "runtime_status": "replayed",
+      "scored_dimensions": {
+        "entry_participation": {
+          "comparable": true,
+          "match": true,
+          "observed": true,
+          "runtime": true
+        },
+        "first_pullback_taken": {
+          "comparable": true,
+          "match": false,
+          "observed": true,
+          "runtime": false
+        },
+        "pullback_ordinal": {
+          "comparable": true,
+          "match": false,
+          "observed": 1,
+          "runtime": 7
+        },
+        "setup_detected": {
+          "comparable": true,
+          "match": true,
+          "observed": true,
+          "runtime": true
+        }
+      },
+      "symbol": "TIVC",
+      "upstream_runtime_available": true
+    },
+    {
+      "benchmark_id": "ross-upxi-2025-04-21-micro-01",
+      "case_role": "primary_scored",
+      "comparable_dimensions": 2,
+      "exact_human_trade_identity_scored": false,
+      "first_runtime_fill_absolute_differences": [
+        4.390000000000001
+      ],
+      "first_runtime_fill_price": 7.23,
+      "matching_dimensions": 2,
+      "price_references_descriptive_only": {
+        "absolute_difference_matrix": [
+          [
+            4.390000000000001
+          ],
+          [
+            6.26
+          ],
+          [
+            10.26
+          ],
+          [
+            10.65
+          ]
+        ],
+        "first_runtime_fill_absolute_differences": [
+          4.390000000000001
+        ],
+        "first_runtime_fill_price": 7.23,
+        "reported_fill_references": [
+          2.84
+        ],
+        "runtime_fill_prices": [
+          7.23,
+          9.1,
+          13.1,
+          13.49
+        ],
+        "used_for_policy_selection": false
+      },
+      "reported_fill_references": [
+        2.84
+      ],
+      "runtime_filled_count": 4,
+      "runtime_filled_pullback_numbers": [
+        8,
+        11,
+        15,
+        16
+      ],
+      "runtime_plan_count": 5,
+      "runtime_status": "replayed",
+      "scored_dimensions": {
+        "entry_participation": {
+          "comparable": true,
+          "match": true,
+          "observed": true,
+          "runtime": true
+        },
+        "setup_detected": {
+          "comparable": true,
+          "match": true,
+          "observed": true,
+          "runtime": true
+        }
+      },
+      "symbol": "UPXI",
+      "upstream_runtime_available": true
+    }
+  ],
+  "exact_human_trade_identity_aggregate_score": null,
+  "frozen_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+  "interpretation": [
+    "setup_detected and entry_participation mean any plan/fill during the eligible post-qualification window, not the same human trade",
+    "an upstream-unavailable case is non-comparable for micro behavior rather than counted as a micro failure",
+    "reported-entry price differences are descriptive evidence of trade-identity mismatch and are never fed back into Micro v0.1",
+    "the broad behavior fraction must not be described as imitation accuracy or strategy profitability"
+  ],
+  "knowledge_policy": "post_replay_retrospective_evaluation_only",
+  "runtime_commit": "37b8f45f13e6e2f0159c9d307a2a14333d237ab8",
+  "schema_version": 2,
+  "strategy_feedback": "none",
+  "total_comparable_broad_behavior_dimensions": 12,
+  "total_matching_broad_behavior_dimensions": 8,
+  "upstream_runtime_available_case_count": 5,
+  "upstream_runtime_unavailable_case_count": 0,
+  "warning": "This is a deliberately selected behavioral seed-suite diagnostic, not a profitability estimate, statistical validation, exact-trade imitation score, or optimization objective."
+}
