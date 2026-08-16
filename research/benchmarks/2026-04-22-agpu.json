@@ -19,11 +19,13 @@
     "reported_stop_approx": 8.0,
     "reported_confirmation_level": 8.5,
     "reported_initial_target": 9.0,
-    "reported_second_pullback_add_break_level": 10.5
+    "reported_second_pullback_add_break_level": 10.5,
+    "level2_stacked_buyer_support_used_for_anticipation": true,
+    "green_time_and_sales_used_for_anticipation": true
   },
   "research_notes": [
-    "This file is retrospective ground truth and must never be supplied to a policy replaying April 22, 2026.",
-    "The case is intended to validate the canonical first-new-high/hold-support micro setup, not to calibrate profit magnitude or share size.",
-    "Historical SIP reconstruction must determine exact market timestamps independently of the video narration."
+    "This benchmark label is retrospective ground truth and must never be supplied to a policy replaying April 22, 2026.",
+    "Historical SIP reconstruction independently reproduces the $8.50 area, drop below $8 and rapid reclaim, but the narration explicitly attributes the anticipatory decision to Level 2 stacked buyers and green tape.",
+    "AGPU is therefore a boundary/context benchmark for future order-flow anticipation, not a primary chart-only Micro v0.1 calibration target."
   ]
 }
