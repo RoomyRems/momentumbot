@@ -24,15 +24,14 @@ from momentumbot.research.benchmark_market import (
 
 ET = ZoneInfo("America/New_York")
 EMA_WARMUP_CALENDAR_DAYS = 7
-REPLAY_HORIZON_MINUTES = 15
 
 
 def _utc_session_start(trading_date: date) -> datetime:
     return datetime.combine(trading_date, time(4, 0), ET).astimezone(timezone.utc)
 
 
-def _utc_entry_cutoff(trading_date: date) -> datetime:
-    return datetime.combine(trading_date, time(10, 0), ET).astimezone(timezone.utc)
+def _utc_entry_cutoff(trading_date: date, cutoff: time) -> datetime:
+    return datetime.combine(trading_date, cutoff, ET).astimezone(timezone.utc)
 
 
 def _write_frame(frame: pd.DataFrame, path: Path) -> None:
@@ -156,10 +155,15 @@ def main() -> int:
     context["candidate_qualified_at"] = qualified_at.isoformat()
     context["decision_time_source"] = decision_time_source
 
-    cutoff = pd.Timestamp(_utc_entry_cutoff(trading_date))
-    replay_end = min(qualified_at + pd.Timedelta(minutes=REPLAY_HORIZON_MINUTES), cutoff)
+    # Do not censor a benchmark with an arbitrary post-qualification duration.
+    # Every case receives the same label-blind opportunity window already defined
+    # by the strategy profile: qualification through the no-new-entry cutoff.
+    replay_end = pd.Timestamp(
+        _utc_entry_cutoff(trading_date, profile.no_new_entries_after)
+    )
     if replay_end <= qualified_at:
         raise RuntimeError("candidate qualified at or after the entry cutoff")
+    context["replay_window_policy"] = "candidate_qualification_to_no_new_entries_after"
 
     trades = historical_trades(
         client,
@@ -227,7 +231,7 @@ def main() -> int:
             "frozen_policy_fingerprint": frozen.fingerprint,
             "frozen_policy_status": frozen.status,
             "candidate_anchor_scope": context["candidate_anchor_scope"],
-            "replay_horizon_minutes": REPLAY_HORIZON_MINUTES,
+            "replay_window_policy": context["replay_window_policy"],
             "replay_end": replay_end.isoformat(),
             "support_contract": {
                 "vwap": "raw current session from 04:00 ET; values available after minute completion",
