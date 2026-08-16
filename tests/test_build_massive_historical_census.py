@@ -94,6 +94,8 @@ class MassiveHistoricalCensusBuilderTests(unittest.TestCase):
             retrieved_at_utc="2026-08-16T18:00:00+00:00",
             completed_at_utc="2026-08-16T18:01:00+00:00",
             credential_name="MASSIVE_API_KEY",
+            ticker_type_count=2,
+            ticker_types_sha256="types-sha",
         )
 
         self.assertTrue(manifest["fetch_complete"])

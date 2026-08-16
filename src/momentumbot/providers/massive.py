@@ -18,6 +18,9 @@ POLYGON_API_BASE = "https://api.polygon.io"
 OFFICIAL_ALL_TICKERS_DOC = (
     "https://massive.com/docs/rest/stocks/tickers/all-tickers"
 )
+OFFICIAL_TICKER_TYPES_DOC = (
+    "https://massive.com/docs/rest/stocks/tickers/ticker-types"
+)
 _ALLOWED_HOSTS = {"api.massive.com", "api.polygon.io"}
 _MEMBERSHIP_FIELDS = (
     "ticker",
@@ -137,6 +140,35 @@ def reference_membership_fingerprint(
         for row in normalized
     )
     return _fingerprint_payload(membership)
+
+
+def normalize_ticker_types(
+    rows: list[dict[str, object]] | tuple[dict[str, object], ...],
+) -> tuple[dict[str, str], ...]:
+    normalized: list[dict[str, str]] = []
+    for row in rows:
+        code = _text(row.get("code"), upper=True)
+        if not code:
+            raise ValueError("Massive ticker-type row is missing code")
+        normalized.append(
+            {
+                "asset_class": _text(row.get("asset_class"), lower=True),
+                "code": code,
+                "description": _text(row.get("description")),
+                "locale": _text(row.get("locale"), lower=True),
+            }
+        )
+    output = tuple(sorted(normalized, key=lambda row: row["code"]))
+    codes = [row["code"] for row in output]
+    if len(codes) != len(set(codes)):
+        raise RuntimeError("Massive ticker-type dictionary contains duplicate codes")
+    return output
+
+
+def ticker_type_fingerprint(
+    rows: list[dict[str, object]] | tuple[dict[str, object], ...],
+) -> str:
+    return _fingerprint_payload(normalize_ticker_types(rows))
 
 
 def _credential() -> tuple[str, str, str]:
@@ -343,3 +375,33 @@ class MassiveReferenceClient:
             pages=tuple(pages),
             rows=normalized,
         )
+
+    def ticker_types(self) -> tuple[dict[str, str], ...]:
+        query = urllib.parse.urlencode(
+            {
+                "asset_class": "stocks",
+                "locale": "us",
+                "apiKey": self._api_key,
+            }
+        )
+        payload = self._paced_get(
+            f"{self.base_url}/v3/reference/tickers/types?{query}"
+        )
+        if not isinstance(payload, dict):
+            raise RuntimeError("Massive ticker-types response must be an object")
+        raw_results = payload.get("results")
+        if isinstance(raw_results, dict):
+            rows = [raw_results]
+        elif isinstance(raw_results, list) and all(
+            isinstance(row, dict) for row in raw_results
+        ):
+            rows = raw_results
+        else:
+            raise RuntimeError("Massive ticker-types results must be objects")
+        normalized = normalize_ticker_types(rows)
+        if not normalized:
+            raise RuntimeError("Massive ticker-type dictionary is empty")
+        for row in normalized:
+            if row["asset_class"] != "stocks" or row["locale"] != "us":
+                raise RuntimeError("Massive ticker-type dictionary violated its filters")
+        return normalized

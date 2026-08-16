@@ -18,12 +18,14 @@ from momentumbot.historical_data import (
 from momentumbot.providers.alpaca import AlpacaDataClient
 from momentumbot.providers.massive import (
     OFFICIAL_ALL_TICKERS_DOC,
+    OFFICIAL_TICKER_TYPES_DOC,
     MassiveReferenceClient,
     MassiveTickerCensus,
     normalize_reference_tickers,
     reference_membership_identity,
     reference_membership_fingerprint,
     reference_ticker_fingerprint,
+    ticker_type_fingerprint,
 )
 
 
@@ -49,6 +51,8 @@ def _write_json(path: Path, value: object) -> None:
 
 def summarize_census(
     rows: list[dict[str, object]] | tuple[dict[str, object], ...],
+    *,
+    known_type_codes: set[str] | None = None,
 ) -> dict[str, object]:
     normalized = normalize_reference_tickers(rows)
     tickers = [str(row["ticker"]) for row in normalized]
@@ -59,6 +63,15 @@ def summarize_census(
     type_counts = Counter(str(row["type"]) or "missing" for row in normalized)
     market_counts = Counter(str(row["market"]) or "missing" for row in normalized)
     locale_counts = Counter(str(row["locale"]) or "missing" for row in normalized)
+    unrecognized_codes = sorted(
+        {
+            str(row["type"])
+            for row in normalized
+            if row["type"]
+            and known_type_codes is not None
+            and row["type"] not in known_type_codes
+        }
+    )
     return {
         "row_count": len(normalized),
         "unique_ticker_count": len(set(tickers)),
@@ -77,6 +90,10 @@ def summarize_census(
         "security_type_counts": dict(sorted(type_counts.items())),
         "missing_primary_exchange_count": sum(not row["primary_exchange"] for row in normalized),
         "missing_security_type_count": sum(not row["type"] for row in normalized),
+        "unrecognized_security_type_codes": unrecognized_codes,
+        "unrecognized_security_type_row_count": sum(
+            row["type"] in set(unrecognized_codes) for row in normalized
+        ),
         "missing_cik_count": sum(not row["cik"] for row in normalized),
         "missing_composite_figi_count": sum(not row["composite_figi"] for row in normalized),
         "all_rows_active": all(row["active"] is True for row in normalized),
@@ -175,6 +192,8 @@ def build_date_manifest(
     retrieved_at_utc: str,
     completed_at_utc: str,
     credential_name: str,
+    ticker_type_count: int,
+    ticker_types_sha256: str,
 ) -> dict[str, object]:
     page_rows = sum(page.row_count for page in census.pages)
     page_order_regressions = sum(
@@ -204,6 +223,11 @@ def build_date_manifest(
         "page_order_regression_count": page_order_regressions,
         "fetch_complete": fetch_complete,
         "census_summary": census_summary,
+        "ticker_type_dictionary": {
+            "official_contract": OFFICIAL_TICKER_TYPES_DOC,
+            "row_count": ticker_type_count,
+            "sha256": ticker_types_sha256,
+        },
         "census_content_sha256": reference_ticker_fingerprint(census.rows),
         "membership_sha256": reference_membership_fingerprint(census.rows),
         "reconciliation": reconciliation_summary,
@@ -262,6 +286,21 @@ def main(argv: list[str] | None = None) -> int:
     massive = MassiveReferenceClient.from_env(
         minimum_request_interval_seconds=args.minimum_request_interval
     )
+    ticker_types = massive.ticker_types()
+    ticker_type_codes = {row["code"] for row in ticker_types}
+    ticker_types_sha = ticker_type_fingerprint(list(ticker_types))
+    _write_json(
+        root / "massive-ticker-types.json",
+        {
+            "schema_version": 1,
+            "source": "massive_v3_reference_tickers_types",
+            "official_contract": OFFICIAL_TICKER_TYPES_DOC,
+            "retrieved_at_utc": datetime.now(timezone.utc).isoformat(),
+            "row_count": len(ticker_types),
+            "sha256": ticker_types_sha,
+            "rows": ticker_types,
+        },
+    )
     alpaca = AlpacaDataClient.from_env()
     alpaca_retrieved_at = datetime.now(timezone.utc).isoformat()
     raw_alpaca_assets = alpaca.assets()
@@ -290,7 +329,10 @@ def main(argv: list[str] | None = None) -> int:
             max_pages=args.max_pages,
         )
         completed_at = datetime.now(timezone.utc).isoformat()
-        census_summary = summarize_census(census.rows)
+        census_summary = summarize_census(
+            census.rows,
+            known_type_codes=ticker_type_codes,
+        )
         reconciliation_rows, reconciliation_summary = build_reconciliation(
             census.rows,
             list(normalized_alpaca_assets),
@@ -302,6 +344,8 @@ def main(argv: list[str] | None = None) -> int:
             retrieved_at_utc=retrieved_at,
             completed_at_utc=completed_at,
             credential_name=massive.credential_name,
+            ticker_type_count=len(ticker_types),
+            ticker_types_sha256=ticker_types_sha,
         )
 
         date_root = root / trading_date.isoformat()
@@ -329,6 +373,8 @@ def main(argv: list[str] | None = None) -> int:
         "purpose": "label-blind paginated historical ticker-census prototype",
         "dates": [value.isoformat() for value in trading_dates],
         "massive_credential_name": massive.credential_name,
+        "massive_ticker_type_count": len(ticker_types),
+        "massive_ticker_types_sha256": ticker_types_sha,
         "minimum_request_interval_seconds": args.minimum_request_interval,
         "official_free_tier_limit": "5 API requests per minute",
         "alpaca_current_asset_master_sha256": alpaca_master_sha,

@@ -7,6 +7,7 @@ from momentumbot.providers.massive import (
     MassiveReferenceClient,
     reference_membership_fingerprint,
     reference_ticker_fingerprint,
+    ticker_type_fingerprint,
 )
 
 
@@ -155,6 +156,33 @@ class MassiveProviderTests(unittest.TestCase):
             reference_membership_fingerprint([changed_name, second]),
         )
         self.assertNotEqual(content, reference_ticker_fingerprint([changed_name, second]))
+
+    def test_ticker_types_normalize_documented_response(self) -> None:
+        client = MassiveReferenceClient(
+            "secret",
+            requester=lambda *_args, **_kwargs: {
+                "count": 2,
+                "results": [
+                    {
+                        "asset_class": "stocks",
+                        "code": "PFD",
+                        "description": "Preferred Stock",
+                        "locale": "us",
+                    },
+                    {
+                        "asset_class": "stocks",
+                        "code": "CS",
+                        "description": "Common Stock",
+                        "locale": "us",
+                    },
+                ],
+            },
+        )
+
+        rows = client.ticker_types()
+
+        self.assertEqual([row["code"] for row in rows], ["CS", "PFD"])
+        self.assertEqual(ticker_type_fingerprint(list(rows)), ticker_type_fingerprint(list(reversed(rows))))
 
 
 if __name__ == "__main__":
