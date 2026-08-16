@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "audit_id": "massive-historical-census-2026-08-16",
+  "generated_at": "2026-08-16T19:00:56Z",
+  "knowledge_policy": "provider_membership_only_no_benchmark_labels_no_strategy_feedback",
+  "provider_contracts": {
+    "historical_tickers": "https://massive.com/docs/rest/stocks/tickers/all-tickers",
+    "ticker_types": "https://massive.com/docs/rest/stocks/tickers/ticker-types"
+  },
+  "runtime_provenance": {
+    "first_complete_census": {
+      "head_sha": "0f091d0e0308dceb5c2b6d81e46613d39ece2e3f",
+      "workflow_run_id": 31965319590,
+      "job_id": 95209494261,
+      "artifact_id": 9268388993,
+      "artifact_digest": "sha256:09ceb0f78a5b96670410e84d6a4a1886450cc16a3a4bcba41e5684b96c4df864",
+      "conclusion": "success"
+    },
+    "independent_repeat_with_type_dictionary": {
+      "head_sha": "6b45b7bc88f63a6cd4ece1974826daed176cd033",
+      "workflow_run_id": 31965790570,
+      "job_id": 95210651358,
+      "artifact_id": 9268513346,
+      "artifact_digest": "sha256:6d017763bfc79ed67369e5d9e4d1e61bf13cebdc756294c9fa09cc7bc73d74e7",
+      "conclusion": "success"
+    }
+  },
+  "reproducibility": {
+    "independent_fetch_count": 2,
+    "content_fingerprints_match": true,
+    "membership_fingerprints_match": true,
+    "row_counts_match": true,
+    "page_counts_match": true
+  },
+  "ticker_type_dictionary": {
+    "row_count": 24,
+    "sha256": "8b64acf0de2c2d0fed0fe4e88c9ca3c19249f2441de1c02939a16622f272d703",
+    "all_nonblank_observed_codes_recognized": true
+  },
+  "date_results": {
+    "2025-04-03": {
+      "page_count": 12,
+      "page_order_regression_count": 1,
+      "fetch_complete": true,
+      "security_record_count": 11276,
+      "unique_ticker_count": 11274,
+      "ticker_collision_group_count": 2,
+      "duplicate_membership_identity_count": 0,
+      "missing_primary_exchange_count": 0,
+      "missing_security_type_count": 2,
+      "unrecognized_security_type_row_count": 0,
+      "census_content_sha256": "68ad59f386249846916a5c1b176fb3a8145b25ab6673d502fd3f6987984f21cc",
+      "membership_sha256": "cefa58a5a28ce739cbf81f983d07b30a47cf36e1f6659bf732b2421332e3e67f",
+      "current_alpaca_overlap": {
+        "point_in_time_comparison": false,
+        "overlap_count": 9509,
+        "massive_only_count": 1765,
+        "overlap_ratio": 0.8434450949086394
+      }
+    },
+    "2026-07-09": {
+      "page_count": 13,
+      "page_order_regression_count": 0,
+      "fetch_complete": true,
+      "security_record_count": 12977,
+      "unique_ticker_count": 12975,
+      "ticker_collision_group_count": 2,
+      "duplicate_membership_identity_count": 0,
+      "missing_primary_exchange_count": 0,
+      "missing_security_type_count": 0,
+      "unrecognized_security_type_row_count": 0,
+      "census_content_sha256": "b23676fc2b343ec6866606054614b0bb93789c5a3bb0fe4f065d823b501b9504",
+      "membership_sha256": "bdeaf2c912c1725217bb1ab794d730750ba66eccdcb23d724d97aa3941f31d4e",
+      "current_alpaca_overlap": {
+        "point_in_time_comparison": false,
+        "overlap_count": 12429,
+        "massive_only_count": 546,
+        "overlap_ratio": 0.9579190751445087
+      }
+    }
+  },
+  "decision": {
+    "point_in_time_membership_candidate": true,
+    "universe_complete": false,
+    "full_walk_forward_eligible": false,
+    "policy_promotion_eligible": false,
+    "interpretation": "The provider pagination contract is exhausted and reproducible for both sampled dates. This establishes a strong membership candidate, not a complete strategy universe.",
+    "remaining_gates": [
+      "measure historical raw and split-adjusted market-data sufficiency for every census ticker",
+      "freeze security-type and exchange eligibility translation",
+      "reconcile symbol identity and corporate actions",
+      "build and validate full causal feature snapshots"
+    ]
+  }
+}

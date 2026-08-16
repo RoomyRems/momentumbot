@@ -12,6 +12,9 @@ on:
       - tests/test_build_massive_historical_census.py
       - scripts/audit_massive_alpaca_market_coverage.py
       - tests/test_massive_market_coverage.py
+      - src/momentumbot/instrument_metadata.py
+      - scripts/audit_massive_instrument_metadata.py
+      - tests/test_instrument_metadata.py
       - .github/workflows/massive-historical-census.yml
 
 permissions:
@@ -40,6 +43,7 @@ jobs:
           tests.test_massive_provider
           tests.test_build_massive_historical_census
           tests.test_massive_market_coverage
+          tests.test_instrument_metadata
           -v
       - name: Fetch fully paginated historical censuses
         run: >-
@@ -48,6 +52,10 @@ jobs:
           --minimum-request-interval 12.5
           --limit 1000
           --output massive-historical-census
+      - name: Audit instrument metadata semantics
+        run: >-
+          python scripts/audit_massive_instrument_metadata.py
+          --census-root massive-historical-census
       - name: Audit Alpaca historical daily-bar coverage
         run: >-
           python scripts/audit_massive_alpaca_market_coverage.py
@@ -68,7 +76,12 @@ jobs:
           c=json.loads((root/'market-data-coverage'/'manifest.json').read_text());
           assert c['universe_complete'] is False;
           assert c['full_walk_forward_eligible'] is False;
-          assert c['policy_promotion_eligible'] is False"
+          assert c['policy_promotion_eligible'] is False;
+          m=json.loads((root/'instrument-metadata-audit'/'manifest.json').read_text());
+          assert m['instrument_translation_frozen'] is False;
+          assert m['universe_complete'] is False;
+          assert m['full_walk_forward_eligible'] is False;
+          assert m['policy_promotion_eligible'] is False"
       - name: Upload historical census prototype
         uses: actions/upload-artifact@v4
         with:

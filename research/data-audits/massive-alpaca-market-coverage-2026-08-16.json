@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "audit_id": "massive-alpaca-market-coverage-2026-08-16",
+  "generated_at": "2026-08-16T19:09:06Z",
+  "knowledge_policy": "provider_coverage_only_no_benchmark_labels_no_strategy_feedback",
+  "runtime_provenance": {
+    "head_sha": "ed3f890a8933faa23eae03de605b68581fbf9ad8",
+    "workflow_run_id": 31966187984,
+    "job_id": 95211606855,
+    "artifact_id": 9268645915,
+    "artifact_digest": "sha256:459d5380411ef143afe6dce35ee18d7de63e00fc51deb1681ebc310b96c331e7",
+    "conclusion": "success"
+  },
+  "query_contract": {
+    "provider": "alpaca_stock_bars",
+    "feed": "sip",
+    "timeframe": "1Day",
+    "adjustments": [
+      "raw",
+      "split"
+    ],
+    "asof": "matching census date",
+    "requirement": "prior and target sessions present in both raw and split series",
+    "unit": "unique ticker",
+    "collision_handling": "multiple Massive security identities sharing one ticker receive one market-data query and remain flagged for separate identity resolution"
+  },
+  "date_results": {
+    "2025-04-03": {
+      "census_membership_sha256": "cefa58a5a28ce739cbf81f983d07b30a47cf36e1f6659bf732b2421332e3e67f",
+      "unique_ticker_count": 11274,
+      "coverage_pass_count": 10866,
+      "coverage_fail_count": 408,
+      "coverage_ratio": 0.9638105375199574,
+      "invalid_symbol_count": 0,
+      "records_sha256": "02ab7c368410bf21d8befdd8510ece62e6def508fc13205d6a45620de93725ed",
+      "descriptive_common_equity_family": {
+        "security_types": [
+          "ADRC",
+          "CS"
+        ],
+        "ticker_count": 5528,
+        "coverage_pass_count": 5523,
+        "coverage_fail_count": 5,
+        "coverage_ratio": 0.9990955137481911,
+        "failure_tickers": {
+          "missing_prior_session_only": [
+            "ATII",
+            "LHSW"
+          ],
+          "missing_target_session": [
+            "GATE",
+            "NVRO",
+            "SVA"
+          ]
+        }
+      },
+      "preferred_stock_failure_concentration": {
+        "security_type": "PFD",
+        "failure_count": 359,
+        "share_of_all_failures": 0.8799019607843137
+      }
+    },
+    "2026-07-09": {
+      "census_membership_sha256": "bdeaf2c912c1725217bb1ab794d730750ba66eccdcb23d724d97aa3941f31d4e",
+      "unique_ticker_count": 12975,
+      "coverage_pass_count": 12556,
+      "coverage_fail_count": 419,
+      "coverage_ratio": 0.9677071290944124,
+      "invalid_symbol_count": 0,
+      "records_sha256": "7cddbef2d8086ab6e0d45e73f3859606e643dce13c9c51b50b3c7d63aa4c6e58",
+      "descriptive_common_equity_family": {
+        "security_types": [
+          "ADRC",
+          "CS"
+        ],
+        "ticker_count": 5687,
+        "coverage_pass_count": 5683,
+        "coverage_fail_count": 4,
+        "coverage_ratio": 0.9992966414629858,
+        "failure_tickers": {
+          "no_bars_in_window": [
+            "AXIAPC",
+            "SVA",
+            "TARX"
+          ],
+          "missing_target_session": [
+            "TBRG"
+          ]
+        }
+      },
+      "preferred_stock_failure_concentration": {
+        "security_type": "PFD",
+        "failure_count": 355,
+        "share_of_all_failures": 0.847255369928401
+      }
+    }
+  },
+  "decision": {
+    "historical_market_data_access_operational": true,
+    "all_census_tickers_data_sufficient": false,
+    "common_equity_family_translation_frozen": false,
+    "universe_complete": false,
+    "full_walk_forward_eligible": false,
+    "policy_promotion_eligible": false,
+    "interpretation": "Alpaca accepted every census ticker and supplied the required daily-bar basis for more than 96% of the unfiltered census. Failures are concentrated in preferred shares. The descriptively common-equity CS/ADRC subset exceeds 99.9% sufficiency on both dates, but type semantics, identity conflicts and no-trade/new-listing cases must be translated by a separate frozen contract before a historical strategy universe is emitted.",
+    "remaining_gates": [
+      "freeze and fingerprint security-type and exchange eligibility semantics without benchmark feedback",
+      "resolve multi-identity tickers and contradictory provider metadata",
+      "classify missing-prior and missing-target cases under the scanner's causal data requirements",
+      "build and validate full causal feature snapshots"
+    ]
+  }
+}
