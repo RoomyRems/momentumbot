@@ -1,0 +1,217 @@
+name: Micro volume-context factorial
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - src/momentumbot/research/micro_volume_ablation.py
+      - scripts/reconstruct_micro_volume_factorial_case.py
+      - scripts/score_micro_volume_factorial_case.py
+      - scripts/summarize_micro_volume_factorial.py
+      - research/benchmarks/*.json
+      - research/benchmarks/suites/micro-v0.1-seed.json
+      - research/benchmarks/results/micro-v0.2a-context-comparison.json
+      - .github/workflows/micro-volume-factorial.yml
+
+permissions:
+  contents: read
+
+jobs:
+  replay:
+    name: Volume factorial ${{ matrix.cell }} runtime ${{ matrix.case_id }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        include:
+          - cell: c
+            ablation_id: micro-v0.2c-no-hard-volume-gate
+            case_id: dsy-2026-06-10
+            symbol: DSY
+            trading_date: "2026-06-10"
+          - cell: c
+            ablation_id: micro-v0.2c-no-hard-volume-gate
+            case_id: tivc-2025-04-03
+            symbol: TIVC
+            trading_date: "2025-04-03"
+          - cell: c
+            ablation_id: micro-v0.2c-no-hard-volume-gate
+            case_id: upxi-2025-04-21
+            symbol: UPXI
+            trading_date: "2025-04-21"
+          - cell: c
+            ablation_id: micro-v0.2c-no-hard-volume-gate
+            case_id: mma-2025-09-09
+            symbol: MMA
+            trading_date: "2025-09-09"
+          - cell: c
+            ablation_id: micro-v0.2c-no-hard-volume-gate
+            case_id: artl-2026-03-27
+            symbol: ARTL
+            trading_date: "2026-03-27"
+          - cell: d
+            ablation_id: micro-v0.2d-context-no-hard-volume-gate
+            case_id: dsy-2026-06-10
+            symbol: DSY
+            trading_date: "2026-06-10"
+          - cell: d
+            ablation_id: micro-v0.2d-context-no-hard-volume-gate
+            case_id: tivc-2025-04-03
+            symbol: TIVC
+            trading_date: "2025-04-03"
+          - cell: d
+            ablation_id: micro-v0.2d-context-no-hard-volume-gate
+            case_id: upxi-2025-04-21
+            symbol: UPXI
+            trading_date: "2025-04-21"
+          - cell: d
+            ablation_id: micro-v0.2d-context-no-hard-volume-gate
+            case_id: mma-2025-09-09
+            symbol: MMA
+            trading_date: "2025-09-09"
+          - cell: d
+            ablation_id: micro-v0.2d-context-no-hard-volume-gate
+            case_id: artl-2026-03-27
+            symbol: ARTL
+            trading_date: "2026-03-27"
+    env:
+      ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+      ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+      ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Reconstruct label-blind factorial cell
+        run: >-
+          python scripts/reconstruct_micro_volume_factorial_case.py
+          --ablation-id "${{ matrix.ablation_id }}"
+          --case-id "${{ matrix.case_id }}"
+          --symbol "${{ matrix.symbol }}"
+          --trading-date "${{ matrix.trading_date }}"
+          --output "runtime-${{ matrix.cell }}-${{ matrix.case_id }}"
+      - name: Require isolated factorial provenance
+        run: >-
+          python -c "import json,pathlib; d=json.loads(pathlib.Path('runtime-${{ matrix.cell }}-${{ matrix.case_id }}/runtime-replay.json').read_text()); assert d.get('ablation_id')=='${{ matrix.ablation_id }}'; assert d.get('parent_frozen_policy_id')=='micro-v0.1'; assert d.get('require_lower_pullback_volume') is False; assert len(d.get('ablation_fingerprint',''))==64"
+      - name: Upload label-blind factorial runtime
+        uses: actions/upload-artifact@v4
+        with:
+          name: micro-volume-factorial-runtime-${{ matrix.cell }}-${{ matrix.case_id }}
+          path: runtime-${{ matrix.cell }}-${{ matrix.case_id }}
+          if-no-files-found: error
+          retention-days: 14
+
+  score:
+    name: Volume factorial ${{ matrix.cell }} score ${{ matrix.case_id }}
+    needs: replay
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - cell: c
+            ablation_id: micro-v0.2c-no-hard-volume-gate
+            case_id: dsy-2026-06-10
+            benchmark: research/benchmarks/2026-06-10-dsy.json
+          - cell: c
+            ablation_id: micro-v0.2c-no-hard-volume-gate
+            case_id: tivc-2025-04-03
+            benchmark: research/benchmarks/2025-04-03-tivc.json
+          - cell: c
+            ablation_id: micro-v0.2c-no-hard-volume-gate
+            case_id: upxi-2025-04-21
+            benchmark: research/benchmarks/2025-04-21-upxi.json
+          - cell: c
+            ablation_id: micro-v0.2c-no-hard-volume-gate
+            case_id: mma-2025-09-09
+            benchmark: research/benchmarks/2025-09-09-mma.json
+          - cell: c
+            ablation_id: micro-v0.2c-no-hard-volume-gate
+            case_id: artl-2026-03-27
+            benchmark: research/benchmarks/2026-03-27-artl.json
+          - cell: d
+            ablation_id: micro-v0.2d-context-no-hard-volume-gate
+            case_id: dsy-2026-06-10
+            benchmark: research/benchmarks/2026-06-10-dsy.json
+          - cell: d
+            ablation_id: micro-v0.2d-context-no-hard-volume-gate
+            case_id: tivc-2025-04-03
+            benchmark: research/benchmarks/2025-04-03-tivc.json
+          - cell: d
+            ablation_id: micro-v0.2d-context-no-hard-volume-gate
+            case_id: upxi-2025-04-21
+            benchmark: research/benchmarks/2025-04-21-upxi.json
+          - cell: d
+            ablation_id: micro-v0.2d-context-no-hard-volume-gate
+            case_id: mma-2025-09-09
+            benchmark: research/benchmarks/2025-09-09-mma.json
+          - cell: d
+            ablation_id: micro-v0.2d-context-no-hard-volume-gate
+            case_id: artl-2026-03-27
+            benchmark: research/benchmarks/2026-03-27-artl.json
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Download completed factorial runtime
+        uses: actions/download-artifact@v4
+        with:
+          name: micro-volume-factorial-runtime-${{ matrix.cell }}-${{ matrix.case_id }}
+          path: runtime-${{ matrix.cell }}-${{ matrix.case_id }}
+      - name: Require runtime before retrospective scoring
+        run: test -s "runtime-${{ matrix.cell }}-${{ matrix.case_id }}/runtime-replay.json"
+      - name: Score manifest-approved dimensions after replay
+        run: >-
+          python scripts/score_micro_volume_factorial_case.py
+          --runtime "runtime-${{ matrix.cell }}-${{ matrix.case_id }}/runtime-replay.json"
+          --benchmark "${{ matrix.benchmark }}"
+          --suite research/benchmarks/suites/micro-v0.1-seed.json
+          --expected-ablation-id "${{ matrix.ablation_id }}"
+          --output "score-${{ matrix.cell }}-${{ matrix.case_id }}/case-score.json"
+      - name: Upload post-replay factorial score
+        uses: actions/upload-artifact@v4
+        with:
+          name: micro-volume-factorial-score-${{ matrix.cell }}-${{ matrix.case_id }}
+          path: score-${{ matrix.cell }}-${{ matrix.case_id }}
+          if-no-files-found: error
+          retention-days: 14
+
+  summarize:
+    name: Summarize volume-context factorial
+    needs: score
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Download all factorial scores
+        uses: actions/download-artifact@v4
+        with:
+          pattern: micro-volume-factorial-score-*
+          path: volume-factorial-scores
+      - name: Build 2x2 comparison
+        run: >-
+          python scripts/summarize_micro_volume_factorial.py
+          --root volume-factorial-scores
+          --context-comparison research/benchmarks/results/micro-v0.2a-context-comparison.json
+          --output micro-volume-factorial-comparison.json
+      - name: Upload factorial comparison
+        uses: actions/upload-artifact@v4
+        with:
+          name: micro-volume-factorial-comparison
+          path: micro-volume-factorial-comparison.json
+          if-no-files-found: error
+          retention-days: 30
