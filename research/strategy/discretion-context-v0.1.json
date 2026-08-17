@@ -2,7 +2,7 @@
   "schema_version": 1,
   "contract_id": "ross-discretion-context-v0.1",
   "artifact_type": "research_discretion_context_coverage_contract",
-  "status": "frozen_gap_inventory_before_context_experiments",
+  "status": "frozen_gap_inventory_enriched_with_artl_zevai_source_evidence",
   "runtime_strategy_effect": "none",
   "policy_promotion_eligible": false,
   "full_imitation_claim_eligible": false,
@@ -34,7 +34,7 @@
       "currently_modeled": "Frozen micro-v0.1 evaluates pullback geometry, volume, support, momentum state, first-candle-new-high trigger and room to prior high.",
       "current_limit": "The technical layer is evaluated after candidate qualification and cannot explain why Ross preferred or ignored a candidate.",
       "evidence_needed": ["representative label-blind candidates", "documented trade and skip behavior reserved for retrospective evaluation"],
-      "promotion_gate": "No technical replacement may be promoted from the five labeled seed cases; it must improve representative out-of-sample behavior without activity inflation."
+      "promotion_gate": "No technical replacement may be promoted from the four valid labeled seed cases; it must improve representative out-of-sample behavior without activity inflation."
     },
     {
       "domain_id": "catalyst_substance",
@@ -48,9 +48,9 @@
       "linked_rule_ids": ["MB-SEL-005", "MB-CAT-001"],
       "causal_runtime_inputs": ["headlines published by decision time", "article metadata available by decision time", "issuer identity", "contemporaneous filings"],
       "currently_modeled": "The scanner establishes provider-news presence as of decision time; catalyst-timing-shadow-v0.1 derives chronology; catalyst-evidence-packet-shadow-v0.1 exposes causally available titles; and catalyst-interpretation-protocol-shadow-v0.1 binds structured title-level observations while forcing unsupported novelty, materiality and theme judgments to remain unknown.",
-      "current_limit": "The protocol is not a validated semantic model. Title-only evidence cannot establish economic materiality, novelty, dilution safety or active-theme fit.",
-      "evidence_needed": ["timestamped pre-entry catalyst commentary", "the exact contemporaneous headline or filing", "trade and skip examples with similar-looking news"],
-      "promotion_gate": "Freeze a structured catalyst rubric from normative evidence, then validate a shadow-only scorer on held-out trade and skip examples."
+      "current_limit": "The protocol is not a validated semantic model. ARTL and ZEVAI now support commitment stage, quantified economics, repetition and dilution-overhang dimensions retrospectively, but title-only runtime evidence still cannot establish them reliably.",
+      "evidence_needed": ["the exact contemporaneous headline, article or filing available by decision time", "held-out trade and skip examples with similar-looking news", "a causal market-theme state"],
+      "promotion_gate": "Version a structured shadow-only catalyst rubric around the newly evidenced dimensions, then validate it on held-out chronological trade and skip examples before any runtime authority."
     },
     {
       "domain_id": "attention_leadership",

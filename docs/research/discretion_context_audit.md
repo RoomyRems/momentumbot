@@ -23,7 +23,7 @@ Only the technical setup layer is frozen as an implemented policy. Every incompl
 
 ## Research implication
 
-The five labeled micro cases remain useful diagnostics, but they do not represent the full strategy. A seed-case entry improvement can mean any of the following:
+The four valid labeled Micro cases remain useful diagnostics, but they do not represent the full strategy. A seed-case entry improvement can mean any of the following:
 
 1. the technical translation became more faithful;
 2. a missing contextual filter was accidentally approximated;
@@ -46,31 +46,31 @@ The entire transcript corpus does not need to be re-uploaded. Request only a nam
 
 ### Seed benchmark evidence check
 
-The five primary Micro benchmarks were checked against this inventory. All five sources are `same_day_behavioral_recap` videos and all five benchmark rows describe trades Ross took. They are useful retrospective behavior labels, but they are not a balanced discretion dataset.
+The four valid primary Micro benchmarks were checked against this inventory. Their sources are `same_day_behavioral_recap` videos and describe trades Ross took. They are useful retrospective behavior labels, but they are not a balanced discretion dataset.
 
 | Case | Context already captured | Important context not frozen |
 |---|---|---|
 | TIVC | A later one-minute setup was skipped because of topping-tail history | Contemporaneous catalyst, competing candidates, regime and Level 2 state |
 | UPXI | Initial and later pullback participation are distinguished | Why UPXI was preferred before the first entry and what was rejected |
 | MMA | The recap names the 10-second setup and approximate entry | Pre-entry catalyst, daily-chart, leader and session-state reasoning |
-| ARTL | Heavy price action, topping-tail rejection and the losing outcome are preserved | The pre-entry selection case and whether tape or catalyst quality justified aggression |
 | DSY | DSY is described as the attention successor after VSME rolled over | A complete contemporaneous candidate ranking and the evidence that attention transferred |
 
-None of the five benchmark payloads freezes a systematic pre-entry alternative-candidate set, catalyst-quality rubric, market-regime state, synchronized Level 2 state, or full session cushion. The immediate evidence priority is therefore trade-versus-skip and candidate-versus-candidate context, not additional fill labels.
+None of the four valid benchmark payloads freezes a systematic pre-entry alternative-candidate set, catalyst-quality rubric, market-regime state, synchronized Level 2 state, or full session cushion. The immediate evidence priority is therefore trade-versus-skip and candidate-versus-candidate context, not additional fill labels.
 
 ### Wider boundary/context evidence
 
-The five non-primary benchmark cases add important evidence that would be lost by looking only at first-entry price matching:
+The six non-primary benchmark cases add important evidence that would be lost by looking only at first-entry price matching:
 
 | Case | Discretion evidence |
 |---|---|
+| ARTL | Retired from Micro scoring after source correction, but provides catalyst-quality evidence: repeated promotional headlines reduced trust, a shelf-registration withdrawal reduced immediate dilution concern, and price confirmation was required before participation |
 | YOUL | Attempted entry did not fill; later caution cites high float, topping-tail rejection and unwillingness to chase extension |
 | AGPU | Anticipatory entry is explicitly attributed to stacked Level 2 buyers and green time-and-sales |
 | LABT | Front-side micros were traded, a later proper pullback was skipped, and whole-dollar resistance/heavy selling mattered |
 | ZEVAI | Cooler regime, no breaking news and excessive aggression before building a cushion appear in self-critique |
 | VRAX | Obvious-number-one-gainer status and slippage that changed reward/risk are both explicit |
 
-The initial frozen coverage result is `research/data-audits/discretion-evidence-coverage-v0.1.json`. It validated 17 contextual evidence rows across all ten benchmarks and all eight decision domains before the DSY/VRAX enrichment below increased the count to 22. The evidence is materially broader than the primary Micro seed, but every row remains retrospective: zero has a verified pre-entry context timestamp and zero includes a complete alternative-candidate set. It can prioritize source review; it cannot become a runtime filter or justify policy promotion.
+The initial frozen coverage result is `research/data-audits/discretion-evidence-coverage-v0.1.json`. It validated 17 contextual evidence rows across all ten benchmarks and all eight decision domains. DSY/VRAX enrichment increased the count to 22; the ARTL/ZEVAI source review increased it to **24**. The evidence is materially broader than the primary Micro seed, but every row remains retrospective: zero is synchronized to a verified market-clock decision timestamp and zero includes a complete alternative-candidate set. It can prioritize source review; it cannot become a runtime filter or justify policy promotion.
 
 ### DSY and VRAX transcript enrichment
 
@@ -91,7 +91,30 @@ VRAX adds four linked layers:
 - an uncertainty-based skip of the first pullback followed by participation in the second micro pullback;
 - slippage widening planned risk from about 15 cents to roughly 35-40 cents per share and changing the intended exit posture.
 
-This increases the frozen audit from 17 to 22 evidence rows. It is evidence that context changes selection, ordinal and risk decisions; it is not yet an algorithm. The narratives are retrospective descriptions of pre-entry state, their video timestamps are not independently verified, and their candidate comparison sets are incomplete. They remain runtime-ineligible.
+This increased the frozen audit from 17 to 22 evidence rows. It is evidence that context changes selection, ordinal and risk decisions; it is not yet an algorithm. The narratives are retrospective descriptions of pre-entry state, their video timestamps are not synchronized to market time, and their candidate comparison sets are incomplete. They remain runtime-ineligible.
+
+### ARTL and ZEVAI transcript enrichment
+
+The complete timestamped ARTL and ZEVAI transcripts were subsequently supplied and distilled without storing their verbatim text.
+
+ARTL contributes a particularly useful catalyst sequence:
+
+- repeated older GLP-1/glaucoma headlines made Ross skeptical of another pop;
+- the new shelf-registration withdrawal was interpreted as bullish because it reduced immediate offering/dilution concern;
+- he still waited for price confirmation before taking the first reported ARTL trade near $6.34;
+- short-sale restriction, threshold-list status, short interest and possible warrant supply were part of the wider assessment.
+
+The same source also corrected a material benchmark error: the old ~$5.25 losing micro belonged to an earlier NCO/ONCO discussion, not ARTL. ARTL is now excluded from Micro scoring.
+
+ZEVAI contributes linked negative and comparative evidence:
+
+- a cooler market, cold scanners, weaker morning sentiment and few strong catalysts reduced confidence;
+- recent Chinese no-news moves kept ZEVAI watchable despite no catalyst;
+- daily-chart room above roughly $3.33 was favorable but did not override weak context;
+- an unquantified board approval to pursue a SpaceX investment was treated as much weaker than an announced, quantified ~$400M stake;
+- divided attention, a merely psychological small-account cushion, FOMO and large big-account size changed the later trade and loss.
+
+These additions raise coverage to 24 rows and supply real dimensions for a future catalyst rubric: **commitment stage, quantified economics, repetition/novelty and dilution-overhang change**. They still do not validate an automated scorer. The next step is a versioned shadow-only protocol tested on held-out chronological trade and skip examples, not a live selection rule.
 
 ### Attention feature checkpoint
 

@@ -1,6 +1,8 @@
 # Micro volume-context factorial results
 
-Status: **promising mechanism; not promoted**.
+Status: **diagnostic interaction evidence; not promoted**.
+
+> **Source correction (2026-08-17):** ARTL's old ~$5.25 trade label was misattributed from an earlier stock discussion. With ARTL retired, all four factorial cells score **8/10**. The broad-score gain disappears; the UPXI/MMA interaction and TIVC first-fill movement remain descriptive evidence only. See `docs/research/artl_source_label_correction.md`.
 
 This experiment tests whether two previously isolated factors interact in the early micro-pullback misses:
 
@@ -42,13 +44,12 @@ Everything else remains the frozen parent's setup/execution translation: qualifi
 
 | Case | Baseline | Context only | Volume only | Context + volume | Main inference |
 | --- | --- | --- | --- | --- | --- |
-| ARTL | no fill | no fill | $9.30 #7 | $9.30 #7 | late participation only; not recovery of ~$5.25 human trade |
 | DSY | $8.50 #10 | $8.50 #10 | $8.50 #10 | $8.50 #10 | neither tested factor explains the early miss |
 | MMA | $4.02 #3 | $4.02 #3 | $4.02 #3 | **$2.59 #1** | genuine context x volume interaction |
 | TIVC | $5.10 #7 | $5.10 #7 | **$4.98 #5** | **$4.98 #5** | volume-gate main effect; no context interaction |
 | UPXI | $7.23 #8 | $7.23 #8 | $6.66 #7 | **$2.81 #1** | strong context x volume interaction |
 
-Retrospective human fill references are approximately $5.25 ARTL, $3.07/$3.11 DSY, $2.40 MMA, $4.73/$4.76/$4.89 TIVC and $2.84 UPXI. These references were never available to the runtime policies.
+Retrospective human fill references are approximately $3.07/$3.11 DSY, $2.40 MMA, $4.73/$4.76/$4.89 TIVC and $2.84 UPXI. These references were never available to the runtime policies.
 
 ### UPXI: strongest interaction evidence
 
@@ -103,35 +104,29 @@ This means the hard lower-volume translation can also delay participation indepe
 
 DSY remains $8.50/#10 in all four cells. Disabling the volume gate greatly increases later valid-plan count but does not alter the first fill. Earlier replay diagnostics continue to point to `micro_retrace_above_half` / impulse-base geometry as the more relevant hypothesis for this case.
 
-### ARTL: upstream timing boundary remains decisive
-
-ARTL gains a late $9.30 fill when the hard volume gate is removed, but the causal scanner itself does not qualify ARTL until approximately $5.41, already above the retrospective ~$5.25 first human entry. Therefore the later fill cannot be interpreted as recovery of the labeled human trade.
-
-This is also why the broad behavior score must not be used as the primary conclusion of the factorial. ARTL's late fill changes broad `setup_detected` / `entry_participation` dimensions without becoming the same behavioral event.
-
 ## Broad diagnostic versus exact behavioral evidence
 
 The descriptive broad-dimension counts are:
 
-- baseline: 8/12 = 0.667;
-- context-only: 8/12 = 0.667;
-- volume-only: 10/12 = 0.833;
-- context + volume: 10/12 = 0.833.
+- baseline: 8/10 = 0.8;
+- context-only: 8/10 = 0.8;
+- volume-only: 8/10 = 0.8;
+- context + volume: 8/10 = 0.8.
 
-Those numbers are intentionally **not** an exact-human-trade score. The increase to 10/12 is largely influenced by ARTL gaining late participation. The more informative evidence is first-fill price/ordinal behavior: TIVC improves under the volume main effect; UPXI and MMA show unique context-by-volume interaction recoveries; DSY does not improve.
+Those numbers are intentionally **not** an exact-human-trade score. The old apparent broad increase was entirely an artifact of the invalid ARTL label. The remaining descriptive evidence is first-fill price/ordinal behavior: TIVC improves under the volume main effect; UPXI and MMA show context-by-volume interaction recoveries; DSY does not improve.
 
 ## Opportunity-density cost
 
-The relaxed volume interpretation materially increases activity across these five already trade-taken seed examples:
+The relaxed volume interpretation materially increases activity across the four valid trade-taken seed examples:
 
 | Cell | Total plans | Total fills |
 | --- | ---: | ---: |
 | Baseline | 11 | 7 |
 | Context only | 11 | 7 |
-| Volume only | 34 | 12 |
-| Context + volume | 36 | 14 |
+| Volume only | 32 | 11 |
+| Context + volume | 34 | 13 |
 
-Plan count roughly triples and fills roughly double. The current five primary cases are poor instruments for determining whether that extra activity is acceptable because they were selected as retrospective micro examples where the human generally **did trade**. They do not supply enough clean no-trade / rejected-setup controls to estimate false-positive cost.
+Plan count roughly triples and fills increase substantially. The current four primary cases are poor instruments for determining whether that extra activity is acceptable because they were selected as retrospective micro examples where the human **did trade**. They do not supply enough clean no-trade / rejected-setup controls to estimate false-positive cost.
 
 That limitation is decisive for promotion. A rule that explains known trades while increasing opportunity density can look better on a trade-selected benchmark even if it would overtrade a realistic walk-forward universe.
 
@@ -146,9 +141,8 @@ The factorial establishes a credible mechanism worth carrying forward:
 - the two factors interact strongly in UPXI and MMA;
 - volume alone improves TIVC;
 - neither factor fixes DSY;
-- ARTL remains constrained by upstream qualification timing.
 
-But the same relaxation raises plan/fill density enough that the next test must be **negative-control and walk-forward validation**, not another tweak chosen from these five labels.
+But the same relaxation raises plan/fill density enough that the next test must be **negative-control and walk-forward validation**, not another tweak chosen from these four labels.
 
 ## Next research step
 

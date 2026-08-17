@@ -2,6 +2,17 @@
   "ablation_fingerprint": "cdd9c1a18abf23a03aac67568f1c3b976bd4ab968a07f46966940b5e81feb49e",
   "ablation_id": "micro-v0.2a-prequalification-context",
   "artifact_type": "micro_prequalification_context_ablation_comparison",
+  "current_interpretation_status": "superseded_retrospective_label_comparison",
+  "retrospective_source_correction": {
+    "audit_path": "research/data-audits/artl-source-label-correction-v0.1.json",
+    "invalid_benchmark_id": "ross-artl-2026-03-27-micro-01",
+    "historical_values_preserved": true,
+    "corrected_scored_case_count": 4,
+    "corrected_baseline": {"matching_dimensions": 8, "comparable_dimensions": 10, "match_fraction": 0.8, "plans": 11, "fills": 7},
+    "corrected_ablation": {"matching_dimensions": 8, "comparable_dimensions": 10, "match_fraction": 0.8, "plans": 11, "fills": 7},
+    "interpretation_change": "the null result remains unchanged after retiring ARTL",
+    "policy_decision_changed": false
+  },
   "authoritative_workflow_run_id": 31925898386,
   "baseline_authoritative_workflow_run_id": 31925087895,
   "baseline_broad_behavior_match_fraction_descriptive_only": 0.6666666666666666,

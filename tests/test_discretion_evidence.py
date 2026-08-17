@@ -49,15 +49,37 @@ class DiscretionEvidenceTests(unittest.TestCase):
             evidence_counts(self.payload),
             {
                 "technical_setup_and_trigger": 6,
-                "catalyst_substance": 3,
+                "catalyst_substance": 4,
                 "attention_leadership": 2,
-                "daily_chart_context": 3,
+                "daily_chart_context": 4,
                 "market_regime_and_theme": 2,
                 "liquidity_and_fill_quality": 2,
                 "level2_and_tape": 2,
                 "session_state_and_aggression": 2,
             },
         )
+
+    def test_artl_correction_and_zevai_catalyst_evidence_are_bound(self):
+        domains = {domain["domain_id"]: domain for domain in self.payload["domains"]}
+        technical_artl = next(
+            row
+            for row in domains["technical_setup_and_trigger"]["evidence_rows"]
+            if row["symbol"] == "ARTL"
+        )
+        self.assertIn(
+            "/corrected_observed_human_behavior/setup_type",
+            technical_artl["evidence_paths"],
+        )
+        catalyst_symbols = {
+            row["symbol"] for row in domains["catalyst_substance"]["evidence_rows"]
+        }
+        self.assertTrue({"ARTL", "ZEVAI"}.issubset(catalyst_symbols))
+        request = next(
+            row
+            for row in self.payload["targeted_source_requests"]
+            if row["request_id"] == "catalyst-substance-segments"
+        )
+        self.assertEqual(request["status"], "fulfilled_2026-08-17")
         self.assertEqual(len(self.payload["source_scope"]["benchmark_files"]), 10)
         self.assertTrue(
             all(

@@ -2,6 +2,8 @@
 
 Status: **completed frozen-baseline seed evaluation**.
 
+> **Source correction (2026-08-17):** the old ~$5.25 ARTL trade label belongs to an earlier NCO/ONCO discussion in the source transcript. ARTL is retired from scoring. Historical runtime data remains intact; the current four-case broad diagnostic is **8/10 = 0.8**, not 8/12. See `docs/research/artl_source_label_correction.md`.
+
 This document records the first leakage-safe multi-example evaluation of the frozen deterministic `micro-v0.1` policy. It is intentionally a behavioral research result, not a profitability estimate and not a fitted strategy revision.
 
 ## Authoritative provenance
@@ -18,13 +20,13 @@ The runtime replay is produced before retrospective benchmark labels are loaded.
 
 ## What this seed benchmark tests
 
-The five primary cases test whether a single frozen chart-only micro policy can causally recognize and participate in the same broad setup family across different historical examples. The benchmark does **not** yet claim to reconstruct the full historical cross-sectional stock-selection universe. For this micro-layer experiment, the known historical symbol/date is used only to reconstruct that target's causal price/gain/RVOL qualification and subsequent SIP tape.
+The four valid primary cases test whether a single frozen chart-only micro policy can causally recognize and participate in the same broad setup family across different historical examples. The benchmark does **not** yet claim to reconstruct the full historical cross-sectional stock-selection universe. For this micro-layer experiment, the known historical symbol/date is used only to reconstruct that target's causal price/gain/RVOL qualification and subsequent SIP tape.
 
 `setup_detected` and `entry_participation` are deliberately broad dimensions. A later plan or fill on the same ticker can satisfy them even when it is clearly not the same human trade. Exact human trade identity is therefore **not** assigned an aggregate score.
 
 ## Authoritative seed result
 
-The final post-replay summary contains 12 comparable broad behavior dimensions, of which 8 match: `8 / 12 = 0.667`. That number must **not** be described as imitation accuracy. The exact-human-trade aggregate score is intentionally `null`.
+The historical post-replay summary contained 12 comparable dimensions because it included the now-invalid ARTL labels. Excluding those two dimensions leaves 10 comparable broad behavior dimensions, of which 8 match: `8 / 10 = 0.8`. That number must **not** be described as imitation accuracy. The exact-human-trade aggregate score is intentionally `null`.
 
 | Case | Causal qualification | Human reference | First Micro v0.1 fill | Broad result | Exact-trade evidence |
 | --- | --- | --- | --- | --- | --- |
@@ -32,7 +34,6 @@ The final post-replay summary contains 12 comparable broad behavior dimensions, 
 | **TIVC 2025-04-03** | 07:00:00.081 ET | $4.73 / $4.76 / $4.89; first pullback | $5.10 at 07:18:02.796 ET, pullback #7 | setup + participation match; first-pullback + ordinal fail | Wrong pullback identity despite relatively close price |
 | **UPXI 2025-04-21** | 08:02:42.541 ET | ~$2.84 first-new-high entry | $7.23 at 08:37:31.468 ET, pullback #8 | setup + participation match | Strong mismatch: much later and $4.39 above reported entry |
 | **MMA 2025-09-09** | 07:30:20.096 ET | ~$2.40 | $4.02 at 07:33:32.259 ET, pullback #3 | setup + participation match | Same family, but later pullback and $1.62 above reported entry |
-| **ARTL 2026-03-27** | 08:14:59.989 ET at $5.41 | ~$5.25 losing micro entry | no plan / no fill through 10:00 ET | setup + participation fail | Frozen scanner gate becomes available only near the end of the $4.45-$5.57 acquisition minute; no later v0.1 setup is accepted |
 
 The broad result therefore says: **Micro v0.1 often finds some later chart-confirmed micro behavior on stocks Ross traded, but it does not yet reproduce the specific early pullbacks he actually chose.**
 
@@ -62,23 +63,20 @@ Micro v0.1 qualifies at 07:30:20.096 ET and fills at $4.02 on pullback #3 at 07:
 
 The dominant runtime reason is again `no_current_running_high_pullback` (855 evaluations), with only nine `micro_retrace_above_half` and two pullback-volume rejections.
 
-### ARTL negative case and ticker correction
+### Retired ARTL label
 
-The transcript-derived benchmark originally identified this March 27, 2026 example as `ONCS`. That symbol was inconsistent with the historical market path. Independent public-market verification identified **ARTL (Artelo Biosciences)** with high confidence: the same date, prior close near $3.19, extraordinary momentum, and an independently reported intraday high of exactly $12.45 match the video's unusually specific title/path. The benchmark file records the original transcript-derived ticker and the correction provenance; the human behavioral labels were not changed to fit the strategy.
+Independent market research correctly identified ARTL as the March 27 session leader that matched the video's $3-to-$12.45 path. The later full transcript nevertheless proves that the approximately $5.25 losing ten-second trade was on the earlier NCO/ONCO stock, not ARTL. Ross reports his first ARTL trade separately at approximately $6.34. Because the ARTL chart timeframe and pullback ordinal are unresolved, ARTL is excluded from Micro scoring rather than relabeled with invented precision.
 
-ARTL's conservative SIP refinement qualifies at 08:14:59.989 ET with price $5.41, gain about 69.6%, cumulative same-time RVOL just over 5.0x, and 1,308,985 qualifying cumulative shares against an expected 261,796.82 through that minute. The recap's reported first entry is ~$5.25. After qualification, v0.1 produces no plan or fill through 10:00 ET. Its runtime reasons are dominated by 437 `no_current_running_high_pullback` evaluations, plus 28 retracement failures, two topping-tail failures, two pullback-volume failures and four no-pause failures.
-
-ARTL is therefore a valuable negative benchmark: it shows both an upstream timing boundary and the structural restrictiveness of v0.1 without requiring a profitable example.
+The ARTL runtime remains useful as a label-blind reconstruction, but its old human-entry comparison and upstream-timing conclusion are invalid. See `docs/research/artl_source_label_correction.md`.
 
 ## Cross-case finding: the current peak definition is probably too restrictive
 
-Across all five primary cases, `no_current_running_high_pullback` is overwhelmingly the most frequent rejection reason. The count is an evaluation-loop diagnostic rather than a probability, but its consistency matters:
+Across the four valid primary cases, `no_current_running_high_pullback` is overwhelmingly the most frequent rejection reason. The count is an evaluation-loop diagnostic rather than a probability, but its consistency matters:
 
 - DSY: 709
 - TIVC: 929
 - UPXI: 648
 - MMA: 855
-- ARTL: 437
 
 The strongest current hypothesis is that **"strict running high since qualification" is a machine translation, not an adequate representation of the human concept of a local momentum impulse followed by a micro pullback**. The transcript methodology supports a fast extension, controlled pullback/pause and first-candle-new-high entry; it does not require every eligible micro impulse to be a new session-running high.
 
@@ -86,7 +84,7 @@ The strongest current hypothesis is that **"strict running high since qualificat
 
 Micro v0.1 currently begins structural pattern history at the candidate qualification instant. This is causal but unnecessarily restrictive: all completed bars before the alert already existed and were visible. A future policy can use a bounded amount of pre-qualification completed chart history while still prohibiting any plan from being armed or filled before qualification.
 
-This distinction is especially relevant to UPXI and MMA, where the human setup occurs very soon after the causal scanner gate becomes available. ARTL adds an upstream timing issue because the frozen 5x same-time RVOL gate does not become conservative-causally available until the reported $5.25 region is already underway.
+This distinction is especially relevant to UPXI and MMA, where the human setup occurs very soon after the causal scanner gate becomes available.
 
 ## What must remain frozen
 

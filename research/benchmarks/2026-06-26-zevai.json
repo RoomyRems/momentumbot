@@ -9,6 +9,75 @@
     "published_date": "2026-06-26",
     "evidence_type": "same_day_self_critique_recap"
   },
+  "decision_context_extraction": {
+    "source_basis": "full timestamped transcript text supplied for the identified source video",
+    "extracted_on": "2026-08-17",
+    "temporal_status": "retrospective_same_day_description_of_pre_entry_and_session_state",
+    "verbatim_transcript_persisted": false,
+    "runtime_eligible": false,
+    "pre_entry_video_timestamp_verified": false,
+    "source_relative_timestamp_ranges_available": true,
+    "market_clock_synchronization_available": false,
+    "complete_alternative_candidate_set": false
+  },
+  "observed_human_decision_context": {
+    "market_regime": {
+      "market_described_as_cooler_today_and_previous_day": true,
+      "scanners_described_as_cold": true,
+      "several_stocks_had_popped_and_dropped": true,
+      "morning_sentiment_described_as_weaker": true,
+      "confidence_that_anything_would_work_well": "low",
+      "end_of_week_and_fewer_opportunities_noted": true,
+      "no_great_catalysts_that_day": true
+    },
+    "active_theme_and_catalyst": {
+      "candidate_described_as_chinese_stock": true,
+      "breaking_news_present": false,
+      "recent_chinese_no_news_movers_prevented_immediate_dismissal": true,
+      "no_news_did_not_create_positive_catalyst_evidence": true
+    },
+    "daily_chart_context": {
+      "reported_break_level_approx": 3.33,
+      "room_into_large_prior_red_candle": true,
+      "reported_daily_200_moving_average_approx": 10.0
+    },
+    "entry_and_attention": {
+      "initial_micro_pullback_skipped": true,
+      "initial_skip_reason": "low confidence in a weak morning with cold scanners and no news",
+      "hindsight_language_about_initial_skip": "could have, maybe should have",
+      "second_pullback_small_account_trade_taken": true,
+      "small_account_size_limited_execution_concern": true,
+      "later_big_account_entry_zone_approx": [4.25, 4.45],
+      "later_big_account_cost_basis_became_too_high": true,
+      "attention_split_between_small_and_big_accounts": true
+    },
+    "session_state_and_aggression": {
+      "small_account_profit_was_treated_as_psychological_cushion": true,
+      "genuine_big_account_cushion_built_before_large_size": false,
+      "large_size_taken_in_heat_of_moment": true,
+      "fomo_next_one_reasoning_reported": true,
+      "large_position_reduced_ability_to_exit_without_slippage": true,
+      "later_trade_management_changed_by_large_daily_loss": true
+    },
+    "cross_candidate_catalyst_comparisons": [
+      {
+        "candidate": "SHPH",
+        "headline_description": "Dogecoin-related headline",
+        "human_assessment": "catalyst not liked at all",
+        "trade_reason_despite_weak_catalyst": "stock was clearly moving higher"
+      },
+      {
+        "candidate": "QUSCY_symbol_not_resolved_from_transcript",
+        "headline_description": "board approved pursuit of a SpaceX equity stake",
+        "human_assessment": "materially weaker than an announced and quantified stake because approval to pursue may never occur and had no amount"
+      },
+      {
+        "candidate": "ILR",
+        "headline_description": "announced approximately $400 million SpaceX stake",
+        "human_assessment": "concrete and quantified comparison case"
+      }
+    ]
+  },
   "observed_human_behavior": {
     "market_regime_described_as_cooler": true,
     "breaking_news_present": false,
@@ -22,8 +91,9 @@
     "self_critique_too_aggressive_before_building_cushion": true
   },
   "research_notes": [
-    "This case is intentionally excluded from primary imitation scoring because the recap itself is ambiguous about whether skipping the initial micro was correct.",
-    "It is valuable negative behavioral evidence for regime, size/cushion and campaign-risk research.",
-    "This retrospective label must never be supplied to a policy replaying June 26, 2026."
+    "This case remains excluded from primary imitation scoring because the recap is ambiguous about whether skipping the initial micro was correct.",
+    "The transcript supplies strong retrospective evidence that regime, catalyst strength, attention allocation, account-specific cushion and existing PnL changed participation and trade management.",
+    "The SpaceX comparison supplies normative catalyst dimensions: commitment stage, quantified economics and whether a proposed action has actually occurred.",
+    "Every extracted decision-context field is retrospective ground truth and must never be supplied to a June 26 runtime replay."
   ]
 }

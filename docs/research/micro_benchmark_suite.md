@@ -2,7 +2,7 @@
 
 The benchmark suite exists to answer a harder question than "can MomentumBot reproduce VRAX?": **does one frozen chart-only micro policy behave sensibly across materially different historical examples without being rewritten for each stock?**
 
-The seed manifest is `research/benchmarks/suites/micro-v0.1-seed.json`. It currently contains ten retrospective cases selected from the transcript corpus. The first five primary cases have now been reconstructed and scored with the unchanged Micro v0.1 fingerprint; see `docs/research/micro_v0_1_seed_results.md`.
+The seed manifest is `research/benchmarks/suites/micro-v0.1-seed.json`. It currently contains ten retrospective cases selected from the transcript corpus. Four primary cases remain eligible for scoring with the unchanged Micro v0.1 fingerprint; see `docs/research/micro_v0_1_seed_results.md`.
 
 ## Case roles
 
@@ -14,9 +14,6 @@ These examples are close enough to the canonical chart-only micro family that Mi
 - **TIVC — 2025-04-03.** First micro pullback taken with reported fills at $4.73/$4.76/$4.89 and about $3,000 on the first trade.
 - **UPXI — 2025-04-21.** Initial 10-second entry is explicitly described as first candle to make a new high at about $2.84, with a later pullback described as picture perfect.
 - **MMA — 2025-09-09.** Explicit 10-second micro entry around $2.40 followed by continuation through $3.
-- **ARTL — 2026-03-27.** Deliberate losing example: entry around $5.25 on a micro pullback, brief progress, then topping-tail rejection and a reported roughly $2,400 first-trade loss. The transcript-derived ticker was originally `ONCS`; independent same-day market verification showed that `ARTL` matches the date and unusually specific $3-to-$12.45 price path. The benchmark preserves the original transcript label and correction provenance.
-
-Including ARTL is intentional. A benchmark suite made only from clean winners would be structurally biased toward finding entries and would tell us little about failure handling.
 
 ### Partial scored
 
@@ -32,6 +29,7 @@ These cases are valuable precisely because they expose information Micro v0.1 do
 
 ### Ambiguous/excluded
 
+- **ARTL — 2026-03-27.** Retired from scoring after the full source transcript proved that the old ~$5.25 losing micro belonged to the earlier NCO/ONCO discussion. Ross reports the first ARTL trade separately near $6.34, but the exact chart timeframe and pullback ordinal are unresolved. ARTL remains catalyst/discretion context only; see `docs/research/artl_source_label_correction.md`.
 - **ZEVAI — 2026-06-26.** The recap says the initial micro was skipped but also says it "could have, maybe should have" been taken. Later oversizing and a roughly $25k loss are explicit self-critique. The evidence is valuable for regime/risk research, but the initial skip is too ambiguous to score as correct behavior.
 
 ## Leakage rule
@@ -54,7 +52,7 @@ Boundary and ambiguous cases are structurally prevented from having scored dimen
 
 Authoritative run: GitHub Actions `31925087895` on runtime commit `37b8f45f13e6e2f0159c9d307a2a14333d237ab8` with frozen policy fingerprint `49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa`.
 
-The five primary cases produced 8 matches across 12 comparable **broad behavior** dimensions. This 0.667 descriptive fraction is not imitation accuracy: DSY, MMA and UPXI find materially later trades, TIVC fills pullback #7 rather than the labeled first pullback, and ARTL produces no post-qualification v0.1 plan. Exact-human-trade identity is intentionally not aggregated.
+The historical artifact reported 8/12 across five cases. After retiring the misattributed ARTL labels, the current result is **8/10 across four valid cases = 0.8**. This descriptive fraction is not imitation accuracy: DSY, MMA and UPXI find materially later trades, while TIVC fills pullback #7 rather than the labeled first pullback. Exact-human-trade identity is intentionally not aggregated.
 
 The strongest cross-case research findings are:
 

@@ -3,7 +3,7 @@
   "audit_id": "ross-discretion-evidence-coverage-v0.1",
   "artifact_type": "retrospective_discretion_evidence_coverage_audit",
   "context_contract_id": "ross-discretion-context-v0.1",
-  "status": "frozen_existing_evidence_inventory",
+  "status": "frozen_existing_evidence_inventory_enriched_2026-08-17",
   "runtime_strategy_effect": "none",
   "runtime_eligible": false,
   "policy_promotion_eligible": false,
@@ -82,9 +82,9 @@
           "runtime_eligible": false,
           "pre_entry_timestamp_verified": false,
           "alternative_candidate_set_complete": false,
-          "evidence_paths": ["/observed_human_behavior/setup_type", "/observed_human_behavior/trade_taken"],
-          "summary": "The recap reports a taken micro pullback that later failed.",
-          "limit": "The stock-selection gate becomes causal only after the reported entry area."
+          "evidence_paths": ["/corrected_observed_human_behavior/setup_type", "/corrected_observed_human_behavior/trade_taken"],
+          "summary": "The corrected source reports a later ARTL pullback/curl-break trade near $6.34 after initial skepticism.",
+          "limit": "The chart timeframe and pullback ordinal are unresolved, so this row is context only and cannot be used for Micro scoring."
         },
         {
           "benchmark_file": "2026-06-10-dsy.json",
@@ -131,6 +131,25 @@
       "runtime_gate_enabled": false,
       "evidence_rows": [
         {
+          "benchmark_file": "2026-03-27-artl.json",
+          "benchmark_id": "ross-artl-2026-03-27-micro-01",
+          "symbol": "ARTL",
+          "source_video_id": "w9byEpm5IQE",
+          "source_evidence_type": "same_day_behavioral_recap",
+          "context_class": "explicit_retrospective_reason",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": [
+            "/observed_human_decision_context/catalyst_substance/headline_action",
+            "/observed_human_decision_context/catalyst_substance/human_interpretation",
+            "/observed_human_decision_context/catalyst_substance/repeated_promotional_headlines_reduced_trust",
+            "/observed_human_decision_context/confirmation_and_entry/price_confirmation_overcame_skepticism"
+          ],
+          "summary": "Ross contrasted repeatedly promoted older headlines with a new shelf-registration withdrawal that reduced immediate dilution concern, then required price confirmation before participating.",
+          "limit": "This is one retrospective case; it identifies useful rubric dimensions but does not validate a general catalyst score."
+        },
+        {
           "benchmark_file": "2026-06-10-dsy.json",
           "benchmark_id": "ross-dsy-2026-06-10-micro-01",
           "symbol": "DSY",
@@ -164,25 +183,30 @@
           "symbol": "ZEVAI",
           "source_video_id": "hUb-n3kzqjI",
           "source_evidence_type": "same_day_self_critique_recap",
-          "context_class": "negative_context_evidence",
+          "context_class": "explicit_retrospective_reason",
           "runtime_eligible": false,
           "pre_entry_timestamp_verified": false,
           "alternative_candidate_set_complete": false,
-          "evidence_paths": ["/observed_human_behavior/breaking_news_present"],
-          "summary": "The recap explicitly says breaking news was absent.",
-          "limit": "It does not supply a positive catalyst-quality comparison or a general scoring rubric."
+          "evidence_paths": [
+            "/observed_human_decision_context/active_theme_and_catalyst/breaking_news_present",
+            "/observed_human_decision_context/active_theme_and_catalyst/recent_chinese_no_news_movers_prevented_immediate_dismissal",
+            "/observed_human_decision_context/cross_candidate_catalyst_comparisons/1/human_assessment",
+            "/observed_human_decision_context/cross_candidate_catalyst_comparisons/2/human_assessment"
+          ],
+          "summary": "ZEVAI had no news but remained watchable because recent Chinese no-news stocks had moved; the same recap explicitly distinguishes a merely proposed SpaceX investment from an announced and quantified approximately $400M stake.",
+          "limit": "The comparisons support commitment-stage and quantification dimensions but remain retrospective and do not supply a held-out scoring set."
         }
       ],
       "sufficiency": {
         "normative_definition_present": true,
-        "evidence_row_count": 3,
-        "explicit_retrospective_reason_count": 2,
+        "evidence_row_count": 4,
+        "explicit_retrospective_reason_count": 4,
         "pre_entry_timestamp_verified_count": 0,
         "complete_alternative_candidate_set_count": 0,
         "isolated_component_research_ready": false,
         "full_context_integration_ready": false
       },
-      "conclusion": "DSY and VRAX prove that news interacts with theme and attention rather than acting as a simple boolean, but the evidence still cannot define or validate a substance scorer."
+      "conclusion": "ARTL and ZEVAI now add repetition, dilution-overhang, commitment-stage and quantified-economics evidence to the DSY/VRAX timing and theme examples, but four retrospective rows still cannot validate a substance scorer."
     },
     {
       "domain_id": "attention_leadership",
@@ -273,18 +297,36 @@
           "evidence_paths": ["/observed_human_behavior/reported_whole_dollar_resistance", "/observed_human_behavior/reported_heavy_selling_at_whole_dollar"],
           "summary": "The recap identifies whole-dollar resistance and heavy selling at that level.",
           "limit": "This supports a level-specific feature but not a complete daily-chart cleanliness model."
+        },
+        {
+          "benchmark_file": "2026-06-26-zevai.json",
+          "benchmark_id": "ross-zevai-2026-06-26-micro-ambiguous-01",
+          "symbol": "ZEVAI",
+          "source_video_id": "hUb-n3kzqjI",
+          "source_evidence_type": "same_day_self_critique_recap",
+          "context_class": "explicit_retrospective_reason",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": [
+            "/observed_human_decision_context/daily_chart_context/reported_break_level_approx",
+            "/observed_human_decision_context/daily_chart_context/room_into_large_prior_red_candle",
+            "/observed_human_decision_context/daily_chart_context/reported_daily_200_moving_average_approx"
+          ],
+          "summary": "Ross identified room above approximately $3.33 into a prior red candle and a distant daily 200 moving average near $10 while still expressing low confidence in the candidate.",
+          "limit": "This is one retrospective chart assessment and does not define a general resistance or cleanliness threshold."
         }
       ],
       "sufficiency": {
         "normative_definition_present": true,
-        "evidence_row_count": 3,
-        "explicit_retrospective_reason_count": 1,
+        "evidence_row_count": 4,
+        "explicit_retrospective_reason_count": 2,
         "pre_entry_timestamp_verified_count": 0,
         "complete_alternative_candidate_set_count": 0,
         "isolated_component_research_ready": false,
         "full_context_integration_ready": false
       },
-      "conclusion": "The evidence supports resistance and topping-tail caution, but it does not yet define a general causal chart-quality rubric."
+      "conclusion": "The evidence supports resistance, room, moving-average and topping-tail caution, but it does not yet define a general causal chart-quality rubric."
     },
     {
       "domain_id": "market_regime_and_theme",
@@ -314,9 +356,14 @@
           "runtime_eligible": false,
           "pre_entry_timestamp_verified": false,
           "alternative_candidate_set_complete": false,
-          "evidence_paths": ["/observed_human_behavior/market_regime_described_as_cooler", "/observed_human_behavior/initial_micro_pullback_hindsight_language"],
-          "summary": "The market is described as cooler, while the skipped initial micro is discussed ambiguously in hindsight.",
-          "limit": "One self-critique case cannot define causal regime state or the correct participation response."
+          "evidence_paths": [
+            "/observed_human_decision_context/market_regime/market_described_as_cooler_today_and_previous_day",
+            "/observed_human_decision_context/market_regime/scanners_described_as_cold",
+            "/observed_human_decision_context/market_regime/morning_sentiment_described_as_weaker",
+            "/observed_human_decision_context/entry_and_attention/hindsight_language_about_initial_skip"
+          ],
+          "summary": "The market, scanners and morning sentiment are all described as cooler or weaker, while the skipped initial micro is still discussed ambiguously in hindsight.",
+          "limit": "One self-critique day cannot define a causal regime state or the correct participation response."
         }
       ],
       "sufficiency": {
@@ -446,9 +493,14 @@
           "runtime_eligible": false,
           "pre_entry_timestamp_verified": false,
           "alternative_candidate_set_complete": false,
-          "evidence_paths": ["/observed_human_behavior/self_critique_too_aggressive_before_building_cushion", "/observed_human_behavior/second_pullback_small_account_trade_taken"],
-          "summary": "The recap explicitly criticizes being too aggressive before building a profit cushion.",
-          "limit": "The benchmark does not contain a complete causal order ledger and session PnL state for both accounts."
+          "evidence_paths": [
+            "/observed_human_decision_context/session_state_and_aggression/small_account_profit_was_treated_as_psychological_cushion",
+            "/observed_human_decision_context/session_state_and_aggression/genuine_big_account_cushion_built_before_large_size",
+            "/observed_human_decision_context/entry_and_attention/attention_split_between_small_and_big_accounts",
+            "/observed_human_decision_context/session_state_and_aggression/fomo_next_one_reasoning_reported"
+          ],
+          "summary": "The recap separates a psychological small-account cushion from the absent big-account cushion and links attention splitting, FOMO and heat-of-the-moment sizing to the large loss.",
+          "limit": "The benchmark still lacks a complete causal two-account order ledger and synchronized session PnL state."
         }
       ],
       "sufficiency": {
@@ -469,7 +521,9 @@
       "priority": 1,
       "domain_ids": ["catalyst_substance"],
       "video_ids": ["w9byEpm5IQE", "hUb-n3kzqjI"],
-      "needed_segment": "The exact segment where Ross evaluates why the ARTL news is substantive and why the no-news ZEVAI case still did or did not deserve attention, including the contemporaneous headline when shown.",
+      "status": "fulfilled_2026-08-17",
+      "fulfilled_evidence": "Full timestamped transcripts supplied. ARTL provides repetition, shelf-withdrawal and dilution-overhang reasoning; ZEVAI provides no-news/theme reasoning plus proposed-versus-announced and unquantified-versus-quantified catalyst comparisons.",
+      "needed_segment": "No further transcript is needed for the v0.1 evidence inventory; synchronized screen evidence would be requested only for a future market-clock or headline-display validation.",
       "request_only_if_existing_evidence_is_insufficient": true
     },
     {
@@ -494,7 +548,9 @@
       "priority": 4,
       "domain_ids": ["market_regime_and_theme", "session_state_and_aggression"],
       "video_ids": ["hUb-n3kzqjI"],
-      "needed_segment": "The ZEVAI discussion linking the cooler regime and missing profit cushion to the trade or skip decision, with the chronological trade sequence if shown.",
+      "status": "fulfilled_2026-08-17",
+      "fulfilled_evidence": "Full timestamped transcript supplied. Cooler market/scanners, weak morning sentiment, small-versus-big-account cushion, divided attention, FOMO and chronological trade self-critique were extracted.",
+      "needed_segment": "No further transcript is needed for the v0.1 inventory; a synchronized order ledger would be required before any causal session-state replay.",
       "request_only_if_existing_evidence_is_insufficient": true
     },
     {

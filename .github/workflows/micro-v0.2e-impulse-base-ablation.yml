@@ -9,8 +9,6 @@ on:
       - src/momentumbot/research/micro_impulse_base_ablation.py
       - tests/test_micro_impulse_base_ablation.py
       - scripts/replay_micro_impulse_base_from_frozen_runtime.py
-      - scripts/summarize_micro_impulse_base_ablation.py
-      - .github/workflows/micro-v0.2e-impulse-base-ablation.yml
 
 permissions:
   actions: read
@@ -56,7 +54,6 @@ jobs:
           fetch upxi 9257634256 9099e91e00ee58be36edf7b498e5eb2c50580594bb81b72bc8df64502889acd1
           fetch dsy 9257654748 fcd94a67731693676315a42853694db27612bf92142fdbcb4493564c5fb3dd7b
           fetch mma 9257662171 2856c83e45c9d8766ab54e811db91dbc22770c3e7c1ad31697f3ff1f7cd03873
-          fetch artl 9257671943 f134e68b56ee72cc69067b2029eed48dbcb5f0cae9d24446e5ada2a0e27cfa69
       - name: Build label-blind paired runtimes
         shell: bash
         run: |
@@ -75,7 +72,6 @@ jobs:
           replay upxi 9257634256 9099e91e00ee58be36edf7b498e5eb2c50580594bb81b72bc8df64502889acd1 micro-v0.1-runtime-upxi-2025-04-21
           replay dsy 9257654748 fcd94a67731693676315a42853694db27612bf92142fdbcb4493564c5fb3dd7b micro-v0.1-runtime-dsy-2026-06-10
           replay mma 9257662171 2856c83e45c9d8766ab54e811db91dbc22770c3e7c1ad31697f3ff1f7cd03873 micro-v0.1-runtime-mma-2025-09-09
-          replay artl 9257671943 f134e68b56ee72cc69067b2029eed48dbcb5f0cae9d24446e5ada2a0e27cfa69 micro-v0.1-runtime-artl-2026-03-27
           ! grep -R -E 'benchmark_id|reported_fill|observed_human_behavior' runtime
       - name: Compare only after all runtime artifacts exist
         run: >-

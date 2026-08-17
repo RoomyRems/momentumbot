@@ -1,0 +1,106 @@
+{
+  "audit_id": "artl-source-label-correction-v0.1-2026-08-17",
+  "artifact_type": "retrospective_benchmark_source_correction",
+  "schema_version": 1,
+  "created_on": "2026-08-17",
+  "knowledge_policy": "retrospective_ground_truth_only_never_runtime_context",
+  "source": {
+    "video_id": "w9byEpm5IQE",
+    "title": "Breaking News Sends Stock from $3.00 to $12.45 in 2hrs!",
+    "trading_date": "2026-03-27",
+    "evidence_received": "full timestamped transcript supplied by the user",
+    "verbatim_transcript_persisted": false
+  },
+  "finding": {
+    "status": "confirmed_misattribution",
+    "invalid_benchmark_id": "ross-artl-2026-03-27-micro-01",
+    "retracted_claim": "ARTL's first trade was an approximately $5.25 ten-second micro pullback that briefly reached approximately $5.50, rejected with a topping tail and lost approximately $2,400",
+    "retracted_trade_timestamp_range": "00:06:34-00:08:00",
+    "actual_context_of_retracted_trade": "the earlier NCO/ONCO discussion",
+    "corrected_artl_timestamp_range": "00:09:02-00:10:36",
+    "corrected_artl_first_entry_approx": 6.34,
+    "corrected_artl_setup_description": "pullback, dip-and-curl and break toward the high of day",
+    "corrected_artl_chart_timeframe": null,
+    "corrected_artl_pullback_ordinal": null,
+    "confidence": "high"
+  },
+  "benchmark_action": {
+    "retire_from_scored_micro_seed": true,
+    "retain_as_catalyst_and_discretion_context": true,
+    "primary_scored_case_count_before": 5,
+    "primary_scored_case_count_after": 4,
+    "historical_runtime_artifacts_deleted_or_rewritten": false,
+    "historical_retrospective_interpretations_superseded": true,
+    "reason": "the corrected transcript does not establish an exact ARTL chart timeframe or pullback ordinal, so a replacement Micro score would invent precision the source does not contain"
+  },
+  "affected_results": {
+    "micro_v0_1": {
+      "path": "research/benchmarks/results/micro-v0.1-seed-summary.json",
+      "historical_broad_score": "8/12",
+      "corrected_broad_score": "8/10",
+      "corrected_match_fraction": 0.8,
+      "interpretation": "the four remaining cases are unchanged"
+    },
+    "micro_v0_2a": {
+      "path": "research/benchmarks/results/micro-v0.2a-context-comparison.json",
+      "historical_baseline_and_ablation_score": "8/12",
+      "corrected_baseline_and_ablation_score": "8/10",
+      "corrected_match_fraction": 0.8,
+      "interpretation": "the null result remains"
+    },
+    "micro_v0_2b": {
+      "path": "research/benchmarks/results/micro-v0.2b-local-peak-comparison.json",
+      "historical_baseline_score": "8/12",
+      "historical_ablation_score": "9/12",
+      "corrected_baseline_score": "8/10",
+      "corrected_ablation_score": "8/10",
+      "interpretation": "the apparent broad-score improvement disappears because its only added match was ARTL setup detection"
+    },
+    "micro_volume_context_factorial": {
+      "path": "research/benchmarks/results/micro-volume-factorial-comparison.json",
+      "historical_scores": {"baseline": "8/12", "context_only": "8/12", "volume_only": "10/12", "context_plus_volume": "10/12"},
+      "corrected_scores": {"baseline": "8/10", "context_only": "8/10", "volume_only": "8/10", "context_plus_volume": "8/10"},
+      "corrected_activity": {
+        "baseline": {"plans": 11, "fills": 7},
+        "context_only": {"plans": 11, "fills": 7},
+        "volume_only": {"plans": 32, "fills": 11},
+        "context_plus_volume": {"plans": 34, "fills": 13}
+      },
+      "interpretation": "the broad-score gain disappears; UPXI and MMA interaction evidence and TIVC first-fill movement remain descriptive but cannot promote a policy"
+    },
+    "micro_v0_2e": {
+      "path": "research/benchmarks/results/micro-v0.2e-qualification-base-comparison.json",
+      "historical_baseline_score": "8/12",
+      "historical_ablation_score": "10/12",
+      "corrected_baseline_score": "8/10",
+      "corrected_ablation_score": "8/10",
+      "corrected_activity": {
+        "baseline": {"plans": 11, "fills": 7},
+        "ablation": {"plans": 35, "fills": 12}
+      },
+      "interpretation": "the entire apparent broad-score gain disappears"
+    }
+  },
+  "policy_effect": {
+    "runtime_policy_changed": false,
+    "policy_promoted": false,
+    "prior_no_promotion_decisions_reversed": false,
+    "new_threshold_fit": false,
+    "provider_replay_required": false,
+    "reason_no_replay_required": "the label-blind runtime artifacts remain valid market reconstructions; only their later mapping to the invalid ARTL ground-truth label was wrong"
+  },
+  "corrected_artl_context_evidence": {
+    "prior_stock_reputation": "multiple recent pops had failed, producing an explicit boy-who-cried-wolf skepticism",
+    "new_catalyst": "withdrawal request for a shelf registration covering a contemplated offering, with no securities issued or sold",
+    "human_catalyst_assessment": "bullish reduction in immediate dilution concern",
+    "headline_quality_contrast": "older repeated GLP-1/glaucoma headlines were described as juiced and reduced trust",
+    "participation_sequence": "initial skip, price confirmation, then participation near $6.34",
+    "other_context": ["sub-one-million float", "short-sale restriction", "threshold-list status", "approximately 25% short interest", "possible warrant supply"]
+  },
+  "decision": {
+    "safe_to_freeze_as_source_correction": true,
+    "artl_micro_scoring_eligible": false,
+    "policy_promotion_eligible": false,
+    "next_use": "retain ARTL for catalyst/discretion research and use only the four still-valid cases for historical Micro broad comparisons"
+  }
+}

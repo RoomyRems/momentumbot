@@ -10,10 +10,6 @@ on:
       - scripts/reconstruct_micro_volume_factorial_case.py
       - scripts/score_micro_volume_factorial_case.py
       - scripts/summarize_micro_volume_factorial.py
-      - research/benchmarks/*.json
-      - research/benchmarks/suites/micro-v0.1-seed.json
-      - research/benchmarks/results/micro-v0.2a-context-comparison.json
-      - .github/workflows/micro-volume-factorial.yml
 
 permissions:
   contents: read
@@ -48,11 +44,6 @@ jobs:
             case_id: mma-2025-09-09
             symbol: MMA
             trading_date: "2025-09-09"
-          - cell: c
-            ablation_id: micro-v0.2c-no-hard-volume-gate
-            case_id: artl-2026-03-27
-            symbol: ARTL
-            trading_date: "2026-03-27"
           - cell: d
             ablation_id: micro-v0.2d-context-no-hard-volume-gate
             case_id: dsy-2026-06-10
@@ -73,11 +64,6 @@ jobs:
             case_id: mma-2025-09-09
             symbol: MMA
             trading_date: "2025-09-09"
-          - cell: d
-            ablation_id: micro-v0.2d-context-no-hard-volume-gate
-            case_id: artl-2026-03-27
-            symbol: ARTL
-            trading_date: "2026-03-27"
     env:
       ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
       ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
@@ -132,10 +118,6 @@ jobs:
             ablation_id: micro-v0.2c-no-hard-volume-gate
             case_id: mma-2025-09-09
             benchmark: research/benchmarks/2025-09-09-mma.json
-          - cell: c
-            ablation_id: micro-v0.2c-no-hard-volume-gate
-            case_id: artl-2026-03-27
-            benchmark: research/benchmarks/2026-03-27-artl.json
           - cell: d
             ablation_id: micro-v0.2d-context-no-hard-volume-gate
             case_id: dsy-2026-06-10
@@ -152,10 +134,6 @@ jobs:
             ablation_id: micro-v0.2d-context-no-hard-volume-gate
             case_id: mma-2025-09-09
             benchmark: research/benchmarks/2025-09-09-mma.json
-          - cell: d
-            ablation_id: micro-v0.2d-context-no-hard-volume-gate
-            case_id: artl-2026-03-27
-            benchmark: research/benchmarks/2026-03-27-artl.json
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

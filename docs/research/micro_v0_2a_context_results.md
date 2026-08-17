@@ -2,6 +2,8 @@
 
 Status: **completed null-result research ablation; not promoted**.
 
+> **Source correction (2026-08-17):** ARTL's old ~$5.25 label was misattributed from an earlier stock discussion and is retired. The current four-case result remains a null result at **8/10 in both cells**. See `docs/research/artl_source_label_correction.md`.
+
 This experiment isolates one hypothesis raised by the frozen Micro v0.1 seed benchmark: perhaps the deterministic model misses Ross Cameron's earliest micro pullbacks because it discards completed 10-second chart structure that existed immediately before the causal scanner qualification timestamp.
 
 The ablation does **not** change Micro v0.1. It is a separately identified research policy layered on top of the frozen parent fingerprint.
@@ -30,19 +32,18 @@ Only the setup detector's structural-history start changes.
 
 ## Result
 
-The ablation changes **none of the five primary seed cases' modeled trade outcomes**.
+The ablation changes **none of the four valid primary seed cases' modeled trade outcomes**.
 
 | Case | Completed pre-alert context available | v0.1 baseline | v0.2a context ablation | Alignment change |
 | --- | ---: | --- | --- | --- |
-| ARTL | 10 bars | no plan / no fill | no plan / no fill | no fill either |
 | DSY | 6 bars | first fill $8.50, #10 | first fill $8.50, #10 | unchanged |
 | MMA | 10 bars | first fill $4.02, #3 | first fill $4.02, #3 | unchanged |
 | TIVC | 4 bars | first fill $5.10, #7 | first fill $5.10, #7 | unchanged |
 | UPXI | 3 bars | first fill $7.23, #8 | first fill $7.23, #8 | unchanged |
 
-The broad behavioral score is therefore also unchanged at **8 / 12 comparable dimensions = 0.667**. As with the parent seed summary, this is not exact-trade imitation accuracy and not a profitability statistic.
+The current broad behavioral score is therefore also unchanged at **8 / 10 comparable dimensions = 0.8**. As with the parent seed summary, this is not exact-trade imitation accuracy and not a profitability statistic.
 
-Importantly, MMA and ARTL both had the full requested 10 completed bars available. The null result therefore cannot be dismissed solely as a consequence of sparse pre-alert history.
+MMA had the full requested 10 completed bars available. The null result therefore cannot be dismissed solely as a consequence of sparse pre-alert history.
 
 ## Interpretation
 

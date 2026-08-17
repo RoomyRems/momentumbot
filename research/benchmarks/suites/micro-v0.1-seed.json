@@ -73,20 +73,14 @@
     {
       "benchmark_id": "ross-artl-2026-03-27-micro-01",
       "benchmark_path": "research/benchmarks/2026-03-27-artl.json",
-      "role": "primary_scored",
+      "role": "ambiguous_excluded",
       "tags": [
-        "canonical_candidate",
-        "10_second",
-        "loser",
-        "false_breakout",
-        "topping_tail",
-        "symbol_corrected_by_public_research"
+        "source_label_retracted",
+        "retired_invalid_source_label",
+        "catalyst_context_only"
       ],
-      "scored_dimensions": [
-        "setup_detected",
-        "entry_participation"
-      ],
-      "rationale": "Negative-outcome example prevents the primary suite from containing only successful micro trades. The transcript-derived ONCS ticker was corrected to ARTL after independent same-day market-data verification; behavioral labels remain unchanged. Exit/failure handling is preserved as a future campaign-engine label, not scored yet."
+      "scored_dimensions": [],
+      "rationale": "The full timestamped source transcript proves that the approximately $5.25 ten-second micro, topping-tail rejection and loss belong to the earlier NCO/ONCO discussion, not ARTL. Ross reports the first ARTL trade separately at approximately $6.34, but the chart timeframe and pullback ordinal are unresolved. ARTL is retained only as catalyst/discretion evidence and must not contribute to Micro scoring."
     },
     {
       "benchmark_id": "ross-vrax-2026-07-09-micro-01",

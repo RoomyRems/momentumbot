@@ -10,10 +10,6 @@ on:
       - scripts/reconstruct_micro_v0_2a_context_case.py
       - scripts/score_micro_context_ablation_case.py
       - scripts/summarize_micro_context_ablation.py
-      - research/benchmarks/*.json
-      - research/benchmarks/suites/micro-v0.1-seed.json
-      - research/benchmarks/results/micro-v0.1-seed-summary.json
-      - .github/workflows/micro-v0.2a-context-ablation.yml
 
 permissions:
   contents: read
@@ -40,9 +36,6 @@ jobs:
           - case_id: mma-2025-09-09
             symbol: MMA
             trading_date: "2025-09-09"
-          - case_id: artl-2026-03-27
-            symbol: ARTL
-            trading_date: "2026-03-27"
     env:
       ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
       ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
@@ -88,8 +81,6 @@ jobs:
             benchmark: research/benchmarks/2025-04-21-upxi.json
           - case_id: mma-2025-09-09
             benchmark: research/benchmarks/2025-09-09-mma.json
-          - case_id: artl-2026-03-27
-            benchmark: research/benchmarks/2026-03-27-artl.json
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

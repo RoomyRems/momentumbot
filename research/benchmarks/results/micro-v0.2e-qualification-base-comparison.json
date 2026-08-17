@@ -10,6 +10,17 @@
     "plan_count_delta": 32
   },
   "artifact_type": "micro_qualification_anchored_impulse_base_ablation_comparison",
+  "current_interpretation_status": "superseded_retrospective_label_comparison",
+  "retrospective_source_correction": {
+    "audit_path": "research/data-audits/artl-source-label-correction-v0.1.json",
+    "invalid_benchmark_id": "ross-artl-2026-03-27-micro-01",
+    "historical_values_preserved": true,
+    "corrected_scored_case_count": 4,
+    "corrected_baseline": {"matching_dimensions": 8, "comparable_dimensions": 10, "match_fraction": 0.8, "plans": 11, "fills": 7},
+    "corrected_ablation": {"matching_dimensions": 8, "comparable_dimensions": 10, "match_fraction": 0.8, "plans": 35, "fills": 12},
+    "interpretation_change": "the entire apparent broad-score gain disappears because both added matches came from the invalid ARTL label",
+    "policy_decision_changed": false
+  },
   "broad_behavior_match_fraction_descriptive_only": 0.8333333333333334,
   "case_count": 5,
   "cases": [

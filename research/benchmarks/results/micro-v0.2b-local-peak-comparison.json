@@ -2,6 +2,17 @@
   "ablation_fingerprint": "1efa57eda100ab3f57b6e95015516e03715ff23dabbd67364bfe00d643b11aa9",
   "ablation_id": "micro-v0.2b-local-impulse-peak",
   "artifact_type": "micro_local_peak_ablation_comparison",
+  "current_interpretation_status": "superseded_retrospective_label_comparison",
+  "retrospective_source_correction": {
+    "audit_path": "research/data-audits/artl-source-label-correction-v0.1.json",
+    "invalid_benchmark_id": "ross-artl-2026-03-27-micro-01",
+    "historical_values_preserved": true,
+    "corrected_scored_case_count": 4,
+    "corrected_baseline": {"matching_dimensions": 8, "comparable_dimensions": 10, "match_fraction": 0.8, "plans": 11, "fills": 7},
+    "corrected_ablation": {"matching_dimensions": 8, "comparable_dimensions": 10, "match_fraction": 0.8, "plans": 57, "fills": 21},
+    "interpretation_change": "the apparent broad-score improvement disappears because its only added broad match was the invalid ARTL setup label",
+    "policy_decision_changed": false
+  },
   "baseline_authoritative_workflow_run_id": 31925087895,
   "baseline_broad_behavior_match_fraction_descriptive_only": 0.6666666666666666,
   "broad_behavior_match_fraction_descriptive_only": 0.75,

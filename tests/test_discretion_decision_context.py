@@ -12,6 +12,48 @@ def _load(filename):
 
 
 class DiscretionDecisionContextTests(unittest.TestCase):
+    def test_artl_source_correction_separates_trade_label_from_catalyst_context(self):
+        payload = _load("2026-03-27-artl.json")
+        self.assertFalse(payload["scoring_eligible"])
+        self.assertEqual(payload["status"], "retired_invalid_source_label")
+        self.assertEqual(
+            payload["label_correction"]["micro_seed_disposition"],
+            "retire_from_scored_micro_seed_and_preserve_historical_results_as_superseded",
+        )
+        self.assertEqual(
+            payload["corrected_observed_human_behavior"]["reported_first_entry_approx"],
+            6.34,
+        )
+        self.assertEqual(
+            payload["legacy_retracted_observed_human_behavior"]["actual_stock_in_transcript"],
+            "non-ARTL stock rendered inconsistently as NCO or ONCO",
+        )
+        context = payload["observed_human_decision_context"]
+        self.assertTrue(context["catalyst_substance"]["dilution_overhang_reduction_was_relevant"])
+        self.assertTrue(context["prior_stock_behavior"]["boy_who_cried_wolf_description"])
+        self.assertTrue(context["confirmation_and_entry"]["price_confirmation_overcame_skepticism"])
+
+    def test_zevai_context_captures_regime_catalyst_comparison_and_attention_split(self):
+        payload = _load("2026-06-26-zevai.json")
+        extraction = payload["decision_context_extraction"]
+        self.assertFalse(extraction["runtime_eligible"])
+        self.assertFalse(extraction["pre_entry_video_timestamp_verified"])
+        context = payload["observed_human_decision_context"]
+        self.assertTrue(context["market_regime"]["scanners_described_as_cold"])
+        self.assertFalse(context["active_theme_and_catalyst"]["breaking_news_present"])
+        self.assertEqual(
+            context["cross_candidate_catalyst_comparisons"][2]["candidate"],
+            "ILR",
+        )
+        self.assertTrue(
+            context["entry_and_attention"]["attention_split_between_small_and_big_accounts"]
+        )
+        self.assertFalse(
+            context["session_state_and_aggression"][
+                "genuine_big_account_cushion_built_before_large_size"
+            ]
+        )
+
     def test_dsy_context_preserves_theme_attention_and_cushion_without_runtime_use(self):
         payload = _load("2026-06-10-dsy.json")
         extraction = payload["decision_context_extraction"]

@@ -1,5 +1,18 @@
 {
   "artifact_type": "micro_v0_1_seed_suite_post_replay_summary",
+  "current_interpretation_status": "superseded_retrospective_label_comparison",
+  "retrospective_source_correction": {
+    "audit_path": "research/data-audits/artl-source-label-correction-v0.1.json",
+    "invalid_benchmark_id": "ross-artl-2026-03-27-micro-01",
+    "reason": "the approximately $5.25 ten-second micro and loss were attributed to ARTL but belong to the earlier NCO/ONCO discussion in the source transcript",
+    "historical_values_preserved": true,
+    "corrected_scored_case_count": 4,
+    "corrected_comparable_broad_behavior_dimensions": 10,
+    "corrected_matching_broad_behavior_dimensions": 8,
+    "corrected_broad_behavior_match_fraction_descriptive_only": 0.8,
+    "corrected_activity": {"plans": 11, "fills": 7},
+    "policy_decision_changed": false
+  },
   "authoritative_workflow_run_id": 31925087895,
   "broad_behavior_match_fraction_descriptive_only": 0.6666666666666666,
   "case_count": 5,

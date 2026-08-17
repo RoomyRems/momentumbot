@@ -1,5 +1,20 @@
 {
   "artifact_type": "micro_volume_context_factorial_comparison",
+  "current_interpretation_status": "superseded_retrospective_label_comparison",
+  "retrospective_source_correction": {
+    "audit_path": "research/data-audits/artl-source-label-correction-v0.1.json",
+    "invalid_benchmark_id": "ross-artl-2026-03-27-micro-01",
+    "historical_values_preserved": true,
+    "corrected_scored_case_count": 4,
+    "corrected_cells": {
+      "baseline": {"matching_dimensions": 8, "comparable_dimensions": 10, "match_fraction": 0.8, "plans": 11, "fills": 7},
+      "context_only": {"matching_dimensions": 8, "comparable_dimensions": 10, "match_fraction": 0.8, "plans": 11, "fills": 7},
+      "volume_only": {"matching_dimensions": 8, "comparable_dimensions": 10, "match_fraction": 0.8, "plans": 32, "fills": 11},
+      "context_plus_volume": {"matching_dimensions": 8, "comparable_dimensions": 10, "match_fraction": 0.8, "plans": 34, "fills": 13}
+    },
+    "interpretation_change": "the apparent broad-score gain in both volume-off cells disappears; the UPXI, MMA and TIVC first-fill diagnostics remain descriptive evidence",
+    "policy_decision_changed": false
+  },
   "schema_version": 1,
   "knowledge_policy": "post_replay_retrospective_evaluation_only",
   "strategy_feedback": "none",

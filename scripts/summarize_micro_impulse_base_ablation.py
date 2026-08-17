@@ -82,8 +82,8 @@ def main() -> int:
     args = parser.parse_args()
 
     paths = sorted(args.runtime_root.rglob("runtime-replay.json"))
-    if len(paths) != 5:
-        raise ValueError(f"expected five ablation runtimes, found {len(paths)}")
+    if len(paths) != 4:
+        raise ValueError(f"expected four scored ablation runtimes, found {len(paths)}")
     runtimes = [_load(path) for path in paths]
     baseline = _load(args.baseline_summary)
     baseline_cases_raw = baseline.get("cases")
@@ -239,14 +239,13 @@ def main() -> int:
             "the runtime ablation changes only the retracement impulse base",
             "every case reuses and exactly reproduces its frozen v0.1 input/runtime core before the ablation is applied",
             "first-fill price alignment is retrospective descriptive evidence only",
-            "the five-case seed suite is diagnostic and cannot promote a policy",
+            "the four-case scored seed is diagnostic and cannot promote a policy",
         ],
         "decision": {
             "promote": False,
             "reason": (
                 "the change adds later plans and fills without moving the first modeled "
-                "trade for DSY, TIVC, MMA, or UPXI; ARTL participation remains late "
-                "and cannot reproduce the upstream-incompatible reported first entry"
+                "trade for DSY, TIVC, MMA, or UPXI"
             ),
         },
         "cases": cases,

@@ -2,6 +2,8 @@
 
 Status: **completed diagnostic ablation; not promoted**.
 
+> **Source correction (2026-08-17):** ARTL's old Micro labels were misattributed from an earlier stock discussion and are retired. Excluding ARTL, both baseline and v0.2b score **8/10**; the apparent broad-score improvement disappears. See `docs/research/artl_source_label_correction.md`.
+
 This experiment isolates the strongest structural hypothesis remaining after the v0.2a null result: Micro v0.1 may be too restrictive because it requires the setup peak to be a strict running high over the entire post-qualification structural window. A human trader can instead recognize a fresh local momentum impulse even when that impulse remains below an older high.
 
 The ablation does **not** change Micro v0.1. It is separately identified, label-blind at runtime, and compared to the same frozen parent afterward.
@@ -33,21 +35,16 @@ The ablation changes behavior materially, but only one case gets a closer first 
 
 | Case | v0.1 baseline | v0.2b local peak | First-fill alignment |
 | --- | --- | --- | --- |
-| ARTL | 0 plans / 0 fills | 2 plans / 0 fills | no fill either |
 | DSY | 2 plans / 1 fill; $8.50 #10 | 18 plans / 7 fills; first $8.50 #10 | unchanged |
 | MMA | 1 plan / 1 fill; $4.02 #3 | 1 plan / 1 fill; $4.02 #3 | unchanged |
 | TIVC | 3 plans / 1 fill; $5.10 #7 | 11 plans / 3 fills; first $5.10 #7 | unchanged |
 | UPXI | 5 plans / 4 fills; first $7.23 #8 | 27 plans / 10 fills; first $6.27 #6 | closer, but still far from ~$2.84 |
 
-The broad diagnostic rises from **8 / 12 = 0.667** to **9 / 12 = 0.750** comparable dimensions. This is not exact-trade imitation accuracy and not profitability. The extra broad match comes from ARTL now producing a setup plan, even though neither plan triggers.
+The historical artifact rose from 8/12 to 9/12 only because ARTL produced a setup plan. Once the invalid ARTL labels are excluded, both cells are **8/10 = 0.8**. The ablation still raises opportunity density substantially—plans rise from 11 to 57 and fills from 7 to 21 across the four valid cases—without improving their broad score.
 
 The only first-fill price improvement is UPXI: the first modeled fill moves from $7.23 to $6.27. That is directionally earlier but remains $3.43 above the reported ~$2.84 reference. DSY and TIVC gain many additional plans/fills without moving the first trade toward the human entry. That is evidence that simply relaxing the global-running-high requirement can increase opportunity density much faster than it improves behavioral alignment.
 
 ## Case-level interpretation
-
-### ARTL
-
-v0.2b finds two later valid local-pullback plans, around triggers $8.45 and $9.02, but neither triggers. More importantly, the causal stock-selection gate itself qualifies ARTL at approximately **$5.41**, while the retrospective recap reports the first human entry around **$5.25**. Therefore exact reproduction of that first ARTL trade is impossible under the current frozen upstream 5x-RVOL qualification contract. This is an upstream selection-timing boundary, not something the micro setup layer can repair after the fact.
 
 ### UPXI
 
@@ -68,7 +65,6 @@ Both remain dominated earlier by `micro_retrace_above_half` and related structur
 - **Do not promote v0.2b.**
 - **Do not modify Micro v0.1.**
 - Preserve v0.2b because it demonstrates a real structural effect, but also a substantial increase in trade opportunity count without commensurate first-trade alignment.
-- Treat ARTL's first reported trade as upstream-timing-incompatible with the current 5x-RVOL qualification gate.
 - Test the lower-pullback-volume requirement next using a factorial design rather than jumping directly to a fitted threshold.
 
 The next experiment should compare four causal cells on the same seed cases: baseline v0.1 (no pre-qualification context, hard lower-volume gate), v0.2a (context, hard lower-volume gate), a new no-context/no-hard-volume ablation, and a context + no-hard-volume interaction variant. The volume change should be binary—remove the hard rejection while retaining the volume measurements in the artifact—so no benchmark-fitted ratio threshold is introduced.
