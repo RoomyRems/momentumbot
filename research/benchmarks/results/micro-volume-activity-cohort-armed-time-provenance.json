@@ -1,0 +1,173 @@
+{
+  "artifact_type": "micro_volume_activity_cohort_armed_time_provenance",
+  "branch": "phase-3-historical-snapshot",
+  "correction": {
+    "absolute_first_plan_latency_change_seconds": 10.0,
+    "corrected_plan_onset_field": "first_plan_armed_at",
+    "first_plan_evaluated_at_retained_as_telemetry": true,
+    "frozen_bar_duration_seconds": 10,
+    "original_plan_onset_field": "first_plan_evaluated_at",
+    "paired_first_plan_shifts_changed": false,
+    "plan_fill_counts_or_ordinals_changed": false
+  },
+  "corrected_artifacts": {
+    "selection": {
+      "artifact_id": 9273697275,
+      "content_sha256": "a95a2cd852370837e41f52ae34b19487924277d8279f80f7fdfc3bc46b33c679",
+      "digest": "sha256:bf036b0911a49286b6dba95c5ca4f2e64be83cff2de18d9f978ec90e1351b46e",
+      "path": "research/benchmarks/results/micro-volume-activity-cohort-armed-time-selection.json"
+    },
+    "summary": {
+      "artifact_id": 9273840004,
+      "content_sha256": "80a22f213b5a1661c59e779cafff5b2af9507726898203ae3752e6d1738e75a6",
+      "digest": "sha256:4139fbcb0cb0e66a70b9b5c29a28798df1677bd21a791c384d4a6667da21e0e1",
+      "path": "research/benchmarks/results/micro-volume-activity-cohort-armed-time-summary.json"
+    }
+  },
+  "decision": {
+    "original_decision_changed": false,
+    "policy_promotion_eligible": false,
+    "strategy_feedback": "activity_stress_only"
+  },
+  "discovery_artifacts": [
+    {
+      "artifact_id": 9273496902,
+      "digest": "sha256:a4897a8ec18901050e8de1b6321d3d50fa63e99b7e39c4cffc47aec81e4e5dea",
+      "trading_date": "2025-02-12"
+    },
+    {
+      "artifact_id": 9273521724,
+      "digest": "sha256:5060da50d0c83a29d6127fe86cf2bb66beb968171a8ab33752494245fe76ed78",
+      "trading_date": "2025-05-14"
+    },
+    {
+      "artifact_id": 9273562897,
+      "digest": "sha256:e389c23f0d887572e03eb1b7a75892a87226cd422d04a167afda2f9e436854f9",
+      "trading_date": "2025-08-13"
+    },
+    {
+      "artifact_id": 9273616804,
+      "digest": "sha256:5b688e5abd79b05fbbbedbd4c4a508fa3c65816f58adea17fd0b00707feeadb8",
+      "trading_date": "2025-11-12"
+    },
+    {
+      "artifact_id": 9273621398,
+      "digest": "sha256:44554beac9d54d4de248fa57e4f30854511445aee7341890722009d94dd18d2d",
+      "trading_date": "2026-02-11"
+    },
+    {
+      "artifact_id": 9273689192,
+      "digest": "sha256:f62d5da1c1eee739a36b1668553f89e42cf7e845bd5e83b4b8f84e1e4416266c",
+      "trading_date": "2026-05-13"
+    }
+  ],
+  "knowledge_policy": "runtime_market_data_only_no_retrospective_labels",
+  "limitations": [
+    "Discovery starts from Alpaca's current all-status asset census and current exchange metadata, so this is not a point-in-time causal market sample.",
+    "Ten of 12 selected candidates are tied in the 07:00 ET acquisition bucket, so the cohort is a session-open acquisition-boundary stress sample rather than representative scanner-qualified traffic.",
+    "The paired micro-policy effects remain conditional evidence for the frozen candidates and cannot estimate full-scanner false-positive rate.",
+    "No retrospective human behavior labels, trade-quality labels or P&L targets were used or scored."
+  ],
+  "original_frozen_artifacts_preserved": {
+    "selection": {
+      "artifact_id": 9265262659,
+      "content_sha256": "303b752c0a18fc1677e89f825816e7a242a7230a1594712fa8640e29bed0cf42",
+      "digest": "sha256:7380773608fb62060ca81ea05fbfe30ebfed79a97c2b6d9853edc7fdb69906fb",
+      "path": "research/benchmarks/results/micro-volume-activity-cohort-selection.json"
+    },
+    "summary": {
+      "artifact_id": 9265392291,
+      "content_sha256": "dd7f641cb02c4b4f189f3c7e844e170002bb1a227e35cbe2617052345d8cd753",
+      "digest": "sha256:ac44a057fce3a423526db5405161dc9edcd3f6e9aadd495dba71fea783405355",
+      "path": "research/benchmarks/results/micro-volume-activity-cohort-summary.json"
+    },
+    "workflow_head_sha": "086f4b2ccdda9b3b7f9e8ab86707c0d019544920",
+    "workflow_run_id": 31952684371
+  },
+  "rerun_comparison": {
+    "all_case_cells_identical_except_absolute_first_plan_latency": true,
+    "corrected_median_first_plan_latency_seconds": {
+      "baseline": 1649.954111,
+      "context_only": 1649.954111,
+      "context_plus_volume": 219.944318,
+      "volume_only": 629.950922
+    },
+    "original_median_first_plan_latency_seconds": {
+      "baseline": 1639.954111,
+      "context_only": 1639.954111,
+      "context_plus_volume": 209.944318,
+      "volume_only": 619.950922
+    },
+    "selected_candidates_or_times_changed": false,
+    "selection_hash_change_explanation": "Four of six fresh label-blind discovery content hashes changed; after excluding those per-date hashes, the selection payload is byte-logically identical."
+  },
+  "runtime_case_artifacts": [
+    {
+      "artifact_id": 9273752429,
+      "case_id": "2025-02-12-aiff-q1",
+      "digest": "sha256:dbbb852f93d178b5aaf6d491574350ac4d6ef830ce59b5546e668c1d82e2b7d4"
+    },
+    {
+      "artifact_id": 9273706411,
+      "case_id": "2025-02-12-clmt-q2",
+      "digest": "sha256:e0a8bc01ec66efeecb386cafbef88fa8c85088077ded19a64b07a02f673f489c"
+    },
+    {
+      "artifact_id": 9273720652,
+      "case_id": "2025-05-14-absi-q1",
+      "digest": "sha256:3847e592cbfa226d48c4c0f56bebabd5d869f12406f36402e110971818e0647c"
+    },
+    {
+      "artifact_id": 9273730759,
+      "case_id": "2025-05-14-fngr-q2",
+      "digest": "sha256:d91cc31e63b28ba0cf45936429755a733f25ee807dfd0959458adf4755613431"
+    },
+    {
+      "artifact_id": 9273741396,
+      "case_id": "2025-08-13-hbm-q1",
+      "digest": "sha256:fa3f1d732c29cc1c71094c4096ae17a49d50f82a0b7a497a6c42e5f5b194d2ea"
+    },
+    {
+      "artifact_id": 9273749859,
+      "case_id": "2025-08-13-lpl-q2",
+      "digest": "sha256:74ef78b808adefc265696bffc0dd4ce9a6e107cc964ac34a476d5a2d7ef6e606"
+    },
+    {
+      "artifact_id": 9273756143,
+      "case_id": "2025-11-12-rdcm-q1",
+      "digest": "sha256:1090f000d55e4b80bf6e92819380d604af551589921db111ac0e3e058eea5e13"
+    },
+    {
+      "artifact_id": 9273759157,
+      "case_id": "2025-11-12-si-q2",
+      "digest": "sha256:6f2dcaf991f31d142c263a138ee47dd1b3f31aaa77ea0daf40269874ef079dbb"
+    },
+    {
+      "artifact_id": 9273767022,
+      "case_id": "2026-02-11-beta-q1",
+      "digest": "sha256:703cb1f68469732e92c0e18b27d841322e253fb035fae0a88d11a326280c4877"
+    },
+    {
+      "artifact_id": 9273770806,
+      "case_id": "2026-02-11-labx-q2",
+      "digest": "sha256:15bd9e3d22f786021540d2157b26c552d4a124d9eca081135f144d97b6a8ea11"
+    },
+    {
+      "artifact_id": 9273833834,
+      "case_id": "2026-05-13-eose-q1",
+      "digest": "sha256:eb5925807fef1324251116d26757dc7c63a75e8f44a6b8fabba354f428521783"
+    },
+    {
+      "artifact_id": 9273777249,
+      "case_id": "2026-05-13-genk-q2",
+      "digest": "sha256:d0e6867c78bc272c76a0e3065bdb6386b327f441e07d3f0f3ed8db955a46dec0"
+    }
+  ],
+  "schema_version": 1,
+  "workflow": {
+    "conclusion": "success",
+    "head_sha": "cc2521381fffe70804306210cca19b70674ceafe",
+    "run_id": 31984950288,
+    "url": "https://github.com/RoomyRems/momentumbot/actions/runs/31984950288"
+  }
+}

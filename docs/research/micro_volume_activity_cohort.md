@@ -66,6 +66,19 @@ An independent code and artifact audit found no retrospective behavior-label lea
 
 The audit also found a timing-label defect in the frozen comparison: `first_plan_latency_seconds` used the source 10-second bar timestamp (`evaluated_at`) instead of the executable plan timestamp (`armed_at`). Absolute first-plan latencies in the frozen summary are therefore 10 seconds early. Because every cell used the same 10-second arming offset, paired first-plan shifts, counts, pullback ordinals, fills and the decision below are unchanged. The cohort reconstructor now retains `evaluated_at` as telemetry but measures onset from `armed_at`.
 
+### Armed-time correction rerun
+
+Workflow run `31984950288` completed successfully at correction commit `cc2521381fffe70804306210cca19b70674ceafe`. It reproduced the same 12 selected candidates, all plan and fill counts, first-fill prices, pullback ordinals and paired shifts. The only numerical changes in the aggregate comparison were the four absolute median first-plan latencies, each exactly 10 seconds later:
+
+| Cell | Original latency (s) | Armed-time latency (s) |
+|---|---:|---:|
+| Baseline | 1,639.954111 | 1,649.954111 |
+| Context only | 1,639.954111 | 1,649.954111 |
+| Volume only | 619.950922 | 629.950922 |
+| Context + volume | 209.944318 | 219.944318 |
+
+The corrected selection payload is logically identical after excluding per-date discovery content hashes. Its byte hash changed because fresh label-blind discovery changed four of six per-date provenance hashes, not because any selected symbol, qualification time, previous close, rank or case changed. The original frozen artifacts remain intact; the exact corrected selection, summary and provenance are stored under separate armed-time filenames.
+
 ## Decision
 
 Do not promote either volume-off cell. The ablation increases setup activity by roughly 55–70% while changing modeled participation in only one of 12 candidates. This is adverse activity evidence, not a convincing reproduction improvement. The frozen `micro-v0.1` policy remains the parent policy.
@@ -79,3 +92,12 @@ The experiment does not establish imitation quality, trade quality, realized P&L
 - Workflow and artifact provenance: `research/benchmarks/results/micro-volume-activity-cohort-provenance.json`
 - Selection SHA-256: `303b752c0a18fc1677e89f825816e7a242a7230a1594712fa8640e29bed0cf42`
 - Summary artifact: `9265392291`, digest `sha256:ac44a057fce3a423526db5405161dc9edcd3f6e9aadd495dba71fea783405355`
+
+Corrected armed-time rerun:
+
+- Selection: `research/benchmarks/results/micro-volume-activity-cohort-armed-time-selection.json`
+- Aggregate comparison: `research/benchmarks/results/micro-volume-activity-cohort-armed-time-summary.json`
+- Workflow and artifact provenance: `research/benchmarks/results/micro-volume-activity-cohort-armed-time-provenance.json`
+- Selection content SHA-256: `a95a2cd852370837e41f52ae34b19487924277d8279f80f7fdfc3bc46b33c679`
+- Summary content SHA-256: `80a22f213b5a1661c59e779cafff5b2af9507726898203ae3752e6d1738e75a6`
+- Summary artifact: `9273840004`, digest `sha256:4139fbcb0cb0e66a70b9b5c29a28798df1677bd21a791c384d4a6667da21e0e1`
