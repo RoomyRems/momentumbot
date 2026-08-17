@@ -318,6 +318,42 @@ class CausalScannerSnapshotTests(unittest.TestCase):
             missing["disposition"],
             "feature_state_unknown_fail_closed_missing_candidate_completed_bar",
         )
+        self.assertEqual(missing["top_gainer_rank"], 1)
+        self.assertEqual(missing["rank_leader_symbol"], "AAA")
+        self.assertEqual(missing["rank_leader_percent_gain"], 100.0)
+
+        # Rank causally carries the latest completed close forward, whereas
+        # candidate market features require this minute's exact bar.  The
+        # resulting rank-one/null-current-gain row is valid and must survive
+        # the artifact validator.
+        payload, manifest = build_causal_scanner_snapshot_artifacts(
+            trading_date=date(2025, 4, 3),
+            profile=_profile(time(7, 3)),
+            candidate_rows=[_candidate()],
+            membership_symbols=["AAA"],
+            rows=rows,
+            source_hashes=_source_hashes(),
+        )
+        self.assertEqual(payload["row_count"], 2)
+        self.assertEqual(
+            manifest["summary"]["candidate_minute_disposition_count"],
+            2,
+        )
+
+        wrong_leader_rows = deepcopy(rows)
+        wrong_leader_rows[1]["rank_leader_symbol"] = "BBB"
+        with self.assertRaisesRegex(
+            ValueError,
+            "rank-one candidate disagrees with leader",
+        ):
+            build_causal_scanner_snapshot_artifacts(
+                trading_date=date(2025, 4, 3),
+                profile=_profile(time(7, 3)),
+                candidate_rows=[_candidate()],
+                membership_symbols=["AAA"],
+                rows=wrong_leader_rows,
+                source_hashes=_source_hashes(),
+            )
 
     def test_validator_rejects_tamper_duplicate_and_missing_disposition(self) -> None:
         profile = _profile(time(7, 2))

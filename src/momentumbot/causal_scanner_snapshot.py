@@ -1670,17 +1670,31 @@ def validate_causal_scanner_snapshot(
                 raise ValueError("complete scanner rank omitted its leader")
             if gain is not None and leader_gain + 1e-12 < gain:
                 raise ValueError("scanner rank leader gain is below candidate gain")
-            if rank == 1 and (
-                leader_symbol != symbol
-                or gain is None
-                or not math.isclose(
-                    leader_gain,
-                    gain,
-                    rel_tol=1e-12,
-                    abs_tol=1e-12,
-                )
-            ):
-                raise ValueError("scanner rank-one candidate disagrees with leader")
+            if rank == 1:
+                if leader_symbol != symbol:
+                    raise ValueError(
+                        "scanner rank-one candidate disagrees with leader"
+                    )
+                # Candidate market features require the exact source bar for
+                # this decision, while the cross-sectional rank deliberately
+                # carries forward each member's latest completed close.  A
+                # sparse candidate can therefore remain the causal leader on
+                # a minute whose exact candidate bar is missing and whose
+                # current price/gain features correctly fail closed to null.
+                # When the exact bar is present, both values share the same
+                # authoritative frame and previous-close input and must agree.
+                if completed and (
+                    gain is None
+                    or not math.isclose(
+                        leader_gain,
+                        gain,
+                        rel_tol=1e-12,
+                        abs_tol=1e-12,
+                    )
+                ):
+                    raise ValueError(
+                        "scanner rank-one candidate disagrees with leader"
+                    )
         elif rank is not None or leader_symbol is not None or leader_gain is not None:
             raise ValueError("incomplete scanner rank retained a rank or leader")
 
