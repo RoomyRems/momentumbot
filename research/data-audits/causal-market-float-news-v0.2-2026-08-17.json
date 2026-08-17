@@ -1,0 +1,278 @@
+{
+  "artifact": {
+    "digest_sha256": "7ede4afb352d5793b1a6417defe2508d47f4eae1515e47c09e79716eee6ab636",
+    "id": 9274221536,
+    "name": "massive-historical-census-prototype",
+    "pipeline_manifest_file_sha256": "0a110b47c1f6f53f9976582868f63dae7e7b4ca960ac4ee46bc2c627b044ba2e",
+    "size_bytes": 5143650
+  },
+  "causality_audit": {
+    "active_loaders_validated": true,
+    "candidate_sets_changed_from_v0_1": false,
+    "completed_bar_availability_offset_seconds": 60,
+    "float_features_changed_substantively_from_v0_1": false,
+    "full_window_news_tape_runtime_safe_without_projection": false,
+    "news_qualification_flags_changed_from_v0_1": false,
+    "post_qualification_news_available_to_earlier_decisions": false,
+    "required_news_projection": "published_at <= decision_time",
+    "root_and_date_hash_chain_validated": true,
+    "scan_window_applies_to": "decision_availability_timestamp",
+    "uses_benchmark_labels": false,
+    "uses_retrospective_trade_outcomes": false
+  },
+  "date_results": {
+    "2025-04-03": {
+      "acquisition_audit_sha256": "db6eea7a95ca4101c392cbac1b747f876323dd5dccc063c6f9263ab5bff90d6e",
+      "candidate_content_sha256": "792faaed220588f97ffd3df1c4b37f1b1047bc2805c8cbdfaa820581e5d0c431",
+      "candidate_count": 7,
+      "candidate_symbols": [
+        "FLX",
+        "GT",
+        "ICCT",
+        "OSRH",
+        "TCRT",
+        "TIVC",
+        "ZYBT"
+      ],
+      "candidate_symbol_list_sha256": "219c8894e69bf776dc43d2e2fa668f8e95c9f7bb561603303ea34238533781d4",
+      "discovery_records_sha256": "b07ded607a080f06a933e054a51b759eb03e82f79da0ceb181dd7b4a31351ecc",
+      "float": {
+        "fail_symbols": [
+          "GT"
+        ],
+        "pass_symbols": [
+          "ICCT",
+          "OSRH",
+          "TCRT",
+          "TIVC"
+        ],
+        "provider_error_count": 0,
+        "records_sha256": "b772cc067b17717fd5de2c8cf06abe08636e11dd2057c364b7168d625a931147",
+        "unknown_fail_closed_symbols": [
+          "FLX",
+          "ZYBT"
+        ]
+      },
+      "market_date_manifest_sha256": "f101ad19e4650d50e771d1997ccb2adfea4117c431dac4579bc4904eb1f13075",
+      "membership_payload_sha256": "f1e17c4860f10fbc28908af926a69b06215da36aa25de272a690a4fa7b42fbb9",
+      "membership_projection_sha256": "eaaeda5564a7fd84688c341fb4bf43768a5b73f94f75fcef8ad24607064b4888",
+      "news": {
+        "candidate_event_count_at_qualification": 3,
+        "candidates_with_news_at_qualification": [
+          "FLX",
+          "ICCT",
+          "TIVC"
+        ],
+        "full_window_candidate_event_count": 6,
+        "full_window_events_sha256": "3ca7a16155f6d6d0e9345f293143b5a39b2f501a25f19ae3e4c8a360e180f0f1",
+        "post_only_candidate_symbols": [
+          "GT",
+          "OSRH"
+        ],
+        "post_qualification_candidate_event_count": 3,
+        "provider_relative_no_news_at_qualification": [
+          "GT",
+          "OSRH",
+          "TCRT",
+          "ZYBT"
+        ],
+        "qualification_statuses_sha256": "e4fe0f22e625f72bb9159ee215733905b0dec4c6acc6103b0f8ffa5ba0e77032",
+        "unknown_fail_closed_count": 0
+      },
+      "session_start_boundary_symbols": [
+        "TIVC"
+      ]
+    },
+    "2026-07-09": {
+      "acquisition_audit_sha256": "c1da880c00caf4085f6fc9ae0fb320acf73138197feb2e2882901ec9cc78be77",
+      "candidate_content_sha256": "a83d1d5f6550f946bbc274dc10ea4f27be5828f5656a134121fe994f2a39435a",
+      "candidate_count": 14,
+      "candidate_symbols": [
+        "AP",
+        "HOUR",
+        "JLHL",
+        "MAAS",
+        "NDRA",
+        "PLBL",
+        "PTLE",
+        "RPGL",
+        "SMPL",
+        "SRXH",
+        "SUNE",
+        "TDTH",
+        "VRAX",
+        "WRAP"
+      ],
+      "candidate_symbol_list_sha256": "7289d420bf65b08a5b5e78a18b06c833f597b52aa0f632d9555ebe5fc27abf5b",
+      "discovery_records_sha256": "dae1f40a06248339cf55f093313740d123bdb9016df09e5461414db3447b8f11",
+      "float": {
+        "fail_symbols": [
+          "AP",
+          "SMPL",
+          "WRAP"
+        ],
+        "pass_symbols": [
+          "HOUR",
+          "NDRA",
+          "PTLE",
+          "SRXH",
+          "SUNE",
+          "VRAX"
+        ],
+        "provider_error_count": 0,
+        "records_sha256": "44132bff23f6bfd5ffeca8f50960020597218b912e13db1e0c698db5831971e0",
+        "unknown_fail_closed_symbols": [
+          "JLHL",
+          "MAAS",
+          "PLBL",
+          "RPGL",
+          "TDTH"
+        ]
+      },
+      "market_date_manifest_sha256": "462acb68c710024a4d554141da691b86028fd18f675aaec2b7b6a58ff7ae9131",
+      "membership_payload_sha256": "064650a730ab6d5d435d68175ce8b806c6f2394c02e93facac62e1ebf8b7d43a",
+      "membership_projection_sha256": "9d0ba9b07ababfe1288791c1d548563c12ff1ede8da09e2026b7f307787f355a",
+      "news": {
+        "candidate_event_count_at_qualification": 19,
+        "candidates_with_news_at_qualification": [
+          "AP",
+          "JLHL",
+          "PLBL",
+          "RPGL",
+          "SMPL",
+          "SUNE",
+          "TDTH",
+          "WRAP"
+        ],
+        "full_window_candidate_event_count": 32,
+        "full_window_events_sha256": "e992d4a2e1b61e925343f3717202a09feea83c49bba29c5d09a9dfedc711e7b3",
+        "post_only_candidate_symbols": [
+          "HOUR",
+          "VRAX"
+        ],
+        "post_qualification_candidate_event_count": 13,
+        "provider_relative_no_news_at_qualification": [
+          "HOUR",
+          "MAAS",
+          "NDRA",
+          "PTLE",
+          "SRXH",
+          "VRAX"
+        ],
+        "qualification_statuses_sha256": "72729c75053f26a83f4d24a57b52a7556c8bd03c196a50f6db5491e9531be886",
+        "unknown_fail_closed_count": 0
+      },
+      "session_start_boundary_symbols": [
+        "AP",
+        "JLHL",
+        "RPGL",
+        "SUNE"
+      ]
+    }
+  },
+  "decision": {
+    "full_feature_snapshot_complete": false,
+    "full_walk_forward_eligible": false,
+    "interpretation": "Freeze market/news v0.2 as the authoritative completed-bar research boundary. Candidate membership, float classifications and news-at-qualification states are unchanged on these two dates; the timing correction prevents one-minute source bars from being treated as knowable at bar start. This diagnostic cannot promote a runtime policy.",
+    "policy_promotion_eligible": false,
+    "safe_to_freeze_as_research_artifact": true,
+    "universe_complete": false
+  },
+  "market_timing_comparison": {
+    "candidate_count_changed": false,
+    "candidate_count_total": 21,
+    "latest_decision_time_et": "09:54:00",
+    "no_candidate_lost_at_exclusive_cutoff": true,
+    "ordinary_candidate_decision_shift_seconds": 60,
+    "ordinary_shifted_candidate_count": 16,
+    "ordinary_shifted_symbols": [
+      "FLX",
+      "GT",
+      "ICCT",
+      "OSRH",
+      "TCRT",
+      "ZYBT",
+      "HOUR",
+      "MAAS",
+      "NDRA",
+      "PLBL",
+      "PTLE",
+      "SMPL",
+      "SRXH",
+      "TDTH",
+      "VRAX",
+      "WRAP"
+    ],
+    "session_start_boundary_candidate_count": 5,
+    "session_start_boundary_rule": "06:59 ET source bar is available for the first 07:00 ET decision",
+    "session_start_boundary_symbols": [
+      "TIVC",
+      "AP",
+      "JLHL",
+      "RPGL",
+      "SUNE"
+    ]
+  },
+  "policies": {
+    "float": {
+      "fingerprint": "00252a48e20d684d08a5163a3d8a776e541ad6e59dfd4c7a7fcf87f623a71803",
+      "policy_id": "causal-sec-float-v0.1"
+    },
+    "market": {
+      "fingerprint": "dbcbebae2b785ef8af68a37122658e02aa6fec3310c03581426273c5b66516d5",
+      "policy_id": "causal-market-discovery-v0.2",
+      "supersedes_fingerprint": "b6628f08eff913fbe30f465a9792d71fe4f70ac028ea23e4858277bb6068da1e",
+      "supersedes_policy_id": "causal-market-discovery-v0.1"
+    },
+    "news": {
+      "fingerprint": "0360d3e4ef7f6075d5621a1e9d3d1f6d145fa84f0875feb88b42c705631ee810",
+      "policy_id": "causal-alpaca-news-v0.2",
+      "supersedes_fingerprint": "7f0197a411f418d766e6a294d5cb3ef877b640746ab9de1f4d8f214a3a19df2f",
+      "supersedes_policy_id": "causal-alpaca-news-v0.1"
+    }
+  },
+  "provider_reacquisition_delta": {
+    "attribution": "historical_provider_data_drift_or_other_unattributable_cross_run_variation",
+    "candidate_set_affected": false,
+    "daily_price_superset_count": {
+      "v0.1": 113,
+      "v0.2": 112
+    },
+    "discovery_record_count": {
+      "v0.1": 104,
+      "v0.2": 103
+    },
+    "raw_provider_inputs_retained": false,
+    "symbol": "PFSA",
+    "timing_policy_effect_claimed": false,
+    "trading_date": "2026-07-09",
+    "v0.1_disposition": "excluded_coarse_rvol_acquisition_filter",
+    "v0.2_disposition": "excluded_daily_price_or_gain_acquisition_filter"
+  },
+  "residual_limits": [
+    "+60 seconds models completed-bar and same-time-RVOL calculability, not exchange, SIP, provider or network dissemination latency.",
+    "Retrospective Alpaca, SEC and news timestamps do not prove immutable contemporaneous visibility.",
+    "Alpaca provider-relative no-news does not establish absence from all sources, and headline relevance, materiality and catalyst quality remain unclassified.",
+    "The full-window news event tape contains post-qualification events and is runtime-unsafe without an as-of projection.",
+    "Raw reacquired market inputs were not retained, so cross-run provider-history drift and all aggregate acquisition deltas cannot be independently replayed from the artifact alone.",
+    "Two dates and the upstream research-only universe do not establish population completeness or walk-forward validity."
+  ],
+  "root_hash_chain": {
+    "float_content_sha256": "5fdc30294c4732263eb2b426f6d9e56324b3d2c560c06b429085077c03263953",
+    "float_manifest_file_sha256": "2d9065b83a007da3ef38ec38148c57a13244189a1133830ac058988d87ba8546",
+    "identity_content_sha256": "ec828ab21ce66efd87b2c01d53dd8b818ce60b872430edd91a4f9c3437c09201",
+    "market_content_sha256": "443665fa740348aebbd3a0bb7319eab02f2f9f74b0768ea16c0408dd10432c28",
+    "market_manifest_file_sha256": "2ac613a32f30afaeadf0aab701b0c3b3e001a5ca39eded43776433e883480b20",
+    "news_content_sha256": "c388c4ae31b225b61bd29744a80d4ddb62a95df101754b7866188c850fea2931",
+    "news_manifest_file_sha256": "c4585183a9aefb655d187694946a7c91232fb33ad8b9f7daf008698246549f5e"
+  },
+  "schema_version": 1,
+  "workflow": {
+    "branch": "phase-3-historical-snapshot",
+    "conclusion": "success",
+    "head_sha": "c8db5f019558e021bcb8bf491bba58d8a6012b82",
+    "job_id": 95262804942,
+    "name": "Massive historical ticker census",
+    "run_id": 31986688096
+  }
+}
