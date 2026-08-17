@@ -87,7 +87,12 @@ def _cell_summary(replay: MicroCandidateReplay, qualified_at: pd.Timestamp) -> d
         if filled_steps
         else None
     )
-    first_plan_at = pd.Timestamp(first_plan.evaluated_at) if first_plan else None
+    first_plan_evaluated_at = (
+        pd.Timestamp(first_plan.evaluated_at) if first_plan else None
+    )
+    first_plan_armed_at = (
+        pd.Timestamp(first_plan.plan.armed_at) if first_plan else None
+    )
     first_fill_at = (
         pd.Timestamp(first_fill.outcome.fill_time) if first_fill is not None else None
     )
@@ -96,9 +101,15 @@ def _cell_summary(replay: MicroCandidateReplay, qualified_at: pd.Timestamp) -> d
         "filled_count": replay.filled_count,
         "filled_pullback_numbers": list(replay.filled_pullback_numbers),
         "reason_counts": replay.reason_counts,
-        "first_plan_evaluated_at": first_plan_at.isoformat() if first_plan_at else None,
+        "first_plan_evaluated_at": (
+            first_plan_evaluated_at.isoformat()
+            if first_plan_evaluated_at is not None
+            else None
+        ),
         "first_plan_armed_at": (
-            pd.Timestamp(first_plan.plan.armed_at).isoformat() if first_plan else None
+            first_plan_armed_at.isoformat()
+            if first_plan_armed_at is not None
+            else None
         ),
         "first_plan_pullback_number": (
             first_plan.pullback_number if first_plan else None
@@ -107,8 +118,8 @@ def _cell_summary(replay: MicroCandidateReplay, qualified_at: pd.Timestamp) -> d
             float(first_plan.plan.minimum_new_high_price) if first_plan else None
         ),
         "first_plan_latency_seconds": (
-            float((first_plan_at - qualified_at).total_seconds())
-            if first_plan_at is not None
+            float((first_plan_armed_at - qualified_at).total_seconds())
+            if first_plan_armed_at is not None
             else None
         ),
         "first_fill_at": first_fill_at.isoformat() if first_fill_at else None,
@@ -155,7 +166,7 @@ def _paired_delta(after: dict[str, object], before: dict[str, object]) -> dict[s
     return {
         "plan_count_delta": int(after["plan_count"]) - int(before["plan_count"]),
         "filled_count_delta": int(after["filled_count"]) - int(before["filled_count"]),
-        "first_plan_shift_seconds": shift("first_plan_evaluated_at"),
+        "first_plan_shift_seconds": shift("first_plan_armed_at"),
         "first_fill_shift_seconds": shift("first_fill_at"),
         "first_plan_pullback_ordinal_delta": ordinal_delta(
             "first_plan_pullback_number"

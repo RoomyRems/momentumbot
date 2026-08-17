@@ -57,11 +57,20 @@ Removing the hard volume gate never reduced plan count in either paired contrast
 
 Prequalification context was not a universally inert factor outside the five-case seed. In EOSE it changed baseline from six plans/three fills with first fill `$10.97`/`#1` to four plans/one fill with first fill `$11.47`/`#4`. In HBM, plans appeared only in the context-plus-volume cell. LABX also received an earlier first plan from context. These candidate-specific structural effects mean the seed-suite interaction cannot be treated as general.
 
+## Post-run audit
+
+An independent code and artifact audit found no retrospective behavior-label leakage and confirmed that every cell within a case used one shared SIP trade tape, derived 10-second bars and support inputs. It also identified two scope limits that sharpen the interpretation:
+
+- Discovery began from Alpaca's currently accessible all-status asset census and current exchange metadata, not a reconstructed point-in-time universe. Delisted, renamed, reused or reclassified historical identities may therefore be absent or misrepresented.
+- Ten of the 12 selected cases came from the 07:00 ET acquisition minute. Selection used the earliest qualifying one-minute bucket and then symbol order before SIP refinement, so this is primarily a session-open acquisition-boundary stress sample, not representative scanner-qualified traffic.
+
+The audit also found a timing-label defect in the frozen comparison: `first_plan_latency_seconds` used the source 10-second bar timestamp (`evaluated_at`) instead of the executable plan timestamp (`armed_at`). Absolute first-plan latencies in the frozen summary are therefore 10 seconds early. Because every cell used the same 10-second arming offset, paired first-plan shifts, counts, pullback ordinals, fills and the decision below are unchanged. The cohort reconstructor now retains `evaluated_at` as telemetry but measures onset from `armed_at`.
+
 ## Decision
 
-Do not promote either volume-off cell. The ablation increases setup activity by roughly 55–70% while changing modeled participation in only one of 12 candidates. This is adverse activity/safety evidence, not a convincing reproduction improvement. The frozen `micro-v0.1` policy remains the parent policy.
+Do not promote either volume-off cell. The ablation increases setup activity by roughly 55–70% while changing modeled participation in only one of 12 candidates. This is adverse activity evidence, not a convincing reproduction improvement. The frozen `micro-v0.1` policy remains the parent policy.
 
-The experiment does not establish imitation quality, trade quality, realized P&L or full-scanner false-positive rate. Discovery used the currently accessible listed-symbol asset master rather than a reconstructed point-in-time symbol universe, so survivorship and coverage limit cohort representativeness. The paired results remain valid conditional evidence for these frozen candidates because every cell within a candidate used the same market inputs.
+The experiment does not establish imitation quality, trade quality, realized P&L or full-scanner false-positive rate. The paired results remain valid conditional evidence for these frozen candidates because every cell within a candidate used the same market inputs.
 
 ## Frozen artifacts
 
