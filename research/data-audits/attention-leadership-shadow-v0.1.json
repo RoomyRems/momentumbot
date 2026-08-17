@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "audit_id": "attention-leadership-shadow-v0.1-frozen-scanner-validation",
+  "artifact_type": "causal_shadow_feature_validation_audit",
+  "contract_id": "attention-leadership-shadow-v0.1",
+  "generated_at": "2026-08-17T16:38:22Z",
+  "runtime_strategy_effect": "none",
+  "strategy_gate_enabled": false,
+  "selection_threshold_frozen": false,
+  "policy_promotion_eligible": false,
+  "source_scanner_artifact": {
+    "workflow_run_id": 32030416481,
+    "workflow_head_sha": "84c1c292820ba9a9b30237c5591637c638dc7e37",
+    "artifact_id": 9288797201,
+    "artifact_name": "causal-scanner-snapshot-frozen-source",
+    "artifact_zip_sha256": "dd05dcd58bd3adc20e18416035b2c6b4c517fb57d5d853d63c2b327d1b2a1d12",
+    "root_manifest_file_sha256": "47e0dbf06367dcbdb4d1e564fc8b067fbb5b74d7a6d9f007989884d50c2f9209",
+    "root_manifest_content_sha256": "ec9661a962fd42c52ce673a3f106c03d3b0f5e9c32a70739c54e78e78da20611",
+    "scanner_policy_id": "causal-scanner-snapshot-v0.1",
+    "scanner_policy_fingerprint": "ed21becad10855b4a085b6e05b6feac8f21e4ce511a100b2381522154818f42a"
+  },
+  "derivation": {
+    "source_row_order": [
+      "decision_time",
+      "symbol"
+    ],
+    "current_or_prior_rows_only": true,
+    "future_candidate_membership_used": false,
+    "retrospective_trade_labels_used": false,
+    "missing_exact_candidate_bars_backfilled": false,
+    "combined_attention_score_created": false,
+    "top_n_threshold_created": false
+  },
+  "date_results": [
+    {
+      "trading_date": "2025-04-03",
+      "source_snapshot_file_sha256": "44d5ed17176a9e960c685327528de5c1cf210e30924c78b8c5328966261ea939",
+      "source_snapshot_content_sha256": "42ba46d200bf8b7528f9a6e5ac22ae4c845a9ae33472d96f6f98158983ba762a",
+      "source_ordered_records_sha256": "5f2cfc8f9ffa88a55f4f45f6a0ad4f0a71dcbcf3e9a72b7a0dfb7e15faec3b8f",
+      "derived_rows_content_sha256": "ccc82f67ed43867bc5131608a3e9d7b8c2d651979cb37bdbe4c849a4da31179a",
+      "source_row_count": 511,
+      "derived_row_count": 511,
+      "candidate_count": 7,
+      "decision_minute_count": 180,
+      "first_decision_time": "2025-04-03T11:00:00+00:00",
+      "last_decision_time": "2025-04-03T13:59:00+00:00",
+      "market_leader_handoff_count": 0,
+      "observed_leader_minutes": {
+        "RGC": 180
+      },
+      "highlighted_candidate": {
+        "symbol": "TIVC",
+        "activation_time": "2025-04-03T11:00:00+00:00",
+        "row_count": 180,
+        "initial_full_membership_gain_rank": 15,
+        "best_full_membership_gain_rank": 12,
+        "market_leader_minute_count": 0,
+        "first_market_leader_time": null,
+        "missing_exact_candidate_bar_count": 8
+      }
+    },
+    {
+      "trading_date": "2026-07-09",
+      "source_snapshot_file_sha256": "f7d6c6c899fbfd755161b2bb9506d1ff4ddf6bf8d0472a9ba944b39de7f4b2f1",
+      "source_snapshot_content_sha256": "8e1c8d67a123cbbeb9680e685c57e724a42f83eda66ccf86bf0d6805ac3ff169",
+      "source_ordered_records_sha256": "92a57d705bc3ed833bda13b97c0515863902a43331237c49dde2ef96aa9353b3",
+      "derived_rows_content_sha256": "bf21b24cef4ac14f70be7c139fe5bdb93b0ea0f60efa3547f596a83fc8fd4e4d",
+      "source_row_count": 1702,
+      "derived_row_count": 1702,
+      "candidate_count": 14,
+      "decision_minute_count": 180,
+      "first_decision_time": "2026-07-09T11:00:00+00:00",
+      "last_decision_time": "2026-07-09T13:59:00+00:00",
+      "market_leader_handoff_count": 1,
+      "observed_leader_minutes": {
+        "MNST": 38,
+        "VRAX": 142
+      },
+      "handoffs": [
+        {
+          "decision_time": "2026-07-09T11:38:00+00:00",
+          "prior_leader_symbol": "MNST",
+          "new_leader_symbol": "VRAX",
+          "new_leader_percent_gain": 105.34276729559747
+        }
+      ],
+      "highlighted_candidate": {
+        "symbol": "VRAX",
+        "activation_time": "2026-07-09T11:32:00+00:00",
+        "activation_price": 5.25,
+        "activation_full_membership_gain_rank": 2,
+        "activation_has_provider_news_as_of": false,
+        "first_provider_news_published_at": "2026-07-09T11:34:33+00:00",
+        "first_decision_with_provider_news": "2026-07-09T11:35:00+00:00",
+        "first_market_leader_time": "2026-07-09T11:38:00+00:00",
+        "minutes_from_activation_to_market_leader": 6,
+        "market_leader_minute_count": 142,
+        "max_consecutive_market_leader_minutes": 142,
+        "missing_exact_candidate_bar_count": 8
+      }
+    }
+  ],
+  "retrospective_interpretation": {
+    "runtime_eligible": false,
+    "observations": [
+      "VRAX moved from full-membership rank two to rank one six minutes after upstream market qualification and remained the observed leader for the remaining 142 decision minutes.",
+      "The frozen Alpaca news event became available after the upstream VRAX market qualification, so this market gate does not reproduce Ross's reported news-linked scanner alert.",
+      "TIVC never became the full-membership market leader on its frozen date, so rank one cannot be assumed to be a universal Ross participation requirement.",
+      "RGC's roughly 3700 percent recorded gain dominated the full-membership rank on the TIVC date, illustrating that gain rank may be a noisy attention proxy in extreme data or market states."
+    ],
+    "transcript_comparison_limit": "Ross's transcript descriptions are retrospective benchmark evidence and were not used to derive any shadow feature.",
+    "alternative_candidate_set_complete": false
+  },
+  "decision": {
+    "freeze_shadow_feature_contract": true,
+    "promote_attention_rule": false,
+    "add_top_n_gate": false,
+    "change_scanner_policy": false,
+    "change_micro_policy": false,
+    "reason": "The features are causal and auditable, but two dates and two highlighted trades cannot establish how Ross allocates attention or when leadership should control participation."
+  },
+  "residual_limits": [
+    "The source snapshot covers only two dates and is not a representative walk-forward sample.",
+    "Active candidate count covers upstream market-qualified candidates, not every stock drawing trader attention.",
+    "Full-membership percentage-gain rank does not observe Ross's proprietary scanner, watchlist, audio commentary, Level 2, tape, chat room, or competing traders' focus.",
+    "The successful source artifact hash-commits but does not persist the raw reacquired rank inputs, so independent source-feature recomputation still requires provider replay.",
+    "No attention threshold, weighting rule, order behavior, risk behavior, or policy promotion follows from this audit."
+  ]
+}

@@ -12,7 +12,7 @@ This audit freezes the missing-layer inventory before any further context experi
 |---|---|---|---|
 | Technical setup and trigger | Frozen baseline | Micro pullback geometry, volume, support, momentum state and confirmation trigger | Cannot explain candidate preference |
 | Catalyst substance | Partial proxy | Provider news presence as of decision time | Substance, novelty, dilution risk and materiality |
-| Attention leadership | Feature only | Full-membership gain rank | No frozen general-profile attention or top-N rule |
+| Attention leadership | Feature only | Full-membership gain rank plus shadow leadership, handoff, persistence and competition features | No frozen general-profile attention or top-N rule |
 | Daily-chart context | Partial proxy | Prior-high reward/risk room | Resistance clusters, repeated rejection and chart cleanliness |
 | Market regime and theme | Not implemented | Evidence-backed cold/spark/hot/exhausted concepts | No causal state or theme-saturation model |
 | Liquidity and fill quality | Partial proxy | Total volume, SIP prints and basic slippage checks | Complete quote, spread, depth and achievable-size model |
@@ -70,7 +70,7 @@ The five non-primary benchmark cases add important evidence that would be lost b
 | ZEVAI | Cooler regime, no breaking news and excessive aggression before building a cushion appear in self-critique |
 | VRAX | Obvious-number-one-gainer status and slippage that changed reward/risk are both explicit |
 
-The frozen coverage result is `research/data-audits/discretion-evidence-coverage-v0.1.json`. It validates 17 contextual evidence rows across all ten benchmarks and all eight decision domains. The evidence is materially broader than the primary Micro seed, but every row remains retrospective: zero has a verified pre-entry context timestamp and zero includes a complete alternative-candidate set. It can prioritize source review; it cannot become a runtime filter or justify policy promotion.
+The initial frozen coverage result is `research/data-audits/discretion-evidence-coverage-v0.1.json`. It validated 17 contextual evidence rows across all ten benchmarks and all eight decision domains before the DSY/VRAX enrichment below increased the count to 22. The evidence is materially broader than the primary Micro seed, but every row remains retrospective: zero has a verified pre-entry context timestamp and zero includes a complete alternative-candidate set. It can prioritize source review; it cannot become a runtime filter or justify policy promotion.
 
 ### DSY and VRAX transcript enrichment
 
@@ -92,6 +92,10 @@ VRAX adds four linked layers:
 - slippage widening planned risk from about 15 cents to roughly 35-40 cents per share and changing the intended exit posture.
 
 This increases the frozen audit from 17 to 22 evidence rows. It is evidence that context changes selection, ordinal and risk decisions; it is not yet an algorithm. The narratives are retrospective descriptions of pre-entry state, their video timestamps are not independently verified, and their candidate comparison sets are incomplete. They remain runtime-ineligible.
+
+### Attention feature checkpoint
+
+The first deterministic context feature layer is now frozen as `attention-leadership-shadow-v0.1`. It derives only threshold-free market leadership and transition measurements from causal scanner rows. Validation on the two-date frozen scanner artifact found a genuine MNST-to-VRAX leadership handoff, while TIVC never reached rank one. This supports keeping leadership as a measured context feature and rejects making rank one an assumed universal eligibility rule. Full details are in `docs/research/attention_leadership_shadow.md` and `research/data-audits/attention-leadership-shadow-v0.1.json`.
 
 ## Integration order
 

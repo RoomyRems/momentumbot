@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "contract_id": "attention-leadership-shadow-v0.1",
+  "artifact_type": "causal_shadow_feature_contract",
+  "purpose": "Measure observable market leadership, handoffs, persistence, competition, and minute-to-minute candidate change without deciding whether to trade.",
+  "runtime_strategy_effect": "none",
+  "selection_threshold_frozen": false,
+  "order_authority": false,
+  "risk_authority": false,
+  "policy_promotion_eligible": false,
+  "source_scanner": {
+    "artifact_id": "causal-scanner-snapshot-v0.1",
+    "schema_version": 1,
+    "policy_id": "causal-scanner-snapshot-v0.1",
+    "policy_fingerprint": "ed21becad10855b4a085b6e05b6feac8f21e4ce511a100b2381522154818f42a",
+    "rank_scope": "full identity-resolved membership with a completed close and prior close",
+    "candidate_row_scope": "market-qualified candidates from activation through the exclusive scanner cutoff"
+  },
+  "knowledge_policy": {
+    "uses_only_current_or_prior_decision_rows": true,
+    "later_candidate_activation_may_change_prior_features": false,
+    "retrospective_trade_labels_allowed": false,
+    "future_price_or_volume_allowed": false,
+    "missing_minutes_backfilled": false,
+    "same_minute_rows_share_one_frozen_rank_state": true,
+    "nonconsecutive_observations_reset_deltas_and_tenure": true
+  },
+  "feature_definitions": [
+    {
+      "name": "active_market_candidate_count",
+      "meaning": "Count of upstream market-qualified candidates active at the decision minute; it is not a count of every moving stock.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "active_candidates_with_better_market_rank",
+      "meaning": "Number of active upstream candidates whose full-membership gain rank is better than this candidate's rank.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "market_leader_symbol",
+      "meaning": "Full-membership percentage-gain leader observable at the decision minute.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "market_leader_percent_gain",
+      "meaning": "Percentage gain of the full-membership leader at the decision minute.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "prior_observed_market_leader_symbol",
+      "meaning": "Leader from the immediately preceding minute, or null across an observation gap.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "market_leader_changed_from_prior_minute",
+      "meaning": "Whether full-membership leadership changed since the immediately preceding observed minute.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "observed_market_leader_tenure_minutes",
+      "meaning": "Consecutive observed minutes held by the same market leader; resets across gaps.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "candidate_top_gainer_rank",
+      "meaning": "Candidate's full-membership percentage-gain rank from the source scanner.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "candidate_is_market_leader",
+      "meaning": "Whether the candidate is rank one and agrees with the full-membership leader symbol.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "candidate_became_market_leader_this_minute",
+      "meaning": "Whether the candidate replaced a different observed leader during this exact minute.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "candidate_consecutive_market_leader_minutes",
+      "meaning": "Consecutive candidate observations at rank one; zero when the candidate is not leader.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "candidate_rank_improvement_from_prior_minute",
+      "meaning": "Prior rank minus current rank, so a positive number means rank improved; null across missing minutes.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "candidate_percent_gain",
+      "meaning": "Candidate gain from the exact completed source bar; null when that exact bar is missing.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "candidate_gain_change_pct_points_from_prior_minute",
+      "meaning": "One-minute change in exact-bar percentage gain; null when either exact bar is missing.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "candidate_gap_to_leader_pct_points",
+      "meaning": "Leader gain minus exact candidate gain in percentage points; null without an exact candidate bar.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "candidate_gap_change_pct_points_from_prior_minute",
+      "meaning": "One-minute change in the candidate's gap to the leader; a negative number means the gap narrowed.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "candidate_cumulative_volume",
+      "meaning": "Candidate cumulative volume from the exact completed source bar.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "candidate_volume_change_from_prior_minute",
+      "meaning": "One-minute increase in candidate cumulative volume; null when either exact bar is missing.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "minutes_since_candidate_activation",
+      "meaning": "Whole minutes elapsed since causal upstream market qualification.",
+      "strategy_gate_enabled": false
+    }
+  ],
+  "explicit_nonfeatures": [
+    "no combined attention score",
+    "no top-N eligibility threshold",
+    "no learned weights",
+    "no retrospective Ross entry or fill",
+    "no later high, outcome, trade, or P&L",
+    "no claim that gain rank equals human attention"
+  ],
+  "interpretation_limit": "These are transparent market-state proxies. They do not observe Ross Cameron's watchlist, chat room, Level 2, tape, proprietary scanner, or other traders' focus, so they cannot by themselves reproduce discretionary attention."
+}

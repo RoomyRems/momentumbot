@@ -63,7 +63,7 @@
       "required_for_full_imitation_claim": true,
       "linked_rule_ids": ["MB-SEL-007", "MB-SEL-008"],
       "causal_runtime_inputs": ["full-membership gain rank", "relative volume", "cumulative volume", "number of active competing momentum stocks", "candidate activation time"],
-      "currently_modeled": "The causal scanner records cross-sectional gain rank over its frozen membership.",
+      "currently_modeled": "The causal scanner records cross-sectional gain rank over its frozen membership, and attention-leadership-shadow-v0.1 derives threshold-free leadership, handoff, persistence, competition, and minute-change features for research only.",
       "current_limit": "The general profile has no frozen top-N rule and rank alone does not establish where trader attention is concentrated.",
       "evidence_needed": ["pre-entry watchlist commentary", "contemporaneous scanner membership", "stocks considered but skipped", "leader changes through the morning"],
       "promotion_gate": "Preregister a cross-sectional attention rule and validate it on a representative full-candidate panel without using later highs or outcomes."
