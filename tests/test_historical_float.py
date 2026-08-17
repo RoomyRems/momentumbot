@@ -28,6 +28,24 @@ from momentumbot.providers.sec_edgar import (
 
 
 class HistoricalFloatTests(unittest.TestCase):
+    def test_legacy_float_estimate_does_not_invent_a_missing_bar_start(self) -> None:
+        candidate = {
+            "symbol": "AAA",
+            "cik": "0000000001",
+            "first_market_qualified_at": "2025-04-03T11:00:00+00:00",
+            "public_float": None,
+            "anchor_outstanding": None,
+            "current_outstanding": None,
+        }
+
+        row = estimate_float_row(candidate, {})
+
+        self.assertIsNone(row.first_market_qualified_bar_started_at)
+        self.assertEqual(
+            row.first_market_qualified_at,
+            "2025-04-03T11:00:00+00:00",
+        )
+
     def test_evidence_selection_excludes_disclosure_after_qualification(self) -> None:
         before = datetime(2025, 3, 1, 15, tzinfo=timezone.utc)
         after = datetime(2025, 5, 1, 15, tzinfo=timezone.utc)

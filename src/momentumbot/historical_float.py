@@ -72,7 +72,7 @@ class FloatJoinRow:
     symbol: str
     cik: str
     first_market_qualified_at: str
-    first_market_qualified_bar_started_at: str
+    first_market_qualified_bar_started_at: str | None
     method: str
     estimated_float_shares: int | None
     current_outstanding_target_basis: int | None
@@ -152,8 +152,10 @@ def _row(
         symbol=str(candidate["symbol"]),
         cik=str(candidate["cik"]),
         first_market_qualified_at=str(candidate["first_market_qualified_at"]),
-        first_market_qualified_bar_started_at=str(
-            candidate["first_market_qualified_bar_started_at"]
+        first_market_qualified_bar_started_at=(
+            str(candidate["first_market_qualified_bar_started_at"])
+            if candidate.get("first_market_qualified_bar_started_at") is not None
+            else None
         ),
         method=method,
         estimated_float_shares=estimated_float_shares,
