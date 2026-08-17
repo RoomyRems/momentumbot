@@ -36,3 +36,11 @@ Provider timing does not establish causation or substance. The stored feed can c
 The earlier Micro activity cohort cannot supply that validation: it retains only two early qualifiers per date, omits the full news/rank context, and is concentrated at the 07:00 ET boundary. A broader panel must include every causally qualified candidate and freeze all provider inputs before any retrospective Ross comparison.
 
 Until that panel exists, catalyst timing remains a research feature with no strategy, order or risk authority.
+
+## Causal evidence packets
+
+`catalyst-evidence-packet-shadow-v0.1` now projects the full frozen provider tape into compact packets emitted only at candidate activation and when the available event-ID set changes. Every packet carries the exact title, publication time, source, provider symbols and symbol count that were available by that decision. Scanner event counts and first/latest timestamps must agree with the projected tape.
+
+The two-date validation emitted 35 packets for 21 candidates. TIVC's activation packet contained a 20-symbol premarket-movers roundup whose title foregrounded Penguin Solutions. VRAX activated with an empty packet; its 11:35 UTC packet then contained a single-symbol commercial-supply-agreement headline. Later VRAX packets added multi-symbol roundup and market-summary stories. A VRAX halt headline published at 13:59:24 was correctly excluded because the final decision was at 13:59 and the 14:00 cutoff was exclusive.
+
+This supplies the evidence envelope needed for later semantic research without pretending that symbol count or wording is a quality score. The packet builder creates no keyword rule, label, recommendation or trade action. Its frozen audit is `research/data-audits/catalyst-evidence-packet-shadow-v0.1.json`.

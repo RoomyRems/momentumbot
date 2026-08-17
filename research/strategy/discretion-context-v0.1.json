@@ -47,7 +47,7 @@
       "required_for_full_imitation_claim": true,
       "linked_rule_ids": ["MB-SEL-005", "MB-CAT-001"],
       "causal_runtime_inputs": ["headlines published by decision time", "article metadata available by decision time", "issuer identity", "contemporaneous filings"],
-      "currently_modeled": "The scanner establishes provider-news presence as of decision time, and catalyst-timing-shadow-v0.1 derives provider-news chronology relative to market qualification without interpreting quality.",
+      "currently_modeled": "The scanner establishes provider-news presence as of decision time; catalyst-timing-shadow-v0.1 derives chronology, and catalyst-evidence-packet-shadow-v0.1 exposes causally available titles and provider metadata without interpreting quality.",
       "current_limit": "News presence does not classify economic substance, novelty, dilution risk, keyword stuffing or why the headline matters.",
       "evidence_needed": ["timestamped pre-entry catalyst commentary", "the exact contemporaneous headline or filing", "trade and skip examples with similar-looking news"],
       "promotion_gate": "Freeze a structured catalyst rubric from normative evidence, then validate a shadow-only scorer on held-out trade and skip examples."

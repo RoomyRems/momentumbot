@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "contract_id": "catalyst-evidence-packet-shadow-v0.1",
+  "artifact_type": "causal_shadow_evidence_packet_contract",
+  "purpose": "Expose only causally available provider headlines and metadata at candidate activation or event-set changes for later shadow-only catalyst analysis.",
+  "runtime_strategy_effect": "none",
+  "semantic_classification_frozen": false,
+  "selection_threshold_frozen": false,
+  "ai_order_authority": false,
+  "ai_risk_authority": false,
+  "policy_promotion_eligible": false,
+  "source_contracts": {
+    "scanner": {
+      "artifact_id": "causal-scanner-snapshot-v0.1",
+      "policy_id": "causal-scanner-snapshot-v0.1",
+      "policy_fingerprint": "ed21becad10855b4a085b6e05b6feac8f21e4ce511a100b2381522154818f42a"
+    },
+    "news": {
+      "artifact_id": "causal-alpaca-news-v0.2",
+      "policy_id": "causal-alpaca-news-v0.2",
+      "availability_basis": "published_at less than or equal to decision_time"
+    }
+  },
+  "knowledge_policy": {
+    "projects_full_tape_by_published_at_lte_decision_time": true,
+    "future_events_exposed": false,
+    "retrospective_trade_labels_allowed": false,
+    "provider_relative_no_news_treated_as_universal_no_news": false,
+    "headline_text_may_submit_orders": false,
+    "scanner_event_counts_must_match_projected_tape": true,
+    "event_sets_are_monotonic_within_candidate_series": true
+  },
+  "emission_rule": "Emit one packet at candidate activation and another only when the causally available provider event-ID set changes.",
+  "packet_fields": [
+    "symbol",
+    "activation_time",
+    "decision_time",
+    "packet_reason",
+    "news_provider_status",
+    "provider_relative_no_news_as_of",
+    "provider_news_event_count_as_of",
+    "new_headline_ids",
+    "events",
+    "packet_content_sha256"
+  ],
+  "event_fields": [
+    "headline_id",
+    "published_at",
+    "seconds_old_at_decision",
+    "availability_basis",
+    "provider",
+    "provider_story_id",
+    "source",
+    "title",
+    "provider_symbols",
+    "provider_symbol_count",
+    "single_symbol_story"
+  ],
+  "explicit_nonfeatures": [
+    "no article-body reconstruction",
+    "no catalyst-quality, novelty or materiality label",
+    "no keyword-based trade rule",
+    "no sector-theme or sympathy score",
+    "no causal attribution from headline timing",
+    "no order, size or risk action"
+  ],
+  "interpretation_limit": "The packet is an evidence envelope, not a judgment. A single-symbol headline may still be immaterial, and a multi-symbol roundup may mention the candidate without explaining its move."
+}

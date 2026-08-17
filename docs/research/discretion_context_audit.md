@@ -101,6 +101,8 @@ The first deterministic context feature layer is now frozen as `attention-leader
 
 `catalyst-timing-shadow-v0.1` now separates market qualification from causally available provider-news timing. In the frozen VRAX reconstruction, market qualification precedes the first Alpaca provider event by 153 seconds and market leadership follows it by 207 seconds. Ross's recap describes a different proprietary news-linked alert, so the mismatch is retained rather than tuned away. Timing is now measurable, but substance, relevance and theme fit remain unresolved. Full details are in `docs/research/catalyst_timing_shadow.md` and `research/data-audits/catalyst-timing-shadow-v0.1.json`.
 
+The companion `catalyst-evidence-packet-shadow-v0.1` adds the exact causally available titles and provider metadata at activation and event-set changes. It verifies scanner/news lineage and excludes future headlines, but deliberately creates no semantic label or keyword rule. This is the input boundary for later shadow-only substance research, not the substance model itself.
+
 ## Integration order
 
 1. Audit existing evidence for all eight domains.

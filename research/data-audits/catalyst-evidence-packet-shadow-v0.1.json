@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "audit_id": "catalyst-evidence-packet-shadow-v0.1-frozen-validation",
+  "artifact_type": "causal_shadow_evidence_packet_validation_audit",
+  "contract_id": "catalyst-evidence-packet-shadow-v0.1",
+  "generated_at": "2026-08-17T17:54:22Z",
+  "runtime_strategy_effect": "none",
+  "semantic_classification_frozen": false,
+  "policy_promotion_eligible": false,
+  "source_artifacts": {
+    "frozen_workflow_run_id": 31986688096,
+    "frozen_artifact_id": 9274221536,
+    "frozen_artifact_zip_sha256": "7ede4afb352d5793b1a6417defe2508d47f4eae1515e47c09e79716eee6ab636",
+    "news_root_content_sha256": "c388c4ae31b225b61bd29744a80d4ddb62a95df101754b7866188c850fea2931",
+    "news_root_manifest_file_sha256": "c4585183a9aefb655d187694946a7c91232fb33ad8b9f7daf008698246549f5e",
+    "scanner_workflow_run_id": 32030416481,
+    "scanner_artifact_id": 9288797201,
+    "scanner_artifact_zip_sha256": "dd05dcd58bd3adc20e18416035b2c6b4c517fb57d5d853d63c2b327d1b2a1d12",
+    "scanner_root_content_sha256": "ec9661a962fd42c52ce673a3f106c03d3b0f5e9c32a70739c54e78e78da20611",
+    "scanner_policy_fingerprint": "ed21becad10855b4a085b6e05b6feac8f21e4ce511a100b2381522154818f42a",
+    "news_policy_id": "causal-alpaca-news-v0.2"
+  },
+  "derivation": {
+    "activation_packet_emitted": true,
+    "event_set_change_packet_emitted": true,
+    "unchanged_minute_packet_emitted": false,
+    "published_at_lte_decision_time_only": true,
+    "scanner_event_count_lineage_validated": true,
+    "retrospective_trade_labels_used": false,
+    "semantic_features_or_scores_created": false
+  },
+  "date_results": [
+    {
+      "trading_date": "2025-04-03",
+      "scanner_snapshot_file_sha256": "44d5ed17176a9e960c685327528de5c1cf210e30924c78b8c5328966261ea939",
+      "news_records_file_sha256": "0ab472499de694819386d9f8435cbd61035fd6138fa1bba58b4342e731286346",
+      "derived_packets_content_sha256": "ef83700c530d87e748a21471cdced6ff187ca9a912de2ba85bed9a837539a504",
+      "candidate_count": 7,
+      "packet_count": 10,
+      "activation_packet_count": 7,
+      "event_set_change_packet_count": 3,
+      "unique_symbol_headline_count_exposed": 6,
+      "full_tape_symbol_headline_count": 6,
+      "future_symbol_headlines_excluded": [],
+      "unique_single_symbol_story_count": 0,
+      "highlighted_activation_packet": {
+        "symbol": "TIVC",
+        "decision_time": "2025-04-03T11:00:00+00:00",
+        "packet_content_sha256": "544a9e8b328de6ad218f36abbf8da99f8811156bb8195cbc0a7b4af4379b6445",
+        "event_count": 1,
+        "headline_id": "alpaca-benzinga:44623142",
+        "published_at": "2025-04-03T09:27:37+00:00",
+        "provider_symbol_count": 20,
+        "single_symbol_story": false,
+        "title": "Why Penguin Solutions Shares Are Trading Higher; Here Are 20 Stocks Moving Premarket"
+      }
+    },
+    {
+      "trading_date": "2026-07-09",
+      "scanner_snapshot_file_sha256": "f7d6c6c899fbfd755161b2bb9506d1ff4ddf6bf8d0472a9ba944b39de7f4b2f1",
+      "news_records_file_sha256": "1a80b8bd5a1da99a186487e01d6739fad69ebc6a34a355e58b9c7ffa50a61d62",
+      "derived_packets_content_sha256": "54de8ad9b8eff95915e03aa1292d59ea3b9fd46394fc353ea7fb119fac3e48b6",
+      "candidate_count": 14,
+      "packet_count": 25,
+      "activation_packet_count": 14,
+      "event_set_change_packet_count": 11,
+      "unique_symbol_headline_count_exposed": 31,
+      "full_tape_symbol_headline_count": 32,
+      "future_symbol_headlines_excluded": [
+        {
+          "symbol": "VRAX",
+          "headline_id": "alpaca-benzinga:60358874",
+          "published_at": "2026-07-09T13:59:24+00:00",
+          "reason": "published after the final 13:59 UTC decision and before the exclusive 14:00 cutoff"
+        }
+      ],
+      "unique_single_symbol_story_count": 13,
+      "highlighted_packets": [
+        {
+          "symbol": "VRAX",
+          "decision_time": "2026-07-09T11:32:00+00:00",
+          "packet_reason": "candidate_activation",
+          "packet_content_sha256": "6c091e008daacdaa8e72a904e16a32e797e994e8c4eb44df79cbda5b8cc125d8",
+          "event_count": 0,
+          "provider_relative_no_news_as_of": true
+        },
+        {
+          "symbol": "VRAX",
+          "decision_time": "2026-07-09T11:35:00+00:00",
+          "packet_reason": "provider_event_set_changed",
+          "packet_content_sha256": "075f207ef6f64c22bead75df16ff0e2c21beafd1e7f459c3e4688e96ed1dda5b",
+          "event_count": 1,
+          "headline_id": "alpaca-benzinga:60352994",
+          "published_at": "2026-07-09T11:34:33+00:00",
+          "provider_symbol_count": 1,
+          "single_symbol_story": true,
+          "title": "Virax Biolabs Group Unit Enters Into Exclusive Multi-Country Commercial Supply Agreement With Fosun Diagnostics For ImmuneSelect Research-Use Immune Profiling Product Line"
+        }
+      ]
+    }
+  ],
+  "cross_date_summary": {
+    "candidate_count": 21,
+    "packet_count": 35,
+    "activation_packet_count": 21,
+    "event_set_change_packet_count": 14,
+    "unique_symbol_headline_count_exposed": 37,
+    "future_symbol_headline_count_excluded": 1
+  },
+  "retrospective_interpretation": {
+    "runtime_eligible": false,
+    "observations": [
+      "TIVC's only activation-time provider event was a 20-symbol premarket-movers roundup whose title foregrounded another company.",
+      "VRAX had an empty activation packet and then received a single-symbol commercial-supply-agreement headline in the 11:35 UTC packet.",
+      "Later VRAX packets added broad multi-symbol market-movers and market-summary stories, demonstrating why raw event counts cannot stand in for catalyst substance.",
+      "A 13:59:24 UTC VRAX halt headline was correctly excluded because no scanner decision occurred after it before the 14:00 cutoff."
+    ],
+    "headline_quality_or_materiality_classified": false,
+    "theme_fit_classified": false,
+    "causal_attribution_claimed": false
+  },
+  "decision": {
+    "freeze_evidence_packet_contract": true,
+    "promote_catalyst_rule": false,
+    "enable_ai_strategy_gate": false,
+    "change_scanner_policy": false,
+    "change_micro_policy": false,
+    "reason": "The evidence envelope is causal and auditable, but the current two-date title-only feed cannot define a general substance, novelty, materiality or theme judgment."
+  },
+  "residual_limits": [
+    "Only titles and provider metadata are available; article bodies and underlying filings are not reconstructed.",
+    "Provider symbol lists and single-symbol status are specificity metadata, not quality labels.",
+    "Provider-relative absence is not universal no-news.",
+    "The source covers two dates and cannot validate a semantic catalyst model.",
+    "Any future AI interpretation must remain shadow-only, return structured evidence and uncertainty, and have no order or risk authority until separately validated."
+  ]
+}
