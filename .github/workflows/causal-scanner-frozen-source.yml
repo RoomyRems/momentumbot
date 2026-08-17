@@ -1,0 +1,316 @@
+name: Causal scanner frozen-source snapshot
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - src/momentumbot/causal_scanner_snapshot.py
+      - scripts/build_causal_scanner_snapshot.py
+      - tests/test_causal_scanner_snapshot.py
+      - tests/test_build_causal_scanner_snapshot.py
+      - .github/workflows/causal-scanner-frozen-source.yml
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+      ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+      ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Test scanner and frozen-source contracts
+        run: >-
+          python -m unittest
+          tests.test_causal_scanner_snapshot
+          tests.test_build_causal_scanner_snapshot
+          -v
+      - name: Download and verify exact frozen upstream artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          artifact_api="https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/9274221536"
+          curl --fail-with-body --location --retry 3 \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "${artifact_api}" \
+            --output frozen-upstream-artifact.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          metadata = json.loads(Path("frozen-upstream-artifact.json").read_text())
+          assert metadata["id"] == 9274221536
+          assert metadata["name"] == "massive-historical-census-prototype"
+          assert metadata["expired"] is False
+          assert metadata["size_in_bytes"] == 5143650
+          run = metadata["workflow_run"]
+          assert run["id"] == 31986688096
+          assert run["head_sha"] == "c8db5f019558e021bcb8bf491bba58d8a6012b82"
+          PY
+          curl --fail-with-body --location --retry 3 \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "${artifact_api}/zip" \
+            --output frozen-upstream.zip
+          echo "7ede4afb352d5793b1a6417defe2508d47f4eae1515e47c09e79716eee6ab636  frozen-upstream.zip" \
+            | sha256sum --check --strict
+          mkdir massive-historical-census
+          unzip -q frozen-upstream.zip -d massive-historical-census
+          echo "0a110b47c1f6f53f9976582868f63dae7e7b4ca960ac4ee46bc2c627b044ba2e  massive-historical-census/manifest.json" \
+            | sha256sum --check --strict
+      - name: Verify frozen upstream lineage before replay
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("massive-historical-census")
+          dates = ["2025-04-03", "2026-07-09"]
+          paths = {
+              "membership": root / "identity-resolved-universe-v0.1" / "manifest.json",
+              "market": root / "causal-market-discovery-v0.2" / "manifest.json",
+              "float": root / "causal-sec-float-v0.1" / "manifest.json",
+              "news": root / "causal-alpaca-news-v0.2" / "manifest.json",
+          }
+          manifests = {
+              name: json.loads(path.read_text()) for name, path in paths.items()
+          }
+          expected = {
+              "membership": "ec828ab21ce66efd87b2c01d53dd8b818ce60b872430edd91a4f9c3437c09201",
+              "market": "443665fa740348aebbd3a0bb7319eab02f2f9f74b0768ea16c0408dd10432c28",
+              "float": "5fdc30294c4732263eb2b426f6d9e56324b3d2c560c06b429085077c03263953",
+              "news": "c388c4ae31b225b61bd29744a80d4ddb62a95df101754b7866188c850fea2931",
+          }
+          assert {name: value["content_sha256"] for name, value in manifests.items()} == expected
+          assert all(value["dates"] == dates for value in manifests.values())
+          membership = manifests["membership"]
+          market = manifests["market"]
+          float_manifest = manifests["float"]
+          news = manifests["news"]
+          assert membership["source_artifacts"]["identity_audit_content_sha256"] == (
+              "1bdd6ba7fd646f8d5bc775f699a6faf171c8026f6bed4a8220221bb3449c7d24"
+          )
+          assert market["source_membership_bundle_sha256"] == expected["membership"]
+          assert market["discovery_policy"]["fingerprint"] == (
+              "dbcbebae2b785ef8af68a37122658e02aa6fec3310c03581426273c5b66516d5"
+          )
+          assert float_manifest["source_market_discovery_bundle_sha256"] == expected["market"]
+          assert float_manifest["float_policy"]["fingerprint"] == (
+              "00252a48e20d684d08a5163a3d8a776e541ad6e59dfd4c7a7fcf87f623a71803"
+          )
+          assert news["source_market_discovery_bundle_sha256"] == expected["market"]
+          assert news["source_float_bundle_sha256"] == expected["float"]
+          assert news["news_policy"]["fingerprint"] == (
+              "0360d3e4ef7f6075d5621a1e9d3d1f6d145fa84f0875feb88b42c705631ee810"
+          )
+          assert membership["date_summaries"]["2025-04-03"]["identity_accepted_ticker_count"] == 5442
+          assert membership["date_summaries"]["2026-07-09"]["identity_accepted_ticker_count"] == 5571
+          assert [row["summary"]["causal_market_candidate_count"] for row in market["date_manifests"]] == [7, 14]
+          assert all(value["eligibility"]["universe_complete"] is False for value in manifests.values())
+          assert all(value["eligibility"]["full_walk_forward_eligible"] is False for value in manifests.values())
+          assert all(value["eligibility"]["policy_promotion_eligible"] is False for value in manifests.values())
+          PY
+      - name: Build causal scanner snapshot from frozen upstream
+        run: >-
+          python scripts/build_causal_scanner_snapshot.py
+          --census-root massive-historical-census
+          --dates 2025-04-03 2026-07-09
+          --asset-batch-size 250
+      - name: Validate scanner snapshot and record workflow provenance
+        env:
+          SCANNER_WORKFLOW_RUN_ID: ${{ github.run_id }}
+          SCANNER_WORKFLOW_RUN_ATTEMPT: ${{ github.run_attempt }}
+          SCANNER_WORKFLOW_HEAD_SHA: ${{ github.sha }}
+          SCANNER_WORKFLOW_REF: ${{ github.ref }}
+        run: |
+          python - <<'PY'
+          from collections import Counter
+          from datetime import datetime, timezone
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          from momentumbot.causal_market_discovery import load_market_candidate_payload
+          from momentumbot.causal_scanner_snapshot import (
+              causal_scanner_snapshot_v0_1_manifest,
+              load_causal_scanner_snapshot,
+          )
+          from momentumbot.identity_resolved_universe import json_fingerprint
+          from momentumbot.models import current_general_2026
+
+          root = Path("massive-historical-census")
+          scanner_root = root / "causal-scanner-snapshot-v0.1"
+          dates = ["2025-04-03", "2026-07-09"]
+          expected_bundle_hashes = {
+              "membership": "ec828ab21ce66efd87b2c01d53dd8b818ce60b872430edd91a4f9c3437c09201",
+              "market": "443665fa740348aebbd3a0bb7319eab02f2f9f74b0768ea16c0408dd10432c28",
+              "float": "5fdc30294c4732263eb2b426f6d9e56324b3d2c560c06b429085077c03263953",
+              "news": "c388c4ae31b225b61bd29744a80d4ddb62a95df101754b7866188c850fea2931",
+          }
+          expected_members = {"2025-04-03": 5442, "2026-07-09": 5571}
+          expected_candidates = {"2025-04-03": 7, "2026-07-09": 14}
+          expected_rows = {"2025-04-03": 511, "2026-07-09": 1702}
+          root_manifest = json.loads((scanner_root / "manifest.json").read_text())
+          assert root_manifest["schema_version"] == 1
+          assert root_manifest["artifact_id"] == "causal-scanner-snapshot-v0.1"
+          assert root_manifest["dates"] == dates
+          assert root_manifest["scanner_policy"] == causal_scanner_snapshot_v0_1_manifest()
+          assert root_manifest["scanner_policy"]["fingerprint"] == (
+              "4ebeb4cb93b118e7a2175764c0f50f8a8acb10b061b8de6986bb7dff823f90c9"
+          )
+          assert root_manifest["source_bundle_hashes"] == expected_bundle_hashes
+          assert root_manifest["content_sha256"] == json_fingerprint(
+              {key: value for key, value in root_manifest.items() if key != "content_sha256"}
+          )
+          assert root_manifest["eligibility"] == {
+              "complete_relative_to_identity_resolved_membership": True,
+              "candidate_minute_dispositions_frozen": True,
+              "universe_complete": False,
+              "full_walk_forward_eligible": False,
+              "policy_promotion_eligible": False,
+          }
+          market_root = root / "causal-market-discovery-v0.2"
+          market_root_manifest = json.loads((market_root / "manifest.json").read_text())
+          float_root_manifest = json.loads(
+              (root / "causal-sec-float-v0.1" / "manifest.json").read_text()
+          )
+          news_root_manifest = json.loads(
+              (root / "causal-alpaca-news-v0.2" / "manifest.json").read_text()
+          )
+          market_dates = {
+              row["trading_date"]: row for row in market_root_manifest["date_manifests"]
+          }
+          float_dates = {
+              row["trading_date"]: row for row in float_root_manifest["date_manifests"]
+          }
+          news_dates = {
+              row["trading_date"]: row for row in news_root_manifest["date_manifests"]
+          }
+          scanner_dates = {
+              row["trading_date"]: row for row in root_manifest["date_manifests"]
+          }
+          summaries = {}
+          for trading_date in dates:
+              candidate_rows, candidate_payload, market_date_manifest = (
+                  load_market_candidate_payload(market_root / trading_date)
+              )
+              date_manifest = json.loads(
+                  (scanner_root / trading_date / "manifest.json").read_text()
+              )
+              assert date_manifest == scanner_dates[trading_date]
+              assert market_date_manifest == market_dates[trading_date]
+              expected_source_prefix = [
+                  market_dates[trading_date]["source_membership"]["membership_sha256"],
+                  candidate_payload["content_sha256"],
+                  json_fingerprint(market_dates[trading_date]),
+                  float_dates[trading_date]["summary"]["records_sha256"],
+                  json_fingerprint(float_dates[trading_date]),
+                  news_dates[trading_date]["summary"]["full_window_events_sha256"],
+                  news_dates[trading_date]["summary"]["qualification_statuses_sha256"],
+                  json_fingerprint(news_dates[trading_date]),
+              ]
+              assert [
+                  link["source_sha256"]
+                  for link in date_manifest["source_hash_chain"][:8]
+              ] == expected_source_prefix
+              expected_source_hashes = {
+                  link["name"]: link["source_sha256"]
+                  for link in date_manifest["source_hash_chain"]
+              }
+              rows, payload, validated_manifest = load_causal_scanner_snapshot(
+                  scanner_root / trading_date,
+                  candidate_rows=candidate_rows,
+                  profile=current_general_2026(),
+                  expected_source_hashes=expected_source_hashes,
+              )
+              assert validated_manifest == date_manifest
+              assert payload["identity_resolved_member_count"] == expected_members[trading_date]
+              assert payload["candidate_count"] == expected_candidates[trading_date]
+              assert payload["row_count"] == expected_rows[trading_date] == len(rows)
+              assert sum(date_manifest["summary"]["disposition_counts"].values()) == len(rows)
+              complete = sum(
+                  row["rank_input_complete_for_members_with_completed_bars"] is True
+                  for row in rows
+              )
+              incomplete = len(rows) - complete
+              assert complete + incomplete == len(rows)
+              assert all(row["identity_resolved_member_count"] == expected_members[trading_date] for row in rows)
+              summaries[trading_date] = {
+                  "identity_resolved_member_count": expected_members[trading_date],
+                  "market_candidate_count": expected_candidates[trading_date],
+                  "candidate_minute_disposition_count": len(rows),
+                  "rank_complete_row_count": complete,
+                  "rank_incomplete_row_count": incomplete,
+                  "disposition_counts": dict(sorted(Counter(row["disposition"] for row in rows).items())),
+                  "date_manifest_content_sha256": date_manifest["content_sha256"],
+                  "records_content_sha256": payload["content_sha256"],
+                  "ordered_records_sha256": payload["ordered_records_sha256"],
+                  "source_hash_chain_sha256": date_manifest["source_hash_chain_sha256"],
+              }
+          provenance = {
+              "schema_version": 1,
+              "artifact_id": "causal-scanner-frozen-source-workflow-provenance-v0.1",
+              "generated_at": datetime.now(timezone.utc).isoformat(),
+              "frozen_upstream": {
+                  "workflow_run_id": 31986688096,
+                  "workflow_job_id": 95262804942,
+                  "head_sha": "c8db5f019558e021bcb8bf491bba58d8a6012b82",
+                  "artifact_id": 9274221536,
+                  "artifact_name": "massive-historical-census-prototype",
+                  "artifact_zip_sha256": "7ede4afb352d5793b1a6417defe2508d47f4eae1515e47c09e79716eee6ab636",
+                  "root_manifest_file_sha256": "0a110b47c1f6f53f9976582868f63dae7e7b4ca960ac4ee46bc2c627b044ba2e",
+                  "source_bundle_hashes": expected_bundle_hashes,
+              },
+              "scanner_workflow": {
+                  "run_id": int(os.environ["SCANNER_WORKFLOW_RUN_ID"]),
+                  "run_attempt": int(os.environ["SCANNER_WORKFLOW_RUN_ATTEMPT"]),
+                  "head_sha": os.environ["SCANNER_WORKFLOW_HEAD_SHA"],
+                  "ref": os.environ["SCANNER_WORKFLOW_REF"],
+              },
+              "scanner_policy_fingerprint": root_manifest["scanner_policy"]["fingerprint"],
+              "scanner_root_content_sha256": root_manifest["content_sha256"],
+              "dates": summaries,
+              "knowledge_boundary": {
+                  "uses_benchmark_labels": False,
+                  "uses_retrospective_trade_outcomes": False,
+                  "contains_trades_setups_portfolio_or_pnl": False,
+                  "raw_reacquired_market_inputs_persisted": False,
+                  "independent_feature_recomputation_requires_provider_replay": True,
+              },
+              "eligibility": {
+                  "universe_complete": False,
+                  "full_walk_forward_eligible": False,
+                  "policy_promotion_eligible": False,
+              },
+          }
+          provenance["content_sha256"] = json_fingerprint(provenance)
+          (scanner_root / "workflow-provenance.json").write_text(
+              json.dumps(provenance, indent=2, sort_keys=True) + "\n"
+          )
+          print(json.dumps(provenance, indent=2, sort_keys=True))
+          PY
+      - name: Upload causal scanner frozen-source snapshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: causal-scanner-snapshot-frozen-source
+          path: massive-historical-census/causal-scanner-snapshot-v0.1
+          if-no-files-found: warn
+          retention-days: 30
