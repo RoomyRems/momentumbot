@@ -58,6 +58,20 @@ The five primary Micro benchmarks were checked against this inventory. All five 
 
 None of the five benchmark payloads freezes a systematic pre-entry alternative-candidate set, catalyst-quality rubric, market-regime state, synchronized Level 2 state, or full session cushion. The immediate evidence priority is therefore trade-versus-skip and candidate-versus-candidate context, not additional fill labels.
 
+### Wider boundary/context evidence
+
+The five non-primary benchmark cases add important evidence that would be lost by looking only at first-entry price matching:
+
+| Case | Discretion evidence |
+|---|---|
+| YOUL | Attempted entry did not fill; later caution cites high float, topping-tail rejection and unwillingness to chase extension |
+| AGPU | Anticipatory entry is explicitly attributed to stacked Level 2 buyers and green time-and-sales |
+| LABT | Front-side micros were traded, a later proper pullback was skipped, and whole-dollar resistance/heavy selling mattered |
+| ZEVAI | Cooler regime, no breaking news and excessive aggression before building a cushion appear in self-critique |
+| VRAX | Obvious-number-one-gainer status and slippage that changed reward/risk are both explicit |
+
+The frozen coverage result is `research/data-audits/discretion-evidence-coverage-v0.1.json`. It validates 17 contextual evidence rows across all ten benchmarks and all eight decision domains. The evidence is materially broader than the primary Micro seed, but every row remains retrospective: zero has a verified pre-entry context timestamp and zero includes a complete alternative-candidate set. It can prioritize source review; it cannot become a runtime filter or justify policy promotion.
+
 ## Integration order
 
 1. Audit existing evidence for all eight domains.

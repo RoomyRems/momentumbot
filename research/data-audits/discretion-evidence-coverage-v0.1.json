@@ -1,0 +1,439 @@
+{
+  "schema_version": 1,
+  "audit_id": "ross-discretion-evidence-coverage-v0.1",
+  "artifact_type": "retrospective_discretion_evidence_coverage_audit",
+  "context_contract_id": "ross-discretion-context-v0.1",
+  "status": "frozen_existing_evidence_inventory",
+  "runtime_strategy_effect": "none",
+  "runtime_eligible": false,
+  "policy_promotion_eligible": false,
+  "full_imitation_claim_eligible": false,
+  "knowledge_policy": "post_replay_retrospective_research_only",
+  "source_scope": {
+    "rulebook_manifest": "research/rules/current_rules.json",
+    "context_contract": "research/strategy/discretion-context-v0.1.json",
+    "benchmark_files": [
+      "2025-04-03-tivc.json",
+      "2025-04-21-upxi.json",
+      "2025-09-09-mma.json",
+      "2025-09-09-youl.json",
+      "2026-03-27-artl.json",
+      "2026-04-22-agpu.json",
+      "2026-05-18-labt.json",
+      "2026-06-10-dsy.json",
+      "2026-06-26-zevai.json",
+      "2026-07-09-vrax.json"
+    ]
+  },
+  "domains": [
+    {
+      "domain_id": "technical_setup_and_trigger",
+      "runtime_gate_enabled": false,
+      "evidence_rows": [
+        {
+          "benchmark_file": "2025-04-03-tivc.json",
+          "benchmark_id": "ross-tivc-2025-04-03-micro-01",
+          "symbol": "TIVC",
+          "source_video_id": "ZjT_CsTKB80",
+          "source_evidence_type": "same_day_behavioral_recap",
+          "context_class": "retrospective_behavior",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/observed_human_behavior/setup_type", "/observed_human_behavior/first_pullback_taken"],
+          "summary": "The recap identifies an early first micro pullback and participation.",
+          "limit": "This is a retrospective label for one selected trade, not a candidate-selection explanation."
+        },
+        {
+          "benchmark_file": "2025-04-21-upxi.json",
+          "benchmark_id": "ross-upxi-2025-04-21-micro-01",
+          "symbol": "UPXI",
+          "source_video_id": "8vWDuKdIyEE",
+          "source_evidence_type": "same_day_behavioral_recap",
+          "context_class": "retrospective_behavior",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/observed_human_behavior/setup_type", "/observed_human_behavior/first_entry_language"],
+          "summary": "The recap names a 10-second micro pullback and first-candle-new-high language.",
+          "limit": "It does not state why UPXI deserved participation before the trigger."
+        },
+        {
+          "benchmark_file": "2025-09-09-mma.json",
+          "benchmark_id": "ross-mma-2025-09-09-micro-01",
+          "symbol": "MMA",
+          "source_video_id": "SLpD6pVlpT8",
+          "source_evidence_type": "same_day_behavioral_recap",
+          "context_class": "retrospective_behavior",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/observed_human_behavior/setup_type", "/observed_human_behavior/chart_timeframe"],
+          "summary": "The recap identifies a 10-second micro pullback.",
+          "limit": "The benchmark records the taken setup rather than the selection context."
+        },
+        {
+          "benchmark_file": "2026-03-27-artl.json",
+          "benchmark_id": "ross-artl-2026-03-27-micro-01",
+          "symbol": "ARTL",
+          "source_video_id": "w9byEpm5IQE",
+          "source_evidence_type": "same_day_behavioral_recap",
+          "context_class": "retrospective_behavior",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/observed_human_behavior/setup_type", "/observed_human_behavior/trade_taken"],
+          "summary": "The recap reports a taken micro pullback that later failed.",
+          "limit": "The stock-selection gate becomes causal only after the reported entry area."
+        },
+        {
+          "benchmark_file": "2026-06-10-dsy.json",
+          "benchmark_id": "ross-dsy-2026-06-10-micro-01",
+          "symbol": "DSY",
+          "source_video_id": "ltdLO7sAzow",
+          "source_evidence_type": "same_day_behavioral_recap",
+          "context_class": "retrospective_behavior",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/observed_human_behavior/setup_type", "/observed_human_behavior/canonical_entry_language"],
+          "summary": "The recap identifies the crossing candle or first-new-high entry pattern.",
+          "limit": "The frozen micro replay enters far later, and the benchmark alone does not explain the missing context."
+        }
+      ],
+      "sufficiency": {
+        "normative_definition_present": true,
+        "evidence_row_count": 5,
+        "explicit_retrospective_reason_count": 0,
+        "pre_entry_timestamp_verified_count": 0,
+        "complete_alternative_candidate_set_count": 0,
+        "isolated_component_research_ready": true,
+        "full_context_integration_ready": false
+      },
+      "conclusion": "The technical pattern has the strongest behavioral labels, but those labels cannot establish why a candidate was chosen."
+    },
+    {
+      "domain_id": "catalyst_substance",
+      "runtime_gate_enabled": false,
+      "evidence_rows": [
+        {
+          "benchmark_file": "2026-06-26-zevai.json",
+          "benchmark_id": "ross-zevai-2026-06-26-micro-ambiguous-01",
+          "symbol": "ZEVAI",
+          "source_video_id": "hUb-n3kzqjI",
+          "source_evidence_type": "same_day_self_critique_recap",
+          "context_class": "negative_context_evidence",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/observed_human_behavior/breaking_news_present"],
+          "summary": "The recap explicitly says breaking news was absent.",
+          "limit": "It does not supply a positive catalyst-quality comparison or a general scoring rubric."
+        }
+      ],
+      "sufficiency": {
+        "normative_definition_present": true,
+        "evidence_row_count": 1,
+        "explicit_retrospective_reason_count": 0,
+        "pre_entry_timestamp_verified_count": 0,
+        "complete_alternative_candidate_set_count": 0,
+        "isolated_component_research_ready": false,
+        "full_context_integration_ready": false
+      },
+      "conclusion": "The rulebook teaches catalyst substance, but the benchmark payloads do not yet contain enough positive and negative catalyst decisions to define or validate a scorer."
+    },
+    {
+      "domain_id": "attention_leadership",
+      "runtime_gate_enabled": false,
+      "evidence_rows": [
+        {
+          "benchmark_file": "2026-06-10-dsy.json",
+          "benchmark_id": "ross-dsy-2026-06-10-micro-01",
+          "symbol": "DSY",
+          "source_video_id": "ltdLO7sAzow",
+          "source_evidence_type": "same_day_behavioral_recap",
+          "context_class": "explicit_retrospective_reason",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/research_notes/1"],
+          "summary": "The recap says DSY became the attention successor as VSME rolled over.",
+          "limit": "The payload lacks the complete contemporaneous scanner set and the exact time attention transferred."
+        },
+        {
+          "benchmark_file": "2026-07-09-vrax.json",
+          "benchmark_id": "ross-vrax-2026-07-09-micro-01",
+          "symbol": "VRAX",
+          "source_video_id": "miyJZq-5uIg",
+          "source_evidence_type": "post_trade_behavioral_recap",
+          "context_class": "explicit_retrospective_reason",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/observed_human_behavior/stock_became_obvious_number_one_gainer"],
+          "summary": "The recap explicitly describes VRAX as the obvious number-one gainer.",
+          "limit": "The general-profile threshold for converting rank into participation remains unfrozen."
+        }
+      ],
+      "sufficiency": {
+        "normative_definition_present": true,
+        "evidence_row_count": 2,
+        "explicit_retrospective_reason_count": 2,
+        "pre_entry_timestamp_verified_count": 0,
+        "complete_alternative_candidate_set_count": 0,
+        "isolated_component_research_ready": false,
+        "full_context_integration_ready": false
+      },
+      "conclusion": "Attention leadership appears important, but two retrospective statements are not enough to freeze a general selection threshold."
+    },
+    {
+      "domain_id": "daily_chart_context",
+      "runtime_gate_enabled": false,
+      "evidence_rows": [
+        {
+          "benchmark_file": "2025-04-03-tivc.json",
+          "benchmark_id": "ross-tivc-2025-04-03-micro-01",
+          "symbol": "TIVC",
+          "source_video_id": "ZjT_CsTKB80",
+          "source_evidence_type": "same_day_behavioral_recap",
+          "context_class": "retrospective_skip_or_caution",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/observed_human_behavior/later_one_minute_new_high_skipped_for_topping_tail_history"],
+          "summary": "A later setup was skipped because of topping-tail history.",
+          "limit": "The payload does not freeze the chart levels or exact decision timestamp."
+        },
+        {
+          "benchmark_file": "2025-09-09-youl.json",
+          "benchmark_id": "ross-youl-2025-09-09-micro-boundary-01",
+          "symbol": "YOUL",
+          "source_video_id": "SLpD6pVlpT8",
+          "source_evidence_type": "same_day_behavioral_recap",
+          "context_class": "retrospective_skip_or_caution",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/observed_human_behavior/reported_reason_for_later_caution"],
+          "summary": "Later caution is tied to high float, topping-tail rejection and unwillingness to chase extension.",
+          "limit": "Several factors are bundled together, so the independent daily-chart effect is unresolved."
+        },
+        {
+          "benchmark_file": "2026-05-18-labt.json",
+          "benchmark_id": "ross-labt-2026-05-18-micro-boundary-01",
+          "symbol": "LABT",
+          "source_video_id": "2RA9A-IOlvo",
+          "source_evidence_type": "same_day_behavioral_recap",
+          "context_class": "explicit_retrospective_reason",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/observed_human_behavior/reported_whole_dollar_resistance", "/observed_human_behavior/reported_heavy_selling_at_whole_dollar"],
+          "summary": "The recap identifies whole-dollar resistance and heavy selling at that level.",
+          "limit": "This supports a level-specific feature but not a complete daily-chart cleanliness model."
+        }
+      ],
+      "sufficiency": {
+        "normative_definition_present": true,
+        "evidence_row_count": 3,
+        "explicit_retrospective_reason_count": 1,
+        "pre_entry_timestamp_verified_count": 0,
+        "complete_alternative_candidate_set_count": 0,
+        "isolated_component_research_ready": false,
+        "full_context_integration_ready": false
+      },
+      "conclusion": "The evidence supports resistance and topping-tail caution, but it does not yet define a general causal chart-quality rubric."
+    },
+    {
+      "domain_id": "market_regime_and_theme",
+      "runtime_gate_enabled": false,
+      "evidence_rows": [
+        {
+          "benchmark_file": "2026-06-26-zevai.json",
+          "benchmark_id": "ross-zevai-2026-06-26-micro-ambiguous-01",
+          "symbol": "ZEVAI",
+          "source_video_id": "hUb-n3kzqjI",
+          "source_evidence_type": "same_day_self_critique_recap",
+          "context_class": "ambiguous_hindsight_or_self_critique",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/observed_human_behavior/market_regime_described_as_cooler", "/observed_human_behavior/initial_micro_pullback_hindsight_language"],
+          "summary": "The market is described as cooler, while the skipped initial micro is discussed ambiguously in hindsight.",
+          "limit": "One self-critique case cannot define causal regime state or the correct participation response."
+        }
+      ],
+      "sufficiency": {
+        "normative_definition_present": true,
+        "evidence_row_count": 1,
+        "explicit_retrospective_reason_count": 0,
+        "pre_entry_timestamp_verified_count": 0,
+        "complete_alternative_candidate_set_count": 0,
+        "isolated_component_research_ready": false,
+        "full_context_integration_ready": false
+      },
+      "conclusion": "The four-stage regime concept is taught, but the benchmarks contain only one ambiguous behavioral regime observation and no theme panel."
+    },
+    {
+      "domain_id": "liquidity_and_fill_quality",
+      "runtime_gate_enabled": false,
+      "evidence_rows": [
+        {
+          "benchmark_file": "2025-09-09-youl.json",
+          "benchmark_id": "ross-youl-2025-09-09-micro-boundary-01",
+          "symbol": "YOUL",
+          "source_video_id": "SLpD6pVlpT8",
+          "source_evidence_type": "same_day_behavioral_recap",
+          "context_class": "negative_context_evidence",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/observed_human_behavior/attempted_order_filled", "/observed_human_behavior/reported_no_completed_trade_on_symbol"],
+          "summary": "An attempted micro entry did not fill and no completed trade was recorded.",
+          "limit": "The payload does not contain the submitted order, contemporaneous quote or queue position."
+        },
+        {
+          "benchmark_file": "2026-07-09-vrax.json",
+          "benchmark_id": "ross-vrax-2026-07-09-micro-01",
+          "symbol": "VRAX",
+          "source_video_id": "miyJZq-5uIg",
+          "source_evidence_type": "post_trade_behavioral_recap",
+          "context_class": "explicit_retrospective_reason",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/observed_human_behavior/slippage_changed_risk_reward", "/market_reconstruction/elapsed_seconds_6_to_6_30_plus"],
+          "summary": "The recap says slippage changed reward/risk, and SIP reconstruction shows a rapid move through the intended level.",
+          "limit": "The human order's send, route, queue and receive timestamps remain unknown."
+        }
+      ],
+      "sufficiency": {
+        "normative_definition_present": true,
+        "evidence_row_count": 2,
+        "explicit_retrospective_reason_count": 1,
+        "pre_entry_timestamp_verified_count": 0,
+        "complete_alternative_candidate_set_count": 0,
+        "isolated_component_research_ready": false,
+        "full_context_integration_ready": false
+      },
+      "conclusion": "No-fill and slippage cases exist, but historical quotes and order-state evidence are still required for an execution-quality model."
+    },
+    {
+      "domain_id": "level2_and_tape",
+      "runtime_gate_enabled": false,
+      "evidence_rows": [
+        {
+          "benchmark_file": "2026-04-22-agpu.json",
+          "benchmark_id": "ross-agpu-2026-04-22-micro-01",
+          "symbol": "AGPU",
+          "source_video_id": "6P25hNn_H00",
+          "source_evidence_type": "same_day_normative_class_plus_behavioral_case_study",
+          "context_class": "explicit_retrospective_reason",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/observed_human_behavior/level2_stacked_buyer_support_used_for_anticipation", "/observed_human_behavior/green_time_and_sales_used_for_anticipation"],
+          "summary": "The case study explicitly attributes anticipation to stacked Level 2 buyers and green tape.",
+          "limit": "The benchmark does not preserve synchronized depth updates or the exact visual state."
+        },
+        {
+          "benchmark_file": "2026-06-10-dsy.json",
+          "benchmark_id": "ross-dsy-2026-06-10-micro-01",
+          "symbol": "DSY",
+          "source_video_id": "ltdLO7sAzow",
+          "source_evidence_type": "same_day_behavioral_recap",
+          "context_class": "negative_context_evidence",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/observed_human_behavior/hidden_buyer_justification_for_first_trade"],
+          "summary": "The first DSY trade is explicitly not justified by a hidden buyer.",
+          "limit": "This negative example does not provide synchronized tape or Level 2 state."
+        }
+      ],
+      "sufficiency": {
+        "normative_definition_present": true,
+        "evidence_row_count": 2,
+        "explicit_retrospective_reason_count": 1,
+        "pre_entry_timestamp_verified_count": 0,
+        "complete_alternative_candidate_set_count": 0,
+        "isolated_component_research_ready": false,
+        "full_context_integration_ready": false
+      },
+      "conclusion": "AGPU proves Level 2 and tape can change entry timing, but the synchronized historical inputs needed to reproduce it are absent."
+    },
+    {
+      "domain_id": "session_state_and_aggression",
+      "runtime_gate_enabled": false,
+      "evidence_rows": [
+        {
+          "benchmark_file": "2026-06-26-zevai.json",
+          "benchmark_id": "ross-zevai-2026-06-26-micro-ambiguous-01",
+          "symbol": "ZEVAI",
+          "source_video_id": "hUb-n3kzqjI",
+          "source_evidence_type": "same_day_self_critique_recap",
+          "context_class": "explicit_retrospective_reason",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/observed_human_behavior/self_critique_too_aggressive_before_building_cushion", "/observed_human_behavior/second_pullback_small_account_trade_taken"],
+          "summary": "The recap explicitly criticizes being too aggressive before building a profit cushion.",
+          "limit": "The benchmark does not contain a complete causal order ledger and session PnL state for both accounts."
+        }
+      ],
+      "sufficiency": {
+        "normative_definition_present": true,
+        "evidence_row_count": 1,
+        "explicit_retrospective_reason_count": 1,
+        "pre_entry_timestamp_verified_count": 0,
+        "complete_alternative_candidate_set_count": 0,
+        "isolated_component_research_ready": false,
+        "full_context_integration_ready": false
+      },
+      "conclusion": "Profit cushion clearly affects aggression, but it cannot be reproduced until the replay carries the complete chronological portfolio state."
+    }
+  ],
+  "targeted_source_requests": [
+    {
+      "request_id": "catalyst-substance-segments",
+      "priority": 1,
+      "domain_ids": ["catalyst_substance"],
+      "video_ids": ["w9byEpm5IQE", "hUb-n3kzqjI"],
+      "needed_segment": "The exact segment where Ross evaluates why the ARTL news is substantive and why the no-news ZEVAI case still did or did not deserve attention, including the contemporaneous headline when shown.",
+      "request_only_if_existing_evidence_is_insufficient": true
+    },
+    {
+      "request_id": "attention-transfer-segments",
+      "priority": 2,
+      "domain_ids": ["attention_leadership"],
+      "video_ids": ["ltdLO7sAzow", "miyJZq-5uIg"],
+      "needed_segment": "The scanner or commentary around DSY replacing VSME and VRAX becoming the obvious number-one gainer, including competing stocks and approximate decision time.",
+      "request_only_if_existing_evidence_is_insufficient": true
+    },
+    {
+      "request_id": "chart-skip-segments",
+      "priority": 3,
+      "domain_ids": ["daily_chart_context"],
+      "video_ids": ["ZjT_CsTKB80", "SLpD6pVlpT8", "2RA9A-IOlvo"],
+      "needed_segment": "The chart and explanation for the TIVC later skip, YOUL caution, and LABT whole-dollar resistance, including visible levels before the decision.",
+      "request_only_if_existing_evidence_is_insufficient": true
+    },
+    {
+      "request_id": "regime-cushion-segment",
+      "priority": 4,
+      "domain_ids": ["market_regime_and_theme", "session_state_and_aggression"],
+      "video_ids": ["hUb-n3kzqjI"],
+      "needed_segment": "The ZEVAI discussion linking the cooler regime and missing profit cushion to the trade or skip decision, with the chronological trade sequence if shown.",
+      "request_only_if_existing_evidence_is_insufficient": true
+    },
+    {
+      "request_id": "level2-anticipation-segment",
+      "priority": 5,
+      "domain_ids": ["level2_and_tape", "liquidity_and_fill_quality"],
+      "video_ids": ["6P25hNn_H00"],
+      "needed_segment": "The synchronized AGPU chart, Level 2 and time-and-sales view immediately before anticipation, including what visible evidence changed the entry decision.",
+      "request_only_if_existing_evidence_is_insufficient": true
+    }
+  ],
+  "overall_conclusion": "The repository contains meaningful discretion clues across ten benchmarks, especially skips, attention transfer, resistance, Level 2, slippage, regime and profit cushion. Every clue remains retrospective, no benchmark has a verified pre-entry timestamped context package, and none includes a complete alternative-candidate set. The evidence can prioritize targeted source review but cannot yet define or promote a contextual strategy layer."
+}
