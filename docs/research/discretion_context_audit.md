@@ -103,6 +103,12 @@ The first deterministic context feature layer is now frozen as `attention-leader
 
 The companion `catalyst-evidence-packet-shadow-v0.1` adds the exact causally available titles and provider metadata at activation and event-set changes. It verifies scanner/news lineage and excludes future headlines, but deliberately creates no semantic label or keyword rule. This is the input boundary for later shadow-only substance research, not the substance model itself.
 
+### Catalyst interpretation protocol checkpoint
+
+`catalyst-interpretation-protocol-shadow-v0.1` adds an auditable output schema above the causal evidence packets. It can preserve observations such as direct issuer focus, a multi-symbol roundup or commercial-agreement language, but it has no score or trading authority. It rejects references to unavailable headlines and forces novelty, materiality and theme fit to remain unknown when their required evidence is absent.
+
+Across the 35 frozen packets, 10 contain no provider event, 2 contain only single-symbol events, 11 contain only multi-symbol events and 12 contain a mixture. This confirms that a boolean news flag collapses materially different evidence states. The frozen TIVC and VRAX examples demonstrate the distinction, but they do not validate the accuracy of an automated semantic interpreter. That requires a broader timestamped, held-out trade-and-skip panel with article or filing evidence and a causal theme state.
+
 ## Integration order
 
 1. Audit existing evidence for all eight domains.

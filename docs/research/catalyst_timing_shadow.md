@@ -44,3 +44,11 @@ Until that panel exists, catalyst timing remains a research feature with no stra
 The two-date validation emitted 35 packets for 21 candidates. TIVC's activation packet contained a 20-symbol premarket-movers roundup whose title foregrounded Penguin Solutions. VRAX activated with an empty packet; its 11:35 UTC packet then contained a single-symbol commercial-supply-agreement headline. Later VRAX packets added multi-symbol roundup and market-summary stories. A VRAX halt headline published at 13:59:24 was correctly excluded because the final decision was at 13:59 and the 14:00 cutoff was exclusive.
 
 This supplies the evidence envelope needed for later semantic research without pretending that symbol count or wording is a quality score. The packet builder creates no keyword rule, label, recommendation or trade action. Its frozen audit is `research/data-audits/catalyst-evidence-packet-shadow-v0.1.json`.
+
+## Shadow interpretation protocol
+
+`catalyst-interpretation-protocol-shadow-v0.1` now defines the smallest safe semantic boundary above those packets. An assessment must cite headline IDs already available in its causal packet and may describe issuer relevance, headline form and event type. It cannot emit a quality score, recommendation, selection action, order or risk change.
+
+The protocol also prevents false precision. With the current inputs, novelty must remain unknown because no prior-event comparison corpus is present; materiality must remain unknown because the evidence is title-only; and theme fit must remain unknown because no causal session-theme state is frozen. Provider-relative absence forces every semantic axis to `not_assessable_no_provider_event`.
+
+Three manual examples validate the boundary. TIVC is recorded as broad roundup inclusion rather than a proven company-specific catalyst. VRAX is not assessable at its empty activation packet; three minutes later, its single-symbol supply-agreement headline can be described as a direct issuer-specific commercial event while novelty, terms, materiality and theme fit remain unresolved. These examples test the protocol, not a fitted semantic model.

@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "contract_id": "catalyst-interpretation-protocol-shadow-v0.1",
+  "artifact_type": "shadow_catalyst_interpretation_protocol",
+  "purpose": "Bind structured title-level observations and explicit uncertainty to one causal catalyst evidence packet without producing a quality score or trading action.",
+  "runtime_strategy_effect": "none",
+  "quality_score_frozen": false,
+  "selection_threshold_frozen": false,
+  "ai_order_authority": false,
+  "ai_risk_authority": false,
+  "policy_promotion_eligible": false,
+  "source_contract": {
+    "contract_id": "catalyst-evidence-packet-shadow-v0.1",
+    "availability_rule": "Only events already present in the packet may be cited.",
+    "retrospective_trade_labels_allowed": false
+  },
+  "normative_evidence_basis": [
+    "DSY shows that a no-news candidate may fit the active theme while a news-bearing candidate may be off-theme, so catalyst and theme must remain separate axes.",
+    "VRAX shows that breaking news can focus attention, but its recap does not establish substance beyond the displayed headline.",
+    "TIVC's causal packet shows that provider-news presence may be only a broad multi-symbol roundup.",
+    "The current evidence contains no balanced, timestamp-verified trade-and-skip set sufficient to freeze a catalyst quality threshold."
+  ],
+  "assessment_fields": [
+    "assessment_origin",
+    "issuer_relevance",
+    "headline_form",
+    "event_type",
+    "novelty",
+    "materiality",
+    "dilution_risk",
+    "theme_fit",
+    "evidence_headline_ids",
+    "observation_codes",
+    "uncertainty_reasons"
+  ],
+  "enums": {
+    "assessment_origin": ["manual_research_example", "shadow_ai"],
+    "issuer_relevance": ["direct_candidate", "incidental_or_ambiguous", "unrelated", "ambiguous", "not_assessable_no_provider_event"],
+    "headline_form": ["issuer_specific_event", "multi_symbol_roundup_or_summary", "general_market_or_sector_item", "ambiguous", "not_assessable_no_provider_event"],
+    "event_type": ["commercial_agreement", "financial_result_or_guidance", "financing_or_capital_structure", "clinical_or_regulatory", "merger_or_corporate_action", "filing_or_compliance", "market_roundup", "market_move_or_halt", "other_specific_event", "unknown", "not_assessable_no_provider_event"],
+    "novelty": ["unknown_missing_prior_event_corpus", "not_assessable_no_provider_event"],
+    "materiality": ["unknown_title_only", "not_assessable_no_provider_event"],
+    "dilution_risk": ["title_signals_possible_dilution", "unknown_title_only", "not_assessable_no_provider_event"],
+    "theme_fit": ["unknown_no_causal_theme_state", "not_assessable_no_provider_event"]
+  },
+  "observation_codes": ["no_provider_event", "provider_scope_single_symbol", "provider_scope_multi_symbol", "provider_scope_mixed", "title_foregrounds_candidate", "title_foregrounds_other_issuer", "commercial_agreement_language", "market_roundup_language", "numeric_terms_present", "filing_or_compliance_language", "market_move_or_halt_language"],
+  "uncertainty_reasons": ["title_only_no_article_body", "no_prior_event_corpus", "no_causal_theme_state", "no_filing_corroboration", "provider_symbol_tag_not_proof_of_relevance", "candidate_not_title_focus", "terms_not_quantified", "event_scope_mixed", "no_provider_event", "provider_relative_absence_only"],
+  "required_unknown_guards": {
+    "novelty_without_prior_event_corpus": "unknown_missing_prior_event_corpus",
+    "materiality_from_title_only": "unknown_title_only",
+    "theme_fit_without_causal_theme_state": "unknown_no_causal_theme_state"
+  },
+  "interpretation_limit": "This protocol makes an interpretation auditable; it does not make it correct. Accuracy requires timestamped article or filing evidence, a prior-event corpus, a causal theme state, and held-out trade and skip examples."
+}

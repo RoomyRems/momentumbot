@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "audit_id": "catalyst-interpretation-protocol-shadow-v0.1-frozen-validation",
+  "artifact_type": "shadow_catalyst_interpretation_protocol_audit",
+  "contract_id": "catalyst-interpretation-protocol-shadow-v0.1",
+  "generated_at": "2026-08-17T18:40:31Z",
+  "runtime_strategy_effect": "none",
+  "policy_promotion_eligible": false,
+  "source_artifacts": {
+    "catalyst_evidence_contract_id": "catalyst-evidence-packet-shadow-v0.1",
+    "frozen_workflow_run_id": 31986688096,
+    "frozen_artifact_id": 9274221536,
+    "frozen_artifact_zip_sha256": "7ede4afb352d5793b1a6417defe2508d47f4eae1515e47c09e79716eee6ab636",
+    "news_root_content_sha256": "c388c4ae31b225b61bd29744a80d4ddb62a95df101754b7866188c850fea2931",
+    "scanner_workflow_run_id": 32030416481,
+    "scanner_artifact_id": 9288797201,
+    "scanner_artifact_zip_sha256": "dd05dcd58bd3adc20e18416035b2c6b4c517fb57d5d853d63c2b327d1b2a1d12",
+    "scanner_root_content_sha256": "ec9661a962fd42c52ce673a3f106c03d3b0f5e9c32a70739c54e78e78da20611"
+  },
+  "rubric_basis": {
+    "retrospective_runtime_eligible": false,
+    "benchmark_sources": [
+      "research/benchmarks/2026-06-10-dsy.json",
+      "research/benchmarks/2026-07-09-vrax.json"
+    ],
+    "supported_conclusions": [
+      "Catalyst presence and active-theme fit are distinct judgments.",
+      "Breaking-news arrival can focus attention without proving economic substance.",
+      "Single-symbol and multi-symbol provider scope should be preserved as evidence rather than collapsed into one news-present flag."
+    ],
+    "unsupported_conclusions": [
+      "A general catalyst quality score or participation threshold.",
+      "Novelty without a prior-event comparison corpus.",
+      "Materiality or dilution safety from title-only evidence.",
+      "Theme fit without a causal session theme state."
+    ]
+  },
+  "validation_scope": {
+    "dates": ["2025-04-03", "2026-07-09"],
+    "candidate_count": 21,
+    "packet_count": 35,
+    "activation_packet_count": 21,
+    "event_set_change_packet_count": 14,
+    "provider_scope_packet_counts": {
+      "no_provider_event": 10,
+      "single_symbol_only": 2,
+      "multi_symbol_only": 11,
+      "mixed_scope": 12
+    },
+    "activation_packets_with_provider_event": 11,
+    "activation_packets_without_provider_event": 10,
+    "packet_hashes_validated": true,
+    "cited_headlines_restricted_to_available_packet_events": true,
+    "future_headlines_available_to_interpreter": false
+  },
+  "manual_protocol_examples": [
+    {
+      "symbol": "TIVC",
+      "decision_time": "2025-04-03T11:00:00+00:00",
+      "source_packet_content_sha256": "544a9e8b328de6ad218f36abbf8da99f8811156bb8195cbc0a7b4af4379b6445",
+      "record_content_sha256": "e55f7d454ea4641bd030b82dd6dcf76f05da07303c5bbae7486d3049c271ad21",
+      "headline_id": "alpaca-benzinga:44623142",
+      "provider_symbol_count": 20,
+      "issuer_relevance": "incidental_or_ambiguous",
+      "headline_form": "multi_symbol_roundup_or_summary",
+      "event_type": "market_roundup",
+      "novelty": "unknown_missing_prior_event_corpus",
+      "materiality": "unknown_title_only",
+      "theme_fit": "unknown_no_causal_theme_state",
+      "interpretation": "The provider tagged TIVC in a 20-symbol premarket roundup whose title foregrounded Penguin Solutions. This is evidence of broad roundup inclusion, not proof of a TIVC-specific catalyst."
+    },
+    {
+      "symbol": "VRAX",
+      "decision_time": "2026-07-09T11:32:00+00:00",
+      "source_packet_content_sha256": "6c091e008daacdaa8e72a904e16a32e797e994e8c4eb44df79cbda5b8cc125d8",
+      "record_content_sha256": "410ed031197ca304ddc564cd80bae6dc85e2c37e92856c6ab72aa41e319287c8",
+      "provider_scope": "no_provider_event",
+      "all_semantic_axes": "not_assessable_no_provider_event",
+      "interpretation": "Provider-relative absence at activation supplies no title to interpret and does not prove universal no-news."
+    },
+    {
+      "symbol": "VRAX",
+      "decision_time": "2026-07-09T11:35:00+00:00",
+      "source_packet_content_sha256": "075f207ef6f64c22bead75df16ff0e2c21beafd1e7f459c3e4688e96ed1dda5b",
+      "record_content_sha256": "833f151c25e0fc84c6b57246aa8ec68974463fbf285bb10fcb6e521335ae4fc6",
+      "headline_id": "alpaca-benzinga:60352994",
+      "provider_symbol_count": 1,
+      "issuer_relevance": "direct_candidate",
+      "headline_form": "issuer_specific_event",
+      "event_type": "commercial_agreement",
+      "novelty": "unknown_missing_prior_event_corpus",
+      "materiality": "unknown_title_only",
+      "theme_fit": "unknown_no_causal_theme_state",
+      "interpretation": "The title directly describes a Virax unit entering an exclusive multi-country supply agreement. The title does not disclose enough terms to establish novelty or economic materiality."
+    }
+  ],
+  "guards_validated": {
+    "missing_or_future_headline_reference_fails_closed": true,
+    "materiality_claim_from_title_only_fails_closed": true,
+    "novelty_claim_without_prior_event_corpus_fails_closed": true,
+    "theme_claim_without_causal_theme_state_fails_closed": true,
+    "no_event_semantic_claim_fails_closed": true,
+    "quality_score_output_absent": true,
+    "trade_selection_order_and_risk_outputs_absent": true
+  },
+  "decision": {
+    "freeze_interpretation_protocol": true,
+    "freeze_semantic_model": false,
+    "quality_score_frozen": false,
+    "promote_catalyst_rule": false,
+    "change_scanner_policy": false,
+    "change_micro_policy": false,
+    "reason": "The protocol safely structures what an interpreter may say and what must remain unknown. Two dates and title-only evidence cannot validate semantic accuracy or a trading threshold."
+  },
+  "residual_limits": [
+    "The three manual examples demonstrate protocol behavior; they are not a fitted or validated semantic model.",
+    "All current provider evidence is title-only, without article bodies or causally reconstructed underlying filings.",
+    "The source has no prior-event comparison corpus for novelty assessment.",
+    "The source has no frozen causal market-theme state for theme-fit assessment.",
+    "The DSY and VRAX narratives are retrospective and cannot be runtime inputs.",
+    "Held-out timestamped trade and skip examples remain necessary before evaluating interpretation accuracy."
+  ]
+}
