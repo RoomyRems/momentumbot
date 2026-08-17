@@ -99,12 +99,26 @@
           "evidence_paths": ["/observed_human_behavior/setup_type", "/observed_human_behavior/canonical_entry_language"],
           "summary": "The recap identifies the crossing candle or first-new-high entry pattern.",
           "limit": "The frozen micro replay enters far later, and the benchmark alone does not explain the missing context."
+        },
+        {
+          "benchmark_file": "2026-07-09-vrax.json",
+          "benchmark_id": "ross-vrax-2026-07-09-micro-01",
+          "symbol": "VRAX",
+          "source_video_id": "miyJZq-5uIg",
+          "source_evidence_type": "post_trade_behavioral_recap",
+          "context_class": "explicit_retrospective_reason",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/observed_human_decision_context/entry_discretion/first_pullback_skipped", "/observed_human_decision_context/entry_discretion/second_micro_pullback_taken"],
+          "summary": "Ross describes deliberately passing on the first pullback because he was not sufficiently sure, then taking the second micro pullback.",
+          "limit": "The account gives the human ordinal choice retrospectively; it does not define a general uncertainty threshold."
         }
       ],
       "sufficiency": {
         "normative_definition_present": true,
-        "evidence_row_count": 5,
-        "explicit_retrospective_reason_count": 0,
+        "evidence_row_count": 6,
+        "explicit_retrospective_reason_count": 1,
         "pre_entry_timestamp_verified_count": 0,
         "complete_alternative_candidate_set_count": 0,
         "isolated_component_research_ready": true,
@@ -116,6 +130,34 @@
       "domain_id": "catalyst_substance",
       "runtime_gate_enabled": false,
       "evidence_rows": [
+        {
+          "benchmark_file": "2026-06-10-dsy.json",
+          "benchmark_id": "ross-dsy-2026-06-10-micro-01",
+          "symbol": "DSY",
+          "source_video_id": "ltdLO7sAzow",
+          "source_evidence_type": "same_day_behavioral_recap",
+          "context_class": "explicit_retrospective_reason",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/observed_human_decision_context/active_theme/dsy_recognized_as_chinese_no_news_and_on_theme", "/observed_human_decision_context/active_theme/us_biotech_with_company_news_rejected_as_off_theme", "/observed_human_decision_context/active_theme/theme_overrode_simple_news_presence_preference"],
+          "summary": "The recap says a Chinese no-news stock was attractive because it matched the active theme while a US biotech with company news was rejected as off-theme.",
+          "limit": "This demonstrates that simple news presence is insufficient, but it does not define catalyst substance or theme causally."
+        },
+        {
+          "benchmark_file": "2026-07-09-vrax.json",
+          "benchmark_id": "ross-vrax-2026-07-09-micro-01",
+          "symbol": "VRAX",
+          "source_video_id": "miyJZq-5uIg",
+          "source_evidence_type": "post_trade_behavioral_recap",
+          "context_class": "explicit_retrospective_reason",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/observed_human_decision_context/catalyst_and_discovery/breaking_news_present", "/observed_human_decision_context/morning_selection_state/vrax_became_obvious_when_breaking_news_hit", "/observed_human_decision_context/catalyst_and_discovery/catalyst_substance_beyond_headline_assessed"],
+          "summary": "Breaking news changed the morning from no obvious candidate to game time, but the recap does not evaluate substance beyond the displayed headline.",
+          "limit": "This is evidence that timely news can focus attention, not a validated catalyst-quality rubric."
+        },
         {
           "benchmark_file": "2026-06-26-zevai.json",
           "benchmark_id": "ross-zevai-2026-06-26-micro-ambiguous-01",
@@ -133,14 +175,14 @@
       ],
       "sufficiency": {
         "normative_definition_present": true,
-        "evidence_row_count": 1,
-        "explicit_retrospective_reason_count": 0,
+        "evidence_row_count": 3,
+        "explicit_retrospective_reason_count": 2,
         "pre_entry_timestamp_verified_count": 0,
         "complete_alternative_candidate_set_count": 0,
         "isolated_component_research_ready": false,
         "full_context_integration_ready": false
       },
-      "conclusion": "The rulebook teaches catalyst substance, but the benchmark payloads do not yet contain enough positive and negative catalyst decisions to define or validate a scorer."
+      "conclusion": "DSY and VRAX prove that news interacts with theme and attention rather than acting as a simple boolean, but the evidence still cannot define or validate a substance scorer."
     },
     {
       "domain_id": "attention_leadership",
@@ -156,9 +198,9 @@
           "runtime_eligible": false,
           "pre_entry_timestamp_verified": false,
           "alternative_candidate_set_complete": false,
-          "evidence_paths": ["/research_notes/1"],
-          "summary": "The recap says DSY became the attention successor as VSME rolled over.",
-          "limit": "The payload lacks the complete contemporaneous scanner set and the exact time attention transferred."
+          "evidence_paths": ["/observed_human_decision_context/attention_transfer/prior_leader_rolling_over", "/observed_human_decision_context/attention_transfer/dsy_became_attention_successor", "/observed_human_decision_context/partial_alternative_candidates"],
+          "summary": "The recap describes VSME rolling over as DSY's volume and gain increased, with DSY taking its place in trader attention.",
+          "limit": "Three alternatives are described, but the complete contemporaneous scanner set and exact transfer time remain unavailable."
         },
         {
           "benchmark_file": "2026-07-09-vrax.json",
@@ -170,9 +212,9 @@
           "runtime_eligible": false,
           "pre_entry_timestamp_verified": false,
           "alternative_candidate_set_complete": false,
-          "evidence_paths": ["/observed_human_behavior/stock_became_obvious_number_one_gainer"],
-          "summary": "The recap explicitly describes VRAX as the obvious number-one gainer.",
-          "limit": "The general-profile threshold for converting rank into participation remains unfrozen."
+          "evidence_paths": ["/observed_human_decision_context/morning_selection_state/nothing_obvious_before_vrax", "/observed_human_decision_context/morning_selection_state/vrax_became_number_one_leading_gainer", "/observed_human_decision_context/partial_alternative_candidates"],
+          "summary": "The recap contrasts VRAX with PMA, RPGL and SOT and describes VRAX as the first obvious candidate and number-one gainer.",
+          "limit": "The comparison set is partial and the general-profile threshold for converting obviousness into participation remains unfrozen."
         }
       ],
       "sufficiency": {
@@ -184,7 +226,7 @@
         "isolated_component_research_ready": false,
         "full_context_integration_ready": false
       },
-      "conclusion": "Attention leadership appears important, but two retrospective statements are not enough to freeze a general selection threshold."
+      "conclusion": "Attention leadership is now supported by explicit handoff and candidate-comparison narratives, but the retrospective and incomplete comparison sets cannot freeze a general threshold."
     },
     {
       "domain_id": "daily_chart_context",
@@ -249,6 +291,20 @@
       "runtime_gate_enabled": false,
       "evidence_rows": [
         {
+          "benchmark_file": "2026-06-10-dsy.json",
+          "benchmark_id": "ross-dsy-2026-06-10-micro-01",
+          "symbol": "DSY",
+          "source_video_id": "ltdLO7sAzow",
+          "source_evidence_type": "same_day_behavioral_recap",
+          "context_class": "explicit_retrospective_reason",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/observed_human_decision_context/market_regime/expected_hot_volatile_market", "/observed_human_decision_context/market_regime/concern_about_moves_failing_to_hold", "/observed_human_decision_context/active_theme/theme_description"],
+          "summary": "Ross entered the morning expecting a hot, volatile market but explicitly worried that extreme moves would fail and unwind; speculative Chinese no-news momentum was the active theme.",
+          "limit": "This rich single-day narrative does not define the measurable transition rules for a general regime or theme state."
+        },
+        {
           "benchmark_file": "2026-06-26-zevai.json",
           "benchmark_id": "ross-zevai-2026-06-26-micro-ambiguous-01",
           "symbol": "ZEVAI",
@@ -265,14 +321,14 @@
       ],
       "sufficiency": {
         "normative_definition_present": true,
-        "evidence_row_count": 1,
-        "explicit_retrospective_reason_count": 0,
+        "evidence_row_count": 2,
+        "explicit_retrospective_reason_count": 1,
         "pre_entry_timestamp_verified_count": 0,
         "complete_alternative_candidate_set_count": 0,
         "isolated_component_research_ready": false,
         "full_context_integration_ready": false
       },
-      "conclusion": "The four-stage regime concept is taught, but the benchmarks contain only one ambiguous behavioral regime observation and no theme panel."
+      "conclusion": "DSY provides a concrete hot-but-fragile regime and theme narrative while ZEVAI provides cooler-market self-critique, but two retrospective days remain insufficient for a causal state machine."
     },
     {
       "domain_id": "liquidity_and_fill_quality",
@@ -302,8 +358,8 @@
           "runtime_eligible": false,
           "pre_entry_timestamp_verified": false,
           "alternative_candidate_set_complete": false,
-          "evidence_paths": ["/observed_human_behavior/slippage_changed_risk_reward", "/market_reconstruction/elapsed_seconds_6_to_6_30_plus"],
-          "summary": "The recap says slippage changed reward/risk, and SIP reconstruction shows a rapid move through the intended level.",
+          "evidence_paths": ["/observed_human_decision_context/execution_risk_reassessment/slippage_damaged_reward_risk", "/observed_human_decision_context/execution_risk_reassessment/post_slippage_risk_per_share_cents_approx_range", "/observed_human_decision_context/execution_risk_reassessment/planned_response", "/market_reconstruction/elapsed_seconds_6_to_6_30_plus"],
+          "summary": "The recap quantifies how slippage widened per-share risk and forced a quicker-exit posture; SIP reconstruction independently shows the fast move through the intended level.",
           "limit": "The human order's send, route, queue and receive timestamps remain unknown."
         }
       ],
@@ -367,6 +423,20 @@
       "runtime_gate_enabled": false,
       "evidence_rows": [
         {
+          "benchmark_file": "2026-06-10-dsy.json",
+          "benchmark_id": "ross-dsy-2026-06-10-micro-01",
+          "symbol": "DSY",
+          "source_video_id": "ltdLO7sAzow",
+          "source_evidence_type": "same_day_behavioral_recap",
+          "context_class": "explicit_retrospective_reason",
+          "runtime_eligible": false,
+          "pre_entry_timestamp_verified": false,
+          "alternative_candidate_set_complete": false,
+          "evidence_paths": ["/observed_human_decision_context/session_state/profits_from_prior_challenge_days_increased_available_capital", "/observed_human_decision_context/session_state/larger_position_enabled_by_prior_profit_cushion", "/observed_human_decision_context/session_state/quality_over_quantity_one_good_trade_focus"],
+          "summary": "Prior challenge profits increased available capital and explicitly enabled the largest position so far while the plan still emphasized one high-quality trade.",
+          "limit": "The benchmark does not provide the complete account ledger, buying power and order sequence needed to replay the sizing decision."
+        },
+        {
           "benchmark_file": "2026-06-26-zevai.json",
           "benchmark_id": "ross-zevai-2026-06-26-micro-ambiguous-01",
           "symbol": "ZEVAI",
@@ -383,14 +453,14 @@
       ],
       "sufficiency": {
         "normative_definition_present": true,
-        "evidence_row_count": 1,
-        "explicit_retrospective_reason_count": 1,
+        "evidence_row_count": 2,
+        "explicit_retrospective_reason_count": 2,
         "pre_entry_timestamp_verified_count": 0,
         "complete_alternative_candidate_set_count": 0,
         "isolated_component_research_ready": false,
         "full_context_integration_ready": false
       },
-      "conclusion": "Profit cushion clearly affects aggression, but it cannot be reproduced until the replay carries the complete chronological portfolio state."
+      "conclusion": "DSY shows profit cushion increasing permissible size and ZEVAI shows the failure mode of aggression without cushion; reproduction still requires complete chronological portfolio state."
     }
   ],
   "targeted_source_requests": [
@@ -403,11 +473,12 @@
       "request_only_if_existing_evidence_is_insufficient": true
     },
     {
-      "request_id": "attention-transfer-segments",
+      "request_id": "attention-transfer-visual-timing",
       "priority": 2,
       "domain_ids": ["attention_leadership"],
       "video_ids": ["ltdLO7sAzow", "miyJZq-5uIg"],
-      "needed_segment": "The scanner or commentary around DSY replacing VSME and VRAX becoming the obvious number-one gainer, including competing stocks and approximate decision time.",
+      "transcript_status": "full transcript text supplied and structured context extracted",
+      "needed_segment": "Only if later required: the synchronized scanner/chart view or timestamp around DSY replacing VSME and VRAX becoming the obvious number-one gainer. The narrative and partial comparison sets are already captured.",
       "request_only_if_existing_evidence_is_insufficient": true
     },
     {
@@ -435,5 +506,5 @@
       "request_only_if_existing_evidence_is_insufficient": true
     }
   ],
-  "overall_conclusion": "The repository contains meaningful discretion clues across ten benchmarks, especially skips, attention transfer, resistance, Level 2, slippage, regime and profit cushion. Every clue remains retrospective, no benchmark has a verified pre-entry timestamped context package, and none includes a complete alternative-candidate set. The evidence can prioritize targeted source review but cannot yet define or promote a contextual strategy layer."
+  "overall_conclusion": "The repository now contains structured retrospective decision narratives for DSY and VRAX in addition to the existing discretion clues across ten benchmarks. They show that theme can override simple news presence, attention can transfer between leaders, uncertainty can defer participation from the first to second pullback, profit cushion can change size, and slippage can immediately change risk posture. No benchmark yet has a verified pre-entry video timestamped context package or complete alternative-candidate set, so the evidence can guide feature design and targeted visual review but cannot define or promote a contextual strategy layer."
 }

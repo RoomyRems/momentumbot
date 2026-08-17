@@ -153,6 +153,21 @@ def validate_discretion_evidence_audit(
                     raise ValueError(f"source evidence type mismatch for {filename}")
                 for pointer in pointers:
                     _resolve_pointer(benchmark, pointer)
+                if any(pointer.startswith("/observed_human_decision_context/") for pointer in pointers):
+                    extraction = benchmark.get("decision_context_extraction")
+                    if not isinstance(extraction, Mapping):
+                        raise ValueError(f"decision context extraction missing for {filename}")
+                    required_extraction_guards = {
+                        "verbatim_transcript_persisted": False,
+                        "runtime_eligible": False,
+                        "pre_entry_video_timestamp_verified": False,
+                        "complete_alternative_candidate_set": False,
+                    }
+                    for field, expected in required_extraction_guards.items():
+                        if extraction.get(field) is not expected:
+                            raise ValueError(
+                                f"decision context extraction guard mismatch for {filename}: {field}"
+                            )
 
         if sufficiency.get("evidence_row_count") != len(rows):
             raise ValueError(f"{domain_id} evidence row count mismatch")

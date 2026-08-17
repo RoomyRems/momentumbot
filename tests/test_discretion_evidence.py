@@ -21,7 +21,23 @@ BENCHMARK_ROOT = ROOT / "research" / "benchmarks"
 class DiscretionEvidenceTests(unittest.TestCase):
     def setUp(self):
         self.contract = load_discretion_context_contract(CONTRACT)
-        benchmark_root = BENCHMARK_ROOT if (BENCHMARK_ROOT / "2026-07-09-vrax.json").exists() else None
+        required_benchmarks = [
+            "2025-04-03-tivc.json",
+            "2025-04-21-upxi.json",
+            "2025-09-09-mma.json",
+            "2025-09-09-youl.json",
+            "2026-03-27-artl.json",
+            "2026-04-22-agpu.json",
+            "2026-05-18-labt.json",
+            "2026-06-10-dsy.json",
+            "2026-06-26-zevai.json",
+            "2026-07-09-vrax.json",
+        ]
+        benchmark_root = (
+            BENCHMARK_ROOT
+            if all((BENCHMARK_ROOT / filename).exists() for filename in required_benchmarks)
+            else None
+        )
         self.payload = load_discretion_evidence_audit(
             AUDIT,
             benchmark_root=benchmark_root,
@@ -32,14 +48,14 @@ class DiscretionEvidenceTests(unittest.TestCase):
         self.assertEqual(
             evidence_counts(self.payload),
             {
-                "technical_setup_and_trigger": 5,
-                "catalyst_substance": 1,
+                "technical_setup_and_trigger": 6,
+                "catalyst_substance": 3,
                 "attention_leadership": 2,
                 "daily_chart_context": 3,
-                "market_regime_and_theme": 1,
+                "market_regime_and_theme": 2,
                 "liquidity_and_fill_quality": 2,
                 "level2_and_tape": 2,
-                "session_state_and_aggression": 1,
+                "session_state_and_aggression": 2,
             },
         )
         self.assertEqual(len(self.payload["source_scope"]["benchmark_files"]), 10)

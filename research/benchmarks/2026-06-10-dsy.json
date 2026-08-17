@@ -9,17 +9,94 @@
     "published_date": "2026-06-10",
     "evidence_type": "same_day_behavioral_recap"
   },
+  "decision_context_extraction": {
+    "source_basis": "full transcript text supplied for the identified source video",
+    "extracted_on": "2026-08-17",
+    "temporal_status": "retrospective_same_day_description_of_pre_entry_state",
+    "verbatim_transcript_persisted": false,
+    "runtime_eligible": false,
+    "pre_entry_video_timestamp_verified": false,
+    "complete_alternative_candidate_set": false
+  },
+  "observed_human_decision_context": {
+    "market_regime": {
+      "expected_hot_volatile_market": true,
+      "concern_about_moves_failing_to_hold": true,
+      "explicit_backside_unwind_risk": true,
+      "prior_day_leader_gave_back_entire_move": true
+    },
+    "active_theme": {
+      "theme_description": "Chinese stocks with no company news receiving speculative attention in a frothy market",
+      "dsy_recognized_as_chinese_no_news_and_on_theme": true,
+      "us_biotech_with_company_news_rejected_as_off_theme": true,
+      "theme_overrode_simple_news_presence_preference": true
+    },
+    "candidate_discovery": {
+      "reported_scanner_alert_time_et": "07:42",
+      "scanner_alert_time_independently_verified": false,
+      "light_initial_volume_accepted_for_early_research": true,
+      "research_actions_described": [
+        "assess risk and reward",
+        "research news or lack of news",
+        "check daily chart",
+        "perform technical analysis"
+      ]
+    },
+    "attention_transfer": {
+      "prior_leader_symbol": "VSME",
+      "prior_leader_rolling_over": true,
+      "dsy_volume_increasing_near_three_dollars": true,
+      "dsy_gain_range_when_attention_increased_pct_approx": [50, 70],
+      "dsy_became_attention_successor": true,
+      "later_became_market_leading_gainer": true
+    },
+    "partial_alternative_candidates": [
+      {
+        "symbol": "VSME",
+        "context": "Chinese no-news leading gainer",
+        "small_account_action": "not traded",
+        "reported_reason": "the beginning of the move was missed and risk could not be managed"
+      },
+      {
+        "symbol": null,
+        "context": "US biotech with company news",
+        "small_account_action": "rejected",
+        "reported_reason": "off-theme for that morning's speculative Chinese no-news momentum"
+      },
+      {
+        "symbol": "RETO",
+        "context": "also appeared on the five-pillar scanner",
+        "small_account_action": "not traded",
+        "reported_reason": "volume remained too light and momentum did not develop",
+        "timing_relative_to_first_dsy_entry": "not_resolved_from_transcript"
+      }
+    ],
+    "entry_sequence": {
+      "earlier_dsy_pullbacks_observed_without_trade": true,
+      "first_trade_setup": "10-second micro pullback",
+      "first_trade_after_volume_and_attention_increased": true
+    },
+    "session_state": {
+      "profits_from_prior_challenge_days_increased_available_capital": true,
+      "larger_position_enabled_by_prior_profit_cushion": true,
+      "quality_over_quantity_one_good_trade_focus": true
+    }
+  },
   "observed_human_behavior": {
     "setup_type": "micro_pullback",
     "chart_timeframe": "10_seconds",
     "trade_taken": true,
-    "reported_entry_fills_approx": [3.07, 3.11],
+    "reported_entry_fills_approx": [
+      3.07,
+      3.11
+    ],
     "canonical_entry_language": "crossing candle / first candle to make a new high",
     "hidden_buyer_justification_for_first_trade": false
   },
   "research_notes": [
     "This file is retrospective ground truth and must never be supplied to a policy replaying June 10, 2026.",
     "The recap says DSY became the attention successor as VSME rolled over, then identifies the first DSY trade as a 10-second micro pullback around $3.10.",
-    "Historical SIP reconstruction must determine the exact chart sequence independently of the narration."
+    "Historical SIP reconstruction must determine the exact chart sequence independently of the narration.",
+    "The extracted context sharpens retrospective evaluation only; it cannot supply theme, alternatives, attention transfer or session cushion to runtime replay."
   ]
 }

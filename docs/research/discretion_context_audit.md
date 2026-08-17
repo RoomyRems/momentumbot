@@ -72,6 +72,27 @@ The five non-primary benchmark cases add important evidence that would be lost b
 
 The frozen coverage result is `research/data-audits/discretion-evidence-coverage-v0.1.json`. It validates 17 contextual evidence rows across all ten benchmarks and all eight decision domains. The evidence is materially broader than the primary Micro seed, but every row remains retrospective: zero has a verified pre-entry context timestamp and zero includes a complete alternative-candidate set. It can prioritize source review; it cannot become a runtime filter or justify policy promotion.
 
+### DSY and VRAX transcript enrichment
+
+Full transcript text for the DSY and VRAX source videos was subsequently supplied and distilled without storing the verbatim transcripts. The benchmark artifacts now separate retrospective decision context from the original trade labels.
+
+DSY adds five linked layers:
+
+- a hot but fragile regime after the prior leader gave back its full move;
+- a speculative Chinese no-news theme that made an actual-news US biotech unattractive that morning;
+- an attention handoff as VSME rolled over and DSY's volume/gain increased;
+- earlier DSY pullbacks observed without a trade before the attention increase;
+- prior challenge profits explicitly enabling a larger position while retaining a one-good-trade focus.
+
+VRAX adds four linked layers:
+
+- PMA, RPGL and SOT as a partial rejected comparison set before anything looked obvious;
+- breaking news turning VRAX into the obvious number-one candidate;
+- an uncertainty-based skip of the first pullback followed by participation in the second micro pullback;
+- slippage widening planned risk from about 15 cents to roughly 35-40 cents per share and changing the intended exit posture.
+
+This increases the frozen audit from 17 to 22 evidence rows. It is evidence that context changes selection, ordinal and risk decisions; it is not yet an algorithm. The narratives are retrospective descriptions of pre-entry state, their video timestamps are not independently verified, and their candidate comparison sets are incomplete. They remain runtime-ineligible.
+
 ## Integration order
 
 1. Audit existing evidence for all eight domains.

@@ -9,6 +9,75 @@
     "published_date": "2026-07-09",
     "evidence_type": "post_trade_behavioral_recap"
   },
+  "decision_context_extraction": {
+    "source_basis": "full transcript text supplied for the identified source video",
+    "extracted_on": "2026-08-17",
+    "temporal_status": "retrospective_same_day_description_of_pre_entry_state",
+    "verbatim_transcript_persisted": false,
+    "runtime_eligible": false,
+    "pre_entry_video_timestamp_verified": false,
+    "complete_alternative_candidate_set": false
+  },
+  "observed_human_decision_context": {
+    "morning_selection_state": {
+      "nothing_obvious_before_vrax": true,
+      "vrax_became_obvious_when_breaking_news_hit": true,
+      "vrax_became_number_one_leading_gainer": true
+    },
+    "partial_alternative_candidates": [
+      {
+        "symbol": "PMA",
+        "reported_context": "approximately 14 million shares of volume but price considered a little cheap",
+        "selected": false
+      },
+      {
+        "symbol": "RPGL",
+        "reported_context": "some volume but price considered a little cheap and gain only about 30%",
+        "selected": false
+      },
+      {
+        "symbol": "SOT",
+        "reported_context": "not much volume and higher priced",
+        "selected": false
+      }
+    ],
+    "catalyst_and_discovery": {
+      "breaking_news_present": true,
+      "reported_scanner_delay_after_news_seconds": 15,
+      "reported_scanner_price_approx": 3.41,
+      "reported_initial_volume_shares_approx": 37000,
+      "volume_and_relative_volume_increased_with_move": true,
+      "headline_sector_description": "medical diagnostics and screening healthcare",
+      "foreign_company": true,
+      "symbol_traded_in_past": true,
+      "catalyst_substance_beyond_headline_assessed": false
+    },
+    "entry_discretion": {
+      "first_pullback_skipped": true,
+      "first_pullback_skip_reason": "not sufficiently sure about the stock yet",
+      "second_micro_pullback_taken": true,
+      "intended_break_level": 6.0,
+      "reported_fill_approx": 6.3
+    },
+    "execution_risk_reassessment": {
+      "reported_contributors": [
+        "button press timing",
+        "broker platform delay",
+        "fast market"
+      ],
+      "reported_slippage_cents_approx_range": [15, 20],
+      "planned_risk_per_share_cents_approx": 15,
+      "post_slippage_risk_per_share_cents_approx_range": [35, 40],
+      "two_to_one_target_required_cents_approx": 80,
+      "slippage_damaged_reward_risk": true,
+      "planned_response": "exit quickly at the first sign of deterioration because entry was too high"
+    },
+    "session_state": {
+      "one_and_done_plan": true,
+      "reported_starting_account_value_approx": 20000,
+      "reported_daily_return_goal_pct": 10
+    }
+  },
   "observed_human_behavior": {
     "stock_became_obvious_number_one_gainer": true,
     "trade_taken": true,
@@ -34,6 +103,7 @@
   "research_notes": [
     "This benchmark label is retrospective ground truth and must never be supplied to a policy replaying July 9, 2026.",
     "The official one-minute 11:32 UTC bar compresses the second micro pullback, breakout through $6, surge to $7.49 and rejection into one bar.",
-    "Derived ten-second bars were validated by reconstructing complete minute bars from SIP trades with zero OHLCV difference versus Alpaca's official minute bars in the complete reference minutes."
+    "Derived ten-second bars were validated by reconstructing complete minute bars from SIP trades with zero OHLCV difference versus Alpaca's official minute bars in the complete reference minutes.",
+    "The extracted context sharpens retrospective evaluation only; it cannot supply alternative candidates, uncertainty, catalyst interpretation or the human order path to runtime replay."
   ]
 }
