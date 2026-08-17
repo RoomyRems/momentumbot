@@ -48,3 +48,7 @@ The machine-readable registration is `research/strategy/discretion-heldout-panel
 ## Replayability checkpoint
 
 Before acquiring the ten registered dates, the scanner builder now supports a separate deterministic source-input sidecar. It saves the exact canonical inputs behind the existing scanner source hash and can reproduce scanner rows without refetching those inputs from the provider. The frozen two-date scanner workflow validates this path before it is used for the held-out pilot. Details are in `docs/research/scanner_source_inputs_v01.md`.
+
+## Label-blind runtime acquisition
+
+The dedicated held-out workflow acquires all ten fixed dates without opening Ross labels. It verifies each date against a provider-observed SPY session, builds point-in-time membership, market, float, news and scanner artifacts, and persists the scanner input sidecar. The frozen identity rule is applied independently on every date; the first and last dates provide the interval-wide alias and corporate-action audit boundary. Intermediate symbol transitions that are not visible at either endpoint remain a documented pilot limitation rather than being guessed.

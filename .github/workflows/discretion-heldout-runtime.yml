@@ -1,0 +1,406 @@
+name: Discretion held-out label-blind runtime
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - research/strategy/discretion-heldout-panel-v0.1.json
+      - research/data-audits/discretion-heldout-panel-v0.1.json
+      - src/momentumbot/research/discretion_heldout_panel.py
+      - src/momentumbot/identity_continuity.py
+      - scripts/build_identity_resolved_universe.py
+      - tests/test_discretion_heldout_panel.py
+      - tests/test_identity_continuity.py
+      - tests/test_build_identity_resolved_universe.py
+      - .github/workflows/discretion-heldout-runtime.yml
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
+      POLYGON_API_KEY: ${{ secrets.POLYGON_API_KEY }}
+      ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+      ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+      ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT }}
+      SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+      HELDOUT_DATES: >-
+        2026-07-10 2026-07-13 2026-07-14 2026-07-15 2026-07-16
+        2026-07-17 2026-07-20 2026-07-21 2026-07-22 2026-07-23
+      HELDOUT_ROOT: discretion-heldout-runtime-v0.1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Test held-out and identity panel contracts
+        run: >-
+          python -m unittest
+          tests.test_discretion_heldout_panel
+          tests.test_identity_continuity
+          tests.test_identity_resolved_universe
+          tests.test_build_identity_resolved_universe
+          tests.test_causal_market_discovery
+          tests.test_historical_data
+          tests.test_historical_float
+          tests.test_historical_news
+          tests.test_causal_scanner_snapshot
+          tests.test_build_causal_scanner_snapshot
+          tests.test_scanner_source_inputs
+          -v
+      - name: Verify unlabeled registration and runtime session calendar
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from datetime import date, datetime, time, timedelta, timezone
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+
+          from momentumbot.providers.alpaca import AlpacaDataClient
+          from momentumbot.research.discretion_heldout_panel import (
+              REGISTERED_DATES,
+              canonical_fingerprint,
+              load_discretion_heldout_panel_contract,
+          )
+
+          dates = os.environ["HELDOUT_DATES"].split()
+          if dates != list(REGISTERED_DATES):
+              raise RuntimeError("workflow dates differ from held-out registration")
+          contract_path = Path(
+              "research/strategy/discretion-heldout-panel-v0.1.json"
+          )
+          contract = load_discretion_heldout_panel_contract(contract_path)
+          client = AlpacaDataClient.from_env()
+          eastern = ZoneInfo("America/New_York")
+          sessions = []
+          for value in dates:
+              target = date.fromisoformat(value)
+              frame = client.bars(
+                  ["SPY"],
+                  timeframe="1Day",
+                  start=datetime.combine(
+                      target - timedelta(days=1), time(0), timezone.utc
+                  ),
+                  end=datetime.combine(
+                      target + timedelta(days=2), time(0), timezone.utc
+                  ),
+                  feed="sip",
+                  adjustment="raw",
+                  asof=target,
+              ).get("SPY")
+              observed = (
+                  set(frame.index.tz_convert(eastern).date)
+                  if frame is not None and not frame.empty
+                  else set()
+              )
+              if target not in observed:
+                  raise RuntimeError(f"provider calendar lacks session {value}")
+              sessions.append(
+                  {
+                      "trading_date": value,
+                      "provider": "alpaca_sip_SPY_1Day",
+                      "asof": value,
+                      "session_observed": True,
+                  }
+              )
+          payload = {
+              "schema_version": 1,
+              "contract_id": contract["contract_id"],
+              "contract_content_sha256": canonical_fingerprint(contract),
+              "dates": dates,
+              "sessions": sessions,
+              "uses_ross_labels": False,
+              "uses_trade_outcomes": False,
+          }
+          Path("heldout-session-calendar-verification.json").write_text(
+              json.dumps(payload, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          PY
+      - name: Fetch point-in-time historical censuses
+        run: >-
+          python scripts/build_massive_historical_census.py
+          --dates $HELDOUT_DATES
+          --minimum-request-interval 12.5
+          --limit 1000
+          --output $HELDOUT_ROOT
+      - name: Audit instrument metadata semantics
+        run: >-
+          python scripts/audit_massive_instrument_metadata.py
+          --census-root $HELDOUT_ROOT
+      - name: Audit Alpaca historical daily-bar coverage
+        run: >-
+          python scripts/audit_massive_alpaca_market_coverage.py
+          --census-root $HELDOUT_ROOT
+          --batch-size 250
+      - name: Build provisional point-in-time universe
+        run: >-
+          python scripts/build_massive_provisional_universe.py
+          --census-root $HELDOUT_ROOT
+      - name: Audit identity continuity across panel endpoints
+        run: >-
+          python scripts/audit_historical_identity_continuity.py
+          --census-root $HELDOUT_ROOT
+          --dates 2026-07-10 2026-07-23
+          --lookback-days 120
+          --batch-size 200
+          --minimum-massive-request-interval 12.5
+          --ticker-event-sample-size 10
+      - name: Resolve identity for every registered date
+        run: >-
+          python scripts/build_identity_resolved_universe.py
+          --census-root $HELDOUT_ROOT
+      - name: Build label-blind causal market discovery
+        run: >-
+          python scripts/build_identity_resolved_market_discovery.py
+          --census-root $HELDOUT_ROOT
+          --dates $HELDOUT_DATES
+          --asset-batch-size 250
+      - name: Build causal point-in-time SEC float enrichment
+        run: >-
+          python scripts/build_causal_float_enrichment.py
+          --census-root $HELDOUT_ROOT
+          --dates $HELDOUT_DATES
+          --minimum-sec-request-interval 0.2
+          --sec-attempts 3
+      - name: Build provider-relative publication-timed news
+        run: >-
+          python scripts/build_causal_news_enrichment.py
+          --census-root $HELDOUT_ROOT
+          --dates $HELDOUT_DATES
+          --news-batch-size 50
+      - name: Build causal scanner snapshots and replay sidecars
+        run: >-
+          python scripts/build_causal_scanner_snapshot.py
+          --census-root $HELDOUT_ROOT
+          --dates $HELDOUT_DATES
+          --asset-batch-size 250
+          --persist-source-inputs
+      - name: Validate and freeze label-blind runtime roots
+        env:
+          HELDOUT_WORKFLOW_RUN_ID: ${{ github.run_id }}
+          HELDOUT_WORKFLOW_RUN_ATTEMPT: ${{ github.run_attempt }}
+          HELDOUT_WORKFLOW_JOB: ${{ github.job }}
+          HELDOUT_HEAD_SHA: ${{ github.sha }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          from momentumbot.causal_market_discovery import (
+              load_market_candidate_payload,
+          )
+          from momentumbot.causal_scanner_snapshot import (
+              build_scanner_snapshot_rows,
+              load_causal_scanner_snapshot,
+          )
+          from momentumbot.historical_float import load_causal_float_records
+          from momentumbot.historical_news import load_publication_timed_news
+          from momentumbot.identity_resolved_universe import (
+              json_fingerprint,
+              load_identity_resolved_universe,
+          )
+          from momentumbot.models import current_general_2026
+          from momentumbot.research.discretion_heldout_panel import (
+              REGISTERED_DATES,
+              canonical_fingerprint,
+              load_discretion_heldout_panel_contract,
+          )
+          from momentumbot.scanner_source_inputs import (
+              load_scanner_source_input_bundle,
+          )
+
+          root = Path(os.environ["HELDOUT_ROOT"])
+          dates = os.environ["HELDOUT_DATES"].split()
+          if dates != list(REGISTERED_DATES):
+              raise RuntimeError("runtime dates differ from registration")
+          contract = load_discretion_heldout_panel_contract(
+              "research/strategy/discretion-heldout-panel-v0.1.json"
+          )
+          calendar_path = Path("heldout-session-calendar-verification.json")
+          calendar = json.loads(calendar_path.read_text(encoding="utf-8"))
+          if calendar.get("dates") != dates or not all(
+              row.get("session_observed") is True
+              for row in calendar.get("sessions", [])
+          ):
+              raise RuntimeError("runtime session calendar verification is invalid")
+          (root / "session-calendar-verification.json").write_text(
+              json.dumps(calendar, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          profile = current_general_2026()
+          identity_root = root / "identity-resolved-universe-v0.1"
+          market_root = root / "causal-market-discovery-v0.2"
+          float_root = root / "causal-sec-float-v0.1"
+          news_root = root / "causal-alpaca-news-v0.2"
+          scanner_root = root / "causal-scanner-snapshot-v0.1"
+          source_root = root / "causal-scanner-source-inputs-v0.1"
+
+          roots = {
+              "identity": json.loads((identity_root / "manifest.json").read_text()),
+              "market": json.loads((market_root / "manifest.json").read_text()),
+              "float": json.loads((float_root / "manifest.json").read_text()),
+              "news": json.loads((news_root / "manifest.json").read_text()),
+              "scanner": json.loads((scanner_root / "manifest.json").read_text()),
+              "scanner_source_inputs": json.loads(
+                  (source_root / "manifest.json").read_text()
+              ),
+          }
+          if any(value.get("dates") != dates for value in roots.values()):
+              raise RuntimeError("a runtime root does not cover the registered panel")
+          audit_scope = roots["identity"]["source_artifacts"].get(
+              "identity_audit_scope_dates"
+          )
+          if audit_scope != [dates[0], dates[-1]]:
+              raise RuntimeError("identity audit does not span panel endpoints")
+          if roots["identity"]["knowledge_policy"].get(
+              "identity_status_rule_applied_independently_to_every_date"
+          ) is not True:
+              raise RuntimeError("identity rule was not applied to every date")
+
+          date_results = {}
+          for value in dates:
+              members, _, _ = load_identity_resolved_universe(
+                  identity_root,
+                  trading_date=value,
+              )
+              candidates, candidate_payload, _ = load_market_candidate_payload(
+                  market_root / value
+              )
+              floats, float_manifest = load_causal_float_records(
+                  float_root / value,
+                  candidate_rows=candidates,
+                  candidate_payload=candidate_payload,
+              )
+              events, statuses, _ = load_publication_timed_news(
+                  news_root / value,
+                  candidate_rows=candidates,
+                  candidate_payload=candidate_payload,
+                  source_float_records_sha256=float_manifest["summary"][
+                      "records_sha256"
+                  ],
+              )
+              source_inputs, source_manifest = load_scanner_source_input_bundle(
+                  source_root / value,
+                  profile=profile,
+              )
+              member_symbols = sorted(str(row["ticker"]) for row in members)
+              candidate_symbols = sorted(str(row["symbol"]) for row in candidates)
+              if list(source_inputs.membership_symbols) != member_symbols:
+                  raise RuntimeError(f"sidecar membership mismatch for {value}")
+              if list(source_inputs.candidate_symbols) != candidate_symbols:
+                  raise RuntimeError(f"sidecar candidates mismatch for {value}")
+              rows, payload, _ = load_causal_scanner_snapshot(
+                  scanner_root / value,
+                  candidate_rows=candidates,
+                  profile=profile,
+                  expected_source_hashes=source_inputs.source_hashes,
+              )
+              replayed = build_scanner_snapshot_rows(
+                  trading_date=source_inputs.trading_date,
+                  profile=profile,
+                  candidate_rows=candidates,
+                  float_records=floats,
+                  news_events=events,
+                  news_statuses=statuses,
+                  membership_symbols=source_inputs.membership_symbols,
+                  previous_close_by_symbol=(
+                      source_inputs.previous_close_by_symbol
+                  ),
+                  rank_raw_minute_bars_by_symbol=(
+                      source_inputs.rank_raw_minute_bars_by_symbol
+                  ),
+                  candidate_raw_minute_bars_by_symbol=(
+                      source_inputs.candidate_raw_minute_bars_by_symbol
+                  ),
+                  candidate_exact_rvol_by_symbol=(
+                      source_inputs.candidate_exact_rvol_by_symbol
+                  ),
+              )
+              if replayed != rows:
+                  raise RuntimeError(f"provider-independent replay changed {value}")
+              date_results[value] = {
+                  "identity_member_count": len(members),
+                  "market_candidate_count": len(candidates),
+                  "scanner_row_count": len(rows),
+                  "scanner_records_content_sha256": payload["content_sha256"],
+                  "scanner_source_inputs_content_sha256": source_manifest[
+                      "content_sha256"
+                  ],
+                  "scanner_source_inputs_logical_sha256": source_manifest[
+                      "summary"
+                  ]["logical_records_sha256"],
+              }
+
+          root_hashes = {
+              name: str(payload["content_sha256"])
+              for name, payload in roots.items()
+          }
+          manifest = {
+              "schema_version": 1,
+              "artifact_id": "ross-discretion-heldout-runtime-v0.1",
+              "dates": dates,
+              "registration": {
+                  "contract_id": contract["contract_id"],
+                  "contract_content_sha256": canonical_fingerprint(contract),
+                  "label_content_review_started": False,
+                  "session_calendar_content_sha256": json_fingerprint(calendar),
+              },
+              "workflow": {
+                  "run_id": int(os.environ["HELDOUT_WORKFLOW_RUN_ID"]),
+                  "run_attempt": int(os.environ["HELDOUT_WORKFLOW_RUN_ATTEMPT"]),
+                  "job": os.environ["HELDOUT_WORKFLOW_JOB"],
+                  "head_sha": os.environ["HELDOUT_HEAD_SHA"],
+              },
+              "runtime_root_content_sha256s": root_hashes,
+              "date_results": date_results,
+              "causal_boundary": {
+                  "uses_benchmark_labels": False,
+                  "uses_ross_actions": False,
+                  "uses_retrospective_trade_outcomes": False,
+                  "uses_later_price_outcomes": False,
+                  "all_market_candidates_retained": True,
+                  "top_n_selection_applied": False,
+                  "provider_independent_scanner_replay_validated": True,
+              },
+              "eligibility": {
+                  "runtime_inputs_frozen": True,
+                  "human_label_review_may_start_after_artifact_freeze": True,
+                  "universe_complete": False,
+                  "representative_panel": False,
+                  "full_walk_forward_eligible": False,
+                  "policy_promotion_eligible": False,
+                  "full_imitation_claim_eligible": False,
+              },
+              "limits": [
+                  "ten-session pilot only",
+                  "historical provider records may later mutate",
+                  "raw provider responses are not fully persisted",
+                  "level2 and synchronized tape context are absent",
+                  "no human trade or skip label is present",
+              ],
+          }
+          manifest["content_sha256"] = json_fingerprint(manifest)
+          (root / "heldout-runtime-manifest.json").write_text(
+              json.dumps(manifest, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          PY
+      - name: Upload held-out label-blind runtime
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: discretion-heldout-runtime-v0.1
+          path: discretion-heldout-runtime-v0.1
+          if-no-files-found: error
+          retention-days: 30

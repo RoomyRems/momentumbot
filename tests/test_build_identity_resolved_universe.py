@@ -5,12 +5,15 @@ from pathlib import Path
 import tempfile
 import unittest
 
+from momentumbot.historical_universe import historical_universe_v0_1_manifest
 from momentumbot.identity_resolved_universe import (
     json_fingerprint,
     provisional_membership_fingerprint,
 )
 from scripts.build_identity_resolved_universe import (
+    build_panel_identity_statuses,
     build_date_payload,
+    main,
     validate_expected_audit_result,
     validate_identity_audit_bundle,
 )
@@ -104,6 +107,10 @@ def _bundle(root: Path) -> tuple[dict[str, object], dict[str, object]]:
         "summary": {
             "alias_mapping_gate_pass": True,
             "bulk_corporate_action_gate_pass": True,
+            "earlier_identity_quarantine_tickers": [],
+            "later_identity_quarantine_tickers": [],
+            "earlier_identity_accepted_count": 1,
+            "later_identity_accepted_count": 1,
         },
         "eligibility": {
             "identity_gate_passes_after_explicit_quarantine": True,
@@ -126,6 +133,155 @@ def _bundle(root: Path) -> tuple[dict[str, object], dict[str, object]]:
 
 
 class BuildIdentityResolvedUniverseTests(unittest.TestCase):
+    def test_main_emits_every_panel_date_from_endpoint_audit(self) -> None:
+        dates = ["2025-04-03", "2025-10-01", "2026-07-09"]
+        source_policy = historical_universe_v0_1_manifest()
+        with tempfile.TemporaryDirectory() as raw:
+            root = Path(raw)
+            provisional = root / "provisional-universe-v0.1"
+            provisional.mkdir()
+            date_manifests = []
+            memberships = {}
+            for value in dates:
+                row = _row()
+                membership = provisional_membership_fingerprint([row])
+                memberships[value] = membership
+                (provisional / f"{value}-included.json").write_text(
+                    json.dumps(
+                        {
+                            "trading_date": value,
+                            "membership_sha256": membership,
+                            "policy_fingerprint": source_policy["fingerprint"],
+                            "rows": [row],
+                        }
+                    ),
+                    encoding="utf-8",
+                )
+                date_manifests.append(
+                    {
+                        "trading_date": value,
+                        "summary": {
+                            "included_membership_sha256": membership,
+                        },
+                    }
+                )
+            (provisional / "manifest.json").write_text(
+                json.dumps(
+                    {
+                        "dates": dates,
+                        "universe_policy": source_policy,
+                        "date_manifests": date_manifests,
+                        "complete_relative_to_census": True,
+                        "universe_complete": False,
+                    }
+                ),
+                encoding="utf-8",
+            )
+            audit_root = root / "identity-continuity-v0.1"
+            audit_root.mkdir()
+            _bundle(audit_root)
+            audit_manifest = json.loads(
+                (audit_root / "manifest.json").read_text(encoding="utf-8")
+            )
+            audit_manifest["source_artifacts"] = {
+                value: {
+                    "included_membership_sha256": memberships[value],
+                    "policy_fingerprint": source_policy["fingerprint"],
+                }
+                for value in (dates[0], dates[-1])
+            }
+            (audit_root / "manifest.json").write_text(
+                json.dumps(audit_manifest),
+                encoding="utf-8",
+            )
+
+            result = main(["--census-root", str(root)])
+
+            self.assertEqual(result, 0)
+            output = json.loads(
+                (root / "identity-resolved-universe-v0.1" / "manifest.json")
+                .read_text(encoding="utf-8")
+            )
+            self.assertEqual(output["dates"], dates)
+            self.assertEqual(
+                output["source_artifacts"]["identity_audit_scope_dates"],
+                [dates[0], dates[-1]],
+            )
+            self.assertEqual(set(output["date_summaries"]), set(dates))
+
+    def test_panel_resolves_intermediate_date_and_binds_endpoints(self) -> None:
+        payloads = {
+            "2026-07-10": {"rows": [_row("AAA")]},
+            "2026-07-13": {"rows": [_row("MID")]},
+            "2026-07-23": {"rows": [_row("ZZZ")]},
+        }
+        endpoint_status = {
+            value: {
+                "accepted": [
+                    {
+                        "ticker": ticker,
+                        "identifier_kind": "composite_figi",
+                        "identifier": f"FIGI-{ticker}",
+                    }
+                ],
+                "quarantined": [],
+            }
+            for value, ticker in (
+                ("2026-07-10", "AAA"),
+                ("2026-07-23", "ZZZ"),
+            )
+        }
+
+        statuses = build_panel_identity_statuses(
+            payloads,
+            audit_dates=["2026-07-10", "2026-07-23"],
+            bridge={"date_identity_status": endpoint_status},
+        )
+
+        self.assertEqual(
+            statuses["2026-07-13"]["accepted"][0]["ticker"],
+            "MID",
+        )
+        changed = json.loads(json.dumps(endpoint_status))
+        changed["2026-07-23"]["accepted"][0]["identifier"] = "WRONG"
+        with self.assertRaisesRegex(RuntimeError, "disagrees with audit"):
+            build_panel_identity_statuses(
+                payloads,
+                audit_dates=["2026-07-10", "2026-07-23"],
+                bridge={"date_identity_status": changed},
+            )
+
+    def test_intermediate_date_pins_provisional_root_without_audit_row(self) -> None:
+        row = _row("MID")
+        source_hash = provisional_membership_fingerprint([row])
+        payload = build_date_payload(
+            trading_date="2026-07-13",
+            provisional_payload={
+                "trading_date": "2026-07-13",
+                "membership_sha256": source_hash,
+                "policy_fingerprint": "source-policy",
+                "rows": [row],
+            },
+            accepted_statuses=[
+                {
+                    "ticker": "MID",
+                    "identifier_kind": "composite_figi",
+                    "identifier": "FIGI-MID",
+                }
+            ],
+            quarantined_statuses=[],
+            identity_manifest={
+                "audit_id": "historical-identity-corporate-action-audit-v0.1",
+                "content_sha256": "audit-content",
+                "source_artifacts": {},
+            },
+            bridge={"bridge_sha256": "bridge"},
+            expected_source_policy_fingerprint="source-policy",
+            expected_source_membership_sha256=source_hash,
+        )
+
+        self.assertEqual(payload["summary"]["identity_accepted_ticker_count"], 1)
+
     def test_bundle_fingerprints_every_audit_component(self) -> None:
         with tempfile.TemporaryDirectory() as raw:
             root = Path(raw)

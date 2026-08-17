@@ -113,6 +113,19 @@ def _date_identity_statuses(
     return accepted, quarantined
 
 
+def build_date_identity_statuses(
+    rows: Iterable[dict[str, object]],
+) -> dict[str, list[dict[str, str]]]:
+    """Apply the frozen identity decision independently to one snapshot date."""
+
+    normalized = _normalize_rows(rows)
+    accepted, quarantined = _date_identity_statuses(normalized)
+    return {
+        "accepted": accepted,
+        "quarantined": quarantined,
+    }
+
+
 def build_cross_date_identity_bridge(
     earlier_rows: Iterable[dict[str, object]],
     later_rows: Iterable[dict[str, object]],

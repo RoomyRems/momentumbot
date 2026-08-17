@@ -2,7 +2,10 @@ from __future__ import annotations
 
 import unittest
 
-from momentumbot.identity_continuity import build_cross_date_identity_bridge
+from momentumbot.identity_continuity import (
+    build_cross_date_identity_bridge,
+    build_date_identity_statuses,
+)
 
 
 def _row(ticker: str, *, figi: str = "", cik: str = "") -> dict[str, object]:
@@ -17,6 +20,24 @@ def _row(ticker: str, *, figi: str = "", cik: str = "") -> dict[str, object]:
 
 
 class IdentityContinuityTests(unittest.TestCase):
+    def test_single_date_status_uses_the_same_frozen_rule(self) -> None:
+        rows = [
+            _row("AAA", figi="FIGI-1", cik="1"),
+            _row("CLASSA", cik="2"),
+            _row("CLASSB", cik="2"),
+        ]
+
+        status = build_date_identity_statuses(list(reversed(rows)))
+
+        self.assertEqual(
+            [row["ticker"] for row in status["accepted"]],
+            ["AAA"],
+        )
+        self.assertEqual(
+            [row["ticker"] for row in status["quarantined"]],
+            ["CLASSA", "CLASSB"],
+        )
+
     def test_figi_primary_cik_fallback_and_symbol_reuse_are_explicit(self) -> None:
         earlier = [
             _row("AAA", figi="FIGI-1", cik="1"),

@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 from momentumbot.historical_universe import historical_universe_v0_1_manifest
+from momentumbot.identity_continuity import build_date_identity_statuses
 from momentumbot.identity_resolved_universe import (
     IDENTITY_AUDIT_LOOKBACK_DAYS,
     IDENTITY_RESOLVED_UNIVERSE_POLICY_ID,
@@ -154,6 +155,8 @@ def build_date_payload(
     quarantined_statuses: list[dict[str, object]],
     identity_manifest: dict[str, Any],
     bridge: dict[str, Any],
+    expected_source_policy_fingerprint: str | None = None,
+    expected_source_membership_sha256: str | None = None,
 ) -> dict[str, object]:
     rows = provisional_payload.get("rows")
     if not isinstance(rows, list):
@@ -161,13 +164,23 @@ def build_date_payload(
     if provisional_payload.get("trading_date") != trading_date:
         raise RuntimeError("provisional included artifact date mismatch")
     source = identity_manifest.get("source_artifacts", {}).get(trading_date, {})
-    if provisional_payload.get("policy_fingerprint") != source.get(
-        "policy_fingerprint"
+    source_policy = source.get("policy_fingerprint")
+    source_membership = source.get("included_membership_sha256")
+    expected_policy = expected_source_policy_fingerprint or source_policy
+    expected_membership = (
+        expected_source_membership_sha256 or source_membership
+    )
+    if not isinstance(expected_policy, str) or not expected_policy:
+        raise RuntimeError("identity resolution lacks source policy provenance")
+    if not isinstance(expected_membership, str) or not expected_membership:
+        raise RuntimeError("identity resolution lacks source membership provenance")
+    if source and (
+        source_policy != expected_policy or source_membership != expected_membership
     ):
+        raise RuntimeError("identity audit and provisional source disagree")
+    if provisional_payload.get("policy_fingerprint") != expected_policy:
         raise RuntimeError("identity audit source policy fingerprint mismatch")
-    if provisional_payload.get("membership_sha256") != source.get(
-        "included_membership_sha256"
-    ):
+    if provisional_payload.get("membership_sha256") != expected_membership:
         raise RuntimeError("identity audit source membership fingerprint mismatch")
     if provisional_membership_fingerprint(rows) != provisional_payload.get(
         "membership_sha256"
@@ -225,6 +238,37 @@ def build_date_payload(
     }
 
 
+def build_panel_identity_statuses(
+    provisional_payloads: dict[str, dict[str, Any]],
+    *,
+    audit_dates: list[str],
+    bridge: dict[str, Any],
+) -> dict[str, dict[str, list[dict[str, str]]]]:
+    """Resolve every panel date and bind the audited endpoint decisions."""
+
+    dates = list(provisional_payloads)
+    if len(dates) < 2 or dates != sorted(set(dates)):
+        raise RuntimeError("identity panel dates must be unique and ordered")
+    if audit_dates != [dates[0], dates[-1]]:
+        raise RuntimeError("identity audit must span the panel endpoints")
+    bridge_status = bridge.get("date_identity_status")
+    if not isinstance(bridge_status, dict):
+        raise RuntimeError("identity bridge lacks endpoint statuses")
+
+    statuses: dict[str, dict[str, list[dict[str, str]]]] = {}
+    for value, payload in provisional_payloads.items():
+        rows = payload.get("rows")
+        if not isinstance(rows, list):
+            raise RuntimeError(f"provisional identity rows are invalid for {value}")
+        status = build_date_identity_statuses(rows)
+        if value in audit_dates and status != bridge_status.get(value):
+            raise RuntimeError(
+                f"independent identity status disagrees with audit for {value}"
+            )
+        statuses[value] = status
+    return statuses
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--census-root", type=Path, required=True)
@@ -252,27 +296,53 @@ def main(argv: list[str] | None = None) -> int:
             identity_manifest,
             bridge,
         )
-    dates = identity_manifest.get("scope", {}).get("dates")
-    if not isinstance(dates, list) or len(dates) != 2:
+    audit_dates = identity_manifest.get("scope", {}).get("dates")
+    if not isinstance(audit_dates, list) or len(audit_dates) != 2:
         raise RuntimeError("identity audit must declare exactly two snapshot dates")
-    if dates != [bridge.get("earlier_date"), bridge.get("later_date")]:
+    if audit_dates != [bridge.get("earlier_date"), bridge.get("later_date")]:
         raise RuntimeError("identity bridge dates do not match audit scope")
-    if any(value not in provisional_manifest.get("dates", []) for value in dates):
-        raise RuntimeError("identity dates are missing from provisional universe")
+    dates = provisional_manifest.get("dates")
+    if (
+        not isinstance(dates, list)
+        or len(dates) < 2
+        or dates != sorted(set(dates))
+    ):
+        raise RuntimeError("provisional identity panel dates are invalid")
+    if audit_dates != [dates[0], dates[-1]]:
+        raise RuntimeError("identity audit must span the provisional panel")
+
+    source_date_manifests = provisional_manifest.get("date_manifests")
+    if not isinstance(source_date_manifests, list):
+        raise RuntimeError("provisional universe lacks date manifests")
+    source_by_date = {
+        str(row.get("trading_date")): row
+        for row in source_date_manifests
+        if isinstance(row, dict)
+    }
+    if set(source_by_date) != set(dates):
+        raise RuntimeError("provisional date manifests do not cover the panel")
+    provisional_payloads = {
+        value: _load_json(provisional_root / f"{value}-included.json")
+        for value in dates
+    }
+    date_status = build_panel_identity_statuses(
+        provisional_payloads,
+        audit_dates=audit_dates,
+        bridge=bridge,
+    )
 
     output_root = args.output or args.census_root / IDENTITY_RESOLVED_UNIVERSE_POLICY_ID
     output_root.mkdir(parents=True, exist_ok=False)
     date_payloads: list[dict[str, object]] = []
-    date_status = bridge.get("date_identity_status", {})
-    for index, value in enumerate(dates):
+    for value in dates:
         status = date_status.get(value, {})
         accepted = status.get("accepted")
         quarantined = status.get("quarantined")
         if not isinstance(accepted, list) or not isinstance(quarantined, list):
             raise RuntimeError(f"identity bridge lacks complete status for {value}")
-        provisional_payload = _load_json(
-            provisional_root / f"{value}-included.json"
-        )
+        provisional_payload = provisional_payloads[value]
+        source_manifest = source_by_date[value]
+        source_summary = source_manifest.get("summary", {})
         payload = build_date_payload(
             trading_date=value,
             provisional_payload=provisional_payload,
@@ -280,17 +350,28 @@ def main(argv: list[str] | None = None) -> int:
             quarantined_statuses=quarantined,
             identity_manifest=identity_manifest,
             bridge=bridge,
+            expected_source_policy_fingerprint=expected_source_policy[
+                "fingerprint"
+            ],
+            expected_source_membership_sha256=source_summary.get(
+                "included_membership_sha256"
+            ),
         )
-        prefix = "earlier" if index == 0 else "later"
-        summary = identity_manifest.get("summary", {})
-        if payload["summary"]["identity_quarantine_tickers"] != summary.get(
-            f"{prefix}_identity_quarantine_tickers"
-        ):
-            raise RuntimeError("identity quarantine disagrees with audit manifest")
-        if payload["summary"]["identity_accepted_ticker_count"] != summary.get(
-            f"{prefix}_identity_accepted_count"
-        ):
-            raise RuntimeError("identity accepted count disagrees with audit manifest")
+        if value in audit_dates:
+            prefix = "earlier" if value == audit_dates[0] else "later"
+            summary = identity_manifest.get("summary", {})
+            if payload["summary"]["identity_quarantine_tickers"] != summary.get(
+                f"{prefix}_identity_quarantine_tickers"
+            ):
+                raise RuntimeError(
+                    "identity quarantine disagrees with audit manifest"
+                )
+            if payload["summary"]["identity_accepted_ticker_count"] != summary.get(
+                f"{prefix}_identity_accepted_count"
+            ):
+                raise RuntimeError(
+                    "identity accepted count disagrees with audit manifest"
+                )
         _write_json(output_root / f"{value}-included.json", payload)
         date_payloads.append(payload)
 
@@ -312,6 +393,7 @@ def main(argv: list[str] | None = None) -> int:
             "identity_audit_id": identity_manifest["audit_id"],
             "identity_audit_content_sha256": identity_manifest["content_sha256"],
             "identity_bridge_sha256": bridge["bridge_sha256"],
+            "identity_audit_scope_dates": audit_dates,
         },
         "date_summaries": {
             str(payload["trading_date"]): payload["summary"]
@@ -341,6 +423,8 @@ def main(argv: list[str] | None = None) -> int:
             "uses_benchmark_labels": False,
             "uses_future_market_outcomes": False,
             "membership_change": "explicit_identity_quarantine_only",
+            "identity_status_rule_applied_independently_to_every_date": True,
+            "cross_date_alias_audit_scope": "first_and_last_panel_dates",
         },
     }
     root_manifest["content_sha256"] = json_fingerprint(
