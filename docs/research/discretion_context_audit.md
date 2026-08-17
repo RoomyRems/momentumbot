@@ -11,7 +11,7 @@ This audit freezes the missing-layer inventory before any further context experi
 | Decision layer | Current state | What exists | Main missing element |
 |---|---|---|---|
 | Technical setup and trigger | Frozen baseline | Micro pullback geometry, volume, support, momentum state and confirmation trigger | Cannot explain candidate preference |
-| Catalyst substance | Partial proxy | Provider news presence as of decision time | Substance, novelty, dilution risk and materiality |
+| Catalyst substance | Partial proxy | Provider news presence plus shadow chronology relative to market qualification | Substance, novelty, dilution risk, materiality and theme fit |
 | Attention leadership | Feature only | Full-membership gain rank plus shadow leadership, handoff, persistence and competition features | No frozen general-profile attention or top-N rule |
 | Daily-chart context | Partial proxy | Prior-high reward/risk room | Resistance clusters, repeated rejection and chart cleanliness |
 | Market regime and theme | Not implemented | Evidence-backed cold/spark/hot/exhausted concepts | No causal state or theme-saturation model |
@@ -96,6 +96,10 @@ This increases the frozen audit from 17 to 22 evidence rows. It is evidence that
 ### Attention feature checkpoint
 
 The first deterministic context feature layer is now frozen as `attention-leadership-shadow-v0.1`. It derives only threshold-free market leadership and transition measurements from causal scanner rows. Validation on the two-date frozen scanner artifact found a genuine MNST-to-VRAX leadership handoff, while TIVC never reached rank one. This supports keeping leadership as a measured context feature and rejects making rank one an assumed universal eligibility rule. Full details are in `docs/research/attention_leadership_shadow.md` and `research/data-audits/attention-leadership-shadow-v0.1.json`.
+
+### Catalyst timing checkpoint
+
+`catalyst-timing-shadow-v0.1` now separates market qualification from causally available provider-news timing. In the frozen VRAX reconstruction, market qualification precedes the first Alpaca provider event by 153 seconds and market leadership follows it by 207 seconds. Ross's recap describes a different proprietary news-linked alert, so the mismatch is retained rather than tuned away. Timing is now measurable, but substance, relevance and theme fit remain unresolved. Full details are in `docs/research/catalyst_timing_shadow.md` and `research/data-audits/catalyst-timing-shadow-v0.1.json`.
 
 ## Integration order
 

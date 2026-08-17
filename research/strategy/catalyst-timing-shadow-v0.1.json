@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "contract_id": "catalyst-timing-shadow-v0.1",
+  "artifact_type": "causal_shadow_feature_contract",
+  "purpose": "Separate upstream market qualification from causally available provider-news timing without claiming to understand catalyst quality.",
+  "runtime_strategy_effect": "none",
+  "catalyst_quality_score_frozen": false,
+  "selection_threshold_frozen": false,
+  "order_authority": false,
+  "risk_authority": false,
+  "policy_promotion_eligible": false,
+  "source_scanner": {
+    "artifact_id": "causal-scanner-snapshot-v0.1",
+    "schema_version": 1,
+    "policy_id": "causal-scanner-snapshot-v0.1",
+    "policy_fingerprint": "ed21becad10855b4a085b6e05b6feac8f21e4ce511a100b2381522154818f42a",
+    "news_policy_id": "causal-alpaca-news-v0.2",
+    "news_availability_basis": "provider published_at less than or equal to decision_time"
+  },
+  "knowledge_policy": {
+    "published_at_must_be_lte_decision_time": true,
+    "uses_only_current_or_prior_decision_rows": true,
+    "future_news_allowed": false,
+    "retrospective_trade_labels_allowed": false,
+    "provider_relative_no_news_treated_as_universal_no_news": false,
+    "event_counts_must_not_decrease": true,
+    "nonconsecutive_observations_reset_transitions": true
+  },
+  "feature_definitions": [
+    {
+      "name": "provider_news_state",
+      "meaning": "Tri-state provider view at decision time: present, provider-relative none, or unknown fail-closed.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "provider_news_present_at_activation",
+      "meaning": "Whether provider news was already present on the candidate's causal market-qualification row.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "provider_news_event_count_as_of",
+      "meaning": "Count of provider events published by the decision time.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "provider_news_event_count_change_from_prior_minute",
+      "meaning": "Change in the as-of event count since the immediately prior candidate minute.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "new_provider_news_became_available_this_minute",
+      "meaning": "Whether one or more additional provider events first became available during this candidate minute.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "provider_news_state_changed_from_prior_minute",
+      "meaning": "Whether the tri-state provider view changed since the immediately prior candidate minute.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "observed_provider_news_state_tenure_minutes",
+      "meaning": "Consecutive observed candidate minutes in the current provider-news state.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "first_provider_news_published_at_as_of",
+      "meaning": "Earliest causally available provider publication timestamp as of the decision.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "latest_provider_news_published_at_as_of",
+      "meaning": "Latest causally available provider publication timestamp as of the decision.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "seconds_since_first_provider_news",
+      "meaning": "Elapsed seconds from the first known provider publication to the decision.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "seconds_since_latest_provider_news",
+      "meaning": "Elapsed seconds from the latest known provider publication to the decision.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "seconds_from_activation_to_first_provider_news",
+      "meaning": "Signed seconds from market qualification to the first provider publication; positive means market qualification came first.",
+      "strategy_gate_enabled": false
+    },
+    {
+      "name": "candidate_qualified_before_first_provider_news",
+      "meaning": "Once a first provider event is known, whether market qualification preceded its publication.",
+      "strategy_gate_enabled": false
+    }
+  ],
+  "explicit_nonfeatures": [
+    "no catalyst-quality score",
+    "no headline relevance or materiality classification",
+    "no novelty or dilution-risk judgment",
+    "no sector-theme or sympathy inference",
+    "no universal no-news claim",
+    "no trade or risk decision"
+  ],
+  "interpretation_limit": "Provider event timing can show when a headline became available relative to market motion, but it cannot establish that the headline caused the move, was relevant to the symbol, was novel or material, or matched the active trading theme."
+}
