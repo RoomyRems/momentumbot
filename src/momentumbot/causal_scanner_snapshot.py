@@ -49,6 +49,8 @@ RANK_MINUTE_TIMEFRAME = "1Min"
 RANK_MINUTE_ADJUSTMENT = "raw"
 RANK_ACQUISITION_ASOF_RULE = "trading_date"
 UPSTREAM_MARKET_ACQUISITION_TAIL_END = time(10, 1)
+CANDIDATE_PREVIOUS_CLOSE_REL_TOL = 1e-12
+CANDIDATE_PREVIOUS_CLOSE_ABS_TOL = 1e-12
 
 _SOURCE_HASH_ORDER = (
     "identity_resolved_membership",
@@ -171,8 +173,19 @@ def causal_scanner_snapshot_v0_1_manifest() -> dict[str, object]:
             "one_minute_bar_close_available_at_bar_start_plus_one_minute"
         ),
         "candidate_bar_rule": (
-            "exact_completed_source_bar_required_for_each_candidate_decision"
+            "exact_completed_uniform_reacquired_membership_bar_required_for_"
+            "each_candidate_decision_after_market_reconstruction_corroboration"
         ),
+        "candidate_rank_frame_authority_rule": (
+            "uniform_all_membership_reacquired_frame_is_authoritative_for_"
+            "both_rank_and_candidate_features_never_switched_by_eventual_"
+            "candidate_status"
+        ),
+        "candidate_rank_frame_close_match_tolerance": {
+            "relative": CANDIDATE_PREVIOUS_CLOSE_REL_TOL,
+            "absolute": CANDIDATE_PREVIOUS_CLOSE_ABS_TOL,
+        },
+        "candidate_rank_frame_volume_match_rule": "exact_numeric_equality",
         "upstream_market_acquisition_tail_rule": (
             "accept_target_date_minute_bars_through_10:01_America/New_York_"
             "then_drop_bars_not_completed_strictly_before_exclusive_cutoff_"
@@ -194,6 +207,15 @@ def causal_scanner_snapshot_v0_1_manifest() -> dict[str, object]:
         "prior_close_input_rule": (
             "identity_membership_symbol_ascending_split_adjusted_previous_close"
         ),
+        "candidate_previous_close_authority_rule": (
+            "uniform_all_membership_reacquired_split_previous_close_is_"
+            "authoritative_for_both_rank_and_candidate_snapshot_after_"
+            "frozen_market_candidate_corroboration"
+        ),
+        "candidate_previous_close_match_tolerance": {
+            "relative": CANDIDATE_PREVIOUS_CLOSE_REL_TOL,
+            "absolute": CANDIDATE_PREVIOUS_CLOSE_ABS_TOL,
+        },
         "rank_acquisition_basis": {
             "provider": RANK_ACQUISITION_PROVIDER,
             "feed": RANK_HISTORICAL_FEED,
@@ -465,18 +487,20 @@ def _validate_frame(frame: pd.DataFrame, *, label: str) -> None:
         raise ValueError(f"{label} timestamps must be ordered")
 
 
-def overlay_authoritative_candidate_rank_frames(
+def bind_candidate_frames_to_reacquired_rank_frames(
     *,
     membership_symbols: Iterable[str],
     reacquired_rank_frames: Mapping[str, pd.DataFrame],
     authoritative_candidate_frames: Mapping[str, pd.DataFrame],
 ) -> dict[str, pd.DataFrame]:
-    """Make candidate feature and rank reads share one authoritative frame.
+    """Make candidate feature and rank reads share the uniform rank frame.
 
-    The all-membership reacquisition remains authoritative for noncandidates.
-    For candidates, the exact frames used to reproduce market qualification are
-    overlaid by object reference.  Any overlapping close disagreement between
-    the two provider reads is a blocker rather than a silently hidden rewrite.
+    The all-membership reacquisition is authoritative for every member at every
+    decision, whether or not that member eventually becomes a candidate.  The
+    independently reconstructed candidate frames corroborate timestamp, close,
+    and volume coverage, then candidate feature reads bind to the reacquired
+    objects.  Eventual candidate status therefore cannot rewrite an earlier
+    cross-sectional rank input.
     """
 
     symbols = _validated_membership_symbols(membership_symbols)
@@ -485,11 +509,11 @@ def overlay_authoritative_candidate_rank_frames(
     candidate_extras = set(authoritative_candidate_frames) - member_set
     if rank_extras or candidate_extras:
         raise ValueError(
-            "rank frame overlay contains nonmembership symbols; "
+            "candidate/rank frame binding contains nonmembership symbols; "
             f"rank_extra={sorted(rank_extras)}, "
             f"candidate_extra={sorted(candidate_extras)}"
         )
-    output = dict(reacquired_rank_frames)
+    output: dict[str, pd.DataFrame] = {}
     for symbol, authoritative in authoritative_candidate_frames.items():
         _validate_frame(
             authoritative,
@@ -498,38 +522,48 @@ def overlay_authoritative_candidate_rank_frames(
         if authoritative.empty:
             raise ValueError(f"authoritative candidate bars are empty for {symbol}")
         reacquired = reacquired_rank_frames.get(symbol)
-        if reacquired is not None and not reacquired.empty:
-            _validate_frame(reacquired, label=f"reacquired rank bars for {symbol}")
-            if not reacquired.index.equals(authoritative.index):
+        if reacquired is None or reacquired.empty:
+            raise ValueError(f"reacquired rank bars are empty for {symbol}")
+        _validate_frame(reacquired, label=f"reacquired rank bars for {symbol}")
+        if not reacquired.index.equals(authoritative.index):
+            raise ValueError(
+                "candidate/rank raw-minute timestamp coverage mismatch for "
+                f"{symbol}"
+            )
+        for field in ("close", "volume"):
+            if field not in reacquired or field not in authoritative:
                 raise ValueError(
-                    "candidate/rank raw-minute timestamp coverage mismatch for "
-                    f"{symbol}"
+                    f"candidate/rank raw-minute frames lack {field} for {symbol}"
                 )
-            overlap = authoritative.index
-            if "close" not in reacquired or "close" not in authoritative:
+        for timestamp in authoritative.index:
+            rank_close = _numeric_feature(reacquired.at[timestamp, "close"])
+            candidate_close = _numeric_feature(
+                authoritative.at[timestamp, "close"]
+            )
+            if (
+                rank_close is None
+                or candidate_close is None
+                or not math.isclose(
+                    rank_close,
+                    candidate_close,
+                    rel_tol=CANDIDATE_PREVIOUS_CLOSE_REL_TOL,
+                    abs_tol=CANDIDATE_PREVIOUS_CLOSE_ABS_TOL,
+                )
+            ):
                 raise ValueError(
-                    f"candidate/rank raw-minute frames lack close for {symbol}"
+                    "candidate/rank raw-minute close mismatch for "
+                    f"{symbol} at {timestamp.isoformat()}"
                 )
-            for timestamp in overlap:
-                rank_close = _numeric_feature(reacquired.at[timestamp, "close"])
-                candidate_close = _numeric_feature(
-                    authoritative.at[timestamp, "close"]
+            rank_volume = _numeric_feature(reacquired.at[timestamp, "volume"])
+            candidate_volume = _numeric_feature(
+                authoritative.at[timestamp, "volume"]
+            )
+            if rank_volume is None or rank_volume != candidate_volume:
+                raise ValueError(
+                    "candidate/rank raw-minute volume mismatch for "
+                    f"{symbol} at {timestamp.isoformat()}"
                 )
-                if (
-                    rank_close is None
-                    or candidate_close is None
-                    or not math.isclose(
-                        rank_close,
-                        candidate_close,
-                        rel_tol=1e-12,
-                        abs_tol=1e-12,
-                    )
-                ):
-                    raise ValueError(
-                        "candidate/rank raw-minute close mismatch for "
-                        f"{symbol} at {timestamp.isoformat()}"
-                    )
-        output[symbol] = authoritative
+        output[symbol] = reacquired
     return output
 
 
@@ -871,8 +905,8 @@ def build_scanner_snapshot_rows(
             or not math.isclose(
                 source_previous,
                 rank_previous,
-                rel_tol=1e-12,
-                abs_tol=1e-12,
+                rel_tol=CANDIDATE_PREVIOUS_CLOSE_REL_TOL,
+                abs_tol=CANDIDATE_PREVIOUS_CLOSE_ABS_TOL,
             )
         ):
             raise ValueError(
@@ -914,7 +948,7 @@ def build_scanner_snapshot_rows(
             if price is not None and (not math.isfinite(price) or price <= 0):
                 price = None
             percent_gain = (
-                (price / source_previous - 1.0) * 100.0
+                (price / rank_previous - 1.0) * 100.0
                 if price is not None
                 else None
             )
@@ -972,7 +1006,7 @@ def build_scanner_snapshot_rows(
                     decision_time.isoformat() if completed else None
                 ),
                 "price": price,
-                "previous_close": source_previous,
+                "previous_close": rank_previous,
                 "percent_gain": percent_gain,
                 "cumulative_volume": cumulative,
                 "exact_same_time_rvol": rvol,

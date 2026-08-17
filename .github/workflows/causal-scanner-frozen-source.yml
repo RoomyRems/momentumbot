@@ -173,7 +173,7 @@ jobs:
           assert root_manifest["dates"] == dates
           assert root_manifest["scanner_policy"] == causal_scanner_snapshot_v0_1_manifest()
           assert root_manifest["scanner_policy"]["fingerprint"] == (
-              "4ebeb4cb93b118e7a2175764c0f50f8a8acb10b061b8de6986bb7dff823f90c9"
+              "ed21becad10855b4a085b6e05b6feac8f21e4ce511a100b2381522154818f42a"
           )
           assert root_manifest["source_bundle_hashes"] == expected_bundle_hashes
           assert root_manifest["content_sha256"] == json_fingerprint(

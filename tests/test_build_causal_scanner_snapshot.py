@@ -16,7 +16,8 @@ from momentumbot.causal_market_discovery import (
     strategy_profile_manifest,
 )
 from momentumbot.causal_scanner_snapshot import (
-    overlay_authoritative_candidate_rank_frames,
+    bind_candidate_frames_to_reacquired_rank_frames,
+    cross_sectional_rank_state,
 )
 from momentumbot.historical_float import CAUSAL_FLOAT_POLICY_ID
 from momentumbot.historical_news import CAUSAL_NEWS_POLICY_ID
@@ -35,6 +36,7 @@ from build_causal_scanner_snapshot import (  # noqa: E402
     _previous_split_close,
     reacquire_rank_market_inputs,
     validate_cross_artifact_lineage,
+    validate_candidate_previous_closes,
     verify_reconstructed_market_candidates,
 )
 
@@ -261,7 +263,7 @@ class BuildCausalScannerSnapshotTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "must be ordered"):
             _previous_split_close(frame, trading_date=date(2025, 4, 3))
 
-    def test_candidate_rank_overlay_blocks_mismatch_and_shares_source(self) -> None:
+    def test_candidate_rank_binding_blocks_mismatch_and_shares_uniform_source(self) -> None:
         authoritative = pd.DataFrame(
             {"close": [2.0], "volume": [100]},
             index=pd.DatetimeIndex(["2025-04-03T11:00:00Z"]),
@@ -271,14 +273,14 @@ class BuildCausalScannerSnapshotTests(unittest.TestCase):
             index=authoritative.index,
         )
         with self.assertRaisesRegex(ValueError, "close mismatch"):
-            overlay_authoritative_candidate_rank_frames(
+            bind_candidate_frames_to_reacquired_rank_frames(
                 membership_symbols=["AAA"],
                 reacquired_rank_frames={"AAA": mismatched},
                 authoritative_candidate_frames={"AAA": authoritative},
             )
 
         matching_copy = authoritative.copy()
-        overlaid = overlay_authoritative_candidate_rank_frames(
+        bound = bind_candidate_frames_to_reacquired_rank_frames(
             membership_symbols=["AAA", "BBB"],
             reacquired_rank_frames={
                 "AAA": matching_copy,
@@ -286,8 +288,102 @@ class BuildCausalScannerSnapshotTests(unittest.TestCase):
             },
             authoritative_candidate_frames={"AAA": authoritative},
         )
-        self.assertIs(overlaid["AAA"], authoritative)
-        self.assertIs(overlaid["BBB"], matching_copy)
+        self.assertIs(bound["AAA"], matching_copy)
+        self.assertNotIn("BBB", bound)
+
+        volume_mismatch = authoritative.copy()
+        volume_mismatch["volume"] = [101]
+        with self.assertRaisesRegex(ValueError, "volume mismatch"):
+            bind_candidate_frames_to_reacquired_rank_frames(
+                membership_symbols=["AAA"],
+                reacquired_rank_frames={"AAA": matching_copy},
+                authoritative_candidate_frames={"AAA": volume_mismatch},
+            )
+
+    def test_candidate_previous_close_is_corroborated_without_rewrite(self) -> None:
+        source_previous = 1.0
+        reacquired_previous = 1.00000000000075
+        reacquired = {"AAA": reacquired_previous, "BBB": 2.0}
+        result = validate_candidate_previous_closes(
+            source_candidate_rows=[
+                {"symbol": "AAA", "previous_close": source_previous}
+            ],
+            reacquired_previous_closes=reacquired,
+        )
+        self.assertIsNone(result)
+        self.assertEqual(reacquired["AAA"], reacquired_previous)
+
+    def test_candidate_previous_close_corroboration_remains_fail_closed(self) -> None:
+        with self.assertRaisesRegex(
+            ValueError, "rank reacquisition previous close mismatch for AAA"
+        ):
+            validate_candidate_previous_closes(
+                source_candidate_rows=[
+                    {"symbol": "AAA", "previous_close": 1.0}
+                ],
+                reacquired_previous_closes={"AAA": 1.01},
+            )
+
+    def test_future_candidate_status_cannot_rewrite_earlier_rank_inputs(self) -> None:
+        decision = datetime(2025, 4, 3, 11, 1, tzinfo=timezone.utc)
+        raw_previous = {"AAA": 1.00000000000075, "ZZZ": 1.0}
+        rank_frames = {
+            "AAA": pd.DataFrame(
+                {"close": [2.0], "volume": [100]},
+                index=pd.DatetimeIndex(["2025-04-03T11:00:00Z"]),
+            ),
+            "ZZZ": pd.DataFrame(
+                {"close": [2.0], "volume": [100]},
+                index=pd.DatetimeIndex(["2025-04-03T11:00:00Z"]),
+            ),
+        }
+        baseline = cross_sectional_rank_state(
+            decision_time=decision,
+            membership_symbols=["AAA", "ZZZ"],
+            previous_close_by_symbol=raw_previous,
+            raw_minute_bars_by_symbol=rank_frames,
+        )
+        validate_candidate_previous_closes(
+            source_candidate_rows=[
+                {"symbol": "ZZZ", "previous_close": 1.0}
+            ],
+            reacquired_previous_closes=raw_previous,
+        )
+        bind_candidate_frames_to_reacquired_rank_frames(
+            membership_symbols=["AAA", "ZZZ"],
+            reacquired_rank_frames=rank_frames,
+            authoritative_candidate_frames={"ZZZ": rank_frames["ZZZ"].copy()},
+        )
+        with_future_candidate = [
+            {"symbol": "ZZZ", "previous_close": 1.0},
+            {"symbol": "AAA", "previous_close": 1.0},
+        ]
+        validate_candidate_previous_closes(
+            source_candidate_rows=with_future_candidate,
+            reacquired_previous_closes=raw_previous,
+        )
+        bound = bind_candidate_frames_to_reacquired_rank_frames(
+            membership_symbols=["AAA", "ZZZ"],
+            reacquired_rank_frames=rank_frames,
+            authoritative_candidate_frames={
+                symbol: rank_frames[symbol].copy()
+                for symbol in ("AAA", "ZZZ")
+            },
+        )
+        after = cross_sectional_rank_state(
+            decision_time=decision,
+            membership_symbols=["AAA", "ZZZ"],
+            previous_close_by_symbol=raw_previous,
+            raw_minute_bars_by_symbol=rank_frames,
+        )
+        self.assertEqual(after.ranks, baseline.ranks)
+        self.assertEqual(
+            after.rank_input_ordered_sha256,
+            baseline.rank_input_ordered_sha256,
+        )
+        self.assertEqual(after.leader_symbol, baseline.leader_symbol)
+        self.assertIs(bound["AAA"], rank_frames["AAA"])
+        self.assertEqual(raw_previous["AAA"], 1.00000000000075)
 
     def test_fake_provider_reacquires_all_members_on_causal_bases(self) -> None:
         provider = FakeBarsProvider()

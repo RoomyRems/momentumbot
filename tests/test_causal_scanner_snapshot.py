@@ -201,6 +201,27 @@ class CausalScannerSnapshotTests(unittest.TestCase):
             "feature_state_provider_news_present_unclassified",
         )
 
+    def test_core_uses_uniform_reacquired_candidate_previous_close(self) -> None:
+        candidate_bars = _bars([2.0])
+        reacquired_previous = 1.00000000000075
+        rows = build_scanner_snapshot_rows(
+            trading_date=date(2025, 4, 3),
+            profile=_profile(time(7, 2)),
+            candidate_rows=[_candidate()],
+            float_records=[_float_record()],
+            news_events=[],
+            news_statuses=[_news_status()],
+            membership_symbols=["AAA"],
+            previous_close_by_symbol={"AAA": reacquired_previous},
+            rank_raw_minute_bars_by_symbol={"AAA": candidate_bars},
+            candidate_raw_minute_bars_by_symbol={"AAA": candidate_bars},
+            candidate_exact_rvol_by_symbol={"AAA": _rvol([6.0])},
+        )
+        row = rows[0]
+        self.assertEqual(row["previous_close"], reacquired_previous)
+        self.assertEqual(row["top_gainer_rank"], 1)
+        self.assertEqual(row["percent_gain"], row["rank_leader_percent_gain"])
+
     def test_incomplete_rank_fails_closed_and_records_coverage(self) -> None:
         candidate_bars = _bars([2.0])
         rows = build_scanner_snapshot_rows(
@@ -357,6 +378,46 @@ class CausalScannerSnapshotTests(unittest.TestCase):
         )
         self.assertEqual(
             causal_scanner_snapshot_v0_1_manifest()[
+                "candidate_previous_close_authority_rule"
+            ],
+            "uniform_all_membership_reacquired_split_previous_close_is_"
+            "authoritative_for_both_rank_and_candidate_snapshot_after_"
+            "frozen_market_candidate_corroboration",
+        )
+        self.assertEqual(
+            causal_scanner_snapshot_v0_1_manifest()[
+                "candidate_previous_close_match_tolerance"
+            ],
+            {"relative": 1e-12, "absolute": 1e-12},
+        )
+        self.assertEqual(
+            causal_scanner_snapshot_v0_1_manifest()[
+                "source_input_fingerprint_rule"
+            ],
+            "streamed_canonical_newline_records_without_materializing_full_tape",
+        )
+        self.assertEqual(
+            causal_scanner_snapshot_v0_1_manifest()[
+                "candidate_rank_frame_authority_rule"
+            ],
+            "uniform_all_membership_reacquired_frame_is_authoritative_for_"
+            "both_rank_and_candidate_features_never_switched_by_eventual_"
+            "candidate_status",
+        )
+        self.assertEqual(
+            causal_scanner_snapshot_v0_1_manifest()[
+                "candidate_rank_frame_close_match_tolerance"
+            ],
+            {"relative": 1e-12, "absolute": 1e-12},
+        )
+        self.assertEqual(
+            causal_scanner_snapshot_v0_1_manifest()[
+                "candidate_rank_frame_volume_match_rule"
+            ],
+            "exact_numeric_equality",
+        )
+        self.assertEqual(
+            causal_scanner_snapshot_v0_1_manifest()[
                 "upstream_market_acquisition_tail_rule"
             ],
             "accept_target_date_minute_bars_through_10:01_America/New_York_"
@@ -365,7 +426,7 @@ class CausalScannerSnapshotTests(unittest.TestCase):
         )
         self.assertEqual(
             causal_scanner_snapshot_v0_1_manifest()["fingerprint"],
-            "4ebeb4cb93b118e7a2175764c0f50f8a8acb10b061b8de6986bb7dff823f90c9",
+            "ed21becad10855b4a085b6e05b6feac8f21e4ce511a100b2381522154818f42a",
         )
         self.assertFalse(
             causal_scanner_snapshot_v0_1_manifest()[

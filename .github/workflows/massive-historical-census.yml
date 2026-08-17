@@ -294,7 +294,7 @@ jobs:
           assert s['schema_version']==1;
           assert s['artifact_id']=='causal-scanner-snapshot-v0.1';
           assert s['dates']==['2025-04-03','2026-07-09'];
-          assert s['scanner_policy']['fingerprint']=='4ebeb4cb93b118e7a2175764c0f50f8a8acb10b061b8de6986bb7dff823f90c9';
+          assert s['scanner_policy']['fingerprint']=='ed21becad10855b4a085b6e05b6feac8f21e4ce511a100b2381522154818f42a';
           assert s['content_sha256']==h({k:v for k,v in s.items() if k!='content_sha256'});
           assert s['eligibility']['complete_relative_to_identity_resolved_membership'] is True;
           assert s['eligibility']['candidate_minute_dispositions_frozen'] is True;

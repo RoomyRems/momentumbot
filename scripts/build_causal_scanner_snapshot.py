@@ -18,6 +18,8 @@ from momentumbot.causal_market_discovery import (
     strategy_profile_manifest,
 )
 from momentumbot.causal_scanner_snapshot import (
+    CANDIDATE_PREVIOUS_CLOSE_ABS_TOL,
+    CANDIDATE_PREVIOUS_CLOSE_REL_TOL,
     CAUSAL_SCANNER_SNAPSHOT_ARTIFACT_ID,
     RANK_HISTORICAL_FEED,
     RANK_MINUTE_ADJUSTMENT,
@@ -31,7 +33,7 @@ from momentumbot.causal_scanner_snapshot import (
     build_scanner_snapshot_rows,
     causal_scanner_snapshot_v0_1_manifest,
     market_inputs_fingerprint,
-    overlay_authoritative_candidate_rank_frames,
+    bind_candidate_frames_to_reacquired_rank_frames,
     trim_scanner_bar_frame,
     trim_scanner_rvol_series,
 )
@@ -241,6 +243,52 @@ def verify_reconstructed_market_candidates(
         raise ValueError("reconstructed candidate minute coverage mismatch")
     if set(reconstructed.rvol_curves) != set(source):
         raise ValueError("reconstructed candidate RVOL coverage mismatch")
+
+
+def validate_candidate_previous_closes(
+    *,
+    source_candidate_rows: list[dict[str, object]],
+    reacquired_previous_closes: Mapping[str, float],
+) -> None:
+    """Corroborate candidate priors without changing the uniform rank map.
+
+    The independently reacquired all-membership map remains authoritative for
+    rank and snapshot features.  Frozen market candidates only corroborate it;
+    they never selectively rewrite an earlier rank based on eventual candidate
+    status.
+    """
+
+    seen: set[str] = set()
+    for candidate in source_candidate_rows:
+        symbol = str(candidate.get("symbol") or "")
+        if not symbol or symbol in seen:
+            raise ValueError(
+                "source market candidates require unique nonblank symbols"
+            )
+        seen.add(symbol)
+        try:
+            source_previous = float(candidate["previous_close"])
+        except (KeyError, TypeError, ValueError):
+            raise ValueError(
+                f"source market candidate previous close is invalid for {symbol}"
+            ) from None
+        rank_previous = reacquired_previous_closes.get(symbol)
+        if (
+            not math.isfinite(source_previous)
+            or source_previous <= 0
+            or rank_previous is None
+            or not math.isfinite(float(rank_previous))
+            or float(rank_previous) <= 0
+            or not math.isclose(
+                float(rank_previous),
+                source_previous,
+                rel_tol=CANDIDATE_PREVIOUS_CLOSE_REL_TOL,
+                abs_tol=CANDIDATE_PREVIOUS_CLOSE_ABS_TOL,
+            )
+        ):
+            raise ValueError(
+                f"rank reacquisition previous close mismatch for {symbol}"
+            )
 
 
 def _read_bundle_manifest(path: Path, *, artifact_id: str) -> dict[str, object]:
@@ -538,7 +586,7 @@ def main(argv: list[str] | None = None) -> int:
         )
         verify_reconstructed_market_candidates(candidate_rows, reconstructed)
         membership_symbols = sorted(str(row["ticker"]) for row in membership_rows)
-        previous_closes, rank_minutes = reacquire_rank_market_inputs(
+        raw_previous_closes, rank_minutes = reacquire_rank_market_inputs(
             client,
             trading_date=trading_date,
             membership_symbols=membership_symbols,
@@ -577,29 +625,21 @@ def main(argv: list[str] | None = None) -> int:
             )
             for symbol, series in reconstructed.rvol_curves.items()
         }
-        rank_minutes = overlay_authoritative_candidate_rank_frames(
+        candidate_minutes = bind_candidate_frames_to_reacquired_rank_frames(
             membership_symbols=membership_symbols,
             reacquired_rank_frames=rank_minutes,
             authoritative_candidate_frames=candidate_minutes,
         )
-        for candidate in candidate_rows:
-            symbol = str(candidate["symbol"])
-            rank_previous = previous_closes.get(symbol)
-            if rank_previous is None or not math.isclose(
-                rank_previous,
-                float(candidate["previous_close"]),
-                rel_tol=1e-12,
-                abs_tol=1e-12,
-            ):
-                raise ValueError(
-                    f"rank reacquisition previous close mismatch for {symbol}"
-                )
+        validate_candidate_previous_closes(
+            source_candidate_rows=candidate_rows,
+            reacquired_previous_closes=raw_previous_closes,
+        )
 
         input_sha = market_inputs_fingerprint(
             trading_date=trading_date,
             profile=profile,
             membership_symbols=membership_symbols,
-            previous_close_by_symbol=previous_closes,
+            previous_close_by_symbol=raw_previous_closes,
             rank_raw_minute_bars_by_symbol=rank_minutes,
             candidate_raw_minute_bars_by_symbol=candidate_minutes,
             candidate_exact_rvol_by_symbol=candidate_rvol,
@@ -631,7 +671,7 @@ def main(argv: list[str] | None = None) -> int:
             news_events=news_events,
             news_statuses=news_statuses,
             membership_symbols=membership_symbols,
-            previous_close_by_symbol=previous_closes,
+            previous_close_by_symbol=raw_previous_closes,
             rank_raw_minute_bars_by_symbol=rank_minutes,
             candidate_raw_minute_bars_by_symbol=candidate_minutes,
             candidate_exact_rvol_by_symbol=candidate_rvol,
