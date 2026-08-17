@@ -1,0 +1,63 @@
+# Discretion-context coverage audit v0.1
+
+## Purpose
+
+The recent micro-pullback experiments show that changing a technical translation can recover a labeled entry while also creating much more activity elsewhere. That is consistent with an incomplete decision stack: the technical trigger is being evaluated without all of the contextual filters Ross Cameron may have used to decide that a stock and moment deserved participation.
+
+This audit freezes the missing-layer inventory before any further context experiment. It does not change `micro-v0.1`, the causal scanner, candidate selection, risk, or execution. Its machine-readable source is `research/strategy/discretion-context-v0.1.json`.
+
+## Current coverage
+
+| Decision layer | Current state | What exists | Main missing element |
+|---|---|---|---|
+| Technical setup and trigger | Frozen baseline | Micro pullback geometry, volume, support, momentum state and confirmation trigger | Cannot explain candidate preference |
+| Catalyst substance | Partial proxy | Provider news presence as of decision time | Substance, novelty, dilution risk and materiality |
+| Attention leadership | Feature only | Full-membership gain rank | No frozen general-profile attention or top-N rule |
+| Daily-chart context | Partial proxy | Prior-high reward/risk room | Resistance clusters, repeated rejection and chart cleanliness |
+| Market regime and theme | Not implemented | Evidence-backed cold/spark/hot/exhausted concepts | No causal state or theme-saturation model |
+| Liquidity and fill quality | Partial proxy | Total volume, SIP prints and basic slippage checks | Complete quote, spread, depth and achievable-size model |
+| Level 2 and tape | Deferred | SIP time and sales used for bars and fill modeling | Historical depth, queue/replenishment and synchronized screen evidence |
+| Session state and aggression | Partial, not end to end | Risk objects, giveback and lockout rules | One replay carrying scanner, positions, realized PnL, cushion and re-entry state |
+
+Only the technical setup layer is frozen as an implemented policy. Every incomplete contextual layer is explicitly fail-closed and cannot become a runtime strategy gate through this audit.
+
+## Research implication
+
+The five labeled micro cases remain useful diagnostics, but they do not represent the full strategy. A seed-case entry improvement can mean any of the following:
+
+1. the technical translation became more faithful;
+2. a missing contextual filter was accidentally approximated;
+3. a broad rule was loosened enough to catch the labeled trade and many unrelated opportunities;
+4. upstream selection qualified too late for the entry to be reproducible.
+
+Therefore no further technical ablation should be interpreted as full-strategy imitation evidence while the required context domains remain incomplete. This does not forbid a narrowly justified technical correction; it changes the claim that may be made from it.
+
+## Next evidence stage
+
+The next bounded research task is a source-coverage audit, not a new trading rule. For each context domain, check the existing evidence registry and benchmark sources for:
+
+- normative teaching that defines the intended judgment;
+- pre-entry commentary rather than retrospective outcome explanation;
+- both participated and skipped candidates;
+- a resolvable timestamp and the market inputs available then;
+- visual evidence only when the transcript does not contain the necessary chart, scanner, Level 2 or tape state.
+
+The entire transcript corpus does not need to be re-uploaded. Request only a named video, timestamp range, or missing screen segment after the existing evidence has been checked. Trade recaps alone are not enough: skip and comparison examples are especially important because they identify the discretionary filter that controls activity.
+
+## Integration order
+
+1. Audit existing evidence for all eight domains.
+2. Prioritize catalyst substance, attention leadership, daily-chart context and regime because they act before the micro trigger.
+3. Freeze deterministic causal features wherever the judgment is measurable.
+4. Use an AI component only for residual structured context, shadow-only, with no order or risk authority.
+5. Evaluate each context layer in isolation on chronological held-out trade and skip examples.
+6. Integrate scanner, context, setup, position and session state on one causal replay.
+7. Make an overall imitation claim only after the complete decision chain is tested on a representative walk-forward panel.
+
+## Non-negotiable guards
+
+- Raw transcripts remain offline research evidence and never become runtime prompts.
+- News, filings, scanner state, charts and session state must be available by the simulated decision time.
+- Reported Ross fills, later highs, outcomes and PnL never enter runtime reconstruction.
+- An AI reviewer remains shadow-only until the deterministic baseline and each contextual input pass causal validation.
+- This audit is not policy-promotion eligible and does not imply profitability or live-trading readiness.
