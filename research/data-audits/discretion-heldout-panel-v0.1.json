@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "audit_id": "ross-discretion-heldout-panel-v0.1-registration",
+  "artifact_type": "chronological_heldout_panel_registration_audit",
+  "contract_id": "ross-discretion-heldout-panel-v0.1",
+  "created_on": "2026-08-17",
+  "contract_file": "research/strategy/discretion-heldout-panel-v0.1.json",
+  "contract_file_sha256": "6aebb0507521697f793940d246805467f305a6fd3fc64276833725b812e6c469",
+  "contract_content_sha256": "1d93633eda448bbca62e5ca5c8c3f7c589d66de86017f9fa2b586a68add20791",
+  "runtime_strategy_effect": "none",
+  "policy_promotion_eligible": false,
+  "full_imitation_claim_eligible": false,
+  "registration": {
+    "status": "registered_unlabeled",
+    "development_evidence_cutoff": "2026-07-09",
+    "registered_date_count": 10,
+    "first_registered_date": "2026-07-10",
+    "last_registered_date": "2026-07-23",
+    "symbols_used_for_selection": false,
+    "human_source_content_reviewed_for_selection": false,
+    "trades_skips_outcomes_or_pnl_used_for_selection": false,
+    "replacement_dates_allowed": false,
+    "representative_sample_claimed": false
+  },
+  "session_calendar_check": {
+    "source": "https://www.nyse.com/markets/hours-calendars",
+    "checked_on": "2026-08-17",
+    "registered_dates_confirmed_as_regular_sessions": true,
+    "relevant_2026_july_holiday": "2026-07-03_independence_day_observed_before_panel",
+    "runtime_provider_session_validation_still_required": true
+  },
+  "guards_validated": {
+    "all_dates_follow_development_cutoff": true,
+    "development_and_panel_dates_are_disjoint": true,
+    "all_causal_market_candidates_required": true,
+    "top_n_filter_forbidden": true,
+    "runtime_must_freeze_before_human_label_review": true,
+    "retrospective_labels_forbidden_in_runtime": true,
+    "unmentioned_candidate_is_not_a_skip": true,
+    "missing_source_is_not_a_skip": true,
+    "missing_source_does_not_trigger_date_replacement": true,
+    "main_and_small_accounts_must_be_reported_separately": true,
+    "unknown_rate_and_activity_density_must_be_reported": true,
+    "panel_rule_tuning_forbidden": true
+  },
+  "decision": {
+    "freeze_date_registration": true,
+    "start_human_label_review": false,
+    "promote_context_rule": false,
+    "promote_micro_rule": false,
+    "reason": "The known examples are sufficient to define what must be measured but not to judge accuracy. Freezing the next dates before new source review creates an honest pilot without fitting another rule to the existing cases."
+  },
+  "next_execution": {
+    "step": "verify the registered sessions and build a label-blind, hash-frozen runtime artifact for all causal candidates on all ten dates",
+    "source_input_requirement": "persist or otherwise version the exact causal inputs needed for independent replay rather than relying only on a mutable provider refetch",
+    "transcripts_needed_before_runtime_freeze": false,
+    "human_evidence_needed_after_runtime_freeze": "same-day Ross source material for the fixed dates, requested by exact date or video only after runtime is frozen"
+  },
+  "residual_limits": [
+    "The exact registered dates still require independent exchange-session verification before market-data acquisition.",
+    "Ten sessions test the method but are not representative enough for policy promotion or a full imitation claim.",
+    "A recap may not expose every candidate Ross considered, so not-mentioned candidates remain unknown.",
+    "Historical provider records can mutate; runtime inputs and hashes must be frozen before label review.",
+    "Level 2 remains untestable without synchronized depth or sufficiently precise screen evidence.",
+    "The registration defines evaluation order; it does not add a catalyst score, attention threshold, selection rule, order, size or risk action."
+  ]
+}

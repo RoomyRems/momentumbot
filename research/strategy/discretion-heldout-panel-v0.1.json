@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "contract_id": "ross-discretion-heldout-panel-v0.1",
+  "artifact_type": "chronological_heldout_panel_registration",
+  "purpose": "Freeze a small chronological date panel and causal evaluation order before opening new Ross Cameron source content or using retrospective trade and skip labels.",
+  "registration_status": "registered_unlabeled",
+  "panel_kind": "pilot_not_representative",
+  "runtime_strategy_effect": "none",
+  "policy_promotion_eligible": false,
+  "full_imitation_claim_eligible": false,
+  "selection_threshold_frozen": false,
+  "label_content_review_started": false,
+  "source_content_opened_for_date_selection": false,
+  "dates_may_be_replaced": false,
+  "parent_research_contracts": {
+    "discretion_context": "ross-discretion-context-v0.1",
+    "catalyst_interpretation": "catalyst-interpretation-protocol-shadow-v0.2",
+    "attention_leadership": "attention-leadership-shadow-v0.1",
+    "catalyst_timing": "catalyst-timing-shadow-v0.1",
+    "catalyst_evidence_packet": "catalyst-evidence-packet-shadow-v0.1",
+    "scanner_policy_id": "causal-scanner-snapshot-v0.1",
+    "scanner_policy_fingerprint": "ed21becad10855b4a085b6e05b6feac8f21e4ce511a100b2381522154818f42a",
+    "micro_policy_id": "micro-v0.1",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa"
+  },
+  "sampling_contract": {
+    "development_evidence_cutoff": "2026-07-09",
+    "development_benchmark_dates": [
+      "2025-04-03",
+      "2025-04-21",
+      "2025-09-09",
+      "2026-03-27",
+      "2026-04-22",
+      "2026-05-18",
+      "2026-06-10",
+      "2026-06-26",
+      "2026-07-09"
+    ],
+    "selection_rule": "first_ten_registered_us_equity_sessions_strictly_after_development_evidence_cutoff",
+    "registered_dates": [
+      "2026-07-10",
+      "2026-07-13",
+      "2026-07-14",
+      "2026-07-15",
+      "2026-07-16",
+      "2026-07-17",
+      "2026-07-20",
+      "2026-07-21",
+      "2026-07-22",
+      "2026-07-23"
+    ],
+    "date_selection_uses_symbols": false,
+    "date_selection_uses_ross_actions": false,
+    "date_selection_uses_trade_outcomes": false,
+    "date_selection_uses_pnl": false,
+    "missing_source_date_replaced": false,
+    "all_causal_market_candidates_retained": true,
+    "top_n_or_rank_filter_applied": false,
+    "session_calendar_must_be_verified_before_runtime": true,
+    "source_availability_rule": "A missing or unusable same-day source becomes source_unavailable for that fixed date; it never causes a replacement date to be selected.",
+    "scope_limit": "Ten sessions are sufficient to test the acquisition and labeling method, but not to claim representative market coverage."
+  },
+  "human_evidence_policy": {
+    "source_priority": [
+      "market-clock-synchronized live recording or timestamped screen evidence",
+      "same-day recap with decisions bounded by causal market events",
+      "retrospective sequence-only recap"
+    ],
+    "action_states": [
+      "participated",
+      "explicitly_skipped_or_rejected",
+      "discussed_but_action_unclear",
+      "not_mentioned_or_unobservable",
+      "source_unavailable"
+    ],
+    "account_scopes": [
+      "main_account",
+      "small_account",
+      "both_accounts_separately_observed",
+      "account_scope_unknown"
+    ],
+    "evidence_timing_qualities": [
+      "market_clock_synchronized",
+      "bounded_by_causal_market_events",
+      "retrospective_sequence_only",
+      "timing_unresolved"
+    ],
+    "not_mentioned_counts_as_skip": false,
+    "source_unavailable_counts_as_skip": false,
+    "small_and_main_accounts_may_be_merged": false,
+    "raw_transcript_allowed_in_runtime": false,
+    "labels_created_only_after_runtime_hash_freeze": true,
+    "date_replacement_after_source_review": false,
+    "reason": "Ross may omit candidates from a recap, and account size or broker constraints can change a decision. Only explicit, account-scoped evidence may become a trade or skip label."
+  },
+  "causal_separation": {
+    "runtime_inputs_available_by_decision_time": true,
+    "runtime_artifact_frozen_before_label_review": true,
+    "retrospective_labels_allowed_in_runtime": false,
+    "later_price_or_outcome_allowed_in_runtime": false,
+    "label_artifact_stored_separately": true
+  },
+  "workflow_sequence": [
+    "freeze_date_registration_without_source_content_or_behavior_labels",
+    "run_label_blind_market_and_context_replay_for_every_registered_date",
+    "freeze_and_hash_runtime_artifacts",
+    "locate_and_review_same_day_human_evidence_without_replacing_dates",
+    "freeze_retrospective_account_scoped_trade_skip_or_unknown_labels",
+    "compare_frozen_runtime_with_labels_and_report_missingness_and_activity"
+  ],
+  "evaluation_contract": {
+    "stage": "coverage_and_component_agreement_only",
+    "context_domains": [
+      "technical_setup_and_trigger",
+      "catalyst_substance",
+      "attention_leadership",
+      "daily_chart_context",
+      "market_regime_and_theme",
+      "liquidity_and_fill_quality",
+      "level2_and_tape",
+      "session_state_and_aggression"
+    ],
+    "unknown_actions_excluded_from_trade_skip_accuracy": true,
+    "coverage_and_unknown_rate_reported": true,
+    "account_scopes_reported_separately": true,
+    "activity_density_reported": true,
+    "component_thresholds_may_be_fit_on_panel": false,
+    "technical_rules_may_be_retuned_on_panel": false,
+    "overall_imitation_score_allowed": false,
+    "requires_at_least_one_explicit_trade_and_one_explicit_skip_for_behavior_comparison": true,
+    "descriptive_outputs": [
+      "candidate and source coverage",
+      "explicit trade, explicit skip, unclear, unmentioned and source-unavailable counts",
+      "account-stratified component observations",
+      "plan and fill activity density",
+      "timing error only where the human decision time is causally bounded",
+      "feature missingness and provider failure counts"
+    ],
+    "claim_limit": "This pilot may reveal whether the evidence pipeline and individual shadow features are useful. It cannot fit a selection threshold, promote a policy or support a full Ross-imitation claim."
+  },
+  "execution_status": {
+    "runtime_replay": "not_started",
+    "human_label_review": "not_started",
+    "runtime_artifact_sha256": null,
+    "label_artifact_sha256": null
+  }
+}

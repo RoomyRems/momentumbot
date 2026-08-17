@@ -134,6 +134,12 @@ Across the 35 frozen packets, 10 contain no provider event, 2 contain only singl
 
 The ARTL/ZEVAI enrichment motivated a separately versioned `catalyst-interpretation-protocol-shadow-v0.2`. It adds explicit title-level fields for commitment stage, economic quantification, possible repetition within available packet evidence, and offering-overhang direction. It still outputs no score or action, and it still forces novelty, materiality and theme fit to remain unknown when the required causal evidence is absent. Full details are in `docs/research/catalyst_interpretation_protocol_v02.md`.
 
+### Held-out panel registration checkpoint
+
+`ross-discretion-heldout-panel-v0.1` now freezes a ten-session pilot immediately after the July 9 development cutoff. The dates were registered without opening new Ross source content and without using symbols, trades, skips, outcomes or P&L. Every causal market candidate must be retained, and the runtime artifact must be frozen before any human evidence is reviewed.
+
+The registration also closes two important labeling shortcuts. A candidate that Ross does not mention is **unknown**, not a skip, and small-account and main-account decisions cannot be merged. Missing source material does not permit substituting a more interesting date. This is a process-validation panel rather than a representative market sample, so it cannot fit thresholds or promote a policy. Full details are in `docs/research/discretion_heldout_panel_v01.md`.
+
 ## Integration order
 
 1. Audit existing evidence for all eight domains.
