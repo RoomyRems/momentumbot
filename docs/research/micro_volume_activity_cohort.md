@@ -79,9 +79,48 @@ Workflow run `31984950288` completed successfully at correction commit `cc252138
 
 The corrected selection payload is logically identical after excluding per-date discovery content hashes. Its byte hash changed because fresh label-blind discovery changed four of six per-date provenance hashes, not because any selected symbol, qualification time, previous close, rank or case changed. The original frozen artifacts remain intact; the exact corrected selection, summary and provenance are stored under separate armed-time filenames.
 
+### Completed-bar market-discovery rerun
+
+Workflow run `31986483234` attempt 2 completed successfully at timing commit `ff62e61923ae380e53fa29d75610116371a9e51c`. This is a separate label-blind re-acquisition under `causal-market-discovery-v0.2`, not another correction to the same sample. The market-discovery clock now retains the one-minute source-bar start but makes the qualification decision available only at completed-bar time, exactly 60 seconds later. A completed 06:59 ET bar may therefore support a 07:00 decision; a 09:59 bar becomes available at the exclusive 10:00 cutoff and cannot qualify.
+
+The full qualified-symbol sets and counts remained unchanged on all six dates (`8, 38, 26, 28, 18, 31`), but their qualification ordering changed. Five of 12 selected symbols were replaced:
+
+| Date | Armed-time cohort | Completed-bar cohort |
+|---|---|---|
+| 2025-02-12 | AIFF, CLMT | AIFF, CLMT |
+| 2025-05-14 | ABSI, FNGR | IZEA, LUCY |
+| 2025-08-13 | HBM, LPL | HBM, UPXI |
+| 2025-11-12 | RDCM, SI | RDCM, SI |
+| 2026-02-11 | BETA, LABX | LABX, MNTN |
+| 2026-05-13 | EOSE, GENK | EOSE, OCG |
+
+LABX moved from q2 to q1. Because cohort membership changed, aggregate differences from the armed-time result are descriptive composition differences, not paired timing effects. Paired A/B/C/D comparisons remain valid within this newly frozen cohort because all four cells still share one market input per case.
+
+| Cell | Plans | Modeled fills | Cases with plan | Cases with fill | Median plans/case |
+|---|---:|---:|---:|---:|---:|
+| Baseline | 28 | 7 | 6/12 | 3/12 | 1.0 |
+| Context only | 26 | 5 | 6/12 | 3/12 | 1.0 |
+| Volume only | 46 | 9 | 7/12 | 4/12 | 4.0 |
+| Context + volume | 49 | 7 | 8/12 | 4/12 | 4.5 |
+
+The volume contrasts remain adverse activity evidence:
+
+| Contrast | Plan delta | Fill delta | Cases with more plans | Cases with more fills |
+|---|---:|---:|---:|---:|
+| Volume only minus baseline | +18 | +2 | 5/12 | 1/12 |
+| Context + volume minus context only | +23 | +2 | 6/12 | 1/12 |
+
+OCG is the only gained-fill case in either volume contrast. Both volume-off cells produce nine plans and two modeled fills for OCG; the first is `$2.53` on pullback `#8`. The apparent aggregate fill improvement versus the prior cohort is entirely attributable to changed composition: no retained case gained or lost a modeled fill.
+
+The completed-bar source minute also changes some structural ordinals without changing retained-case fills. AIFF moves from first-plan/fill pullbacks `#2/#5` to `#3/#6`, and EOSE moves from `#1/#1` to `#2/#2` in A/C and from `#4/#4` to `#5/#5` in B/D. LABX's A/C first plan moves materially earlier and its plan counts each increase by one. These are acquisition-anchor effects, not evidence that the volume ablation better imitates a human entry.
+
+Nine of 12 selection decisions occur exactly at 07:00 ET from completed 06:59 bars, so the session-open boundary-stress limitation remains. Selection uses completed-bar availability, while replay may use causal SIP intraminute refinement inside an eligible source minute; refinement before the 07:00 strategy boundary is rejected in favor of the 07:00 fallback. The 60-second rule models bar completion and RVOL calculability, not exchange, SIP, provider or network dissemination latency. The UPXI candidate here is dated 2025-08-13 and is unrelated to the labeled Ross benchmark dated 2025-04-21.
+
 ## Decision
 
 Do not promote either volume-off cell. The ablation increases setup activity by roughly 55–70% while changing modeled participation in only one of 12 candidates. This is adverse activity evidence, not a convincing reproduction improvement. The frozen `micro-v0.1` policy remains the parent policy.
+
+The separate completed-bar cohort reaches the same decision: disabling the hard volume gate adds 18–23 plans and two modeled fills, with the fills isolated to one late OCG pullback. It does not support promotion.
 
 The experiment does not establish imitation quality, trade quality, realized P&L or full-scanner false-positive rate. The paired results remain valid conditional evidence for these frozen candidates because every cell within a candidate used the same market inputs.
 
@@ -101,3 +140,12 @@ Corrected armed-time rerun:
 - Selection content SHA-256: `a95a2cd852370837e41f52ae34b19487924277d8279f80f7fdfc3bc46b33c679`
 - Summary content SHA-256: `80a22f213b5a1661c59e779cafff5b2af9507726898203ae3752e6d1738e75a6`
 - Summary artifact: `9273840004`, digest `sha256:4139fbcb0cb0e66a70b9b5c29a28798df1677bd21a791c384d4a6667da21e0e1`
+
+Separate completed-bar market-discovery rerun:
+
+- Selection: `research/benchmarks/results/micro-volume-activity-cohort-completed-bar-selection.json`
+- Aggregate comparison: `research/benchmarks/results/micro-volume-activity-cohort-completed-bar-summary.json`
+- Workflow and artifact provenance: `research/benchmarks/results/micro-volume-activity-cohort-completed-bar-provenance.json`
+- Selection content SHA-256: `904f85d6226121e7a37973899846580c0de3aa698c4d72f2c137762f55aaab87`
+- Summary content SHA-256: `89765a59efd1fdaf85b2faaa5bc697f470f14475d219df0142fb445a1f3c7329`
+- Summary artifact: `9274527606`, digest `sha256:c85c107b62e76232088b8fac888be8eed6f7d5df225cd76ec950794f368612d8`

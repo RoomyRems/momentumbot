@@ -1,0 +1,287 @@
+{
+  "artifact_type": "micro_volume_activity_cohort_selection",
+  "candidate_selection_rule": "among symbols that causally reach the current-general-2026 price/gain/same-time-RVOL gate, select the earliest first_market_qualified_at values with symbol ascending as the only tie-breaker",
+  "cases": [
+    {
+      "case_id": "2025-02-12-aiff-q1",
+      "first_market_qualified_at": "2025-02-12T12:00:00+00:00",
+      "first_market_qualified_bar_started_at": "2025-02-12T11:59:00+00:00",
+      "previous_close": 8.4,
+      "selection_features": [
+        "first_market_qualified_at",
+        "symbol_tie_break"
+      ],
+      "selection_rank_within_date": 1,
+      "symbol": "AIFF",
+      "trading_date": "2025-02-12"
+    },
+    {
+      "case_id": "2025-02-12-clmt-q2",
+      "first_market_qualified_at": "2025-02-12T12:01:00+00:00",
+      "first_market_qualified_bar_started_at": "2025-02-12T12:00:00+00:00",
+      "previous_close": 15.88,
+      "selection_features": [
+        "first_market_qualified_at",
+        "symbol_tie_break"
+      ],
+      "selection_rank_within_date": 2,
+      "symbol": "CLMT",
+      "trading_date": "2025-02-12"
+    },
+    {
+      "case_id": "2025-05-14-izea-q1",
+      "first_market_qualified_at": "2025-05-14T11:00:00+00:00",
+      "first_market_qualified_bar_started_at": "2025-05-14T10:59:00+00:00",
+      "previous_close": 2.29,
+      "selection_features": [
+        "first_market_qualified_at",
+        "symbol_tie_break"
+      ],
+      "selection_rank_within_date": 1,
+      "symbol": "IZEA",
+      "trading_date": "2025-05-14"
+    },
+    {
+      "case_id": "2025-05-14-lucy-q2",
+      "first_market_qualified_at": "2025-05-14T11:00:00+00:00",
+      "first_market_qualified_bar_started_at": "2025-05-14T10:59:00+00:00",
+      "previous_close": 1.98,
+      "selection_features": [
+        "first_market_qualified_at",
+        "symbol_tie_break"
+      ],
+      "selection_rank_within_date": 2,
+      "symbol": "LUCY",
+      "trading_date": "2025-05-14"
+    },
+    {
+      "case_id": "2025-08-13-hbm-q1",
+      "first_market_qualified_at": "2025-08-13T11:00:00+00:00",
+      "first_market_qualified_bar_started_at": "2025-08-13T10:59:00+00:00",
+      "previous_close": 9.85,
+      "selection_features": [
+        "first_market_qualified_at",
+        "symbol_tie_break"
+      ],
+      "selection_rank_within_date": 1,
+      "symbol": "HBM",
+      "trading_date": "2025-08-13"
+    },
+    {
+      "case_id": "2025-08-13-upxi-q2",
+      "first_market_qualified_at": "2025-08-13T11:00:00+00:00",
+      "first_market_qualified_bar_started_at": "2025-08-13T10:59:00+00:00",
+      "previous_close": 6.66,
+      "selection_features": [
+        "first_market_qualified_at",
+        "symbol_tie_break"
+      ],
+      "selection_rank_within_date": 2,
+      "symbol": "UPXI",
+      "trading_date": "2025-08-13"
+    },
+    {
+      "case_id": "2025-11-12-rdcm-q1",
+      "first_market_qualified_at": "2025-11-12T12:10:00+00:00",
+      "first_market_qualified_bar_started_at": "2025-11-12T12:09:00+00:00",
+      "previous_close": 12.67,
+      "selection_features": [
+        "first_market_qualified_at",
+        "symbol_tie_break"
+      ],
+      "selection_rank_within_date": 1,
+      "symbol": "RDCM",
+      "trading_date": "2025-11-12"
+    },
+    {
+      "case_id": "2025-11-12-si-q2",
+      "first_market_qualified_at": "2025-11-12T12:10:00+00:00",
+      "first_market_qualified_bar_started_at": "2025-11-12T12:09:00+00:00",
+      "previous_close": 11.36,
+      "selection_features": [
+        "first_market_qualified_at",
+        "symbol_tie_break"
+      ],
+      "selection_rank_within_date": 2,
+      "symbol": "SI",
+      "trading_date": "2025-11-12"
+    },
+    {
+      "case_id": "2026-02-11-labx-q1",
+      "first_market_qualified_at": "2026-02-11T12:00:00+00:00",
+      "first_market_qualified_bar_started_at": "2026-02-11T11:59:00+00:00",
+      "previous_close": 8.41,
+      "selection_features": [
+        "first_market_qualified_at",
+        "symbol_tie_break"
+      ],
+      "selection_rank_within_date": 1,
+      "symbol": "LABX",
+      "trading_date": "2026-02-11"
+    },
+    {
+      "case_id": "2026-02-11-mntn-q2",
+      "first_market_qualified_at": "2026-02-11T12:00:00+00:00",
+      "first_market_qualified_bar_started_at": "2026-02-11T11:59:00+00:00",
+      "previous_close": 8.13,
+      "selection_features": [
+        "first_market_qualified_at",
+        "symbol_tie_break"
+      ],
+      "selection_rank_within_date": 2,
+      "symbol": "MNTN",
+      "trading_date": "2026-02-11"
+    },
+    {
+      "case_id": "2026-05-13-eose-q1",
+      "first_market_qualified_at": "2026-05-13T11:00:00+00:00",
+      "first_market_qualified_bar_started_at": "2026-05-13T10:59:00+00:00",
+      "previous_close": 8.1,
+      "selection_features": [
+        "first_market_qualified_at",
+        "symbol_tie_break"
+      ],
+      "selection_rank_within_date": 1,
+      "symbol": "EOSE",
+      "trading_date": "2026-05-13"
+    },
+    {
+      "case_id": "2026-05-13-ocg-q2",
+      "first_market_qualified_at": "2026-05-13T11:00:00+00:00",
+      "first_market_qualified_bar_started_at": "2026-05-13T10:59:00+00:00",
+      "previous_close": 1.86,
+      "selection_features": [
+        "first_market_qualified_at",
+        "symbol_tie_break"
+      ],
+      "selection_rank_within_date": 2,
+      "symbol": "OCG",
+      "trading_date": "2026-05-13"
+    }
+  ],
+  "date_summaries": [
+    {
+      "causally_qualified_count": 8,
+      "discovery_sha256": "5b2075bb79bb30265284b2b0f8a03792c421ebcafa5259f249628b9518956de0",
+      "selected_count": 2,
+      "trading_date": "2025-02-12"
+    },
+    {
+      "causally_qualified_count": 38,
+      "discovery_sha256": "b97000aca27a564b46d829a8ff0b42af716793a3a7c5058b88a0e7f2528aa8de",
+      "selected_count": 2,
+      "trading_date": "2025-05-14"
+    },
+    {
+      "causally_qualified_count": 26,
+      "discovery_sha256": "78fe34b8e315b4dff3bbed427159edd3e826cd370942422eeab500632fedb926",
+      "selected_count": 2,
+      "trading_date": "2025-08-13"
+    },
+    {
+      "causally_qualified_count": 28,
+      "discovery_sha256": "ec088a5478186d3f66a54a23deedb053de16fa6af6fa1667dbb9ab63159783be",
+      "selected_count": 2,
+      "trading_date": "2025-11-12"
+    },
+    {
+      "causally_qualified_count": 18,
+      "discovery_sha256": "8f194af19c448af8df1d6d97e3648d7f82178df676484a650c59fbd874990425",
+      "selected_count": 2,
+      "trading_date": "2026-02-11"
+    },
+    {
+      "causally_qualified_count": 31,
+      "discovery_sha256": "2e8a3d24fc6a117bccf9002d1180da555d75bfeeb2130b288c00155e149a3f03",
+      "selected_count": 2,
+      "trading_date": "2026-05-13"
+    }
+  ],
+  "design_id": "micro-volume-activity-cohort-v0.1",
+  "design_sha256": "06ab789cf792902ba8098a05ac8a5ffe065626b820996503e36174c98dcd45c1",
+  "knowledge_policy": "runtime_market_data_only_no_retrospective_labels",
+  "matrix": {
+    "include": [
+      {
+        "case_id": "2025-02-12-aiff-q1",
+        "symbol": "AIFF",
+        "trading_date": "2025-02-12"
+      },
+      {
+        "case_id": "2025-02-12-clmt-q2",
+        "symbol": "CLMT",
+        "trading_date": "2025-02-12"
+      },
+      {
+        "case_id": "2025-05-14-izea-q1",
+        "symbol": "IZEA",
+        "trading_date": "2025-05-14"
+      },
+      {
+        "case_id": "2025-05-14-lucy-q2",
+        "symbol": "LUCY",
+        "trading_date": "2025-05-14"
+      },
+      {
+        "case_id": "2025-08-13-hbm-q1",
+        "symbol": "HBM",
+        "trading_date": "2025-08-13"
+      },
+      {
+        "case_id": "2025-08-13-upxi-q2",
+        "symbol": "UPXI",
+        "trading_date": "2025-08-13"
+      },
+      {
+        "case_id": "2025-11-12-rdcm-q1",
+        "symbol": "RDCM",
+        "trading_date": "2025-11-12"
+      },
+      {
+        "case_id": "2025-11-12-si-q2",
+        "symbol": "SI",
+        "trading_date": "2025-11-12"
+      },
+      {
+        "case_id": "2026-02-11-labx-q1",
+        "symbol": "LABX",
+        "trading_date": "2026-02-11"
+      },
+      {
+        "case_id": "2026-02-11-mntn-q2",
+        "symbol": "MNTN",
+        "trading_date": "2026-02-11"
+      },
+      {
+        "case_id": "2026-05-13-eose-q1",
+        "symbol": "EOSE",
+        "trading_date": "2026-05-13"
+      },
+      {
+        "case_id": "2026-05-13-ocg-q2",
+        "symbol": "OCG",
+        "trading_date": "2026-05-13"
+      }
+    ]
+  },
+  "policy_promotion_eligible": false,
+  "replay_anchor_fields": [
+    "first_market_qualified_bar_started_at",
+    "first_market_qualified_at"
+  ],
+  "schema_version": 2,
+  "selection_columns_prohibited": [
+    "target_high",
+    "max_session_gain_pct",
+    "max_session_rvol_upper_bound",
+    "max_session_rvol",
+    "any_micro_replay_output",
+    "any_retrospective_behavior_label"
+  ],
+  "selection_columns_used": [
+    "first_market_qualified_at",
+    "symbol"
+  ],
+  "selection_status": "label_blind_market_discovery_complete",
+  "strategy_feedback": "activity_stress_only"
+}

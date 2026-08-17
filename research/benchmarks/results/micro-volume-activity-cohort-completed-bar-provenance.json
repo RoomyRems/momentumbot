@@ -1,0 +1,328 @@
+{
+  "artifact_type": "micro_volume_activity_cohort_completed_bar_provenance",
+  "branch": "phase-3-historical-snapshot",
+  "case_artifacts": [
+    {
+      "artifact_id": 9274399772,
+      "case_id": "2025-02-12-aiff-q1",
+      "content_sha256": "830f2437a7451dd80cc7be502e42312c3214dc334fd8db349a057bb812d13ec6",
+      "digest": "sha256:ca8d4e1f7d4a41c75cd234c97b753d2a4ea4b4a61819d78ddf4ab9b1290ec13f"
+    },
+    {
+      "artifact_id": 9274324261,
+      "case_id": "2025-02-12-clmt-q2",
+      "content_sha256": "209b535824c1db0268eae704243e45df0f10d95f4707a385dc910b27641f8858",
+      "digest": "sha256:996cfd30b7c9f67671c88321256d674df4667434545e8015931f3baa0e18a874"
+    },
+    {
+      "artifact_id": 9274332336,
+      "case_id": "2025-05-14-izea-q1",
+      "content_sha256": "fb386928fbec18de7ac4c9703c82d7910b948e46918aa6f311540dc5876d8723",
+      "digest": "sha256:ef81911549822433a52c2d6640865a510357c647fba8f4c5e374fbde1071fe72"
+    },
+    {
+      "artifact_id": 9274392884,
+      "case_id": "2025-05-14-lucy-q2",
+      "content_sha256": "f551cdf0035ac090d3536a1f74411dc889f337dee3625979774e7dd9ab723cbf",
+      "digest": "sha256:11fa4d598cae5964fff092495fb8bbd0a017c28c56d069b2fe8d601a07e03a27"
+    },
+    {
+      "artifact_id": 9274411248,
+      "case_id": "2025-08-13-hbm-q1",
+      "content_sha256": "ca7ba04a25a45438809e4b8d737222dc561b400f1e29d3f0c5c4d5582263599a",
+      "digest": "sha256:9f526b1876397a2320b696d157fdc50602dbd60594cd7f1f8617e273ac599c8b"
+    },
+    {
+      "artifact_id": 9274426749,
+      "case_id": "2025-08-13-upxi-q2",
+      "content_sha256": "3e5b6917958464116f002e84b936aa662546bd00ea0c22cc155bab08eb5238d7",
+      "digest": "sha256:e68d9ab7a7f3f11a711432074b447c66335daa871002b8e1994b5ef1781932ba"
+    },
+    {
+      "artifact_id": 9274421345,
+      "case_id": "2025-11-12-rdcm-q1",
+      "content_sha256": "c39eb197862371db4b1f861783bfe0a930e2e44b01f06140dc4d13906ce300d4",
+      "digest": "sha256:d82de004cb3c7bd2b763574b764333ef0d32f1d528e4f1b65fecd1398703a588"
+    },
+    {
+      "artifact_id": 9274429178,
+      "case_id": "2025-11-12-si-q2",
+      "content_sha256": "ef508e69f7d23ae9d5f7d4ebbf0d45729e51f49e7d7cf48cc4e7c02dd6938cee",
+      "digest": "sha256:a9a5f14830060057504ad7194f609b2cbeeb92c2bf8d16d609b7d0be72ddb149"
+    },
+    {
+      "artifact_id": 9274440759,
+      "case_id": "2026-02-11-labx-q1",
+      "content_sha256": "066fbfe2ef0c70d99fbed5294578040e9d21c4d6da498ded9fb107a13fd0970c",
+      "digest": "sha256:7ee74f401b22ffa71efc2e9d3dcd66b6bc743046257ff51dfbe969fd05eb0377"
+    },
+    {
+      "artifact_id": 9274451206,
+      "case_id": "2026-02-11-mntn-q2",
+      "content_sha256": "ad604e4a739086f90edc56dfd360e0b2bb45095f7c9cf5042b15d16941294560",
+      "digest": "sha256:74cb1c744d8092f3b3a131445e9cb2fce2953389dfa013ed80e7340521bdbe18"
+    },
+    {
+      "artifact_id": 9274520790,
+      "case_id": "2026-05-13-eose-q1",
+      "content_sha256": "900c848eddb05fd412b5f0e6780034133b21a915483456f7aecf0003f6db40d1",
+      "digest": "sha256:364a03ebd92249ca857297cda7b82775b8c3481518b86ce9287f6838022e573b"
+    },
+    {
+      "artifact_id": 9274508810,
+      "case_id": "2026-05-13-ocg-q2",
+      "content_sha256": "529814e003b285b9dff48431d74744ba41fb2f649389fb6b6b809184762c8d1c",
+      "digest": "sha256:6d1dc09fb75491e2df114504d6fc34bc01be3a52f2cb9e709c39a19b7d1d1c66"
+    }
+  ],
+  "comparison_to_armed_time_rerun": {
+    "added_symbols": [
+      "IZEA",
+      "LUCY",
+      "UPXI",
+      "MNTN",
+      "OCG"
+    ],
+    "aggregate_fill_changes_are_cohort_composition_changes": true,
+    "armed_time_totals": {
+      "baseline": {
+        "cases_with_fill": 2,
+        "cases_with_plan": 7,
+        "filled_count": 6,
+        "plan_count": 31
+      },
+      "context_only": {
+        "cases_with_fill": 2,
+        "cases_with_plan": 7,
+        "filled_count": 4,
+        "plan_count": 30
+      },
+      "context_plus_volume": {
+        "cases_with_fill": 3,
+        "cases_with_plan": 9,
+        "filled_count": 5,
+        "plan_count": 51
+      },
+      "volume_only": {
+        "cases_with_fill": 3,
+        "cases_with_plan": 8,
+        "filled_count": 7,
+        "plan_count": 48
+      }
+    },
+    "completed_bar_totals": {
+      "baseline": {
+        "cases_with_fill": 3,
+        "cases_with_plan": 6,
+        "filled_count": 7,
+        "plan_count": 28
+      },
+      "context_only": {
+        "cases_with_fill": 3,
+        "cases_with_plan": 6,
+        "filled_count": 5,
+        "plan_count": 26
+      },
+      "context_plus_volume": {
+        "cases_with_fill": 4,
+        "cases_with_plan": 8,
+        "filled_count": 7,
+        "plan_count": 49
+      },
+      "volume_only": {
+        "cases_with_fill": 4,
+        "cases_with_plan": 7,
+        "filled_count": 9,
+        "plan_count": 46
+      }
+    },
+    "retained_case_changes": {
+      "AIFF": "Counts, fill price and timestamps are unchanged; first plan/fill ordinals move from 2/5 to 3/6.",
+      "EOSE": "Counts, prices and timestamps are unchanged; A/C first plan/fill ordinal moves 1 to 2 and B/D moves 4 to 5.",
+      "HBM": "D gains one plan and its first plan moves 10 seconds earlier; other cells are unchanged.",
+      "LABX": "Selection rank moves q2 to q1; A gains one plan, C gains one plan and A/C first plan moves materially earlier to pullback 1.",
+      "other": "CLMT, RDCM and SI micro results are unchanged."
+    },
+    "removed_symbols": [
+      "ABSI",
+      "FNGR",
+      "LPL",
+      "BETA",
+      "GENK"
+    ],
+    "retained_symbols": [
+      "AIFF",
+      "CLMT",
+      "HBM",
+      "RDCM",
+      "SI",
+      "LABX",
+      "EOSE"
+    ],
+    "same_sample_timing_comparison_valid": false,
+    "selection_rank_change": "LABX moved from q2 to q1."
+  },
+  "completed_bar_artifacts": {
+    "selection": {
+      "artifact_id": 9274315674,
+      "content_sha256": "904f85d6226121e7a37973899846580c0de3aa698c4d72f2c137762f55aaab87",
+      "digest": "sha256:e5263d96bf9b86527f43f7e5464387d3b115b4a7f5598173a332f53c090f2535",
+      "path": "research/benchmarks/results/micro-volume-activity-cohort-completed-bar-selection.json"
+    },
+    "summary": {
+      "artifact_id": 9274527606,
+      "content_sha256": "89765a59efd1fdaf85b2faaa5bc697f470f14475d219df0142fb445a1f3c7329",
+      "digest": "sha256:c85c107b62e76232088b8fac888be8eed6f7d5df225cd76ec950794f368612d8",
+      "path": "research/benchmarks/results/micro-volume-activity-cohort-completed-bar-summary.json"
+    }
+  },
+  "decision": {
+    "policy_promotion_eligible": false,
+    "strategy_feedback": "activity_stress_only",
+    "volume_gate_ablation_promoted": false
+  },
+  "design_sha256": "06ab789cf792902ba8098a05ac8a5ffe065626b820996503e36174c98dcd45c1",
+  "discovery_artifacts": [
+    {
+      "artifact_id": 9273988807,
+      "content_sha256": "5b2075bb79bb30265284b2b0f8a03792c421ebcafa5259f249628b9518956de0",
+      "digest": "sha256:170c42bd2237eff5ffb7babaa67e72453db72ccc82766f7c3287b25794e1215a",
+      "trading_date": "2025-02-12"
+    },
+    {
+      "artifact_id": 9274310079,
+      "content_sha256": "b97000aca27a564b46d829a8ff0b42af716793a3a7c5058b88a0e7f2528aa8de",
+      "digest": "sha256:06643d0575262fe9b0ae6a36fcfebacf57c2688366ca964d5d1d47691fc84d65",
+      "trading_date": "2025-05-14"
+    },
+    {
+      "artifact_id": 9274136082,
+      "content_sha256": "78fe34b8e315b4dff3bbed427159edd3e826cd370942422eeab500632fedb926",
+      "digest": "sha256:b366dfd10eff76ed37a6fbdaf6ea0bf4c283b3458db2b73b1ea8db09005d5941",
+      "trading_date": "2025-08-13"
+    },
+    {
+      "artifact_id": 9274120460,
+      "content_sha256": "ec088a5478186d3f66a54a23deedb053de16fa6af6fa1667dbb9ab63159783be",
+      "digest": "sha256:b40919f2ff8971b511f2a8e57065d7056a4870e5429a19868183112315c4dcf5",
+      "trading_date": "2025-11-12"
+    },
+    {
+      "artifact_id": 9274200660,
+      "content_sha256": "8f194af19c448af8df1d6d97e3648d7f82178df676484a650c59fbd874990425",
+      "digest": "sha256:f967589b6cbd61cd7464973392e5cd6fa7a4f87e4a9f24d4b5e49894f3a41959",
+      "trading_date": "2026-02-11"
+    },
+    {
+      "artifact_id": 9274239842,
+      "content_sha256": "2e8a3d24fc6a117bccf9002d1180da555d75bfeeb2130b288c00155e149a3f03",
+      "digest": "sha256:425241ff7155f3f647b137f923b2324a6d06044301593d0e44519619e15f5526",
+      "trading_date": "2026-05-13"
+    }
+  ],
+  "knowledge_policy": "runtime_market_data_only_no_retrospective_labels",
+  "limitations": [
+    "Discovery starts from Alpaca's current all-status asset census and current exchange metadata, so this is not a point-in-time causal market sample.",
+    "Nine of 12 selection decisions occur exactly at 07:00 ET from completed 06:59 bars, so this remains a session-open acquisition-boundary stress sample rather than representative scanner-qualified traffic.",
+    "Float, news and full cross-sectional rank are absent from cohort selection.",
+    "The UPXI case here is 2025-08-13 and is not the retrospective Ross benchmark case dated 2025-04-21.",
+    "Selection ranks completed-bar decision availability, while in-window replay can use causal SIP intraminute refinement within the eligible source minute; a 06:59 refinement before strategy session start is rejected in favor of the 07:00 fallback.",
+    "The 60-second completed-bar rule models calculability after bar completion, not exchange, SIP, provider or network dissemination latency.",
+    "The conditional cohort cannot estimate full-scanner false-positive rate, imitation quality, trade quality or realized P&L.",
+    "Plans and modeled fills are rolling diagnostic opportunities, not portfolio trades."
+  ],
+  "new_cohort_paired_evidence": {
+    "context_plus_volume_minus_context_only": {
+      "cases_with_more_fills": 1,
+      "cases_with_more_plans": 6,
+      "filled_count_delta": 2,
+      "only_gained_fill_case": "2026-05-13-ocg-q2",
+      "plan_count_delta": 23
+    },
+    "gained_fill_detail": {
+      "first_fill_price": 2.53,
+      "first_filled_pullback_number": 8,
+      "symbol": "OCG"
+    },
+    "volume_only_minus_baseline": {
+      "cases_with_more_fills": 1,
+      "cases_with_more_plans": 5,
+      "filled_count_delta": 2,
+      "only_gained_fill_case": "2026-05-13-ocg-q2",
+      "plan_count_delta": 18
+    }
+  },
+  "preserved_prior_artifacts": {
+    "armed_time": {
+      "selection": {
+        "artifact_id": 9273697275,
+        "content_sha256": "a95a2cd852370837e41f52ae34b19487924277d8279f80f7fdfc3bc46b33c679",
+        "digest": "sha256:bf036b0911a49286b6dba95c5ca4f2e64be83cff2de18d9f978ec90e1351b46e",
+        "path": "research/benchmarks/results/micro-volume-activity-cohort-armed-time-selection.json"
+      },
+      "summary": {
+        "artifact_id": 9273840004,
+        "content_sha256": "80a22f213b5a1661c59e779cafff5b2af9507726898203ae3752e6d1738e75a6",
+        "digest": "sha256:4139fbcb0cb0e66a70b9b5c29a28798df1677bd21a791c384d4a6667da21e0e1",
+        "path": "research/benchmarks/results/micro-volume-activity-cohort-armed-time-summary.json"
+      },
+      "workflow_head_sha": "cc2521381fffe70804306210cca19b70674ceafe",
+      "workflow_run_id": 31984950288
+    },
+    "original": {
+      "selection": {
+        "artifact_id": 9265262659,
+        "content_sha256": "303b752c0a18fc1677e89f825816e7a242a7230a1594712fa8640e29bed0cf42",
+        "digest": "sha256:7380773608fb62060ca81ea05fbfe30ebfed79a97c2b6d9853edc7fdb69906fb",
+        "path": "research/benchmarks/results/micro-volume-activity-cohort-selection.json"
+      },
+      "summary": {
+        "artifact_id": 9265392291,
+        "content_sha256": "dd7f641cb02c4b4f189f3c7e844e170002bb1a227e35cbe2617052345d8cd753",
+        "digest": "sha256:ac44a057fce3a423526db5405161dc9edcd3f6e9aadd495dba71fea783405355",
+        "path": "research/benchmarks/results/micro-volume-activity-cohort-summary.json"
+      },
+      "workflow_head_sha": "086f4b2ccdda9b3b7f9e8ab86707c0d019544920",
+      "workflow_run_id": 31952684371
+    }
+  },
+  "runtime_verification": {
+    "all_cells_shared_one_frozen_market_input_per_case": true,
+    "case_count": 12,
+    "expected_policy_fingerprints_present": true,
+    "retrospective_behavior_labels_loaded": false,
+    "runtime_packages_verified": 12
+  },
+  "schema_version": 1,
+  "upstream_timing_change": {
+    "completed_bar_availability_offset_seconds": 60,
+    "market_policy_from": {
+      "fingerprint": "b6628f08eff913fbe30f465a9792d71fe4f70ac028ea23e4858277bb6068da1e",
+      "policy_id": "causal-market-discovery-v0.1"
+    },
+    "market_policy_to": {
+      "fingerprint": "dbcbebae2b785ef8af68a37122658e02aa6fec3310c03581426273c5b66516d5",
+      "policy_id": "causal-market-discovery-v0.2"
+    },
+    "qualified_symbol_counts_by_date": [
+      8,
+      38,
+      26,
+      28,
+      18,
+      31
+    ],
+    "qualified_symbol_sets_changed": false,
+    "selection_decision_field": "first_market_qualified_at",
+    "selection_source_bar_field": "first_market_qualified_bar_started_at",
+    "selected_symbols_changed": true,
+    "separate_label_blind_reacquisition": true
+  },
+  "workflow": {
+    "attempt": 2,
+    "conclusion": "success",
+    "head_sha": "ff62e61923ae380e53fa29d75610116371a9e51c",
+    "run_id": 31986483234,
+    "url": "https://github.com/RoomyRems/momentumbot/actions/runs/31986483234"
+  }
+}

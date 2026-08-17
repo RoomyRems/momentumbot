@@ -1,0 +1,1094 @@
+{
+  "artifact_type": "micro_volume_activity_cohort_summary",
+  "case_count": 12,
+  "cases": [
+    {
+      "candidate_qualified_at": "2025-02-12T12:00:00+00:00",
+      "case_id": "2025-02-12-aiff-q1",
+      "cells": {
+        "baseline": {
+          "filled_count": 3,
+          "first_fill_price": 13.88,
+          "first_filled_pullback_number": 6,
+          "first_plan_pullback_number": 3,
+          "plan_count": 7
+        },
+        "context_only": {
+          "filled_count": 3,
+          "first_fill_price": 13.88,
+          "first_filled_pullback_number": 6,
+          "first_plan_pullback_number": 3,
+          "plan_count": 7
+        },
+        "context_plus_volume": {
+          "filled_count": 3,
+          "first_fill_price": 13.88,
+          "first_filled_pullback_number": 6,
+          "first_plan_pullback_number": 3,
+          "plan_count": 10
+        },
+        "volume_only": {
+          "filled_count": 3,
+          "first_fill_price": 13.88,
+          "first_filled_pullback_number": 6,
+          "first_plan_pullback_number": 3,
+          "plan_count": 10
+        }
+      },
+      "paired_deltas": {
+        "context_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": 0,
+          "first_fill_shift_seconds": 0.0,
+          "first_fill_state": "both_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": 0.0,
+          "plan_count_delta": 0
+        },
+        "context_plus_volume_vs_context_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": 0,
+          "first_fill_shift_seconds": 0.0,
+          "first_fill_state": "both_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": -20.0,
+          "plan_count_delta": 3
+        },
+        "context_plus_volume_vs_volume_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": 0,
+          "first_fill_shift_seconds": 0.0,
+          "first_fill_state": "both_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": 0.0,
+          "plan_count_delta": 0
+        },
+        "volume_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": 0,
+          "first_fill_shift_seconds": 0.0,
+          "first_fill_state": "both_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": -20.0,
+          "plan_count_delta": 3
+        }
+      },
+      "selection_rank_within_date": 1,
+      "symbol": "AIFF",
+      "trading_date": "2025-02-12"
+    },
+    {
+      "candidate_qualified_at": "2025-02-12T12:00:00.061831091+00:00",
+      "case_id": "2025-02-12-clmt-q2",
+      "cells": {
+        "baseline": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": null,
+          "plan_count": 0
+        },
+        "context_only": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": null,
+          "plan_count": 0
+        },
+        "context_plus_volume": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": null,
+          "plan_count": 0
+        },
+        "volume_only": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": null,
+          "plan_count": 0
+        }
+      },
+      "paired_deltas": {
+        "context_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 0
+        },
+        "context_plus_volume_vs_context_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 0
+        },
+        "context_plus_volume_vs_volume_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 0
+        },
+        "volume_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 0
+        }
+      },
+      "selection_rank_within_date": 2,
+      "symbol": "CLMT",
+      "trading_date": "2025-02-12"
+    },
+    {
+      "candidate_qualified_at": "2025-05-14T11:00:00+00:00",
+      "case_id": "2025-05-14-izea-q1",
+      "cells": {
+        "baseline": {
+          "filled_count": 1,
+          "first_fill_price": 2.8,
+          "first_filled_pullback_number": 4,
+          "first_plan_pullback_number": 4,
+          "plan_count": 2
+        },
+        "context_only": {
+          "filled_count": 1,
+          "first_fill_price": 2.8,
+          "first_filled_pullback_number": 4,
+          "first_plan_pullback_number": 4,
+          "plan_count": 2
+        },
+        "context_plus_volume": {
+          "filled_count": 1,
+          "first_fill_price": 2.8,
+          "first_filled_pullback_number": 4,
+          "first_plan_pullback_number": 4,
+          "plan_count": 2
+        },
+        "volume_only": {
+          "filled_count": 1,
+          "first_fill_price": 2.8,
+          "first_filled_pullback_number": 4,
+          "first_plan_pullback_number": 4,
+          "plan_count": 2
+        }
+      },
+      "paired_deltas": {
+        "context_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": 0,
+          "first_fill_shift_seconds": 0.0,
+          "first_fill_state": "both_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": 0.0,
+          "plan_count_delta": 0
+        },
+        "context_plus_volume_vs_context_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": 0,
+          "first_fill_shift_seconds": 0.0,
+          "first_fill_state": "both_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": 0.0,
+          "plan_count_delta": 0
+        },
+        "context_plus_volume_vs_volume_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": 0,
+          "first_fill_shift_seconds": 0.0,
+          "first_fill_state": "both_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": 0.0,
+          "plan_count_delta": 0
+        },
+        "volume_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": 0,
+          "first_fill_shift_seconds": 0.0,
+          "first_fill_state": "both_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": 0.0,
+          "plan_count_delta": 0
+        }
+      },
+      "selection_rank_within_date": 1,
+      "symbol": "IZEA",
+      "trading_date": "2025-05-14"
+    },
+    {
+      "candidate_qualified_at": "2025-05-14T11:00:00+00:00",
+      "case_id": "2025-05-14-lucy-q2",
+      "cells": {
+        "baseline": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": null,
+          "plan_count": 0
+        },
+        "context_only": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": null,
+          "plan_count": 0
+        },
+        "context_plus_volume": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": null,
+          "plan_count": 0
+        },
+        "volume_only": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": null,
+          "plan_count": 0
+        }
+      },
+      "paired_deltas": {
+        "context_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 0
+        },
+        "context_plus_volume_vs_context_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 0
+        },
+        "context_plus_volume_vs_volume_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 0
+        },
+        "volume_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 0
+        }
+      },
+      "selection_rank_within_date": 2,
+      "symbol": "LUCY",
+      "trading_date": "2025-05-14"
+    },
+    {
+      "candidate_qualified_at": "2025-08-13T11:00:00+00:00",
+      "case_id": "2025-08-13-hbm-q1",
+      "cells": {
+        "baseline": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": null,
+          "plan_count": 0
+        },
+        "context_only": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": null,
+          "plan_count": 0
+        },
+        "context_plus_volume": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": 1,
+          "plan_count": 5
+        },
+        "volume_only": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": null,
+          "plan_count": 0
+        }
+      },
+      "paired_deltas": {
+        "context_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 0
+        },
+        "context_plus_volume_vs_context_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 5
+        },
+        "context_plus_volume_vs_volume_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 5
+        },
+        "volume_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 0
+        }
+      },
+      "selection_rank_within_date": 1,
+      "symbol": "HBM",
+      "trading_date": "2025-08-13"
+    },
+    {
+      "candidate_qualified_at": "2025-08-13T11:00:00+00:00",
+      "case_id": "2025-08-13-upxi-q2",
+      "cells": {
+        "baseline": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": 3,
+          "plan_count": 5
+        },
+        "context_only": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": 3,
+          "plan_count": 5
+        },
+        "context_plus_volume": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": 3,
+          "plan_count": 6
+        },
+        "volume_only": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": 3,
+          "plan_count": 6
+        }
+      },
+      "paired_deltas": {
+        "context_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": 0.0,
+          "plan_count_delta": 0
+        },
+        "context_plus_volume_vs_context_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": 0.0,
+          "plan_count_delta": 1
+        },
+        "context_plus_volume_vs_volume_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": 0.0,
+          "plan_count_delta": 0
+        },
+        "volume_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": 0.0,
+          "plan_count_delta": 1
+        }
+      },
+      "selection_rank_within_date": 2,
+      "symbol": "UPXI",
+      "trading_date": "2025-08-13"
+    },
+    {
+      "candidate_qualified_at": "2025-11-12T12:09:22.590007366+00:00",
+      "case_id": "2025-11-12-rdcm-q1",
+      "cells": {
+        "baseline": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": null,
+          "plan_count": 0
+        },
+        "context_only": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": null,
+          "plan_count": 0
+        },
+        "context_plus_volume": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": null,
+          "plan_count": 0
+        },
+        "volume_only": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": null,
+          "plan_count": 0
+        }
+      },
+      "paired_deltas": {
+        "context_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 0
+        },
+        "context_plus_volume_vs_context_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 0
+        },
+        "context_plus_volume_vs_volume_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 0
+        },
+        "volume_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 0
+        }
+      },
+      "selection_rank_within_date": 1,
+      "symbol": "RDCM",
+      "trading_date": "2025-11-12"
+    },
+    {
+      "candidate_qualified_at": "2025-11-12T12:09:19.854881586+00:00",
+      "case_id": "2025-11-12-si-q2",
+      "cells": {
+        "baseline": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": 1,
+          "plan_count": 4
+        },
+        "context_only": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": 1,
+          "plan_count": 4
+        },
+        "context_plus_volume": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": 1,
+          "plan_count": 6
+        },
+        "volume_only": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": 1,
+          "plan_count": 6
+        }
+      },
+      "paired_deltas": {
+        "context_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": 0.0,
+          "plan_count_delta": 0
+        },
+        "context_plus_volume_vs_context_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": 0.0,
+          "plan_count_delta": 2
+        },
+        "context_plus_volume_vs_volume_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": 0.0,
+          "plan_count_delta": 0
+        },
+        "volume_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": 0.0,
+          "plan_count_delta": 2
+        }
+      },
+      "selection_rank_within_date": 2,
+      "symbol": "SI",
+      "trading_date": "2025-11-12"
+    },
+    {
+      "candidate_qualified_at": "2026-02-11T12:00:00+00:00",
+      "case_id": "2026-02-11-labx-q1",
+      "cells": {
+        "baseline": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": 1,
+          "plan_count": 4
+        },
+        "context_only": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": 1,
+          "plan_count": 4
+        },
+        "context_plus_volume": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": 1,
+          "plan_count": 7
+        },
+        "volume_only": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": 1,
+          "plan_count": 7
+        }
+      },
+      "paired_deltas": {
+        "context_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": 0.0,
+          "plan_count_delta": 0
+        },
+        "context_plus_volume_vs_context_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": 0.0,
+          "plan_count_delta": 3
+        },
+        "context_plus_volume_vs_volume_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": 0.0,
+          "plan_count_delta": 0
+        },
+        "volume_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": 0.0,
+          "plan_count_delta": 3
+        }
+      },
+      "selection_rank_within_date": 1,
+      "symbol": "LABX",
+      "trading_date": "2026-02-11"
+    },
+    {
+      "candidate_qualified_at": "2026-02-11T12:00:00+00:00",
+      "case_id": "2026-02-11-mntn-q2",
+      "cells": {
+        "baseline": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": null,
+          "plan_count": 0
+        },
+        "context_only": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": null,
+          "plan_count": 0
+        },
+        "context_plus_volume": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": null,
+          "plan_count": 0
+        },
+        "volume_only": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": null,
+          "plan_count": 0
+        }
+      },
+      "paired_deltas": {
+        "context_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 0
+        },
+        "context_plus_volume_vs_context_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 0
+        },
+        "context_plus_volume_vs_volume_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 0
+        },
+        "volume_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 0
+        }
+      },
+      "selection_rank_within_date": 2,
+      "symbol": "MNTN",
+      "trading_date": "2026-02-11"
+    },
+    {
+      "candidate_qualified_at": "2026-05-13T11:00:00+00:00",
+      "case_id": "2026-05-13-eose-q1",
+      "cells": {
+        "baseline": {
+          "filled_count": 3,
+          "first_fill_price": 10.97,
+          "first_filled_pullback_number": 2,
+          "first_plan_pullback_number": 2,
+          "plan_count": 6
+        },
+        "context_only": {
+          "filled_count": 1,
+          "first_fill_price": 11.47,
+          "first_filled_pullback_number": 5,
+          "first_plan_pullback_number": 5,
+          "plan_count": 4
+        },
+        "context_plus_volume": {
+          "filled_count": 1,
+          "first_fill_price": 11.47,
+          "first_filled_pullback_number": 5,
+          "first_plan_pullback_number": 5,
+          "plan_count": 4
+        },
+        "volume_only": {
+          "filled_count": 3,
+          "first_fill_price": 10.97,
+          "first_filled_pullback_number": 2,
+          "first_plan_pullback_number": 2,
+          "plan_count": 6
+        }
+      },
+      "paired_deltas": {
+        "context_only_vs_baseline": {
+          "filled_count_delta": -2,
+          "first_fill_pullback_ordinal_delta": 3,
+          "first_fill_shift_seconds": 106.513003,
+          "first_fill_state": "both_filled",
+          "first_plan_pullback_ordinal_delta": 3,
+          "first_plan_shift_seconds": 100.0,
+          "plan_count_delta": -2
+        },
+        "context_plus_volume_vs_context_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": 0,
+          "first_fill_shift_seconds": 0.0,
+          "first_fill_state": "both_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": 0.0,
+          "plan_count_delta": 0
+        },
+        "context_plus_volume_vs_volume_only": {
+          "filled_count_delta": -2,
+          "first_fill_pullback_ordinal_delta": 3,
+          "first_fill_shift_seconds": 106.513003,
+          "first_fill_state": "both_filled",
+          "first_plan_pullback_ordinal_delta": 3,
+          "first_plan_shift_seconds": 100.0,
+          "plan_count_delta": -2
+        },
+        "volume_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": 0,
+          "first_fill_shift_seconds": 0.0,
+          "first_fill_state": "both_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": 0.0,
+          "plan_count_delta": 0
+        }
+      },
+      "selection_rank_within_date": 1,
+      "symbol": "EOSE",
+      "trading_date": "2026-05-13"
+    },
+    {
+      "candidate_qualified_at": "2026-05-13T11:00:00+00:00",
+      "case_id": "2026-05-13-ocg-q2",
+      "cells": {
+        "baseline": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": null,
+          "plan_count": 0
+        },
+        "context_only": {
+          "filled_count": 0,
+          "first_fill_price": null,
+          "first_filled_pullback_number": null,
+          "first_plan_pullback_number": null,
+          "plan_count": 0
+        },
+        "context_plus_volume": {
+          "filled_count": 2,
+          "first_fill_price": 2.53,
+          "first_filled_pullback_number": 8,
+          "first_plan_pullback_number": 8,
+          "plan_count": 9
+        },
+        "volume_only": {
+          "filled_count": 2,
+          "first_fill_price": 2.53,
+          "first_filled_pullback_number": 8,
+          "first_plan_pullback_number": 8,
+          "plan_count": 9
+        }
+      },
+      "paired_deltas": {
+        "context_only_vs_baseline": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "neither_filled",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 0
+        },
+        "context_plus_volume_vs_context_only": {
+          "filled_count_delta": 2,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "gained_first_fill",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 9
+        },
+        "context_plus_volume_vs_volume_only": {
+          "filled_count_delta": 0,
+          "first_fill_pullback_ordinal_delta": 0,
+          "first_fill_shift_seconds": 0.0,
+          "first_fill_state": "both_filled",
+          "first_plan_pullback_ordinal_delta": 0,
+          "first_plan_shift_seconds": 0.0,
+          "plan_count_delta": 0
+        },
+        "volume_only_vs_baseline": {
+          "filled_count_delta": 2,
+          "first_fill_pullback_ordinal_delta": null,
+          "first_fill_shift_seconds": null,
+          "first_fill_state": "gained_first_fill",
+          "first_plan_pullback_ordinal_delta": null,
+          "first_plan_shift_seconds": null,
+          "plan_count_delta": 9
+        }
+      },
+      "selection_rank_within_date": 2,
+      "symbol": "OCG",
+      "trading_date": "2026-05-13"
+    }
+  ],
+  "cell_summary": {
+    "baseline": {
+      "cases_with_fill": 3,
+      "cases_with_plan": 6,
+      "median_filled_count_per_case": 0.0,
+      "median_first_fill_latency_seconds_when_present": 9427.006485,
+      "median_first_plan_latency_seconds_when_present": 215.0,
+      "median_plan_count_per_case": 1.0,
+      "policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+      "policy_id": "micro-v0.1",
+      "total_filled_count": 7,
+      "total_plan_count": 28
+    },
+    "context_only": {
+      "cases_with_fill": 3,
+      "cases_with_plan": 6,
+      "median_filled_count_per_case": 0.0,
+      "median_first_fill_latency_seconds_when_present": 9427.006485,
+      "median_first_plan_latency_seconds_when_present": 215.0,
+      "median_plan_count_per_case": 1.0,
+      "policy_fingerprint": "cdd9c1a18abf23a03aac67568f1c3b976bd4ab968a07f46966940b5e81feb49e",
+      "policy_id": "micro-v0.2a-prequalification-context",
+      "total_filled_count": 5,
+      "total_plan_count": 26
+    },
+    "context_plus_volume": {
+      "cases_with_fill": 4,
+      "cases_with_plan": 8,
+      "median_filled_count_per_case": 0.0,
+      "median_first_fill_latency_seconds_when_present": 5088.708311,
+      "median_first_plan_latency_seconds_when_present": 205.0,
+      "median_plan_count_per_case": 4.5,
+      "policy_fingerprint": "8ac8e9eaf306c09d6481f41492d268388458ed53eb920e42c0fe105ac0108530",
+      "policy_id": "micro-v0.2d-context-no-hard-volume-gate",
+      "total_filled_count": 7,
+      "total_plan_count": 49
+    },
+    "volume_only": {
+      "cases_with_fill": 4,
+      "cases_with_plan": 7,
+      "median_filled_count_per_case": 0.0,
+      "median_first_fill_latency_seconds_when_present": 5088.708311,
+      "median_first_plan_latency_seconds_when_present": 220.0,
+      "median_plan_count_per_case": 4.0,
+      "policy_fingerprint": "a1c28368322a9eb45101339b79d62ca82221d5d27b3f19c3aa7525db2f023efc",
+      "policy_id": "micro-v0.2c-no-hard-volume-gate",
+      "total_filled_count": 9,
+      "total_plan_count": 46
+    }
+  },
+  "cohort_design_id": "micro-volume-activity-cohort-v0.1",
+  "cohort_selection_sha256": "904f85d6226121e7a37973899846580c0de3aa698c4d72f2c137762f55aaab87",
+  "interpretation": [
+    "all candidates were chosen by the precommitted calendar and causal qualification rule before micro replay",
+    "all four cells for a case used the same frozen market input",
+    "plan and fill counts are activity diagnostics, not portfolio trades or P&L",
+    "no retrospective human behavior label was loaded or scored",
+    "this conditional micro-layer cohort cannot estimate full-scanner false-positive rate or promote a policy"
+  ],
+  "knowledge_policy": "runtime_market_data_only_no_retrospective_labels",
+  "paired_summary": {
+    "context_only_vs_baseline": {
+      "aggregate_filled_count_delta": -2,
+      "aggregate_plan_count_delta": -2,
+      "filled_count_delta_cases": {
+        "negative": 1,
+        "positive": 0,
+        "zero": 11
+      },
+      "first_fill_shift_cases_when_both_present": {
+        "negative": 0,
+        "positive": 1,
+        "zero": 2
+      },
+      "first_fill_state_counts": {
+        "both_filled": 3,
+        "neither_filled": 9
+      },
+      "first_plan_shift_cases_when_both_present": {
+        "negative": 0,
+        "positive": 1,
+        "zero": 5
+      },
+      "median_first_fill_shift_seconds_when_both_present": 0.0,
+      "median_first_plan_shift_seconds_when_both_present": 0.0,
+      "plan_count_delta_cases": {
+        "negative": 1,
+        "positive": 0,
+        "zero": 11
+      }
+    },
+    "context_plus_volume_vs_context_only": {
+      "aggregate_filled_count_delta": 2,
+      "aggregate_plan_count_delta": 23,
+      "filled_count_delta_cases": {
+        "negative": 0,
+        "positive": 1,
+        "zero": 11
+      },
+      "first_fill_shift_cases_when_both_present": {
+        "negative": 0,
+        "positive": 0,
+        "zero": 3
+      },
+      "first_fill_state_counts": {
+        "both_filled": 3,
+        "gained_first_fill": 1,
+        "neither_filled": 8
+      },
+      "first_plan_shift_cases_when_both_present": {
+        "negative": 1,
+        "positive": 0,
+        "zero": 5
+      },
+      "median_first_fill_shift_seconds_when_both_present": 0.0,
+      "median_first_plan_shift_seconds_when_both_present": 0.0,
+      "plan_count_delta_cases": {
+        "negative": 0,
+        "positive": 6,
+        "zero": 6
+      }
+    },
+    "context_plus_volume_vs_volume_only": {
+      "aggregate_filled_count_delta": -2,
+      "aggregate_plan_count_delta": 3,
+      "filled_count_delta_cases": {
+        "negative": 1,
+        "positive": 0,
+        "zero": 11
+      },
+      "first_fill_shift_cases_when_both_present": {
+        "negative": 0,
+        "positive": 1,
+        "zero": 3
+      },
+      "first_fill_state_counts": {
+        "both_filled": 4,
+        "neither_filled": 8
+      },
+      "first_plan_shift_cases_when_both_present": {
+        "negative": 0,
+        "positive": 1,
+        "zero": 6
+      },
+      "median_first_fill_shift_seconds_when_both_present": 0.0,
+      "median_first_plan_shift_seconds_when_both_present": 0.0,
+      "plan_count_delta_cases": {
+        "negative": 1,
+        "positive": 1,
+        "zero": 10
+      }
+    },
+    "volume_only_vs_baseline": {
+      "aggregate_filled_count_delta": 2,
+      "aggregate_plan_count_delta": 18,
+      "filled_count_delta_cases": {
+        "negative": 0,
+        "positive": 1,
+        "zero": 11
+      },
+      "first_fill_shift_cases_when_both_present": {
+        "negative": 0,
+        "positive": 0,
+        "zero": 3
+      },
+      "first_fill_state_counts": {
+        "both_filled": 3,
+        "gained_first_fill": 1,
+        "neither_filled": 8
+      },
+      "first_plan_shift_cases_when_both_present": {
+        "negative": 1,
+        "positive": 0,
+        "zero": 5
+      },
+      "median_first_fill_shift_seconds_when_both_present": 0.0,
+      "median_first_plan_shift_seconds_when_both_present": 0.0,
+      "plan_count_delta_cases": {
+        "negative": 0,
+        "positive": 5,
+        "zero": 7
+      }
+    }
+  },
+  "policy_promotion_eligible": false,
+  "schema_version": 1,
+  "strategy_feedback": "activity_stress_only",
+  "trading_date_count": 6
+}
