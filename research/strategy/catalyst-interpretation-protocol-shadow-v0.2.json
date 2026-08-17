@@ -1,0 +1,92 @@
+{
+  "schema_version": 2,
+  "contract_id": "catalyst-interpretation-protocol-shadow-v0.2",
+  "supersedes_contract_id": "catalyst-interpretation-protocol-shadow-v0.1",
+  "artifact_type": "shadow_catalyst_interpretation_protocol",
+  "purpose": "Record evidence-scoped catalyst commitment, quantification, repetition and offering-overhang language without producing a quality score or trading action.",
+  "runtime_strategy_effect": "none",
+  "quality_score_frozen": false,
+  "selection_threshold_frozen": false,
+  "ai_order_authority": false,
+  "ai_risk_authority": false,
+  "policy_promotion_eligible": false,
+  "source_contract": {
+    "contract_id": "catalyst-evidence-packet-shadow-v0.1",
+    "availability_rule": "Only events already present in the causal packet may be cited.",
+    "retrospective_trade_labels_allowed": false
+  },
+  "normative_evidence_basis": [
+    "ARTL distinguishes repeatedly promoted older headlines from a new shelf-registration withdrawal that reduced immediate offering concern, while still requiring price confirmation.",
+    "ZEVAI distinguishes board approval to pursue an unquantified SpaceX investment from an announced and quantified approximately $400M stake.",
+    "DSY shows that active-theme fit and simple news presence are separate judgments.",
+    "VRAX shows that breaking-news arrival can focus attention without proving economic materiality.",
+    "All four narratives are retrospective research evidence and cannot be supplied to historical runtime decisions."
+  ],
+  "assessment_fields": [
+    "assessment_origin",
+    "issuer_relevance",
+    "headline_form",
+    "event_type",
+    "event_commitment_state",
+    "economic_quantification",
+    "repetition_status",
+    "offering_overhang_signal",
+    "novelty",
+    "materiality",
+    "theme_fit",
+    "evidence_headline_ids",
+    "observation_codes",
+    "uncertainty_reasons"
+  ],
+  "enums": {
+    "assessment_origin": ["manual_research_example", "shadow_ai"],
+    "issuer_relevance": ["direct_candidate", "incidental_or_ambiguous", "unrelated", "ambiguous", "not_assessable_no_provider_event"],
+    "headline_form": ["issuer_specific_event", "multi_symbol_roundup_or_summary", "general_market_or_sector_item", "ambiguous", "not_assessable_no_provider_event"],
+    "event_type": ["commercial_agreement", "financial_result_or_guidance", "financing_or_capital_structure", "clinical_or_regulatory", "merger_or_corporate_action", "filing_or_compliance", "market_roundup", "market_move_or_halt", "other_specific_event", "unknown", "not_assessable_no_provider_event"],
+    "event_commitment_state": ["title_states_exploration_or_pursuit", "title_states_board_authorization_not_execution", "title_states_definitive_agreement_or_completed_action", "title_states_withdrawal_or_cancellation", "ambiguous_title_only", "not_assessable_no_provider_event"],
+    "economic_quantification": ["specific_economic_amount_in_title", "numeric_terms_without_verified_economic_amount", "no_specific_economic_amount_in_title", "ambiguous_title_only", "not_assessable_no_provider_event"],
+    "repetition_status": ["possible_repetition_within_available_packet", "unknown_incomplete_prior_event_corpus", "not_assessable_no_provider_event"],
+    "offering_overhang_signal": ["title_signals_offering_or_possible_dilution", "title_signals_withdrawal_or_reduced_offering_overhang", "no_explicit_offering_signal_in_title", "ambiguous_title_only", "not_assessable_no_provider_event"],
+    "novelty": ["unknown_incomplete_prior_event_corpus", "not_assessable_no_provider_event"],
+    "materiality": ["unknown_title_only", "not_assessable_no_provider_event"],
+    "theme_fit": ["unknown_no_causal_theme_state", "not_assessable_no_provider_event"]
+  },
+  "observation_codes": [
+    "no_provider_event",
+    "provider_scope_single_symbol",
+    "provider_scope_multi_symbol",
+    "provider_scope_mixed",
+    "title_foregrounds_candidate",
+    "title_foregrounds_other_issuer",
+    "pursuit_or_intent_language",
+    "board_authorization_language",
+    "definitive_or_completed_action_language",
+    "withdrawal_or_cancellation_language",
+    "specific_economic_amount_language",
+    "numeric_terms_present_without_verified_economic_amount",
+    "no_specific_economic_amount_language",
+    "similar_prior_title_within_packet",
+    "offering_or_possible_dilution_language",
+    "offering_withdrawal_or_cancellation_language",
+    "no_explicit_offering_language"
+  ],
+  "uncertainty_reasons": [
+    "title_only_no_article_body",
+    "incomplete_prior_event_corpus",
+    "no_causal_theme_state",
+    "no_filing_corroboration",
+    "provider_symbol_tag_not_proof_of_relevance",
+    "candidate_not_title_focus",
+    "economic_terms_not_verified_beyond_title",
+    "event_scope_mixed",
+    "no_provider_event",
+    "provider_relative_absence_only"
+  ],
+  "required_unknown_guards": {
+    "novelty_without_complete_prior_event_corpus": "unknown_incomplete_prior_event_corpus",
+    "absence_of_repetition_without_complete_prior_event_corpus": "unknown_incomplete_prior_event_corpus",
+    "materiality_from_title_only": "unknown_title_only",
+    "theme_fit_without_causal_theme_state": "unknown_no_causal_theme_state"
+  },
+  "interpretation_limit": "The new axes capture explicit title language, not catalyst quality. Accuracy and any strategy use require timestamped article or filing evidence, a complete prior-event corpus, a causal theme state and held-out trade-and-skip validation."
+}

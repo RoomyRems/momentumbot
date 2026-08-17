@@ -132,6 +132,8 @@ The companion `catalyst-evidence-packet-shadow-v0.1` adds the exact causally ava
 
 Across the 35 frozen packets, 10 contain no provider event, 2 contain only single-symbol events, 11 contain only multi-symbol events and 12 contain a mixture. This confirms that a boolean news flag collapses materially different evidence states. The frozen TIVC and VRAX examples demonstrate the distinction, but they do not validate the accuracy of an automated semantic interpreter. That requires a broader timestamped, held-out trade-and-skip panel with article or filing evidence and a causal theme state.
 
+The ARTL/ZEVAI enrichment motivated a separately versioned `catalyst-interpretation-protocol-shadow-v0.2`. It adds explicit title-level fields for commitment stage, economic quantification, possible repetition within available packet evidence, and offering-overhang direction. It still outputs no score or action, and it still forces novelty, materiality and theme fit to remain unknown when the required causal evidence is absent. Full details are in `docs/research/catalyst_interpretation_protocol_v02.md`.
+
 ## Integration order
 
 1. Audit existing evidence for all eight domains.

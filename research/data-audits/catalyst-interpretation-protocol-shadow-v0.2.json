@@ -1,0 +1,99 @@
+{
+  "schema_version": 2,
+  "audit_id": "catalyst-interpretation-protocol-shadow-v0.2-contract-validation",
+  "artifact_type": "shadow_catalyst_interpretation_protocol_audit",
+  "contract_id": "catalyst-interpretation-protocol-shadow-v0.2",
+  "supersedes_contract_id": "catalyst-interpretation-protocol-shadow-v0.1",
+  "created_on": "2026-08-17",
+  "runtime_strategy_effect": "none",
+  "policy_promotion_eligible": false,
+  "source_contract": "catalyst-evidence-packet-shadow-v0.1",
+  "normative_evidence": [
+    {
+      "benchmark": "research/benchmarks/2026-03-27-artl.json",
+      "runtime_eligible": false,
+      "dimensions": [
+        "repetition or promotional reuse can reduce trust",
+        "withdrawing a contemplated offering can reduce immediate dilution overhang",
+        "positive catalyst interpretation may still require price confirmation"
+      ]
+    },
+    {
+      "benchmark": "research/benchmarks/2026-06-26-zevai.json",
+      "runtime_eligible": false,
+      "dimensions": [
+        "authorization to pursue is weaker than execution",
+        "a specific announced economic amount differs from an unquantified proposal",
+        "no-news attention can be regime or theme dependent"
+      ]
+    },
+    {
+      "benchmark": "research/benchmarks/2026-06-10-dsy.json",
+      "runtime_eligible": false,
+      "dimensions": [
+        "active-theme fit and simple news presence are separate"
+      ]
+    },
+    {
+      "benchmark": "research/benchmarks/2026-07-09-vrax.json",
+      "runtime_eligible": false,
+      "dimensions": [
+        "news arrival can focus attention without proving materiality"
+      ]
+    }
+  ],
+  "v02_delta": {
+    "new_structured_axes": [
+      "event_commitment_state",
+      "economic_quantification",
+      "repetition_status",
+      "offering_overhang_signal"
+    ],
+    "retained_required_unknown_axes": [
+      "novelty without a complete prior-event corpus",
+      "materiality from title-only evidence",
+      "theme fit without a causal theme state"
+    ],
+    "quality_score_added": false,
+    "selection_threshold_added": false,
+    "runtime_action_added": false
+  },
+  "guards_validated": {
+    "v01_contract_remains_readable": true,
+    "event_claim_requires_available_headline_id": true,
+    "commitment_state_requires_matching_title_observation": true,
+    "economic_quantification_requires_matching_title_observation": true,
+    "offering_signal_requires_matching_title_observation_and_event_family": true,
+    "possible_repetition_requires_two_available_headlines": true,
+    "absence_of_repetition_cannot_be_claimed_without_complete_corpus": true,
+    "specific_amount_does_not_establish_materiality": true,
+    "no_provider_event_forces_all_semantic_axes_not_assessable": true,
+    "quality_selection_order_and_risk_outputs_absent": true
+  },
+  "decision": {
+    "freeze_protocol_v02": true,
+    "freeze_semantic_model": false,
+    "promote_catalyst_rule": false,
+    "change_scanner_policy": false,
+    "change_micro_policy": false,
+    "reason": "The transcript evidence supports recording these distinctions, but it does not validate an automated interpretation model or a trading threshold."
+  },
+  "next_validation": {
+    "required_panel": "chronological held-out trade and skip examples with causally available title, article or filing evidence",
+    "required_comparisons": [
+      "proposal versus executed action",
+      "quantified versus unquantified economics",
+      "repeated versus genuinely new issuer news",
+      "offering initiation versus withdrawal or cancellation"
+    ],
+    "runtime_authority_before_validation": false
+  },
+  "residual_limits": [
+    "The protocol records explicit title language; it does not establish catalyst quality.",
+    "Provider symbol tags do not prove issuer relevance.",
+    "Title-only evidence cannot prove company-relative economic materiality.",
+    "A causal complete prior-event corpus is still required to judge novelty or confidently rule out repetition.",
+    "A causal theme state is still required to judge active-theme fit.",
+    "The ARTL, ZEVAI, DSY and VRAX narratives are retrospective and never enter runtime reconstruction."
+  ]
+}
