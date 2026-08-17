@@ -44,6 +44,20 @@ The next bounded research task is a source-coverage audit, not a new trading rul
 
 The entire transcript corpus does not need to be re-uploaded. Request only a named video, timestamp range, or missing screen segment after the existing evidence has been checked. Trade recaps alone are not enough: skip and comparison examples are especially important because they identify the discretionary filter that controls activity.
 
+### Seed benchmark evidence check
+
+The five primary Micro benchmarks were checked against this inventory. All five sources are `same_day_behavioral_recap` videos and all five benchmark rows describe trades Ross took. They are useful retrospective behavior labels, but they are not a balanced discretion dataset.
+
+| Case | Context already captured | Important context not frozen |
+|---|---|---|
+| TIVC | A later one-minute setup was skipped because of topping-tail history | Contemporaneous catalyst, competing candidates, regime and Level 2 state |
+| UPXI | Initial and later pullback participation are distinguished | Why UPXI was preferred before the first entry and what was rejected |
+| MMA | The recap names the 10-second setup and approximate entry | Pre-entry catalyst, daily-chart, leader and session-state reasoning |
+| ARTL | Heavy price action, topping-tail rejection and the losing outcome are preserved | The pre-entry selection case and whether tape or catalyst quality justified aggression |
+| DSY | DSY is described as the attention successor after VSME rolled over | A complete contemporaneous candidate ranking and the evidence that attention transferred |
+
+None of the five benchmark payloads freezes a systematic pre-entry alternative-candidate set, catalyst-quality rubric, market-regime state, synchronized Level 2 state, or full session cushion. The immediate evidence priority is therefore trade-versus-skip and candidate-versus-candidate context, not additional fill labels.
+
 ## Integration order
 
 1. Audit existing evidence for all eight domains.
