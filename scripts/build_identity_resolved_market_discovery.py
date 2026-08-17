@@ -12,7 +12,7 @@ from momentumbot.causal_market_discovery import (
     CAUSAL_MARKET_DISCOVERY_POLICY_ID,
     build_causal_market_discovery_manifest,
     build_market_candidate_payload,
-    causal_market_discovery_v0_1_manifest,
+    causal_market_discovery_v0_2_manifest,
     identity_membership_as_acquisition_assets,
 )
 from momentumbot.historical_data import discover_market_day
@@ -114,10 +114,10 @@ def main(argv: list[str] | None = None) -> int:
         date_manifests.append(manifest)
 
     root_manifest = {
-        "schema_version": 1,
+        "schema_version": 2,
         "artifact_id": CAUSAL_MARKET_DISCOVERY_POLICY_ID,
         "dates": dates,
-        "discovery_policy": causal_market_discovery_v0_1_manifest(),
+        "discovery_policy": causal_market_discovery_v0_2_manifest(),
         "source_membership_bundle_sha256": membership_manifest["content_sha256"],
         "date_manifests": date_manifests,
         "eligibility": {

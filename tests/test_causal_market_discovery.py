@@ -7,9 +7,11 @@ import tempfile
 import unittest
 
 from momentumbot.causal_market_discovery import (
+    CAUSAL_MARKET_DISCOVERY_POLICY_ID,
     build_causal_market_discovery_manifest,
     build_market_candidate_payload,
     causal_market_discovery_v0_1_manifest,
+    causal_market_discovery_v0_2_manifest,
     identity_membership_as_acquisition_assets,
     load_market_candidate_payload,
     strategy_profile_manifest,
@@ -91,8 +93,11 @@ class CausalMarketDiscoveryTests(unittest.TestCase):
             max_session_rvol=5.5,
             rvol_history_sessions=50,
             average_daily_volume_50=100_000.0,
-            first_market_qualified_at="2025-04-03T11:00:00+00:00",
+            first_market_qualified_at="2025-04-03T11:01:00+00:00",
             minute_bars=100,
+            first_market_qualified_bar_started_at=(
+                "2025-04-03T11:00:00+00:00"
+            ),
         )
         result = DiscoveryResult(
             asset_count=1,
@@ -122,7 +127,10 @@ class CausalMarketDiscoveryTests(unittest.TestCase):
                     exact_rvol_evaluated=True,
                     exact_rvol_observation_available=True,
                     causal_market_qualified=True,
-                    first_market_qualified_at="2025-04-03T11:00:00+00:00",
+                    first_market_qualified_at="2025-04-03T11:01:00+00:00",
+                    first_market_qualified_bar_started_at=(
+                        "2025-04-03T11:00:00+00:00"
+                    ),
                 ),
             ),
         )
@@ -145,7 +153,24 @@ class CausalMarketDiscoveryTests(unittest.TestCase):
             profile=current_general_2026(),
         )
 
-        self.assertEqual(len(causal_market_discovery_v0_1_manifest()["fingerprint"]), 64)
+        self.assertEqual(
+            causal_market_discovery_v0_1_manifest()["fingerprint"],
+            "b6628f08eff913fbe30f465a9792d71fe4f70ac028ea23e4858277bb6068da1e",
+        )
+        self.assertEqual(manifest["artifact_id"], CAUSAL_MARKET_DISCOVERY_POLICY_ID)
+        self.assertEqual(manifest["schema_version"], 2)
+        self.assertEqual(
+            manifest["discovery_policy"],
+            causal_market_discovery_v0_2_manifest(),
+        )
+        self.assertEqual(
+            causal_market_discovery_v0_2_manifest()["fingerprint"],
+            "dbcbebae2b785ef8af68a37122658e02aa6fec3310c03581426273c5b66516d5",
+        )
+        self.assertNotEqual(
+            causal_market_discovery_v0_1_manifest()["fingerprint"],
+            causal_market_discovery_v0_2_manifest()["fingerprint"],
+        )
         self.assertTrue(
             manifest["eligibility"]["causal_market_discovery_complete"]
         )
@@ -159,7 +184,16 @@ class CausalMarketDiscoveryTests(unittest.TestCase):
             result=result,
         )
         self.assertEqual(candidates["candidate_count"], 1)
+        self.assertEqual(candidates["schema_version"], 2)
         self.assertEqual(candidates["rows"][0]["symbol"], "AAA")
+        self.assertEqual(
+            candidates["rows"][0]["first_market_qualified_bar_started_at"],
+            "2025-04-03T11:00:00+00:00",
+        )
+        self.assertEqual(
+            candidates["rows"][0]["first_market_qualified_at"],
+            "2025-04-03T11:01:00+00:00",
+        )
         self.assertEqual(
             candidates["rows"][0]["selected_cik"], member["selected_cik"]
         )
@@ -167,6 +201,25 @@ class CausalMarketDiscoveryTests(unittest.TestCase):
             manifest["summary"]["causal_market_candidate_set_sha256"],
             candidates["content_sha256"],
         )
+        mismatched_audit = replace(
+            result.acquisition_audit[0],
+            first_market_qualified_bar_started_at=(
+                "2025-04-03T11:01:00+00:00"
+            ),
+            first_market_qualified_at="2025-04-03T11:02:00+00:00",
+        )
+        with self.assertRaisesRegex(ValueError, "disagree with results"):
+            build_causal_market_discovery_manifest(
+                trading_date="2025-04-03",
+                membership_rows=[member],
+                membership_payload=payload,
+                membership_bundle_manifest={"content_sha256": "bundle"},
+                result=replace(
+                    result,
+                    acquisition_audit=(mismatched_audit,),
+                ),
+                profile=current_general_2026(),
+            )
         with tempfile.TemporaryDirectory() as raw:
             root = Path(raw)
             manifest["files"] = {"market_candidates": "market-candidates.json"}
@@ -182,6 +235,32 @@ class CausalMarketDiscoveryTests(unittest.TestCase):
             self.assertEqual(loaded_rows, candidates["rows"])
             self.assertEqual(loaded_payload, candidates)
             self.assertEqual(loaded_manifest, manifest)
+
+            tampered = json.loads(json.dumps(candidates))
+            tampered["rows"][0]["first_market_qualified_bar_started_at"] = (
+                "2025-04-03T11:00:30+00:00"
+            )
+            from momentumbot.identity_resolved_universe import json_fingerprint
+
+            tampered["content_sha256"] = json_fingerprint(
+                {
+                    key: value
+                    for key, value in tampered.items()
+                    if key != "content_sha256"
+                }
+            )
+            tampered_manifest = json.loads(json.dumps(manifest))
+            tampered_manifest["summary"][
+                "causal_market_candidate_set_sha256"
+            ] = tampered["content_sha256"]
+            (root / "manifest.json").write_text(
+                json.dumps(tampered_manifest), encoding="utf-8"
+            )
+            (root / "market-candidates.json").write_text(
+                json.dumps(tampered), encoding="utf-8"
+            )
+            with self.assertRaisesRegex(ValueError, "plus one minute"):
+                load_market_candidate_payload(root)
 
     def test_manifest_rejects_member_without_required_daily_basis(self) -> None:
         member = _member("AAA", "XNAS")

@@ -3,15 +3,17 @@
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 import hashlib
 import json
+import math
 from pathlib import Path
 from typing import Iterable
 from zoneinfo import ZoneInfo
 
 import pandas as pd
 
+from .causal_market_discovery import CAUSAL_MARKET_CANDIDATES_ARTIFACT_ID
 from .providers.sec_edgar import ParsedCompanyFacts
 
 
@@ -70,6 +72,7 @@ class FloatJoinRow:
     symbol: str
     cik: str
     first_market_qualified_at: str
+    first_market_qualified_bar_started_at: str
     method: str
     estimated_float_shares: int | None
     current_outstanding_target_basis: int | None
@@ -149,6 +152,9 @@ def _row(
         symbol=str(candidate["symbol"]),
         cik=str(candidate["cik"]),
         first_market_qualified_at=str(candidate["first_market_qualified_at"]),
+        first_market_qualified_bar_started_at=str(
+            candidate["first_market_qualified_bar_started_at"]
+        ),
         method=method,
         estimated_float_shares=estimated_float_shares,
         current_outstanding_target_basis=current_norm,
@@ -345,9 +351,23 @@ def select_float_evidence(
     symbol: str,
     cik: str,
     first_market_qualified_at: datetime,
+    first_market_qualified_bar_started_at: datetime | None = None,
 ) -> dict[str, object]:
     if first_market_qualified_at.tzinfo is None:
         raise ValueError("first market qualification must be timezone-aware")
+    if first_market_qualified_bar_started_at is None:
+        first_market_qualified_bar_started_at = (
+            first_market_qualified_at - timedelta(minutes=1)
+        )
+    if first_market_qualified_bar_started_at.tzinfo is None:
+        raise ValueError("market qualification bar start must be timezone-aware")
+    if (
+        first_market_qualified_at - first_market_qualified_bar_started_at
+        != timedelta(minutes=1)
+    ):
+        raise ValueError(
+            "first market qualification must equal bar start plus one minute"
+        )
     eligible_public = [
         item
         for item in facts.public_float
@@ -387,6 +407,9 @@ def select_float_evidence(
     return {
         "symbol": symbol,
         "cik": cik,
+        "first_market_qualified_bar_started_at": (
+            first_market_qualified_bar_started_at.isoformat()
+        ),
         "first_market_qualified_at": first_market_qualified_at.isoformat(),
         "public_float": _public_payload(public) if public else None,
         "anchor_outstanding": _outstanding_payload(anchor) if anchor else None,
@@ -413,11 +436,10 @@ def validate_selected_float_evidence(candidate: dict[str, object]) -> None:
     cik = str(candidate.get("cik") or "")
     if not symbol:
         raise ValueError("selected float evidence requires a symbol")
-    qualified_at = datetime.fromisoformat(
-        str(candidate.get("first_market_qualified_at") or "")
+    _, qualified_at = _market_qualification_timestamps(
+        candidate,
+        context="selected float evidence",
     )
-    if qualified_at.tzinfo is None:
-        raise ValueError("first market qualification must be timezone-aware")
     for key in ("public_float", "anchor_outstanding", "current_outstanding"):
         disclosure = candidate.get(key)
         if disclosure is None:
@@ -436,6 +458,29 @@ def validate_selected_float_evidence(candidate: dict[str, object]) -> None:
         date.fromisoformat(str(disclosure.get("measure_date") or ""))
         if not str(disclosure.get("accession") or ""):
             raise ValueError(f"{key} evidence requires an accession")
+
+
+def _market_qualification_timestamps(
+    candidate: dict[str, object],
+    *,
+    context: str,
+) -> tuple[datetime, datetime]:
+    try:
+        bar_started_at = datetime.fromisoformat(
+            str(candidate.get("first_market_qualified_bar_started_at") or "")
+        )
+        qualified_at = datetime.fromisoformat(
+            str(candidate.get("first_market_qualified_at") or "")
+        )
+    except ValueError as error:
+        raise ValueError(f"{context} qualification timestamps are invalid") from error
+    if bar_started_at.tzinfo is None or qualified_at.tzinfo is None:
+        raise ValueError(f"{context} qualification timestamps must be timezone-aware")
+    if qualified_at - bar_started_at != timedelta(minutes=1):
+        raise ValueError(
+            f"{context} decision timestamp must equal bar start plus one minute"
+        )
+    return bar_started_at, qualified_at
 
 
 def selected_float_evidence_fingerprint(candidate: dict[str, object]) -> str:
@@ -489,6 +534,11 @@ def validate_causal_float_records(
     if len(candidate_symbols) != len(set(candidate_symbols)):
         raise ValueError("market candidates repeat a symbol")
     candidates = dict(zip(candidate_symbols, candidate_list, strict=True))
+    for symbol, candidate in candidates.items():
+        _market_qualification_timestamps(
+            candidate,
+            context=f"market candidate {symbol}",
+        )
     materialized = list(records)
     record_symbols = [str(row.get("symbol") or "") for row in materialized]
     if len(record_symbols) != len(set(record_symbols)):
@@ -504,16 +554,103 @@ def validate_causal_float_records(
         validate_selected_float_evidence(selected)
         if selected.get("symbol") != symbol:
             raise ValueError(f"float record {symbol} selected-evidence mismatch")
-        if selected.get("first_market_qualified_at") != candidate.get(
-            "first_market_qualified_at"
+        for key in (
+            "first_market_qualified_bar_started_at",
+            "first_market_qualified_at",
         ):
-            raise ValueError(f"float record {symbol} qualification mismatch")
+            if selected.get(key) != candidate.get(key):
+                raise ValueError(f"float record {symbol} qualification mismatch")
+            if record.get(key) != candidate.get(key):
+                raise ValueError(f"float record {symbol} qualification mismatch")
         selected_cik = str(selected.get("cik") or "").lstrip("0")
         candidate_cik = str(candidate.get("selected_cik") or "").lstrip("0")
         if selected_cik != candidate_cik:
             raise ValueError(f"float record {symbol} CIK mismatch")
         if record.get("selected_evidence_sha256") != _json_fingerprint(selected):
             raise ValueError(f"float record {symbol} evidence fingerprint mismatch")
+        basis = record.get("basis_observations")
+        if not isinstance(basis, dict):
+            raise ValueError(f"float record {symbol} basis audit is invalid")
+        expected_basis_keys = {
+            f"{tag}:{disclosure['measure_date']}"
+            for tag, evidence_key in (
+                ("public", "public_float"),
+                ("anchor", "anchor_outstanding"),
+                ("current", "current_outstanding"),
+            )
+            if isinstance((disclosure := selected.get(evidence_key)), dict)
+        }
+        if set(basis) != expected_basis_keys:
+            raise ValueError(f"float record {symbol} basis audit keys mismatch")
+        observations: dict[str, BasisObservation] = {}
+        for key, observation in basis.items():
+            if not isinstance(key, str) or not isinstance(observation, dict):
+                raise ValueError(f"float record {symbol} basis audit is invalid")
+            try:
+                parsed_observation = BasisObservation(**observation)
+            except TypeError as error:
+                raise ValueError(
+                    f"float record {symbol} basis audit is invalid"
+                ) from error
+            _, expected_requested_text = key.split(":", 1)
+            if parsed_observation.requested_date != expected_requested_text:
+                raise ValueError(
+                    f"float record {symbol} basis requested-date mismatch"
+                )
+            requested = date.fromisoformat(parsed_observation.requested_date)
+            if (
+                parsed_observation.observed_date
+                and date.fromisoformat(parsed_observation.observed_date) > requested
+            ):
+                raise ValueError(f"float record {symbol} used a forward basis price")
+            raw_close = parsed_observation.raw_close
+            split_close = parsed_observation.split_close
+            factor = parsed_observation.share_factor_to_target_basis
+            if any(
+                value is not None
+                and (
+                    isinstance(value, bool)
+                    or not isinstance(value, (int, float))
+                    or not math.isfinite(float(value))
+                )
+                for value in (raw_close, split_close, factor)
+            ):
+                raise ValueError(f"float record {symbol} basis values are invalid")
+            if parsed_observation.observed_date is None:
+                if any(value is not None for value in (raw_close, split_close, factor)):
+                    raise ValueError(
+                        f"float record {symbol} empty basis observation is inconsistent"
+                    )
+            else:
+                if raw_close is None or split_close is None:
+                    raise ValueError(
+                        f"float record {symbol} observed basis lacks close prices"
+                    )
+                expected_factor = (
+                    float(raw_close) / float(split_close)
+                    if raw_close > 0 and split_close > 0
+                    else None
+                )
+                if expected_factor is None:
+                    if factor is not None:
+                        raise ValueError(
+                            f"float record {symbol} basis factor is inconsistent"
+                        )
+                elif factor is None or not math.isclose(
+                    float(factor),
+                    expected_factor,
+                    rel_tol=1e-12,
+                    abs_tol=0.0,
+                ):
+                    raise ValueError(
+                        f"float record {symbol} basis factor is inconsistent"
+                    )
+            observations[key] = parsed_observation
+        expected_row = estimate_float_row(selected, observations)
+        expected_fields = {**asdict(expected_row), "notes": list(expected_row.notes)}
+        for key, expected in expected_fields.items():
+            if record.get(key) != expected:
+                raise ValueError(f"float record {symbol} derived decision mismatch")
         pillar = record.get("float_pillar_pass")
         if pillar is True:
             expected_classification = "pass"
@@ -527,16 +664,6 @@ def validate_causal_float_records(
             raise ValueError(f"float record {symbol} classification mismatch")
         if record.get("float_asof") != float_evidence_available_at(selected):
             raise ValueError(f"float record {symbol} as-of mismatch")
-        basis = record.get("basis_observations")
-        if not isinstance(basis, dict):
-            raise ValueError(f"float record {symbol} basis audit is invalid")
-        for observation in basis.values():
-            if not isinstance(observation, dict):
-                raise ValueError(f"float record {symbol} basis audit is invalid")
-            requested = date.fromisoformat(str(observation.get("requested_date")))
-            observed_text = observation.get("observed_date")
-            if observed_text and date.fromisoformat(str(observed_text)) > requested:
-                raise ValueError(f"float record {symbol} used a forward basis price")
         if record.get("sec_status") == "provider_error":
             if not record.get("sec_provider_error"):
                 raise ValueError(f"float record {symbol} lost provider error")
@@ -563,8 +690,18 @@ def load_causal_float_records(
         raise ValueError("causal float manifest must be an object")
     if manifest.get("artifact_id") != CAUSAL_FLOAT_POLICY_ID:
         raise ValueError("unsupported causal float artifact")
+    if manifest.get("schema_version") != 2:
+        raise ValueError("unsupported causal float schema")
     if manifest.get("float_policy") != causal_float_v0_1_manifest():
         raise ValueError("causal float policy mismatch")
+    if candidate_payload.get("schema_version") != 2 or candidate_payload.get(
+        "artifact_id"
+    ) != CAUSAL_MARKET_CANDIDATES_ARTIFACT_ID:
+        raise ValueError("causal float requires v0.2 market candidates")
+    if manifest.get("source_market_candidates_artifact_id") != (
+        CAUSAL_MARKET_CANDIDATES_ARTIFACT_ID
+    ):
+        raise ValueError("causal float source candidate artifact mismatch")
     if manifest.get("source_market_candidates_sha256") != candidate_payload.get(
         "content_sha256"
     ):

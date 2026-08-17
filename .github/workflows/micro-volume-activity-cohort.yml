@@ -8,6 +8,7 @@ on:
     paths:
       - .github/workflows/micro-volume-activity-cohort.yml
       - research/benchmarks/suites/micro-volume-activity-cohort-v0.1.json
+      - src/momentumbot/historical_data.py
       - scripts/build_micro_activity_cohort_discovery.py
       - scripts/select_micro_activity_cohort.py
       - scripts/reconstruct_micro_volume_cohort_case.py
@@ -99,7 +100,7 @@ jobs:
           --output cohort-selection.json
       - name: Require label-blind selection contract
         run: >-
-          python -c "import json,pathlib; d=json.loads(pathlib.Path('cohort-selection.json').read_text()); assert d['knowledge_policy']=='runtime_market_data_only_no_retrospective_labels'; assert d['selection_columns_used']==['first_market_qualified_at','symbol']; assert d['policy_promotion_eligible'] is False; assert 0 < len(d['cases']) <= 12"
+          python -c "import datetime,json,pathlib; d=json.loads(pathlib.Path('cohort-selection.json').read_text()); assert d['schema_version']==2; assert d['knowledge_policy']=='runtime_market_data_only_no_retrospective_labels'; assert d['selection_columns_used']==['first_market_qualified_at','symbol']; assert d['replay_anchor_fields']==['first_market_qualified_bar_started_at','first_market_qualified_at']; assert all(datetime.datetime.fromisoformat(x['first_market_qualified_at'])-datetime.datetime.fromisoformat(x['first_market_qualified_bar_started_at'])==datetime.timedelta(seconds=60) for x in d['cases']); assert d['policy_promotion_eligible'] is False; assert 0 < len(d['cases']) <= 12"
       - id: cases
         name: Export frozen replay matrix
         run: >-

@@ -59,6 +59,8 @@ def _selection_case(path: Path, case_id: str) -> tuple[dict[str, object], dict[s
     payload = json.loads(path.read_text(encoding="utf-8"))
     if payload.get("artifact_type") != EXPECTED_SELECTION_TYPE:
         raise ValueError("unexpected cohort selection artifact type")
+    if payload.get("schema_version") != 2:
+        raise ValueError("unsupported cohort selection schema")
     if payload.get("knowledge_policy") != EXPECTED_SELECTION_POLICY:
         raise ValueError("cohort selection is not label-blind")
     if payload.get("selection_status") != "label_blind_market_discovery_complete":
@@ -68,10 +70,56 @@ def _selection_case(path: Path, case_id: str) -> tuple[dict[str, object], dict[s
         "symbol",
     ]:
         raise ValueError("cohort selection used an unapproved field")
+    if payload.get("replay_anchor_fields") != [
+        "first_market_qualified_bar_started_at",
+        "first_market_qualified_at",
+    ]:
+        raise ValueError("cohort selection lacks completed-bar replay anchors")
     matches = [case for case in payload.get("cases", []) if case.get("case_id") == case_id]
     if len(matches) != 1:
         raise ValueError(f"selection must contain exactly one case {case_id!r}")
     return payload, matches[0]
+
+
+def _qualification_anchors(
+    case: dict[str, object],
+) -> tuple[pd.Timestamp, pd.Timestamp]:
+    """Return the source-bar start and completed-bar decision timestamp."""
+
+    bar_started_at = pd.Timestamp(case["first_market_qualified_bar_started_at"])
+    qualified_at = pd.Timestamp(case["first_market_qualified_at"])
+    if bar_started_at.tzinfo is None or qualified_at.tzinfo is None:
+        raise ValueError("selected qualification timestamps must be timezone-aware")
+    if bar_started_at != bar_started_at.floor("min"):
+        raise ValueError("selected qualification bar start must align to a minute")
+    if qualified_at - bar_started_at != pd.Timedelta(minutes=1):
+        raise ValueError(
+            "selected qualification decision must equal bar start plus one minute"
+        )
+    return bar_started_at, qualified_at
+
+
+def _causal_refined_qualification(
+    refined_qualified_at: object,
+    *,
+    bar_started_at: pd.Timestamp,
+    completed_bar_decision_at: pd.Timestamp,
+    strategy_session_start: pd.Timestamp,
+) -> tuple[pd.Timestamp, str]:
+    """Use an intraminute crossing only inside its causal decision interval."""
+
+    if refined_qualified_at is None:
+        return completed_bar_decision_at, "completed_acquisition_minute_fallback"
+    refined_at = pd.Timestamp(refined_qualified_at)
+    if refined_at.tzinfo is None:
+        raise ValueError("refined qualification timestamp must be timezone-aware")
+    earliest_action = max(bar_started_at, strategy_session_start)
+    if earliest_action <= refined_at <= completed_bar_decision_at:
+        return refined_at, "sip_intraminute_refinement"
+    return (
+        completed_bar_decision_at,
+        "completed_acquisition_minute_fallback_outside_strategy_window",
+    )
 
 
 def _cell_summary(replay: MicroCandidateReplay, qualified_at: pd.Timestamp) -> dict[str, object]:
@@ -231,9 +279,7 @@ def main() -> int:
     symbol = str(case["symbol"])
     trading_date = date.fromisoformat(str(case["trading_date"]))
     previous_close = float(case["previous_close"])
-    acquisition_minute = pd.Timestamp(case["first_market_qualified_at"]).floor("min")
-    if acquisition_minute.tzinfo is None:
-        raise ValueError("selected qualification minute must be timezone-aware")
+    acquisition_minute, completed_bar_decision_at = _qualification_anchors(case)
 
     profile = current_general_2026()
     parent = micro_v0_1_policy()
@@ -250,14 +296,17 @@ def main() -> int:
         previous_close=previous_close,
         profile=profile,
     )
-    if refined.qualified_at is not None:
-        qualified_at = pd.Timestamp(refined.qualified_at)
-        decision_time_source = "sip_intraminute_refinement"
-    else:
-        qualified_at = acquisition_minute + pd.Timedelta(minutes=1)
-        decision_time_source = "completed_acquisition_minute_fallback"
-    if qualified_at.tzinfo is None:
-        raise RuntimeError("refined qualification timestamp is not timezone-aware")
+    strategy_session_start = pd.Timestamp(
+        datetime.combine(trading_date, profile.session_start, ET).astimezone(
+            timezone.utc
+        )
+    )
+    qualified_at, decision_time_source = _causal_refined_qualification(
+        refined.qualified_at,
+        bar_started_at=acquisition_minute,
+        completed_bar_decision_at=completed_bar_decision_at,
+        strategy_session_start=strategy_session_start,
+    )
 
     session_start = pd.Timestamp(_utc_session_start(trading_date))
     replay_end = pd.Timestamp(

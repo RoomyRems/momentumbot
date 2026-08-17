@@ -141,7 +141,7 @@ jobs:
           --dates 2025-04-03 2026-07-09
           --minimum-sec-request-interval 0.2
           --sec-attempts 3
-      - name: Build provider-relative publication-timed news
+      - name: Build provider-relative publication-timed news v0.2
         run: >-
           python scripts/build_causal_news_enrichment.py
           --census-root massive-historical-census
@@ -191,7 +191,12 @@ jobs:
           assert r['date_summaries']['2026-07-09']['identity_accepted_ticker_count']==5571;
           assert r['date_summaries']['2025-04-03']['identity_quarantine_tickers']==['FRMEP','LBTYA','LBTYB','LBTYK','LILA','LILAK'];
           assert r['date_summaries']['2026-07-09']['identity_quarantine_tickers']==['FRMEP','LBTYA','LBTYB','LBTYK','LILA','LILAK'];
-          q=json.loads((root/'causal-market-discovery-v0.1'/'manifest.json').read_text());
+          q=json.loads((root/'causal-market-discovery-v0.2'/'manifest.json').read_text());
+          assert q['schema_version']==2;
+          assert q['artifact_id']=='causal-market-discovery-v0.2';
+          assert q['discovery_policy']['supersedes_policy_id']=='causal-market-discovery-v0.1';
+          assert q['discovery_policy']['supersedes_policy_fingerprint']=='b6628f08eff913fbe30f465a9792d71fe4f70ac028ea23e4858277bb6068da1e';
+          assert q['discovery_policy']['fingerprint']=='dbcbebae2b785ef8af68a37122658e02aa6fec3310c03581426273c5b66516d5';
           assert q['eligibility']['causal_market_discovery_complete'] is True;
           assert q['eligibility']['full_feature_snapshot_complete'] is False;
           assert q['eligibility']['universe_complete'] is False;
@@ -205,6 +210,13 @@ jobs:
           assert q['date_manifests'][0]['summary']['acquisition_decision_count']==5442;
           assert q['date_manifests'][1]['summary']['acquisition_decision_count']==5571;
           assert all(x['acquisition']['prefilter_values_exposed_to_runtime_strategy'] is False for x in q['date_manifests']);
+          assert all(x['schema_version']==2 for x in q['date_manifests']);
+          assert all(x['acquisition']['minute_bar_timestamp_semantics']=='bar_start' for x in q['date_manifests']);
+          assert all(x['acquisition']['decision_availability_offset_seconds']==60 for x in q['date_manifests']);
+          assert all(x['acquisition']['scan_window_applies_to']=='decision_availability_timestamp' for x in q['date_manifests']);
+          qc=[json.loads((root/'causal-market-discovery-v0.2'/x['trading_date']/x['files']['market_candidates']).read_text()) for x in q['date_manifests']];
+          assert all(x['schema_version']==2 and x['artifact_id']=='causal-market-candidates-v0.2' for x in qc);
+          assert all(all(__import__('datetime').datetime.fromisoformat(r['first_market_qualified_at'])-__import__('datetime').datetime.fromisoformat(r['first_market_qualified_bar_started_at'])==__import__('datetime').timedelta(seconds=60) for r in x['rows']) for x in qc);
           f=json.loads((root/'causal-sec-float-v0.1'/'manifest.json').read_text());
           assert f['eligibility']['complete_relative_to_market_candidates'] is True;
           assert f['eligibility']['point_in_time_float_decisions_frozen'] is True;
@@ -227,7 +239,16 @@ jobs:
           assert all(x['knowledge_policy']['uses_future_filings'] is False for x in f['date_manifests']);
           assert all(x['knowledge_policy']['raw_future_disclosures_persisted'] is False for x in f['date_manifests']);
           assert all(x['knowledge_policy']['unknown_float_fails_closed'] is True for x in f['date_manifests']);
-          n=json.loads((root/'causal-alpaca-news-v0.1'/'manifest.json').read_text());
+          n=json.loads((root/'causal-alpaca-news-v0.2'/'manifest.json').read_text());
+          assert n['schema_version']==2;
+          assert n['artifact_id']=='causal-alpaca-news-v0.2';
+          assert n['news_policy']['supersedes_policy_id']=='causal-alpaca-news-v0.1';
+          assert n['news_policy']['supersedes_policy_fingerprint']=='7f0197a411f418d766e6a294d5cb3ef877b640746ab9de1f4d8f214a3a19df2f';
+          assert n['temporal_boundary']['as_of_projection_rule']=='published_at <= decision_time';
+          assert n['temporal_boundary']['candidate_decision_time_field']=='first_market_qualified_at';
+          assert n['temporal_boundary']['candidate_decision_time_semantics']=='decision_availability_after_completed_source_bar';
+          assert n['temporal_boundary']['runtime_consumers_must_project_full_window_tape'] is True;
+          assert n['temporal_boundary']['post_qualification_events_available_to_earlier_decisions'] is False;
           assert n['eligibility']['complete_relative_to_provider'] is True;
           assert n['eligibility']['publication_timed_news_frozen'] is True;
           assert n['eligibility']['full_feature_snapshot_complete'] is False;
@@ -236,17 +257,24 @@ jobs:
           assert n['eligibility']['policy_promotion_eligible'] is False;
           assert n['knowledge_policy']['uses_benchmark_labels'] is False;
           assert n['knowledge_policy']['uses_retrospective_trade_outcomes'] is False;
-          assert n['knowledge_policy']['uses_future_publications'] is False;
+          assert n['knowledge_policy']['qualification_status_uses_future_publications'] is False;
+          assert n['knowledge_policy']['full_window_tape_is_runtime_safe_without_projection'] is False;
           assert n['knowledge_policy']['candidate_acquisition_depends_on_news'] is False;
           assert n['knowledge_policy']['absence_means_no_news_in_all_sources'] is False;
           assert n['fatal_provider_errors']==[];
           fm={x['trading_date']:x for x in f['date_manifests']};
           assert all(x['summary']['market_candidate_count']==fm[x['trading_date']]['summary']['float_decision_count'] for x in n['date_manifests']);
-          assert all(x['summary']['candidate_decision_count']==x['summary']['market_candidate_count'] for x in n['date_manifests']);
+          assert all(x['schema_version']==2 for x in n['date_manifests']);
+          assert all(x['summary']['qualification_status_count']==x['summary']['market_candidate_count'] for x in n['date_manifests']);
           assert all(x['summary']['provider_error_count']==0 for x in n['date_manifests']);
-          assert all(x['summary']['provider_unknown_fail_closed_count']==0 for x in n['date_manifests']);
+          assert all(x['summary']['candidates_unknown_fail_closed_at_market_qualification_count']==0 for x in n['date_manifests']);
+          assert all(x['summary']['candidates_with_news_at_market_qualification_count']+x['summary']['candidates_with_provider_relative_no_news_at_market_qualification_count']+x['summary']['candidates_unknown_fail_closed_at_market_qualification_count']==x['summary']['market_candidate_count'] for x in n['date_manifests']);
+          assert all(x['summary']['full_window_post_qualification_candidate_event_count']>=x['summary']['candidates_with_post_qualification_tape_events_count'] for x in n['date_manifests']);
+          assert all(x['files']['news_records_schema']=='full_window_event_tape_plus_as_of_qualification_statuses' for x in n['date_manifests']);
           assert all(x['knowledge_policy']['uses_benchmark_labels'] is False for x in n['date_manifests']);
-          assert all(x['knowledge_policy']['uses_future_publications'] is False for x in n['date_manifests']);
+          assert all(x['knowledge_policy']['qualification_status_uses_future_publications'] is False for x in n['date_manifests']);
+          assert all(x['knowledge_policy']['full_window_tape_is_runtime_safe_without_projection'] is False for x in n['date_manifests']);
+          assert all(x['knowledge_policy']['full_window_tape_contains_post_qualification_events'] is (x['summary']['full_window_post_qualification_candidate_event_count']>0) for x in n['date_manifests']);
           assert all(x['knowledge_policy']['candidate_acquisition_depends_on_news'] is False for x in n['date_manifests']);
           assert all(x['knowledge_policy']['absence_means_no_news_in_all_sources'] is False for x in n['date_manifests'])"
       - name: Upload historical census prototype

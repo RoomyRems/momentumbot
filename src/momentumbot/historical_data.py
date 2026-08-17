@@ -96,6 +96,7 @@ class DiscoveryRow:
     average_daily_volume_50: float
     first_market_qualified_at: str | None
     minute_bars: int
+    first_market_qualified_bar_started_at: str | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -115,6 +116,7 @@ class DiscoveryAuditRow:
     exact_rvol_observation_available: bool
     causal_market_qualified: bool
     first_market_qualified_at: str | None
+    first_market_qualified_bar_started_at: str | None = None
 
 
 @dataclass(frozen=True, slots=True)
@@ -258,7 +260,12 @@ def _scan_values(
     prices = pd.to_numeric(frame["close"], errors="coerce")
     gain = (prices / previous_close - 1.0) * 100.0
     rvol = rvol_curve.reindex(frame.index)
-    local_times = frame.index.tz_convert(ET).time
+    # Alpaca timestamps a 1Min aggregate at the beginning of its interval. Its
+    # close, cumulative volume, and the resulting same-time RVOL are not known
+    # until the interval completes one minute later. Scan-window eligibility is
+    # therefore a property of the decision/availability time, not the index.
+    decision_times = frame.index + pd.Timedelta(minutes=1)
+    local_times = decision_times.tz_convert(ET).time
     in_scan_window = pd.Series(
         [profile.session_start <= value < profile.no_new_entries_after for value in local_times],
         index=frame.index,
@@ -317,6 +324,7 @@ def discover_market_day(
             "exact_rvol_evaluated": False,
             "exact_rvol_observation_available": False,
             "causal_market_qualified": False,
+            "first_market_qualified_bar_started_at": None,
             "first_market_qualified_at": None,
         }
         for symbol in symbols
@@ -447,10 +455,11 @@ def discover_market_day(
             float_shares=None,
             float_asof=None,
         )
+        decision_times = frame.index + pd.Timedelta(minutes=1)
         scan_times = pd.Series(
             [
                 profile.session_start <= value < profile.no_new_entries_after
-                for value in frame.index.tz_convert(ET).time
+                for value in decision_times.tz_convert(ET).time
             ],
             index=frame.index,
         )
@@ -500,6 +509,7 @@ def discover_market_day(
         asof=trading_date,
     )
     exact_curves: dict[str, RvolCurve] = {}
+    first_qualified_bar_started: dict[str, str] = {}
     first_qualified: dict[str, str] = {}
     for symbol in narrowed:
         full = exact_history.get(symbol, pd.DataFrame())
@@ -524,8 +534,14 @@ def discover_market_day(
             profile=profile,
         )
         if mask.any():
-            first_qualified[symbol] = frame.index[mask][0].isoformat()
+            bar_started_at = frame.index[mask][0]
+            qualified_at = bar_started_at + pd.Timedelta(minutes=1)
+            first_qualified_bar_started[symbol] = bar_started_at.isoformat()
+            first_qualified[symbol] = qualified_at.isoformat()
             audit_state[symbol]["causal_market_qualified"] = True
+            audit_state[symbol]["first_market_qualified_bar_started_at"] = (
+                first_qualified_bar_started[symbol]
+            )
             audit_state[symbol]["first_market_qualified_at"] = (
                 first_qualified[symbol]
             )
@@ -561,6 +577,7 @@ def discover_market_day(
                 exact_max = float(exact_values.max())
         meta = asset_meta.get(symbol, {})
         first = first_qualified.get(symbol)
+        first_bar_started = first_qualified_bar_started.get(symbol)
         rows.append(
             DiscoveryRow(
                 symbol=symbol,
@@ -577,6 +594,7 @@ def discover_market_day(
                 average_daily_volume_50=float(values["average"]),
                 first_market_qualified_at=first,
                 minute_bars=len(frame),
+                first_market_qualified_bar_started_at=first_bar_started,
             )
         )
         if first:
@@ -653,14 +671,79 @@ def estimate_float_from_facts(
     )
 
 
+def _validated_discovery_timings(
+    result: DiscoveryResult,
+) -> dict[str, tuple[str, str]]:
+    def parse_pair(
+        bar_started_at: str | None,
+        qualified_at: str | None,
+        *,
+        context: str,
+    ) -> tuple[str, str] | None:
+        if bar_started_at is None and qualified_at is None:
+            return None
+        if bar_started_at is None or qualified_at is None:
+            raise ValueError(f"{context} qualification timing fields must appear together")
+        try:
+            bar_started = datetime.fromisoformat(bar_started_at)
+            decision = datetime.fromisoformat(qualified_at)
+        except ValueError as error:
+            raise ValueError(f"{context} qualification timestamps are invalid") from error
+        if bar_started.tzinfo is None or decision.tzinfo is None:
+            raise ValueError(f"{context} qualification timestamps must be timezone-aware")
+        if decision - bar_started != timedelta(minutes=1):
+            raise ValueError(
+                f"{context} decision timestamp must equal bar start plus one minute"
+            )
+        return bar_started_at, qualified_at
+
+    record_timings: dict[str, tuple[str, str]] = {}
+    seen_record_symbols: set[str] = set()
+    for row in result.rows:
+        if row.symbol in seen_record_symbols:
+            raise ValueError("market discovery records repeat a symbol")
+        seen_record_symbols.add(row.symbol)
+        timing = parse_pair(
+            row.first_market_qualified_bar_started_at,
+            row.first_market_qualified_at,
+            context=f"discovery record {row.symbol}",
+        )
+        if timing is not None:
+            record_timings[row.symbol] = timing
+    if len(record_timings) != result.market_candidate_count:
+        raise ValueError("market discovery candidate count disagrees with timing")
+    if result.acquisition_audit:
+        audit_timings: dict[str, tuple[str, str]] = {}
+        seen_audit_symbols: set[str] = set()
+        for row in result.acquisition_audit:
+            if row.symbol in seen_audit_symbols:
+                raise ValueError("market discovery audit repeats a symbol")
+            seen_audit_symbols.add(row.symbol)
+            timing = parse_pair(
+                row.first_market_qualified_bar_started_at,
+                row.first_market_qualified_at,
+                context=f"acquisition audit {row.symbol}",
+            )
+            if row.causal_market_qualified != (timing is not None):
+                raise ValueError(
+                    "market discovery audit qualification flag disagrees with timing"
+                )
+            if timing is not None:
+                audit_timings[row.symbol] = timing
+        if audit_timings != record_timings:
+            raise ValueError("market discovery audit timing disagrees with records")
+    return record_timings
+
+
 def write_discovery(result: DiscoveryResult, root: Path, *, trading_date: date) -> None:
+    validated_timings = _validated_discovery_timings(result)
     root.mkdir(parents=True, exist_ok=True)
     pd.DataFrame([asdict(row) for row in result.rows]).to_csv(
         root / "discovery.csv",
         index=False,
     )
     manifest = {
-        "schema_version": 3,
+        "schema_version": 4,
         "kind": "market_day_discovery",
         "trading_date": trading_date.isoformat(),
         "asset_count": result.asset_count,
@@ -682,6 +765,13 @@ def write_discovery(result: DiscoveryResult, root: Path, *, trading_date: date) 
         "rvol_bar_adjustment": "split",
         "rvol_method": "same_time_cumulative_1m",
         "rvol_acquisition_prefilter": "completed_15m_denominator_upper_bound",
+        "minute_bar_timestamp_semantics": "bar_start",
+        "candidate_decision_time_field": "first_market_qualified_at",
+        "candidate_bar_start_field": "first_market_qualified_bar_started_at",
+        "decision_availability_offset_seconds": 60,
+        "scan_window_applies_to": "decision_availability_timestamp",
+        "qualification_timing_validated": True,
+        "dual_timestamp_candidate_count": len(validated_timings),
         "notes": [
             "This artifact is a discovery/superset dataset, not yet a runnable complete snapshot.",
             "Float and news are intentionally absent from cross-sectional discovery.",
@@ -692,6 +782,10 @@ def write_discovery(result: DiscoveryResult, root: Path, *, trading_date: date) 
             (
                 "Percent gain compares raw target prices with a split-adjusted prior close "
                 "on the trading-date share basis."
+            ),
+            (
+                "One-minute close and same-time RVOL become available one minute after "
+                "the provider bar-start timestamp."
             ),
         ],
     }

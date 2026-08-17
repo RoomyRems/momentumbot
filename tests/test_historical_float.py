@@ -87,6 +87,10 @@ class HistoricalFloatTests(unittest.TestCase):
         self.assertEqual(
             selected["current_outstanding"]["accession"], "before-shares"
         )
+        self.assertEqual(
+            selected["first_market_qualified_bar_started_at"],
+            "2025-04-03T10:59:00+00:00",
+        )
         self.assertNotIn("future", str(selected))
         self.assertEqual(float_evidence_available_at(selected), before.isoformat())
 
@@ -94,6 +98,9 @@ class HistoricalFloatTests(unittest.TestCase):
         candidate = {
             "symbol": "AAA",
             "cik": "0000000001",
+            "first_market_qualified_bar_started_at": (
+                "2025-04-03T10:59:00+00:00"
+            ),
             "first_market_qualified_at": "2025-04-03T11:00:00+00:00",
             "public_float": None,
             "anchor_outstanding": None,
@@ -120,6 +127,32 @@ class HistoricalFloatTests(unittest.TestCase):
         self.assertEqual(row.estimated_float_shares, 9_000_000)
         self.assertTrue(row.float_pillar_pass)
         self.assertEqual(row.method, "sec_outstanding_shares_upper_bound")
+        record = build_causal_float_record(
+            candidate,
+            {"current:2025-02-01": observation},
+            sec_status="success_selected_evidence_exact_acceptance",
+        )
+        source_candidate = {
+            "symbol": "AAA",
+            "selected_cik": "1",
+            "first_market_qualified_bar_started_at": (
+                "2025-04-03T10:59:00+00:00"
+            ),
+            "first_market_qualified_at": "2025-04-03T11:00:00+00:00",
+        }
+        validate_causal_float_records([source_candidate], [record])
+        wrong_date = json.loads(json.dumps(record))
+        wrong_date["basis_observations"]["current:2025-02-01"][
+            "requested_date"
+        ] = "2025-04-01"
+        with self.assertRaisesRegex(ValueError, "requested-date mismatch"):
+            validate_causal_float_records([source_candidate], [wrong_date])
+        wrong_factor = json.loads(json.dumps(record))
+        wrong_factor["basis_observations"]["current:2025-02-01"][
+            "share_factor_to_target_basis"
+        ] = 0.2
+        with self.assertRaisesRegex(ValueError, "factor is inconsistent"):
+            validate_causal_float_records([source_candidate], [wrong_factor])
 
     def test_latest_measure_date_wins_over_later_old_amendment(self) -> None:
         facts = ParsedCompanyFacts(
@@ -177,6 +210,9 @@ class HistoricalFloatTests(unittest.TestCase):
         selected = {
             "symbol": "AAA",
             "cik": "0000000001",
+            "first_market_qualified_bar_started_at": (
+                "2025-04-03T10:59:00+00:00"
+            ),
             "first_market_qualified_at": "2025-04-03T11:00:00+00:00",
             "public_float": None,
             "anchor_outstanding": None,
@@ -190,10 +226,33 @@ class HistoricalFloatTests(unittest.TestCase):
         candidate = {
             "symbol": "AAA",
             "selected_cik": "1",
+            "first_market_qualified_bar_started_at": (
+                "2025-04-03T10:59:00+00:00"
+            ),
             "first_market_qualified_at": "2025-04-03T11:00:00+00:00",
         }
 
         validate_causal_float_records([candidate], [record])
+        mismatched_candidate = dict(
+            candidate,
+            first_market_qualified_bar_started_at=(
+                "2025-04-03T10:58:00+00:00"
+            ),
+        )
+        with self.assertRaisesRegex(ValueError, "plus one minute"):
+            validate_causal_float_records([mismatched_candidate], [record])
+        tampered_decision = json.loads(json.dumps(record))
+        tampered_decision.update(
+            {
+                "cik": "0000000002",
+                "method": "fabricated_pass",
+                "estimated_float_shares": 1,
+                "float_pillar_pass": True,
+                "float_classification": "pass",
+            }
+        )
+        with self.assertRaisesRegex(ValueError, "derived decision mismatch"):
+            validate_causal_float_records([candidate], [tampered_decision])
         record["selected_evidence"]["current_outstanding"] = {
             "shares": 1_000_000,
             "measure_date": "2025-04-03",
@@ -204,9 +263,16 @@ class HistoricalFloatTests(unittest.TestCase):
             validate_causal_float_records([candidate], [record])
 
     def test_float_loader_verifies_source_counts_and_record_hash(self) -> None:
+        self.assertEqual(
+            causal_float_v0_1_manifest()["fingerprint"],
+            "00252a48e20d684d08a5163a3d8a776e541ad6e59dfd4c7a7fcf87f623a71803",
+        )
         selected = {
             "symbol": "AAA",
             "cik": "0000000001",
+            "first_market_qualified_bar_started_at": (
+                "2025-04-03T10:59:00+00:00"
+            ),
             "first_market_qualified_at": "2025-04-03T11:00:00+00:00",
             "public_float": None,
             "anchor_outstanding": None,
@@ -220,12 +286,23 @@ class HistoricalFloatTests(unittest.TestCase):
         candidate = {
             "symbol": "AAA",
             "selected_cik": "1",
+            "first_market_qualified_bar_started_at": (
+                "2025-04-03T10:59:00+00:00"
+            ),
             "first_market_qualified_at": "2025-04-03T11:00:00+00:00",
         }
-        candidate_payload = {"content_sha256": "market-candidates"}
+        candidate_payload = {
+            "schema_version": 2,
+            "artifact_id": "causal-market-candidates-v0.2",
+            "content_sha256": "market-candidates",
+        }
         manifest = {
+            "schema_version": 2,
             "artifact_id": "causal-sec-float-v0.1",
             "float_policy": causal_float_v0_1_manifest(),
+            "source_market_candidates_artifact_id": (
+                "causal-market-candidates-v0.2"
+            ),
             "source_market_candidates_sha256": "market-candidates",
             "summary": {
                 "market_candidate_count": 1,
@@ -267,11 +344,20 @@ class HistoricalFloatTests(unittest.TestCase):
 
             self.assertEqual(rows, [record])
             self.assertEqual(loaded_manifest, manifest)
+            with self.assertRaisesRegex(ValueError, "requires v0.2"):
+                load_causal_float_records(
+                    root,
+                    candidate_rows=[candidate],
+                    candidate_payload=dict(
+                        candidate_payload,
+                        artifact_id="causal-market-candidates-v0.1",
+                    ),
+                )
             record["method"] = "tampered"
             records_path.write_text(
                 json.dumps({"rows": [record]}), encoding="utf-8"
             )
-            with self.assertRaisesRegex(ValueError, "record fingerprint"):
+            with self.assertRaisesRegex(ValueError, "derived decision mismatch"):
                 load_causal_float_records(
                     root,
                     candidate_rows=[candidate],

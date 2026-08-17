@@ -11,7 +11,10 @@ import urllib.error
 
 import pandas as pd
 
-from momentumbot.causal_market_discovery import load_market_candidate_payload
+from momentumbot.causal_market_discovery import (
+    CAUSAL_MARKET_DISCOVERY_POLICY_ID,
+    load_market_candidate_payload,
+)
 from momentumbot.historical_float import (
     CAUSAL_FLOAT_POLICY_ID,
     BasisObservation,
@@ -144,6 +147,9 @@ def _empty_float_record(
     selected = {
         "symbol": candidate["symbol"],
         "cik": cik,
+        "first_market_qualified_bar_started_at": candidate[
+            "first_market_qualified_bar_started_at"
+        ],
         "first_market_qualified_at": candidate["first_market_qualified_at"],
         "public_float": None,
         "anchor_outstanding": None,
@@ -170,7 +176,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.sec_attempts <= 0:
         raise ValueError("SEC attempts must be positive")
 
-    discovery_root = args.census_root / "causal-market-discovery-v0.1"
+    discovery_root = args.census_root / CAUSAL_MARKET_DISCOVERY_POLICY_ID
     discovery_manifest = json.loads(
         (discovery_root / "manifest.json").read_text(encoding="utf-8")
     )
@@ -312,12 +318,26 @@ def main(argv: list[str] | None = None) -> int:
                 qualified_at = datetime.fromisoformat(
                     str(candidate["first_market_qualified_at"])
                 )
+                qualified_bar_started_at = datetime.fromisoformat(
+                    str(candidate["first_market_qualified_bar_started_at"])
+                )
                 selected = select_float_evidence(
                     parsed,
                     symbol=symbol,
                     cik=cik,
                     first_market_qualified_at=qualified_at,
+                    first_market_qualified_bar_started_at=(
+                        qualified_bar_started_at
+                    ),
                 )
+                # Preserve the frozen source representation as well as the
+                # instant; downstream fingerprints bind to the candidate row.
+                selected["first_market_qualified_bar_started_at"] = candidate[
+                    "first_market_qualified_bar_started_at"
+                ]
+                selected["first_market_qualified_at"] = candidate[
+                    "first_market_qualified_at"
+                ]
             except (KeyError, TypeError, ValueError) as exc:
                 error = f"sec_payload_error:{type(exc).__name__}"
                 fatal_provider_errors.append(
@@ -380,11 +400,14 @@ def main(argv: list[str] | None = None) -> int:
         ]
         record_hash = causal_float_records_fingerprint(records)
         date_manifest: dict[str, object] = {
-            "schema_version": 1,
+            "schema_version": 2,
             "artifact_id": CAUSAL_FLOAT_POLICY_ID,
             "trading_date": value,
             "float_policy": causal_float_v0_1_manifest(),
             "source_market_candidates_sha256": candidate_payload["content_sha256"],
+            "source_market_candidates_artifact_id": candidate_payload[
+                "artifact_id"
+            ],
             "source_market_discovery_manifest_sha256": json_fingerprint(
                 discovery_date_manifest
             ),
@@ -429,7 +452,7 @@ def main(argv: list[str] | None = None) -> int:
         date_manifests.append(date_manifest)
 
     root_manifest: dict[str, object] = {
-        "schema_version": 1,
+        "schema_version": 2,
         "artifact_id": CAUSAL_FLOAT_POLICY_ID,
         "dates": dates,
         "float_policy": causal_float_v0_1_manifest(),

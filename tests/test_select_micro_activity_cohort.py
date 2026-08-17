@@ -41,6 +41,9 @@ class MicroActivityCohortSelectionTests(unittest.TestCase):
                 {
                     "symbol": "LATE",
                     "previous_close": 2.0,
+                    "first_market_qualified_bar_started_at": (
+                        "2025-02-12T12:04:00+00:00"
+                    ),
                     "first_market_qualified_at": "2025-02-12T12:05:00+00:00",
                     "target_high": 999.0 * future_scale,
                     "max_session_gain_pct": 999.0 * future_scale,
@@ -49,6 +52,9 @@ class MicroActivityCohortSelectionTests(unittest.TestCase):
                 {
                     "symbol": "BETA",
                     "previous_close": 3.0,
+                    "first_market_qualified_bar_started_at": (
+                        "2025-02-12T12:00:00+00:00"
+                    ),
                     "first_market_qualified_at": "2025-02-12T12:01:00+00:00",
                     "target_high": 2.0 * future_scale,
                     "max_session_gain_pct": 2.0 * future_scale,
@@ -57,6 +63,9 @@ class MicroActivityCohortSelectionTests(unittest.TestCase):
                 {
                     "symbol": "ALFA",
                     "previous_close": 4.0,
+                    "first_market_qualified_bar_started_at": (
+                        "2025-02-12T12:00:00+00:00"
+                    ),
                     "first_market_qualified_at": "2025-02-12T12:01:00+00:00",
                     "target_high": 1.0 * future_scale,
                     "max_session_gain_pct": 1.0 * future_scale,
@@ -65,6 +74,7 @@ class MicroActivityCohortSelectionTests(unittest.TestCase):
                 {
                     "symbol": "NONE",
                     "previous_close": 5.0,
+                    "first_market_qualified_bar_started_at": None,
                     "first_market_qualified_at": None,
                     "target_high": 5000.0,
                     "max_session_gain_pct": 5000.0,
@@ -93,6 +103,11 @@ class MicroActivityCohortSelectionTests(unittest.TestCase):
             payload["selection_columns_used"],
             ["first_market_qualified_at", "symbol"],
         )
+        self.assertEqual(payload["schema_version"], 2)
+        self.assertEqual(
+            payload["cases"][0]["first_market_qualified_bar_started_at"],
+            "2025-02-12T12:00:00+00:00",
+        )
         self.assertFalse(payload["policy_promotion_eligible"])
 
     def test_future_outcome_columns_cannot_change_selection(self):
@@ -111,6 +126,21 @@ class MicroActivityCohortSelectionTests(unittest.TestCase):
             for case in result["cases"]
         ]
         self.assertEqual(identity(result_a), identity(result_b))
+
+    def test_rejects_bar_start_masquerading_as_decision_time(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            discovery = self._discovery(root)
+            path = discovery / "2025-02-12" / "discovery.csv"
+            frame = pd.read_csv(path)
+            frame.loc[
+                frame["symbol"] == "ALFA",
+                "first_market_qualified_bar_started_at",
+            ] = "2025-02-12T12:01:00+00:00"
+            frame.to_csv(path, index=False)
+
+            with self.assertRaisesRegex(ValueError, "plus one minute"):
+                build_selection(self._design(root), discovery)
 
 
 if __name__ == "__main__":

@@ -1,5 +1,9 @@
 import unittest
+from dataclasses import replace
 from datetime import date, datetime, time, timezone
+import json
+from pathlib import Path
+import tempfile
 from zoneinfo import ZoneInfo
 
 import pandas as pd
@@ -7,10 +11,12 @@ import pandas as pd
 from momentumbot.historical_data import (
     _daily_scan_basis,
     _discovery_disposition,
+    _scan_values,
     asset_master_fingerprint,
     asset_master_status_counts,
     discover_market_day,
     normalize_asset_master,
+    write_discovery,
 )
 from momentumbot.models import current_general_2026
 
@@ -267,6 +273,71 @@ class HistoricalDataTests(unittest.TestCase):
         self.assertTrue(audit.coarse_rvol_prefilter_pass)
         self.assertTrue(audit.exact_rvol_observation_available)
         self.assertTrue(audit.causal_market_qualified)
+        self.assertEqual(
+            audit.first_market_qualified_bar_started_at,
+            "2025-04-03T11:00:00+00:00",
+        )
+        self.assertEqual(
+            audit.first_market_qualified_at,
+            "2025-04-03T11:01:00+00:00",
+        )
+        row = result.rows[0]
+        self.assertEqual(
+            row.first_market_qualified_bar_started_at,
+            audit.first_market_qualified_bar_started_at,
+        )
+        self.assertEqual(row.first_market_qualified_at, audit.first_market_qualified_at)
+        with tempfile.TemporaryDirectory() as raw:
+            write_discovery(result, Path(raw), trading_date=target)
+            manifest = json.loads(
+                (Path(raw) / "manifest.json").read_text(encoding="utf-8")
+            )
+            self.assertEqual(manifest["schema_version"], 4)
+            self.assertEqual(manifest["decision_availability_offset_seconds"], 60)
+            self.assertEqual(
+                manifest["candidate_bar_start_field"],
+                "first_market_qualified_bar_started_at",
+            )
+            self.assertTrue(manifest["qualification_timing_validated"])
+            self.assertEqual(manifest["dual_timestamp_candidate_count"], 1)
+        invalid_row = replace(
+            row,
+            first_market_qualified_at=row.first_market_qualified_bar_started_at,
+        )
+        with tempfile.TemporaryDirectory() as raw:
+            with self.assertRaisesRegex(ValueError, "plus one minute"):
+                write_discovery(
+                    replace(result, rows=(invalid_row,)),
+                    Path(raw),
+                    trading_date=target,
+                )
+
+    def test_scan_cutoff_is_applied_when_one_minute_bar_is_available(self):
+        target = date(2025, 4, 3)
+        index = pd.DatetimeIndex(
+            [
+                _market_timestamp(target, time(9, 58)),
+                _market_timestamp(target, time(9, 59)),
+            ]
+        )
+        frame = pd.DataFrame(
+            {
+                "close": [3.0, 3.0],
+                "volume": [1_000, 1_000],
+            },
+            index=index,
+        )
+        rvol = pd.Series([6.0, 6.0], index=index)
+
+        _, _, _, mask = _scan_values(
+            frame,
+            previous_close=2.0,
+            rvol_curve=rvol,
+            profile=current_general_2026(),
+        )
+
+        self.assertTrue(bool(mask.iloc[0]))  # 09:58 bar is known at 09:59.
+        self.assertFalse(bool(mask.iloc[1]))  # 09:59 bar is known at 10:00.
 
 
 if __name__ == "__main__":

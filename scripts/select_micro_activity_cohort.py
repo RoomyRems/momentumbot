@@ -45,7 +45,12 @@ def _load_design(path: Path) -> dict[str, object]:
 
 def _qualified_rows(path: Path) -> pd.DataFrame:
     frame = pd.read_csv(path)
-    required = {"symbol", "previous_close", "first_market_qualified_at"}
+    required = {
+        "symbol",
+        "previous_close",
+        "first_market_qualified_bar_started_at",
+        "first_market_qualified_at",
+    }
     missing = required - set(frame.columns)
     if missing:
         raise ValueError(f"discovery file missing columns: {sorted(missing)}")
@@ -64,6 +69,19 @@ def _qualified_rows(path: Path) -> pd.DataFrame:
     available["_qualified_at"] = pd.to_datetime(
         available["first_market_qualified_at"], utc=True, errors="raise"
     )
+    available["_qualified_bar_started_at"] = pd.to_datetime(
+        available["first_market_qualified_bar_started_at"],
+        utc=True,
+        errors="raise",
+    )
+    if not (
+        available["_qualified_at"]
+        - available["_qualified_bar_started_at"]
+        == pd.Timedelta(minutes=1)
+    ).all():
+        raise ValueError(
+            "market qualification decision must equal bar start plus one minute"
+        )
     return available.sort_values(["_qualified_at", "symbol"], kind="stable")
 
 
@@ -106,6 +124,9 @@ def build_selection(design_path: Path, discovery_root: Path) -> dict[str, object
                     "trading_date": date_text,
                     "symbol": symbol,
                     "selection_rank_within_date": selection_rank,
+                    "first_market_qualified_bar_started_at": pd.Timestamp(
+                        row["_qualified_bar_started_at"]
+                    ).isoformat(),
                     "first_market_qualified_at": pd.Timestamp(
                         row["_qualified_at"]
                     ).isoformat(),
@@ -131,7 +152,7 @@ def build_selection(design_path: Path, discovery_root: Path) -> dict[str, object
     }
     return {
         "artifact_type": "micro_volume_activity_cohort_selection",
-        "schema_version": 1,
+        "schema_version": 2,
         "design_id": design["design_id"],
         "design_sha256": _sha256(design_path),
         "knowledge_policy": "runtime_market_data_only_no_retrospective_labels",
@@ -142,6 +163,10 @@ def build_selection(design_path: Path, discovery_root: Path) -> dict[str, object
         "selection_columns_used": [
             "first_market_qualified_at",
             "symbol"
+        ],
+        "replay_anchor_fields": [
+            "first_market_qualified_bar_started_at",
+            "first_market_qualified_at"
         ],
         "selection_columns_prohibited": [
             "target_high",

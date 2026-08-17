@@ -4,11 +4,12 @@ from __future__ import annotations
 
 from collections import Counter
 from dataclasses import asdict, dataclass
-from datetime import datetime, time
+from datetime import datetime, time, timedelta
 import hashlib
 import json
 from pathlib import Path
 from typing import Iterable
+from zoneinfo import ZoneInfo
 
 from .historical_data import DiscoveryResult, asset_master_fingerprint
 from .identity_resolved_universe import (
@@ -18,10 +19,13 @@ from .identity_resolved_universe import (
 from .models import StrategyProfile
 
 
-CAUSAL_MARKET_DISCOVERY_POLICY_ID = "causal-market-discovery-v0.1"
+CAUSAL_MARKET_DISCOVERY_V0_1_POLICY_ID = "causal-market-discovery-v0.1"
+CAUSAL_MARKET_DISCOVERY_POLICY_ID = "causal-market-discovery-v0.2"
 CAUSAL_MARKET_DISCOVERY_POLICY_STATUS = (
     "frozen_research_acquisition_contract_not_promotable"
 )
+CAUSAL_MARKET_CANDIDATES_ARTIFACT_ID = "causal-market-candidates-v0.2"
+ET = ZoneInfo("America/New_York")
 _EXCHANGE_MAP = {
     "ARCX": "ARCA",
     "BATS": "BATS",
@@ -60,9 +64,20 @@ class FrozenCausalMarketDiscoveryPolicy:
     coarse_rvol_bar_size: str
     acquisition_prefilter_rule: str
     strategy_input_rule: str
+    minute_bar_timestamp_semantics: str | None = None
+    decision_availability_rule: str | None = None
+    scan_window_timestamp_rule: str | None = None
+    supersedes_policy_id: str | None = None
+    supersedes_policy_fingerprint: str | None = None
 
     def payload(self) -> dict[str, object]:
-        return asdict(self)
+        # Omitting absent extension fields preserves the already-frozen v0.1
+        # payload byte-for-byte while allowing v0.2 to state its timing model.
+        return {
+            key: value
+            for key, value in asdict(self).items()
+            if value is not None
+        }
 
     @property
     def fingerprint(self) -> str:
@@ -72,7 +87,7 @@ class FrozenCausalMarketDiscoveryPolicy:
 def causal_market_discovery_v0_1_policy(
 ) -> FrozenCausalMarketDiscoveryPolicy:
     return FrozenCausalMarketDiscoveryPolicy(
-        policy_id=CAUSAL_MARKET_DISCOVERY_POLICY_ID,
+        policy_id=CAUSAL_MARKET_DISCOVERY_V0_1_POLICY_ID,
         status=CAUSAL_MARKET_DISCOVERY_POLICY_STATUS,
         source_universe_policy_id=IDENTITY_RESOLVED_UNIVERSE_POLICY_ID,
         daily_history_calendar_days=120,
@@ -91,6 +106,82 @@ def causal_market_discovery_v0_1_policy(
 def causal_market_discovery_v0_1_manifest() -> dict[str, object]:
     policy = causal_market_discovery_v0_1_policy()
     return {**policy.payload(), "fingerprint": policy.fingerprint}
+
+
+def causal_market_discovery_v0_2_policy(
+) -> FrozenCausalMarketDiscoveryPolicy:
+    return FrozenCausalMarketDiscoveryPolicy(
+        policy_id=CAUSAL_MARKET_DISCOVERY_POLICY_ID,
+        status=CAUSAL_MARKET_DISCOVERY_POLICY_STATUS,
+        source_universe_policy_id=IDENTITY_RESOLVED_UNIVERSE_POLICY_ID,
+        daily_history_calendar_days=120,
+        exact_rvol_prior_sessions=50,
+        exact_rvol_bar_size="1Min",
+        coarse_rvol_bar_size="15Min",
+        acquisition_prefilter_rule=(
+            "full_day_high_and_coarse_rvol_upper_bound_may_reduce_downloads_only"
+        ),
+        strategy_input_rule=(
+            "only_completed_raw_target_1min_bars_and_exact_same_time_split_rvol_"
+            "at_decision_availability"
+        ),
+        minute_bar_timestamp_semantics="alpaca_1min_timestamp_is_bar_start",
+        decision_availability_rule=(
+            "bar_close_and_same_time_rvol_available_at_bar_start_plus_1_minute"
+        ),
+        scan_window_timestamp_rule=(
+            "session_bounds_apply_to_decision_availability_timestamp"
+        ),
+        supersedes_policy_id=CAUSAL_MARKET_DISCOVERY_V0_1_POLICY_ID,
+        supersedes_policy_fingerprint=causal_market_discovery_v0_1_manifest()[
+            "fingerprint"
+        ],
+    )
+
+
+def causal_market_discovery_v0_2_manifest() -> dict[str, object]:
+    policy = causal_market_discovery_v0_2_policy()
+    return {**policy.payload(), "fingerprint": policy.fingerprint}
+
+
+def _qualification_timestamps(
+    bar_started_at: object,
+    qualified_at: object,
+    *,
+    context: str,
+) -> tuple[datetime, datetime] | None:
+    if bar_started_at is None and qualified_at is None:
+        return None
+    if bar_started_at is None or qualified_at is None:
+        raise ValueError(f"{context} qualification timing fields must appear together")
+    try:
+        bar_started = datetime.fromisoformat(str(bar_started_at))
+        decision = datetime.fromisoformat(str(qualified_at))
+    except ValueError as error:
+        raise ValueError(f"{context} qualification timestamps are invalid") from error
+    if bar_started.tzinfo is None or decision.tzinfo is None:
+        raise ValueError(f"{context} qualification timestamps must be timezone-aware")
+    if decision - bar_started != timedelta(minutes=1):
+        raise ValueError(
+            f"{context} decision timestamp must equal bar start plus one minute"
+        )
+    return bar_started, decision
+
+
+def _validate_decision_scan_window(
+    decision: datetime,
+    *,
+    trading_date: str,
+    session_start: time,
+    no_new_entries_after: time,
+    context: str,
+) -> None:
+    local = decision.astimezone(ET)
+    if local.date().isoformat() != trading_date:
+        raise ValueError(f"{context} decision timestamp has the wrong trading date")
+    local_time = local.timetz().replace(tzinfo=None)
+    if not session_start <= local_time < no_new_entries_after:
+        raise ValueError(f"{context} decision timestamp is outside the scan window")
 
 
 def identity_membership_as_acquisition_assets(
@@ -151,7 +242,12 @@ def build_market_candidate_payload(
     membership = {str(row["ticker"]): row for row in membership_rows}
     candidates: list[dict[str, object]] = []
     for row in sorted(result.rows, key=lambda item: item.symbol):
-        if row.first_market_qualified_at is None:
+        timing = _qualification_timestamps(
+            row.first_market_qualified_bar_started_at,
+            row.first_market_qualified_at,
+            context=f"market candidate {row.symbol}",
+        )
+        if timing is None:
             continue
         source = membership.get(row.symbol)
         if source is None:
@@ -159,6 +255,9 @@ def build_market_candidate_payload(
         candidates.append(
             {
                 "symbol": row.symbol,
+                "first_market_qualified_bar_started_at": (
+                    row.first_market_qualified_bar_started_at
+                ),
                 "first_market_qualified_at": row.first_market_qualified_at,
                 "previous_close": row.previous_close,
                 "average_daily_volume_50": row.average_daily_volume_50,
@@ -174,11 +273,11 @@ def build_market_candidate_payload(
             }
         )
     payload: dict[str, object] = {
-        "schema_version": 1,
-        "artifact_id": "causal-market-candidates-v0.1",
+        "schema_version": 2,
+        "artifact_id": CAUSAL_MARKET_CANDIDATES_ARTIFACT_ID,
         "trading_date": trading_date,
         "source_discovery_policy_fingerprint": (
-            causal_market_discovery_v0_1_manifest()["fingerprint"]
+            causal_market_discovery_v0_2_manifest()["fingerprint"]
         ),
         "source_discovery_records_sha256": discovery_records_fingerprint(result),
         "knowledge_policy": {
@@ -204,7 +303,9 @@ def load_market_candidate_payload(
         raise ValueError("market discovery manifest must be an object")
     if manifest.get("artifact_id") != CAUSAL_MARKET_DISCOVERY_POLICY_ID:
         raise ValueError("unsupported market discovery artifact")
-    if manifest.get("discovery_policy") != causal_market_discovery_v0_1_manifest():
+    if manifest.get("schema_version") != 2:
+        raise ValueError("unsupported market discovery schema")
+    if manifest.get("discovery_policy") != causal_market_discovery_v0_2_manifest():
         raise ValueError("market discovery policy mismatch")
     if manifest.get("eligibility", {}).get(
         "causal_market_discovery_complete"
@@ -221,6 +322,10 @@ def load_market_candidate_payload(
     payload = json.loads((root / candidate_path).read_text(encoding="utf-8"))
     if not isinstance(payload, dict):
         raise ValueError("market candidate payload must be an object")
+    if payload.get("schema_version") != 2:
+        raise ValueError("unsupported market candidate schema")
+    if payload.get("artifact_id") != CAUSAL_MARKET_CANDIDATES_ARTIFACT_ID:
+        raise ValueError("unsupported market candidate artifact")
     claimed = payload.get("content_sha256")
     actual = _json_fingerprint(
         {key: value for key, value in payload.items() if key != "content_sha256"}
@@ -246,6 +351,25 @@ def load_market_candidate_payload(
     rows = payload.get("rows")
     if not isinstance(rows, list) or payload.get("candidate_count") != len(rows):
         raise ValueError("market candidate count mismatch")
+    if payload.get("candidate_count") != manifest.get("summary", {}).get(
+        "causal_market_candidate_count"
+    ):
+        raise ValueError("market candidate manifest count mismatch")
+    profile = manifest.get("strategy_profile")
+    if not isinstance(profile, dict):
+        raise ValueError("market discovery lacks strategy profile")
+    profile_fingerprint = profile.get("fingerprint")
+    if profile_fingerprint != _json_fingerprint(
+        {key: value for key, value in profile.items() if key != "fingerprint"}
+    ):
+        raise ValueError("market discovery strategy profile fingerprint mismatch")
+    try:
+        session_start = time.fromisoformat(str(profile["session_start"]))
+        no_new_entries_after = time.fromisoformat(
+            str(profile["no_new_entries_after"])
+        )
+    except (KeyError, ValueError) as error:
+        raise ValueError("market discovery scan window is invalid") from error
     symbols: set[str] = set()
     for row in rows:
         if not isinstance(row, dict):
@@ -254,11 +378,21 @@ def load_market_candidate_payload(
         if not symbol or symbol in symbols:
             raise ValueError("market candidate symbols must be unique and nonblank")
         symbols.add(symbol)
-        timestamp = datetime.fromisoformat(
-            str(row.get("first_market_qualified_at") or "")
+        timing = _qualification_timestamps(
+            row.get("first_market_qualified_bar_started_at"),
+            row.get("first_market_qualified_at"),
+            context=f"market candidate {symbol}",
         )
-        if timestamp.tzinfo is None:
-            raise ValueError("market qualification timestamps must be timezone-aware")
+        if timing is None:
+            raise ValueError("market candidate must have qualification timing")
+        _, decision = timing
+        _validate_decision_scan_window(
+            decision,
+            trading_date=str(manifest.get("trading_date") or ""),
+            session_start=session_start,
+            no_new_entries_after=no_new_entries_after,
+            context=f"market candidate {symbol}",
+        )
     return rows, payload, manifest
 
 
@@ -271,7 +405,7 @@ def build_causal_market_discovery_manifest(
     result: DiscoveryResult,
     profile: StrategyProfile,
 ) -> dict[str, object]:
-    policy = causal_market_discovery_v0_1_policy()
+    policy = causal_market_discovery_v0_2_policy()
     if profile.rvol_lookback_sessions != policy.exact_rvol_prior_sessions:
         raise ValueError("strategy profile RVOL history differs from discovery policy")
     if membership_payload.get("trading_date") != trading_date:
@@ -293,9 +427,32 @@ def build_causal_market_discovery_manifest(
         raise ValueError("market discovery dropped a primary exchange")
     if result.asset_master_sha256 != acquisition_hash:
         raise ValueError("market discovery acquisition fingerprint mismatch")
-    if result.market_candidate_count != sum(
-        row.first_market_qualified_at is not None for row in result.rows
-    ):
+    result_timings: dict[str, tuple[str, str]] = {}
+    result_symbols: set[str] = set()
+    for row in result.rows:
+        if row.symbol in result_symbols:
+            raise ValueError("market discovery records repeat a symbol")
+        result_symbols.add(row.symbol)
+        timing = _qualification_timestamps(
+            row.first_market_qualified_bar_started_at,
+            row.first_market_qualified_at,
+            context=f"discovery record {row.symbol}",
+        )
+        if timing is None:
+            continue
+        _, decision = timing
+        _validate_decision_scan_window(
+            decision,
+            trading_date=trading_date,
+            session_start=profile.session_start,
+            no_new_entries_after=profile.no_new_entries_after,
+            context=f"discovery record {row.symbol}",
+        )
+        result_timings[row.symbol] = (
+            str(row.first_market_qualified_bar_started_at),
+            str(row.first_market_qualified_at),
+        )
+    if result.market_candidate_count != len(result_timings):
         raise ValueError("market discovery candidate count mismatch")
     audit_symbols = [row.symbol for row in result.acquisition_audit]
     membership_symbols = sorted(str(row["ticker"]) for row in membership_rows)
@@ -303,13 +460,32 @@ def build_causal_market_discovery_manifest(
         raise ValueError("market discovery audit repeats a symbol")
     if sorted(audit_symbols) != membership_symbols:
         raise ValueError("market discovery audit does not decide every member")
-    audit_candidates = {
-        row.symbol for row in result.acquisition_audit if row.causal_market_qualified
-    }
-    result_candidates = {
-        row.symbol for row in result.rows if row.first_market_qualified_at is not None
-    }
-    if audit_candidates != result_candidates:
+    audit_timings: dict[str, tuple[str, str]] = {}
+    for row in result.acquisition_audit:
+        timing = _qualification_timestamps(
+            row.first_market_qualified_bar_started_at,
+            row.first_market_qualified_at,
+            context=f"acquisition audit {row.symbol}",
+        )
+        if row.causal_market_qualified != (timing is not None):
+            raise ValueError(
+                "market discovery audit qualification flag disagrees with timing"
+            )
+        if timing is None:
+            continue
+        _, decision = timing
+        _validate_decision_scan_window(
+            decision,
+            trading_date=trading_date,
+            session_start=profile.session_start,
+            no_new_entries_after=profile.no_new_entries_after,
+            context=f"acquisition audit {row.symbol}",
+        )
+        audit_timings[row.symbol] = (
+            str(row.first_market_qualified_bar_started_at),
+            str(row.first_market_qualified_at),
+        )
+    if audit_timings != result_timings:
         raise ValueError("market discovery audit candidates disagree with results")
     missing_daily_basis = [
         row.symbol
@@ -353,10 +529,10 @@ def build_causal_market_discovery_manifest(
     )
 
     return {
-        "schema_version": 1,
+        "schema_version": 2,
         "artifact_id": CAUSAL_MARKET_DISCOVERY_POLICY_ID,
         "trading_date": trading_date,
-        "discovery_policy": causal_market_discovery_v0_1_manifest(),
+        "discovery_policy": causal_market_discovery_v0_2_manifest(),
         "strategy_profile": strategy_profile_manifest(profile),
         "source_membership": {
             "artifact_id": membership_payload["artifact_id"],
@@ -377,6 +553,9 @@ def build_causal_market_discovery_manifest(
             "target_price_adjustment": "raw",
             "prior_close_and_rvol_adjustment": "split",
             "provider_symbol_mapping_asof": trading_date,
+            "minute_bar_timestamp_semantics": "bar_start",
+            "decision_availability_offset_seconds": 60,
+            "scan_window_applies_to": "decision_availability_timestamp",
         },
         "summary": {
             "identity_resolved_ticker_count": len(membership_rows),

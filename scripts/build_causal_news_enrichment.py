@@ -6,7 +6,10 @@ from datetime import date, datetime, time, timedelta, timezone
 import json
 from pathlib import Path
 
-from momentumbot.causal_market_discovery import load_market_candidate_payload
+from momentumbot.causal_market_discovery import (
+    CAUSAL_MARKET_DISCOVERY_POLICY_ID,
+    load_market_candidate_payload,
+)
 from momentumbot.historical_float import (
     CAUSAL_FLOAT_POLICY_ID,
     load_causal_float_records,
@@ -14,9 +17,11 @@ from momentumbot.historical_float import (
 from momentumbot.historical_news import (
     CAUSAL_NEWS_POLICY_ID,
     build_news_candidate_statuses,
-    causal_news_v0_1_manifest,
+    causal_news_v0_2_manifest,
+    causal_news_v0_2_temporal_boundary,
     news_events_fingerprint,
     news_statuses_fingerprint,
+    news_tape_coverage,
     normalize_alpaca_news,
     prior_regular_session_date,
     publication_window,
@@ -69,7 +74,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.news_batch_size <= 0:
         raise ValueError("news batch size must be positive")
 
-    discovery_root = args.census_root / "causal-market-discovery-v0.1"
+    discovery_root = args.census_root / CAUSAL_MARKET_DISCOVERY_POLICY_ID
     float_root = args.census_root / CAUSAL_FLOAT_POLICY_ID
     discovery_manifest = json.loads(
         (discovery_root / "manifest.json").read_text(encoding="utf-8")
@@ -175,43 +180,48 @@ def main(argv: list[str] | None = None) -> int:
 
         event_hash = news_events_fingerprint(events)
         status_hash = news_statuses_fingerprint(statuses)
+        tape_coverage = news_tape_coverage(candidate_rows, events)
         summary: dict[str, object] = {
             "market_candidate_count": len(candidate_rows),
             "float_decision_count": len(float_records),
-            "candidate_decision_count": len(statuses),
-            "raw_provider_row_count": len(raw_rows),
-            "event_count": len(events),
-            "provider_story_count": len(
-                {str(row["headline_id"]) for row in events}
-            ),
-            "candidates_with_provider_news_count": sum(
-                int(row["event_count"]) > 0 for row in statuses
-            ),
+            "qualification_status_count": len(statuses),
+            "full_window_raw_provider_row_count": len(raw_rows),
+            **tape_coverage,
             "candidates_with_news_at_market_qualification_count": sum(
                 row["has_provider_news_at_market_qualification"] is True
                 for row in statuses
             ),
-            "provider_relative_no_news_count": sum(
-                row["provider_relative_no_news"] is True for row in statuses
+            (
+                "candidates_with_provider_relative_no_news_"
+                "at_market_qualification_count"
+            ): sum(
+                row[
+                    "provider_relative_no_news_at_market_qualification"
+                ] is True
+                for row in statuses
             ),
-            "provider_unknown_fail_closed_count": sum(
-                row["unknown_fail_closed"] is True for row in statuses
+            "candidates_unknown_fail_closed_at_market_qualification_count": sum(
+                row["unknown_fail_closed_at_market_qualification"] is True
+                for row in statuses
             ),
             "provider_error_count": len(date_errors),
-            "availability_basis_counts": dict(
+            "full_window_availability_basis_counts": dict(
                 sorted(
                     Counter(str(row["availability_basis"]) for row in events).items()
                 )
             ),
-            "normalization_disposition_counts": normalization_dispositions,
-            "events_sha256": event_hash,
-            "candidate_statuses_sha256": status_hash,
+            "full_window_normalization_disposition_counts": (
+                normalization_dispositions
+            ),
+            "full_window_events_sha256": event_hash,
+            "qualification_statuses_sha256": status_hash,
         }
         date_manifest: dict[str, object] = {
-            "schema_version": 1,
+            "schema_version": 2,
             "artifact_id": CAUSAL_NEWS_POLICY_ID,
             "trading_date": value,
-            "news_policy": causal_news_v0_1_manifest(),
+            "news_policy": causal_news_v0_2_manifest(),
+            "temporal_boundary": causal_news_v0_2_temporal_boundary(),
             "source_market_candidates_sha256": candidate_payload["content_sha256"],
             "source_market_discovery_manifest_sha256": json_fingerprint(
                 discovery_date_manifest
@@ -239,27 +249,44 @@ def main(argv: list[str] | None = None) -> int:
             "knowledge_policy": {
                 "uses_benchmark_labels": False,
                 "uses_retrospective_trade_outcomes": False,
-                "uses_future_publications": False,
+                "qualification_status_uses_future_publications": False,
+                "full_window_tape_contains_post_qualification_events": (
+                    tape_coverage[
+                        "full_window_post_qualification_candidate_event_count"
+                    ]
+                    > 0
+                ),
+                "full_window_tape_is_runtime_safe_without_projection": False,
                 "candidate_acquisition_depends_on_news": False,
                 "absence_means_no_news_in_all_sources": False,
                 "headline_quality_classified": False,
             },
-            "files": {"news_records": "news-records.json"},
+            "files": {
+                "news_records": "news-records.json",
+                "news_records_schema": (
+                    "full_window_event_tape_plus_as_of_qualification_statuses"
+                ),
+            },
         }
         date_root = output_root / value
         date_root.mkdir()
         _write_json(
             date_root / "news-records.json",
-            {"rows": events, "candidate_statuses": statuses},
+            {
+                "schema_version": 2,
+                "full_window_event_tape": events,
+                "qualification_statuses": statuses,
+            },
         )
         _write_json(date_root / "manifest.json", date_manifest)
         date_manifests.append(date_manifest)
 
     root_manifest: dict[str, object] = {
-        "schema_version": 1,
+        "schema_version": 2,
         "artifact_id": CAUSAL_NEWS_POLICY_ID,
         "dates": dates,
-        "news_policy": causal_news_v0_1_manifest(),
+        "news_policy": causal_news_v0_2_manifest(),
+        "temporal_boundary": causal_news_v0_2_temporal_boundary(),
         "source_market_discovery_bundle_sha256": discovery_manifest[
             "content_sha256"
         ],
@@ -277,7 +304,14 @@ def main(argv: list[str] | None = None) -> int:
         "knowledge_policy": {
             "uses_benchmark_labels": False,
             "uses_retrospective_trade_outcomes": False,
-            "uses_future_publications": False,
+            "qualification_status_uses_future_publications": False,
+            "full_window_tape_contains_post_qualification_events": any(
+                manifest["knowledge_policy"][
+                    "full_window_tape_contains_post_qualification_events"
+                ]
+                for manifest in date_manifests
+            ),
+            "full_window_tape_is_runtime_safe_without_projection": False,
             "candidate_acquisition_depends_on_news": False,
             "absence_means_no_news_in_all_sources": False,
         },
@@ -285,6 +319,7 @@ def main(argv: list[str] | None = None) -> int:
     root_manifest["content_sha256"] = json_fingerprint(
         {
             "news_policy": root_manifest["news_policy"],
+            "temporal_boundary": root_manifest["temporal_boundary"],
             "source_market_discovery_bundle_sha256": root_manifest[
                 "source_market_discovery_bundle_sha256"
             ],
