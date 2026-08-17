@@ -1,0 +1,362 @@
+{
+  "ablation_fingerprint": "01d89b565a6fc82775af27a25e78b7775b8e635c432c3ff314f4e48c7d7a4402",
+  "ablation_id": "micro-v0.2e-qualification-anchored-impulse-base",
+  "activity": {
+    "ablation_filled_count": 16,
+    "ablation_plan_count": 43,
+    "baseline_filled_count": 7,
+    "baseline_plan_count": 11,
+    "filled_count_delta": 9,
+    "plan_count_delta": 32
+  },
+  "artifact_type": "micro_qualification_anchored_impulse_base_ablation_comparison",
+  "broad_behavior_match_fraction_descriptive_only": 0.8333333333333334,
+  "case_count": 5,
+  "cases": [
+    {
+      "ablation": {
+        "fill_prices": [
+          7.36,
+          7.47,
+          7.57,
+          8.71
+        ],
+        "filled_count": 4,
+        "filled_pullback_numbers": [
+          3,
+          3,
+          4,
+          5
+        ],
+        "first_fill_price": 7.36,
+        "first_filled_pullback_number": 3,
+        "plan_count": 8,
+        "reason_counts": {
+          "insufficient_micro_history": 1,
+          "micro_peak_topping_tail": 4,
+          "micro_pullback_below_ema9": 3,
+          "micro_pullback_volume_not_lower": 13,
+          "micro_retrace_above_half": 4,
+          "no_current_running_high_pullback": 437,
+          "no_micro_pullback_pause": 4,
+          "plan": 8
+        }
+      },
+      "ablation_first_fill_closest_difference": 2.1100000000000003,
+      "baseline": {
+        "filled_count": 0,
+        "first_fill_price": null,
+        "first_filled_pullback_number": null,
+        "plan_count": 0
+      },
+      "baseline_first_fill_closest_difference": null,
+      "benchmark_id": "ross-artl-2026-03-27-micro-01",
+      "exact_human_trade_identity_scored": false,
+      "reported_fill_references": [
+        5.25
+      ],
+      "scored_dimensions": {
+        "entry_participation": {
+          "comparable": true,
+          "match": true,
+          "observed": true,
+          "runtime": true
+        },
+        "setup_detected": {
+          "comparable": true,
+          "match": true,
+          "observed": true,
+          "runtime": true
+        }
+      },
+      "source_artifact": {
+        "artifact_id": 9257671943,
+        "artifact_name": "micro-v0.1-runtime-artl-2026-03-27",
+        "baseline_runtime_core_sha256": "551d424440b3563a7ed378a49f08cf25afbf49628549934522658e29c4445a0c",
+        "digest_sha256": "f134e68b56ee72cc69067b2029eed48dbcb5f0cae9d24446e5ada2a0e27cfa69",
+        "workflow_run_id": 31925087895
+      },
+      "symbol": "ARTL"
+    },
+    {
+      "ablation": {
+        "fill_prices": [
+          8.5,
+          8.93
+        ],
+        "filled_count": 2,
+        "filled_pullback_numbers": [
+          10,
+          11
+        ],
+        "first_fill_price": 8.5,
+        "first_filled_pullback_number": 10,
+        "plan_count": 9,
+        "reason_counts": {
+          "insufficient_micro_history": 1,
+          "micro_peak_topping_tail": 5,
+          "micro_pullback_volume_not_lower": 26,
+          "micro_retrace_above_half": 11,
+          "no_current_running_high_pullback": 709,
+          "no_micro_pullback_pause": 7,
+          "plan": 9
+        }
+      },
+      "ablation_first_fill_closest_difference": 5.390000000000001,
+      "baseline": {
+        "filled_count": 1,
+        "first_fill_price": 8.5,
+        "first_filled_pullback_number": 10,
+        "plan_count": 2
+      },
+      "baseline_first_fill_closest_difference": 5.390000000000001,
+      "benchmark_id": "ross-dsy-2026-06-10-micro-01",
+      "exact_human_trade_identity_scored": false,
+      "reported_fill_references": [
+        3.07,
+        3.11
+      ],
+      "scored_dimensions": {
+        "entry_participation": {
+          "comparable": true,
+          "match": true,
+          "observed": true,
+          "runtime": true
+        },
+        "setup_detected": {
+          "comparable": true,
+          "match": true,
+          "observed": true,
+          "runtime": true
+        }
+      },
+      "source_artifact": {
+        "artifact_id": 9257654748,
+        "artifact_name": "micro-v0.1-runtime-dsy-2026-06-10",
+        "baseline_runtime_core_sha256": "2aed86183987ab5ddc170d5c0146b075fc998dc50a8d28b9d8063f30ab2c0ef9",
+        "digest_sha256": "fcd94a67731693676315a42853694db27612bf92142fdbcb4493564c5fb3dd7b",
+        "workflow_run_id": 31925087895
+      },
+      "symbol": "DSY"
+    },
+    {
+      "ablation": {
+        "fill_prices": [
+          4.02,
+          4.42,
+          4.3
+        ],
+        "filled_count": 3,
+        "filled_pullback_numbers": [
+          3,
+          4,
+          4
+        ],
+        "first_fill_price": 4.02,
+        "first_filled_pullback_number": 3,
+        "plan_count": 5,
+        "reason_counts": {
+          "insufficient_micro_history": 1,
+          "micro_pullback_volume_not_lower": 3,
+          "micro_retrace_above_half": 4,
+          "no_current_running_high_pullback": 855,
+          "plan": 5
+        }
+      },
+      "ablation_first_fill_closest_difference": 1.6199999999999997,
+      "baseline": {
+        "filled_count": 1,
+        "first_fill_price": 4.02,
+        "first_filled_pullback_number": 3,
+        "plan_count": 1
+      },
+      "baseline_first_fill_closest_difference": 1.6199999999999997,
+      "benchmark_id": "ross-mma-2025-09-09-micro-01",
+      "exact_human_trade_identity_scored": false,
+      "reported_fill_references": [
+        2.4
+      ],
+      "scored_dimensions": {
+        "entry_participation": {
+          "comparable": true,
+          "match": true,
+          "observed": true,
+          "runtime": true
+        },
+        "setup_detected": {
+          "comparable": true,
+          "match": true,
+          "observed": true,
+          "runtime": true
+        }
+      },
+      "source_artifact": {
+        "artifact_id": 9257662171,
+        "artifact_name": "micro-v0.1-runtime-mma-2025-09-09",
+        "baseline_runtime_core_sha256": "8fad7d9034b71200b6ca23bd85f094a5dc7cdf4334ff384c497b966b617c2bfb",
+        "digest_sha256": "2856c83e45c9d8766ab54e811db91dbc22770c3e7c1ad31697f3ff1f7cd03873",
+        "workflow_run_id": 31925087895
+      },
+      "symbol": "MMA"
+    },
+    {
+      "ablation": {
+        "fill_prices": [
+          5.1,
+          5.72
+        ],
+        "filled_count": 2,
+        "filled_pullback_numbers": [
+          7,
+          13
+        ],
+        "first_fill_price": 5.1,
+        "first_filled_pullback_number": 7,
+        "plan_count": 11,
+        "reason_counts": {
+          "insufficient_micro_history": 1,
+          "micro_peak_topping_tail": 9,
+          "micro_pullback_volume_not_lower": 10,
+          "micro_retrace_above_half": 9,
+          "no_current_running_high_pullback": 929,
+          "no_micro_pullback_pause": 5,
+          "plan": 11
+        }
+      },
+      "ablation_first_fill_closest_difference": 0.20999999999999996,
+      "baseline": {
+        "filled_count": 1,
+        "first_fill_price": 5.1,
+        "first_filled_pullback_number": 7,
+        "plan_count": 3
+      },
+      "baseline_first_fill_closest_difference": 0.20999999999999996,
+      "benchmark_id": "ross-tivc-2025-04-03-micro-01",
+      "exact_human_trade_identity_scored": false,
+      "reported_fill_references": [
+        4.73,
+        4.76,
+        4.89
+      ],
+      "scored_dimensions": {
+        "entry_participation": {
+          "comparable": true,
+          "match": true,
+          "observed": true,
+          "runtime": true
+        },
+        "first_pullback_taken": {
+          "comparable": true,
+          "match": false,
+          "observed": true,
+          "runtime": false
+        },
+        "pullback_ordinal": {
+          "comparable": true,
+          "match": false,
+          "observed": 1,
+          "runtime": 7
+        },
+        "setup_detected": {
+          "comparable": true,
+          "match": true,
+          "observed": true,
+          "runtime": true
+        }
+      },
+      "source_artifact": {
+        "artifact_id": 9257596277,
+        "artifact_name": "micro-v0.1-runtime-tivc-2025-04-03",
+        "baseline_runtime_core_sha256": "40e6ae6032fc5f2d2fec152a7fad248297af6bacb8c1c64ee6c120a79b9b4984",
+        "digest_sha256": "ce298f8315ffdc2b042607043cea0bd7de1ffecc507a4e377ea39af96eb07945",
+        "workflow_run_id": 31925087895
+      },
+      "symbol": "TIVC"
+    },
+    {
+      "ablation": {
+        "fill_prices": [
+          7.23,
+          9.1,
+          13.1,
+          13.49,
+          12.8
+        ],
+        "filled_count": 5,
+        "filled_pullback_numbers": [
+          8,
+          11,
+          15,
+          16,
+          18
+        ],
+        "first_fill_price": 7.23,
+        "first_filled_pullback_number": 8,
+        "plan_count": 10,
+        "reason_counts": {
+          "insufficient_micro_history": 1,
+          "micro_peak_topping_tail": 33,
+          "micro_pullback_volume_not_lower": 4,
+          "micro_retrace_above_half": 3,
+          "no_current_running_high_pullback": 648,
+          "no_micro_pullback_pause": 4,
+          "plan": 10
+        }
+      },
+      "ablation_first_fill_closest_difference": 4.390000000000001,
+      "baseline": {
+        "filled_count": 4,
+        "first_fill_price": 7.23,
+        "first_filled_pullback_number": 8,
+        "plan_count": 5
+      },
+      "baseline_first_fill_closest_difference": 4.390000000000001,
+      "benchmark_id": "ross-upxi-2025-04-21-micro-01",
+      "exact_human_trade_identity_scored": false,
+      "reported_fill_references": [
+        2.84
+      ],
+      "scored_dimensions": {
+        "entry_participation": {
+          "comparable": true,
+          "match": true,
+          "observed": true,
+          "runtime": true
+        },
+        "setup_detected": {
+          "comparable": true,
+          "match": true,
+          "observed": true,
+          "runtime": true
+        }
+      },
+      "source_artifact": {
+        "artifact_id": 9257634256,
+        "artifact_name": "micro-v0.1-runtime-upxi-2025-04-21",
+        "baseline_runtime_core_sha256": "4b5741805482ab8d5b4c3f6e601463b84fa8061ef5afa1f823335739e88f75c5",
+        "digest_sha256": "9099e91e00ee58be36edf7b498e5eb2c50580594bb81b72bc8df64502889acd1",
+        "workflow_run_id": 31925087895
+      },
+      "symbol": "UPXI"
+    }
+  ],
+  "decision": {
+    "promote": false,
+    "reason": "the change adds later plans and fills without moving the first modeled trade for DSY, TIVC, MMA, or UPXI; ARTL participation remains late and cannot reproduce the upstream-incompatible reported first entry"
+  },
+  "interpretation": [
+    "the runtime ablation changes only the retracement impulse base",
+    "every case reuses and exactly reproduces its frozen v0.1 input/runtime core before the ablation is applied",
+    "first-fill price alignment is retrospective descriptive evidence only",
+    "the five-case seed suite is diagnostic and cannot promote a policy"
+  ],
+  "knowledge_policy": "post_replay_retrospective_evaluation_only",
+  "parent_frozen_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+  "schema_version": 1,
+  "source_baseline_workflow_run_id": 31925087895,
+  "strategy_feedback": "none",
+  "total_comparable_broad_behavior_dimensions": 12,
+  "total_matching_broad_behavior_dimensions": 10,
+  "workflow_head_sha": "afc2910eb48da3632303a9f47e47cd4cebb0e70e",
+  "workflow_run_id": 32037408114
+}
