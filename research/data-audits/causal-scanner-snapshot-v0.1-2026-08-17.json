@@ -1,0 +1,1198 @@
+{
+  "aggregate": {
+    "candidate_float_classification_counts": {
+      "fail": 4,
+      "pass": 10,
+      "unknown_fail_closed": 7
+    },
+    "candidate_minute_disposition_count": 2213,
+    "completed_candidate_bar_count": {
+      "false": 479,
+      "true": 1734
+    },
+    "date_count": 2,
+    "disposition_counts": {
+      "feature_state_float_at_or_above_limit": 208,
+      "feature_state_gain_below_minimum": 249,
+      "feature_state_price_outside_range": 116,
+      "feature_state_provider_news_present_unclassified": 442,
+      "feature_state_provider_relative_no_news_unclassified": 64,
+      "feature_state_rvol_below_minimum": 137,
+      "feature_state_unknown_fail_closed_float": 518,
+      "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 479
+    },
+    "market_candidate_count": 21,
+    "rank_complete_row_count": 2213,
+    "rank_incomplete_row_count": 0,
+    "row_has_provider_news_as_of": {
+      "false": 487,
+      "true": 1726
+    },
+    "temporal_violation_count": 0
+  },
+  "artifact": {
+    "digest_sha256": "dd05dcd58bd3adc20e18416035b2c6b4c517fb57d5d853d63c2b327d1b2a1d12",
+    "id": 9288797201,
+    "name": "causal-scanner-snapshot-frozen-source",
+    "root_manifest_canonical_sha256": "250676bac91c51ab0ba15c33e91260c89a0d7b25ffcb45c2044eb23a4f4f10a5",
+    "root_manifest_file_sha256": "47e0dbf06367dcbdb4d1e564fc8b067fbb5b74d7a6d9f007989884d50c2f9209",
+    "scanner_root_content_sha256": "ec9661a962fd42c52ce673a3f106c03d3b0f5e9c32a70739c54e78e78da20611",
+    "size_bytes": 163746,
+    "workflow_provenance_canonical_sha256": "8d0951b3dfe5258775a88f41526624a7df548b2a4afad39b2636ed04f4ecafde",
+    "workflow_provenance_content_sha256": "504e033f3c69edb4c9f8138e5ee5040ba194c46f268d1f43b9b0aeda0ef5b956",
+    "workflow_provenance_file_sha256": "3507b961949e9b5848158d45e6d7129c8865be572878946f51020d17518dd65e"
+  },
+  "audit_date": "2026-08-17",
+  "audit_id": "causal-scanner-snapshot-v0.1-2026-08-17",
+  "causality_audit": {
+    "all_active_loaders_and_cross_artifact_lineage_validated": true,
+    "candidate_action_before_market_qualification": false,
+    "completed_bar_availability_offset_seconds": 60,
+    "contains_trades_setups_portfolio_or_pnl": false,
+    "eventual_candidate_status_can_rewrite_earlier_rank_inputs": false,
+    "exact_candidate_market_features_fail_closed_when_current_bar_missing": true,
+    "fatal_provider_error_emits_partial_date": false,
+    "float_evidence_after_activation_available_to_row": false,
+    "full_membership_rank_feature_only_no_selection_action": true,
+    "future_candidate_counterfactual_regression_passed": true,
+    "future_session_extrema_used_as_snapshot_feature": false,
+    "independent_feature_recomputation_requires_provider_replay": true,
+    "news_publication_after_decision_available_to_row": false,
+    "observed_temporal_violation_count": 0,
+    "rank_carries_latest_completed_close_across_sparse_minutes": true,
+    "rank_threshold_or_top_n_selection_frozen": false,
+    "rank_uses_uniform_all_membership_authority": true,
+    "raw_reacquired_market_inputs_persisted": false,
+    "raw_reacquired_market_inputs_role": "integrity_commitment_only",
+    "root_date_payload_records_source_chain_and_provenance_hashes_validated": true,
+    "source_acquisition_prefilter_exposed_to_snapshot": false,
+    "source_market_full_day_high_used_for_acquisition_only": true,
+    "upstream_full_window_news_consumed_without_as_of_projection": false,
+    "uses_benchmark_labels": false,
+    "uses_retrospective_trade_outcomes": false
+  },
+  "date_results": {
+    "2025-04-03": {
+      "candidates": {
+        "FLX": {
+          "activation_time": "2025-04-03T12:10:00+00:00",
+          "completed_bar_count": {
+            "missing": 78,
+            "present": 32
+          },
+          "decision_time_range": {
+            "first": "2025-04-03T12:10:00+00:00",
+            "last": "2025-04-03T13:59:00+00:00"
+          },
+          "disposition_counts": {
+            "feature_state_unknown_fail_closed_float": 32,
+            "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 78
+          },
+          "first_all_four_pillars_true_at": null,
+          "first_provider_news_present_at": "2025-04-03T12:10:00+00:00",
+          "float_classification": "unknown_fail_closed",
+          "float_provider_status": "success_no_eligible_sec_evidence",
+          "news_provider_status": "success",
+          "provider_news_rows": 110,
+          "provider_relative_no_news_rows": 0,
+          "rank": {
+            "best": 19,
+            "first": 20,
+            "last": 52,
+            "worst": 368
+          },
+          "row_count": 110
+        },
+        "GT": {
+          "activation_time": "2025-04-03T13:44:00+00:00",
+          "completed_bar_count": {
+            "missing": 0,
+            "present": 16
+          },
+          "decision_time_range": {
+            "first": "2025-04-03T13:44:00+00:00",
+            "last": "2025-04-03T13:59:00+00:00"
+          },
+          "disposition_counts": {
+            "feature_state_float_at_or_above_limit": 16
+          },
+          "first_all_four_pillars_true_at": null,
+          "first_provider_news_present_at": "2025-04-03T13:57:00+00:00",
+          "float_classification": "fail",
+          "float_provider_status": "success_selected_evidence_exact_acceptance",
+          "news_provider_status": "success",
+          "provider_news_rows": 3,
+          "provider_relative_no_news_rows": 13,
+          "rank": {
+            "best": 41,
+            "first": 46,
+            "last": 42,
+            "worst": 46
+          },
+          "row_count": 16
+        },
+        "ICCT": {
+          "activation_time": "2025-04-03T13:54:00+00:00",
+          "completed_bar_count": {
+            "missing": 0,
+            "present": 6
+          },
+          "decision_time_range": {
+            "first": "2025-04-03T13:54:00+00:00",
+            "last": "2025-04-03T13:59:00+00:00"
+          },
+          "disposition_counts": {
+            "feature_state_provider_news_present_unclassified": 6
+          },
+          "first_all_four_pillars_true_at": "2025-04-03T13:54:00+00:00",
+          "first_provider_news_present_at": "2025-04-03T13:54:00+00:00",
+          "float_classification": "pass",
+          "float_provider_status": "success_selected_evidence_exact_acceptance",
+          "news_provider_status": "success",
+          "provider_news_rows": 6,
+          "provider_relative_no_news_rows": 0,
+          "rank": {
+            "best": 31,
+            "first": 31,
+            "last": 31,
+            "worst": 31
+          },
+          "row_count": 6
+        },
+        "OSRH": {
+          "activation_time": "2025-04-03T11:38:00+00:00",
+          "completed_bar_count": {
+            "missing": 0,
+            "present": 142
+          },
+          "decision_time_range": {
+            "first": "2025-04-03T11:38:00+00:00",
+            "last": "2025-04-03T13:59:00+00:00"
+          },
+          "disposition_counts": {
+            "feature_state_price_outside_range": 29,
+            "feature_state_provider_news_present_unclassified": 86,
+            "feature_state_provider_relative_no_news_unclassified": 27
+          },
+          "first_all_four_pillars_true_at": "2025-04-03T11:38:00+00:00",
+          "first_provider_news_present_at": "2025-04-03T12:06:00+00:00",
+          "float_classification": "pass",
+          "float_provider_status": "success_selected_evidence_exact_acceptance",
+          "news_provider_status": "success",
+          "provider_news_rows": 114,
+          "provider_relative_no_news_rows": 28,
+          "rank": {
+            "best": 12,
+            "first": 12,
+            "last": 38,
+            "worst": 39
+          },
+          "row_count": 142
+        },
+        "TCRT": {
+          "activation_time": "2025-04-03T13:24:00+00:00",
+          "completed_bar_count": {
+            "missing": 0,
+            "present": 36
+          },
+          "decision_time_range": {
+            "first": "2025-04-03T13:24:00+00:00",
+            "last": "2025-04-03T13:59:00+00:00"
+          },
+          "disposition_counts": {
+            "feature_state_gain_below_minimum": 26,
+            "feature_state_provider_relative_no_news_unclassified": 10
+          },
+          "first_all_four_pillars_true_at": "2025-04-03T13:24:00+00:00",
+          "first_provider_news_present_at": null,
+          "float_classification": "pass",
+          "float_provider_status": "success_selected_evidence_exact_acceptance",
+          "news_provider_status": "success",
+          "provider_news_rows": 0,
+          "provider_relative_no_news_rows": 36,
+          "rank": {
+            "best": 25,
+            "first": 25,
+            "last": 54,
+            "worst": 711
+          },
+          "row_count": 36
+        },
+        "TIVC": {
+          "activation_time": "2025-04-03T11:00:00+00:00",
+          "completed_bar_count": {
+            "missing": 8,
+            "present": 172
+          },
+          "decision_time_range": {
+            "first": "2025-04-03T11:00:00+00:00",
+            "last": "2025-04-03T13:59:00+00:00"
+          },
+          "disposition_counts": {
+            "feature_state_provider_news_present_unclassified": 172,
+            "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 8
+          },
+          "first_all_four_pillars_true_at": "2025-04-03T11:00:00+00:00",
+          "first_provider_news_present_at": "2025-04-03T11:00:00+00:00",
+          "float_classification": "pass",
+          "float_provider_status": "success_selected_evidence_exact_acceptance",
+          "news_provider_status": "success",
+          "provider_news_rows": 180,
+          "provider_relative_no_news_rows": 0,
+          "rank": {
+            "best": 12,
+            "first": 15,
+            "last": 33,
+            "worst": 37
+          },
+          "row_count": 180
+        },
+        "ZYBT": {
+          "activation_time": "2025-04-03T13:39:00+00:00",
+          "completed_bar_count": {
+            "missing": 2,
+            "present": 19
+          },
+          "decision_time_range": {
+            "first": "2025-04-03T13:39:00+00:00",
+            "last": "2025-04-03T13:59:00+00:00"
+          },
+          "disposition_counts": {
+            "feature_state_unknown_fail_closed_float": 19,
+            "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 2
+          },
+          "first_all_four_pillars_true_at": null,
+          "first_provider_news_present_at": null,
+          "float_classification": "unknown_fail_closed",
+          "float_provider_status": "success_no_eligible_sec_evidence",
+          "news_provider_status": "success",
+          "provider_news_rows": 0,
+          "provider_relative_no_news_rows": 21,
+          "rank": {
+            "best": 46,
+            "first": 46,
+            "last": 463,
+            "worst": 3997
+          },
+          "row_count": 21
+        }
+      },
+      "counts": {
+        "candidate_completed_bar_present": {
+          "false": 88,
+          "true": 423
+        },
+        "candidate_float_classification_counts": {
+          "fail": 1,
+          "pass": 4,
+          "unknown_fail_closed": 2
+        },
+        "candidate_float_provider_status_counts": {
+          "success_no_eligible_sec_evidence": 2,
+          "success_selected_evidence_exact_acceptance": 5
+        },
+        "candidate_minute_disposition_count": 511,
+        "candidate_news_provider_status_counts": {
+          "success": 7
+        },
+        "disposition_counts": {
+          "feature_state_float_at_or_above_limit": 16,
+          "feature_state_gain_below_minimum": 26,
+          "feature_state_price_outside_range": 29,
+          "feature_state_provider_news_present_unclassified": 264,
+          "feature_state_provider_relative_no_news_unclassified": 37,
+          "feature_state_unknown_fail_closed_float": 51,
+          "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 88
+        },
+        "identity_resolved_member_count": 5442,
+        "market_candidate_count": 7,
+        "pillar_counts": {
+          "float_pillar_pass": {
+            "false": 16,
+            "null": 131,
+            "true": 364
+          },
+          "gain_pillar_pass": {
+            "false": 67,
+            "null": 88,
+            "true": 356
+          },
+          "price_pillar_pass": {
+            "false": 29,
+            "null": 88,
+            "true": 394
+          },
+          "rvol_pillar_pass": {
+            "false": 15,
+            "null": 88,
+            "true": 408
+          }
+        },
+        "rank_input_complete_for_members_with_completed_bars": {
+          "true": 511
+        },
+        "row_has_provider_news_as_of": {
+          "false": 98,
+          "true": 413
+        },
+        "row_provider_relative_no_news_as_of": {
+          "false": 413,
+          "true": 98
+        },
+        "upstream_float_record_count": 7,
+        "upstream_full_window_news_event_count": 6,
+        "upstream_news_status_count": 7
+      },
+      "decision_time_range": {
+        "first": "2025-04-03T11:00:00+00:00",
+        "last": "2025-04-03T13:59:00+00:00"
+      },
+      "hashes": {
+        "date_manifest_canonical_sha256": "bac6b81368dfadb27fad5df15a6271aaa61241b657e9715964fb564bde3cb410",
+        "date_manifest_content_sha256": "03476efea44e5658d67529fbd4527e5c00130902ae9dc2bd1f7fa44d34ea8ff7",
+        "date_manifest_file_sha256": "36e6c30475c55fc08c282cd09e718c42eeabed56f14989407811432823e6d99c",
+        "ordered_records_sha256": "5f2cfc8f9ffa88a55f4f45f6a0ad4f0a71dcbcf3e9a72b7a0dfb7e15faec3b8f",
+        "reacquired_market_inputs_recomputed_from_persisted_artifact": false,
+        "reacquired_market_inputs_role": "integrity_commitment_only",
+        "records_canonical_sha256": "d4cff826a798282005107900f3877762c76a07c2bd7a3e24cdf2c261cdb9d75c",
+        "records_content_sha256": "42ba46d200bf8b7528f9a6e5ac22ae4c845a9ae33472d96f6f98158983ba762a",
+        "records_file_sha256": "44d5ed17176a9e960c685327528de5c1cf210e30924c78b8c5328966261ea939",
+        "source_hash_chain_sha256": "97f52628968beb0f29aa297a4c7ca93e6148c27f35a594f74ac0f1a8fdb5cd21",
+        "source_hashes": {
+          "causal_float_manifest": "cfd391c3aa353d4255fad7c93b9efbdfa054f09b7c4a79a7cb619ace6a55ea86",
+          "causal_float_records": "b772cc067b17717fd5de2c8cf06abe08636e11dd2057c364b7168d625a931147",
+          "identity_resolved_membership": "eaaeda5564a7fd84688c341fb4bf43768a5b73f94f75fcef8ad24607064b4888",
+          "market_candidates": "792faaed220588f97ffd3df1c4b37f1b1047bc2805c8cbdfaa820581e5d0c431",
+          "market_discovery_manifest": "f101ad19e4650d50e771d1997ccb2adfea4117c431dac4579bc4904eb1f13075",
+          "publication_timed_news_events": "3ca7a16155f6d6d0e9345f293143b5a39b2f501a25f19ae3e4c8a360e180f0f1",
+          "publication_timed_news_manifest": "05b4b7e80a89c2916822bd7ae2884d785b0f605629132603a8bd985b47b01b1e",
+          "publication_timed_news_statuses": "e4fe0f22e625f72bb9159ee215733905b0dec4c6acc6103b0f8ffa5ba0e77032",
+          "reacquired_market_inputs": "9863946ebc912b9377365a73fdce2e9ac9511a699ae2656e0cce3f49224e2b37"
+        }
+      },
+      "rank_coverage": {
+        "candidate_rank": {
+          "maximum": 3997,
+          "minimum": 12,
+          "non_null_count": 511,
+          "null_count": 0
+        },
+        "membership_input_ranges": {
+          "rank_members_missing_completed_close_count": {
+            "maximum": 0,
+            "minimum": 0
+          },
+          "rank_members_missing_previous_close_count": {
+            "maximum": 0,
+            "minimum": 0
+          },
+          "rank_members_with_completed_bar_count": {
+            "maximum": 5210,
+            "minimum": 2123
+          },
+          "rank_members_with_completed_close_count": {
+            "maximum": 5210,
+            "minimum": 2123
+          },
+          "rank_members_with_computable_gain_count": {
+            "maximum": 5210,
+            "minimum": 2123
+          },
+          "rank_members_without_completed_bar_count": {
+            "maximum": 3319,
+            "minimum": 232
+          }
+        },
+        "rank_complete_row_count": 511,
+        "rank_incomplete_row_count": 0
+      },
+      "temporal_violations": {
+        "activation_not_minute_aligned": 0,
+        "candidate_bar_availability_mismatch": 0,
+        "decision_at_or_after_exclusive_cutoff": 0,
+        "decision_before_activation": 0,
+        "decision_date_mismatch": 0,
+        "decision_not_minute_aligned": 0,
+        "float_evidence_after_activation": 0,
+        "future_first_news": 0,
+        "future_latest_news": 0,
+        "source_bar_not_minute_aligned": 0,
+        "source_bar_to_decision_offset_not_60_seconds": 0,
+        "total": 0
+      }
+    },
+    "2026-07-09": {
+      "candidates": {
+        "AP": {
+          "activation_time": "2026-07-09T11:00:00+00:00",
+          "completed_bar_count": {
+            "missing": 113,
+            "present": 67
+          },
+          "decision_time_range": {
+            "first": "2026-07-09T11:00:00+00:00",
+            "last": "2026-07-09T13:59:00+00:00"
+          },
+          "disposition_counts": {
+            "feature_state_float_at_or_above_limit": 67,
+            "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 113
+          },
+          "first_all_four_pillars_true_at": null,
+          "first_provider_news_present_at": "2026-07-09T11:00:00+00:00",
+          "float_classification": "fail",
+          "float_provider_status": "success_selected_evidence_exact_acceptance",
+          "news_provider_status": "success",
+          "provider_news_rows": 180,
+          "provider_relative_no_news_rows": 0,
+          "rank": {
+            "best": 7,
+            "first": 7,
+            "last": 13,
+            "worst": 23
+          },
+          "row_count": 180
+        },
+        "HOUR": {
+          "activation_time": "2026-07-09T11:22:00+00:00",
+          "completed_bar_count": {
+            "missing": 70,
+            "present": 88
+          },
+          "decision_time_range": {
+            "first": "2026-07-09T11:22:00+00:00",
+            "last": "2026-07-09T13:59:00+00:00"
+          },
+          "disposition_counts": {
+            "feature_state_gain_below_minimum": 86,
+            "feature_state_price_outside_range": 1,
+            "feature_state_provider_relative_no_news_unclassified": 1,
+            "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 70
+          },
+          "first_all_four_pillars_true_at": "2026-07-09T11:22:00+00:00",
+          "first_provider_news_present_at": "2026-07-09T12:06:00+00:00",
+          "float_classification": "pass",
+          "float_provider_status": "success_selected_evidence_exact_acceptance",
+          "news_provider_status": "success",
+          "provider_news_rows": 114,
+          "provider_relative_no_news_rows": 44,
+          "rank": {
+            "best": 12,
+            "first": 12,
+            "last": 4928,
+            "worst": 4928
+          },
+          "row_count": 158
+        },
+        "JLHL": {
+          "activation_time": "2026-07-09T11:00:00+00:00",
+          "completed_bar_count": {
+            "missing": 45,
+            "present": 135
+          },
+          "decision_time_range": {
+            "first": "2026-07-09T11:00:00+00:00",
+            "last": "2026-07-09T13:59:00+00:00"
+          },
+          "disposition_counts": {
+            "feature_state_unknown_fail_closed_float": 135,
+            "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 45
+          },
+          "first_all_four_pillars_true_at": null,
+          "first_provider_news_present_at": "2026-07-09T11:00:00+00:00",
+          "float_classification": "unknown_fail_closed",
+          "float_provider_status": "success_selected_evidence_exact_acceptance",
+          "news_provider_status": "success",
+          "provider_news_rows": 180,
+          "provider_relative_no_news_rows": 0,
+          "rank": {
+            "best": 4,
+            "first": 6,
+            "last": 6,
+            "worst": 11
+          },
+          "row_count": 180
+        },
+        "MAAS": {
+          "activation_time": "2026-07-09T13:35:00+00:00",
+          "completed_bar_count": {
+            "missing": 7,
+            "present": 18
+          },
+          "decision_time_range": {
+            "first": "2026-07-09T13:35:00+00:00",
+            "last": "2026-07-09T13:59:00+00:00"
+          },
+          "disposition_counts": {
+            "feature_state_unknown_fail_closed_float": 18,
+            "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 7
+          },
+          "first_all_four_pillars_true_at": null,
+          "first_provider_news_present_at": null,
+          "float_classification": "unknown_fail_closed",
+          "float_provider_status": "success_selected_evidence_exact_acceptance",
+          "news_provider_status": "success",
+          "provider_news_rows": 0,
+          "provider_relative_no_news_rows": 25,
+          "rank": {
+            "best": 12,
+            "first": 13,
+            "last": 410,
+            "worst": 498
+          },
+          "row_count": 25
+        },
+        "NDRA": {
+          "activation_time": "2026-07-09T11:46:00+00:00",
+          "completed_bar_count": {
+            "missing": 95,
+            "present": 39
+          },
+          "decision_time_range": {
+            "first": "2026-07-09T11:46:00+00:00",
+            "last": "2026-07-09T13:59:00+00:00"
+          },
+          "disposition_counts": {
+            "feature_state_gain_below_minimum": 38,
+            "feature_state_provider_relative_no_news_unclassified": 1,
+            "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 95
+          },
+          "first_all_four_pillars_true_at": "2026-07-09T11:46:00+00:00",
+          "first_provider_news_present_at": null,
+          "float_classification": "pass",
+          "float_provider_status": "success_selected_evidence_exact_acceptance",
+          "news_provider_status": "success",
+          "provider_news_rows": 0,
+          "provider_relative_no_news_rows": 134,
+          "rank": {
+            "best": 7,
+            "first": 7,
+            "last": 2805,
+            "worst": 4899
+          },
+          "row_count": 134
+        },
+        "PLBL": {
+          "activation_time": "2026-07-09T13:31:00+00:00",
+          "completed_bar_count": {
+            "missing": 1,
+            "present": 28
+          },
+          "decision_time_range": {
+            "first": "2026-07-09T13:31:00+00:00",
+            "last": "2026-07-09T13:59:00+00:00"
+          },
+          "disposition_counts": {
+            "feature_state_unknown_fail_closed_float": 28,
+            "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 1
+          },
+          "first_all_four_pillars_true_at": null,
+          "first_provider_news_present_at": "2026-07-09T13:31:00+00:00",
+          "float_classification": "unknown_fail_closed",
+          "float_provider_status": "success_no_eligible_sec_evidence",
+          "news_provider_status": "success",
+          "provider_news_rows": 29,
+          "provider_relative_no_news_rows": 0,
+          "rank": {
+            "best": 11,
+            "first": 11,
+            "last": 5022,
+            "worst": 5022
+          },
+          "row_count": 29
+        },
+        "PTLE": {
+          "activation_time": "2026-07-09T13:54:00+00:00",
+          "completed_bar_count": {
+            "missing": 2,
+            "present": 4
+          },
+          "decision_time_range": {
+            "first": "2026-07-09T13:54:00+00:00",
+            "last": "2026-07-09T13:59:00+00:00"
+          },
+          "disposition_counts": {
+            "feature_state_provider_relative_no_news_unclassified": 4,
+            "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 2
+          },
+          "first_all_four_pillars_true_at": "2026-07-09T13:54:00+00:00",
+          "first_provider_news_present_at": null,
+          "float_classification": "pass",
+          "float_provider_status": "success_selected_evidence_exact_acceptance",
+          "news_provider_status": "success",
+          "provider_news_rows": 0,
+          "provider_relative_no_news_rows": 6,
+          "rank": {
+            "best": 15,
+            "first": 15,
+            "last": 18,
+            "worst": 19
+          },
+          "row_count": 6
+        },
+        "RPGL": {
+          "activation_time": "2026-07-09T11:00:00+00:00",
+          "completed_bar_count": {
+            "missing": 0,
+            "present": 180
+          },
+          "decision_time_range": {
+            "first": "2026-07-09T11:00:00+00:00",
+            "last": "2026-07-09T13:59:00+00:00"
+          },
+          "disposition_counts": {
+            "feature_state_unknown_fail_closed_float": 180
+          },
+          "first_all_four_pillars_true_at": null,
+          "first_provider_news_present_at": "2026-07-09T11:00:00+00:00",
+          "float_classification": "unknown_fail_closed",
+          "float_provider_status": "success_no_eligible_sec_evidence",
+          "news_provider_status": "success",
+          "provider_news_rows": 180,
+          "provider_relative_no_news_rows": 0,
+          "rank": {
+            "best": 4,
+            "first": 4,
+            "last": 10,
+            "worst": 10
+          },
+          "row_count": 180
+        },
+        "SMPL": {
+          "activation_time": "2026-07-09T11:05:00+00:00",
+          "completed_bar_count": {
+            "missing": 50,
+            "present": 125
+          },
+          "decision_time_range": {
+            "first": "2026-07-09T11:05:00+00:00",
+            "last": "2026-07-09T13:59:00+00:00"
+          },
+          "disposition_counts": {
+            "feature_state_float_at_or_above_limit": 101,
+            "feature_state_gain_below_minimum": 24,
+            "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 50
+          },
+          "first_all_four_pillars_true_at": null,
+          "first_provider_news_present_at": "2026-07-09T11:05:00+00:00",
+          "float_classification": "fail",
+          "float_provider_status": "success_selected_evidence_exact_acceptance",
+          "news_provider_status": "success",
+          "provider_news_rows": 175,
+          "provider_relative_no_news_rows": 0,
+          "rank": {
+            "best": 8,
+            "first": 19,
+            "last": 2724,
+            "worst": 4875
+          },
+          "row_count": 175
+        },
+        "SRXH": {
+          "activation_time": "2026-07-09T11:03:00+00:00",
+          "completed_bar_count": {
+            "missing": 0,
+            "present": 177
+          },
+          "decision_time_range": {
+            "first": "2026-07-09T11:03:00+00:00",
+            "last": "2026-07-09T13:59:00+00:00"
+          },
+          "disposition_counts": {
+            "feature_state_gain_below_minimum": 73,
+            "feature_state_price_outside_range": 86,
+            "feature_state_provider_relative_no_news_unclassified": 18
+          },
+          "first_all_four_pillars_true_at": "2026-07-09T11:03:00+00:00",
+          "first_provider_news_present_at": null,
+          "float_classification": "pass",
+          "float_provider_status": "success_selected_evidence_exact_acceptance",
+          "news_provider_status": "success",
+          "provider_news_rows": 0,
+          "provider_relative_no_news_rows": 177,
+          "rank": {
+            "best": 7,
+            "first": 17,
+            "last": 5091,
+            "worst": 5091
+          },
+          "row_count": 177
+        },
+        "SUNE": {
+          "activation_time": "2026-07-09T11:00:00+00:00",
+          "completed_bar_count": {
+            "missing": 0,
+            "present": 180
+          },
+          "decision_time_range": {
+            "first": "2026-07-09T11:00:00+00:00",
+            "last": "2026-07-09T13:59:00+00:00"
+          },
+          "disposition_counts": {
+            "feature_state_gain_below_minimum": 2,
+            "feature_state_provider_news_present_unclassified": 41,
+            "feature_state_rvol_below_minimum": 137
+          },
+          "first_all_four_pillars_true_at": "2026-07-09T11:00:00+00:00",
+          "first_provider_news_present_at": "2026-07-09T11:00:00+00:00",
+          "float_classification": "pass",
+          "float_provider_status": "success_selected_evidence_exact_acceptance",
+          "news_provider_status": "success",
+          "provider_news_rows": 180,
+          "provider_relative_no_news_rows": 0,
+          "rank": {
+            "best": 6,
+            "first": 9,
+            "last": 48,
+            "worst": 70
+          },
+          "row_count": 180
+        },
+        "TDTH": {
+          "activation_time": "2026-07-09T12:14:00+00:00",
+          "completed_bar_count": {
+            "missing": 0,
+            "present": 106
+          },
+          "decision_time_range": {
+            "first": "2026-07-09T12:14:00+00:00",
+            "last": "2026-07-09T13:59:00+00:00"
+          },
+          "disposition_counts": {
+            "feature_state_unknown_fail_closed_float": 106
+          },
+          "first_all_four_pillars_true_at": null,
+          "first_provider_news_present_at": "2026-07-09T12:14:00+00:00",
+          "float_classification": "unknown_fail_closed",
+          "float_provider_status": "success_no_eligible_sec_evidence",
+          "news_provider_status": "success",
+          "provider_news_rows": 106,
+          "provider_relative_no_news_rows": 0,
+          "rank": {
+            "best": 9,
+            "first": 22,
+            "last": 65,
+            "worst": 65
+          },
+          "row_count": 106
+        },
+        "VRAX": {
+          "activation_time": "2026-07-09T11:32:00+00:00",
+          "completed_bar_count": {
+            "missing": 8,
+            "present": 140
+          },
+          "decision_time_range": {
+            "first": "2026-07-09T11:32:00+00:00",
+            "last": "2026-07-09T13:59:00+00:00"
+          },
+          "disposition_counts": {
+            "feature_state_provider_news_present_unclassified": 137,
+            "feature_state_provider_relative_no_news_unclassified": 3,
+            "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 8
+          },
+          "first_all_four_pillars_true_at": "2026-07-09T11:32:00+00:00",
+          "first_provider_news_present_at": "2026-07-09T11:35:00+00:00",
+          "float_classification": "pass",
+          "float_provider_status": "success_selected_evidence_exact_acceptance",
+          "news_provider_status": "success",
+          "provider_news_rows": 145,
+          "provider_relative_no_news_rows": 3,
+          "rank": {
+            "best": 1,
+            "first": 2,
+            "last": 1,
+            "worst": 2
+          },
+          "row_count": 148
+        },
+        "WRAP": {
+          "activation_time": "2026-07-09T13:36:00+00:00",
+          "completed_bar_count": {
+            "missing": 0,
+            "present": 24
+          },
+          "decision_time_range": {
+            "first": "2026-07-09T13:36:00+00:00",
+            "last": "2026-07-09T13:59:00+00:00"
+          },
+          "disposition_counts": {
+            "feature_state_float_at_or_above_limit": 24
+          },
+          "first_all_four_pillars_true_at": null,
+          "first_provider_news_present_at": "2026-07-09T13:36:00+00:00",
+          "float_classification": "fail",
+          "float_provider_status": "success_selected_evidence_exact_acceptance",
+          "news_provider_status": "success",
+          "provider_news_rows": 24,
+          "provider_relative_no_news_rows": 0,
+          "rank": {
+            "best": 7,
+            "first": 10,
+            "last": 9,
+            "worst": 10
+          },
+          "row_count": 24
+        }
+      },
+      "counts": {
+        "candidate_completed_bar_present": {
+          "false": 391,
+          "true": 1311
+        },
+        "candidate_float_classification_counts": {
+          "fail": 3,
+          "pass": 6,
+          "unknown_fail_closed": 5
+        },
+        "candidate_float_provider_status_counts": {
+          "success_no_eligible_sec_evidence": 3,
+          "success_selected_evidence_exact_acceptance": 11
+        },
+        "candidate_minute_disposition_count": 1702,
+        "candidate_news_provider_status_counts": {
+          "success": 14
+        },
+        "disposition_counts": {
+          "feature_state_float_at_or_above_limit": 192,
+          "feature_state_gain_below_minimum": 223,
+          "feature_state_price_outside_range": 87,
+          "feature_state_provider_news_present_unclassified": 178,
+          "feature_state_provider_relative_no_news_unclassified": 27,
+          "feature_state_rvol_below_minimum": 137,
+          "feature_state_unknown_fail_closed_float": 467,
+          "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 391
+        },
+        "identity_resolved_member_count": 5571,
+        "market_candidate_count": 14,
+        "pillar_counts": {
+          "float_pillar_pass": {
+            "false": 379,
+            "null": 520,
+            "true": 803
+          },
+          "gain_pillar_pass": {
+            "false": 368,
+            "null": 391,
+            "true": 943
+          },
+          "price_pillar_pass": {
+            "false": 101,
+            "null": 391,
+            "true": 1210
+          },
+          "rvol_pillar_pass": {
+            "false": 139,
+            "null": 391,
+            "true": 1172
+          }
+        },
+        "rank_input_complete_for_members_with_completed_bars": {
+          "true": 1702
+        },
+        "row_has_provider_news_as_of": {
+          "false": 389,
+          "true": 1313
+        },
+        "row_provider_relative_no_news_as_of": {
+          "false": 1313,
+          "true": 389
+        },
+        "upstream_float_record_count": 14,
+        "upstream_full_window_news_event_count": 32,
+        "upstream_news_status_count": 14
+      },
+      "decision_time_range": {
+        "first": "2026-07-09T11:00:00+00:00",
+        "last": "2026-07-09T13:59:00+00:00"
+      },
+      "hashes": {
+        "date_manifest_canonical_sha256": "a7e94a238d86878b0898bedf2451c7cc91d03c5670fd9f63aba42a684452e5a0",
+        "date_manifest_content_sha256": "ec4cf5a0a448a2efa02bd6690166044206748d7683f3bc4f548baa30bab69dbd",
+        "date_manifest_file_sha256": "a393566a58c1576792ef96da60063eb17cc13149941157c7521953759033119b",
+        "ordered_records_sha256": "92a57d705bc3ed833bda13b97c0515863902a43331237c49dde2ef96aa9353b3",
+        "reacquired_market_inputs_recomputed_from_persisted_artifact": false,
+        "reacquired_market_inputs_role": "integrity_commitment_only",
+        "records_canonical_sha256": "752d2187eb77ab40dda96276da191098cd1c3d4afbf3c334508edff13c74fdf8",
+        "records_content_sha256": "8e1c8d67a123cbbeb9680e685c57e724a42f83eda66ccf86bf0d6805ac3ff169",
+        "records_file_sha256": "f7d6c6c899fbfd755161b2bb9506d1ff4ddf6bf8d0472a9ba944b39de7f4b2f1",
+        "source_hash_chain_sha256": "d5fddfdac9d76f7986d2190731b0c7a9a7af211fca05c2d041bbfc5813274dc1",
+        "source_hashes": {
+          "causal_float_manifest": "4105de27c415cf5d14dc066b65675638e4dc83216c57165940a15f1b5193df1b",
+          "causal_float_records": "44132bff23f6bfd5ffeca8f50960020597218b912e13db1e0c698db5831971e0",
+          "identity_resolved_membership": "9d0ba9b07ababfe1288791c1d548563c12ff1ede8da09e2026b7f307787f355a",
+          "market_candidates": "a83d1d5f6550f946bbc274dc10ea4f27be5828f5656a134121fe994f2a39435a",
+          "market_discovery_manifest": "462acb68c710024a4d554141da691b86028fd18f675aaec2b7b6a58ff7ae9131",
+          "publication_timed_news_events": "e992d4a2e1b61e925343f3717202a09feea83c49bba29c5d09a9dfedc711e7b3",
+          "publication_timed_news_manifest": "8cd4f19431e612560588060b58a730c816a0903c0ba852ef95a3e3d906424856",
+          "publication_timed_news_statuses": "72729c75053f26a83f4d24a57b52a7556c8bd03c196a50f6db5491e9531be886",
+          "reacquired_market_inputs": "482aa90bf24369818be2293766db9efcec1c1293cb88ff5a2d6bf23e265a1fc5"
+        }
+      },
+      "rank_coverage": {
+        "candidate_rank": {
+          "maximum": 5091,
+          "minimum": 1,
+          "non_null_count": 1702,
+          "null_count": 0
+        },
+        "membership_input_ranges": {
+          "rank_members_missing_completed_close_count": {
+            "maximum": 0,
+            "minimum": 0
+          },
+          "rank_members_missing_previous_close_count": {
+            "maximum": 0,
+            "minimum": 0
+          },
+          "rank_members_with_completed_bar_count": {
+            "maximum": 5175,
+            "minimum": 2426
+          },
+          "rank_members_with_completed_close_count": {
+            "maximum": 5175,
+            "minimum": 2426
+          },
+          "rank_members_with_computable_gain_count": {
+            "maximum": 5175,
+            "minimum": 2426
+          },
+          "rank_members_without_completed_bar_count": {
+            "maximum": 3145,
+            "minimum": 396
+          }
+        },
+        "rank_complete_row_count": 1702,
+        "rank_incomplete_row_count": 0
+      },
+      "temporal_violations": {
+        "activation_not_minute_aligned": 0,
+        "candidate_bar_availability_mismatch": 0,
+        "decision_at_or_after_exclusive_cutoff": 0,
+        "decision_before_activation": 0,
+        "decision_date_mismatch": 0,
+        "decision_not_minute_aligned": 0,
+        "float_evidence_after_activation": 0,
+        "future_first_news": 0,
+        "future_latest_news": 0,
+        "source_bar_not_minute_aligned": 0,
+        "source_bar_to_decision_offset_not_60_seconds": 0,
+        "total": 0
+      }
+    }
+  },
+  "decision": {
+    "all_candidate_market_features_present": false,
+    "candidate_minute_dispositions_complete": true,
+    "complete_relative_to_frozen_identity_membership": true,
+    "full_walk_forward_eligible": false,
+    "interpretation": "Freeze this as a label-blind two-date scanner feature/disposition snapshot. It establishes internally consistent completed-bar timing, causal as-of news/float projection, and uniform cross-sectional rank authority for the frozen upstream membership. It does not freeze a top-N rule, produce a trade, reproduce a human entry, establish population completeness, or justify policy promotion.",
+    "policy_promoted": false,
+    "policy_promotion_eligible": false,
+    "safe_to_freeze_as_research_feature_disposition_artifact": true,
+    "universe_complete": false
+  },
+  "failed_attempts": [
+    {
+      "artifact": {
+        "digest_sha256": "c7acb88ba3d172c07ccad917a68ae179dde62d1c98c96911b651a91c9eb1fd1f",
+        "id": 9274788036,
+        "name": "massive-historical-census-prototype",
+        "size_bytes": 5143653
+      },
+      "cause": "the scanner tail validator rejected the provider's inclusive 10:01 acquisition envelope before unavailable tail bars were trimmed",
+      "conclusion": "failure",
+      "disposition": "diagnostic_only_not_a_complete_scanner_artifact",
+      "error": "ValueError: authoritative candidate bars for GT escaped the provider acquisition window",
+      "failed_step": "Build causal scanner feature snapshots",
+      "head_sha": "74bcd165b4ed9f17ddc2268604043c87202a4fd0",
+      "workflow_job_id": 95268080022,
+      "workflow_name": "Massive historical ticker census",
+      "workflow_run_id": 31988667747
+    },
+    {
+      "artifact": {
+        "digest_sha256": "ea9b26148d34ce34e5c4a766faac887d0a12831c6163b48a00142b05f5de6290",
+        "id": 9286883934,
+        "name": "massive-historical-census-prototype",
+        "size_bytes": 4575667
+      },
+      "cause": "mutable provider identity evidence changed YYAI split factor 40 to 800 and PFSA 25 to 100 without changing frozen membership",
+      "conclusion": "failure",
+      "disposition": "diagnostic_only_exact_frozen_upstream_required",
+      "error": "RuntimeError: live identity audit differs from frozen audit content",
+      "failed_step": "Build frozen identity-resolved universe",
+      "head_sha": "2d56590ebab28ef5911568f470f653315f5b8f0f",
+      "workflow_job_id": 95371252579,
+      "workflow_name": "Massive historical ticker census",
+      "workflow_run_id": 32024605115
+    },
+    {
+      "artifact": {
+        "digest_sha256": "bf7d9f0196b40f0604409b5be68c2d16e67179955b85bbf13da186e39fff2aa6",
+        "id": 9287587297,
+        "name": "causal-scanner-snapshot-frozen-source",
+        "partial_date_count": 1,
+        "partial_row_count": 511,
+        "partial_trading_dates": [
+          "2025-04-03"
+        ],
+        "root_manifest_present": false,
+        "size_bytes": 43133,
+        "workflow_provenance_present": false
+      },
+      "cause": "candidate gain and cross-sectional rank used separately sourced previous-close denominators that passed tolerance but were not bit-identical",
+      "conclusion": "failure",
+      "disposition": "diagnostic_only_never_promoted",
+      "error": "ValueError: scanner rank-one candidate disagrees with leader",
+      "failed_step": "Build causal scanner snapshot from frozen upstream",
+      "head_sha": "95849f73e03a9a2363a3d388b0b7961394486a3a",
+      "rejected_local_exploration": "candidate-only canonicalization was never committed because eventual candidate status could rewrite earlier cross-sectional ranks and leak future status",
+      "resolution": "make one independently reacquired all-membership previous-close map and minute frame authoritative uniformly, using frozen candidate inputs only for corroboration",
+      "workflow_job_id": 95377626052,
+      "workflow_name": "Causal scanner frozen-source snapshot",
+      "workflow_run_id": 32026744882
+    },
+    {
+      "artifact": {
+        "digest_sha256": "83bd39b3da87c322bd3a5b2ae3ed68f8c31fd820ac3a8e02d8c8cc60cf3d0870",
+        "id": 9288425450,
+        "name": "causal-scanner-snapshot-frozen-source",
+        "partial_date_count": 1,
+        "partial_row_count": 511,
+        "partial_trading_dates": [
+          "2025-04-03"
+        ],
+        "root_manifest_present": false,
+        "size_bytes": 43313,
+        "workflow_provenance_present": false
+      },
+      "cause": "the validator incorrectly required a current candidate gain to equal the carried rank leader gain on a minute whose exact candidate bar was missing and therefore correctly null",
+      "conclusion": "failure",
+      "disposition": "diagnostic_only_never_promoted",
+      "error": "ValueError: scanner rank-one candidate disagrees with leader",
+      "failed_step": "Build causal scanner snapshot from frozen upstream",
+      "head_sha": "06a1e2d7561d84613b5bbe28011a50a52ea05e3f",
+      "partial_2025_files_byte_identical_to_successful_artifact": true,
+      "production_trigger_confirmed_after_fix": {
+        "decision_times": [
+          "2026-07-09T13:34:00+00:00",
+          "2026-07-09T13:35:00+00:00",
+          "2026-07-09T13:36:00+00:00",
+          "2026-07-09T13:37:00+00:00",
+          "2026-07-09T13:56:00+00:00",
+          "2026-07-09T13:57:00+00:00",
+          "2026-07-09T13:58:00+00:00",
+          "2026-07-09T13:59:00+00:00"
+        ],
+        "missing_exact_bar_rank_one_row_count": 8,
+        "symbol": "VRAX"
+      },
+      "resolution": "always require rank-one leader symbol agreement, but require numeric gain equality only when the exact completed candidate bar is present",
+      "workflow_job_id": 95384718069,
+      "workflow_name": "Causal scanner frozen-source snapshot",
+      "workflow_run_id": 32029072122
+    }
+  ],
+  "frozen_upstream": {
+    "artifact_digest_sha256": "7ede4afb352d5793b1a6417defe2508d47f4eae1515e47c09e79716eee6ab636",
+    "artifact_id": 9274221536,
+    "artifact_name": "massive-historical-census-prototype",
+    "artifact_size_bytes": 5143650,
+    "head_sha": "c8db5f019558e021bcb8bf491bba58d8a6012b82",
+    "identity_audit_content_sha256": "1bdd6ba7fd646f8d5bc775f699a6faf171c8026f6bed4a8220221bb3449c7d24",
+    "reason_for_exact_pin": "provider historical identity and market responses are mutable across runs",
+    "root_manifest_file_sha256": "0a110b47c1f6f53f9976582868f63dae7e7b4ca960ac4ee46bc2c627b044ba2e",
+    "source_bundle_hashes": {
+      "float": "5fdc30294c4732263eb2b426f6d9e56324b3d2c560c06b429085077c03263953",
+      "market": "443665fa740348aebbd3a0bb7319eab02f2f9f74b0768ea16c0408dd10432c28",
+      "membership": "ec828ab21ce66efd87b2c01d53dd8b818ce60b872430edd91a4f9c3437c09201",
+      "news": "c388c4ae31b225b61bd29744a80d4ddb62a95df101754b7866188c850fea2931"
+    },
+    "source_bundle_manifest_file_sha256": {
+      "float": "2d9065b83a007da3ef38ec38148c57a13244189a1133830ac058988d87ba8546",
+      "market": "2ac613a32f30afaeadf0aab701b0c3b3e001a5ca39eded43776433e883480b20",
+      "membership": "09e58888f340ec0a05f8ddcee9183de3f725bbf668cfa2548100205a0b40b577",
+      "news": "c4585183a9aefb655d187694946a7c91232fb33ad8b9f7daf008698246549f5e"
+    },
+    "workflow_job_id": 95262804942,
+    "workflow_name": "Massive historical ticker census",
+    "workflow_run_id": 31986688096
+  },
+  "policies": {
+    "float": {
+      "fingerprint": "00252a48e20d684d08a5163a3d8a776e541ad6e59dfd4c7a7fcf87f623a71803",
+      "policy_id": "causal-sec-float-v0.1"
+    },
+    "identity": {
+      "fingerprint": "695fe07471a5ffc5704c2d28e036385eafe55a2639f5ebf96dac2f2c39aaed99",
+      "policy_id": "identity-resolved-universe-v0.1"
+    },
+    "market": {
+      "fingerprint": "dbcbebae2b785ef8af68a37122658e02aa6fec3310c03581426273c5b66516d5",
+      "policy_id": "causal-market-discovery-v0.2"
+    },
+    "news": {
+      "as_of_projection_rule": "published_at <= decision_time",
+      "fingerprint": "0360d3e4ef7f6075d5621a1e9d3d1f6d145fa84f0875feb88b42c705631ee810",
+      "policy_id": "causal-alpaca-news-v0.2"
+    },
+    "scanner": {
+      "candidate_frame_authority": "uniform_all_membership_reacquired_frame_for_rank_and_candidate_features",
+      "decision_clock_rule": "one_wall_clock_minute_from_activation_to_exclusive_cutoff",
+      "fingerprint": "ed21becad10855b4a085b6e05b6feac8f21e4ce511a100b2381522154818f42a",
+      "partial_date_emission_on_provider_error": false,
+      "policy_id": "causal-scanner-snapshot-v0.1",
+      "previous_close_authority": "uniform_all_membership_reacquired_split_previous_close",
+      "rank_rule": "gain_desc_symbol_asc_over_all_members_with_latest_completed_close_carried_forward",
+      "rank_threshold_rule": "feature_only_no_final_top_n_threshold_frozen",
+      "status": "frozen_research_feature_decision_contract_not_promotable"
+    },
+    "strategy_profile": {
+      "fingerprint": "7d15fb979701324bf862b1dc37e5f9b514dcf1ab8cf1e062ae4a60027233d4ff",
+      "name": "current-general-2026",
+      "require_top_gainer_rank": null
+    }
+  },
+  "residual_limits": [
+    "The audit covers two dates and 21 upstream market candidates, not a population-complete universe or walk-forward sample.",
+    "The upstream research universe is complete only relative to its frozen identity-resolved membership and retains universe_complete=false.",
+    "The frozen upstream universe depends on retrospectively available provider identity and instrument metadata and is not claimed to be a complete point-in-time market population.",
+    "Retrospective Alpaca, SEC, and news responses do not prove immutable contemporaneous visibility; provider history demonstrably changed across runs.",
+    "The upstream market discovery used full-day high and coarse RVOL only as acquisition prefilters; those future-session extrema are excluded from scanner features but still limit inference about discovery recall.",
+    "Raw independently reacquired rank market inputs were hash-committed but not persisted, so independent feature recomputation requires provider replay and may encounter provider drift.",
+    "+60 seconds models completed-bar and same-time-RVOL calculability, not exchange, SIP, provider, or network dissemination latency.",
+    "Provider-relative no-news does not establish absence from all sources; headline relevance, materiality, and catalyst quality remain unclassified.",
+    "SEC-based float estimates can remain unknown and fail closed; filing acceptance timestamps and available facts do not prove complete historical dissemination.",
+    "Rank is a recorded feature only; no final top-N threshold is frozen.",
+    "A sparse symbol may retain a carried cross-sectional rank while its exact current candidate features fail closed because the required minute bar is absent.",
+    "Scanner dispositions contain no trades, setups, portfolio state, P&L, or retrospective benchmark scoring and do not establish Ross Cameron-style entry imitation."
+  ],
+  "schema_version": 1,
+  "validation": {
+    "active_float_loader_passed": true,
+    "active_identity_loader_passed": true,
+    "active_market_candidate_loader_passed": true,
+    "active_news_loader_passed": true,
+    "active_scanner_loader_passed": true,
+    "artifact_zip_sha256_validated": true,
+    "cross_artifact_lineage_validator_passed": true,
+    "frozen_upstream_root_manifest_byte_hash_validated": true,
+    "frozen_upstream_zip_sha256_validated": true,
+    "persisted_source_chain_links_validated": true,
+    "raw_reacquired_market_inputs_independently_recomputed": false,
+    "root_and_date_canonical_hashes_validated": true,
+    "scanner_workflow_provenance_matches_run": true,
+    "workflow_provenance_self_hash_validated": true
+  },
+  "workflow": {
+    "all_validation_and_upload_steps_passed": true,
+    "branch": "phase-3-historical-snapshot",
+    "conclusion": "success",
+    "head_sha": "84c1c292820ba9a9b30237c5591637c638dc7e37",
+    "job_id": 95388937124,
+    "name": "Causal scanner frozen-source snapshot",
+    "ref": "refs/heads/phase-3-historical-snapshot",
+    "run_attempt": 1,
+    "run_id": 32030416481
+  }
+}

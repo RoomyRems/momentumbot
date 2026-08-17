@@ -2,6 +2,8 @@ name: Massive historical ticker census
 
 on:
   workflow_dispatch:
+  # Scanner-only changes replay the exact frozen source in the dedicated
+  # scanner workflow. Workflow-only edits require an intentional dispatch.
   push:
     branches:
       - phase-3-historical-snapshot
@@ -46,12 +48,7 @@ on:
       - scripts/build_causal_news_enrichment.py
       - tests/test_alpaca_provider.py
       - tests/test_historical_news.py
-      - src/momentumbot/causal_scanner_snapshot.py
-      - scripts/build_causal_scanner_snapshot.py
-      - tests/test_causal_scanner_snapshot.py
-      - tests/test_build_causal_scanner_snapshot.py
       - research/data-audits/massive-identity-corporate-actions-v0.1-2026-08-16.json
-      - .github/workflows/massive-historical-census.yml
 
 permissions:
   contents: read
