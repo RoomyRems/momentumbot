@@ -46,6 +46,10 @@ on:
       - scripts/build_causal_news_enrichment.py
       - tests/test_alpaca_provider.py
       - tests/test_historical_news.py
+      - src/momentumbot/causal_scanner_snapshot.py
+      - scripts/build_causal_scanner_snapshot.py
+      - tests/test_causal_scanner_snapshot.py
+      - tests/test_build_causal_scanner_snapshot.py
       - research/data-audits/massive-identity-corporate-actions-v0.1-2026-08-16.json
       - .github/workflows/massive-historical-census.yml
 
@@ -55,7 +59,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 180
     env:
       MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
       POLYGON_API_KEY: ${{ secrets.POLYGON_API_KEY }}
@@ -91,6 +95,8 @@ jobs:
           tests.test_sec_float_join
           tests.test_alpaca_provider
           tests.test_historical_news
+          tests.test_causal_scanner_snapshot
+          tests.test_build_causal_scanner_snapshot
           -v
       - name: Verify declared SEC fair-access identity
         run: python scripts/edgar_smoke.py
@@ -147,6 +153,12 @@ jobs:
           --census-root massive-historical-census
           --dates 2025-04-03 2026-07-09
           --news-batch-size 50
+      - name: Build causal scanner feature snapshots
+        run: >-
+          python scripts/build_causal_scanner_snapshot.py
+          --census-root massive-historical-census
+          --dates 2025-04-03 2026-07-09
+          --asset-batch-size 250
       - name: Enforce research-only eligibility
         run: >-
           python -c "import json,pathlib;
@@ -276,7 +288,65 @@ jobs:
           assert all(x['knowledge_policy']['full_window_tape_is_runtime_safe_without_projection'] is False for x in n['date_manifests']);
           assert all(x['knowledge_policy']['full_window_tape_contains_post_qualification_events'] is (x['summary']['full_window_post_qualification_candidate_event_count']>0) for x in n['date_manifests']);
           assert all(x['knowledge_policy']['candidate_acquisition_depends_on_news'] is False for x in n['date_manifests']);
-          assert all(x['knowledge_policy']['absence_means_no_news_in_all_sources'] is False for x in n['date_manifests'])"
+          assert all(x['knowledge_policy']['absence_means_no_news_in_all_sources'] is False for x in n['date_manifests']);
+          h=lambda x: __import__('hashlib').sha256(json.dumps(x,ensure_ascii=True,separators=(',',':'),sort_keys=True).encode()).hexdigest();
+          s=json.loads((root/'causal-scanner-snapshot-v0.1'/'manifest.json').read_text());
+          assert s['schema_version']==1;
+          assert s['artifact_id']=='causal-scanner-snapshot-v0.1';
+          assert s['dates']==['2025-04-03','2026-07-09'];
+          assert s['scanner_policy']['fingerprint']=='794c10df669b20bcb052b2659cf4783f37502fcb62efcf7a6bf14aa892e86e92';
+          assert s['content_sha256']==h({k:v for k,v in s.items() if k!='content_sha256'});
+          assert s['eligibility']['complete_relative_to_identity_resolved_membership'] is True;
+          assert s['eligibility']['candidate_minute_dispositions_frozen'] is True;
+          assert s['eligibility']['universe_complete'] is False;
+          assert s['eligibility']['full_walk_forward_eligible'] is False;
+          assert s['eligibility']['policy_promotion_eligible'] is False;
+          assert s['knowledge_policy']['uses_benchmark_labels'] is False;
+          assert s['knowledge_policy']['uses_retrospective_trade_outcomes'] is False;
+          assert s['knowledge_policy']['future_session_extrema_used_as_snapshot_feature'] is False;
+          assert s['knowledge_policy']['source_market_full_day_high_used_for_acquisition_only'] is True;
+          assert s['knowledge_policy']['source_acquisition_prefilter_exposed_to_snapshot'] is False;
+          assert s['knowledge_policy']['contains_trades_setups_portfolio_or_pnl'] is False;
+          assert s['source_replay_boundary']['raw_reacquired_market_inputs_persisted'] is False;
+          assert s['source_replay_boundary']['reacquired_market_inputs_sha256_role']=='integrity_commitment_only';
+          assert s['source_replay_boundary']['independent_feature_recomputation_from_snapshot_artifact'] is False;
+          assert s['source_replay_boundary']['source_provider_replay_required_for_recomputation'] is True;
+          assert s['source_bundle_hashes']=={'membership':r['content_sha256'],'market':q['content_sha256'],'float':f['content_sha256'],'news':n['content_sha256']};
+          assert len(s['date_manifests'])==2;
+          qdm={x['trading_date']:x for x in q['date_manifests']};
+          fdm={x['trading_date']:x for x in f['date_manifests']};
+          ndm={x['trading_date']:x for x in n['date_manifests']};
+          qcp={x['trading_date']:json.loads((root/'causal-market-discovery-v0.2'/x['trading_date']/x['files']['market_candidates']).read_text()) for x in q['date_manifests']};
+          expected_members={'2025-04-03':5442,'2026-07-09':5571};
+          source_order=['identity_resolved_membership','market_candidates','market_discovery_manifest','causal_float_records','causal_float_manifest','publication_timed_news_events','publication_timed_news_statuses','publication_timed_news_manifest','reacquired_market_inputs'];
+          assert all(x['schema_version']==1 and x['artifact_id']=='causal-scanner-snapshot-v0.1' for x in s['date_manifests']);
+          assert all(x['content_sha256']==h({k:v for k,v in x.items() if k!='content_sha256'}) for x in s['date_manifests']);
+          assert all(x['scanner_policy']['fingerprint']==s['scanner_policy']['fingerprint'] for x in s['date_manifests']);
+          assert all(x['summary']['identity_resolved_member_count']==expected_members[x['trading_date']] for x in s['date_manifests']);
+          assert all(x['summary']['market_candidate_count']==qdm[x['trading_date']]['summary']['causal_market_candidate_count'] for x in s['date_manifests']);
+          assert all(x['summary']['candidate_minute_disposition_count']==x['summary']['expected_candidate_minute_disposition_count'] for x in s['date_manifests']);
+          assert all(sum(x['summary']['disposition_counts'].values())==x['summary']['candidate_minute_disposition_count'] for x in s['date_manifests']);
+          assert all([link['name'] for link in x['source_hash_chain']]==source_order for x in s['date_manifests']);
+          assert all(x['source_hash_chain_sha256']==h(x['source_hash_chain']) for x in s['date_manifests']);
+          assert all(all(link['previous_link_sha256']==('' if i==0 else x['source_hash_chain'][i-1]['link_sha256']) and link['link_sha256']==h({'name':link['name'],'source_sha256':link['source_sha256'],'previous_link':link['previous_link_sha256']}) for i,link in enumerate(x['source_hash_chain'])) for x in s['date_manifests']);
+          assert all(all(len(link['source_sha256'])==64 and link['source_sha256']==link['source_sha256'].lower() for link in x['source_hash_chain']) for x in s['date_manifests']);
+          assert all(x['eligibility']['universe_complete'] is False and x['eligibility']['full_walk_forward_eligible'] is False and x['eligibility']['policy_promotion_eligible'] is False for x in s['date_manifests']);
+          sm={x['trading_date']:x for x in s['date_manifests']};
+          assert all([link['source_sha256'] for link in sm[d]['source_hash_chain'][:8]]==[qdm[d]['source_membership']['membership_sha256'],qcp[d]['content_sha256'],h(qdm[d]),fdm[d]['summary']['records_sha256'],h(fdm[d]),ndm[d]['summary']['full_window_events_sha256'],ndm[d]['summary']['qualification_statuses_sha256'],h(ndm[d])] for d in s['dates']);
+          sp=[json.loads((root/'causal-scanner-snapshot-v0.1'/x['trading_date']/x['files']['scanner_records']).read_text()) for x in s['date_manifests']];
+          assert all(p['content_sha256']==h({k:v for k,v in p.items() if k!='content_sha256'}) for p in sp);
+          assert all(p['ordered_records_sha256']==h(p['rows']) for p in sp);
+          assert all(p['row_count']==len(p['rows']) and p['candidate_count']==m['summary']['market_candidate_count'] for p,m in zip(sp,s['date_manifests']));
+          assert all(p['identity_resolved_member_count']==expected_members[p['trading_date']] for p in sp);
+          assert all(p['ordered_records_sha256']==m['summary']['ordered_records_sha256'] and p['content_sha256']==m['summary']['records_content_sha256'] for p,m in zip(sp,s['date_manifests']));
+          dt=__import__('datetime');
+          zi=__import__('zoneinfo').ZoneInfo('America/New_York');
+          expected_rows={d:sum(int((dt.datetime.combine(dt.date.fromisoformat(d),dt.time.fromisoformat(qdm[d]['strategy_profile']['no_new_entries_after']),zi)-dt.datetime.fromisoformat(row['first_market_qualified_at'])).total_seconds()//60) for row in qcp[d]['rows']) for d in s['dates']};
+          assert all(sm[d]['summary']['expected_candidate_minute_disposition_count']==expected_rows[d] for d in s['dates']);
+          assert all(all(dt.datetime.fromisoformat(row['decision_time'])-dt.datetime.fromisoformat(row['required_source_bar_started_at'])==dt.timedelta(seconds=60) for row in p['rows']) for p in sp);
+          assert all(all(row['float_asof'] is None or dt.datetime.fromisoformat(row['float_asof'])<=dt.datetime.fromisoformat(row['activation_time']) for row in p['rows']) for p in sp);
+          assert all(all(all(row[k] is None or dt.datetime.fromisoformat(row[k])<=dt.datetime.fromisoformat(row['decision_time']) for k in ['first_provider_news_published_at_as_of','latest_provider_news_published_at_as_of']) for row in p['rows']) for p in sp);
+          assert all(all(row['rank_members_with_completed_bar_count']+row['rank_members_without_completed_bar_count']==row['identity_resolved_member_count'] and row['rank_members_with_completed_close_count']+row['rank_members_missing_completed_close_count']==row['rank_members_with_completed_bar_count'] and row['rank_members_with_computable_gain_count']+row['rank_members_missing_previous_close_count']==row['rank_members_with_completed_close_count'] for row in p['rows']) for p in sp)"
       - name: Upload historical census prototype
         if: always()
         uses: actions/upload-artifact@v4
