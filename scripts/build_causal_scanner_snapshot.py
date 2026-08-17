@@ -26,6 +26,7 @@ from momentumbot.causal_scanner_snapshot import (
     RANK_PREVIOUS_CLOSE_TIMEFRAME,
     RANK_PRIOR_CLOSE_LOOKBACK_CALENDAR_DAYS,
     SESSION_TIMEZONE,
+    UPSTREAM_MARKET_ACQUISITION_TAIL_END,
     build_causal_scanner_snapshot_artifacts,
     build_scanner_snapshot_rows,
     causal_scanner_snapshot_v0_1_manifest,
@@ -560,6 +561,7 @@ def main(argv: list[str] | None = None) -> int:
                 trading_date=trading_date,
                 start=profile.volume_feature_start,
                 cutoff=profile.no_new_entries_after,
+                acquisition_end=UPSTREAM_MARKET_ACQUISITION_TAIL_END,
                 label=f"authoritative candidate bars for {symbol}",
             )
             for symbol, frame in reconstructed.minutes.items()
@@ -570,6 +572,7 @@ def main(argv: list[str] | None = None) -> int:
                 trading_date=trading_date,
                 start=profile.volume_feature_start,
                 cutoff=profile.no_new_entries_after,
+                acquisition_end=UPSTREAM_MARKET_ACQUISITION_TAIL_END,
                 label=f"authoritative candidate RVOL for {symbol}",
             )
             for symbol, series in reconstructed.rvol_curves.items()

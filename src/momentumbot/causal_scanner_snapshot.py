@@ -48,6 +48,7 @@ RANK_PRIOR_CLOSE_LOOKBACK_CALENDAR_DAYS = 21
 RANK_MINUTE_TIMEFRAME = "1Min"
 RANK_MINUTE_ADJUSTMENT = "raw"
 RANK_ACQUISITION_ASOF_RULE = "trading_date"
+UPSTREAM_MARKET_ACQUISITION_TAIL_END = time(10, 1)
 
 _SOURCE_HASH_ORDER = (
     "identity_resolved_membership",
@@ -171,6 +172,11 @@ def causal_scanner_snapshot_v0_1_manifest() -> dict[str, object]:
         ),
         "candidate_bar_rule": (
             "exact_completed_source_bar_required_for_each_candidate_decision"
+        ),
+        "upstream_market_acquisition_tail_rule": (
+            "accept_target_date_minute_bars_through_10:01_America/New_York_"
+            "then_drop_bars_not_completed_strictly_before_exclusive_cutoff_"
+            "before_fingerprinting_or_features"
         ),
         "market_feature_rule": (
             "raw_close_gain_cumulative_volume_and_exact_same_time_split_rvol"
@@ -324,21 +330,25 @@ def trim_scanner_bar_frame(
     trading_date: date,
     start: time,
     cutoff: time,
+    acquisition_end: time | None = None,
     label: str,
 ) -> pd.DataFrame:
-    """Drop provider-returned bars unavailable before the exclusive cutoff."""
+    """Validate a declared fetch envelope, then drop unavailable tail bars."""
 
     _validate_frame(frame, label=label)
     if frame.empty:
         return frame.copy()
     local = frame.index.tz_convert(ET)
+    acquisition_window_end = cutoff if acquisition_end is None else acquisition_end
+    if acquisition_window_end < cutoff:
+        raise ValueError(f"{label} acquisition end precedes the runtime cutoff")
     for timestamp in local:
         if timestamp.date() != trading_date:
             raise ValueError(f"{label} escaped the target trading date")
         if timestamp.second or timestamp.microsecond or timestamp.nanosecond:
             raise ValueError(f"{label} contains an off-minute timestamp")
         local_time = timestamp.timetz().replace(tzinfo=None)
-        if not start <= local_time <= cutoff:
+        if not start <= local_time <= acquisition_window_end:
             raise ValueError(f"{label} escaped the provider acquisition window")
     cutoff_at = datetime.combine(trading_date, cutoff, ET)
     usable = frame.index + pd.Timedelta(minutes=1) < cutoff_at
@@ -359,6 +369,7 @@ def trim_scanner_rvol_series(
     trading_date: date,
     start: time,
     cutoff: time,
+    acquisition_end: time | None = None,
     label: str,
 ) -> pd.Series:
     if not isinstance(series, pd.Series):
@@ -368,6 +379,7 @@ def trim_scanner_rvol_series(
         trading_date=trading_date,
         start=start,
         cutoff=cutoff,
+        acquisition_end=acquisition_end,
         label=label,
     )
     return pd.Series(

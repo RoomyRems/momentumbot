@@ -10,6 +10,7 @@ import pandas as pd
 
 from momentumbot.causal_scanner_snapshot import (
     SNAPSHOT_ROW_FIELDS,
+    UPSTREAM_MARKET_ACQUISITION_TAIL_END,
     build_causal_scanner_snapshot_artifacts,
     build_scanner_snapshot_rows,
     causal_scanner_snapshot_v0_1_manifest,
@@ -355,8 +356,16 @@ class CausalScannerSnapshotTests(unittest.TestCase):
             "America/New_York",
         )
         self.assertEqual(
+            causal_scanner_snapshot_v0_1_manifest()[
+                "upstream_market_acquisition_tail_rule"
+            ],
+            "accept_target_date_minute_bars_through_10:01_America/New_York_"
+            "then_drop_bars_not_completed_strictly_before_exclusive_cutoff_"
+            "before_fingerprinting_or_features",
+        )
+        self.assertEqual(
             causal_scanner_snapshot_v0_1_manifest()["fingerprint"],
-            "794c10df669b20bcb052b2659cf4783f37502fcb62efcf7a6bf14aa892e86e92",
+            "4ebeb4cb93b118e7a2175764c0f50f8a8acb10b061b8de6986bb7dff823f90c9",
         )
         self.assertFalse(
             causal_scanner_snapshot_v0_1_manifest()[
@@ -624,6 +633,74 @@ class CausalScannerSnapshotTests(unittest.TestCase):
         )
         self.assertEqual(list(trimmed_rvol.index), list(trimmed.index))
         self.assertNotIn(pd.Timestamp("2025-04-03T11:02:00Z"), trimmed.index)
+
+        acquisition_tail = _bars(
+            [2.0, 2.1, 2.2, 2.3],
+            start="2025-04-03T13:58:00Z",
+        )
+        tail_rvol = pd.Series(
+            [6.0, 6.1, 6.2, 6.3],
+            index=acquisition_tail.index,
+        )
+        trimmed_tail = trim_scanner_bar_frame(
+            acquisition_tail,
+            trading_date=date(2025, 4, 3),
+            start=time(4, 0),
+            cutoff=time(10, 0),
+            acquisition_end=UPSTREAM_MARKET_ACQUISITION_TAIL_END,
+            label="upstream acquisition-tail bars",
+        )
+        trimmed_tail_rvol = trim_scanner_rvol_series(
+            tail_rvol,
+            trading_date=date(2025, 4, 3),
+            start=time(4, 0),
+            cutoff=time(10, 0),
+            acquisition_end=UPSTREAM_MARKET_ACQUISITION_TAIL_END,
+            label="upstream acquisition-tail RVOL",
+        )
+        self.assertEqual(
+            list(trimmed_tail.index),
+            list(pd.DatetimeIndex(["2025-04-03T13:58:00Z"])),
+        )
+        pd.testing.assert_frame_equal(trimmed_tail, acquisition_tail.iloc[:1])
+        pd.testing.assert_series_equal(trimmed_tail_rvol, tail_rvol.iloc[:1])
+        self.assertNotIn(
+            pd.Timestamp("2025-04-03T14:01:00Z"), trimmed_tail.index
+        )
+
+        far_future = _bars([2.0], start="2025-04-03T14:02:00Z")
+        with self.assertRaisesRegex(ValueError, "provider acquisition window"):
+            trim_scanner_bar_frame(
+                far_future,
+                trading_date=date(2025, 4, 3),
+                start=time(4, 0),
+                cutoff=time(10, 0),
+                acquisition_end=UPSTREAM_MARKET_ACQUISITION_TAIL_END,
+                label="far-future bars",
+            )
+
+        undeclared_custom_tail = _bars(
+            [2.0], start="2025-04-03T11:04:00Z"
+        )
+        with self.assertRaisesRegex(ValueError, "provider acquisition window"):
+            trim_scanner_bar_frame(
+                undeclared_custom_tail,
+                trading_date=date(2025, 4, 3),
+                start=time(4, 0),
+                cutoff=time(7, 3),
+                label="rank/custom-cutoff bars",
+            )
+
+        wrong_date = _bars([2.0], start="2025-04-04T14:01:00Z")
+        with self.assertRaisesRegex(ValueError, "target trading date"):
+            trim_scanner_bar_frame(
+                wrong_date,
+                trading_date=date(2025, 4, 3),
+                start=time(4, 0),
+                cutoff=time(10, 0),
+                acquisition_end=UPSTREAM_MARKET_ACQUISITION_TAIL_END,
+                label="wrong-date bars",
+            )
 
 
 if __name__ == "__main__":
