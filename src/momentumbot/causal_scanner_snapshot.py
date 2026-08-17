@@ -13,7 +13,7 @@ import hashlib
 import json
 import math
 from pathlib import Path
-from typing import Iterable, Mapping
+from typing import Iterable, Iterator, Mapping
 from zoneinfo import ZoneInfo
 
 import pandas as pd
@@ -1097,7 +1097,21 @@ def build_source_hash_chain(
     return chain, _json_fingerprint(chain)
 
 
-def market_inputs_fingerprint(
+def encode_market_input_record(kind: str, value: object) -> bytes:
+    return (
+        kind.encode("ascii")
+        + b"\t"
+        + json.dumps(
+            value,
+            ensure_ascii=True,
+            separators=(",", ":"),
+            sort_keys=True,
+        ).encode("utf-8")
+        + b"\n"
+    )
+
+
+def iter_market_input_records(
     *,
     trading_date: date,
     profile: StrategyProfile,
@@ -1106,7 +1120,7 @@ def market_inputs_fingerprint(
     rank_raw_minute_bars_by_symbol: Mapping[str, pd.DataFrame],
     candidate_raw_minute_bars_by_symbol: Mapping[str, pd.DataFrame],
     candidate_exact_rvol_by_symbol: Mapping[str, pd.Series],
-) -> str:
+) -> Iterator[tuple[str, dict[str, object]]]:
     _validate_feature_only_profile(profile)
     symbols = _validated_membership_symbols(membership_symbols)
     symbol_set = set(symbols)
@@ -1119,22 +1133,7 @@ def market_inputs_fingerprint(
         extras = set(values) - symbol_set
         if extras:
             raise ValueError(f"fingerprinted {label} contain nonmembers: {sorted(extras)}")
-    digest = hashlib.sha256()
-
-    def emit(kind: str, value: object) -> None:
-        digest.update(kind.encode("ascii"))
-        digest.update(b"\t")
-        digest.update(
-            json.dumps(
-                value,
-                ensure_ascii=True,
-                separators=(",", ":"),
-                sort_keys=True,
-            ).encode("utf-8")
-        )
-        digest.update(b"\n")
-
-    emit(
+    yield (
         "contract",
         {
             "artifact": CAUSAL_SCANNER_SNAPSHOT_ARTIFACT_ID,
@@ -1143,9 +1142,9 @@ def market_inputs_fingerprint(
         },
     )
     for symbol in symbols:
-        emit("membership", {"symbol": symbol})
+        yield "membership", {"symbol": symbol}
     for symbol in symbols:
-        emit(
+        yield (
             "previous_close",
             {
                 "symbol": symbol,
@@ -1155,11 +1154,11 @@ def market_inputs_fingerprint(
             },
         )
 
-    def emit_frames(
+    def frame_records(
         kind: str,
         frames: Mapping[str, pd.DataFrame],
         columns: tuple[str, ...],
-    ) -> None:
+    ) -> Iterator[tuple[str, dict[str, object]]]:
         for symbol in sorted(frames):
             frame = frames[symbol]
             _validate_intraday_frame_window(
@@ -1170,7 +1169,7 @@ def market_inputs_fingerprint(
                 label=f"fingerprinted {kind} for {symbol}",
             )
             for timestamp, source in frame.iterrows():
-                emit(
+                yield (
                     kind,
                     {
                         "symbol": symbol,
@@ -1181,8 +1180,10 @@ def market_inputs_fingerprint(
                         },
                     },
                 )
-    emit_frames("rank_close_bar", rank_raw_minute_bars_by_symbol, ("close",))
-    emit_frames(
+    yield from frame_records(
+        "rank_close_bar", rank_raw_minute_bars_by_symbol, ("close",)
+    )
+    yield from frame_records(
         "candidate_bar",
         candidate_raw_minute_bars_by_symbol,
         ("close", "volume"),
@@ -1197,7 +1198,7 @@ def market_inputs_fingerprint(
             label=f"fingerprinted candidate RVOL for {symbol}",
         )
         for timestamp, value in series.items():
-            emit(
+            yield (
                 "candidate_exact_rvol",
                 {
                     "symbol": symbol,
@@ -1205,6 +1206,29 @@ def market_inputs_fingerprint(
                     "exact_same_time_rvol": _canonical_number(value),
                 },
             )
+
+
+def market_inputs_fingerprint(
+    *,
+    trading_date: date,
+    profile: StrategyProfile,
+    membership_symbols: Iterable[str],
+    previous_close_by_symbol: Mapping[str, float],
+    rank_raw_minute_bars_by_symbol: Mapping[str, pd.DataFrame],
+    candidate_raw_minute_bars_by_symbol: Mapping[str, pd.DataFrame],
+    candidate_exact_rvol_by_symbol: Mapping[str, pd.Series],
+) -> str:
+    digest = hashlib.sha256()
+    for kind, value in iter_market_input_records(
+        trading_date=trading_date,
+        profile=profile,
+        membership_symbols=membership_symbols,
+        previous_close_by_symbol=previous_close_by_symbol,
+        rank_raw_minute_bars_by_symbol=rank_raw_minute_bars_by_symbol,
+        candidate_raw_minute_bars_by_symbol=candidate_raw_minute_bars_by_symbol,
+        candidate_exact_rvol_by_symbol=candidate_exact_rvol_by_symbol,
+    ):
+        digest.update(encode_market_input_record(kind, value))
     return digest.hexdigest()
 
 

@@ -7,9 +7,11 @@ on:
       - phase-3-historical-snapshot
     paths:
       - src/momentumbot/causal_scanner_snapshot.py
+      - src/momentumbot/scanner_source_inputs.py
       - scripts/build_causal_scanner_snapshot.py
       - tests/test_causal_scanner_snapshot.py
       - tests/test_build_causal_scanner_snapshot.py
+      - tests/test_scanner_source_inputs.py
       - .github/workflows/causal-scanner-frozen-source.yml
 
 permissions:
@@ -36,6 +38,7 @@ jobs:
           python -m unittest
           tests.test_causal_scanner_snapshot
           tests.test_build_causal_scanner_snapshot
+          tests.test_scanner_source_inputs
           -v
       - name: Download and verify exact frozen upstream artifact
         env:
@@ -132,6 +135,7 @@ jobs:
           --census-root massive-historical-census
           --dates 2025-04-03 2026-07-09
           --asset-batch-size 250
+          --persist-source-inputs
       - name: Validate scanner snapshot and record workflow provenance
         env:
           SCANNER_WORKFLOW_RUN_ID: ${{ github.run_id }}
@@ -149,14 +153,21 @@ jobs:
 
           from momentumbot.causal_market_discovery import load_market_candidate_payload
           from momentumbot.causal_scanner_snapshot import (
+              build_scanner_snapshot_rows,
               causal_scanner_snapshot_v0_1_manifest,
               load_causal_scanner_snapshot,
           )
+          from momentumbot.historical_float import load_causal_float_records
+          from momentumbot.historical_news import load_publication_timed_news
           from momentumbot.identity_resolved_universe import json_fingerprint
           from momentumbot.models import current_general_2026
+          from momentumbot.scanner_source_inputs import (
+              load_scanner_source_input_bundle,
+          )
 
           root = Path("massive-historical-census")
           scanner_root = root / "causal-scanner-snapshot-v0.1"
+          source_input_root = root / "causal-scanner-source-inputs-v0.1"
           dates = ["2025-04-03", "2026-07-09"]
           expected_bundle_hashes = {
               "membership": "ec828ab21ce66efd87b2c01d53dd8b818ce60b872430edd91a4f9c3437c09201",
@@ -186,6 +197,26 @@ jobs:
               "full_walk_forward_eligible": False,
               "policy_promotion_eligible": False,
           }
+          source_input_root_manifest = json.loads(
+              (source_input_root / "manifest.json").read_text()
+          )
+          assert source_input_root_manifest["artifact_id"] == (
+              "causal-scanner-source-inputs-v0.1"
+          )
+          assert source_input_root_manifest["dates"] == dates
+          assert source_input_root_manifest["scanner_policy_fingerprint"] == (
+              root_manifest["scanner_policy"]["fingerprint"]
+          )
+          assert source_input_root_manifest["source_bundle_hashes"] == (
+              expected_bundle_hashes
+          )
+          assert source_input_root_manifest["content_sha256"] == json_fingerprint(
+              {
+                  key: value
+                  for key, value in source_input_root_manifest.items()
+                  if key != "content_sha256"
+              }
+          )
           market_root = root / "causal-market-discovery-v0.2"
           market_root_manifest = json.loads((market_root / "manifest.json").read_text())
           float_root_manifest = json.loads(
@@ -205,6 +236,10 @@ jobs:
           }
           scanner_dates = {
               row["trading_date"]: row for row in root_manifest["date_manifests"]
+          }
+          source_input_dates = {
+              row["trading_date"]: row
+              for row in source_input_root_manifest["date_manifests"]
           }
           summaries = {}
           for trading_date in dates:
@@ -234,6 +269,20 @@ jobs:
                   link["name"]: link["source_sha256"]
                   for link in date_manifest["source_hash_chain"]
               }
+              source_inputs, source_input_manifest = (
+                  load_scanner_source_input_bundle(
+                      source_input_root / trading_date,
+                      profile=current_general_2026(),
+                  )
+              )
+              assert source_input_manifest == source_input_dates[trading_date]
+              assert source_inputs.source_hashes == expected_source_hashes
+              assert list(source_inputs.candidate_symbols) == sorted(
+                  row["symbol"] for row in candidate_rows
+              )
+              assert len(source_inputs.membership_symbols) == expected_members[
+                  trading_date
+              ]
               rows, payload, validated_manifest = load_causal_scanner_snapshot(
                   scanner_root / trading_date,
                   candidate_rows=candidate_rows,
@@ -244,6 +293,44 @@ jobs:
               assert payload["identity_resolved_member_count"] == expected_members[trading_date]
               assert payload["candidate_count"] == expected_candidates[trading_date]
               assert payload["row_count"] == expected_rows[trading_date] == len(rows)
+              float_records, float_date_manifest = load_causal_float_records(
+                  root / "causal-sec-float-v0.1" / trading_date,
+                  candidate_rows=candidate_rows,
+                  candidate_payload=candidate_payload,
+              )
+              news_events, news_statuses, news_date_manifest = (
+                  load_publication_timed_news(
+                      root / "causal-alpaca-news-v0.2" / trading_date,
+                      candidate_rows=candidate_rows,
+                      candidate_payload=candidate_payload,
+                      source_float_records_sha256=float_date_manifest["summary"][
+                          "records_sha256"
+                      ],
+                  )
+              )
+              assert news_date_manifest == news_dates[trading_date]
+              replayed_rows = build_scanner_snapshot_rows(
+                  trading_date=source_inputs.trading_date,
+                  profile=current_general_2026(),
+                  candidate_rows=candidate_rows,
+                  float_records=float_records,
+                  news_events=news_events,
+                  news_statuses=news_statuses,
+                  membership_symbols=source_inputs.membership_symbols,
+                  previous_close_by_symbol=(
+                      source_inputs.previous_close_by_symbol
+                  ),
+                  rank_raw_minute_bars_by_symbol=(
+                      source_inputs.rank_raw_minute_bars_by_symbol
+                  ),
+                  candidate_raw_minute_bars_by_symbol=(
+                      source_inputs.candidate_raw_minute_bars_by_symbol
+                  ),
+                  candidate_exact_rvol_by_symbol=(
+                      source_inputs.candidate_exact_rvol_by_symbol
+                  ),
+              )
+              assert replayed_rows == rows
               assert sum(date_manifest["summary"]["disposition_counts"].values()) == len(rows)
               complete = sum(
                   row["rank_input_complete_for_members_with_completed_bars"] is True
@@ -263,6 +350,12 @@ jobs:
                   "records_content_sha256": payload["content_sha256"],
                   "ordered_records_sha256": payload["ordered_records_sha256"],
                   "source_hash_chain_sha256": date_manifest["source_hash_chain_sha256"],
+                  "source_input_manifest_content_sha256": source_input_manifest[
+                      "content_sha256"
+                  ],
+                  "source_input_compressed_file_sha256": source_input_manifest[
+                      "summary"
+                  ]["compressed_file_sha256"],
               }
           provenance = {
               "schema_version": 1,
@@ -292,7 +385,9 @@ jobs:
                   "uses_retrospective_trade_outcomes": False,
                   "contains_trades_setups_portfolio_or_pnl": False,
                   "raw_reacquired_market_inputs_persisted": False,
-                  "independent_feature_recomputation_requires_provider_replay": True,
+                  "canonical_reacquired_market_inputs_persisted_in_companion_bundle": True,
+                  "independent_scanner_feature_recomputation_requires_provider_replay": False,
+                  "independent_upstream_recomputation_requires_provider_replay": True,
               },
               "eligibility": {
                   "universe_complete": False,
@@ -311,6 +406,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: causal-scanner-snapshot-frozen-source
-          path: massive-historical-census/causal-scanner-snapshot-v0.1
+          path: |
+            massive-historical-census/causal-scanner-snapshot-v0.1
+            massive-historical-census/causal-scanner-source-inputs-v0.1
           if-no-files-found: warn
           retention-days: 30

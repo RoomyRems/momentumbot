@@ -53,6 +53,11 @@ from momentumbot.identity_resolved_universe import (
 )
 from momentumbot.models import StrategyProfile, current_general_2026
 from momentumbot.providers.alpaca import AlpacaDataClient
+from momentumbot.scanner_source_inputs import (
+    ARTIFACT_ID as SCANNER_SOURCE_INPUT_ARTIFACT_ID,
+    build_scanner_source_input_root_manifest,
+    write_scanner_source_input_bundle,
+)
 
 
 ET = ZoneInfo(SESSION_TIMEZONE)
@@ -495,9 +500,13 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--dates", nargs="+")
     parser.add_argument("--asset-batch-size", type=int, default=250)
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--persist-source-inputs", action="store_true")
+    parser.add_argument("--source-input-output", type=Path)
     args = parser.parse_args(argv)
     if args.asset_batch_size <= 0:
         raise ValueError("asset batch size must be positive")
+    if args.source_input_output is not None and not args.persist_source_inputs:
+        raise ValueError("source-input output requires --persist-source-inputs")
 
     membership_root = args.census_root / IDENTITY_RESOLVED_UNIVERSE_POLICY_ID
     market_root = args.census_root / CAUSAL_MARKET_DISCOVERY_POLICY_ID
@@ -532,6 +541,14 @@ def main(argv: list[str] | None = None) -> int:
 
     output_root = args.output or args.census_root / CAUSAL_SCANNER_SNAPSHOT_ARTIFACT_ID
     output_root.mkdir(parents=True, exist_ok=False)
+    source_input_root = None
+    source_input_date_manifests: list[dict[str, object]] = []
+    if args.persist_source_inputs:
+        source_input_root = (
+            args.source_input_output
+            or args.census_root / SCANNER_SOURCE_INPUT_ARTIFACT_ID
+        )
+        source_input_root.mkdir(parents=True, exist_ok=False)
     client = AlpacaDataClient.from_env()
     profile = current_general_2026()
     date_manifests: list[dict[str, object]] = []
@@ -635,15 +652,6 @@ def main(argv: list[str] | None = None) -> int:
             reacquired_previous_closes=raw_previous_closes,
         )
 
-        input_sha = market_inputs_fingerprint(
-            trading_date=trading_date,
-            profile=profile,
-            membership_symbols=membership_symbols,
-            previous_close_by_symbol=raw_previous_closes,
-            rank_raw_minute_bars_by_symbol=rank_minutes,
-            candidate_raw_minute_bars_by_symbol=candidate_minutes,
-            candidate_exact_rvol_by_symbol=candidate_rvol,
-        )
         source_hashes = {
             "identity_resolved_membership": str(
                 membership_payload["summary"]["membership_sha256"]
@@ -661,8 +669,35 @@ def main(argv: list[str] | None = None) -> int:
             "publication_timed_news_manifest": json_fingerprint(
                 news_date_manifest
             ),
-            "reacquired_market_inputs": input_sha,
         }
+        if source_input_root is not None:
+            source_input_manifest = write_scanner_source_input_bundle(
+                source_input_root / value,
+                trading_date=trading_date,
+                profile=profile,
+                membership_symbols=membership_symbols,
+                candidate_symbols=[str(row["symbol"]) for row in candidate_rows],
+                previous_close_by_symbol=raw_previous_closes,
+                rank_raw_minute_bars_by_symbol=rank_minutes,
+                candidate_raw_minute_bars_by_symbol=candidate_minutes,
+                candidate_exact_rvol_by_symbol=candidate_rvol,
+                upstream_source_hashes=source_hashes,
+            )
+            input_sha = str(
+                source_input_manifest["summary"]["logical_records_sha256"]
+            )
+            source_input_date_manifests.append(source_input_manifest)
+        else:
+            input_sha = market_inputs_fingerprint(
+                trading_date=trading_date,
+                profile=profile,
+                membership_symbols=membership_symbols,
+                previous_close_by_symbol=raw_previous_closes,
+                rank_raw_minute_bars_by_symbol=rank_minutes,
+                candidate_raw_minute_bars_by_symbol=candidate_minutes,
+                candidate_exact_rvol_by_symbol=candidate_rvol,
+            )
+        source_hashes["reacquired_market_inputs"] = input_sha
         rows = build_scanner_snapshot_rows(
             trading_date=trading_date,
             profile=profile,
@@ -743,6 +778,16 @@ def main(argv: list[str] | None = None) -> int:
         }
     )
     _write_json(output_root / "manifest.json", root_manifest)
+    source_input_root_manifest = None
+    if source_input_root is not None:
+        source_input_root_manifest = build_scanner_source_input_root_manifest(
+            date_manifests=source_input_date_manifests,
+            source_bundle_hashes={
+                name: str(manifest.get("content_sha256"))
+                for name, manifest in bundle_manifests.items()
+            },
+        )
+        _write_json(source_input_root / "manifest.json", source_input_root_manifest)
     print(
         json.dumps(
             {
@@ -758,6 +803,16 @@ def main(argv: list[str] | None = None) -> int:
                 "universe_complete": False,
                 "full_walk_forward_eligible": False,
                 "policy_promotion_eligible": False,
+                "source_input_bundle": (
+                    {
+                        "artifact_id": SCANNER_SOURCE_INPUT_ARTIFACT_ID,
+                        "content_sha256": source_input_root_manifest[
+                            "content_sha256"
+                        ],
+                    }
+                    if source_input_root_manifest is not None
+                    else None
+                ),
             },
             indent=2,
             sort_keys=True,

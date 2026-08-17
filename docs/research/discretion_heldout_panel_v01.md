@@ -45,3 +45,6 @@ It cannot fit a catalyst score, attention threshold or new Micro rule. Ten sessi
 
 The machine-readable registration is `research/strategy/discretion-heldout-panel-v0.1.json`.
 
+## Replayability checkpoint
+
+Before acquiring the ten registered dates, the scanner builder now supports a separate deterministic source-input sidecar. It saves the exact canonical inputs behind the existing scanner source hash and can reproduce scanner rows without refetching those inputs from the provider. The frozen two-date scanner workflow validates this path before it is used for the held-out pilot. Details are in `docs/research/scanner_source_inputs_v01.md`.
