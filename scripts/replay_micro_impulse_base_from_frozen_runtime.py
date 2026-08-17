@@ -22,14 +22,18 @@ def _load_json(path: Path) -> dict[str, object]:
     return payload
 
 
-def _load_frame(path: Path, *, index_column: str) -> pd.DataFrame:
+def _load_frame(
+    path: Path, *, index_column: str, require_unique_index: bool = True
+) -> pd.DataFrame:
     frame = pd.read_csv(path)
     if index_column not in frame.columns:
         raise ValueError(f"{path} is missing {index_column}")
     frame[index_column] = pd.to_datetime(frame[index_column], utc=True)
     frame = frame.set_index(index_column)
-    if not frame.index.is_monotonic_increasing or not frame.index.is_unique:
-        raise ValueError(f"{path} timestamps must be unique and ordered")
+    if not frame.index.is_monotonic_increasing:
+        raise ValueError(f"{path} timestamps must be ordered")
+    if require_unique_index and not frame.index.is_unique:
+        raise ValueError(f"{path} timestamps must be unique")
     return frame
 
 
@@ -59,7 +63,11 @@ def main() -> int:
     context = _load_json(source / "runtime-context.json")
     source_runtime = _load_json(source / "runtime-replay.json")
     bars = _load_frame(source / "bars-10s.csv", index_column="timestamp")
-    trades = _load_frame(source / "trades.csv", index_column="timestamp")
+    trades = _load_frame(
+        source / "trades.csv",
+        index_column="timestamp",
+        require_unique_index=False,
+    )
     support = _load_frame(
         source / "support-available.csv", index_column="available_at"
     )
