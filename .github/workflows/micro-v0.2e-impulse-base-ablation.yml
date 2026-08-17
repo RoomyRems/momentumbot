@@ -1,0 +1,101 @@
+name: Micro v0.2e impulse base ablation
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - src/momentumbot/research/micro_impulse_base_ablation.py
+      - tests/test_micro_impulse_base_ablation.py
+      - scripts/replay_micro_impulse_base_from_frozen_runtime.py
+      - scripts/summarize_micro_impulse_base_ablation.py
+      - .github/workflows/micro-v0.2e-impulse-base-ablation.yml
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  compare:
+    name: Frozen-input impulse-base comparison
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      SOURCE_RUN_ID: "31925087895"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Test isolated ablation
+        run: >-
+          python -m unittest
+          tests.test_micro_setup
+          tests.test_micro_replay
+          tests.test_micro_policy
+          tests.test_micro_impulse_base_ablation
+          -v
+      - name: Download and verify exact frozen v0.1 inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p frozen-inputs
+          fetch() {
+            local symbol="$1" artifact_id="$2" expected="$3"
+            local name="micro-v0.1-runtime-${symbol}"
+            gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts/${artifact_id}/zip" > "frozen-inputs/${symbol}.zip"
+            echo "${expected}  frozen-inputs/${symbol}.zip" | sha256sum -c -
+            mkdir -p "frozen-inputs/${symbol}"
+            unzip -q "frozen-inputs/${symbol}.zip" -d "frozen-inputs/${symbol}"
+          }
+          fetch tivc 9257596277 ce298f8315ffdc2b042607043cea0bd7de1ffecc507a4e377ea39af96eb07945
+          fetch upxi 9257634256 9099e91e00ee58be36edf7b498e5eb2c50580594bb81b72bc8df64502889acd1
+          fetch dsy 9257654748 fcd94a67731693676315a42853694db27612bf92142fdbcb4493564c5fb3dd7b
+          fetch mma 9257662171 2856c83e45c9d8766ab54e811db91dbc22770c3e7c1ad31697f3ff1f7cd03873
+          fetch artl 9257671943 f134e68b56ee72cc69067b2029eed48dbcb5f0cae9d24446e5ada2a0e27cfa69
+      - name: Build label-blind paired runtimes
+        shell: bash
+        run: |
+          set -euo pipefail
+          replay() {
+            local symbol="$1" artifact_id="$2" digest="$3" artifact_name="$4"
+            python scripts/replay_micro_impulse_base_from_frozen_runtime.py \
+              --input "frozen-inputs/${symbol}" \
+              --output "runtime/${symbol}/runtime-replay.json" \
+              --source-workflow-run-id "${SOURCE_RUN_ID}" \
+              --source-artifact-id "${artifact_id}" \
+              --source-artifact-name "${artifact_name}" \
+              --source-artifact-digest-sha256 "${digest}"
+          }
+          replay tivc 9257596277 ce298f8315ffdc2b042607043cea0bd7de1ffecc507a4e377ea39af96eb07945 micro-v0.1-runtime-tivc-2025-04-03
+          replay upxi 9257634256 9099e91e00ee58be36edf7b498e5eb2c50580594bb81b72bc8df64502889acd1 micro-v0.1-runtime-upxi-2025-04-21
+          replay dsy 9257654748 fcd94a67731693676315a42853694db27612bf92142fdbcb4493564c5fb3dd7b micro-v0.1-runtime-dsy-2026-06-10
+          replay mma 9257662171 2856c83e45c9d8766ab54e811db91dbc22770c3e7c1ad31697f3ff1f7cd03873 micro-v0.1-runtime-mma-2025-09-09
+          replay artl 9257671943 f134e68b56ee72cc69067b2029eed48dbcb5f0cae9d24446e5ada2a0e27cfa69 micro-v0.1-runtime-artl-2026-03-27
+          ! grep -R -E 'benchmark_id|reported_fill|observed_human_behavior' runtime
+      - name: Compare only after all runtime artifacts exist
+        run: >-
+          python scripts/summarize_micro_impulse_base_ablation.py
+          --runtime-root runtime
+          --baseline-summary research/benchmarks/results/micro-v0.1-seed-summary.json
+          --workflow-run-id "${{ github.run_id }}"
+          --workflow-head-sha "${{ github.sha }}"
+          --output micro-v0.2e-qualification-base-comparison.json
+      - name: Upload label-blind runtimes
+        uses: actions/upload-artifact@v4
+        with:
+          name: micro-v0.2e-impulse-base-runtimes
+          path: runtime
+          if-no-files-found: error
+          retention-days: 30
+      - name: Upload comparison
+        uses: actions/upload-artifact@v4
+        with:
+          name: micro-v0.2e-impulse-base-comparison
+          path: micro-v0.2e-qualification-base-comparison.json
+          if-no-files-found: error
+          retention-days: 30
