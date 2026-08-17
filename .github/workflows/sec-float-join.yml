@@ -8,6 +8,7 @@ on:
     paths:
       - research/reference_days/2026-07-09/sec_float_compact.json
       - research/reference_days/2026-07-09/sec_float_manual_overrides.json
+      - src/momentumbot/historical_float.py
       - scripts/build_sec_float_join.py
       - scripts/finalize_sec_float_join.py
       - tests/test_sec_float_join.py
