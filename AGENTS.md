@@ -22,6 +22,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 | New research experiment | `docs/research/experiment_contract.md` | frozen parent policy + runtime artifact |
 | Micro-pullback work | `docs/research/micro_benchmark_suite.md` | `micro_policy.py`, `micro_replay.py`, frozen artifacts |
 | Held-out discretionary panel | `docs/research/discretion_heldout_panel_v01.md` | registered panel JSON and runtime manifest |
+| Context-assessment shadow | `docs/research/discretion_context_assessment_v01.md` | `research/strategy/discretion-context-assessment-shadow-v0.1.json` and `context_assessment.py` |
 
 ## Component route
 

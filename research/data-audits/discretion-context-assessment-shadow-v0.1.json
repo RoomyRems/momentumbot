@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "audit_id": "discretion-context-assessment-shadow-v0.1-contract-validation",
+  "artifact_type": "causal_shadow_context_assessment_protocol_audit",
+  "contract_id": "discretion-context-assessment-shadow-v0.1",
+  "contract_content_sha256": "8205772680ce290d58de1d17fbe43d02c2beb21fd9f0e16d8bd2c7b3a1806f26",
+  "created_on": "2026-08-18",
+  "runtime_strategy_effect": "none",
+  "policy_promotion_eligible": false,
+  "frozen_parent": {
+    "micro_policy_id": "micro-v0.1",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "scanner_policy_id": "causal-scanner-snapshot-v0.1",
+    "scanner_policy_fingerprint": "ed21becad10855b4a085b6e05b6feac8f21e4ce511a100b2381522154818f42a"
+  },
+  "isolated_change": {
+    "context_snapshot_schema_added": true,
+    "semantic_shadow_schema_added": true,
+    "scanner_policy_changed": false,
+    "micro_policy_changed": false,
+    "selection_threshold_added": false,
+    "aggregate_score_added": false,
+    "runtime_artifact_generated": false,
+    "semantic_model_frozen": false
+  },
+  "guards_validated": {
+    "scanner_and_attention_symbol_time_and_rank_lineage_match": true,
+    "source_artifact_and_record_hashes_required": true,
+    "future_snapshot_evidence_rejected": true,
+    "future_headline_in_self_rehashed_packet_rejected": true,
+    "retrospective_and_outcome_keys_rejected": true,
+    "raw_transcript_or_recap_source_contract_rejected": true,
+    "provider_relative_absence_not_universalized": true,
+    "assessed_axis_requires_citations_observed_fact_and_inference": true,
+    "axis_citations_restricted_to_allowed_domains": true,
+    "value_specific_source_domains_required": true,
+    "missing_required_domain_can_force_abstention": true,
+    "abstained_axis_cannot_emit_value_confidence_or_inference": true,
+    "logical_expiry_bounded_to_300_seconds": true,
+    "strategy_score_selection_order_size_and_risk_outputs_absent": true,
+    "snapshot_and_assessment_tampering_rejected_by_content_hash": true
+  },
+  "excluded_fit_evidence": {
+    "panel_id": "ross-discretion-heldout-panel-v0.1",
+    "comparison_id": "ross-discretion-heldout-comparison-v0.1",
+    "comparison_content_sha256": "809d4b4a7231b708f9c933c9bf45b58c736f4d3101c8328483c62c1c48bcfb3d",
+    "threshold_fit_allowed": false,
+    "protocol_evaluation_allowed": false,
+    "reason": "The pilot motivated the missing context domains but cannot evaluate or fit the protocol defined after its labels were reviewed."
+  },
+  "mechanical_validation": {
+    "focused_test_module": "tests.test_context_assessment",
+    "focused_tests_passed": 13,
+    "focused_tests_failed": 0,
+    "full_suite_command": "PYTHONPATH=src:. python -m unittest discover -s tests -v",
+    "full_suite_tests_passed": 378,
+    "full_suite_tests_failed": 0
+  },
+  "decision": {
+    "freeze_protocol_v01": true,
+    "freeze_snapshot_schema": true,
+    "freeze_semantic_model": false,
+    "generate_runtime_on_old_pilot": false,
+    "fit_threshold_on_old_pilot": false,
+    "promote_context_rule": false,
+    "change_scanner_policy": false,
+    "change_micro_policy": false,
+    "reason": "The schema establishes a causal, abstaining, evidence-cited research boundary. It has not yet been evaluated on a new preregistered panel."
+  },
+  "next_validation": {
+    "register_new_panel_before_recap_review": true,
+    "run_deterministic_snapshots_label_blind": true,
+    "run_ai_assessment_shadow_only": true,
+    "freeze_runtime_before_retrospective_labels": true,
+    "required_missing_source_work": [
+      "causal daily-chart levels and prior failed-pop history",
+      "causal theme and market-regime state",
+      "account and portfolio-attention state",
+      "liquidity evidence where point-in-time quotes permit"
+    ]
+  },
+  "residual_limits": [
+    "This checkpoint freezes a schema, not an AI semantic model or runtime artifact.",
+    "The protocol has no demonstrated agreement with Ross behavior and no profitability evidence.",
+    "Daily-chart, theme/regime, account, portfolio-attention and liquidity evidence sources remain unimplemented.",
+    "Every supplemental evidence source still requires its own causal source contract and validator before a runtime artifact can be frozen.",
+    "No aggregate score, selection threshold, paper authority or live-money authority exists."
+  ]
+}

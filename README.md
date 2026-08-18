@@ -52,6 +52,6 @@ The simulator uses the separate `paper-safe` risk policy by default. The aggress
 
 ## Current gate
 
-The ten-session scanner, unchanged Micro-v0.1 replay, retrospective Ross labels and no-retuning component comparison are now frozen. The active gate is a preregistered label-blind context-assessment protocol: measurable context remains deterministic, while genuinely semantic catalyst/theme judgments may be evaluated AI shadow-only with abstention and no order authority. See `docs/project/current_state.md` for the exact checkpoint and next steps.
+The ten-session scanner, unchanged Micro-v0.1 replay, retrospective Ross labels and no-retuning component comparison are frozen. Context-assessment protocol v0.1 is now also preregistered: it requires hashed decision-time evidence, citations, explicit fact/inference separation, abstention, bounded expiry and no order or risk authority. The active gate is a new label-blind held-out context panel, not fitting the reviewed pilot. See `docs/project/current_state.md` for the exact checkpoint and next steps.
 
 The provisional universe makes an auditable decision for every fetched historical ticker but remains explicitly non-promotable until those downstream gates are complete. A current provider asset census—even one containing inactive rows—remains conditional diagnostic evidence only. AI remains shadow-only until the deterministic baseline has credible walk-forward results.

@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "contract_id": "discretion-context-assessment-shadow-v0.1",
+  "artifact_type": "causal_shadow_context_assessment_protocol",
+  "status": "preregistered_schema_only_no_runtime_artifact",
+  "purpose": "Bind deterministic decision-time context and evidence-cited semantic shadows without ranking, selecting, sizing, or trading a candidate.",
+  "runtime_strategy_effect": "none",
+  "aggregate_score_frozen": false,
+  "selection_threshold_frozen": false,
+  "ai_order_authority": false,
+  "ai_risk_authority": false,
+  "policy_promotion_eligible": false,
+  "frozen_parents": {
+    "micro_policy_id": "micro-v0.1",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "scanner_policy_id": "causal-scanner-snapshot-v0.1",
+    "scanner_policy_fingerprint": "ed21becad10855b4a085b6e05b6feac8f21e4ce511a100b2381522154818f42a",
+    "context_inventory_contract_id": "ross-discretion-context-v0.1",
+    "catalyst_interpretation_contract_id": "catalyst-interpretation-protocol-shadow-v0.2"
+  },
+  "source_contracts": {
+    "scanner": "causal-scanner-snapshot-v0.1",
+    "attention_leadership": "attention-leadership-shadow-v0.1",
+    "catalyst_evidence": "catalyst-evidence-packet-shadow-v0.1"
+  },
+  "knowledge_policy": {
+    "uses_only_evidence_available_by_decision_time": true,
+    "uses_raw_transcripts": false,
+    "uses_ross_actions": false,
+    "uses_retrospective_behavior_labels": false,
+    "uses_future_price_or_volume": false,
+    "provider_relative_absence_treated_as_universal_absence": false,
+    "missing_evidence_may_be_inferred": false,
+    "runtime_strategy_effect": "none"
+  },
+  "snapshot_protocol": {
+    "record_type": "causal_context_decision_snapshot",
+    "emission_rule": "Emit at causal candidate activation, on a declared source-evidence change, or on a registered scheduled refresh; never backfill a prior decision with later evidence.",
+    "emission_reasons": [
+      "candidate_activation",
+      "scheduled_refresh",
+      "source_evidence_changed"
+    ],
+    "evidence_domains": [
+      "scanner_market",
+      "attention_leadership",
+      "catalyst_chronology",
+      "catalyst_headline",
+      "filing_corroboration",
+      "issuer_event_history",
+      "daily_chart",
+      "theme_regime",
+      "liquidity",
+      "account_state",
+      "portfolio_attention"
+    ],
+    "required_base_domains": [
+      "scanner_market",
+      "attention_leadership"
+    ],
+    "forbidden_evidence_keys": [
+      "benchmark_label",
+      "future_outcome",
+      "future_price",
+      "later_price_outcome",
+      "raw_transcript",
+      "realized_pnl_outcome",
+      "recap_judgment",
+      "reported_fill",
+      "retrospective_label",
+      "ross_action",
+      "ross_entry",
+      "ross_fill",
+      "trade_outcome",
+      "winning_trade_label"
+    ],
+    "content_hash_required": true
+  },
+  "semantic_assessment_protocol": {
+    "record_type": "shadow_semantic_context_assessment",
+    "assessment_states": [
+      "assessed",
+      "abstained"
+    ],
+    "confidence_levels": [
+      "low",
+      "medium",
+      "high"
+    ],
+    "abstain_reasons": [
+      "required_evidence_domain_unavailable",
+      "insufficient_evidence",
+      "ambiguous_or_conflicting_evidence",
+      "source_unavailable",
+      "outside_protocol"
+    ],
+    "max_assessment_ttl_seconds": 300,
+    "historical_generation_may_postdate_logical_expiry": true,
+    "citations_required_per_assessed_axis": true,
+    "observed_fact_and_inference_separation_required": true,
+    "axes": [
+      {
+        "axis_id": "catalyst_substance_specificity",
+        "allowed_evidence_domains": [
+          "catalyst_chronology",
+          "catalyst_headline",
+          "filing_corroboration"
+        ],
+        "values": [
+          "specific_event_with_explicit_terms",
+          "specific_event_terms_incomplete",
+          "vague_or_incidental_event",
+          "mixed_or_ambiguous_event_substance",
+          "provider_relative_no_event"
+        ],
+        "requires_observed_fact": true,
+        "requires_inference": true,
+        "abstention_allowed": true
+      },
+      {
+        "axis_id": "catalyst_commitment_stage",
+        "allowed_evidence_domains": [
+          "catalyst_headline",
+          "filing_corroboration"
+        ],
+        "values": [
+          "exploration_or_pursuit",
+          "authorization_not_execution",
+          "definitive_agreement_or_completed_action",
+          "withdrawal_or_cancellation",
+          "ambiguous_commitment_stage"
+        ],
+        "requires_observed_fact": true,
+        "requires_inference": true,
+        "abstention_allowed": true
+      },
+      {
+        "axis_id": "catalyst_credibility_repetition",
+        "allowed_evidence_domains": [
+          "catalyst_headline",
+          "filing_corroboration",
+          "issuer_event_history"
+        ],
+        "values": [
+          "corroborated_source_evidence_present",
+          "possible_recycled_or_repeated_promotion",
+          "mixed_credibility_signals",
+          "credibility_ambiguous"
+        ],
+        "requires_observed_fact": true,
+        "requires_inference": true,
+        "abstention_allowed": true
+      },
+      {
+        "axis_id": "theme_fit_no_news_acceptance",
+        "allowed_evidence_domains": [
+          "theme_regime"
+        ],
+        "values": [
+          "causal_theme_fit_present",
+          "causal_theme_fit_absent",
+          "causal_no_news_momentum_acceptance_present",
+          "mixed_or_ambiguous_theme_state"
+        ],
+        "requires_observed_fact": true,
+        "requires_inference": true,
+        "abstention_allowed": true
+      },
+      {
+        "axis_id": "opportunity_obviousness_leadership_quality",
+        "allowed_evidence_domains": [
+          "scanner_market",
+          "attention_leadership",
+          "portfolio_attention"
+        ],
+        "values": [
+          "dominant_persistent_leader",
+          "emerging_leader",
+          "competitive_not_dominant",
+          "not_current_leader",
+          "mixed_or_ambiguous_leadership"
+        ],
+        "requires_observed_fact": true,
+        "requires_inference": true,
+        "abstention_allowed": true
+      },
+      {
+        "axis_id": "chart_context_cleanliness",
+        "allowed_evidence_domains": [
+          "daily_chart"
+        ],
+        "values": [
+          "clear_room_and_clean_history",
+          "near_resistance_or_failed_pop_history",
+          "mixed_chart_context",
+          "ambiguous_chart_context"
+        ],
+        "requires_observed_fact": true,
+        "requires_inference": true,
+        "abstention_allowed": true
+      }
+    ],
+    "value_required_evidence_domains": {
+      "corroborated_source_evidence_present": [
+        "filing_corroboration"
+      ],
+      "possible_recycled_or_repeated_promotion": [
+        "issuer_event_history"
+      ],
+      "causal_theme_fit_present": [
+        "theme_regime"
+      ],
+      "causal_theme_fit_absent": [
+        "theme_regime"
+      ],
+      "causal_no_news_momentum_acceptance_present": [
+        "theme_regime"
+      ],
+      "dominant_persistent_leader": [
+        "attention_leadership"
+      ],
+      "emerging_leader": [
+        "attention_leadership"
+      ],
+      "competitive_not_dominant": [
+        "attention_leadership"
+      ],
+      "not_current_leader": [
+        "attention_leadership"
+      ],
+      "clear_room_and_clean_history": [
+        "daily_chart"
+      ],
+      "near_resistance_or_failed_pop_history": [
+        "daily_chart"
+      ]
+    },
+    "prohibited_outputs": [
+      "aggregate_quality_score",
+      "candidate_priority",
+      "selection_action",
+      "trade_recommendation",
+      "order_action",
+      "position_size",
+      "risk_action"
+    ]
+  },
+  "evaluation_boundary": {
+    "excluded_fit_panel_id": "ross-discretion-heldout-panel-v0.1",
+    "excluded_fit_comparison_id": "ross-discretion-heldout-comparison-v0.1",
+    "excluded_fit_comparison_content_sha256": "809d4b4a7231b708f9c933c9bf45b58c736f4d3101c8328483c62c1c48bcfb3d",
+    "new_panel_registered_before_recap_review": true,
+    "label_blind_runtime_frozen_before_retrospective_labels": true,
+    "threshold_fit_on_excluded_panel_allowed": false,
+    "policy_promotion_from_protocol_allowed": false
+  }
+}
