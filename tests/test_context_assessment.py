@@ -3,6 +3,8 @@ import json
 import unittest
 from pathlib import Path
 
+import pandas as pd
+
 from momentumbot.research.attention_leadership import derive_attention_leadership_rows
 from momentumbot.research.context_assessment import (
     CONTRACT_ID,
@@ -16,6 +18,10 @@ from momentumbot.research.context_assessment import (
     validate_context_assessment_contract,
     validate_context_decision_snapshot,
     validate_shadow_context_assessment,
+)
+from momentumbot.research.daily_chart_context import (
+    build_daily_chart_evidence,
+    daily_chart_supplemental_evidence,
 )
 
 
@@ -273,6 +279,54 @@ class ContextAssessmentTests(unittest.TestCase):
         )
         with self.assertRaisesRegex(ValueError, "prohibited key"):
             _snapshot(supplemental=[retrospective])
+
+    def test_frozen_daily_chart_record_binds_as_supplemental_evidence(self):
+        index = pd.bdate_range(end="2026-07-31", periods=60, tz="UTC")
+        index = index + pd.Timedelta(hours=20)
+        bars = pd.DataFrame(
+            [
+                (
+                    3.0 + offset * 0.05,
+                    3.4 + offset * 0.05,
+                    2.8 + offset * 0.05,
+                    3.2 + offset * 0.05,
+                    100_000 + offset * 1_000,
+                )
+                for offset in range(60)
+            ],
+            columns=["open", "high", "low", "close", "volume"],
+            index=index,
+        )
+        record = build_daily_chart_evidence(
+            bars,
+            symbol="AAA",
+            decision_time="2026-08-03T13:31:00+00:00",
+            decision_price=5.0,
+            identity_identifier_kind="composite_figi",
+            identity_identifier="BBG000TEST01",
+            identity_verified_start_date="2026-04-01",
+            identity_verified_through_date="2026-08-03",
+        )
+        supplemental = daily_chart_supplemental_evidence(
+            record,
+            source_artifact_content_sha256="f" * 64,
+        )
+        snapshot = _snapshot(supplemental=[supplemental])
+        coverage = snapshot["evidence_coverage"]["daily_chart"]
+        self.assertTrue(coverage["evidence_present"])
+        self.assertEqual(coverage["evidence_ids"], [supplemental["evidence_id"]])
+        daily_item = next(
+            item
+            for item in snapshot["evidence_items"]
+            if item["domain"] == "daily_chart"
+        )
+        self.assertEqual(
+            daily_item["payload"]["record_content_sha256"],
+            record["record_content_sha256"],
+        )
+        self.assertIsNone(
+            daily_item["payload"]["prohibited_outputs"]["selection_action"]
+        )
 
     def test_snapshot_rejects_future_headline_even_after_self_rehash(self):
         event = _event()

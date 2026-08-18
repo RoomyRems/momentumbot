@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "contract_id": "daily-chart-context-shadow-v0.1",
+  "artifact_type": "causal_daily_chart_evidence_contract",
+  "status": "frozen_schema_builder_no_heldout_runtime_artifact",
+  "runtime_strategy_effect": "none",
+  "policy_promotion_eligible": false,
+  "ai_order_authority": false,
+  "ai_risk_authority": false,
+  "chart_threshold_frozen": false,
+  "failed_pop_classifier_frozen": false,
+  "source_acquisition": {
+    "provider": "alpaca",
+    "feed": "sip",
+    "timeframe": "1Day",
+    "adjustment": "split",
+    "adjustment_asof": "decision_session_date",
+    "requested_prior_completed_sessions": 60,
+    "current_session_complete_bar_allowed": false,
+    "future_session_bar_allowed": false,
+    "provider_error_becomes_empty_evidence": false
+  },
+  "identity_boundary": {
+    "accepted_identifier_kinds": [
+      "composite_figi",
+      "unique_cik_fallback"
+    ],
+    "evidence_emission_requires_verified_continuity_window": true,
+    "minimum_existing_verified_lookback_calendar_days": 120,
+    "moving_average_200_deferred": true,
+    "moving_average_200_deferred_reason": "existing_identity_continuity_is_not_frozen_for_a_200_session_window"
+  },
+  "feature_protocol": {
+    "moving_average_windows_sessions": [
+      20,
+      50
+    ],
+    "trailing_level_windows_sessions": [
+      5,
+      20,
+      50
+    ],
+    "recent_session_metric_window": 20,
+    "formulas": {
+      "simple_moving_average": "mean(close over trailing completed sessions)",
+      "open_gap_pct": "(open / previous_close - 1) * 100",
+      "high_excursion_pct": "(high / previous_close - 1) * 100",
+      "close_change_pct": "(close / previous_close - 1) * 100",
+      "high_to_close_fade_pct": "(high - close) / high * 100",
+      "upper_wick_fraction": "(high - max(open, close)) / (high - low)",
+      "volume_multiple_to_prior_20_mean": "volume / mean(volume of 20 completed sessions preceding that session)",
+      "overhead_distance_pct": "(level_price / decision_price - 1) * 100"
+    },
+    "failed_pop_threshold": null,
+    "chart_quality_score": null,
+    "insufficient_history_is_explicit": true
+  },
+  "context_binding": {
+    "context_assessment_contract_id": "discretion-context-assessment-shadow-v0.1",
+    "evidence_domain": "daily_chart",
+    "record_type": "causal_daily_chart_evidence",
+    "source_artifact_hash_required_before_snapshot_binding": true
+  },
+  "prohibited_outputs": [
+    "chart_quality_score",
+    "failed_pop_classification",
+    "candidate_priority",
+    "selection_action",
+    "trade_recommendation",
+    "order_action",
+    "position_size",
+    "risk_action"
+  ],
+  "evaluation_boundary": {
+    "registered_panel_id": "ross-context-heldout-panel-v0.1",
+    "registered_panel_content_sha256": "d227792368b3bff5c3c2365cacd204c11b7991daeb557efba450c22f076d8898",
+    "runtime_frozen_before_recap_review": true,
+    "raw_transcripts_allowed_in_runtime": false,
+    "retrospective_labels_allowed_in_runtime": false,
+    "policy_promotion_from_this_contract_allowed": false
+  }
+}

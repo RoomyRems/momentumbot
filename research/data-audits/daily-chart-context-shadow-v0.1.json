@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "audit_id": "daily-chart-context-shadow-v0.1-registration",
+  "contract_id": "daily-chart-context-shadow-v0.1",
+  "contract_path": "research/strategy/daily-chart-context-shadow-v0.1.json",
+  "contract_file_sha256": "ac335f8c0eb2176bbdfc0b06b0bb902b9934bcf69f3c16e40591a2ba3c565a87",
+  "contract_content_sha256": "55262a3c6537d1511248577c0e01f0a36775ed98bff9d6839b12e00da3f2fa87",
+  "registered_panel": {
+    "panel_id": "ross-context-heldout-panel-v0.1",
+    "panel_content_sha256": "d227792368b3bff5c3c2365cacd204c11b7991daeb557efba450c22f076d8898"
+  },
+  "causal_order": [
+    "point_in_time_market_reference_data",
+    "label_blind_daily_chart_reconstruction",
+    "frozen_hashed_runtime_artifact",
+    "retrospective_recap_evidence"
+  ],
+  "evidence_review_state": {
+    "registered_panel_recap_opened": false,
+    "uploaded_transcript_archive_opened_for_this_change": false,
+    "retrospective_actions_or_outcomes_used": false
+  },
+  "decision": {
+    "freeze_daily_chart_schema_v01": true,
+    "freeze_failed_pop_threshold": false,
+    "freeze_chart_quality_score": false,
+    "promote_chart_rule": false,
+    "change_micro_v01": false,
+    "change_scanner_thresholds": false
+  },
+  "runtime_status": {
+    "heldout_daily_chart_runtime_materialized": false,
+    "context_snapshot_binding_enabled_after_artifact_freeze": true,
+    "runtime_strategy_effect": "none"
+  }
+}
