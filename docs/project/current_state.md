@@ -19,6 +19,7 @@ This file is a routing checkpoint, not a second policy specification. Follow its
 - The next context panel is registered calendar-only as `ross-context-heldout-panel-v0.1`, content SHA-256 `d227792368b3bff5c3c2365cacd204c11b7991daeb557efba450c22f076d8898`. Its fixed dates are the ten sessions from 2026-07-24 through 2026-08-06. No transcript file, source inventory, ticker, Ross action, outcome, later price, or P&L was opened or used for selection; missing source evidence cannot replace a date.
 - The deterministic daily-chart evidence layer is frozen as `daily-chart-context-shadow-v0.1`, contract content SHA-256 `55262a3c6537d1511248577c0e01f0a36775ed98bff9d6839b12e00da3f2fa87`. It uses at most 60 completed pre-decision sessions, split-adjusted to the decision-date share basis, to expose 20/50-session averages, 5/20/50-session levels, raw recent-session fade metrics, and exact overhead-reference distances. It freezes no failed-pop threshold or chart score. A 200-session average is explicitly deferred until identity continuity is extended beyond the current 120-calendar-day gate. No held-out daily-chart runtime artifact has been materialized yet.
 - The deterministic theme/regime evidence layer is frozen as `theme-regime-context-shadow-v0.1`, contract content SHA-256 `e240babc3004c33f2a9fd16ed80f3be24d8a332c48eb603ebfe57a9c795a92e0`. It exposes the exact same-minute ranked candidate cohort, provider-relative news/no-news participation, available cross-candidate headline associations, and up to five earlier completed-session summaries. It freezes no hot/cold threshold, theme taxonomy, theme-fit rule, no-news acceptance threshold, or score. No held-out theme/regime runtime artifact has been materialized yet.
+- The label-blind provider workflow for the registered context panel is now requested as `ross-context-heldout-runtime-request-v0.1`, content SHA-256 `9459660565c6c76c4af2fd09fd8362789bfda89fe57601d0f016b189112bbff0`. It rebuilds all market/scanner inputs, materializes daily and theme evidence only at activation or causal provider-news changes, and composes hash-bound context snapshots. It uses the exact prior runtime manifest `2414f7389...` only for five already-completed scanner-session summaries. The workflow has not yet produced a successful frozen artifact; recap inventory remains prohibited until it does.
 
 Exact provenance lives in:
 
@@ -37,13 +38,14 @@ Exact provenance lives in:
 - `docs/research/context_heldout_panel_v01.md`
 - `docs/research/daily_chart_context_v01.md`
 - `docs/research/theme_regime_context_v01.md`
+- `docs/research/context_heldout_runtime_v01.md`
 
 ## Active gate
 
 Materialize the preregistered context protocol on a new, label-blind panel without changing Micro-v0.1:
 
-1. keep the now-registered 2026-07-24 through 2026-08-06 dates fixed and do not inventory or review their recap material before runtime freeze;
-2. materialize the now-frozen daily-chart and theme/regime schemas, preserving explicit missing states when point-in-time evidence is unavailable;
+1. run and audit `.github/workflows/context-heldout-runtime.yml` for the fixed 2026-07-24 through 2026-08-06 dates without inventorying or reviewing recap material;
+2. freeze the resulting daily-chart, theme/regime, and composed context-snapshot artifacts, preserving explicit missing states when point-in-time evidence is unavailable;
 3. generate decision snapshots from scanner, attention, catalyst and new deterministic sources, then freeze them before labels;
 4. run any semantic reviewer AI shadow-only through the frozen citation/abstention schema; and
 5. keep candidate acquisition, contextual assessment, Micro setup and execution as separate measurable gates with no aggregate score fitted on the prior pilot.

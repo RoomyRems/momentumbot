@@ -1,0 +1,167 @@
+name: Context held-out label-blind runtime
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - research/strategy/context-heldout-panel-v0.1.json
+      - research/strategy/daily-chart-context-shadow-v0.1.json
+      - research/strategy/theme-regime-context-shadow-v0.1.json
+      - src/momentumbot/research/context_runtime.py
+      - src/momentumbot/research/daily_chart_context.py
+      - src/momentumbot/research/theme_regime_context.py
+      - scripts/build_context_heldout_market_runtime.py
+      - scripts/build_context_daily_chart_runtime.py
+      - scripts/build_context_snapshot_runtime.py
+      - tests/test_context_runtime.py
+      - .github/workflows/context-heldout-runtime.yml
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: context-heldout-runtime-v0.1
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
+      POLYGON_API_KEY: ${{ secrets.POLYGON_API_KEY }}
+      ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+      ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+      ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT }}
+      SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+      RUNTIME_ROOT: context-heldout-runtime-v0.1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Validate context contracts and runtime builders
+        run: >-
+          python -m unittest
+          tests.test_context_heldout_panel
+          tests.test_daily_chart_context
+          tests.test_theme_regime_context
+          tests.test_context_assessment
+          tests.test_context_runtime
+          tests.test_identity_continuity
+          tests.test_identity_resolved_universe
+          tests.test_causal_market_discovery
+          tests.test_historical_data
+          tests.test_historical_float
+          tests.test_historical_news
+          tests.test_causal_scanner_snapshot
+          tests.test_build_causal_scanner_snapshot
+          tests.test_scanner_source_inputs
+          -v
+      - name: Build registered label-blind market and scanner runtime
+        run: >-
+          python scripts/build_context_heldout_market_runtime.py
+          --output $RUNTIME_ROOT
+          --workflow-run-id ${{ github.run_id }}
+          --workflow-run-attempt ${{ github.run_attempt }}
+          --workflow-job ${{ github.job }}
+          --head-sha ${{ github.sha }}
+      - name: Materialize causal daily-chart records
+        run: >-
+          python scripts/build_context_daily_chart_runtime.py
+          --runtime-root $RUNTIME_ROOT
+          --output $RUNTIME_ROOT/daily-chart-context-runtime-v0.1
+          --asset-batch-size 250
+      - name: Download frozen prior runtime for completed-session context only
+        uses: actions/download-artifact@v4
+        with:
+          name: discretion-heldout-runtime-v0.1
+          path: prior-heldout-runtime-v0.1
+          github-token: ${{ github.token }}
+          run-id: 32071946359
+      - name: Build deterministic theme and context-snapshot runtimes
+        run: >-
+          python scripts/build_context_snapshot_runtime.py
+          --runtime-root $RUNTIME_ROOT
+          --daily-runtime-root $RUNTIME_ROOT/daily-chart-context-runtime-v0.1
+          --prior-runtime-root prior-heldout-runtime-v0.1
+          --output $RUNTIME_ROOT/deterministic-context-runtime-v0.1
+      - name: Verify final artifact remains label-blind and hash-bound
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          from momentumbot.identity_resolved_universe import json_fingerprint
+          from momentumbot.research.context_runtime import (
+              load_market_runtime_manifest,
+          )
+
+          root = Path("context-heldout-runtime-v0.1")
+          market = load_market_runtime_manifest(root)
+          deterministic = json.loads(
+              (
+                  root
+                  / "deterministic-context-runtime-v0.1"
+                  / "manifest.json"
+              ).read_text(encoding="utf-8")
+          )
+          projection = {
+              key: value
+              for key, value in deterministic.items()
+              if key != "content_sha256"
+          }
+          if deterministic.get("content_sha256") != json_fingerprint(projection):
+              raise RuntimeError("deterministic context manifest hash mismatch")
+          if deterministic.get("dates") != market.get("dates"):
+              raise RuntimeError("deterministic context dates differ from market runtime")
+          knowledge = deterministic.get("knowledge_policy", {})
+          for field in (
+              "uses_raw_transcripts",
+              "uses_ross_actions",
+              "uses_retrospective_labels",
+              "uses_later_price_outcomes",
+              "semantic_assessments_included",
+          ):
+              if knowledge.get(field) is not False:
+                  raise RuntimeError(f"final context runtime violates {field}")
+          if knowledge.get("runtime_strategy_effect") != "none":
+              raise RuntimeError("final context runtime affects strategy")
+          final = {
+              "schema_version": 1,
+              "artifact_id": "ross-context-heldout-runtime-v0.1",
+              "dates": market["dates"],
+              "market_runtime_content_sha256": market["content_sha256"],
+              "deterministic_context_runtime_content_sha256": deterministic[
+                  "content_sha256"
+              ],
+              "causal_boundary": {
+                  "uses_raw_transcripts": False,
+                  "uses_ross_actions": False,
+                  "uses_retrospective_labels": False,
+                  "uses_later_price_outcomes": False,
+                  "all_market_candidates_retained": True,
+                  "semantic_ai_included": False,
+                  "runtime_strategy_effect": "none",
+              },
+              "policy_promotion_eligible": False,
+          }
+          final["content_sha256"] = json_fingerprint(final)
+          (root / "context-heldout-runtime-manifest.json").write_text(
+              json.dumps(final, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          PY
+      - name: Upload context held-out runtime
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: context-heldout-runtime-v0.1
+          path: context-heldout-runtime-v0.1
+          if-no-files-found: error
+          retention-days: 30

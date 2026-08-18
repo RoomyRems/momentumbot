@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "request_id": "ross-context-heldout-runtime-request-v0.1",
+  "status": "registered_unexecuted",
+  "branch": "phase-3-historical-snapshot",
+  "workflow_path": ".github/workflows/context-heldout-runtime.yml",
+  "expected_artifact_name": "context-heldout-runtime-v0.1",
+  "registered_dates": [
+    "2026-07-24",
+    "2026-07-27",
+    "2026-07-28",
+    "2026-07-29",
+    "2026-07-30",
+    "2026-07-31",
+    "2026-08-03",
+    "2026-08-04",
+    "2026-08-05",
+    "2026-08-06"
+  ],
+  "frozen_contracts": {
+    "context_panel_content_sha256": "d227792368b3bff5c3c2365cacd204c11b7991daeb557efba450c22f076d8898",
+    "context_assessment_content_sha256": "8205772680ce290d58de1d17fbe43d02c2beb21fd9f0e16d8bd2c7b3a1806f26",
+    "daily_chart_content_sha256": "55262a3c6537d1511248577c0e01f0a36775ed98bff9d6839b12e00da3f2fa87",
+    "theme_regime_content_sha256": "e240babc3004c33f2a9fd16ed80f3be24d8a332c48eb603ebfe57a9c795a92e0"
+  },
+  "prior_completed_session_source": {
+    "artifact_name": "discretion-heldout-runtime-v0.1",
+    "workflow_run_id": 32071946359,
+    "manifest_content_sha256": "2414f7389bf68d5a5e4b3302c646c9111020cb79ce06fc0213f7872062f79c48",
+    "dates_used": [
+      "2026-07-17",
+      "2026-07-20",
+      "2026-07-21",
+      "2026-07-22",
+      "2026-07-23"
+    ],
+    "allowed_use": "completed_scanner_session_summaries_only"
+  },
+  "decision_events": [
+    "candidate_activation",
+    "provider_event_set_changed"
+  ],
+  "causal_boundary": {
+    "uses_raw_transcripts": false,
+    "uses_recap_inventory": false,
+    "uses_ross_actions": false,
+    "uses_retrospective_labels": false,
+    "uses_later_price_outcomes": false,
+    "all_market_candidates_retained": true,
+    "top_n_selection_applied": false,
+    "semantic_ai_included": false,
+    "runtime_strategy_effect": "none"
+  },
+  "eligibility": {
+    "policy_promotion_eligible": false,
+    "representative_panel": false,
+    "portfolio_backtest": false,
+    "human_evidence_review_allowed_before_successful_artifact_freeze": false
+  },
+  "content_sha256": "9459660565c6c76c4af2fd09fd8362789bfda89fe57601d0f016b189112bbff0"
+}
