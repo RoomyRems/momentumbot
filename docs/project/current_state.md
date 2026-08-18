@@ -16,6 +16,7 @@ This file is a routing checkpoint, not a second policy specification. Follow its
 - Retrospective evidence is frozen for all ten dates from the supplied 300-record caption batch. Main and small accounts remain separate, ticker corrections are explicit, and unmentioned candidates remain unknown. The label content SHA-256 is `4dd31df3fcace0bcc0b52045c748a1a91e00130867394e21c605af5f42007204`.
 - The frozen component comparison has content SHA-256 `809d4b4a7231b708f9c933c9bf45b58c736f4d3101c8328483c62c1c48bcfb3d`. Micro-v0.1 modeled fills on 6/9 acquired documented trades in each account, but also fired on 2/7 main-account skips and missed three documented decisions per account. The scanner acquired 11/13 unique observed traded symbol-dates. No rule was retuned or promoted.
 - The first context-assessment protocol is preregistered as `discretion-context-assessment-shadow-v0.1`, contract content SHA-256 `8205772680ce290d58de1d17fbe43d02c2beb21fd9f0e16d8bd2c7b3a1806f26`. It composes exact causal source rows into a hashed decision snapshot and constrains any AI shadow to evidence-cited, fact/inference-separated, abstaining assessments with a maximum 300-second logical lifetime. It freezes no semantic model, score, threshold, or runtime artifact and explicitly excludes the reviewed ten-session pilot from fitting.
+- The next context panel is registered calendar-only as `ross-context-heldout-panel-v0.1`, content SHA-256 `d227792368b3bff5c3c2365cacd204c11b7991daeb557efba450c22f076d8898`. Its fixed dates are the ten sessions from 2026-07-24 through 2026-08-06. No transcript file, source inventory, ticker, Ross action, outcome, later price, or P&L was opened or used for selection; missing source evidence cannot replace a date.
 
 Exact provenance lives in:
 
@@ -25,15 +26,17 @@ Exact provenance lives in:
 - `research/data-audits/discretion-heldout-comparison-v0.1-2026-08-18.json`
 - `research/strategy/discretion-heldout-panel-v0.1.json`
 - `research/strategy/discretion-context-assessment-shadow-v0.1.json`
+- `research/strategy/context-heldout-panel-v0.1.json`
 - `docs/research/discretion_heldout_panel_v01.md`
 - `docs/research/discretion_heldout_labels_v01.md`
 - `docs/research/discretion_context_assessment_v01.md`
+- `docs/research/context_heldout_panel_v01.md`
 
 ## Active gate
 
 Materialize the preregistered context protocol on a new, label-blind panel without changing Micro-v0.1:
 
-1. register new dates before reviewing any associated recap material;
+1. keep the now-registered 2026-07-24 through 2026-08-06 dates fixed and do not inventory or review their recap material before runtime freeze;
 2. add causal daily-chart levels/history and theme/regime evidence contracts, preserving explicit missing states when point-in-time evidence is unavailable;
 3. generate decision snapshots from scanner, attention, catalyst and new deterministic sources, then freeze them before labels;
 4. run any semantic reviewer AI shadow-only through the frozen citation/abstention schema; and

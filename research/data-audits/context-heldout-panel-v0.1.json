@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "audit_id": "ross-context-heldout-panel-v0.1-registration",
+  "artifact_type": "chronological_context_panel_registration_audit",
+  "contract_id": "ross-context-heldout-panel-v0.1",
+  "contract_file_sha256": "25123571f5fc79c7b89de31668448a4f01bb6f0ab4aee765c5cd4020f875cf1a",
+  "contract_content_sha256": "d227792368b3bff5c3c2365cacd204c11b7991daeb557efba450c22f076d8898",
+  "created_on": "2026-08-18",
+  "runtime_strategy_effect": "none",
+  "policy_promotion_eligible": false,
+  "registration_evidence": {
+    "prior_review_cutoff": "2026-07-23",
+    "selection_rule": "first_ten_verified_us_equity_sessions_strictly_after_prior_review_cutoff",
+    "registered_dates": [
+      "2026-07-24",
+      "2026-07-27",
+      "2026-07-28",
+      "2026-07-29",
+      "2026-07-30",
+      "2026-07-31",
+      "2026-08-03",
+      "2026-08-04",
+      "2026-08-05",
+      "2026-08-06"
+    ],
+    "calendar_basis_only": true,
+    "source_inventory_used": false,
+    "source_content_used": false,
+    "symbols_used": false,
+    "ross_actions_used": false,
+    "trade_outcomes_used": false,
+    "pnl_used": false
+  },
+  "parent_protocol": {
+    "contract_id": "discretion-context-assessment-shadow-v0.1",
+    "content_sha256": "8205772680ce290d58de1d17fbe43d02c2beb21fd9f0e16d8bd2c7b3a1806f26",
+    "semantic_model_frozen": false,
+    "selection_threshold_frozen": false
+  },
+  "excluded_fit_evidence": {
+    "panel_id": "ross-discretion-heldout-panel-v0.1",
+    "comparison_id": "ross-discretion-heldout-comparison-v0.1",
+    "comparison_content_sha256": "809d4b4a7231b708f9c933c9bf45b58c736f4d3101c8328483c62c1c48bcfb3d",
+    "threshold_fit_allowed": false,
+    "protocol_evaluation_allowed": false
+  },
+  "guards_validated": {
+    "dates_are_fixed_and_ordered": true,
+    "dates_are_strictly_after_review_cutoff": true,
+    "dates_do_not_depend_on_source_availability": true,
+    "missing_source_cannot_replace_date": true,
+    "missing_or_unmentioned_source_cannot_become_skip": true,
+    "source_or_behavior_keys_cannot_enter_registration": true,
+    "main_and_small_accounts_remain_separate": true,
+    "runtime_and_semantic_shadow_precede_label_review": true,
+    "reviewed_pilot_cannot_fit_or_evaluate_protocol": true,
+    "aggregate_score_threshold_and_policy_promotion_disabled": true
+  },
+  "decision": {
+    "freeze_registration": true,
+    "start_deterministic_context_development": true,
+    "start_source_inventory": false,
+    "start_human_label_review": false,
+    "run_semantic_model": false,
+    "fit_threshold": false,
+    "change_scanner_policy": false,
+    "change_micro_policy": false,
+    "reason": "Calendar-only registration must be permanent before deterministic runtime construction or any source inventory and retrospective review."
+  },
+  "next_action": {
+    "component": "causal_daily_chart_context",
+    "allowed_inputs": [
+      "prior completed daily bars available before each decision",
+      "corporate actions effective by each decision",
+      "frozen candidate identity and activation time"
+    ],
+    "prohibited_inputs": [
+      "current-session final high low close or volume",
+      "later corporate actions",
+      "Ross actions fills or recap judgments",
+      "trade outcomes or later prices"
+    ]
+  },
+  "residual_limits": [
+    "The date registration contains no market runtime, context result, source inventory, behavior label, or semantic assessment.",
+    "Ten sessions remain a pilot and cannot establish representative market coverage or profitability.",
+    "A missing same-day source will remain unavailable rather than causing date replacement."
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "contract_id": "ross-context-heldout-panel-v0.1",
+  "artifact_type": "chronological_context_panel_registration",
+  "purpose": "Freeze a new chronological panel for causal context snapshots and abstaining AI shadows before opening source inventory, source content, or retrospective behavior labels.",
+  "registration_status": "registered_unlabeled_uninventoried",
+  "panel_kind": "context_protocol_pilot_not_representative",
+  "runtime_strategy_effect": "none",
+  "policy_promotion_eligible": false,
+  "full_imitation_claim_eligible": false,
+  "selection_threshold_frozen": false,
+  "label_content_review_started": false,
+  "source_inventory_started": false,
+  "source_content_opened_for_date_selection": false,
+  "dates_may_be_replaced": false,
+  "parent_protocol": {
+    "contract_id": "discretion-context-assessment-shadow-v0.1",
+    "content_sha256": "8205772680ce290d58de1d17fbe43d02c2beb21fd9f0e16d8bd2c7b3a1806f26",
+    "semantic_model_frozen": false,
+    "aggregate_score_frozen": false,
+    "selection_threshold_frozen": false
+  },
+  "sampling_contract": {
+    "prior_review_cutoff": "2026-07-23",
+    "selection_rule": "first_ten_verified_us_equity_sessions_strictly_after_prior_review_cutoff",
+    "registered_dates": [
+      "2026-07-24",
+      "2026-07-27",
+      "2026-07-28",
+      "2026-07-29",
+      "2026-07-30",
+      "2026-07-31",
+      "2026-08-03",
+      "2026-08-04",
+      "2026-08-05",
+      "2026-08-06"
+    ],
+    "date_selection_uses_source_inventory": false,
+    "date_selection_uses_source_content": false,
+    "date_selection_uses_symbols": false,
+    "date_selection_uses_ross_actions": false,
+    "date_selection_uses_trade_outcomes": false,
+    "date_selection_uses_pnl": false,
+    "missing_source_date_replaced": false,
+    "all_causal_market_candidates_retained": true,
+    "top_n_or_rank_filter_applied": false,
+    "session_calendar_verified": true,
+    "source_availability_rule": "A missing or unusable source remains source_unavailable for the fixed date and never causes substitution.",
+    "scope_limit": "Ten consecutive sessions test context evidence coverage and abstention mechanics; they cannot establish representative market coverage, a threshold, profitability, or Ross-level imitation."
+  },
+  "excluded_fit_evidence": {
+    "panel_id": "ross-discretion-heldout-panel-v0.1",
+    "comparison_id": "ross-discretion-heldout-comparison-v0.1",
+    "comparison_content_sha256": "809d4b4a7231b708f9c933c9bf45b58c736f4d3101c8328483c62c1c48bcfb3d",
+    "threshold_fit_allowed": false,
+    "protocol_evaluation_allowed": false
+  },
+  "human_evidence_policy": {
+    "action_states": [
+      "participated",
+      "explicitly_skipped_or_rejected",
+      "discussed_but_action_unclear",
+      "not_mentioned_or_unobservable",
+      "source_unavailable"
+    ],
+    "account_scopes": [
+      "main_account",
+      "small_account",
+      "both_accounts_separately_observed",
+      "account_scope_unknown"
+    ],
+    "evidence_timing_qualities": [
+      "market_clock_synchronized",
+      "bounded_by_causal_market_events",
+      "retrospective_sequence_only",
+      "timing_unresolved"
+    ],
+    "not_mentioned_counts_as_skip": false,
+    "source_unavailable_counts_as_skip": false,
+    "small_and_main_accounts_may_be_merged": false,
+    "raw_transcript_allowed_in_runtime": false,
+    "labels_created_only_after_runtime_hash_freeze": true,
+    "date_replacement_after_source_review": false
+  },
+  "causal_separation": {
+    "runtime_inputs_available_by_decision_time": true,
+    "daily_context_uses_only_prior_completed_sessions": true,
+    "theme_context_uses_only_current_or_prior_market_state": true,
+    "runtime_and_shadow_artifacts_frozen_before_label_review": true,
+    "retrospective_labels_allowed_in_runtime": false,
+    "later_price_or_outcome_allowed_in_runtime": false,
+    "label_artifact_stored_separately": true
+  },
+  "workflow_sequence": [
+    "freeze_calendar_only_date_registration_before_source_inventory_or_review",
+    "build_and_validate_deterministic_context_sources_label_blind",
+    "freeze_hash_bound_context_snapshots_for_all_causal_market_candidates",
+    "run_optional_semantic_assessments_shadow_only_with_abstention",
+    "freeze_and_hash_all_runtime_and_shadow_artifacts",
+    "inventory_and_review_same_day_human_evidence_without_replacing_dates",
+    "freeze_retrospective_account_scoped_trade_skip_or_unknown_labels",
+    "compare_components_without_threshold_fitting_or_policy_promotion"
+  ],
+  "evaluation_contract": {
+    "component_thresholds_may_be_fit_on_panel": false,
+    "technical_rules_may_be_retuned_on_panel": false,
+    "aggregate_context_score_allowed": false,
+    "overall_imitation_score_allowed": false,
+    "policy_promotion_allowed": false,
+    "unknown_actions_excluded_from_trade_skip_accuracy": true,
+    "coverage_and_abstention_reported": true,
+    "account_scopes_reported_separately": true,
+    "provider_failures_and_missing_domains_reported": true,
+    "descriptive_outputs": [
+      "deterministic context-source coverage and missingness",
+      "semantic-axis assessed and abstained counts",
+      "evidence citation and confidence distributions",
+      "account-scoped explicit trade, skip, unclear, unmentioned and unavailable counts",
+      "component agreement without an aggregate score"
+    ]
+  },
+  "execution_status": {
+    "deterministic_runtime": "not_started",
+    "semantic_shadow": "not_started",
+    "source_inventory": "not_started",
+    "human_label_review": "not_started",
+    "runtime_artifact_sha256": null,
+    "semantic_shadow_artifact_sha256": null,
+    "label_artifact_sha256": null
+  }
+}
