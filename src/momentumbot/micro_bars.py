@@ -197,4 +197,6 @@ def aggregate_trade_bars(trades: pd.DataFrame, frequency: str = "10s") -> pd.Dat
             }
         )
         index.append(timestamp)
+    if not rows:
+        return _empty_bars()
     return pd.DataFrame(rows, index=pd.DatetimeIndex(index, name="timestamp"))

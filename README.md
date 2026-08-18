@@ -4,6 +4,8 @@ MomentumBot is a research-first implementation of Ross Cameron's small-cap momen
 
 **Current scope: deterministic research + backtesting foundation. No live-money trading.**
 
+For a cold-start project map, current checkpoint and experiment protocol, begin with `AGENTS.md` and `docs/project/current_state.md` rather than loading the full repository.
+
 ## What is implemented
 
 - transcript normalization, chronology splits and leakage guards;

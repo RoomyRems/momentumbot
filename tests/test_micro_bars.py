@@ -79,6 +79,25 @@ class MicroBarTests(unittest.TestCase):
         self.assertEqual(float(bars.iloc[0]["high"]), 6.0)
         self.assertEqual(int(bars.iloc[0]["unknown_condition_count"]), 1)
 
+    def test_fully_filtered_nonempty_tape_keeps_aware_empty_index(self):
+        trades = pd.DataFrame(
+            [
+                {
+                    "price": 6.00,
+                    "size": 100,
+                    "conditions": ("M",),
+                    "tape": "C",
+                }
+            ],
+            index=pd.to_datetime(["2026-07-10T13:52:01Z"], utc=True),
+        )
+
+        bars = aggregate_trade_bars(trades)
+
+        self.assertTrue(bars.empty)
+        self.assertEqual(str(bars.index.tz), "UTC")
+        self.assertEqual(bars.index.name, "timestamp")
+
 
 if __name__ == "__main__":
     unittest.main()
