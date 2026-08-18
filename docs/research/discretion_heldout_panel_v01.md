@@ -59,4 +59,10 @@ The acquisition completed successfully in workflow run `32071946359`. The frozen
 
 The next frozen layer derives three descriptive shadow artifacts from that exact runtime: attention/leadership state, provider-news chronology and causal headline evidence packets. These artifacts retain every market candidate and have no score, threshold, order authority or risk authority. They are evidence for the later human comparison, not a trading rule.
 
-Micro-v0.1 activity still has to be frozen on the same ten dates before the retrospective Ross review begins. That ordering prevents the human trades from influencing how much technical setup activity the bot is allowed to generate.
+## Frozen Micro activity checkpoint
+
+The final label-blind prerequisite replays the unchanged `micro-v0.1` policy for all 119 causal candidates. It uses each candidate's completed-minute qualification time, derives ten-second bars from SIP trades, and permits action only after a ten-second bar is fully known and before the 10:00 ET cutoff. It preserves the trade tape, derived bars and completed-minute support inputs so the result can be replayed rather than inferred from summary counts.
+
+This checkpoint measures plan emissions, modeled fills and the number of candidates on which the technical policy acts. A plan emission is not treated as a portfolio trade: successive bars may emit repeated plans during one momentum campaign, and this layer does not model buying power, position state, divided attention, Level 2 or discretionary catalyst judgment. Provider-unavailable cases remain separate from genuine zero-plan cases.
+
+The workflow remains label-blind and does not change any Micro threshold. Its output must be frozen before the retrospective Ross review begins. That ordering prevents the human trades from influencing how much technical setup activity the bot is allowed to generate.

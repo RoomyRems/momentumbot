@@ -1,0 +1,267 @@
+name: Discretion held-out Micro v0.1 runtime
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - src/momentumbot/indicators.py
+      - src/momentumbot/micro_bars.py
+      - src/momentumbot/micro_execution.py
+      - src/momentumbot/micro_policy.py
+      - src/momentumbot/micro_replay.py
+      - src/momentumbot/micro_setup.py
+      - src/momentumbot/providers/alpaca.py
+      - src/momentumbot/providers/alpaca_trades.py
+      - src/momentumbot/providers/http_json.py
+      - src/momentumbot/causal_market_discovery.py
+      - src/momentumbot/causal_scanner_snapshot.py
+      - src/momentumbot/scanner_source_inputs.py
+      - src/momentumbot/research/discretion_heldout_panel.py
+      - scripts/reconstruct_discretion_heldout_micro_date.py
+      - scripts/summarize_discretion_heldout_micro_runtime.py
+      - tests/test_reconstruct_discretion_heldout_micro_date.py
+      - tests/test_summarize_discretion_heldout_micro_runtime.py
+      - .github/workflows/discretion-heldout-micro-runtime.yml
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  replay-date:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        trading-date:
+          - 2026-07-10
+          - 2026-07-13
+          - 2026-07-14
+          - 2026-07-15
+          - 2026-07-16
+          - 2026-07-17
+          - 2026-07-20
+          - 2026-07-21
+          - 2026-07-22
+          - 2026-07-23
+    env:
+      ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+      ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+      ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Test label-blind Micro replay contracts
+        run: >-
+          python -m unittest
+          tests.test_micro_policy
+          tests.test_micro_bars
+          tests.test_micro_execution
+          tests.test_micro_replay
+          tests.test_reconstruct_discretion_heldout_micro_date
+          tests.test_summarize_discretion_heldout_micro_runtime
+          -v
+      - name: Download and verify exact held-out runtime
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          artifact_api="https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/9305468839"
+          curl --fail-with-body --location --retry 3 \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "${artifact_api}" \
+            --output heldout-runtime-artifact.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          metadata = json.loads(Path("heldout-runtime-artifact.json").read_text())
+          assert metadata["id"] == 9305468839
+          assert metadata["name"] == "discretion-heldout-runtime-v0.1"
+          assert metadata["expired"] is False
+          assert metadata["size_in_bytes"] == 29045691
+          run = metadata["workflow_run"]
+          assert run["id"] == 32071946359
+          assert run["head_sha"] == "6a83aca89f0e6fc5cf98e7d34fcb403d81674b8a"
+          PY
+          curl --fail-with-body --location --retry 3 \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "${artifact_api}/zip" \
+            --output heldout-runtime.zip
+          echo "850d9cfba27d7677904ccf147251b3ff914292102be0e3c62fec7bb47b6f73bb  heldout-runtime.zip" \
+            | sha256sum --check --strict
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+
+          target = Path("discretion-heldout-runtime-v0.1")
+          target.mkdir()
+          root = target.resolve()
+          with ZipFile("heldout-runtime.zip") as archive:
+              for info in archive.infolist():
+                  destination = (target / info.filename).resolve()
+                  if root not in destination.parents and destination != root:
+                      raise RuntimeError("artifact contains an unsafe path")
+                  if (info.external_attr >> 16) & 0o170000 == 0o120000:
+                      raise RuntimeError("artifact contains a symbolic link")
+              archive.extractall(target)
+          PY
+          echo "a55ea217d65ada1d189af51111b801b60610c3a62cf3838dcafd98b5a115385f  discretion-heldout-runtime-v0.1/heldout-runtime-manifest.json" \
+            | sha256sum --check --strict
+      - name: Replay frozen Micro v0.1 for one date
+        run: >-
+          python scripts/reconstruct_discretion_heldout_micro_date.py
+          --runtime-root discretion-heldout-runtime-v0.1
+          --trading-date ${{ matrix.trading-date }}
+          --output micro-date-runtime/${{ matrix.trading-date }}
+      - name: Validate complete date artifact
+        env:
+          TRADING_DATE: ${{ matrix.trading-date }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          from scripts.summarize_discretion_heldout_micro_runtime import (
+              build_panel_manifest,
+          )
+
+          value = os.environ["TRADING_DATE"]
+          payload = build_panel_manifest(Path("micro-date-runtime"), dates=(value,))
+          if payload["dates"] != [value]:
+              raise RuntimeError("date replay validation returned the wrong date")
+          if payload["totals"]["candidate_count"] <= 0:
+              raise RuntimeError("date replay unexpectedly has no candidates")
+          print(json.dumps(payload["totals"], indent=2, sort_keys=True))
+          PY
+      - name: Upload frozen date replay
+        uses: actions/upload-artifact@v4
+        with:
+          name: discretion-heldout-micro-date-${{ matrix.trading-date }}
+          path: micro-date-runtime
+          if-no-files-found: error
+          retention-days: 30
+
+  aggregate:
+    needs: replay-date
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Test Micro panel summarizer
+        run: >-
+          python -m unittest
+          tests.test_summarize_discretion_heldout_micro_runtime
+          -v
+      - name: Download every date replay
+        uses: actions/download-artifact@v4
+        with:
+          pattern: discretion-heldout-micro-date-*
+          path: discretion-heldout-micro-runtime-v0.1/dates
+          merge-multiple: true
+      - name: Build and validate label-blind panel summary
+        run: >-
+          python scripts/summarize_discretion_heldout_micro_runtime.py
+          --input-root discretion-heldout-micro-runtime-v0.1/dates
+          --output discretion-heldout-micro-runtime-v0.1/manifest.json
+      - name: Record workflow provenance
+        env:
+          MICRO_WORKFLOW_RUN_ID: ${{ github.run_id }}
+          MICRO_WORKFLOW_RUN_ATTEMPT: ${{ github.run_attempt }}
+          MICRO_WORKFLOW_HEAD_SHA: ${{ github.sha }}
+          MICRO_WORKFLOW_REF: ${{ github.ref }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          from momentumbot.identity_resolved_universe import json_fingerprint
+          from momentumbot.micro_policy import micro_v0_1_policy
+          from momentumbot.research.discretion_heldout_panel import REGISTERED_DATES
+
+          root = Path("discretion-heldout-micro-runtime-v0.1")
+          manifest = json.loads((root / "manifest.json").read_text())
+          claimed = manifest.pop("content_sha256")
+          if claimed != json_fingerprint(manifest):
+              raise RuntimeError("Micro panel manifest fingerprint mismatch")
+          if manifest["dates"] != list(REGISTERED_DATES):
+              raise RuntimeError("Micro panel dates differ from registration")
+          if manifest["totals"]["candidate_count"] != 119:
+              raise RuntimeError("Micro panel did not retain all 119 candidates")
+          if manifest["totals"]["replayed_candidate_count"] + manifest["totals"][
+              "unavailable_candidate_count"
+          ] != 119:
+              raise RuntimeError("Micro replay availability counts do not reconcile")
+          policy = micro_v0_1_policy()
+          if manifest["frozen_micro_policy"] != {
+              "policy_id": policy.policy_id,
+              "fingerprint": policy.fingerprint,
+              "status": policy.status,
+          }:
+              raise RuntimeError("Micro panel policy differs from frozen v0.1")
+          if policy.fingerprint != (
+              "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa"
+          ):
+              raise RuntimeError("Micro v0.1 registered fingerprint changed")
+          if manifest["interpretation"]["policy_promotion_eligible"] is not False:
+              raise RuntimeError("diagnostic Micro panel cannot promote a policy")
+          provenance = {
+              "schema_version": 1,
+              "artifact_id": (
+                  "ross-discretion-heldout-micro-workflow-provenance-v0.1"
+              ),
+              "workflow": {
+                  "run_id": int(os.environ["MICRO_WORKFLOW_RUN_ID"]),
+                  "run_attempt": int(os.environ["MICRO_WORKFLOW_RUN_ATTEMPT"]),
+                  "head_sha": os.environ["MICRO_WORKFLOW_HEAD_SHA"],
+                  "ref": os.environ["MICRO_WORKFLOW_REF"],
+              },
+              "frozen_source": {
+                  "artifact_id": 9305468839,
+                  "artifact_name": "discretion-heldout-runtime-v0.1",
+                  "workflow_run_id": 32071946359,
+                  "head_sha": "6a83aca89f0e6fc5cf98e7d34fcb403d81674b8a",
+                  "zip_sha256": (
+                      "850d9cfba27d7677904ccf147251b3ff914292102be0e3c62fec7bb47b6f73bb"
+                  ),
+                  "manifest_content_sha256": (
+                      "2414f7389bf68d5a5e4b3302c646c9111020cb79ce06fc0213f7872062f79c48"
+                  ),
+              },
+              "micro_panel_manifest_content_sha256": claimed,
+              "uses_human_labels": False,
+              "policy_promotion_eligible": False,
+          }
+          provenance["content_sha256"] = json_fingerprint(provenance)
+          (root / "workflow-provenance.json").write_text(
+              json.dumps(provenance, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          print(json.dumps({"manifest": claimed, "totals": manifest["totals"]}, indent=2))
+          PY
+      - name: Upload frozen Micro panel
+        uses: actions/upload-artifact@v4
+        with:
+          name: discretion-heldout-micro-runtime-v0.1
+          path: discretion-heldout-micro-runtime-v0.1
+          if-no-files-found: error
+          retention-days: 30
