@@ -1,6 +1,6 @@
 # Discretion held-out panel v0.1
 
-Status: **registered and unlabeled; no trading authority**.
+Status: **label-blind runtime frozen; human review not started; no trading authority**.
 
 ## Why this is the next step
 
@@ -52,3 +52,11 @@ Before acquiring the ten registered dates, the scanner builder now supports a se
 ## Label-blind runtime acquisition
 
 The dedicated held-out workflow acquires all ten fixed dates without opening Ross labels. It verifies each date against a provider-observed SPY session, builds point-in-time membership, market, float, news and scanner artifacts, and persists the scanner input sidecar. The frozen identity rule is applied independently on every date; the first and last dates provide the interval-wide alias and corporate-action audit boundary. Intermediate symbol transitions that are not visible at either endpoint remain a documented pilot limitation rather than being guessed.
+
+The acquisition completed successfully in workflow run `32071946359`. The frozen artifact contains 119 causal market candidates and 12,440 candidate-minute scanner rows. All ten dates passed the active loaders, provider-independent scanner replay and temporal checks. No Ross action, outcome or P&L label was used. The permanent audit is `research/data-audits/discretion-heldout-runtime-v0.1-2026-08-17.json`.
+
+## Provider-free discretionary context
+
+The next frozen layer derives three descriptive shadow artifacts from that exact runtime: attention/leadership state, provider-news chronology and causal headline evidence packets. These artifacts retain every market candidate and have no score, threshold, order authority or risk authority. They are evidence for the later human comparison, not a trading rule.
+
+Micro-v0.1 activity still has to be frozen on the same ten dates before the retrospective Ross review begins. That ordering prevents the human trades from influencing how much technical setup activity the bot is allowed to generate.

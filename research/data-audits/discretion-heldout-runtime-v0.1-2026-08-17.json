@@ -1,0 +1,692 @@
+{
+  "artifact": {
+    "heldout_manifest_content_sha256": "2414f7389bf68d5a5e4b3302c646c9111020cb79ce06fc0213f7872062f79c48",
+    "heldout_manifest_file_sha256": "a55ea217d65ada1d189af51111b801b60610c3a62cf3838dcafd98b5a115385f",
+    "id": 9305468839,
+    "name": "discretion-heldout-runtime-v0.1",
+    "size_bytes": 29045691,
+    "zip_sha256": "850d9cfba27d7677904ccf147251b3ff914292102be0e3c62fec7bb47b6f73bb"
+  },
+  "artifact_type": "label_blind_heldout_runtime_freeze",
+  "audit_id": "discretion-heldout-runtime-v0.1-2026-08-17",
+  "causal_boundary": {
+    "all_market_candidates_retained": true,
+    "provider_independent_scanner_replay_validated": true,
+    "top_n_selection_applied": false,
+    "uses_benchmark_labels": false,
+    "uses_later_price_outcomes": false,
+    "uses_retrospective_trade_outcomes": false,
+    "uses_ross_actions": false
+  },
+  "cross_panel_summary": {
+    "disposition_counts": {
+      "feature_state_float_at_or_above_limit": 1880,
+      "feature_state_gain_below_minimum": 891,
+      "feature_state_price_outside_range": 192,
+      "feature_state_provider_news_present_unclassified": 2989,
+      "feature_state_provider_relative_no_news_unclassified": 660,
+      "feature_state_rvol_below_minimum": 159,
+      "feature_state_unknown_fail_closed_float": 3229,
+      "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 2440
+    },
+    "exact_candidate_bars": 10000,
+    "float_classification_counts": {
+      "fail": 36,
+      "pass": 51,
+      "unknown_fail_closed": 32
+    },
+    "full_window_news_events": 224,
+    "market_candidates": 119,
+    "missing_exact_candidate_bars": 2440,
+    "news_at_activation_counts": {
+      "provider_news_present": 57,
+      "provider_relative_no_news": 62
+    },
+    "rank_complete_rows": 12440,
+    "rank_incomplete_rows": 0,
+    "scanner_rows": 12440,
+    "temporal_violation_counts": {}
+  },
+  "date_results": {
+    "2026-07-10": {
+      "candidate_activations": {
+        "CCC": "2026-07-10T11:01:00+00:00",
+        "CDZI": "2026-07-10T13:29:00+00:00",
+        "DFSC": "2026-07-10T13:33:00+00:00",
+        "EQPT": "2026-07-10T11:00:00+00:00",
+        "GMM": "2026-07-10T11:00:00+00:00",
+        "INTJ": "2026-07-10T12:09:00+00:00",
+        "JLHL": "2026-07-10T11:00:00+00:00",
+        "JZXN": "2026-07-10T13:35:00+00:00",
+        "LIVE": "2026-07-10T13:52:00+00:00",
+        "NVVE": "2026-07-10T11:13:00+00:00",
+        "OPRT": "2026-07-10T13:44:00+00:00",
+        "TKLF": "2026-07-10T11:47:00+00:00",
+        "VOD": "2026-07-10T11:01:00+00:00",
+        "WOK": "2026-07-10T11:00:00+00:00"
+      },
+      "disposition_counts": {
+        "feature_state_float_at_or_above_limit": 50,
+        "feature_state_gain_below_minimum": 113,
+        "feature_state_provider_news_present_unclassified": 360,
+        "feature_state_provider_relative_no_news_unclassified": 38,
+        "feature_state_rvol_below_minimum": 19,
+        "feature_state_unknown_fail_closed_float": 547,
+        "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 469
+      },
+      "exact_candidate_bar_count": 1127,
+      "float_classification_counts": {
+        "fail": 3,
+        "pass": 6,
+        "unknown_fail_closed": 5
+      },
+      "full_window_news_event_count": 31,
+      "hashes": {
+        "float_date_manifest_content_sha256": "58e2b9e2c8b07d9f9b3f421dcff029b4dd87d2096ae7f68dcab2f16fd862670a",
+        "float_records_sha256": "3b847b7ba6d30792d8be3f3a4b019313c179ef5bf311c071d8e5ffeb8a0fd704",
+        "market_candidates_content_sha256": "59352426ac8b1edc79c2859cb62db723a5155d718e684773afc266ea582f4371",
+        "market_date_manifest_content_sha256": "2cbce79435b6c88703278f71f77cb5d5538abf08081d5204a5dfec916753fd35",
+        "news_date_manifest_content_sha256": "227f3adbe4a07ddd5f67cf75c50b36a6e50e4ccd73946b33d6c4ff1a44f57741",
+        "news_events_sha256": "78c8ce4ad5ac5fc61e6fad9d9db739a72a5a9299d0219ec19501a86f98110921",
+        "news_statuses_sha256": "06e876dcca7d8697a94054fbab0efddc43761a14ebcc4701886255de3eaad7bb",
+        "scanner_date_manifest_content_sha256": "f7efd6b8caeb1369f09149bb7812999d0205e4fba1031e8b929d422b1e05eea1",
+        "scanner_records_content_sha256": "58bbb72d17f1929094ca007ebe46a0e81eab748a6f63b0ac0304fabe988a9ef0",
+        "scanner_source_inputs_compressed_file_sha256": "e1ef84daed3cbfd119ba18cb35130aa90ee2651706df65908da4bc40449df5df",
+        "scanner_source_inputs_content_sha256": "d3b6065f42d84216900288ea6e616e68130bd9af846aa7c7a6790f40a394e2e9",
+        "scanner_source_inputs_logical_sha256": "0a148866a12df76a94ea005c1a8fc44f97c58f6faf060a2deeb3ad22127afdba"
+      },
+      "identity_resolved_member_count": 5571,
+      "market_candidate_count": 14,
+      "missing_exact_candidate_bar_count": 469,
+      "news_at_activation_counts": {
+        "provider_news_present": 9,
+        "provider_relative_no_news": 5
+      },
+      "rank_complete_row_count": 1596,
+      "rank_incomplete_row_count": 0,
+      "scanner_row_count": 1596,
+      "temporal_violation_counts": {}
+    },
+    "2026-07-13": {
+      "candidate_activations": {
+        "AGEN": "2026-07-13T11:00:00+00:00",
+        "BRAI": "2026-07-13T11:01:00+00:00",
+        "EHGO": "2026-07-13T11:00:00+00:00",
+        "GFUZ": "2026-07-13T11:00:00+00:00",
+        "MI": "2026-07-13T13:44:00+00:00",
+        "MIMI": "2026-07-13T11:00:00+00:00",
+        "PED": "2026-07-13T13:51:00+00:00",
+        "PLSM": "2026-07-13T12:01:00+00:00",
+        "QTTB": "2026-07-13T11:00:00+00:00",
+        "QXL": "2026-07-13T11:10:00+00:00",
+        "VEEE": "2026-07-13T12:53:00+00:00",
+        "VRRM": "2026-07-13T13:37:00+00:00"
+      },
+      "disposition_counts": {
+        "feature_state_float_at_or_above_limit": 358,
+        "feature_state_gain_below_minimum": 25,
+        "feature_state_price_outside_range": 13,
+        "feature_state_provider_news_present_unclassified": 357,
+        "feature_state_rvol_below_minimum": 36,
+        "feature_state_unknown_fail_closed_float": 458,
+        "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 236
+      },
+      "exact_candidate_bar_count": 1247,
+      "float_classification_counts": {
+        "fail": 5,
+        "pass": 4,
+        "unknown_fail_closed": 3
+      },
+      "full_window_news_event_count": 36,
+      "hashes": {
+        "float_date_manifest_content_sha256": "6c21ab85d29e27ac81d2357ea0e4d1b38d7e0f060ed271bb630ec0b50789d0e0",
+        "float_records_sha256": "ba942ae705b7a4073229eabc89629140fe2db046883069f073f1a4196b339c9b",
+        "market_candidates_content_sha256": "168454d60775e89a1b604c587f1f94e2caa98dec0bfcdce5ad98bbdaaccb300c",
+        "market_date_manifest_content_sha256": "0a4045d9997a1d3b4fedd784e3e8e5a7d640a907e5cf0c5b7f253b5c648f5bbb",
+        "news_date_manifest_content_sha256": "ac704dfe344f085407d012718475341103c3fa4ba1c6ac0e03fb3862f5a7e648",
+        "news_events_sha256": "2c44fe8e3b4e9fd43afd70aed410d8ac136c20e51417d224bc688986aad28ce6",
+        "news_statuses_sha256": "9ad2a3e7a3678cbe332dc8ea147863adc2699a388ca2e39a94187a9ae8393ee8",
+        "scanner_date_manifest_content_sha256": "5036a4cb9829aa8a99080750fe13592d26388ec1735a885b08607daf9ffca157",
+        "scanner_records_content_sha256": "7404d559e83e76b574bcf60c4bd9350f319730c57ff4f78a6a5f12c4dd2ee703",
+        "scanner_source_inputs_compressed_file_sha256": "b9c5f59f995fe5dc589b530c1a6d5be6a727790cf11fa009260ce4256991106b",
+        "scanner_source_inputs_content_sha256": "ee699ea3ba0453d006e15cbc4bac984c5176583980e37452e9c7052b69f14514",
+        "scanner_source_inputs_logical_sha256": "6935457be18b88685f8d3ce381014765200a19a44d54825a79ca1bdf79f32cd5"
+      },
+      "identity_resolved_member_count": 5571,
+      "market_candidate_count": 12,
+      "missing_exact_candidate_bar_count": 236,
+      "news_at_activation_counts": {
+        "provider_news_present": 8,
+        "provider_relative_no_news": 4
+      },
+      "rank_complete_row_count": 1483,
+      "rank_incomplete_row_count": 0,
+      "scanner_row_count": 1483,
+      "temporal_violation_counts": {}
+    },
+    "2026-07-14": {
+      "candidate_activations": {
+        "CLSK": "2026-07-14T11:00:00+00:00",
+        "CULP": "2026-07-14T13:31:00+00:00",
+        "GFUZ": "2026-07-14T13:48:00+00:00",
+        "GLOO": "2026-07-14T13:32:00+00:00",
+        "LGHL": "2026-07-14T13:55:00+00:00",
+        "LVLU": "2026-07-14T11:02:00+00:00",
+        "NVVE": "2026-07-14T13:34:00+00:00",
+        "NXTC": "2026-07-14T11:00:00+00:00",
+        "PLRZ": "2026-07-14T11:06:00+00:00",
+        "RGC": "2026-07-14T12:14:00+00:00",
+        "SHPH": "2026-07-14T11:00:00+00:00",
+        "UBXG": "2026-07-14T13:09:00+00:00",
+        "VMAR": "2026-07-14T11:51:00+00:00"
+      },
+      "disposition_counts": {
+        "feature_state_float_at_or_above_limit": 176,
+        "feature_state_gain_below_minimum": 114,
+        "feature_state_price_outside_range": 88,
+        "feature_state_provider_news_present_unclassified": 460,
+        "feature_state_provider_relative_no_news_unclassified": 56,
+        "feature_state_rvol_below_minimum": 5,
+        "feature_state_unknown_fail_closed_float": 70,
+        "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 309
+      },
+      "exact_candidate_bar_count": 969,
+      "float_classification_counts": {
+        "fail": 2,
+        "pass": 8,
+        "unknown_fail_closed": 3
+      },
+      "full_window_news_event_count": 19,
+      "hashes": {
+        "float_date_manifest_content_sha256": "a1310478f7f738bf0ee92b8511d23d5df668da115a993fdd1ae0065b4702df9e",
+        "float_records_sha256": "c795999f37e7b910ee76fd580e166c16daa3c476b84c8515ddc04d5b26327034",
+        "market_candidates_content_sha256": "6684b309e4eb525df37d3527fd10eb11c7e78e0471fb415bd6f780455c685fd6",
+        "market_date_manifest_content_sha256": "ad211ff506ad12c36ba4b6d4cedbe91d8251d44631b1f785cd494d6076a4c22a",
+        "news_date_manifest_content_sha256": "412f5b44aaa82fedcfcfd2d2b1f71d921ae0a26b18d8c1da0fde998ffc30bd00",
+        "news_events_sha256": "0e248e49d080e5b6fd05340accdf3926698f5d800eb2ac32e0c8d07f470e9843",
+        "news_statuses_sha256": "cad628a3f8d2403d5a412cd3f004a1074b07e4f88960c33201730ad08f0bbd79",
+        "scanner_date_manifest_content_sha256": "4f1c22a299e8e03296b28fa6e06984cd7b612e918aa0db71886dc94b6d57d42a",
+        "scanner_records_content_sha256": "3fa74f1e95655fa530c586b0f75714e29697bc8b61085f6ee383855609bf740b",
+        "scanner_source_inputs_compressed_file_sha256": "3f25ee055247e268013da05f87a2a979f1ba8d328c217a949360ebdec69b4f1d",
+        "scanner_source_inputs_content_sha256": "07dde221fda2939ecfbbd11102ad1e29f73d8f22e670a875c9e1422fccc9c1bd",
+        "scanner_source_inputs_logical_sha256": "e748c61ddbf9fceb2024098af9297383f5ebcdc30115423fc44afb77611969dc"
+      },
+      "identity_resolved_member_count": 5570,
+      "market_candidate_count": 13,
+      "missing_exact_candidate_bar_count": 309,
+      "news_at_activation_counts": {
+        "provider_news_present": 5,
+        "provider_relative_no_news": 8
+      },
+      "rank_complete_row_count": 1278,
+      "rank_incomplete_row_count": 0,
+      "scanner_row_count": 1278,
+      "temporal_violation_counts": {}
+    },
+    "2026-07-15": {
+      "candidate_activations": {
+        "ANGO": "2026-07-15T13:40:00+00:00",
+        "APLM": "2026-07-15T13:54:00+00:00",
+        "CCEL": "2026-07-15T13:40:00+00:00",
+        "ELVA": "2026-07-15T11:01:00+00:00",
+        "ERNA": "2026-07-15T11:52:00+00:00",
+        "FBYD": "2026-07-15T13:57:00+00:00",
+        "JLHL": "2026-07-15T11:37:00+00:00",
+        "LABT": "2026-07-15T12:05:00+00:00",
+        "LCID": "2026-07-15T13:37:00+00:00",
+        "MAGN": "2026-07-15T13:51:00+00:00",
+        "NVVE": "2026-07-15T13:31:00+00:00",
+        "SOBR": "2026-07-15T13:39:00+00:00",
+        "TRT": "2026-07-15T13:45:00+00:00"
+      },
+      "disposition_counts": {
+        "feature_state_float_at_or_above_limit": 33,
+        "feature_state_gain_below_minimum": 22,
+        "feature_state_price_outside_range": 8,
+        "feature_state_provider_news_present_unclassified": 144,
+        "feature_state_provider_relative_no_news_unclassified": 10,
+        "feature_state_rvol_below_minimum": 13,
+        "feature_state_unknown_fail_closed_float": 380,
+        "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 101
+      },
+      "exact_candidate_bar_count": 610,
+      "float_classification_counts": {
+        "fail": 3,
+        "pass": 7,
+        "unknown_fail_closed": 3
+      },
+      "full_window_news_event_count": 22,
+      "hashes": {
+        "float_date_manifest_content_sha256": "52552b488f02248e256f321ed114969448b75ba8244e7f078e645796d29e33c9",
+        "float_records_sha256": "af08c2f451ec50f081119c5d5e2e10f912709df8d70edef2753987fbbae77802",
+        "market_candidates_content_sha256": "ab2134841fb0cb7ce7a4d621361568e3d223317d0924849e4748ade1bfa9c854",
+        "market_date_manifest_content_sha256": "b46ab425c4cb0ffa7ee4368786de4b948ee7e9ddc373370cf311e229aa042c6c",
+        "news_date_manifest_content_sha256": "5db39315c5bb5e76d285a747b076e87776266980a8a4d13387f903dbe6898f86",
+        "news_events_sha256": "e26b713d7fa9b033a5c4fe88a9c552b42290b1fafda58b0b6a5b2e084e409ac8",
+        "news_statuses_sha256": "19ff0cf2dff19382f9f0378110478a5222df8771953f18a812975b1d6a265a98",
+        "scanner_date_manifest_content_sha256": "c1ea45fe6158e39081f7268bb0a4b58dd2a10a65356ffdac7f84f81bae0574bb",
+        "scanner_records_content_sha256": "e6766b2416cfcab2b9f982097c9cd7157ffd76c4e930af4c5f501fa475f0ee52",
+        "scanner_source_inputs_compressed_file_sha256": "ac1cd0416b1ccab169e04a69add65d73fb5c6cf59a7b7a57e679b1ab0e68f579",
+        "scanner_source_inputs_content_sha256": "1c75e328cc8ec022fe4943a92d364052db0b7a19ac99eb2a64f10b61c46190f0",
+        "scanner_source_inputs_logical_sha256": "d78089c43feffea531d3de4c6244ff00c99209c3ecde2967c4dd1d9d5f8e1afd"
+      },
+      "identity_resolved_member_count": 5568,
+      "market_candidate_count": 13,
+      "missing_exact_candidate_bar_count": 101,
+      "news_at_activation_counts": {
+        "provider_news_present": 5,
+        "provider_relative_no_news": 8
+      },
+      "rank_complete_row_count": 711,
+      "rank_incomplete_row_count": 0,
+      "scanner_row_count": 711,
+      "temporal_violation_counts": {}
+    },
+    "2026-07-16": {
+      "candidate_activations": {
+        "ATAI": "2026-07-16T11:00:00+00:00",
+        "ATPC": "2026-07-16T11:00:00+00:00",
+        "CYH": "2026-07-16T13:11:00+00:00",
+        "DXST": "2026-07-16T11:00:00+00:00",
+        "EAF": "2026-07-16T13:36:00+00:00",
+        "HELP": "2026-07-16T11:00:00+00:00",
+        "LEDS": "2026-07-16T13:37:00+00:00",
+        "MAAS": "2026-07-16T13:49:00+00:00",
+        "PESI": "2026-07-16T13:29:00+00:00",
+        "RUBI": "2026-07-16T12:32:00+00:00",
+        "SCWO": "2026-07-16T12:01:00+00:00",
+        "VRAX": "2026-07-16T11:33:00+00:00"
+      },
+      "disposition_counts": {
+        "feature_state_float_at_or_above_limit": 206,
+        "feature_state_gain_below_minimum": 178,
+        "feature_state_provider_news_present_unclassified": 300,
+        "feature_state_provider_relative_no_news_unclassified": 12,
+        "feature_state_rvol_below_minimum": 1,
+        "feature_state_unknown_fail_closed_float": 302,
+        "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 213
+      },
+      "exact_candidate_bar_count": 999,
+      "float_classification_counts": {
+        "fail": 5,
+        "pass": 4,
+        "unknown_fail_closed": 3
+      },
+      "full_window_news_event_count": 18,
+      "hashes": {
+        "float_date_manifest_content_sha256": "b1930169d593262375e4e70b0868c7fd3fa66126b42ea2ce3152afcce4a6b1f8",
+        "float_records_sha256": "f09859d8230c1b124ece4d0ffb92c79db0db09970b6e5f2687e7b61cdfaf7f62",
+        "market_candidates_content_sha256": "25a006dc94296dd8a031b5fc949019772b932dec5cbe03d45f71e093053f82cb",
+        "market_date_manifest_content_sha256": "4cc2179cda20f9064ebb50a38775d58a89315a876382896011a0f4946e1db270",
+        "news_date_manifest_content_sha256": "d74076035471e802274659a2fda6cc1f64a19d1230a19e2711e060d5a255116f",
+        "news_events_sha256": "f515e2b5a374b8f20846c90585fdfa30e3a2290a05c6ab86aa213498d64b17f5",
+        "news_statuses_sha256": "348db9fb34c705373e5cea5ab478924fb0a2be611a9a2d27a8ade3ac4f16b116",
+        "scanner_date_manifest_content_sha256": "13e31386433e900e7459cc423adcc71dedfc4eb9f73f407c1427e25c55419882",
+        "scanner_records_content_sha256": "ceba3a8d3a8dc84af2d1082b66b479f73cc4f8c579eb7bd87f6c085250bb36b9",
+        "scanner_source_inputs_compressed_file_sha256": "b6d84bfd539224ab6cfa2dffc633309d52a9c9ccc2fff0fb4125632e7955e370",
+        "scanner_source_inputs_content_sha256": "35ff70cea29d22e3d54c04a18d2a9c9647b28b7c2433cc1840a51f0d7834232f",
+        "scanner_source_inputs_logical_sha256": "2cf4197a2a0843335962bd3d0fc01a476f6973722ed6b9e5b1e1c83cc94489c9"
+      },
+      "identity_resolved_member_count": 5567,
+      "market_candidate_count": 12,
+      "missing_exact_candidate_bar_count": 213,
+      "news_at_activation_counts": {
+        "provider_news_present": 4,
+        "provider_relative_no_news": 8
+      },
+      "rank_complete_row_count": 1212,
+      "rank_incomplete_row_count": 0,
+      "scanner_row_count": 1212,
+      "temporal_violation_counts": {}
+    },
+    "2026-07-17": {
+      "candidate_activations": {
+        "AMWL": "2026-07-17T13:59:00+00:00",
+        "BIYA": "2026-07-17T11:00:00+00:00",
+        "JLHL": "2026-07-17T11:17:00+00:00",
+        "KLRS": "2026-07-17T11:03:00+00:00",
+        "PMAX": "2026-07-17T11:00:00+00:00",
+        "SDOT": "2026-07-17T13:50:00+00:00",
+        "SG": "2026-07-17T13:34:00+00:00",
+        "TRVI": "2026-07-17T11:02:00+00:00"
+      },
+      "disposition_counts": {
+        "feature_state_float_at_or_above_limit": 40,
+        "feature_state_gain_below_minimum": 134,
+        "feature_state_price_outside_range": 9,
+        "feature_state_provider_news_present_unclassified": 191,
+        "feature_state_unknown_fail_closed_float": 341,
+        "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 200
+      },
+      "exact_candidate_bar_count": 715,
+      "float_classification_counts": {
+        "fail": 3,
+        "pass": 3,
+        "unknown_fail_closed": 2
+      },
+      "full_window_news_event_count": 11,
+      "hashes": {
+        "float_date_manifest_content_sha256": "475fd4b3d9c368aa6ff07e73cc8e3cbd8e84e6435ac7d6c498f53be6fb52f4bb",
+        "float_records_sha256": "c14fc663c8808c31df323f662ec307f90cd79d690c951af764c50a76ca44f228",
+        "market_candidates_content_sha256": "8c1d225546bf19d8836b2c4420074e602323397e532ea786bf4250b21d0db91f",
+        "market_date_manifest_content_sha256": "25b4f068e8fad622fa3f93d10b0f1347b39d3f98eadbbedb6841282f8d8706fd",
+        "news_date_manifest_content_sha256": "91669fc6fac0d85fa34bbd5e1cbeea92c4d180f520b76676d9d3959b546291b5",
+        "news_events_sha256": "7dbb4b55ac974d629954f3a481e7bfb28f8a994b991ca5497f5686aebb466a72",
+        "news_statuses_sha256": "a0a15c7666fb20aa0925490cc948c129df7dccf28c1379f9be6cb3ecec04f143",
+        "scanner_date_manifest_content_sha256": "2ddf1c15e94ecef56b4705c957350ca330fc813bce54c695a6179a90f8da48be",
+        "scanner_records_content_sha256": "d707fe94ee5b3257391a351f0b03090438e75494a55d37fe6a0bbb586cc04382",
+        "scanner_source_inputs_compressed_file_sha256": "c1dbe749064533ab39824ad8c1a1b261cd5cba6a50d996ed78b488130d6fc165",
+        "scanner_source_inputs_content_sha256": "35410445be6da963c7c04cfec6d448131d088491ce1fe34b5b166ca00b482971",
+        "scanner_source_inputs_logical_sha256": "2cf84cffd9886a636e1cb6c5bf06c1d2ab6abbc0a689b1eb6c78def7e36150b1"
+      },
+      "identity_resolved_member_count": 5570,
+      "market_candidate_count": 8,
+      "missing_exact_candidate_bar_count": 200,
+      "news_at_activation_counts": {
+        "provider_news_present": 4,
+        "provider_relative_no_news": 4
+      },
+      "rank_complete_row_count": 915,
+      "rank_incomplete_row_count": 0,
+      "scanner_row_count": 915,
+      "temporal_violation_counts": {}
+    },
+    "2026-07-20": {
+      "candidate_activations": {
+        "ADVB": "2026-07-20T11:00:00+00:00",
+        "AMC": "2026-07-20T11:00:00+00:00",
+        "ARMP": "2026-07-20T11:03:00+00:00",
+        "BIYA": "2026-07-20T11:00:00+00:00",
+        "BXBL": "2026-07-20T11:00:00+00:00",
+        "NIKI": "2026-07-20T13:14:00+00:00",
+        "NUAI": "2026-07-20T11:03:00+00:00",
+        "RMTI": "2026-07-20T13:02:00+00:00",
+        "XNCR": "2026-07-20T13:44:00+00:00"
+      },
+      "disposition_counts": {
+        "feature_state_float_at_or_above_limit": 224,
+        "feature_state_gain_below_minimum": 147,
+        "feature_state_price_outside_range": 1,
+        "feature_state_provider_news_present_unclassified": 380,
+        "feature_state_provider_relative_no_news_unclassified": 2,
+        "feature_state_rvol_below_minimum": 28,
+        "feature_state_unknown_fail_closed_float": 208,
+        "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 204
+      },
+      "exact_candidate_bar_count": 990,
+      "float_classification_counts": {
+        "fail": 3,
+        "pass": 4,
+        "unknown_fail_closed": 2
+      },
+      "full_window_news_event_count": 15,
+      "hashes": {
+        "float_date_manifest_content_sha256": "a80e3c50a6278068d59596b5d76fb285442a50e99586b89d1ccb2eb4fb4800ef",
+        "float_records_sha256": "4ab5d0be01df2883965ff768c5ce9ee8211805bedb8780c4423a80f3339ed611",
+        "market_candidates_content_sha256": "05e603d3e9e038a690af40155e23bfc898a7cc37ac5aac6037ead6b00b6b4f6f",
+        "market_date_manifest_content_sha256": "2be4d68ea00b120f7122cabe5badabf015f3a1b0f4d1c806f41f14fd23e04f13",
+        "news_date_manifest_content_sha256": "79d21e7ff9ed153ae7bf1417a40d4449b2d420d6ac7e88d2795ff54c60c5f102",
+        "news_events_sha256": "952c32e58ebeb433594cf6cf3ee869d548830d9eec7e4b4017f2a5281a045fee",
+        "news_statuses_sha256": "bad8889bac32652ffb600f887112b879dc6f5902f753c96b3d5fd7315f2f40f1",
+        "scanner_date_manifest_content_sha256": "0249b53ae8e3403e69bdc78e380cd0af80559246200c7748224108ab2f55b17c",
+        "scanner_records_content_sha256": "6499fbc2550612550526bcb339bda14a4caf8c19cda0fe3647f167895f04ac61",
+        "scanner_source_inputs_compressed_file_sha256": "687aca738399ed6e48d67caf0f97d09c6c501d3959918fbbb18e54e9971c5502",
+        "scanner_source_inputs_content_sha256": "cab28e77f8fd21cd551f89a29128ad49c7a9efb3b04faf98d66a9caa17b4d51f",
+        "scanner_source_inputs_logical_sha256": "93c6a4a239157321c336f711826e7c6f996787841e985d2a81aa1a1ca12ca809"
+      },
+      "identity_resolved_member_count": 5568,
+      "market_candidate_count": 9,
+      "missing_exact_candidate_bar_count": 204,
+      "news_at_activation_counts": {
+        "provider_news_present": 3,
+        "provider_relative_no_news": 6
+      },
+      "rank_complete_row_count": 1194,
+      "rank_incomplete_row_count": 0,
+      "scanner_row_count": 1194,
+      "temporal_violation_counts": {}
+    },
+    "2026-07-21": {
+      "candidate_activations": {
+        "AGPU": "2026-07-21T13:43:00+00:00",
+        "BANL": "2026-07-21T13:57:00+00:00",
+        "CRNT": "2026-07-21T11:00:00+00:00",
+        "FWRD": "2026-07-21T13:37:00+00:00",
+        "GREE": "2026-07-21T13:32:00+00:00",
+        "HELP": "2026-07-21T13:53:00+00:00",
+        "IMNN": "2026-07-21T13:01:00+00:00",
+        "LMFA": "2026-07-21T13:56:00+00:00",
+        "RPT": "2026-07-21T11:02:00+00:00",
+        "UTZ": "2026-07-21T12:01:00+00:00",
+        "VIVK": "2026-07-21T13:17:00+00:00"
+      },
+      "disposition_counts": {
+        "feature_state_float_at_or_above_limit": 168,
+        "feature_state_gain_below_minimum": 11,
+        "feature_state_price_outside_range": 55,
+        "feature_state_provider_news_present_unclassified": 46,
+        "feature_state_provider_relative_no_news_unclassified": 91,
+        "feature_state_rvol_below_minimum": 5,
+        "feature_state_unknown_fail_closed_float": 185,
+        "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 100
+      },
+      "exact_candidate_bar_count": 561,
+      "float_classification_counts": {
+        "fail": 4,
+        "pass": 5,
+        "unknown_fail_closed": 2
+      },
+      "full_window_news_event_count": 12,
+      "hashes": {
+        "float_date_manifest_content_sha256": "edcd36e6b304419195909e65df0b9c8b43e7151741884507738b288db17255ce",
+        "float_records_sha256": "4cf27584489f97127b295e987774dd5206b041869127bb33bf0ea276d09b381d",
+        "market_candidates_content_sha256": "bb135d7cb91787bceae1dfcb3210a3ae1acc729d88ab2050eaa1aa3ce02c7ec5",
+        "market_date_manifest_content_sha256": "65f6522a5c2a2992f8ef2c39fa3e5646fe72aa237e65bcd9ed49f9b238f2ab8c",
+        "news_date_manifest_content_sha256": "6b88f07d5589c0aae5d28b866c0b53563073192f1f253bf86f71bb71fb0953a5",
+        "news_events_sha256": "2d5eaa73b18d1154e76932a9b0119ec7d97fd95e8235b1716a46f9da1aebf82d",
+        "news_statuses_sha256": "0be03278298a1d16e783bfd11f6dad02e12511d705c754007355769ffa35c11c",
+        "scanner_date_manifest_content_sha256": "f20b53e2ec2e4dfee44012f3543c93be06326c563c8a0f88e86c85078136195d",
+        "scanner_records_content_sha256": "f067ed8b8da46eccf93334e94c5dc9b183139184a436a175e29066068dc9a183",
+        "scanner_source_inputs_compressed_file_sha256": "ce77d1acf8ab142188c32e49902833648c6f4f5ac0ed771a166f5747f8b632e1",
+        "scanner_source_inputs_content_sha256": "0548e7bcd6115b0a771cafb472d0fc529fbebd13743cacc0fe673c273ada23f4",
+        "scanner_source_inputs_logical_sha256": "20727a6da749965762ec61d78332787e26ddc8c3e109a7fad639919d5cc9872d"
+      },
+      "identity_resolved_member_count": 5569,
+      "market_candidate_count": 11,
+      "missing_exact_candidate_bar_count": 100,
+      "news_at_activation_counts": {
+        "provider_news_present": 4,
+        "provider_relative_no_news": 7
+      },
+      "rank_complete_row_count": 661,
+      "rank_incomplete_row_count": 0,
+      "scanner_row_count": 661,
+      "temporal_violation_counts": {}
+    },
+    "2026-07-22": {
+      "candidate_activations": {
+        "ADVB": "2026-07-22T11:21:00+00:00",
+        "AIRJ": "2026-07-22T11:01:00+00:00",
+        "CRIS": "2026-07-22T11:13:00+00:00",
+        "INLF": "2026-07-22T11:00:00+00:00",
+        "INM": "2026-07-22T11:01:00+00:00",
+        "LABT": "2026-07-22T12:04:00+00:00",
+        "OTLY": "2026-07-22T11:22:00+00:00",
+        "SNTG": "2026-07-22T11:00:00+00:00",
+        "VET": "2026-07-22T13:32:00+00:00",
+        "ZCMD": "2026-07-22T11:00:00+00:00"
+      },
+      "disposition_counts": {
+        "feature_state_float_at_or_above_limit": 157,
+        "feature_state_gain_below_minimum": 74,
+        "feature_state_price_outside_range": 3,
+        "feature_state_provider_news_present_unclassified": 573,
+        "feature_state_provider_relative_no_news_unclassified": 110,
+        "feature_state_unknown_fail_closed_float": 339,
+        "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 270
+      },
+      "exact_candidate_bar_count": 1256,
+      "float_classification_counts": {
+        "fail": 1,
+        "pass": 5,
+        "unknown_fail_closed": 4
+      },
+      "full_window_news_event_count": 23,
+      "hashes": {
+        "float_date_manifest_content_sha256": "c421e7bc33bba06a401600b448a46d1558a4d606424e387a688dacb577bf744a",
+        "float_records_sha256": "ecb06de8af92364130b24b87be2e9edec239646006f59f0d03a4d791eba01df2",
+        "market_candidates_content_sha256": "9836f94f0a7d98cbf12f33ef6a82f10e300af1e32339eac80a42fbaec11cc086",
+        "market_date_manifest_content_sha256": "304dd82cea251fa7d6d2157fbe786a00d247a8276bc1425731160c586883b6f8",
+        "news_date_manifest_content_sha256": "ec86fd28085e5741665a570b0257ca9bc0ff6867728b0ecac97b8d51f6331a69",
+        "news_events_sha256": "b11cebde4a698431e9eca554bc68a9ccff2dfbb02f3d9fec8ea7bb0eca612747",
+        "news_statuses_sha256": "b505cceb110d5df92cb531595b8dd983740422522b5a11ea8260b779d46a43f4",
+        "scanner_date_manifest_content_sha256": "68bdbc1d6cc4bb12706b2f1df32a68517091d3e510584c2a2992195d2c7fecd7",
+        "scanner_records_content_sha256": "3955b4e83c2e413c17f97a3f47025e9cdd525d5ce2c0e4e91988af30a4758697",
+        "scanner_source_inputs_compressed_file_sha256": "3494f80d597e01bf660ffdc0bce4aff74e2304b244eb4d3e9015c6697d81ed8a",
+        "scanner_source_inputs_content_sha256": "7dbade310c0cef500d77d1ce0084363f1e1cc73e52c9271ab2bb29919cd7972e",
+        "scanner_source_inputs_logical_sha256": "7821f08178c483a3e8f3ae95e020c61e4ee03e17353a8295d214370d93e71852"
+      },
+      "identity_resolved_member_count": 5567,
+      "market_candidate_count": 10,
+      "missing_exact_candidate_bar_count": 270,
+      "news_at_activation_counts": {
+        "provider_news_present": 5,
+        "provider_relative_no_news": 5
+      },
+      "rank_complete_row_count": 1526,
+      "rank_incomplete_row_count": 0,
+      "scanner_row_count": 1526,
+      "temporal_violation_counts": {}
+    },
+    "2026-07-23": {
+      "candidate_activations": {
+        "ADVB": "2026-07-23T11:14:00+00:00",
+        "AMBP": "2026-07-23T11:24:00+00:00",
+        "CJMB": "2026-07-23T13:49:00+00:00",
+        "CLF": "2026-07-23T11:46:00+00:00",
+        "CLIR": "2026-07-23T12:31:00+00:00",
+        "CPHI": "2026-07-23T13:43:00+00:00",
+        "DOMO": "2026-07-23T11:00:00+00:00",
+        "EHGO": "2026-07-23T11:00:00+00:00",
+        "GREE": "2026-07-23T13:43:00+00:00",
+        "HYLN": "2026-07-23T11:01:00+00:00",
+        "JEM": "2026-07-23T11:01:00+00:00",
+        "NEUP": "2026-07-23T11:00:00+00:00",
+        "NIKI": "2026-07-23T12:02:00+00:00",
+        "NVCR": "2026-07-23T11:13:00+00:00",
+        "OTLY": "2026-07-23T13:37:00+00:00",
+        "PALI": "2026-07-23T13:38:00+00:00",
+        "ZCMD": "2026-07-23T13:14:00+00:00"
+      },
+      "disposition_counts": {
+        "feature_state_float_at_or_above_limit": 468,
+        "feature_state_gain_below_minimum": 73,
+        "feature_state_price_outside_range": 15,
+        "feature_state_provider_news_present_unclassified": 178,
+        "feature_state_provider_relative_no_news_unclassified": 341,
+        "feature_state_rvol_below_minimum": 52,
+        "feature_state_unknown_fail_closed_float": 399,
+        "feature_state_unknown_fail_closed_missing_candidate_completed_bar": 338
+      },
+      "exact_candidate_bar_count": 1526,
+      "float_classification_counts": {
+        "fail": 7,
+        "pass": 5,
+        "unknown_fail_closed": 5
+      },
+      "full_window_news_event_count": 37,
+      "hashes": {
+        "float_date_manifest_content_sha256": "9a56d8fc1903aec6059088621214bcad7af8087a47cf2a27a6445a9b8cf76608",
+        "float_records_sha256": "d1864a27c5fbc91a5ec7f405fa33c8d5600a29e2943384f2011f375353e05c4f",
+        "market_candidates_content_sha256": "de190ea9bb85c71eafde290f7e4e197b146ac1de1602ef1eea76b157efe08c9b",
+        "market_date_manifest_content_sha256": "d339abf617e6647fac641c8df4f343fbf94888664cd70315e64939d25520fdad",
+        "news_date_manifest_content_sha256": "1d815cb41f547143ecaf5f4f6ddd925ede4d916cdced2427dc721719dcaeaf0b",
+        "news_events_sha256": "c84c87a768556a98abe6b6b8cd7622eb4e67a310100bd2060c87d96722f208b0",
+        "news_statuses_sha256": "eba51bbc62446a2ca2b883887312648456876fc592599c9c4a1ce8ec1bea2ca9",
+        "scanner_date_manifest_content_sha256": "4460d8e34887d34de610ffca2257a3c95cdccad6abb9f2d966e5add1895f9bd5",
+        "scanner_records_content_sha256": "9cca59715bf3fb18b696a3d6f9284e2afa99fda8fb8b243005e068bb75e95478",
+        "scanner_source_inputs_compressed_file_sha256": "d461a1b84286a03f68d7344a14a1c5fc0b53ee86762236405896348de2d45c53",
+        "scanner_source_inputs_content_sha256": "8050189318f84733bd1817c65fed63f3091e1782e117bac08c9818ad6e8ba58b",
+        "scanner_source_inputs_logical_sha256": "d93660d2b8b25ca1ec9c1c90b6c2c3a57460af1763eb23bf1c41397cca597c80"
+      },
+      "identity_resolved_member_count": 5567,
+      "market_candidate_count": 17,
+      "missing_exact_candidate_bar_count": 338,
+      "news_at_activation_counts": {
+        "provider_news_present": 10,
+        "provider_relative_no_news": 7
+      },
+      "rank_complete_row_count": 1864,
+      "rank_incomplete_row_count": 0,
+      "scanner_row_count": 1864,
+      "temporal_violation_counts": {}
+    }
+  },
+  "dates": [
+    "2026-07-10",
+    "2026-07-13",
+    "2026-07-14",
+    "2026-07-15",
+    "2026-07-16",
+    "2026-07-17",
+    "2026-07-20",
+    "2026-07-21",
+    "2026-07-22",
+    "2026-07-23"
+  ],
+  "decision": {
+    "catalyst_quality_score_frozen": false,
+    "full_imitation_claim_eligible": false,
+    "heldout_human_label_review_started": false,
+    "interpretation": "The ten registered sessions now have a reproducible, label-blind market/scanner runtime. This validates acquisition and causality, not Ross-style stock selection or trade imitation.",
+    "micro_activity_must_be_frozen_before_human_comparison": true,
+    "policy_promotion_eligible": false,
+    "safe_to_freeze_as_label_blind_research_artifact": true,
+    "selection_threshold_frozen": false
+  },
+  "registration": {
+    "contract_content_sha256": "1d93633eda448bbca62e5ca5c8c3f7c589d66de86017f9fa2b586a68add20791",
+    "contract_id": "ross-discretion-heldout-panel-v0.1",
+    "label_content_review_started": false,
+    "session_calendar_content_sha256": "597029895bd011ba705722fbe11d8b1816ba37a26d5d5d85bbe409f2bc3469c8"
+  },
+  "residual_limits": [
+    "This is a ten-session pilot and not a representative walk-forward panel.",
+    "The identity-resolved research universe is not population-complete.",
+    "Historical provider records can mutate; the exact scanner source inputs are persisted, but all raw upstream provider responses are not.",
+    "The one-minute completion rule models calculability, not exchange, SIP, vendor, or network dissemination latency.",
+    "Provider-relative no-news is not universal no-news and does not classify catalyst quality.",
+    "Level 2, synchronized tape, account state, and execution/slippage context are absent.",
+    "No Ross trade, skip, setup, entry, outcome, or P&L label is present."
+  ],
+  "runtime_root_content_sha256s": {
+    "float": "e6ffb9d143c3415b69b5b37e5fdea17a5994e2c2933272eea47e4104495e701e",
+    "identity": "6b9b2179928d5dedb816255c5c6431dc490523bcdb0f751288aec6ad9c7b5d74",
+    "market": "995835e6fb9e6a3d10dd56109e8783b0bf74fd10dcf9b6e3b33e9479f85dca0c",
+    "news": "e2cf88d36aa18d19e596e5844b5a776a614079071eb695bb451a624263a2b43d",
+    "scanner": "008ef162413ad3626944c44a6c8e964cbb825a6253fdfe360701d55d454e70a0",
+    "scanner_source_inputs": "a6b3cb015e5b8f39d2b5ab8027cb23497e302b3961fb64f25c42dac93f9eb3c4"
+  },
+  "schema_version": 1,
+  "validation": {
+    "active_identity_market_float_news_scanner_loaders_passed": true,
+    "all_dispositions_reconciled": true,
+    "all_rank_inputs_complete_for_members_with_completed_bars": true,
+    "all_root_and_date_hashes_verified": true,
+    "candidate_minute_coverage_complete": true,
+    "downloaded_zip_digest_verified": true,
+    "heldout_manifest_hash_verified": true,
+    "provider_independent_scanner_source_inputs_loaded": true,
+    "temporal_violations_zero": true
+  },
+  "workflow": {
+    "branch": "phase-3-historical-snapshot",
+    "conclusion": "success",
+    "head_sha": "6a83aca89f0e6fc5cf98e7d34fcb403d81674b8a",
+    "job_id": 95516877712,
+    "name": "Discretion held-out label-blind runtime",
+    "run_attempt": 1,
+    "run_id": 32071946359
+  }
+}
+

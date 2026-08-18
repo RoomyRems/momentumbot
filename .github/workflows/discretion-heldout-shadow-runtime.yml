@@ -1,0 +1,270 @@
+name: Discretion held-out shadow runtime
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - research/strategy/attention-leadership-shadow-v0.1.json
+      - research/strategy/catalyst-evidence-packet-shadow-v0.1.json
+      - research/strategy/catalyst-timing-shadow-v0.1.json
+      - src/momentumbot/research/attention_leadership.py
+      - src/momentumbot/research/catalyst_evidence.py
+      - src/momentumbot/research/catalyst_timing.py
+      - src/momentumbot/research/discretion_heldout_panel.py
+      - scripts/build_discretion_shadow_runtime.py
+      - tests/test_attention_leadership.py
+      - tests/test_catalyst_evidence.py
+      - tests/test_catalyst_timing.py
+      - tests/test_build_discretion_shadow_runtime.py
+      - .github/workflows/discretion-heldout-shadow-runtime.yml
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Test frozen shadow derivations
+        run: >-
+          python -m unittest
+          tests.test_attention_leadership
+          tests.test_catalyst_evidence
+          tests.test_catalyst_timing
+          tests.test_build_discretion_shadow_runtime
+          -v
+      - name: Download and verify exact held-out runtime
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          artifact_api="https://api.github.com/repos/${GITHUB_REPOSITORY}/actions/artifacts/9305468839"
+          curl --fail-with-body --location --retry 3 \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "${artifact_api}" \
+            --output heldout-runtime-artifact.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          metadata = json.loads(Path("heldout-runtime-artifact.json").read_text())
+          assert metadata["id"] == 9305468839
+          assert metadata["name"] == "discretion-heldout-runtime-v0.1"
+          assert metadata["expired"] is False
+          assert metadata["size_in_bytes"] == 29045691
+          run = metadata["workflow_run"]
+          assert run["id"] == 32071946359
+          assert run["head_sha"] == "6a83aca89f0e6fc5cf98e7d34fcb403d81674b8a"
+          PY
+          curl --fail-with-body --location --retry 3 \
+            -H "Authorization: Bearer ${GH_TOKEN}" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "${artifact_api}/zip" \
+            --output heldout-runtime.zip
+          echo "850d9cfba27d7677904ccf147251b3ff914292102be0e3c62fec7bb47b6f73bb  heldout-runtime.zip" \
+            | sha256sum --check --strict
+          python - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+
+          target = Path("discretion-heldout-runtime-v0.1")
+          target.mkdir()
+          root = target.resolve()
+          with ZipFile("heldout-runtime.zip") as archive:
+              for info in archive.infolist():
+                  destination = (target / info.filename).resolve()
+                  if root not in destination.parents and destination != root:
+                      raise RuntimeError("artifact contains an unsafe path")
+                  if (info.external_attr >> 16) & 0o170000 == 0o120000:
+                      raise RuntimeError("artifact contains a symbolic link")
+              archive.extractall(target)
+          PY
+          echo "a55ea217d65ada1d189af51111b801b60610c3a62cf3838dcafd98b5a115385f  discretion-heldout-runtime-v0.1/heldout-runtime-manifest.json" \
+            | sha256sum --check --strict
+      - name: Verify held-out causal boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          from momentumbot.identity_resolved_universe import json_fingerprint
+          from momentumbot.research.discretion_heldout_panel import REGISTERED_DATES
+
+          path = Path(
+              "discretion-heldout-runtime-v0.1/heldout-runtime-manifest.json"
+          )
+          payload = json.loads(path.read_text())
+          claimed = payload.pop("content_sha256")
+          assert claimed == (
+              "2414f7389bf68d5a5e4b3302c646c9111020cb79ce06fc0213f7872062f79c48"
+          )
+          assert claimed == json_fingerprint(payload)
+          assert payload["dates"] == list(REGISTERED_DATES)
+          assert payload["registration"]["label_content_review_started"] is False
+          assert payload["eligibility"]["runtime_inputs_frozen"] is True
+          assert payload["eligibility"]["policy_promotion_eligible"] is False
+          boundary = payload["causal_boundary"]
+          assert boundary["all_market_candidates_retained"] is True
+          assert boundary["provider_independent_scanner_replay_validated"] is True
+          for field in (
+              "top_n_selection_applied",
+              "uses_benchmark_labels",
+              "uses_later_price_outcomes",
+              "uses_retrospective_trade_outcomes",
+              "uses_ross_actions",
+          ):
+              assert boundary[field] is False
+          PY
+      - name: Build provider-free shadow context
+        run: >-
+          python scripts/build_discretion_shadow_runtime.py
+          --runtime-root discretion-heldout-runtime-v0.1
+          --output discretion-heldout-shadow-runtime-v0.1
+      - name: Validate and record shadow provenance
+        env:
+          SHADOW_WORKFLOW_RUN_ID: ${{ github.run_id }}
+          SHADOW_WORKFLOW_RUN_ATTEMPT: ${{ github.run_attempt }}
+          SHADOW_WORKFLOW_HEAD_SHA: ${{ github.sha }}
+          SHADOW_WORKFLOW_REF: ${{ github.ref }}
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          from momentumbot.identity_resolved_universe import json_fingerprint
+          from momentumbot.research.discretion_heldout_panel import REGISTERED_DATES
+
+          root = Path("discretion-heldout-shadow-runtime-v0.1")
+          manifest_path = root / "manifest.json"
+          manifest = json.loads(manifest_path.read_text())
+          claimed = manifest.pop("content_sha256")
+          assert claimed == (
+              "e179e8c52e0baf64e27df7ab213012d326e98523ea8279740448386b76c480da"
+          )
+          assert claimed == json_fingerprint(manifest)
+          assert manifest["artifact_id"] == "ross-discretion-shadow-runtime-v0.1"
+          assert manifest["dates"] == list(REGISTERED_DATES)
+          assert manifest["source_heldout_runtime_content_sha256"] == (
+              "2414f7389bf68d5a5e4b3302c646c9111020cb79ce06fc0213f7872062f79c48"
+          )
+          assert manifest["contract_content_sha256s"] == {
+              "attention-leadership-shadow-v0.1": (
+                  "3be75f7e586438713c9f64bc2654ad9e5d8d40619fb0482abe4acf0b5baa68ea"
+              ),
+              "catalyst-evidence-packet-shadow-v0.1": (
+                  "0b7f45a3172210b401a4b9178615b8e28ee5d3eaf7849ab9236536d9f74ad106"
+              ),
+              "catalyst-timing-shadow-v0.1": (
+                  "e7be0d4d5f25ba3fe388a473f96f4cbd66b63f3c83a35e54c55f96d2f180802a"
+              ),
+          }
+          totals = {
+              key: sum(row[key] for row in manifest["date_results"].values())
+              for key in (
+                  "market_candidate_count",
+                  "scanner_row_count",
+                  "attention_row_count",
+                  "catalyst_timing_row_count",
+                  "catalyst_evidence_packet_count",
+              )
+          }
+          assert totals == {
+              "market_candidate_count": 119,
+              "scanner_row_count": 12440,
+              "attention_row_count": 12440,
+              "catalyst_timing_row_count": 12440,
+              "catalyst_evidence_packet_count": 232,
+          }
+          for trading_date, summary in manifest["date_results"].items():
+              assert summary["attention_row_count"] == summary["scanner_row_count"]
+              assert summary["catalyst_timing_row_count"] == summary["scanner_row_count"]
+              for filename, hash_key in (
+                  ("attention-leadership.json", "attention_content_sha256"),
+                  ("catalyst-timing.json", "catalyst_timing_content_sha256"),
+                  (
+                      "catalyst-evidence-packets.json",
+                      "catalyst_evidence_content_sha256",
+                  ),
+              ):
+                  payload = json.loads((root / trading_date / filename).read_text())
+                  payload_claimed = payload.pop("content_sha256")
+                  assert payload_claimed == summary[hash_key]
+                  assert payload_claimed == json_fingerprint(payload)
+                  knowledge = payload["knowledge_policy"]
+                  assert knowledge["runtime_strategy_effect"] == "none"
+                  assert payload["policy_promotion_eligible"] is False
+                  for field in (
+                      "uses_ross_actions",
+                      "uses_benchmark_labels",
+                      "uses_retrospective_trade_outcomes",
+                      "uses_later_price_outcomes",
+                  ):
+                      assert knowledge[field] is False
+          assert manifest["knowledge_policy"] == {
+              "future_news_exposed": False,
+              "runtime_strategy_effect": "none",
+              "uses_benchmark_labels": False,
+              "uses_later_price_outcomes": False,
+              "uses_retrospective_trade_outcomes": False,
+              "uses_ross_actions": False,
+          }
+          assert manifest["eligibility"] == {
+              "all_market_candidates_retained": True,
+              "catalyst_quality_score_frozen": False,
+              "full_imitation_claim_eligible": False,
+              "policy_promotion_eligible": False,
+              "selection_threshold_frozen": False,
+          }
+          provenance = {
+              "schema_version": 1,
+              "artifact_id": "ross-discretion-shadow-runtime-workflow-provenance-v0.1",
+              "workflow": {
+                  "run_id": int(os.environ["SHADOW_WORKFLOW_RUN_ID"]),
+                  "run_attempt": int(os.environ["SHADOW_WORKFLOW_RUN_ATTEMPT"]),
+                  "head_sha": os.environ["SHADOW_WORKFLOW_HEAD_SHA"],
+                  "ref": os.environ["SHADOW_WORKFLOW_REF"],
+              },
+              "frozen_source": {
+                  "artifact_id": 9305468839,
+                  "artifact_name": "discretion-heldout-runtime-v0.1",
+                  "workflow_run_id": 32071946359,
+                  "head_sha": "6a83aca89f0e6fc5cf98e7d34fcb403d81674b8a",
+                  "zip_sha256": (
+                      "850d9cfba27d7677904ccf147251b3ff914292102be0e3c62fec7bb47b6f73bb"
+                  ),
+                  "manifest_content_sha256": (
+                      "2414f7389bf68d5a5e4b3302c646c9111020cb79ce06fc0213f7872062f79c48"
+                  ),
+              },
+              "shadow_manifest_content_sha256": claimed,
+              "knowledge_policy": manifest["knowledge_policy"],
+          }
+          provenance["content_sha256"] = json_fingerprint(provenance)
+          (root / "workflow-provenance.json").write_text(
+              json.dumps(provenance, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          print(json.dumps({"content_sha256": claimed, "totals": totals}, indent=2))
+          PY
+      - name: Upload frozen shadow context
+        uses: actions/upload-artifact@v4
+        with:
+          name: discretion-heldout-shadow-runtime-v0.1
+          path: discretion-heldout-shadow-runtime-v0.1
+          if-no-files-found: error
+          retention-days: 30
