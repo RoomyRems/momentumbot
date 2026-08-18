@@ -50,8 +50,8 @@ momentumbot backtest path/to/snapshot --profile general-2026
 
 The simulator uses the separate `paper-safe` risk policy by default. The aggressive percentages discussed in small-account challenge videos are research subjects, not the project's paper safety defaults.
 
-## Next phase
+## Current gate
 
-Provider adapters, reproducible point-in-time ticker censuses, a frozen provisional membership translation, and a label-blind identity/corporate-action audit now exist. The two current snapshot dates have an identity-resolved candidate set after six explicit ambiguous-identifier quarantines per date. The next phase is complete causal feature snapshots with point-in-time float, consolidated premarket data and publication-timed news, followed by a representative walk-forward panel.
+The ten-session held-out scanner/runtime panel and unchanged Micro-v0.1 activity are now frozen label-blind. The active gate is retrospective Ross evidence encoding for those fixed dates, with small- and main-account actions kept separate and unmentioned candidates left unknown. See `docs/project/current_state.md` for the exact checkpoint and next steps.
 
 The provisional universe makes an auditable decision for every fetched historical ticker but remains explicitly non-promotable until those downstream gates are complete. A current provider asset census—even one containing inactive rows—remains conditional diagnostic evidence only. AI remains shadow-only until the deterministic baseline has credible walk-forward results.

@@ -38,7 +38,7 @@ The intended system is hybrid, but not every uncertain task belongs to AI.
 | Orders/risk | sizing caps, max loss, order state, broker reconciliation and lockouts | none; AI cannot submit orders or raise risk |
 | Review | immutable journal and outcome calculation | explanation, error taxonomy and evidence synthesis |
 
-An AI response must use a versioned structured schema, cite the causal evidence it received, express confidence, support `abstain`, and expire after a bounded time. Missing, late, malformed or unavailable AI output fails closed to the deterministic policy; it never creates a more aggressive fallback.
+An AI response must use a versioned structured schema, cite the causal evidence it received, express confidence, support `abstain`, and expire after a bounded time. While AI is shadow-only or advisory, missing, late, malformed or unavailable output leaves the deterministic path unchanged. If a future promoted policy makes AI approval mandatory, the same failure means no trade. It never creates a more aggressive fallback.
 
 ## Live latency path
 
@@ -82,4 +82,3 @@ The corpus does not specify a unique machine algorithm for selecting the impulse
 ## Fill handling
 
 A backtest fill is not automatically accepted just because the planned trigger was good. The simulator recalculates stop distance and reward/risk from the actual simulated fill. A gap/slippage fill that no longer offers the required 2R opportunity is rejected. If an OHLC minute touches both entry and stop, the simulator assumes the adverse order: entry first, stop second.
-

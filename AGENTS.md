@@ -25,7 +25,9 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 
 ## Component route
 
-`historical providers -> causal universe/scanner -> discretionary shadow context -> Micro setup/replay -> execution/risk -> retrospective evaluation`
+`historical providers -> causal universe/scanner -> Micro setup/replay -> execution/risk -> retrospective evaluation`
+
+Discretionary context is currently a parallel descriptive shadow artifact. It does not feed the frozen Micro replay or order path.
 
 - Production code: `src/momentumbot/`
 - Provider-facing builders and replay entry points: `scripts/`
@@ -48,4 +50,3 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 python -m pip install -e .
 python -m unittest discover -s tests -v
 ```
-
