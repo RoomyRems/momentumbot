@@ -1,0 +1,1432 @@
+{
+  "schema_version": 1,
+  "artifact_id": "ross-discretion-heldout-labels-v0.1",
+  "artifact_type": "retrospective_account_scoped_behavior_labels",
+  "label_status": "frozen_retrospective_evidence",
+  "created_on": "2026-08-18",
+  "purpose": "Freeze conservative account-scoped Ross Cameron behavior evidence for the ten dates registered and replayed before any source in this batch was opened.",
+  "runtime_strategy_effect": "none",
+  "policy_promotion_eligible": false,
+  "technical_rule_retuning_allowed": false,
+  "selection_threshold_fitting_allowed": false,
+  "overall_imitation_score_allowed": false,
+  "registration": {
+    "contract_id": "ross-discretion-heldout-panel-v0.1",
+    "contract_file_sha256": "6aebb0507521697f793940d246805467f305a6fd3fc64276833725b812e6c469",
+    "contract_content_sha256": "1d93633eda448bbca62e5ca5c8c3f7c589d66de86017f9fa2b586a68add20791",
+    "labels_created_after_runtime_freeze": true
+  },
+  "frozen_runtime": {
+    "scanner_runtime": {
+      "artifact_id": 9305468839,
+      "artifact_name": "discretion-heldout-runtime-v0.1",
+      "workflow_run_id": 32071946359,
+      "workflow_head_sha": "6a83aca89f0e6fc5cf98e7d34fcb403d81674b8a",
+      "zip_sha256": "850d9cfba27d7677904ccf147251b3ff914292102be0e3c62fec7bb47b6f73bb",
+      "content_sha256": "2414f7389bf68d5a5e4b3302c646c9111020cb79ce06fc0213f7872062f79c48",
+      "labels_loaded_during_generation": false
+    },
+    "micro_runtime": {
+      "artifact_id": 9310627233,
+      "artifact_name": "discretion-heldout-micro-runtime-v0.1",
+      "workflow_run_id": 32096497787,
+      "workflow_head_sha": "381303091edfbcdf2584a7a4b6f1c73dfcbee33e",
+      "zip_sha256": "3b59e4b1a69e268158f6ccbead1fe9abae425fc249e72b34f466e53ebba56b20",
+      "content_sha256": "feb2283acf1f180fd82b0e3c25acde1ebb9ebc036c47533e1d61fc9e8883e190",
+      "policy_id": "micro-v0.1",
+      "policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+      "labels_loaded_during_generation": false
+    },
+    "shadow_runtime": {
+      "artifact_name": "discretion-heldout-shadow-runtime-v0.1",
+      "source_runtime_content_sha256": "2414f7389bf68d5a5e4b3302c646c9111020cb79ce06fc0213f7872062f79c48",
+      "content_sha256": "e179e8c52e0baf64e27df7ab213012d326e98523ea8279740448386b76c480da",
+      "provider_free_reproduction_validated": true,
+      "labels_loaded_during_generation": false
+    }
+  },
+  "source_batch": {
+    "supplied_filename": "dataset_daytradewarrior-part-1-1786762403787_2026-08-15_02-53-57-508.json",
+    "file_sha256": "c59a8dd67bf4cb2b3bb4539996bbe1b648b1503a73916371b2f98661a4d33db0",
+    "record_count": 300,
+    "raw_batch_committed_to_repository": false,
+    "allowed_in_runtime": false,
+    "transcript_text_assumed_error_free": false,
+    "copyright_handling": "Only source metadata, hashes, explicit corrections, and short paraphrased evidence summaries are retained in the repository."
+  },
+  "label_policy": {
+    "action_states": [
+      "participated",
+      "explicitly_skipped_or_rejected",
+      "discussed_but_action_unclear",
+      "not_mentioned_or_unobservable",
+      "source_unavailable"
+    ],
+    "default_unlisted_candidate_state": "not_mentioned_or_unobservable",
+    "no_trade_session_converts_unmentioned_to_skip": false,
+    "accounts_merged": false,
+    "participated_requires_reported_completed_trade": true,
+    "attempted_unfilled_order_counts_as_participation": false,
+    "off_candidate_actions_retained": true,
+    "ticker_corrections_must_be_explicit": true,
+    "evidence_timing_limit": "These recaps usually establish sequence and account action, not an exact decision timestamp."
+  },
+  "sources": [
+    {
+      "source_id": "youtube:uTyfk4UvsUw",
+      "batch_record_index": 8,
+      "video_id": "uTyfk4UvsUw",
+      "url": "https://www.youtube.com/watch?v=uTyfk4UvsUw",
+      "title": "ANOTHER 250% Short Squeeze",
+      "published_date_text": "Jul 10, 2026",
+      "trading_dates": [
+        "2026-07-10"
+      ],
+      "account_coverage": [
+        "main_account",
+        "small_account"
+      ],
+      "caption_status": "OK",
+      "caption_character_count": 13987,
+      "caption_utf8_sha256": "c2f36afe2219de6d60a5fbcf60b969cd5f4a3995b72762dc93508ac3e7ec8a1f",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_recap"
+    },
+    {
+      "source_id": "youtube:S2sOq-stPgA",
+      "batch_record_index": 26,
+      "video_id": "S2sOq-stPgA",
+      "url": "https://www.youtube.com/watch?v=S2sOq-stPgA",
+      "title": "Big Winner THEN An Even Bigger Loser!!",
+      "published_date_text": "Jul 13, 2026",
+      "trading_dates": [
+        "2026-07-13"
+      ],
+      "account_coverage": [
+        "small_account",
+        "main_account"
+      ],
+      "caption_status": "OK",
+      "caption_character_count": 10728,
+      "caption_utf8_sha256": "37289a8e2de31a832d7d2ddf5b4884f7ac62d41df805addedb54843b7b11b26c",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_recap"
+    },
+    {
+      "source_id": "youtube:RZbM0qXOFbc",
+      "batch_record_index": 64,
+      "video_id": "RZbM0qXOFbc",
+      "url": "https://www.youtube.com/watch?v=RZbM0qXOFbc",
+      "title": "Biggest Loss of The Month...",
+      "published_date_text": "Jul 13, 2026",
+      "trading_dates": [
+        "2026-07-13"
+      ],
+      "account_coverage": [
+        "main_account",
+        "small_account"
+      ],
+      "caption_status": "OK",
+      "caption_character_count": 14894,
+      "caption_utf8_sha256": "7e584a499281a0be0b5bf430f2c309aa8d9cdf6e3e141edd8ce02221a8d025fc",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_recap"
+    },
+    {
+      "source_id": "youtube:ChLgwLS9eJY",
+      "batch_record_index": 6,
+      "video_id": "ChLgwLS9eJY",
+      "url": "https://www.youtube.com/watch?v=ChLgwLS9eJY",
+      "title": "A 350% Short Squeeze!",
+      "published_date_text": "Jul 14, 2026",
+      "trading_dates": [
+        "2026-07-14"
+      ],
+      "account_coverage": [
+        "small_account",
+        "main_account"
+      ],
+      "caption_status": "OK",
+      "caption_character_count": 9083,
+      "caption_utf8_sha256": "fe30a427a2c9510f73afc194120432096fd222d74f09aca43b5c792fa41cc87b",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_recap"
+    },
+    {
+      "source_id": "youtube:ut9nmRP3ENY",
+      "batch_record_index": 83,
+      "video_id": "ut9nmRP3ENY",
+      "url": "https://www.youtube.com/watch?v=ut9nmRP3ENY",
+      "title": "A Reverse Merger Catalyst Sends Stock Squeezing Shorts",
+      "published_date_text": "Jul 14, 2026",
+      "trading_dates": [
+        "2026-07-14"
+      ],
+      "account_coverage": [
+        "main_account",
+        "small_account"
+      ],
+      "caption_status": "OK",
+      "caption_character_count": 9780,
+      "caption_utf8_sha256": "d1217438176f16f134d96c70b6683de7fc3b425d2b26971cf19d6934b1351855",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_recap"
+    },
+    {
+      "source_id": "youtube:8IYunlNOVmM",
+      "batch_record_index": 30,
+      "video_id": "8IYunlNOVmM",
+      "url": "https://www.youtube.com/watch?v=8IYunlNOVmM",
+      "title": "Biggest Green Day of the Challenge!",
+      "published_date_text": "Jul 15, 2026",
+      "trading_dates": [
+        "2026-07-15"
+      ],
+      "account_coverage": [
+        "small_account",
+        "main_account"
+      ],
+      "caption_status": "OK",
+      "caption_character_count": 12643,
+      "caption_utf8_sha256": "afb296e4e3934d79e1d034d632ead8a6128ce797e512acd023f709ae17506bc4",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_recap"
+    },
+    {
+      "source_id": "youtube:TzpOIMOrU7I",
+      "batch_record_index": 50,
+      "video_id": "TzpOIMOrU7I",
+      "url": "https://www.youtube.com/watch?v=TzpOIMOrU7I",
+      "title": "Biotech Stock Squeezes 372% in 5 Minutes",
+      "published_date_text": "Jul 15, 2026",
+      "trading_dates": [
+        "2026-07-15"
+      ],
+      "account_coverage": [
+        "main_account",
+        "small_account"
+      ],
+      "caption_status": "OK",
+      "caption_character_count": 7747,
+      "caption_utf8_sha256": "f15d14279698a5355ef48034cd55c4d0038ad57915bb9dc625b05b4f4cc683b3",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_recap"
+    },
+    {
+      "source_id": "youtube:2UpK6vs0MVQ",
+      "batch_record_index": 4,
+      "video_id": "2UpK6vs0MVQ",
+      "url": "https://www.youtube.com/watch?v=2UpK6vs0MVQ",
+      "title": "Tiny Green Day",
+      "published_date_text": "Jul 16, 2026",
+      "trading_dates": [
+        "2026-07-16"
+      ],
+      "account_coverage": [
+        "small_account"
+      ],
+      "caption_status": "OK",
+      "caption_character_count": 7243,
+      "caption_utf8_sha256": "34a44f7405d534eaa9e1b7bbea4abf64e24de20ced0ab5af4a53a406b225593d",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_recap"
+    },
+    {
+      "source_id": "youtube:PMNTB2WAiww",
+      "batch_record_index": 15,
+      "video_id": "PMNTB2WAiww",
+      "url": "https://www.youtube.com/watch?v=PMNTB2WAiww",
+      "title": "Reading Market Sentiment...",
+      "published_date_text": "Jul 17, 2026",
+      "trading_dates": [
+        "2026-07-16",
+        "2026-07-17"
+      ],
+      "account_coverage": [
+        "main_account",
+        "small_account"
+      ],
+      "caption_status": "OK",
+      "caption_character_count": 11126,
+      "caption_utf8_sha256": "83a18311ec24e3957c61b8b18a645f87aaf1ffd5196efc9379572db9e6e19d52",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_recap_with_explicit_prior_day_account_summary"
+    },
+    {
+      "source_id": "youtube:x0qg5eGF7zc",
+      "batch_record_index": 25,
+      "video_id": "x0qg5eGF7zc",
+      "url": "https://www.youtube.com/watch?v=x0qg5eGF7zc",
+      "title": "There was ONLY One Obvious Stock Today",
+      "published_date_text": "Jul 20, 2026",
+      "trading_dates": [
+        "2026-07-20"
+      ],
+      "account_coverage": [
+        "small_account",
+        "main_account"
+      ],
+      "caption_status": "OK",
+      "caption_character_count": 7503,
+      "caption_utf8_sha256": "8a4ab6df2aa3bbee7ade72a20b948a691edc645b4c71a10d5b4cbbcb8ea16177",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_recap"
+    },
+    {
+      "source_id": "youtube:mDQEtmG0PCw",
+      "batch_record_index": 56,
+      "video_id": "mDQEtmG0PCw",
+      "url": "https://www.youtube.com/watch?v=mDQEtmG0PCw",
+      "title": "Scaling into the Squeeze!",
+      "published_date_text": "Jul 20, 2026",
+      "trading_dates": [
+        "2026-07-20"
+      ],
+      "account_coverage": [
+        "main_account",
+        "small_account"
+      ],
+      "caption_status": "OK",
+      "caption_character_count": 8404,
+      "caption_utf8_sha256": "c32f4c1eb00fe594e0753f4a2b8a8b95560d2a4f398d65911b5eb796a16dd949",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_recap"
+    },
+    {
+      "source_id": "youtube:q-ywzhtkeY8",
+      "batch_record_index": 76,
+      "video_id": "q-ywzhtkeY8",
+      "url": "https://www.youtube.com/watch?v=q-ywzhtkeY8",
+      "title": "We just have TWO stocks go up over 1,000% 🤯",
+      "published_date_text": "Jul 22, 2026",
+      "trading_dates": [
+        "2026-07-21"
+      ],
+      "account_coverage": [
+        "main_account",
+        "small_account"
+      ],
+      "caption_status": "OK",
+      "caption_character_count": 21927,
+      "caption_utf8_sha256": "ed53df524d030b8d28fc9dfc0b8619dd24cad9aead5cb036bcca2ce4af0485c9",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "Internal day references identify Tuesday July 21; the July 22 small-account recap independently confirms Tuesday was the prior no-trade day."
+    },
+    {
+      "source_id": "youtube:-QZ8buLplck",
+      "batch_record_index": 78,
+      "video_id": "-QZ8buLplck",
+      "url": "https://www.youtube.com/watch?v=-QZ8buLplck",
+      "title": "Biotech Up 300% on Breaking News",
+      "published_date_text": "Jul 22, 2026",
+      "trading_dates": [
+        "2026-07-21",
+        "2026-07-22"
+      ],
+      "account_coverage": [
+        "small_account",
+        "main_account"
+      ],
+      "caption_status": "OK",
+      "caption_character_count": 12807,
+      "caption_utf8_sha256": "6280de3d2981a8f23ab57c1533abba52e10442ad85ccdb2afddc4699f896c6fb",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_recap_with_explicit_prior_day_no_trade_summary"
+    },
+    {
+      "source_id": "youtube:YkEOx0ZWlWc",
+      "batch_record_index": 36,
+      "video_id": "YkEOx0ZWlWc",
+      "url": "https://www.youtube.com/watch?v=YkEOx0ZWlWc",
+      "title": "I Just Made $40k in 10-minutes of Day Trading...",
+      "published_date_text": "Jul 22, 2026",
+      "trading_dates": [
+        "2026-07-22"
+      ],
+      "account_coverage": [
+        "main_account",
+        "small_account"
+      ],
+      "caption_status": "OK",
+      "caption_character_count": 17710,
+      "caption_utf8_sha256": "b88ece8bc3c9ebf52d999f63e55c61fbf7856abed9ea6013dafc1f4e9e56f8eb",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_recap"
+    },
+    {
+      "source_id": "youtube:Ts7C0flv-1g",
+      "batch_record_index": 2,
+      "video_id": "Ts7C0flv-1g",
+      "url": "https://www.youtube.com/watch?v=Ts7C0flv-1g",
+      "title": "Another Chinese No News Short Squeeze!",
+      "published_date_text": "Jul 23, 2026",
+      "trading_dates": [
+        "2026-07-23"
+      ],
+      "account_coverage": [
+        "small_account",
+        "main_account"
+      ],
+      "caption_status": "OK",
+      "caption_character_count": 8759,
+      "caption_utf8_sha256": "23b02575c5c75572c852d164ded08653026da1f549f02ed7122acaf3355921b5",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_recap"
+    }
+  ],
+  "transcription_corrections": [
+    {
+      "correction_id": "2026-07-10-gmmm-to-gmm",
+      "source_id": "youtube:uTyfk4UvsUw",
+      "observed_text": "GMMM and GMM",
+      "canonical_symbol": "GMM",
+      "resolution_status": "frozen_candidate_match",
+      "basis": "The recap alternates both spellings and the frozen market candidate is GMM.",
+      "silent_rewrite_allowed": false
+    },
+    {
+      "correction_id": "2026-07-13-plms-to-plsm",
+      "source_id": "youtube:RZbM0qXOFbc",
+      "observed_text": "PLMS",
+      "canonical_symbol": "PLSM",
+      "resolution_status": "frozen_candidate_match",
+      "basis": "The frozen candidate and companion small-account recap identify PLSM.",
+      "silent_rewrite_allowed": false
+    },
+    {
+      "correction_id": "2026-07-14-jti-to-jtai",
+      "source_id": "youtube:ut9nmRP3ENY",
+      "observed_text": "JTI",
+      "canonical_symbol": "JTAI",
+      "resolution_status": "externally_corroborated",
+      "basis": "Jet.AI issued a July 14 premarket merger LOI under Nasdaq ticker JTAI; JTAI is not a frozen candidate that day.",
+      "corroboration_url": "https://www.stocktitan.net/news/JTAI/jet-ai-announces-letter-of-intent-for-new-merger-and-related-spin-3h91abarddn1.html",
+      "silent_rewrite_allowed": false
+    },
+    {
+      "correction_id": "2026-07-15-vivs-confirmed",
+      "source_id": "youtube:TzpOIMOrU7I",
+      "observed_text": "VIVS",
+      "canonical_symbol": "VIVS",
+      "resolution_status": "externally_corroborated",
+      "basis": "VivoSim Labs issued the matching Eli Lilly milestone and FY2027 guidance release under Nasdaq ticker VIVS; VIVS is not a frozen candidate that day.",
+      "corroboration_url": "https://rss.globenewswire.com/news-release/2026/07/15/3327689/37000/en/vivosim-receives-5m-milestone-payment-from-eli-lilly-provides-guidance-that-it-expects-revenue-growth-of-500-in-fy2027.html",
+      "silent_rewrite_allowed": false
+    },
+    {
+      "correction_id": "2026-07-15-nve-to-nvve",
+      "source_id": "youtube:TzpOIMOrU7I",
+      "observed_text": "NVE",
+      "canonical_symbol": "NVVE",
+      "resolution_status": "frozen_candidate_match",
+      "basis": "NVVE is the same-day frozen candidate matching the recap's post-open price and risk discussion.",
+      "silent_rewrite_allowed": false
+    },
+    {
+      "correction_id": "2026-07-16-ruby-to-rubi",
+      "source_id": "youtube:2UpK6vs0MVQ",
+      "observed_text": "Ruby",
+      "canonical_symbol": "RUBI",
+      "resolution_status": "externally_corroborated",
+      "basis": "Rubico released the matching $183.1 million NAV estimate at 08:30 ET under Nasdaq ticker RUBI.",
+      "corroboration_url": "https://www.stocktitan.net/news/RUBI/rubico-announces-management-estimate-of-net-asset-value-to-183-1-luevxvk3vnok.html",
+      "silent_rewrite_allowed": false
+    },
+    {
+      "correction_id": "2026-07-20-bya-to-biya",
+      "source_id": "youtube:mDQEtmG0PCw",
+      "observed_text": "B I Ya and BYA",
+      "canonical_symbol": "BIYA",
+      "resolution_status": "frozen_candidate_match",
+      "basis": "The frozen candidate and companion recap identify BIYA.",
+      "silent_rewrite_allowed": false
+    },
+    {
+      "correction_id": "2026-07-22-lat-to-labt",
+      "source_id": "youtube:-QZ8buLplck",
+      "observed_text": "LAT",
+      "canonical_symbol": "LABT",
+      "resolution_status": "frozen_candidate_match",
+      "basis": "The frozen candidate and main-account recap identify LABT.",
+      "silent_rewrite_allowed": false
+    },
+    {
+      "correction_id": "2026-07-22-imn-imm-to-inm",
+      "source_id": "youtube:-QZ8buLplck",
+      "observed_text": "IMN and IMM",
+      "canonical_symbol": "INM",
+      "resolution_status": "frozen_candidate_match",
+      "basis": "The frozen candidate and main-account recap identify INM.",
+      "silent_rewrite_allowed": false
+    }
+  ],
+  "date_results": {
+    "2026-07-10": {
+      "source_ids": [
+        "youtube:uTyfk4UvsUw"
+      ],
+      "candidate_count": 14,
+      "candidate_symbols": [
+        "CCC",
+        "CDZI",
+        "DFSC",
+        "EQPT",
+        "GMM",
+        "INTJ",
+        "JLHL",
+        "JZXN",
+        "LIVE",
+        "NVVE",
+        "OPRT",
+        "TKLF",
+        "VOD",
+        "WOK"
+      ],
+      "candidate_activations": {
+        "CCC": "2026-07-10T11:01:00+00:00",
+        "CDZI": "2026-07-10T13:29:00+00:00",
+        "DFSC": "2026-07-10T13:33:00+00:00",
+        "EQPT": "2026-07-10T11:00:00+00:00",
+        "GMM": "2026-07-10T11:00:00+00:00",
+        "INTJ": "2026-07-10T12:09:00+00:00",
+        "JLHL": "2026-07-10T11:00:00+00:00",
+        "JZXN": "2026-07-10T13:35:00+00:00",
+        "LIVE": "2026-07-10T13:52:00+00:00",
+        "NVVE": "2026-07-10T11:13:00+00:00",
+        "OPRT": "2026-07-10T13:44:00+00:00",
+        "TKLF": "2026-07-10T11:47:00+00:00",
+        "VOD": "2026-07-10T11:01:00+00:00",
+        "WOK": "2026-07-10T11:00:00+00:00"
+      },
+      "candidate_activations_sha256": "62649d73642f76bbc0fe18fd2b81d28f8242934daa5c6e8aff43c8b3b1fccdb0",
+      "account_session_evidence": {
+        "main_account": {
+          "activity_state": "reported_trade_day",
+          "source_ids": [
+            "youtube:uTyfk4UvsUw"
+          ]
+        },
+        "small_account": {
+          "activity_state": "reported_no_completed_trade_day",
+          "source_ids": [
+            "youtube:uTyfk4UvsUw"
+          ]
+        }
+      },
+      "explicit_candidate_symbol_count": 2,
+      "explicit_candidate_labels": [
+        {
+          "symbol": "GMM",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": [
+              "youtube:uTyfk4UvsUw"
+            ],
+            "evidence_summary": "Ross reported four completed main-account trades after initially passing on an earlier breakout because the pullback was deep and MACD was negative."
+          },
+          "small_account": {
+            "state": "discussed_but_action_unclear",
+            "trade_completion": "attempted_no_fill",
+            "source_ids": [
+              "youtube:uTyfk4UvsUw"
+            ],
+            "evidence_summary": "He submitted several small-account buy orders near $4.14, but they did not fill and one was rejected for buying power; no small-account trade completed."
+          }
+        },
+        {
+          "symbol": "JZXN",
+          "main_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": [
+              "youtube:uTyfk4UvsUw"
+            ],
+            "evidence_summary": "He reviewed the Chinese AI-related news and prior pops but said he was not sure enough and did not take the trade."
+          }
+        }
+      ],
+      "observed_off_candidate_actions": [],
+      "context_observations": [
+        "GMM was described as the only obvious early leader, concentrating attention.",
+        "Schedule lateness, Level 2 thickness, MACD, pullback depth, and failed small-account execution all affected participation."
+      ]
+    },
+    "2026-07-13": {
+      "source_ids": [
+        "youtube:S2sOq-stPgA",
+        "youtube:RZbM0qXOFbc"
+      ],
+      "candidate_count": 12,
+      "candidate_symbols": [
+        "AGEN",
+        "BRAI",
+        "EHGO",
+        "GFUZ",
+        "MI",
+        "MIMI",
+        "PED",
+        "PLSM",
+        "QTTB",
+        "QXL",
+        "VEEE",
+        "VRRM"
+      ],
+      "candidate_activations": {
+        "AGEN": "2026-07-13T11:00:00+00:00",
+        "BRAI": "2026-07-13T11:01:00+00:00",
+        "EHGO": "2026-07-13T11:00:00+00:00",
+        "GFUZ": "2026-07-13T11:00:00+00:00",
+        "MI": "2026-07-13T13:44:00+00:00",
+        "MIMI": "2026-07-13T11:00:00+00:00",
+        "PED": "2026-07-13T13:51:00+00:00",
+        "PLSM": "2026-07-13T12:01:00+00:00",
+        "QTTB": "2026-07-13T11:00:00+00:00",
+        "QXL": "2026-07-13T11:10:00+00:00",
+        "VEEE": "2026-07-13T12:53:00+00:00",
+        "VRRM": "2026-07-13T13:37:00+00:00"
+      },
+      "candidate_activations_sha256": "11aa1f452be01dc381001dbf683d4e8b9d0754db74f132cbf04a933996f9abe5",
+      "account_session_evidence": {
+        "main_account": {
+          "activity_state": "reported_trade_day",
+          "source_ids": [
+            "youtube:RZbM0qXOFbc"
+          ]
+        },
+        "small_account": {
+          "activity_state": "reported_trade_day",
+          "source_ids": [
+            "youtube:S2sOq-stPgA"
+          ]
+        }
+      },
+      "explicit_candidate_symbol_count": 4,
+      "explicit_candidate_labels": [
+        {
+          "symbol": "PLSM",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": [
+              "youtube:RZbM0qXOFbc"
+            ],
+            "evidence_summary": "Ross entered the later backside curl in the main account and reported a substantial loss."
+          },
+          "small_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": [
+              "youtube:S2sOq-stPgA"
+            ],
+            "evidence_summary": "He reported an early small-account winner and a later small-account loss on PLSM."
+          }
+        },
+        {
+          "symbol": "VEEE",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": [
+              "youtube:RZbM0qXOFbc"
+            ],
+            "evidence_summary": "He reported multiple main-account VEEE trades that recovered the earlier loss."
+          },
+          "small_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": [
+              "youtube:S2sOq-stPgA"
+            ],
+            "evidence_summary": "He reported a later small-account pullback winner on VEEE."
+          }
+        },
+        {
+          "symbol": "QTTB",
+          "main_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": [
+              "youtube:RZbM0qXOFbc"
+            ],
+            "evidence_summary": "He rejected QTTB because it was higher priced, had wider spreads, and was easy to borrow."
+          }
+        },
+        {
+          "symbol": "MIMI",
+          "main_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": [
+              "youtube:RZbM0qXOFbc"
+            ],
+            "evidence_summary": "He rejected the after-hours push after observing the prior fade and did not trade it."
+          }
+        }
+      ],
+      "observed_off_candidate_actions": [],
+      "context_observations": [
+        "Divided attention between accounts contributed to missing PLSM's frontside and chasing a later setup.",
+        "FOMO, cushion state, position size, borrowability, spread, and prior after-hours behavior influenced the decisions."
+      ]
+    },
+    "2026-07-14": {
+      "source_ids": [
+        "youtube:ChLgwLS9eJY",
+        "youtube:ut9nmRP3ENY"
+      ],
+      "candidate_count": 13,
+      "candidate_symbols": [
+        "CLSK",
+        "CULP",
+        "GFUZ",
+        "GLOO",
+        "LGHL",
+        "LVLU",
+        "NVVE",
+        "NXTC",
+        "PLRZ",
+        "RGC",
+        "SHPH",
+        "UBXG",
+        "VMAR"
+      ],
+      "candidate_activations": {
+        "CLSK": "2026-07-14T11:00:00+00:00",
+        "CULP": "2026-07-14T13:31:00+00:00",
+        "GFUZ": "2026-07-14T13:48:00+00:00",
+        "GLOO": "2026-07-14T13:32:00+00:00",
+        "LGHL": "2026-07-14T13:55:00+00:00",
+        "LVLU": "2026-07-14T11:02:00+00:00",
+        "NVVE": "2026-07-14T13:34:00+00:00",
+        "NXTC": "2026-07-14T11:00:00+00:00",
+        "PLRZ": "2026-07-14T11:06:00+00:00",
+        "RGC": "2026-07-14T12:14:00+00:00",
+        "SHPH": "2026-07-14T11:00:00+00:00",
+        "UBXG": "2026-07-14T13:09:00+00:00",
+        "VMAR": "2026-07-14T11:51:00+00:00"
+      },
+      "candidate_activations_sha256": "1cac92424275119ccc387eaaa217210a9a72c77c3af25cf7f3fa2899699474f3",
+      "account_session_evidence": {
+        "main_account": {
+          "activity_state": "reported_trade_day",
+          "source_ids": [
+            "youtube:ut9nmRP3ENY"
+          ]
+        },
+        "small_account": {
+          "activity_state": "reported_trade_day",
+          "source_ids": [
+            "youtube:ChLgwLS9eJY"
+          ]
+        }
+      },
+      "explicit_candidate_symbol_count": 2,
+      "explicit_candidate_labels": [
+        {
+          "symbol": "NXTC",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": [
+              "youtube:ut9nmRP3ENY"
+            ],
+            "evidence_summary": "He reported one main-account trade on the reverse-merger move."
+          },
+          "small_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": [
+              "youtube:ChLgwLS9eJY"
+            ],
+            "evidence_summary": "He reported one small-account NXTC winner after the stock proved it could break the earlier rejection level."
+          }
+        },
+        {
+          "symbol": "UBXG",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": [
+              "youtube:ut9nmRP3ENY"
+            ],
+            "evidence_summary": "He reported three unsuccessful main-account attempts before the later breakout."
+          },
+          "small_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": [
+              "youtube:ChLgwLS9eJY"
+            ],
+            "evidence_summary": "He reported a small-account micro-pullback winner on UBXG."
+          }
+        }
+      ],
+      "observed_off_candidate_actions": [
+        {
+          "observed_transcript_symbol": "JTI",
+          "canonical_symbol": "JTAI",
+          "identity_resolution_status": "externally_corroborated",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": [
+              "youtube:ut9nmRP3ENY"
+            ],
+            "evidence_summary": "He reported a brief main-account JTAI trade and a small loss."
+          }
+        }
+      ],
+      "context_observations": [
+        "The prior day's VEEE reverse-merger move affected expectations for NXTC.",
+        "The same UBXG chart produced a small-account winner and repeated main-account losses, demonstrating account and execution dependence."
+      ]
+    },
+    "2026-07-15": {
+      "source_ids": [
+        "youtube:8IYunlNOVmM",
+        "youtube:TzpOIMOrU7I"
+      ],
+      "candidate_count": 13,
+      "candidate_symbols": [
+        "ANGO",
+        "APLM",
+        "CCEL",
+        "ELVA",
+        "ERNA",
+        "FBYD",
+        "JLHL",
+        "LABT",
+        "LCID",
+        "MAGN",
+        "NVVE",
+        "SOBR",
+        "TRT"
+      ],
+      "candidate_activations": {
+        "ANGO": "2026-07-15T13:40:00+00:00",
+        "APLM": "2026-07-15T13:54:00+00:00",
+        "CCEL": "2026-07-15T13:40:00+00:00",
+        "ELVA": "2026-07-15T11:01:00+00:00",
+        "ERNA": "2026-07-15T11:52:00+00:00",
+        "FBYD": "2026-07-15T13:57:00+00:00",
+        "JLHL": "2026-07-15T11:37:00+00:00",
+        "LABT": "2026-07-15T12:05:00+00:00",
+        "LCID": "2026-07-15T13:37:00+00:00",
+        "MAGN": "2026-07-15T13:51:00+00:00",
+        "NVVE": "2026-07-15T13:31:00+00:00",
+        "SOBR": "2026-07-15T13:39:00+00:00",
+        "TRT": "2026-07-15T13:45:00+00:00"
+      },
+      "candidate_activations_sha256": "9d5589c4fb9dacd56261f5c1f06472f3788661f5697ed5abcd0b62ce716c639a",
+      "account_session_evidence": {
+        "main_account": {
+          "activity_state": "reported_trade_day",
+          "source_ids": [
+            "youtube:TzpOIMOrU7I"
+          ]
+        },
+        "small_account": {
+          "activity_state": "reported_trade_day",
+          "source_ids": [
+            "youtube:8IYunlNOVmM"
+          ]
+        }
+      },
+      "explicit_candidate_symbol_count": 2,
+      "explicit_candidate_labels": [
+        {
+          "symbol": "ERNA",
+          "main_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": [
+              "youtube:TzpOIMOrU7I"
+            ],
+            "evidence_summary": "He explicitly reported no main-account ERNA trade after recency bias from UBXG and declining volume reduced confidence."
+          },
+          "small_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": [
+              "youtube:8IYunlNOVmM"
+            ],
+            "evidence_summary": "He reported a single small-account ERNA trade near the break of $10."
+          }
+        },
+        {
+          "symbol": "NVVE",
+          "main_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": [
+              "youtube:TzpOIMOrU7I"
+            ],
+            "evidence_summary": "He left the higher-priced, wide-spread post-open move alone because the per-share risk and offering uncertainty were too high."
+          }
+        }
+      ],
+      "observed_off_candidate_actions": [
+        {
+          "observed_transcript_symbol": "VIVS",
+          "canonical_symbol": "VIVS",
+          "identity_resolution_status": "externally_corroborated",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": [
+              "youtube:TzpOIMOrU7I"
+            ],
+            "evidence_summary": "He reported multiple main-account trades on the Eli Lilly milestone and revenue-guidance move."
+          },
+          "small_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": [
+              "youtube:8IYunlNOVmM",
+              "youtube:TzpOIMOrU7I"
+            ],
+            "evidence_summary": "He reported a small-account winner followed by a losing add-back on VIVS."
+          }
+        },
+        {
+          "observed_transcript_symbol": "Vee",
+          "canonical_symbol": "VEEE",
+          "identity_resolution_status": "internally_corroborated",
+          "main_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": [
+              "youtube:TzpOIMOrU7I"
+            ],
+            "evidence_summary": "He said VEEE had become too expensive and took no trade on its continuation."
+          }
+        }
+      ],
+      "context_observations": [
+        "Recency bias from the prior day's UBXG failures caused the main account to miss ERNA while the small account participated.",
+        "VIVS confirms a traded stock can sit outside the causal market-candidate set, so acquisition recall is a separate gate from Micro behavior."
+      ]
+    },
+    "2026-07-16": {
+      "source_ids": [
+        "youtube:2UpK6vs0MVQ",
+        "youtube:PMNTB2WAiww"
+      ],
+      "candidate_count": 12,
+      "candidate_symbols": [
+        "ATAI",
+        "ATPC",
+        "CYH",
+        "DXST",
+        "EAF",
+        "HELP",
+        "LEDS",
+        "MAAS",
+        "PESI",
+        "RUBI",
+        "SCWO",
+        "VRAX"
+      ],
+      "candidate_activations": {
+        "ATAI": "2026-07-16T11:00:00+00:00",
+        "ATPC": "2026-07-16T11:00:00+00:00",
+        "CYH": "2026-07-16T13:11:00+00:00",
+        "DXST": "2026-07-16T11:00:00+00:00",
+        "EAF": "2026-07-16T13:36:00+00:00",
+        "HELP": "2026-07-16T11:00:00+00:00",
+        "LEDS": "2026-07-16T13:37:00+00:00",
+        "MAAS": "2026-07-16T13:49:00+00:00",
+        "PESI": "2026-07-16T13:29:00+00:00",
+        "RUBI": "2026-07-16T12:32:00+00:00",
+        "SCWO": "2026-07-16T12:01:00+00:00",
+        "VRAX": "2026-07-16T11:33:00+00:00"
+      },
+      "candidate_activations_sha256": "2c1f4f504eb53f3013f4ca93a99fcd6a770738917caaad4474feb63dcf2d90a1",
+      "account_session_evidence": {
+        "main_account": {
+          "activity_state": "reported_no_completed_trade_day",
+          "source_ids": [
+            "youtube:PMNTB2WAiww"
+          ]
+        },
+        "small_account": {
+          "activity_state": "reported_trade_day",
+          "source_ids": [
+            "youtube:2UpK6vs0MVQ"
+          ]
+        }
+      },
+      "explicit_candidate_symbol_count": 2,
+      "explicit_candidate_labels": [
+        {
+          "symbol": "ATAI",
+          "small_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": [
+              "youtube:2UpK6vs0MVQ"
+            ],
+            "evidence_summary": "In the small-account recap he rejected ATAI because its float was too high."
+          }
+        },
+        {
+          "symbol": "RUBI",
+          "small_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": [
+              "youtube:2UpK6vs0MVQ"
+            ],
+            "evidence_summary": "He reported the day's only small-account trade on RUBI after the 08:30 NAV headline."
+          }
+        }
+      ],
+      "observed_off_candidate_actions": [],
+      "context_observations": [
+        "The absence of competing leaders made a stock that had previously drawn little attention become the day's focus.",
+        "Ross described the opportunity as short-lived and considered offering history, reverse splits, sector, and broad market coldness."
+      ]
+    },
+    "2026-07-17": {
+      "source_ids": [
+        "youtube:PMNTB2WAiww"
+      ],
+      "candidate_count": 8,
+      "candidate_symbols": [
+        "AMWL",
+        "BIYA",
+        "JLHL",
+        "KLRS",
+        "PMAX",
+        "SDOT",
+        "SG",
+        "TRVI"
+      ],
+      "candidate_activations": {
+        "AMWL": "2026-07-17T13:59:00+00:00",
+        "BIYA": "2026-07-17T11:00:00+00:00",
+        "JLHL": "2026-07-17T11:17:00+00:00",
+        "KLRS": "2026-07-17T11:03:00+00:00",
+        "PMAX": "2026-07-17T11:00:00+00:00",
+        "SDOT": "2026-07-17T13:50:00+00:00",
+        "SG": "2026-07-17T13:34:00+00:00",
+        "TRVI": "2026-07-17T11:02:00+00:00"
+      },
+      "candidate_activations_sha256": "ce148e898c7471d111733251051511e177d7779b63453013913c96afbaa20d09",
+      "account_session_evidence": {
+        "main_account": {
+          "activity_state": "reported_no_completed_trade_day",
+          "source_ids": [
+            "youtube:PMNTB2WAiww"
+          ]
+        },
+        "small_account": {
+          "activity_state": "reported_no_completed_trade_day",
+          "source_ids": [
+            "youtube:PMNTB2WAiww"
+          ]
+        }
+      },
+      "explicit_candidate_symbol_count": 2,
+      "explicit_candidate_labels": [
+        {
+          "symbol": "SDOT",
+          "main_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": [
+              "youtube:PMNTB2WAiww"
+            ],
+            "evidence_summary": "He explicitly rejected the continuation/bounce because the higher price, larger spreads, and risk prevented him from getting comfortable."
+          }
+        },
+        {
+          "symbol": "BIYA",
+          "main_account": {
+            "state": "discussed_but_action_unclear",
+            "trade_completion": "unknown",
+            "source_ids": [
+              "youtube:PMNTB2WAiww"
+            ],
+            "evidence_summary": "He noted the prior after-hours move and pullback but did not give a candidate-specific account decision beyond the reported no-trade session."
+          }
+        }
+      ],
+      "observed_off_candidate_actions": [],
+      "context_observations": [
+        "Ross began with a no-trade assumption after repeated full-round-trip failures and required the market to prove a strong opportunity.",
+        "Market-wide weakness, fear, short-seller aggression, warrants, catalyst absence, and Level 2 thickness were material considerations."
+      ]
+    },
+    "2026-07-20": {
+      "source_ids": [
+        "youtube:x0qg5eGF7zc",
+        "youtube:mDQEtmG0PCw"
+      ],
+      "candidate_count": 9,
+      "candidate_symbols": [
+        "ADVB",
+        "AMC",
+        "ARMP",
+        "BIYA",
+        "BXBL",
+        "NIKI",
+        "NUAI",
+        "RMTI",
+        "XNCR"
+      ],
+      "candidate_activations": {
+        "ADVB": "2026-07-20T11:00:00+00:00",
+        "AMC": "2026-07-20T11:00:00+00:00",
+        "ARMP": "2026-07-20T11:03:00+00:00",
+        "BIYA": "2026-07-20T11:00:00+00:00",
+        "BXBL": "2026-07-20T11:00:00+00:00",
+        "NIKI": "2026-07-20T13:14:00+00:00",
+        "NUAI": "2026-07-20T11:03:00+00:00",
+        "RMTI": "2026-07-20T13:02:00+00:00",
+        "XNCR": "2026-07-20T13:44:00+00:00"
+      },
+      "candidate_activations_sha256": "3a7de42b9cb42163054cc964a68ba88bc71f4d57a3fbcb002f904ad55d154ccd",
+      "account_session_evidence": {
+        "main_account": {
+          "activity_state": "reported_trade_day",
+          "source_ids": [
+            "youtube:mDQEtmG0PCw"
+          ]
+        },
+        "small_account": {
+          "activity_state": "reported_trade_day",
+          "source_ids": [
+            "youtube:x0qg5eGF7zc"
+          ]
+        }
+      },
+      "explicit_candidate_symbol_count": 1,
+      "explicit_candidate_labels": [
+        {
+          "symbol": "BIYA",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": [
+              "youtube:mDQEtmG0PCw"
+            ],
+            "evidence_summary": "He reported three main-account BIYA trades after the stock held support and became the only obvious leader."
+          },
+          "small_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": [
+              "youtube:x0qg5eGF7zc"
+            ],
+            "evidence_summary": "He reported the day's only small-account trade on BIYA."
+          }
+        }
+      ],
+      "observed_off_candidate_actions": [],
+      "context_observations": [
+        "BIYA's status as the only obvious stock concentrated attention.",
+        "The lack of a solid catalyst caused faster profit-taking and hot-potato risk management."
+      ]
+    },
+    "2026-07-21": {
+      "source_ids": [
+        "youtube:q-ywzhtkeY8",
+        "youtube:-QZ8buLplck"
+      ],
+      "candidate_count": 11,
+      "candidate_symbols": [
+        "AGPU",
+        "BANL",
+        "CRNT",
+        "FWRD",
+        "GREE",
+        "HELP",
+        "IMNN",
+        "LMFA",
+        "RPT",
+        "UTZ",
+        "VIVK"
+      ],
+      "candidate_activations": {
+        "AGPU": "2026-07-21T13:43:00+00:00",
+        "BANL": "2026-07-21T13:57:00+00:00",
+        "CRNT": "2026-07-21T11:00:00+00:00",
+        "FWRD": "2026-07-21T13:37:00+00:00",
+        "GREE": "2026-07-21T13:32:00+00:00",
+        "HELP": "2026-07-21T13:53:00+00:00",
+        "IMNN": "2026-07-21T13:01:00+00:00",
+        "LMFA": "2026-07-21T13:56:00+00:00",
+        "RPT": "2026-07-21T11:02:00+00:00",
+        "UTZ": "2026-07-21T12:01:00+00:00",
+        "VIVK": "2026-07-21T13:17:00+00:00"
+      },
+      "candidate_activations_sha256": "f7b1eb75d6302c7c51b635cb61e49543201cdfedfaeab28cd5560205cf8e8d3a",
+      "account_session_evidence": {
+        "main_account": {
+          "activity_state": "reported_no_completed_trade_day",
+          "source_ids": [
+            "youtube:q-ywzhtkeY8",
+            "youtube:-QZ8buLplck"
+          ]
+        },
+        "small_account": {
+          "activity_state": "reported_no_completed_trade_day",
+          "source_ids": [
+            "youtube:q-ywzhtkeY8",
+            "youtube:-QZ8buLplck"
+          ]
+        }
+      },
+      "explicit_candidate_symbol_count": 0,
+      "explicit_candidate_labels": [],
+      "observed_off_candidate_actions": [
+        {
+          "observed_transcript_symbol": "CPHI",
+          "canonical_symbol": "CPHI",
+          "identity_resolution_status": "internally_corroborated",
+          "main_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": [
+              "youtube:q-ywzhtkeY8"
+            ],
+            "evidence_summary": "He reported no main-account trade on the sub-dollar, late-session Chinese no-news move because timing and halt risk were outside his normal comfort zone."
+          },
+          "small_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": [
+              "youtube:q-ywzhtkeY8",
+              "youtube:-QZ8buLplck"
+            ],
+            "evidence_summary": "Both sources report no small-account trade on Tuesday while discussing CPHI as the central move."
+          }
+        }
+      ],
+      "context_observations": [
+        "The day's extraordinary late Chinese no-news move occurred outside the frozen candidate set and outside Ross's usual time window.",
+        "No-trade session evidence is retained without relabeling the eleven unmentioned frozen candidates as skips."
+      ]
+    },
+    "2026-07-22": {
+      "source_ids": [
+        "youtube:-QZ8buLplck",
+        "youtube:YkEOx0ZWlWc"
+      ],
+      "candidate_count": 10,
+      "candidate_symbols": [
+        "ADVB",
+        "AIRJ",
+        "CRIS",
+        "INLF",
+        "INM",
+        "LABT",
+        "OTLY",
+        "SNTG",
+        "VET",
+        "ZCMD"
+      ],
+      "candidate_activations": {
+        "ADVB": "2026-07-22T11:21:00+00:00",
+        "AIRJ": "2026-07-22T11:01:00+00:00",
+        "CRIS": "2026-07-22T11:13:00+00:00",
+        "INLF": "2026-07-22T11:00:00+00:00",
+        "INM": "2026-07-22T11:01:00+00:00",
+        "LABT": "2026-07-22T12:04:00+00:00",
+        "OTLY": "2026-07-22T11:22:00+00:00",
+        "SNTG": "2026-07-22T11:00:00+00:00",
+        "VET": "2026-07-22T13:32:00+00:00",
+        "ZCMD": "2026-07-22T11:00:00+00:00"
+      },
+      "candidate_activations_sha256": "d9ddd4c77976cec5e8f7ee0d6fa7133809a7c4ce168fb0f7b5a5ab7dd8816e70",
+      "account_session_evidence": {
+        "main_account": {
+          "activity_state": "reported_trade_day",
+          "source_ids": [
+            "youtube:YkEOx0ZWlWc"
+          ]
+        },
+        "small_account": {
+          "activity_state": "reported_trade_day",
+          "source_ids": [
+            "youtube:-QZ8buLplck"
+          ]
+        }
+      },
+      "explicit_candidate_symbol_count": 3,
+      "explicit_candidate_labels": [
+        {
+          "symbol": "LABT",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": [
+              "youtube:YkEOx0ZWlWc"
+            ],
+            "evidence_summary": "He reported multiple main-account trades after LABT proved it could sustain a large move."
+          },
+          "small_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": [
+              "youtube:-QZ8buLplck"
+            ],
+            "evidence_summary": "He reported two completed small-account LABT trades."
+          }
+        },
+        {
+          "symbol": "INM",
+          "main_account": {
+            "state": "discussed_but_action_unclear",
+            "trade_completion": "unknown",
+            "source_ids": [
+              "youtube:YkEOx0ZWlWc"
+            ],
+            "evidence_summary": "He discussed the $200 million placement and dramatic failure but did not make an account-specific action statement."
+          },
+          "small_account": {
+            "state": "discussed_but_action_unclear",
+            "trade_completion": "unknown",
+            "source_ids": [
+              "youtube:-QZ8buLplck"
+            ],
+            "evidence_summary": "The small-account recap discussed the failed catalyst but did not explicitly state an INM trade or skip."
+          }
+        },
+        {
+          "symbol": "ZCMD",
+          "main_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": [
+              "youtube:YkEOx0ZWlWc"
+            ],
+            "evidence_summary": "He explicitly stayed on the sidelines because the fast no-news move, halts, FOMO, and T12 risk made it unattractive."
+          }
+        }
+      ],
+      "observed_off_candidate_actions": [],
+      "context_observations": [
+        "The recent Chinese no-news theme initially made Ross distrust a legitimate-news U.S. biotech until price action proved it was attracting attention.",
+        "Highest-ever volume reduced bagholder concern, while post-open halt and regulatory risk ended participation."
+      ]
+    },
+    "2026-07-23": {
+      "source_ids": [
+        "youtube:Ts7C0flv-1g"
+      ],
+      "candidate_count": 17,
+      "candidate_symbols": [
+        "ADVB",
+        "AMBP",
+        "CJMB",
+        "CLF",
+        "CLIR",
+        "CPHI",
+        "DOMO",
+        "EHGO",
+        "GREE",
+        "HYLN",
+        "JEM",
+        "NEUP",
+        "NIKI",
+        "NVCR",
+        "OTLY",
+        "PALI",
+        "ZCMD"
+      ],
+      "candidate_activations": {
+        "ADVB": "2026-07-23T11:14:00+00:00",
+        "AMBP": "2026-07-23T11:24:00+00:00",
+        "CJMB": "2026-07-23T13:49:00+00:00",
+        "CLF": "2026-07-23T11:46:00+00:00",
+        "CLIR": "2026-07-23T12:31:00+00:00",
+        "CPHI": "2026-07-23T13:43:00+00:00",
+        "DOMO": "2026-07-23T11:00:00+00:00",
+        "EHGO": "2026-07-23T11:00:00+00:00",
+        "GREE": "2026-07-23T13:43:00+00:00",
+        "HYLN": "2026-07-23T11:01:00+00:00",
+        "JEM": "2026-07-23T11:01:00+00:00",
+        "NEUP": "2026-07-23T11:00:00+00:00",
+        "NIKI": "2026-07-23T12:02:00+00:00",
+        "NVCR": "2026-07-23T11:13:00+00:00",
+        "OTLY": "2026-07-23T13:37:00+00:00",
+        "PALI": "2026-07-23T13:38:00+00:00",
+        "ZCMD": "2026-07-23T13:14:00+00:00"
+      },
+      "candidate_activations_sha256": "d450681b15e7687ab1f27376ba443910e9fdf94a65d33b8462549b63e48ba604",
+      "account_session_evidence": {
+        "main_account": {
+          "activity_state": "reported_trade_day",
+          "source_ids": [
+            "youtube:Ts7C0flv-1g"
+          ]
+        },
+        "small_account": {
+          "activity_state": "reported_trade_day",
+          "source_ids": [
+            "youtube:Ts7C0flv-1g"
+          ]
+        }
+      },
+      "explicit_candidate_symbol_count": 2,
+      "explicit_candidate_labels": [
+        {
+          "symbol": "EHGO",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": [
+              "youtube:Ts7C0flv-1g"
+            ],
+            "evidence_summary": "He reported a completed main-account EHGO trade while the stock became the leading Chinese no-news mover."
+          },
+          "small_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": [
+              "youtube:Ts7C0flv-1g"
+            ],
+            "evidence_summary": "He reported two completed small-account EHGO trades."
+          }
+        },
+        {
+          "symbol": "ZCMD",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": [
+              "youtube:Ts7C0flv-1g"
+            ],
+            "evidence_summary": "He reported a completed main-account trade and loss on the post-offering move."
+          },
+          "small_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": [
+              "youtube:Ts7C0flv-1g"
+            ],
+            "evidence_summary": "He explicitly kept ZCMD out of the small account because the halt and no-news risk was too high."
+          }
+        }
+      ],
+      "observed_off_candidate_actions": [],
+      "context_observations": [
+        "EHGO fit the current Chinese no-news theme and resembled the prior ZCMD move, which increased confidence despite the absent catalyst.",
+        "The same ZCMD situation produced main-account participation but small-account rejection, reinforcing the need for account-specific state."
+      ]
+    }
+  },
+  "summary": {
+    "registered_date_count": 10,
+    "source_record_count_used": 15,
+    "frozen_candidate_count": 119,
+    "all_dates_have_source_evidence": true,
+    "raw_transcript_used_by_runtime": false,
+    "known_off_candidate_participation_retained": true,
+    "interpretation": "This freezes evidence coverage and account-scoped actions. It does not score, fit, or promote any deterministic or AI policy."
+  },
+  "content_sha256": "4dd31df3fcace0bcc0b52045c748a1a91e00130867394e21c605af5f42007204"
+}

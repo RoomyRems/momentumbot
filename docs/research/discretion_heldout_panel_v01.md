@@ -1,6 +1,6 @@
 # Discretion held-out panel v0.1
 
-Status: **label-blind runtime frozen; human review not started; no trading authority**.
+Status: **label-blind runtime, retrospective evidence and component comparison frozen; no trading authority**.
 
 ## Why this is the next step
 
@@ -71,4 +71,14 @@ Across the ten dates, 118 of 119 candidates were replayable. The unchanged polic
 
 These counts describe technical opportunities, not Ross matches or portfolio trades. They do not establish that Ross traded any candidate, do not consolidate repeated emissions into campaigns, and carry no policy-promotion implication. Ross evidence was not opened during generation or validation. Exact provenance, per-date counts and the two failed implementation attempts preserved along the way are recorded in `research/data-audits/discretion-heldout-micro-runtime-v0.1-2026-08-17.json`.
 
-The next gate is the preregistered retrospective evidence pass. Sources will be located for the fixed dates, small- and main-account actions will be encoded separately, and unmentioned candidates will remain unknown rather than being treated as skips. Only after those labels are frozen will they be compared with the already-frozen scanner, Micro and discretionary-shadow artifacts.
+## Frozen retrospective evidence and comparison
+
+The supplied 300-record caption batch contained source coverage for all ten fixed dates. Fifteen records were selected by date and content, while the raw captions remained outside the repository and prohibited from runtime. The evidence pass retained explicit ticker-correction provenance, separated main and small accounts, treated an attempted but unfilled order as unclear rather than participation, and left every unmentioned candidate unknown.
+
+The frozen label artifact is `research/data-audits/discretion-heldout-labels-v0.1-2026-08-18.json`, content SHA-256 `4dd31df3fcace0bcc0b52045c748a1a91e00130867394e21c605af5f42007204`. It records nine main-account and nine small-account participation decisions among the frozen candidates, seven main and two small explicit skips, two unclear decisions in each account, and 101/106 unmentioned candidate-account observations. It also preserves observed off-candidate activity rather than pretending those symbols had downstream runtime features.
+
+The comparison was then generated from the exact frozen scanner, Micro and provider-free shadow artifacts without changing any rule. Its artifact is `research/data-audits/discretion-heldout-comparison-v0.1-2026-08-18.json`, content SHA-256 `809d4b4a7231b708f9c933c9bf45b58c736f4d3101c8328483c62c1c48bcfb3d`.
+
+Micro-v0.1 produced a modeled fill on six of nine acquired documented trades in each account. It also produced fills on two of seven main-account skips and zero of two small-account skips. Separately, the scanner acquired 11 of 13 unique observed traded symbol-dates; JTAI on July 14 and VIVS on July 15 were outside the frozen candidate set. Leadership was more aligned with participation than binary news presence, but the sample is far too small to fit a rank or context threshold.
+
+The result therefore supports the layered architecture rather than another isolated technical-rule adjustment. Micro-v0.1 remains frozen. The next gate is to preregister causal context assessments—deterministic where facts can be measured and AI shadow-only where judgment is genuinely semantic—before adding campaign/portfolio state, Level 2/tape and realistic execution. Full findings are in `docs/research/discretion_heldout_labels_v01.md`.
