@@ -15,6 +15,7 @@ from momentumbot.research.discretion_heldout_panel import REGISTERED_DATES
 from scripts.reconstruct_discretion_heldout_micro_date import (
     FROZEN_MICRO_POLICY_FINGERPRINT,
     SOURCE_ARTIFACT_ID,
+    _bind_session_support_to_frozen_scanner_bars,
     _causal_action_bars,
     _qualification_anchor,
     _unavailable_runtime,
@@ -155,6 +156,38 @@ class ReconstructDiscretionHeldoutMicroDateTests(unittest.TestCase):
             list(kept.index),
             [pd.Timestamp("2026-07-10T13:59:40Z")],
         )
+
+    def test_session_support_uses_frozen_bar_grid_and_blocks_drift(self):
+        index = pd.DatetimeIndex(
+            ["2026-07-10T11:00:00Z", "2026-07-10T11:01:00Z"],
+            name="timestamp",
+        )
+        session = pd.DataFrame(
+            {
+                "open": [2.0, 2.1],
+                "high": [2.2, 2.3],
+                "low": [1.9, 2.0],
+                "close": [2.1, 2.2],
+                "volume": [100, 200],
+            },
+            index=index,
+        )
+        frozen = pd.DataFrame(
+            {"close": [2.1], "volume": [100]},
+            index=index[:1],
+        )
+        bound = _bind_session_support_to_frozen_scanner_bars(
+            session, frozen, symbol="AAA"
+        )
+        self.assertEqual(list(bound.index), list(index[:1]))
+        self.assertEqual(float(bound.iloc[0]["high"]), 2.2)
+
+        drifted = frozen.copy()
+        drifted.loc[index[0], "close"] = 2.11
+        with self.assertRaisesRegex(ValueError, "close drifted"):
+            _bind_session_support_to_frozen_scanner_bars(
+                session, drifted, symbol="AAA"
+            )
 
 
 if __name__ == "__main__":

@@ -61,7 +61,7 @@ The next frozen layer derives three descriptive shadow artifacts from that exact
 
 ## Frozen Micro activity checkpoint
 
-The final label-blind prerequisite replays the unchanged `micro-v0.1` policy for all 119 causal candidates. It uses each candidate's completed-minute qualification time, derives ten-second bars from SIP trades, and permits action only after a ten-second bar is fully known and before the 10:00 ET cutoff. It preserves the trade tape, derived bars and completed-minute support inputs so the result can be replayed rather than inferred from summary counts.
+The final label-blind prerequisite replays the unchanged `micro-v0.1` policy for all 119 causal candidates. It uses each candidate's completed-minute qualification time, derives ten-second bars from SIP trades, and permits action only after a ten-second bar is fully known and before the 10:00 ET cutoff. Same-day support bars are restricted to the frozen scanner bar grid and their close/volume values must match it; historical OHLC enrichment and the prior-session EMA warmup are then frozen with the replay. The artifact also preserves the trade tape, derived bars and completed-minute support inputs so the result can be replayed rather than inferred from summary counts.
 
 This checkpoint measures plan emissions, modeled fills and the number of candidates on which the technical policy acts. A plan emission is not treated as a portfolio trade: successive bars may emit repeated plans during one momentum campaign, and this layer does not model buying power, position state, divided attention, Level 2 or discretionary catalyst judgment. Provider-unavailable cases remain separate from genuine zero-plan cases.
 

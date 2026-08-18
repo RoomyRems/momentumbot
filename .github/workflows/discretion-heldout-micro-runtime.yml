@@ -29,6 +29,10 @@ permissions:
   contents: read
   actions: read
 
+concurrency:
+  group: discretion-heldout-micro-v0.1
+  cancel-in-progress: true
+
 jobs:
   replay-date:
     runs-on: ubuntu-latest

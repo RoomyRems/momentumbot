@@ -5,6 +5,7 @@ import gzip
 import hashlib
 import io
 import json
+import math
 import re
 from datetime import date, datetime, time, timezone
 from pathlib import Path
@@ -16,7 +17,7 @@ import pandas as pd
 from momentumbot.causal_market_discovery import load_market_candidate_payload
 from momentumbot.causal_scanner_snapshot import load_causal_scanner_snapshot
 from momentumbot.identity_resolved_universe import json_fingerprint
-from momentumbot.indicators import completed_bar_support_series
+from momentumbot.indicators import completed_bar_support_series, validate_bars
 from momentumbot.micro_bars import aggregate_trade_bars
 from momentumbot.micro_execution import MicroTriggerMode
 from momentumbot.micro_policy import micro_v0_1_policy
@@ -161,6 +162,55 @@ def _causal_action_bars(
         raise ValueError("micro replay start must precede its end")
     available_at = bars.index + pd.Timedelta(seconds=bar_interval_seconds)
     return bars.loc[(bars.index >= qualified_at) & (available_at < replay_end)]
+
+
+def _bind_session_support_to_frozen_scanner_bars(
+    session: pd.DataFrame,
+    frozen_close_volume: pd.DataFrame,
+    *,
+    symbol: str,
+) -> pd.DataFrame:
+    """Enrich only the frozen scanner bar grid with corroborated provider OHLC."""
+    validate_bars(session)
+    if session.index.tz is None:
+        raise ValueError("session support timestamps must be timezone-aware")
+    if not isinstance(frozen_close_volume.index, pd.DatetimeIndex):
+        raise TypeError("frozen scanner bars must use a DatetimeIndex")
+    if frozen_close_volume.index.tz is None:
+        raise ValueError("frozen scanner bar timestamps must be timezone-aware")
+    if frozen_close_volume.index.has_duplicates:
+        raise ValueError("frozen scanner bar timestamps must be unique")
+    if not frozen_close_volume.index.is_monotonic_increasing:
+        raise ValueError("frozen scanner bars must be ordered")
+    if not {"close", "volume"}.issubset(frozen_close_volume.columns):
+        raise ValueError("frozen scanner bars lack close/volume corroboration")
+    missing = frozen_close_volume.index.difference(session.index)
+    if len(missing):
+        raise ValueError(f"reacquired session bars are incomplete for {symbol}")
+    bound = session.loc[frozen_close_volume.index].copy()
+    for timestamp in frozen_close_volume.index:
+        observed_close = float(bound.at[timestamp, "close"])
+        frozen_close = float(frozen_close_volume.at[timestamp, "close"])
+        if not (
+            math.isfinite(observed_close)
+            and math.isfinite(frozen_close)
+            and math.isclose(
+                observed_close,
+                frozen_close,
+                rel_tol=1e-12,
+                abs_tol=1e-12,
+            )
+        ):
+            raise ValueError(f"reacquired session close drifted for {symbol}")
+        observed_volume = float(bound.at[timestamp, "volume"])
+        frozen_volume = float(frozen_close_volume.at[timestamp, "volume"])
+        if not (
+            math.isfinite(observed_volume)
+            and math.isfinite(frozen_volume)
+            and observed_volume == frozen_volume
+        ):
+            raise ValueError(f"reacquired session volume drifted for {symbol}")
+    return bound
 
 
 def _unavailable_runtime(
@@ -322,6 +372,11 @@ def main() -> int:
             )
             unavailable_count += 1
         else:
+            session = _bind_session_support_to_frozen_scanner_bars(
+                session,
+                source_inputs.candidate_raw_minute_bars_by_symbol[symbol],
+                symbol=symbol,
+            )
             support = completed_bar_support_series(
                 session,
                 ema_span=profile.ema_span,
