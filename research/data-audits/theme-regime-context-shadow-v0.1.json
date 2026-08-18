@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "audit_id": "theme-regime-context-shadow-v0.1-registration",
+  "contract_id": "theme-regime-context-shadow-v0.1",
+  "contract_path": "research/strategy/theme-regime-context-shadow-v0.1.json",
+  "contract_file_sha256": "a5193a5fcd40b3435960ceefdaa89cc3777aaad535c7414ac592fe9e9787fe38",
+  "contract_content_sha256": "e240babc3004c33f2a9fd16ed80f3be24d8a332c48eb603ebfe57a9c795a92e0",
+  "registered_panel": {
+    "panel_id": "ross-context-heldout-panel-v0.1",
+    "panel_content_sha256": "d227792368b3bff5c3c2365cacd204c11b7991daeb557efba450c22f076d8898"
+  },
+  "causal_order": [
+    "point_in_time_scanner_and_provider_news_data",
+    "label_blind_theme_regime_reconstruction",
+    "frozen_hashed_runtime_artifact",
+    "retrospective_recap_evidence"
+  ],
+  "evidence_review_state": {
+    "registered_panel_recap_inventory_started": false,
+    "registered_panel_recap_opened": false,
+    "uploaded_transcript_archive_opened_for_this_change": false,
+    "retrospective_actions_or_outcomes_used": false
+  },
+  "decision": {
+    "freeze_theme_regime_schema_v01": true,
+    "freeze_hot_cold_threshold": false,
+    "freeze_theme_fit_rule": false,
+    "freeze_no_news_acceptance_threshold": false,
+    "promote_theme_regime_rule": false,
+    "change_micro_v01": false,
+    "change_scanner_thresholds": false
+  },
+  "runtime_status": {
+    "heldout_theme_regime_runtime_materialized": false,
+    "context_snapshot_binding_enabled_after_artifact_freeze": true,
+    "runtime_strategy_effect": "none"
+  }
+}

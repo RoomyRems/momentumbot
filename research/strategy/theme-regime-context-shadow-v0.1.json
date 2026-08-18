@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "contract_id": "theme-regime-context-shadow-v0.1",
+  "artifact_type": "causal_theme_regime_evidence_contract",
+  "status": "frozen_schema_builder_no_heldout_runtime_artifact",
+  "runtime_strategy_effect": "none",
+  "policy_promotion_eligible": false,
+  "ai_order_authority": false,
+  "ai_risk_authority": false,
+  "hot_cold_threshold_frozen": false,
+  "theme_fit_rule_frozen": false,
+  "no_news_acceptance_threshold_frozen": false,
+  "source_contracts": {
+    "scanner": {
+      "contract_id": "causal-scanner-snapshot-v0.1",
+      "policy_fingerprint": "ed21becad10855b4a085b6e05b6feac8f21e4ce511a100b2381522154818f42a"
+    },
+    "publication_timed_news": {
+      "contract_id": "causal-alpaca-news-v0.2"
+    }
+  },
+  "feature_protocol": {
+    "current_session_observation_clock": "exact_candidate_decision_minute",
+    "prior_completed_session_lookback": 5,
+    "current_session_fields": [
+      "same_minute_ranked_candidate_cohort",
+      "candidate_activation_chronology_as_of_decision",
+      "provider_news_no_news_and_error_counts",
+      "available_provider_headline_story_universe",
+      "cross_candidate_story_associations"
+    ],
+    "prior_session_fields": [
+      "candidate_count",
+      "activation_chronology",
+      "final_provider_news_no_news_and_error_counts",
+      "final_rank_leader"
+    ],
+    "hot_cold_threshold": null,
+    "theme_fit_rule": null,
+    "no_news_acceptance_threshold": null,
+    "aggregate_score": null,
+    "provider_relative_absence_remains_provider_relative": true
+  },
+  "context_binding": {
+    "context_assessment_contract_id": "discretion-context-assessment-shadow-v0.1",
+    "evidence_domain": "theme_regime",
+    "record_type": "causal_theme_regime_evidence",
+    "source_artifact_hash_required_before_snapshot_binding": true
+  },
+  "prohibited_outputs": [
+    "hot_cold_regime_label",
+    "theme_fit_classification",
+    "no_news_acceptance_classification",
+    "aggregate_context_score",
+    "candidate_priority",
+    "selection_action",
+    "trade_recommendation",
+    "order_action",
+    "position_size",
+    "risk_action"
+  ],
+  "evaluation_boundary": {
+    "registered_panel_id": "ross-context-heldout-panel-v0.1",
+    "registered_panel_content_sha256": "d227792368b3bff5c3c2365cacd204c11b7991daeb557efba450c22f076d8898",
+    "runtime_frozen_before_recap_review": true,
+    "raw_transcripts_allowed_in_runtime": false,
+    "retrospective_labels_allowed_in_runtime": false,
+    "policy_promotion_from_this_contract_allowed": false
+  }
+}

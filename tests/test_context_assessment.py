@@ -23,6 +23,10 @@ from momentumbot.research.daily_chart_context import (
     build_daily_chart_evidence,
     daily_chart_supplemental_evidence,
 )
+from momentumbot.research.theme_regime_context import (
+    build_theme_regime_evidence,
+    theme_regime_supplemental_evidence,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -326,6 +330,42 @@ class ContextAssessmentTests(unittest.TestCase):
         )
         self.assertIsNone(
             daily_item["payload"]["prohibited_outputs"]["selection_action"]
+        )
+
+    def test_frozen_theme_regime_record_binds_as_supplemental_evidence(self):
+        scanner = _scanner_row()
+        event = {**_event(), "symbol": "AAA"}
+        record = build_theme_regime_evidence(
+            [scanner],
+            [event],
+            [],
+            symbol="AAA",
+            decision_time="2026-08-03T13:31:00+00:00",
+            source_artifact_content_sha256s={
+                "scanner_records": "1" * 64,
+                "publication_timed_news_events": "2" * 64,
+                "prior_session_summaries": "3" * 64,
+            },
+        )
+        supplemental = theme_regime_supplemental_evidence(
+            record,
+            source_artifact_content_sha256="4" * 64,
+        )
+        snapshot = _snapshot(supplemental=[supplemental])
+        coverage = snapshot["evidence_coverage"]["theme_regime"]
+        self.assertTrue(coverage["evidence_present"])
+        self.assertEqual(coverage["evidence_ids"], [supplemental["evidence_id"]])
+        item = next(
+            item
+            for item in snapshot["evidence_items"]
+            if item["domain"] == "theme_regime"
+        )
+        self.assertEqual(
+            item["payload"]["record_content_sha256"],
+            record["record_content_sha256"],
+        )
+        self.assertIsNone(
+            item["payload"]["prohibited_outputs"]["selection_action"]
         )
 
     def test_snapshot_rejects_future_headline_even_after_self_rehash(self):
