@@ -1,0 +1,67 @@
+{
+  "artifact_id": "campaign-portfolio-account-state-v0.1",
+  "artifact_type": "research_campaign_portfolio_account_state_mechanical_audit",
+  "status": "frozen_standalone_mechanical_foundation",
+  "audit_date": "2026-08-19",
+  "source_parent_commit": "5f90fc3581911cabaa4bbfb057dd837d2318f631",
+  "contract": {
+    "path": "research/strategy/campaign-portfolio-account-state-v0.1.json",
+    "canonical_content_sha256": "f2a80f4350e6283e2638702d70515bf03ee6c930e7d52706d09ef5e1d9f419b6",
+    "file_sha256": "78d92157013a63ef503f379673cd4366f606977d12f66e0ac0fb29c2aa15afe1"
+  },
+  "implementation": {
+    "path": "src/momentumbot/research/campaign_portfolio.py",
+    "file_sha256": "5e8b5fb8e42cc739b8337bb544b811e57ccda2df5e7f46ca65ef5a30472149c4",
+    "documentation_path": "docs/research/campaign_portfolio_account_state_v01.md",
+    "documentation_file_sha256": "1bf84eaa8fff23b0ca726f3f23166db6a9a7695c345cae29cc16eb4e29a3356e"
+  },
+  "frozen_parents": {
+    "micro_policy_id": "micro-v0.1",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "context_comparison_id": "ross-context-heldout-comparison-v0.1",
+    "context_comparison_content_sha256": "d93d61ed0ebd5657bbed135beb7fe2d7b0f337d1e3f76720c0f1dcff7908ff54"
+  },
+  "implemented_mechanics": [
+    "stable account-scoped campaign identity keyed by candidate activation",
+    "repeated plan-emission consolidation",
+    "separate main and small account state",
+    "FIFO held-position lots and cash-like remaining buying power",
+    "total and per-campaign notional and open-risk limits",
+    "starter, add and re-entry state with no averaging down",
+    "halt and resume state",
+    "realized daily PnL and high-water state",
+    "irreversible daily-loss, profit-giveback and manual account locks",
+    "flatten-required state while allowing exits after lock",
+    "simultaneous-opportunity collision recording without selection"
+  ],
+  "authority_boundary": {
+    "runtime_integration": false,
+    "strategy_authority": false,
+    "candidate_selection_authority": false,
+    "order_creation_or_sizing_authority": false,
+    "fill_synthesis_authority": false,
+    "policy_promotion_eligible": false,
+    "portfolio_backtest_eligible": false
+  },
+  "knowledge_boundary": {
+    "supplied_transcript_archives_opened": false,
+    "retrospective_labels_used_by_implementation": false,
+    "later_market_outcomes_used_by_implementation": false,
+    "runtime_inputs": "caller-supplied event-time plan, fill, halt, account and policy state only"
+  },
+  "verification": {
+    "focused_command": "PYTHONPATH=src python -m unittest tests.test_campaign_portfolio -v",
+    "focused_expected": "19 tests passing",
+    "full_command": "PYTHONPATH=src python -m unittest discover -s tests -v",
+    "full_expected": "469 tests passing",
+    "synthetic_fixtures_only": true
+  },
+  "unresolved_before_integration": [
+    "No numerical main- or small-account policy is registered by this contract.",
+    "No deterministic priority is registered for simultaneous opportunities competing for scarce capital.",
+    "No broker settlement, margin, locate, partial-fill, cancellation or replacement model is integrated.",
+    "The frozen held-out runtime has not been replayed through this ledger.",
+    "No historical portfolio artifact or PnL result exists at this checkpoint."
+  ],
+  "decision": "Retain the ledger as a frozen standalone mechanical foundation. Register numerical account policies and a scarce-capital priority before any label-blind chronological integration; policy promotion remains false."
+}

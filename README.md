@@ -19,9 +19,10 @@ For a cold-start project map, current checkpoint and experiment protocol, begin 
 - fill/slippage revalidation before accepting an entry;
 - uncapped chart-based winners with red-candle/topping-tail baseline exits;
 - deterministic session risk state and irreversible lockouts;
+- standalone account-scoped campaign/portfolio ledger with buying-power, held-position, halt, entry-role and daily-P&L state;
 - frozen-snapshot contract requiring a complete universe and point-in-time float;
 - conservative OHLC ambiguity handling;
-- campaign IDs so repeated entries in one ticker episode are not mistaken for independent ideas.
+- campaign IDs so repeated plan emissions in one candidate activation are not mistaken for independent ideas.
 
 ## Evidence discipline
 
@@ -52,6 +53,6 @@ The simulator uses the separate `paper-safe` risk policy by default. The aggress
 
 ## Current gate
 
-The ten-session scanner, unchanged Micro-v0.1 replay, retrospective Ross labels and no-retuning component comparison are frozen. The 2026-07-24 through 2026-08-06 context panel now also has a verified deterministic runtime, a frozen label-blind compiled semantic shadow, frozen conservative account-scoped labels and a frozen descriptive component comparison. The active gate is causal campaign, portfolio and account-state representation; no fitted context score or policy was promoted. See `docs/project/current_state.md` for the exact checkpoint and next steps.
+The ten-session scanner, unchanged Micro-v0.1 replay, retrospective Ross labels and no-retuning component comparison are frozen. The 2026-07-24 through 2026-08-06 context panel now also has a verified deterministic runtime, a frozen label-blind compiled semantic shadow, frozen conservative account-scoped labels and a frozen descriptive component comparison. A standalone causal campaign/portfolio/account-state ledger is now frozen mechanically with no numerical account policy and no runtime integration. The active gate is to register those main/small constraints and a deterministic scarce-capital priority before a new label-blind chronological integration. No fitted context score or policy was promoted. See `docs/project/current_state.md` for the exact checkpoint and next steps.
 
 The provisional universe makes an auditable decision for every fetched historical ticker but remains explicitly non-promotable until those downstream gates are complete. A current provider asset census—even one containing inactive rows—remains conditional diagnostic evidence only. AI remains shadow-only until the deterministic baseline has credible walk-forward results.

@@ -73,6 +73,12 @@ The first two strategy profiles are:
 
 The paper risk policy is deliberately separate from Ross's account-sizing examples. `paper-safe` currently risks 0.25% of starting/current equity per trade, caps position value at 50% of equity, and locks after a 1% daily loss or 50% profit giveback. This is a project safety policy, not a claim about Ross's exact risk size.
 
+## Campaign and account-state boundary
+
+`campaign-portfolio-account-state-v0.1` is the standalone event-state foundation between frozen opportunity/execution evidence and a future portfolio replay. It groups repeated plan emissions by candidate activation while binding campaign identity to the unique account, main/small class and policy version. It reconciles caller-supplied fills against held lots, buying power, notional, open risk, entry-role, halt, position-count, daily-P&L and terminal-lock state.
+
+The ledger has no account-limit defaults and is not wired to the baseline runtime. It does not choose among equal-time opportunities, create or size orders, or synthesize fills. A simultaneous capital collision remains explicitly unresolved until a deterministic priority is separately registered. This keeps position/account mechanics deterministic without smuggling in an untested selection or aggression policy.
+
 ## Causal setup translation
 
 The first deterministic setup is the current first-pullback confirmation entry. It requires a fresh session-high impulse, <=50% pullback, volume contraction, VWAP/EMA9 support, positive 12/26/9 MACD, limited topping-tail rejection, and >=2R room back to the prior high. The trigger is armed from completed data for the next bar.

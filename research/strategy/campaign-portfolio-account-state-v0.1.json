@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "contract_id": "campaign-portfolio-account-state-v0.1",
+  "artifact_type": "research_campaign_portfolio_account_state_contract",
+  "status": "preregistered_mechanical_shadow_contract",
+  "runtime_strategy_effect": "none_until_separately_promoted",
+  "integration_status": "standalone_research_ledger_not_wired_to_runtime",
+  "policy_promotion_eligible": false,
+  "portfolio_backtest_eligible": false,
+  "contains_account_limit_values": false,
+  "hypothesis": "An event-sourced account ledger can consolidate repeated Micro-v0.1 plan emissions into account-scoped candidate campaigns and reject mechanically infeasible supplied fills without using retrospective labels or changing candidate, setup, execution, sizing, or selection policy.",
+  "frozen_parents": {
+    "micro_policy_id": "micro-v0.1",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "context_comparison_id": "ross-context-heldout-comparison-v0.1",
+    "context_comparison_content_sha256": "d93d61ed0ebd5657bbed135beb7fe2d7b0f337d1e3f76720c0f1dcff7908ff54",
+    "unchanged_components": [
+      "causal scanner membership and thresholds",
+      "micro-v0.1 setup and trigger policy",
+      "micro execution reconstruction",
+      "context deterministic and semantic shadows",
+      "retrospective label and comparison artifacts"
+    ]
+  },
+  "knowledge_policy": {
+    "inputs_available_by_event_time": true,
+    "raw_transcripts_allowed": false,
+    "retrospective_behavior_labels_allowed": false,
+    "later_market_outcomes_allowed": false,
+    "ai_selection_or_order_authority": false,
+    "ai_risk_increase_authority": false
+  },
+  "authority_boundary": {
+    "chooses_between_simultaneous_opportunities": false,
+    "creates_or_sizes_orders": false,
+    "synthesizes_fills": false,
+    "changes_scanner_or_micro_policy": false,
+    "validates_caller_supplied_event_feasibility": true
+  },
+  "campaign_key_fields": [
+    "session_date",
+    "account_id",
+    "account_policy_id",
+    "account_class",
+    "candidate_activation_id",
+    "symbol"
+  ],
+  "account_classes": ["main", "small"],
+  "required_causal_state": [
+    "held_position_lots",
+    "remaining_buying_power",
+    "open_position_count",
+    "open_notional",
+    "open_risk",
+    "starter_add_reentry_state",
+    "halt_state",
+    "realized_daily_pnl",
+    "daily_pnl_high_water",
+    "terminal_account_lock",
+    "simultaneous_opportunity_groups"
+  ],
+  "required_account_constraint_inputs": [
+    "unique account ID",
+    "registered policy ID",
+    "account class",
+    "starting equity",
+    "starting buying power",
+    "maximum open positions",
+    "maximum total and per-campaign open notional",
+    "maximum total and per-campaign open risk",
+    "maximum entries per campaign",
+    "starter maximum notional",
+    "daily maximum loss",
+    "profit giveback fraction",
+    "re-entry permission",
+    "optional entry slippage ceiling"
+  ],
+  "event_contract": {
+    "ordering": "timezone-aware, session-bounded, nondecreasing timestamps plus explicit ledger sequence",
+    "plan_emissions": "already-qualified Micro plan events sharing one candidate activation are one campaign",
+    "entry_fills": "caller-supplied and execution-approved; the ledger validates but never creates or resizes them",
+    "exit_fills": "caller-supplied; accepted exits update FIFO lots, buying power, realized PnL and session guards",
+    "lock_behavior": "terminal for new entries; open positions remain marked flatten-required and supplied exit fills remain admissible",
+    "halt_behavior": "supplied entry and exit fills are rejected while the symbol is halted"
+  },
+  "simultaneous_opportunity_policy": "record the collision; require an externally registered deterministic priority or observed event sequence; never choose by iteration order",
+  "mechanical_rejection_reasons": [
+    "unknown plan",
+    "account locked",
+    "campaign terminal",
+    "symbol halted",
+    "execution not approved",
+    "invalid quantity or price",
+    "incorrect starter/add/re-entry role",
+    "re-entry disabled",
+    "campaign entry limit",
+    "averaging down prohibited",
+    "starter notional limit",
+    "entry slippage limit",
+    "insufficient buying power",
+    "total or campaign notional limit",
+    "total or campaign risk limit",
+    "open position limit"
+  ],
+  "prohibited_interpretations": [
+    "The ledger does not establish a Ross-like sizing policy.",
+    "A mechanically feasible fill is not a trade recommendation or evidence that Ross would take it.",
+    "Recorded simultaneous opportunities are not ranked or selected.",
+    "The standalone ledger is not a portfolio backtest and cannot support a profitability claim."
+  ],
+  "promotion_gate": "Register account-specific numerical policies and a deterministic simultaneous-opportunity priority, integrate the frozen scanner, Micro and execution streams on a new label-blind chronological panel, freeze the runtime artifact, and only then open retrospective actions or outcomes for descriptive evaluation."
+}

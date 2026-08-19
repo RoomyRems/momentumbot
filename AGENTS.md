@@ -30,6 +30,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 | Context semantic shadow | `docs/research/context_semantic_shadow_v01.md` | frozen rubric, artifact manifest and `context_semantic_shadow.py` |
 | Context held-out retrospective labels | `docs/research/context_heldout_labels_v01.md` | frozen label audit and `context_heldout_labels.py` |
 | Context held-out component comparison | `docs/research/context_heldout_comparison_v01.md` | frozen comparison audit and `context_heldout_comparison.py` |
+| Campaign/portfolio/account state | `docs/research/campaign_portfolio_account_state_v01.md` | registered contract and `campaign_portfolio.py` standalone ledger |
 
 ## Component route
 
