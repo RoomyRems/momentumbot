@@ -1,0 +1,77 @@
+{
+  "audit_id": "context-heldout-runtime-v0.1-run-32204337846-attempt-1-failure-2026-08-19",
+  "causal_boundary": {
+    "all_market_candidates_retained": true,
+    "runtime_strategy_effect": "none",
+    "semantic_ai_included": false,
+    "top_n_selection_applied": false,
+    "uses_later_price_outcomes": false,
+    "uses_raw_transcripts": false,
+    "uses_recap_inventory": false,
+    "uses_retrospective_labels": false,
+    "uses_ross_actions": false
+  },
+  "completed_stages": {
+    "contract_and_regression_step_passed": true,
+    "provider_pipeline_completed": false
+  },
+  "diagnostic_artifact": {
+    "eligible_as_frozen_runtime": false,
+    "id": 9348619522,
+    "name": "context-heldout-runtime-v0.1",
+    "size_bytes": 1575590,
+    "zip_sha256": "d6f89b2c45e3f1fddccbf32103a382fd9200255563e256fe51028f19690a0b96"
+  },
+  "disposition": {
+    "label_review_eligible": false,
+    "partial_artifact_frozen": false,
+    "policy_promotion_eligible": false,
+    "runtime_strategy_effect": "none"
+  },
+  "failure": {
+    "callsite": "scripts/build_massive_historical_census.py provider request",
+    "exact_error": "HTTP 429 for provider request: {\"status\":\"ERROR\",\"request_id\":\"583de13589ea372d78f3f844d73c9b1d\",\"error\":\"You've exceeded the maximum requests per minute, please wait or upgrade your subscription to continue. https://massive.com/pricing\"}",
+    "failed_step": "Build registered label-blind market and scanner runtime",
+    "provider": "Massive historical ticker census",
+    "root_cause": "Massive enforced its requests-per-minute limit while this run and a separate provider-heavy census workflow from the same push overlapped. The registered runtime request, contracts, and local regressions had already passed; no trading policy was involved.",
+    "root_cause_classification": "transient_provider_rate_limit_during_concurrent_workflows",
+    "status_code": 429
+  },
+  "recorded_at_utc": "2026-08-19T10:35:11Z",
+  "registered_inputs": {
+    "prior_runtime_manifest_content_sha256": "2414f7389bf68d5a5e4b3302c646c9111020cb79ce06fc0213f7872062f79c48",
+    "registered_dates": [
+      "2026-07-24",
+      "2026-07-27",
+      "2026-07-28",
+      "2026-07-29",
+      "2026-07-30",
+      "2026-07-31",
+      "2026-08-03",
+      "2026-08-04",
+      "2026-08-05",
+      "2026-08-06"
+    ],
+    "runtime_request_content_sha256": "9459660565c6c76c4af2fd09fd8362789bfda89fe57601d0f016b189112bbff0"
+  },
+  "retry": {
+    "attempt": 2,
+    "code_changed_before_retry": false,
+    "data_policy_changed": false,
+    "micro_policy_changed": false,
+    "scanner_thresholds_changed": false,
+    "status": "performed_exactly_once_after_competing_workflow_reached_terminal_state"
+  },
+  "schema_version": 1,
+  "workflow": {
+    "branch": "phase-3-historical-snapshot",
+    "conclusion": "failure",
+    "head_sha": "dda548424db234444294dbfb76c9e0b67ba75a3b",
+    "head_tree_sha": "0d14a3d6b937524b4ab8c9a732d28dae9a694729",
+    "job_id": 95924458910,
+    "name": "Context held-out label-blind runtime",
+    "repository": "RoomyRems/momentumbot",
+    "run_attempt": 1,
+    "run_id": 32204337846
+  }
+}

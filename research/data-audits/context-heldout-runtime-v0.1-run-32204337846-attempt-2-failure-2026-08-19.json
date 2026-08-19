@@ -1,0 +1,101 @@
+{
+  "audit_id": "context-heldout-runtime-v0.1-run-32204337846-attempt-2-failure-2026-08-19",
+  "causal_boundary": {
+    "all_market_candidates_retained": true,
+    "runtime_strategy_effect": "none",
+    "semantic_ai_included": false,
+    "top_n_selection_applied": false,
+    "uses_later_price_outcomes": false,
+    "uses_raw_transcripts": false,
+    "uses_recap_inventory": false,
+    "uses_retrospective_labels": false,
+    "uses_ross_actions": false
+  },
+  "completed_stages": {
+    "contract_and_regression_step_passed": true,
+    "market_candidate_counts": {
+      "2026-07-24": 10,
+      "2026-07-27": 14,
+      "2026-07-28": 14,
+      "2026-07-29": 18,
+      "2026-07-30": 22,
+      "2026-07-31": 11,
+      "2026-08-03": 19,
+      "2026-08-04": 20,
+      "2026-08-05": 30,
+      "2026-08-06": 37
+    },
+    "market_candidate_total": 195,
+    "provider_independent_scanner_replay_validated_for_all_dates": true,
+    "provider_pipeline_completed": true,
+    "registered_dates_completed": [
+      "2026-07-24",
+      "2026-07-27",
+      "2026-07-28",
+      "2026-07-29",
+      "2026-07-30",
+      "2026-07-31",
+      "2026-08-03",
+      "2026-08-04",
+      "2026-08-05",
+      "2026-08-06"
+    ]
+  },
+  "diagnostic_artifact": {
+    "eligible_as_frozen_runtime": false,
+    "id": 9351037605,
+    "name": "context-heldout-runtime-v0.1",
+    "size_bytes": 30064918,
+    "zip_sha256": "08167f2239368ef5b5d752652d48899af3929acdfc3b3d09865822b68375ed1c"
+  },
+  "disposition": {
+    "label_review_eligible": false,
+    "partial_artifact_frozen": false,
+    "policy_promotion_eligible": false,
+    "runtime_strategy_effect": "none"
+  },
+  "failure": {
+    "callsite": "scripts/build_context_heldout_market_runtime.py:freeze_market_runtime_manifest",
+    "exact_error": "NameError: name 'contract_hash' is not defined",
+    "failed_step": "Build registered label-blind market and scanner runtime",
+    "root_cause": "The final manifest freezer loaded the panel contract but referenced contract_hash and request variables that were scoped only inside verify_registered_sessions. The provider pipeline and provider-independent scanner replay had completed before the unbound registration fields were assembled.",
+    "root_cause_classification": "unbound_registration_variables_in_final_manifest_path",
+    "subsequent_unreached_error": "The next registration field also referenced request, which was undefined in the same function."
+  },
+  "recorded_at_utc": "2026-08-19T10:35:11Z",
+  "registered_inputs": {
+    "prior_runtime_manifest_content_sha256": "2414f7389bf68d5a5e4b3302c646c9111020cb79ce06fc0213f7872062f79c48",
+    "registered_dates": [
+      "2026-07-24",
+      "2026-07-27",
+      "2026-07-28",
+      "2026-07-29",
+      "2026-07-30",
+      "2026-07-31",
+      "2026-08-03",
+      "2026-08-04",
+      "2026-08-05",
+      "2026-08-06"
+    ],
+    "runtime_request_content_sha256": "9459660565c6c76c4af2fd09fd8362789bfda89fe57601d0f016b189112bbff0"
+  },
+  "repair": {
+    "data_policy_changed": false,
+    "final_manifest_path_regression_added": true,
+    "micro_policy_changed": false,
+    "registration_contract_and_request_loaded_in_shared_validated_helper": true,
+    "scanner_thresholds_changed": false
+  },
+  "schema_version": 1,
+  "workflow": {
+    "branch": "phase-3-historical-snapshot",
+    "conclusion": "failure",
+    "head_sha": "dda548424db234444294dbfb76c9e0b67ba75a3b",
+    "head_tree_sha": "0d14a3d6b937524b4ab8c9a732d28dae9a694729",
+    "job_id": 95928812668,
+    "name": "Context held-out label-blind runtime",
+    "repository": "RoomyRems/momentumbot",
+    "run_attempt": 2,
+    "run_id": 32204337846
+  }
+}

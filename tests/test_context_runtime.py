@@ -3,6 +3,8 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from types import SimpleNamespace
+from unittest.mock import patch
 
 import pandas as pd
 
@@ -24,7 +26,10 @@ from momentumbot.research.daily_chart_context import (
     CONTRACT_ID as DAILY_CONTRACT_ID,
 )
 from scripts.build_context_daily_chart_runtime import build_daily_records_for_date
-from scripts.build_context_heldout_market_runtime import provider_pipeline_commands
+from scripts.build_context_heldout_market_runtime import (
+    freeze_market_runtime_manifest,
+    provider_pipeline_commands,
+)
 from scripts.build_context_snapshot_runtime import resolve_prior_runtime_root
 from tests.test_context_assessment import _scanner_row
 
@@ -187,6 +192,67 @@ class ContextRuntimeTests(unittest.TestCase):
         self.assertFalse(audit["disposition"]["policy_promotion_eligible"])
         self.assertEqual(audit["disposition"]["runtime_strategy_effect"], "none")
 
+    def test_run_32204337846_failures_are_permanent_and_not_promotable(self):
+        root = Path(__file__).resolve().parents[1] / "research" / "data-audits"
+        attempts = {
+            number: json.loads(
+                (
+                    root
+                    / (
+                        "context-heldout-runtime-v0.1-run-32204337846-"
+                        f"attempt-{number}-failure-2026-08-19.json"
+                    )
+                ).read_text(encoding="utf-8")
+            )
+            for number in (1, 2)
+        }
+        for number, audit in attempts.items():
+            self.assertEqual(audit["workflow"]["run_id"], 32204337846)
+            self.assertEqual(audit["workflow"]["run_attempt"], number)
+            self.assertEqual(audit["workflow"]["conclusion"], "failure")
+            self.assertEqual(
+                audit["registered_inputs"]["runtime_request_content_sha256"],
+                RUNTIME_REQUEST_CONTENT_SHA256,
+            )
+            self.assertEqual(
+                audit["registered_inputs"][
+                    "prior_runtime_manifest_content_sha256"
+                ],
+                "2414f7389bf68d5a5e4b3302c646c9111020cb79ce06fc0213f7872062f79c48",
+            )
+            for field in (
+                "uses_raw_transcripts",
+                "uses_recap_inventory",
+                "uses_ross_actions",
+                "uses_retrospective_labels",
+                "uses_later_price_outcomes",
+                "semantic_ai_included",
+            ):
+                self.assertFalse(audit["causal_boundary"][field])
+            self.assertFalse(audit["disposition"]["partial_artifact_frozen"])
+            self.assertFalse(audit["disposition"]["label_review_eligible"])
+            self.assertFalse(audit["disposition"]["policy_promotion_eligible"])
+            self.assertEqual(
+                audit["disposition"]["runtime_strategy_effect"], "none"
+            )
+        self.assertEqual(attempts[1]["failure"]["status_code"], 429)
+        self.assertTrue(
+            attempts[1]["completed_stages"]["contract_and_regression_step_passed"]
+        )
+        self.assertFalse(attempts[1]["retry"]["code_changed_before_retry"])
+        self.assertEqual(
+            attempts[2]["failure"]["root_cause_classification"],
+            "unbound_registration_variables_in_final_manifest_path",
+        )
+        self.assertTrue(
+            attempts[2]["completed_stages"][
+                "provider_independent_scanner_replay_validated_for_all_dates"
+            ]
+        )
+        self.assertEqual(
+            attempts[2]["completed_stages"]["market_candidate_total"], 195
+        )
+
     def test_workflow_uses_registered_builders_and_no_transcript_archive(self):
         root = Path(__file__).resolve().parents[1]
         workflow = (
@@ -256,6 +322,71 @@ class ContextRuntimeTests(unittest.TestCase):
             [REGISTERED_DATES[0], REGISTERED_DATES[-1]],
         )
         self.assertIn("--persist-source-inputs", commands[-1])
+
+    def test_final_market_manifest_path_loads_and_binds_frozen_registration(self):
+        scanner_rows = [{"symbol": "AAA", "decision_time": "2026-07-24T08:00:00-04:00"}]
+        source_inputs = SimpleNamespace(
+            trading_date=REGISTERED_DATES[0],
+            source_hashes={"source": "a" * 64},
+            membership_symbols=("AAA",),
+            candidate_symbols=("AAA",),
+            previous_close_by_symbol={},
+            rank_raw_minute_bars_by_symbol={},
+            candidate_raw_minute_bars_by_symbol={},
+            candidate_exact_rvol_by_symbol={},
+        )
+        calendar = {
+            "schema_version": 1,
+            "dates": list(REGISTERED_DATES),
+            "sessions": [
+                {"trading_date": value, "session_observed": True}
+                for value in REGISTERED_DATES
+            ],
+        }
+        with tempfile.TemporaryDirectory() as temporary, patch(
+            "scripts.build_context_heldout_market_runtime._root_content_sha256",
+            return_value="a" * 64,
+        ), patch(
+            "scripts.build_context_heldout_market_runtime.load_identity_resolved_universe",
+            return_value=([{"ticker": "AAA"}], {}, {}),
+        ), patch(
+            "scripts.build_context_heldout_market_runtime.load_market_candidate_payload",
+            return_value=([{"symbol": "AAA"}], {}, {}),
+        ), patch(
+            "scripts.build_context_heldout_market_runtime.load_causal_float_records",
+            return_value=([], {"summary": {"records_sha256": "b" * 64}}),
+        ), patch(
+            "scripts.build_context_heldout_market_runtime.load_publication_timed_news",
+            return_value=([], {}, {}),
+        ), patch(
+            "scripts.build_context_heldout_market_runtime.load_scanner_source_input_bundle",
+            return_value=(source_inputs, {"content_sha256": "c" * 64}),
+        ), patch(
+            "scripts.build_context_heldout_market_runtime.load_causal_scanner_snapshot",
+            return_value=(scanner_rows, {"content_sha256": "d" * 64}, {}),
+        ), patch(
+            "scripts.build_context_heldout_market_runtime.build_scanner_snapshot_rows",
+            return_value=scanner_rows,
+        ):
+            manifest = freeze_market_runtime_manifest(
+                Path(temporary) / "runtime",
+                calendar=calendar,
+                workflow_run_id=1,
+                workflow_run_attempt=3,
+                workflow_job="build",
+                head_sha="e" * 40,
+            )
+
+        self.assertEqual(
+            manifest["registration"]["contract_content_sha256"],
+            FROZEN_CONTRACT_CONTENT_SHA256S["context_panel_content_sha256"],
+        )
+        self.assertEqual(
+            manifest["registration"]["request_content_sha256"],
+            RUNTIME_REQUEST_CONTENT_SHA256,
+        )
+        self.assertEqual(manifest["workflow"]["run_attempt"], 3)
+        self.assertEqual(len(manifest["date_results"]), len(REGISTERED_DATES))
 
     def test_prior_runtime_root_accepts_direct_or_named_artifact_layout_only(self):
         with tempfile.TemporaryDirectory() as temporary:

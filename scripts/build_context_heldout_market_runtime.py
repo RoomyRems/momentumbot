@@ -40,6 +40,23 @@ ET = ZoneInfo("America/New_York")
 _LOWER_HEX = frozenset("0123456789abcdef")
 
 
+def _load_registration_binding() -> tuple[
+    dict[str, object], dict[str, object], str
+]:
+    contract = load_context_heldout_panel_contract(
+        "research/strategy/context-heldout-panel-v0.1.json"
+    )
+    request = load_context_runtime_request(
+        "research/data-audits/context-heldout-runtime-request-v0.1.json"
+    )
+    contract_hash = canonical_fingerprint(contract)
+    if contract_hash != request["frozen_contracts"][
+        "context_panel_content_sha256"
+    ]:
+        raise RuntimeError("context panel differs from the registered request")
+    return contract, request, contract_hash
+
+
 def _root_content_sha256(path: Path, *, dates: list[str]) -> str:
     payload = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(payload, dict) or payload.get("dates") != dates:
@@ -195,17 +212,7 @@ def verify_registered_sessions(client: AlpacaDataClient) -> dict[str, object]:
                 "session_observed": True,
             }
         )
-    contract = load_context_heldout_panel_contract(
-        "research/strategy/context-heldout-panel-v0.1.json"
-    )
-    request = load_context_runtime_request(
-        "research/data-audits/context-heldout-runtime-request-v0.1.json"
-    )
-    contract_hash = canonical_fingerprint(contract)
-    if contract_hash != request["frozen_contracts"][
-        "context_panel_content_sha256"
-    ]:
-        raise RuntimeError("context panel differs from the registered request")
+    contract, _, contract_hash = _load_registration_binding()
     return {
         "schema_version": 1,
         "contract_id": contract["contract_id"],
@@ -227,9 +234,7 @@ def freeze_market_runtime_manifest(
     head_sha: str,
 ) -> dict[str, object]:
     dates = list(REGISTERED_DATES)
-    contract = load_context_heldout_panel_contract(
-        "research/strategy/context-heldout-panel-v0.1.json"
-    )
+    contract, request, contract_hash = _load_registration_binding()
     sessions = calendar.get("sessions")
     if (
         calendar.get("dates") != dates
