@@ -1,0 +1,3636 @@
+{
+  "artifact_id": "ross-context-heldout-semantic-shadow-runtime-v0.1",
+  "causal_boundary": {
+    "runtime_strategy_effect": "none",
+    "uses_later_prices": false,
+    "uses_raw_transcripts": false,
+    "uses_recap_inventory": false,
+    "uses_retrospective_labels": false,
+    "uses_ross_actions": false,
+    "uses_trade_outcomes": false
+  },
+  "content_sha256": "4690caf4569c9cc6101fcb8acf9a0f3c932f951a135604f67fe7a09e4a50b650",
+  "contract_id": "discretion-context-assessment-shadow-v0.1",
+  "policy_promotion_eligible": false,
+  "record_count": 21,
+  "records": [
+    {
+      "assessment_content_sha256": "65d96852373229e3971e11c8e23041123067b64105b9a39a67554e49c4a3f908",
+      "assessment_origin": "shadow_ai",
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60682636",
+            "headline:alpaca-benzinga:60688317"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_commitment_stage.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60682636",
+                "headline:alpaca-benzinga:60688317"
+              ],
+              "statement": "The available wording supports the bounded commitment-stage class ambiguous_commitment_stage."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_commitment_stage.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60682636",
+                "headline:alpaca-benzinga:60688317"
+              ],
+              "statement": "2 provider headline(s) were available at the decision time: 12 Industrials Stocks Moving In Friday's After-Market Session | Why Forte Biosciences Shares Are Trading Higher By 39%; Here Are 20 Stocks Moving Premarket"
+            }
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60682636",
+            "headline:alpaca-benzinga:60688317"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_substance_specificity.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60682636",
+                "headline:alpaca-benzinga:60688317"
+              ],
+              "statement": "The available headline wording supports the bounded substance class vague_or_incidental_event."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_substance_specificity.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60682636",
+                "headline:alpaca-benzinga:60688317"
+              ],
+              "statement": "2 provider headline(s) were available at the decision time: 12 Industrials Stocks Moving In Friday's After-Market Session | Why Forte Biosciences Shares Are Trading Higher By 39%; Here Are 20 Stocks Moving Premarket"
+            }
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:BIYA:31d1a54811942acf4b6081d85868b2c403fc6b13b3b43349b6f050e8b2531ff8"
+          ],
+          "inferences": [
+            {
+              "claim_id": "chart_context_cleanliness.inference.1",
+              "evidence_ids": [
+                "daily-chart:BIYA:31d1a54811942acf4b6081d85868b2c403fc6b13b3b43349b6f050e8b2531ff8"
+              ],
+              "statement": "Those bounded daily-history observations support the chart-context class near_resistance_or_failed_pop_history."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "chart_context_cleanliness.fact.1",
+              "evidence_ids": [
+                "daily-chart:BIYA:31d1a54811942acf4b6081d85868b2c403fc6b13b3b43349b6f050e8b2531ff8"
+              ],
+              "statement": "The frozen daily record had 60 prior completed sessions, nearest overhead distance 45.35477941176469 percent, and 1 recent failed-pop-pattern session(s)."
+            }
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:58ae7e0c528430d9d6239449279c108074797a06be6fc51f01b4b335b12a483f"
+          ],
+          "inferences": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.inference.1",
+              "evidence_ids": [
+                "attention:58ae7e0c528430d9d6239449279c108074797a06be6fc51f01b4b335b12a483f"
+              ],
+              "statement": "Those bounded cross-sectional observations support the leadership class competitive_not_dominant."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.fact.1",
+              "evidence_ids": [
+                "attention:58ae7e0c528430d9d6239449279c108074797a06be6fc51f01b4b335b12a483f"
+              ],
+              "statement": "The candidate's market rank was 5, 1 active candidate(s) ranked better, the gap to the leader was 96.29964746353 percentage points, and consecutive leader minutes were 0."
+            }
+          ],
+          "state": "assessed",
+          "value": "competitive_not_dominant"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:BIYA:747cb95088c260d71618550ce9a5c3c71f973f6897a2f4151eaf4c666a1ceb8d"
+          ],
+          "inferences": [],
+          "observed_facts": [
+            {
+              "claim_id": "theme_fit_no_news_acceptance.fact.1",
+              "evidence_ids": [
+                "theme-regime:BIYA:747cb95088c260d71618550ce9a5c3c71f973f6897a2f4151eaf4c666a1ceb8d"
+              ],
+              "statement": "The theme/regime record reports 4 same-minute candidate(s) and 1 cross-candidate story link(s), but it contains no asserted semantic issuer-theme class."
+            }
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "contract_id": "discretion-context-assessment-shadow-v0.1",
+      "decision_time": "2026-07-27T11:00:00+00:00",
+      "knowledge_policy": {
+        "may_raise_deterministic_risk": false,
+        "may_submit_orders": false,
+        "runtime_strategy_effect": "none",
+        "uses_future_price_outcomes": false,
+        "uses_raw_transcripts": false,
+        "uses_retrospective_behavior_labels": false,
+        "uses_ross_actions": false
+      },
+      "logical_expires_at": "2026-07-27T11:05:00+00:00",
+      "model_provenance": {
+        "generated_at": "2026-08-19T18:41:35Z",
+        "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+        "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+        "prompt_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+        "prompt_id": "context-semantic-shadow-compiled-rubric-v0.1",
+        "provider": "openai"
+      },
+      "prohibited_outputs": {
+        "aggregate_quality_score": null,
+        "candidate_priority": null,
+        "order_action": null,
+        "position_size": null,
+        "risk_action": null,
+        "selection_action": null,
+        "trade_recommendation": null
+      },
+      "record_type": "shadow_semantic_context_assessment",
+      "runtime_strategy_effect": "none",
+      "schema_version": 1,
+      "source_snapshot_content_sha256": "8d5ab6746ff43c27f70cf8d4da0e4b6b0a9a5b1c3db16c790b54a6aeaf590511",
+      "symbol": "BIYA"
+    },
+    {
+      "assessment_content_sha256": "70078dadb54295a73c738ad2001f10596c3362266e1f5b5502d2f08d3a37d23c",
+      "assessment_origin": "shadow_ai",
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60688317"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_commitment_stage.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60688317"
+              ],
+              "statement": "The available wording supports the bounded commitment-stage class ambiguous_commitment_stage."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_commitment_stage.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60688317"
+              ],
+              "statement": "1 provider headline(s) were available at the decision time: Why Forte Biosciences Shares Are Trading Higher By 39%; Here Are 20 Stocks Moving Premarket"
+            }
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60688317"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_substance_specificity.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60688317"
+              ],
+              "statement": "The available headline wording supports the bounded substance class vague_or_incidental_event."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_substance_specificity.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60688317"
+              ],
+              "statement": "1 provider headline(s) were available at the decision time: Why Forte Biosciences Shares Are Trading Higher By 39%; Here Are 20 Stocks Moving Premarket"
+            }
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:DFNS:3f53ec151a1baf5b9b8e4f6fdc8a5d3d9fbbc9654b748eaa7f8c625bda243c97"
+          ],
+          "inferences": [
+            {
+              "claim_id": "chart_context_cleanliness.inference.1",
+              "evidence_ids": [
+                "daily-chart:DFNS:3f53ec151a1baf5b9b8e4f6fdc8a5d3d9fbbc9654b748eaa7f8c625bda243c97"
+              ],
+              "statement": "Those bounded daily-history observations support the chart-context class near_resistance_or_failed_pop_history."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "chart_context_cleanliness.fact.1",
+              "evidence_ids": [
+                "daily-chart:DFNS:3f53ec151a1baf5b9b8e4f6fdc8a5d3d9fbbc9654b748eaa7f8c625bda243c97"
+              ],
+              "statement": "The frozen daily record had 60 prior completed sessions, nearest overhead distance 49.3174061433447 percent, and 2 recent failed-pop-pattern session(s)."
+            }
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "attention:c56fe8bab1ede545f3e8e37e9c9e0721f2f57a5f25b145d566b24d694e755cf4"
+          ],
+          "inferences": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.inference.1",
+              "evidence_ids": [
+                "attention:c56fe8bab1ede545f3e8e37e9c9e0721f2f57a5f25b145d566b24d694e755cf4"
+              ],
+              "statement": "Those bounded cross-sectional observations support the leadership class not_current_leader."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.fact.1",
+              "evidence_ids": [
+                "attention:c56fe8bab1ede545f3e8e37e9c9e0721f2f57a5f25b145d566b24d694e755cf4"
+              ],
+              "statement": "The candidate's market rank was 7, 2 active candidate(s) ranked better, the gap to the leader was 102.51964627241571 percentage points, and consecutive leader minutes were 0."
+            }
+          ],
+          "state": "assessed",
+          "value": "not_current_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:DFNS:62a0b92101bc9713e5812d9e2577656d9ba1902abfdb8608f9698fada8e5ff07"
+          ],
+          "inferences": [],
+          "observed_facts": [
+            {
+              "claim_id": "theme_fit_no_news_acceptance.fact.1",
+              "evidence_ids": [
+                "theme-regime:DFNS:62a0b92101bc9713e5812d9e2577656d9ba1902abfdb8608f9698fada8e5ff07"
+              ],
+              "statement": "The theme/regime record reports 4 same-minute candidate(s) and 1 cross-candidate story link(s), but it contains no asserted semantic issuer-theme class."
+            }
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "contract_id": "discretion-context-assessment-shadow-v0.1",
+      "decision_time": "2026-07-27T11:00:00+00:00",
+      "knowledge_policy": {
+        "may_raise_deterministic_risk": false,
+        "may_submit_orders": false,
+        "runtime_strategy_effect": "none",
+        "uses_future_price_outcomes": false,
+        "uses_raw_transcripts": false,
+        "uses_retrospective_behavior_labels": false,
+        "uses_ross_actions": false
+      },
+      "logical_expires_at": "2026-07-27T11:05:00+00:00",
+      "model_provenance": {
+        "generated_at": "2026-08-19T18:41:35Z",
+        "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+        "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+        "prompt_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+        "prompt_id": "context-semantic-shadow-compiled-rubric-v0.1",
+        "provider": "openai"
+      },
+      "prohibited_outputs": {
+        "aggregate_quality_score": null,
+        "candidate_priority": null,
+        "order_action": null,
+        "position_size": null,
+        "risk_action": null,
+        "selection_action": null,
+        "trade_recommendation": null
+      },
+      "record_type": "shadow_semantic_context_assessment",
+      "runtime_strategy_effect": "none",
+      "schema_version": 1,
+      "source_snapshot_content_sha256": "514a51a965392712d9f9b7ffb0859f63df76cb009937282d761bc33fe10c915b",
+      "symbol": "DFNS"
+    },
+    {
+      "assessment_content_sha256": "dca87a3cbfbd74eda8327954dc426d2a222e9810e468f2cb10ea2a8c68310285",
+      "assessment_origin": "shadow_ai",
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "catalyst-packet:0b3f0e1d1c2c2eae61dbbb4eaca4c6cfd3bb502cd671c5da43c67da8fd727534"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_substance_specificity.inference.1",
+              "evidence_ids": [
+                "catalyst-packet:0b3f0e1d1c2c2eae61dbbb4eaca4c6cfd3bb502cd671c5da43c67da8fd727534"
+              ],
+              "statement": "Within the explicitly provider-relative boundary, no catalyst event was available to assess."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_substance_specificity.fact.1",
+              "evidence_ids": [
+                "catalyst-packet:0b3f0e1d1c2c2eae61dbbb4eaca4c6cfd3bb502cd671c5da43c67da8fd727534"
+              ],
+              "statement": "The successful provider chronology contained zero events for the symbol at this decision time."
+            }
+          ],
+          "state": "assessed",
+          "value": "provider_relative_no_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:LGHL:91b491fc262e02aa9d61bceab7471c6552ad60c732b0e1c4fb60d6e83572de8e"
+          ],
+          "inferences": [
+            {
+              "claim_id": "chart_context_cleanliness.inference.1",
+              "evidence_ids": [
+                "daily-chart:LGHL:91b491fc262e02aa9d61bceab7471c6552ad60c732b0e1c4fb60d6e83572de8e"
+              ],
+              "statement": "Those bounded daily-history observations support the chart-context class near_resistance_or_failed_pop_history."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "chart_context_cleanliness.fact.1",
+              "evidence_ids": [
+                "daily-chart:LGHL:91b491fc262e02aa9d61bceab7471c6552ad60c732b0e1c4fb60d6e83572de8e"
+              ],
+              "statement": "The frozen daily record had 60 prior completed sessions, nearest overhead distance 7.2835648148148024 percent, and 1 recent failed-pop-pattern session(s)."
+            }
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:8fe1975f5fecb0b2c2f4e76a12baaee32e12b70cf3a6e9b5e1934a5547fa389b"
+          ],
+          "inferences": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.inference.1",
+              "evidence_ids": [
+                "attention:8fe1975f5fecb0b2c2f4e76a12baaee32e12b70cf3a6e9b5e1934a5547fa389b"
+              ],
+              "statement": "Those bounded cross-sectional observations support the leadership class emerging_leader."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.fact.1",
+              "evidence_ids": [
+                "attention:8fe1975f5fecb0b2c2f4e76a12baaee32e12b70cf3a6e9b5e1934a5547fa389b"
+              ],
+              "statement": "The candidate's market rank was 1, 0 active candidate(s) ranked better, the gap to the leader was 0.0 percentage points, and consecutive leader minutes were 1."
+            }
+          ],
+          "state": "assessed",
+          "value": "emerging_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:LGHL:5349be3cc0b293cc084cf1c1013453c56c9891b270fbe85143f56481ac82529d"
+          ],
+          "inferences": [],
+          "observed_facts": [
+            {
+              "claim_id": "theme_fit_no_news_acceptance.fact.1",
+              "evidence_ids": [
+                "theme-regime:LGHL:5349be3cc0b293cc084cf1c1013453c56c9891b270fbe85143f56481ac82529d"
+              ],
+              "statement": "The theme/regime record reports 4 same-minute candidate(s) and 1 cross-candidate story link(s), but it contains no asserted semantic issuer-theme class."
+            }
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "contract_id": "discretion-context-assessment-shadow-v0.1",
+      "decision_time": "2026-07-27T11:00:00+00:00",
+      "knowledge_policy": {
+        "may_raise_deterministic_risk": false,
+        "may_submit_orders": false,
+        "runtime_strategy_effect": "none",
+        "uses_future_price_outcomes": false,
+        "uses_raw_transcripts": false,
+        "uses_retrospective_behavior_labels": false,
+        "uses_ross_actions": false
+      },
+      "logical_expires_at": "2026-07-27T11:05:00+00:00",
+      "model_provenance": {
+        "generated_at": "2026-08-19T18:41:35Z",
+        "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+        "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+        "prompt_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+        "prompt_id": "context-semantic-shadow-compiled-rubric-v0.1",
+        "provider": "openai"
+      },
+      "prohibited_outputs": {
+        "aggregate_quality_score": null,
+        "candidate_priority": null,
+        "order_action": null,
+        "position_size": null,
+        "risk_action": null,
+        "selection_action": null,
+        "trade_recommendation": null
+      },
+      "record_type": "shadow_semantic_context_assessment",
+      "runtime_strategy_effect": "none",
+      "schema_version": 1,
+      "source_snapshot_content_sha256": "031a48c56cee638f710b1080f238eca8816434c7d55a5070d528c16a249dd348",
+      "symbol": "LGHL"
+    },
+    {
+      "assessment_content_sha256": "80ab07b5cfe7219503c1d15c07fbe12d2a3ec01092d0e206808b3c5c56450476",
+      "assessment_origin": "shadow_ai",
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60687174",
+            "headline:alpaca-benzinga:60687186"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_commitment_stage.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60687174",
+                "headline:alpaca-benzinga:60687186"
+              ],
+              "statement": "The available wording supports the bounded commitment-stage class definitive_agreement_or_completed_action."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_commitment_stage.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60687174",
+                "headline:alpaca-benzinga:60687186"
+              ],
+              "statement": "2 provider headline(s) were available at the decision time: The9's Q1 2026 Net Income Hits $23M On 1.425B 9BIT Tokens, With 475M More Tokens Received In April | The9 Names George Lai As Chief Executive Officer, Succeeding Founder Jun Zhu Effective July 27, 2026"
+            }
+          ],
+          "state": "assessed",
+          "value": "definitive_agreement_or_completed_action"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60687174",
+            "headline:alpaca-benzinga:60687186"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_substance_specificity.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60687174",
+                "headline:alpaca-benzinga:60687186"
+              ],
+              "statement": "The available headline wording supports the bounded substance class specific_event_with_explicit_terms."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_substance_specificity.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60687174",
+                "headline:alpaca-benzinga:60687186"
+              ],
+              "statement": "2 provider headline(s) were available at the decision time: The9's Q1 2026 Net Income Hits $23M On 1.425B 9BIT Tokens, With 475M More Tokens Received In April | The9 Names George Lai As Chief Executive Officer, Succeeding Founder Jun Zhu Effective July 27, 2026"
+            }
+          ],
+          "state": "assessed",
+          "value": "specific_event_with_explicit_terms"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "daily-chart:NCTY:e5b7dd827ce0a724f6110a6398972d5a0608cd4a00296718287a11649e9206e2"
+          ],
+          "inferences": [
+            {
+              "claim_id": "chart_context_cleanliness.inference.1",
+              "evidence_ids": [
+                "daily-chart:NCTY:e5b7dd827ce0a724f6110a6398972d5a0608cd4a00296718287a11649e9206e2"
+              ],
+              "statement": "Those bounded daily-history observations support the chart-context class mixed_chart_context."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "chart_context_cleanliness.fact.1",
+              "evidence_ids": [
+                "daily-chart:NCTY:e5b7dd827ce0a724f6110a6398972d5a0608cd4a00296718287a11649e9206e2"
+              ],
+              "statement": "The frozen daily record had 60 prior completed sessions, nearest overhead distance 8.056930693069297 percent, and 0 recent failed-pop-pattern session(s)."
+            }
+          ],
+          "state": "assessed",
+          "value": "mixed_chart_context"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "attention:53c16ee84d373aeb2d6312b6a12b24b1dbda8562a4a8fd20dd3b731deb451114"
+          ],
+          "inferences": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.inference.1",
+              "evidence_ids": [
+                "attention:53c16ee84d373aeb2d6312b6a12b24b1dbda8562a4a8fd20dd3b731deb451114"
+              ],
+              "statement": "Those bounded cross-sectional observations support the leadership class not_current_leader."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.fact.1",
+              "evidence_ids": [
+                "attention:53c16ee84d373aeb2d6312b6a12b24b1dbda8562a4a8fd20dd3b731deb451114"
+              ],
+              "statement": "The candidate's market rank was 8, 3 active candidate(s) ranked better, the gap to the leader was 111.37559213126201 percentage points, and consecutive leader minutes were 0."
+            }
+          ],
+          "state": "assessed",
+          "value": "not_current_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:NCTY:cb903061f267b6e61c8a08651e979d078271b23d501026d6a677c7909259fd48"
+          ],
+          "inferences": [],
+          "observed_facts": [
+            {
+              "claim_id": "theme_fit_no_news_acceptance.fact.1",
+              "evidence_ids": [
+                "theme-regime:NCTY:cb903061f267b6e61c8a08651e979d078271b23d501026d6a677c7909259fd48"
+              ],
+              "statement": "The theme/regime record reports 4 same-minute candidate(s) and 1 cross-candidate story link(s), but it contains no asserted semantic issuer-theme class."
+            }
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "contract_id": "discretion-context-assessment-shadow-v0.1",
+      "decision_time": "2026-07-27T11:00:00+00:00",
+      "knowledge_policy": {
+        "may_raise_deterministic_risk": false,
+        "may_submit_orders": false,
+        "runtime_strategy_effect": "none",
+        "uses_future_price_outcomes": false,
+        "uses_raw_transcripts": false,
+        "uses_retrospective_behavior_labels": false,
+        "uses_ross_actions": false
+      },
+      "logical_expires_at": "2026-07-27T11:05:00+00:00",
+      "model_provenance": {
+        "generated_at": "2026-08-19T18:41:35Z",
+        "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+        "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+        "prompt_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+        "prompt_id": "context-semantic-shadow-compiled-rubric-v0.1",
+        "provider": "openai"
+      },
+      "prohibited_outputs": {
+        "aggregate_quality_score": null,
+        "candidate_priority": null,
+        "order_action": null,
+        "position_size": null,
+        "risk_action": null,
+        "selection_action": null,
+        "trade_recommendation": null
+      },
+      "record_type": "shadow_semantic_context_assessment",
+      "runtime_strategy_effect": "none",
+      "schema_version": 1,
+      "source_snapshot_content_sha256": "9d4e16d45c2b24460f413f5f3be8cf12e5ed233f608ac4735fedaad7ebe99147",
+      "symbol": "NCTY"
+    },
+    {
+      "assessment_content_sha256": "ede9e2b62013bad3769fa18ead8b18497604257e7e98ec5cb14fbe3c2ebaee31",
+      "assessment_origin": "shadow_ai",
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "catalyst-packet:8d2948a7bfcae606497acb0559fccac36d5646f08c78afbc1eed363ae88955d0"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_substance_specificity.inference.1",
+              "evidence_ids": [
+                "catalyst-packet:8d2948a7bfcae606497acb0559fccac36d5646f08c78afbc1eed363ae88955d0"
+              ],
+              "statement": "Within the explicitly provider-relative boundary, no catalyst event was available to assess."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_substance_specificity.fact.1",
+              "evidence_ids": [
+                "catalyst-packet:8d2948a7bfcae606497acb0559fccac36d5646f08c78afbc1eed363ae88955d0"
+              ],
+              "statement": "The successful provider chronology contained zero events for the symbol at this decision time."
+            }
+          ],
+          "state": "assessed",
+          "value": "provider_relative_no_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "daily-chart:OMER:359f06b27e479fcb30d64d71d41bf7027aa475d034e2a99bebf7f8fa14735d3c"
+          ],
+          "inferences": [
+            {
+              "claim_id": "chart_context_cleanliness.inference.1",
+              "evidence_ids": [
+                "daily-chart:OMER:359f06b27e479fcb30d64d71d41bf7027aa475d034e2a99bebf7f8fa14735d3c"
+              ],
+              "statement": "Those bounded daily-history observations support the chart-context class clear_room_and_clean_history."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "chart_context_cleanliness.fact.1",
+              "evidence_ids": [
+                "daily-chart:OMER:359f06b27e479fcb30d64d71d41bf7027aa475d034e2a99bebf7f8fa14735d3c"
+              ],
+              "statement": "The frozen daily record had 60 prior completed sessions, nearest overhead distance 35.090909090909086 percent, and 0 recent failed-pop-pattern session(s)."
+            }
+          ],
+          "state": "assessed",
+          "value": "clear_room_and_clean_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "attention:66f85c600d8ac208c93afe953e6ce436fcffc1ce5ebb92cef313f8d47f9384b4"
+          ],
+          "inferences": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.inference.1",
+              "evidence_ids": [
+                "attention:66f85c600d8ac208c93afe953e6ce436fcffc1ce5ebb92cef313f8d47f9384b4"
+              ],
+              "statement": "Those bounded cross-sectional observations support the leadership class not_current_leader."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.fact.1",
+              "evidence_ids": [
+                "attention:66f85c600d8ac208c93afe953e6ce436fcffc1ce5ebb92cef313f8d47f9384b4"
+              ],
+              "statement": "The candidate's market rank was 13, 3 active candidate(s) ranked better, the gap to the leader was 130.36422758207925 percentage points, and consecutive leader minutes were 0."
+            }
+          ],
+          "state": "assessed",
+          "value": "not_current_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:OMER:0a1937b5f1ae3102cd62bce4ef90339e8b8fe77d42980a05a5ad0c8f16e092fe"
+          ],
+          "inferences": [],
+          "observed_facts": [
+            {
+              "claim_id": "theme_fit_no_news_acceptance.fact.1",
+              "evidence_ids": [
+                "theme-regime:OMER:0a1937b5f1ae3102cd62bce4ef90339e8b8fe77d42980a05a5ad0c8f16e092fe"
+              ],
+              "statement": "The theme/regime record reports 5 same-minute candidate(s) and 1 cross-candidate story link(s), but it contains no asserted semantic issuer-theme class."
+            }
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "contract_id": "discretion-context-assessment-shadow-v0.1",
+      "decision_time": "2026-07-27T11:01:00+00:00",
+      "knowledge_policy": {
+        "may_raise_deterministic_risk": false,
+        "may_submit_orders": false,
+        "runtime_strategy_effect": "none",
+        "uses_future_price_outcomes": false,
+        "uses_raw_transcripts": false,
+        "uses_retrospective_behavior_labels": false,
+        "uses_ross_actions": false
+      },
+      "logical_expires_at": "2026-07-27T11:06:00+00:00",
+      "model_provenance": {
+        "generated_at": "2026-08-19T18:41:35Z",
+        "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+        "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+        "prompt_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+        "prompt_id": "context-semantic-shadow-compiled-rubric-v0.1",
+        "provider": "openai"
+      },
+      "prohibited_outputs": {
+        "aggregate_quality_score": null,
+        "candidate_priority": null,
+        "order_action": null,
+        "position_size": null,
+        "risk_action": null,
+        "selection_action": null,
+        "trade_recommendation": null
+      },
+      "record_type": "shadow_semantic_context_assessment",
+      "runtime_strategy_effect": "none",
+      "schema_version": 1,
+      "source_snapshot_content_sha256": "d5906d1a96fb52251d57c6720af060ac396f217fd64b9d6ae31877ff49352711",
+      "symbol": "OMER"
+    },
+    {
+      "assessment_content_sha256": "1b716a575841d0fd57cbb0673e7bb0b8a41791548d42934f5e7a78c766cd17b3",
+      "assessment_origin": "shadow_ai",
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "catalyst-packet:deded5c459a18e925bd31758d20bc4e515d34838923fc74c79f8dce89d9ed242"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_substance_specificity.inference.1",
+              "evidence_ids": [
+                "catalyst-packet:deded5c459a18e925bd31758d20bc4e515d34838923fc74c79f8dce89d9ed242"
+              ],
+              "statement": "Within the explicitly provider-relative boundary, no catalyst event was available to assess."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_substance_specificity.fact.1",
+              "evidence_ids": [
+                "catalyst-packet:deded5c459a18e925bd31758d20bc4e515d34838923fc74c79f8dce89d9ed242"
+              ],
+              "statement": "The successful provider chronology contained zero events for the symbol at this decision time."
+            }
+          ],
+          "state": "assessed",
+          "value": "provider_relative_no_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:VEEE:067ebca74d3d125d8879899d95718fe83fef25c20a7d4c90a84808075c2cf78f"
+          ],
+          "inferences": [
+            {
+              "claim_id": "chart_context_cleanliness.inference.1",
+              "evidence_ids": [
+                "daily-chart:VEEE:067ebca74d3d125d8879899d95718fe83fef25c20a7d4c90a84808075c2cf78f"
+              ],
+              "statement": "Those bounded daily-history observations support the chart-context class near_resistance_or_failed_pop_history."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "chart_context_cleanliness.fact.1",
+              "evidence_ids": [
+                "daily-chart:VEEE:067ebca74d3d125d8879899d95718fe83fef25c20a7d4c90a84808075c2cf78f"
+              ],
+              "statement": "The frozen daily record had 60 prior completed sessions, nearest overhead distance 124.36670687575395 percent, and 1 recent failed-pop-pattern session(s)."
+            }
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "attention:bb343e08f0fbecdf85b991a14bd7df91178d075d4fffbcec8917c88d786803d5"
+          ],
+          "inferences": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.inference.1",
+              "evidence_ids": [
+                "attention:bb343e08f0fbecdf85b991a14bd7df91178d075d4fffbcec8917c88d786803d5"
+              ],
+              "statement": "Those bounded cross-sectional observations support the leadership class not_current_leader."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.fact.1",
+              "evidence_ids": [
+                "attention:bb343e08f0fbecdf85b991a14bd7df91178d075d4fffbcec8917c88d786803d5"
+              ],
+              "statement": "The candidate's market rank was 8, 3 active candidate(s) ranked better, the gap to the leader was 89.6294706196914 percentage points, and consecutive leader minutes were 0."
+            }
+          ],
+          "state": "assessed",
+          "value": "not_current_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:VEEE:ffbaaae6497b217861dfb3ad42cc5ab7c1ad612a95c276086372544eed78ebe9"
+          ],
+          "inferences": [],
+          "observed_facts": [
+            {
+              "claim_id": "theme_fit_no_news_acceptance.fact.1",
+              "evidence_ids": [
+                "theme-regime:VEEE:ffbaaae6497b217861dfb3ad42cc5ab7c1ad612a95c276086372544eed78ebe9"
+              ],
+              "statement": "The theme/regime record reports 6 same-minute candidate(s) and 1 cross-candidate story link(s), but it contains no asserted semantic issuer-theme class."
+            }
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "contract_id": "discretion-context-assessment-shadow-v0.1",
+      "decision_time": "2026-07-27T11:05:00+00:00",
+      "knowledge_policy": {
+        "may_raise_deterministic_risk": false,
+        "may_submit_orders": false,
+        "runtime_strategy_effect": "none",
+        "uses_future_price_outcomes": false,
+        "uses_raw_transcripts": false,
+        "uses_retrospective_behavior_labels": false,
+        "uses_ross_actions": false
+      },
+      "logical_expires_at": "2026-07-27T11:10:00+00:00",
+      "model_provenance": {
+        "generated_at": "2026-08-19T18:41:35Z",
+        "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+        "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+        "prompt_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+        "prompt_id": "context-semantic-shadow-compiled-rubric-v0.1",
+        "provider": "openai"
+      },
+      "prohibited_outputs": {
+        "aggregate_quality_score": null,
+        "candidate_priority": null,
+        "order_action": null,
+        "position_size": null,
+        "risk_action": null,
+        "selection_action": null,
+        "trade_recommendation": null
+      },
+      "record_type": "shadow_semantic_context_assessment",
+      "runtime_strategy_effect": "none",
+      "schema_version": 1,
+      "source_snapshot_content_sha256": "e913a24db3f6441208f3fdb79a0edb164da825453a43213a414f80baae1afe8b",
+      "symbol": "VEEE"
+    },
+    {
+      "assessment_content_sha256": "09dffff9309c4a67a0bae124490aca743253bec141cec70f60f36695ee9e2f98",
+      "assessment_origin": "shadow_ai",
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "catalyst-packet:5bd2593b1abfde4915366ba431fa394e5bbb96589a7dfaba9e990ee18c27a380"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_substance_specificity.inference.1",
+              "evidence_ids": [
+                "catalyst-packet:5bd2593b1abfde4915366ba431fa394e5bbb96589a7dfaba9e990ee18c27a380"
+              ],
+              "statement": "Within the explicitly provider-relative boundary, no catalyst event was available to assess."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_substance_specificity.fact.1",
+              "evidence_ids": [
+                "catalyst-packet:5bd2593b1abfde4915366ba431fa394e5bbb96589a7dfaba9e990ee18c27a380"
+              ],
+              "statement": "The successful provider chronology contained zero events for the symbol at this decision time."
+            }
+          ],
+          "state": "assessed",
+          "value": "provider_relative_no_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "daily-chart:PLRZ:945db07e33ae4beabddcdbc34e31841d0f5f8b4e0164d2a4292d10a6e284f8c8"
+          ],
+          "inferences": [
+            {
+              "claim_id": "chart_context_cleanliness.inference.1",
+              "evidence_ids": [
+                "daily-chart:PLRZ:945db07e33ae4beabddcdbc34e31841d0f5f8b4e0164d2a4292d10a6e284f8c8"
+              ],
+              "statement": "Those bounded daily-history observations support the chart-context class mixed_chart_context."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "chart_context_cleanliness.fact.1",
+              "evidence_ids": [
+                "daily-chart:PLRZ:945db07e33ae4beabddcdbc34e31841d0f5f8b4e0164d2a4292d10a6e284f8c8"
+              ],
+              "statement": "The frozen daily record had 60 prior completed sessions, nearest overhead distance 8.853850818678 percent, and 0 recent failed-pop-pattern session(s)."
+            }
+          ],
+          "state": "assessed",
+          "value": "mixed_chart_context"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "attention:2926a5d0621ea2193dd4484f4fccf4817dbbb98930be499e5686d2721034c1e6"
+          ],
+          "inferences": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.inference.1",
+              "evidence_ids": [
+                "attention:2926a5d0621ea2193dd4484f4fccf4817dbbb98930be499e5686d2721034c1e6"
+              ],
+              "statement": "Those bounded cross-sectional observations support the leadership class not_current_leader."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.fact.1",
+              "evidence_ids": [
+                "attention:2926a5d0621ea2193dd4484f4fccf4817dbbb98930be499e5686d2721034c1e6"
+              ],
+              "statement": "The candidate's market rank was 15, 5 active candidate(s) ranked better, the gap to the leader was 97.28040406579615 percentage points, and consecutive leader minutes were 0."
+            }
+          ],
+          "state": "assessed",
+          "value": "not_current_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:PLRZ:86e006ea82b8959b18639bb938bea39cdccfb0be29bd9ee964db41ce533df648"
+          ],
+          "inferences": [],
+          "observed_facts": [
+            {
+              "claim_id": "theme_fit_no_news_acceptance.fact.1",
+              "evidence_ids": [
+                "theme-regime:PLRZ:86e006ea82b8959b18639bb938bea39cdccfb0be29bd9ee964db41ce533df648"
+              ],
+              "statement": "The theme/regime record reports 7 same-minute candidate(s) and 1 cross-candidate story link(s), but it contains no asserted semantic issuer-theme class."
+            }
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "contract_id": "discretion-context-assessment-shadow-v0.1",
+      "decision_time": "2026-07-27T11:28:00+00:00",
+      "knowledge_policy": {
+        "may_raise_deterministic_risk": false,
+        "may_submit_orders": false,
+        "runtime_strategy_effect": "none",
+        "uses_future_price_outcomes": false,
+        "uses_raw_transcripts": false,
+        "uses_retrospective_behavior_labels": false,
+        "uses_ross_actions": false
+      },
+      "logical_expires_at": "2026-07-27T11:33:00+00:00",
+      "model_provenance": {
+        "generated_at": "2026-08-19T18:41:35Z",
+        "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+        "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+        "prompt_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+        "prompt_id": "context-semantic-shadow-compiled-rubric-v0.1",
+        "provider": "openai"
+      },
+      "prohibited_outputs": {
+        "aggregate_quality_score": null,
+        "candidate_priority": null,
+        "order_action": null,
+        "position_size": null,
+        "risk_action": null,
+        "selection_action": null,
+        "trade_recommendation": null
+      },
+      "record_type": "shadow_semantic_context_assessment",
+      "runtime_strategy_effect": "none",
+      "schema_version": 1,
+      "source_snapshot_content_sha256": "b043a84998a5280730d3835db2e5b7ee44f7930b30679a2419bccc079d001b94",
+      "symbol": "PLRZ"
+    },
+    {
+      "assessment_content_sha256": "46bc6ac21f66317bb65153f8d3b7e7d8cc583681ed109146dbc9874e12150ce5",
+      "assessment_origin": "shadow_ai",
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60682636",
+            "headline:alpaca-benzinga:60688317",
+            "headline:alpaca-benzinga:60691748"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_commitment_stage.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60682636",
+                "headline:alpaca-benzinga:60688317",
+                "headline:alpaca-benzinga:60691748"
+              ],
+              "statement": "The available wording supports the bounded commitment-stage class ambiguous_commitment_stage."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_commitment_stage.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60682636",
+                "headline:alpaca-benzinga:60688317",
+                "headline:alpaca-benzinga:60691748"
+              ],
+              "statement": "3 provider headline(s) were available at the decision time: 12 Industrials Stocks Moving In Friday's After-Market Session | Why Forte Biosciences Shares Are Trading Higher By 39%; Here Are 20 Stocks Moving Premarket | 12 Industrials Stocks Moving In Monday's Pre-Market Session"
+            }
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60682636",
+            "headline:alpaca-benzinga:60688317",
+            "headline:alpaca-benzinga:60691748"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_substance_specificity.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60682636",
+                "headline:alpaca-benzinga:60688317",
+                "headline:alpaca-benzinga:60691748"
+              ],
+              "statement": "The available headline wording supports the bounded substance class vague_or_incidental_event."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_substance_specificity.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60682636",
+                "headline:alpaca-benzinga:60688317",
+                "headline:alpaca-benzinga:60691748"
+              ],
+              "statement": "3 provider headline(s) were available at the decision time: 12 Industrials Stocks Moving In Friday's After-Market Session | Why Forte Biosciences Shares Are Trading Higher By 39%; Here Are 20 Stocks Moving Premarket | 12 Industrials Stocks Moving In Monday's Pre-Market Session"
+            }
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:BIYA:eba62d0733da3bb1ab797cf27965122893d6472295bc7fb8cd6a750eb18b2ca9"
+          ],
+          "inferences": [
+            {
+              "claim_id": "chart_context_cleanliness.inference.1",
+              "evidence_ids": [
+                "daily-chart:BIYA:eba62d0733da3bb1ab797cf27965122893d6472295bc7fb8cd6a750eb18b2ca9"
+              ],
+              "statement": "Those bounded daily-history observations support the chart-context class near_resistance_or_failed_pop_history."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "chart_context_cleanliness.fact.1",
+              "evidence_ids": [
+                "daily-chart:BIYA:eba62d0733da3bb1ab797cf27965122893d6472295bc7fb8cd6a750eb18b2ca9"
+              ],
+              "statement": "The frozen daily record had 60 prior completed sessions, nearest overhead distance 47.057838943648875 percent, and 1 recent failed-pop-pattern session(s)."
+            }
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "attention:f3d55a9c0c45fd07431c22d270a20d402ad45d71a8d1e9f86c41a4fdbe10e415"
+          ],
+          "inferences": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.inference.1",
+              "evidence_ids": [
+                "attention:f3d55a9c0c45fd07431c22d270a20d402ad45d71a8d1e9f86c41a4fdbe10e415"
+              ],
+              "statement": "Those bounded cross-sectional observations support the leadership class not_current_leader."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.fact.1",
+              "evidence_ids": [
+                "attention:f3d55a9c0c45fd07431c22d270a20d402ad45d71a8d1e9f86c41a4fdbe10e415"
+              ],
+              "statement": "The candidate's market rank was 6, 2 active candidate(s) ranked better, the gap to the leader was 84.75220015194066 percentage points, and consecutive leader minutes were 0."
+            }
+          ],
+          "state": "assessed",
+          "value": "not_current_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:BIYA:97dfaef171bc05f3007ad66939a68dac7a54bbc608a0ee232ae6eb6e9d1bca83"
+          ],
+          "inferences": [],
+          "observed_facts": [
+            {
+              "claim_id": "theme_fit_no_news_acceptance.fact.1",
+              "evidence_ids": [
+                "theme-regime:BIYA:97dfaef171bc05f3007ad66939a68dac7a54bbc608a0ee232ae6eb6e9d1bca83"
+              ],
+              "statement": "The theme/regime record reports 7 same-minute candidate(s) and 1 cross-candidate story link(s), but it contains no asserted semantic issuer-theme class."
+            }
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "contract_id": "discretion-context-assessment-shadow-v0.1",
+      "decision_time": "2026-07-27T12:06:00+00:00",
+      "knowledge_policy": {
+        "may_raise_deterministic_risk": false,
+        "may_submit_orders": false,
+        "runtime_strategy_effect": "none",
+        "uses_future_price_outcomes": false,
+        "uses_raw_transcripts": false,
+        "uses_retrospective_behavior_labels": false,
+        "uses_ross_actions": false
+      },
+      "logical_expires_at": "2026-07-27T12:11:00+00:00",
+      "model_provenance": {
+        "generated_at": "2026-08-19T18:41:35Z",
+        "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+        "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+        "prompt_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+        "prompt_id": "context-semantic-shadow-compiled-rubric-v0.1",
+        "provider": "openai"
+      },
+      "prohibited_outputs": {
+        "aggregate_quality_score": null,
+        "candidate_priority": null,
+        "order_action": null,
+        "position_size": null,
+        "risk_action": null,
+        "selection_action": null,
+        "trade_recommendation": null
+      },
+      "record_type": "shadow_semantic_context_assessment",
+      "runtime_strategy_effect": "none",
+      "schema_version": 1,
+      "source_snapshot_content_sha256": "13e1e48c1ce8ca99bac47f7d760e4d30bc9e0654982e955364f1e49666c5495a",
+      "symbol": "BIYA"
+    },
+    {
+      "assessment_content_sha256": "99d549518a039e4b4d1866b80b7dd45f1a23930afb9895c548fc2cd4e708a0f3",
+      "assessment_origin": "shadow_ai",
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60688317",
+            "headline:alpaca-benzinga:60691751"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_commitment_stage.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60688317",
+                "headline:alpaca-benzinga:60691751"
+              ],
+              "statement": "The available wording supports the bounded commitment-stage class ambiguous_commitment_stage."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_commitment_stage.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60688317",
+                "headline:alpaca-benzinga:60691751"
+              ],
+              "statement": "2 provider headline(s) were available at the decision time: Why Forte Biosciences Shares Are Trading Higher By 39%; Here Are 20 Stocks Moving Premarket | 10 Information Technology Stocks Moving In Monday's Pre-Market Session"
+            }
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60688317",
+            "headline:alpaca-benzinga:60691751"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_substance_specificity.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60688317",
+                "headline:alpaca-benzinga:60691751"
+              ],
+              "statement": "The available headline wording supports the bounded substance class vague_or_incidental_event."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_substance_specificity.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60688317",
+                "headline:alpaca-benzinga:60691751"
+              ],
+              "statement": "2 provider headline(s) were available at the decision time: Why Forte Biosciences Shares Are Trading Higher By 39%; Here Are 20 Stocks Moving Premarket | 10 Information Technology Stocks Moving In Monday's Pre-Market Session"
+            }
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:DFNS:51c0b7700b6318fe1fe9887246d41ccb8a8683edffd0271e6190d2f28d2b5824"
+          ],
+          "inferences": [
+            {
+              "claim_id": "chart_context_cleanliness.inference.1",
+              "evidence_ids": [
+                "daily-chart:DFNS:51c0b7700b6318fe1fe9887246d41ccb8a8683edffd0271e6190d2f28d2b5824"
+              ],
+              "statement": "Those bounded daily-history observations support the chart-context class near_resistance_or_failed_pop_history."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "chart_context_cleanliness.fact.1",
+              "evidence_ids": [
+                "daily-chart:DFNS:51c0b7700b6318fe1fe9887246d41ccb8a8683edffd0271e6190d2f28d2b5824"
+              ],
+              "statement": "The frozen daily record had 60 prior completed sessions, nearest overhead distance 26.628075253256146 percent, and 2 recent failed-pop-pattern session(s)."
+            }
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:a09de7f9bdb3c8ed9ad11710ca5fef4cad78ff71fa66461953c8face81ad6e76"
+          ],
+          "inferences": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.inference.1",
+              "evidence_ids": [
+                "attention:a09de7f9bdb3c8ed9ad11710ca5fef4cad78ff71fa66461953c8face81ad6e76"
+              ],
+              "statement": "Those bounded cross-sectional observations support the leadership class competitive_not_dominant."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.fact.1",
+              "evidence_ids": [
+                "attention:a09de7f9bdb3c8ed9ad11710ca5fef4cad78ff71fa66461953c8face81ad6e76"
+              ],
+              "statement": "The candidate's market rank was 4, 1 active candidate(s) ranked better, the gap to the leader was 65.20214357401198 percentage points, and consecutive leader minutes were 0."
+            }
+          ],
+          "state": "assessed",
+          "value": "competitive_not_dominant"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:DFNS:f16605ed5e85194c4ff60b9e5e55d60ed9ec1d036968a841e97a6a4e473f3214"
+          ],
+          "inferences": [],
+          "observed_facts": [
+            {
+              "claim_id": "theme_fit_no_news_acceptance.fact.1",
+              "evidence_ids": [
+                "theme-regime:DFNS:f16605ed5e85194c4ff60b9e5e55d60ed9ec1d036968a841e97a6a4e473f3214"
+              ],
+              "statement": "The theme/regime record reports 7 same-minute candidate(s) and 1 cross-candidate story link(s), but it contains no asserted semantic issuer-theme class."
+            }
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "contract_id": "discretion-context-assessment-shadow-v0.1",
+      "decision_time": "2026-07-27T12:06:00+00:00",
+      "knowledge_policy": {
+        "may_raise_deterministic_risk": false,
+        "may_submit_orders": false,
+        "runtime_strategy_effect": "none",
+        "uses_future_price_outcomes": false,
+        "uses_raw_transcripts": false,
+        "uses_retrospective_behavior_labels": false,
+        "uses_ross_actions": false
+      },
+      "logical_expires_at": "2026-07-27T12:11:00+00:00",
+      "model_provenance": {
+        "generated_at": "2026-08-19T18:41:35Z",
+        "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+        "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+        "prompt_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+        "prompt_id": "context-semantic-shadow-compiled-rubric-v0.1",
+        "provider": "openai"
+      },
+      "prohibited_outputs": {
+        "aggregate_quality_score": null,
+        "candidate_priority": null,
+        "order_action": null,
+        "position_size": null,
+        "risk_action": null,
+        "selection_action": null,
+        "trade_recommendation": null
+      },
+      "record_type": "shadow_semantic_context_assessment",
+      "runtime_strategy_effect": "none",
+      "schema_version": 1,
+      "source_snapshot_content_sha256": "da18259bd6b43e4ccce560d6acb3d4afd0426c36db33750181095b67d63bbd47",
+      "symbol": "DFNS"
+    },
+    {
+      "assessment_content_sha256": "3f023299fba0b6a8feeaaf724e5e241e598761d0a1dd769444ce57662a7f251b",
+      "assessment_origin": "shadow_ai",
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60691750"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_commitment_stage.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60691750"
+              ],
+              "statement": "The available wording supports the bounded commitment-stage class ambiguous_commitment_stage."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_commitment_stage.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60691750"
+              ],
+              "statement": "1 provider headline(s) were available at the decision time: 11 Consumer Discretionary Stocks Moving In Monday's Pre-Market Session"
+            }
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60691750"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_substance_specificity.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60691750"
+              ],
+              "statement": "The available headline wording supports the bounded substance class vague_or_incidental_event."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_substance_specificity.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60691750"
+              ],
+              "statement": "1 provider headline(s) were available at the decision time: 11 Consumer Discretionary Stocks Moving In Monday's Pre-Market Session"
+            }
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:VEEE:fb0ce598db3db2edadba6f998cb7c6c1e7b06eda43e89ec8e1a5ed79d32b5523"
+          ],
+          "inferences": [
+            {
+              "claim_id": "chart_context_cleanliness.inference.1",
+              "evidence_ids": [
+                "daily-chart:VEEE:fb0ce598db3db2edadba6f998cb7c6c1e7b06eda43e89ec8e1a5ed79d32b5523"
+              ],
+              "statement": "Those bounded daily-history observations support the chart-context class near_resistance_or_failed_pop_history."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "chart_context_cleanliness.fact.1",
+              "evidence_ids": [
+                "daily-chart:VEEE:fb0ce598db3db2edadba6f998cb7c6c1e7b06eda43e89ec8e1a5ed79d32b5523"
+              ],
+              "statement": "The frozen daily record had 60 prior completed sessions, nearest overhead distance 129.06403940886705 percent, and 1 recent failed-pop-pattern session(s)."
+            }
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "attention:c2cd2ccb78105f3cb12619b0366da3a61065c30bbd2d099e61e5a58edc1253d8"
+          ],
+          "inferences": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.inference.1",
+              "evidence_ids": [
+                "attention:c2cd2ccb78105f3cb12619b0366da3a61065c30bbd2d099e61e5a58edc1253d8"
+              ],
+              "statement": "Those bounded cross-sectional observations support the leadership class not_current_leader."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.fact.1",
+              "evidence_ids": [
+                "attention:c2cd2ccb78105f3cb12619b0366da3a61065c30bbd2d099e61e5a58edc1253d8"
+              ],
+              "statement": "The candidate's market rank was 9, 3 active candidate(s) ranked better, the gap to the leader was 98.84069053029485 percentage points, and consecutive leader minutes were 0."
+            }
+          ],
+          "state": "assessed",
+          "value": "not_current_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:VEEE:2aa60827cd96064430d2668587437059914d7c025d9b3378059b01767e4b7837"
+          ],
+          "inferences": [],
+          "observed_facts": [
+            {
+              "claim_id": "theme_fit_no_news_acceptance.fact.1",
+              "evidence_ids": [
+                "theme-regime:VEEE:2aa60827cd96064430d2668587437059914d7c025d9b3378059b01767e4b7837"
+              ],
+              "statement": "The theme/regime record reports 7 same-minute candidate(s) and 1 cross-candidate story link(s), but it contains no asserted semantic issuer-theme class."
+            }
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "contract_id": "discretion-context-assessment-shadow-v0.1",
+      "decision_time": "2026-07-27T12:06:00+00:00",
+      "knowledge_policy": {
+        "may_raise_deterministic_risk": false,
+        "may_submit_orders": false,
+        "runtime_strategy_effect": "none",
+        "uses_future_price_outcomes": false,
+        "uses_raw_transcripts": false,
+        "uses_retrospective_behavior_labels": false,
+        "uses_ross_actions": false
+      },
+      "logical_expires_at": "2026-07-27T12:11:00+00:00",
+      "model_provenance": {
+        "generated_at": "2026-08-19T18:41:35Z",
+        "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+        "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+        "prompt_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+        "prompt_id": "context-semantic-shadow-compiled-rubric-v0.1",
+        "provider": "openai"
+      },
+      "prohibited_outputs": {
+        "aggregate_quality_score": null,
+        "candidate_priority": null,
+        "order_action": null,
+        "position_size": null,
+        "risk_action": null,
+        "selection_action": null,
+        "trade_recommendation": null
+      },
+      "record_type": "shadow_semantic_context_assessment",
+      "runtime_strategy_effect": "none",
+      "schema_version": 1,
+      "source_snapshot_content_sha256": "6d56fe744308ea1bf7f208e694128e2344932f65ba3de63b7eef095186fdb329",
+      "symbol": "VEEE"
+    },
+    {
+      "assessment_content_sha256": "b5fbe75cc68d375471eb29788de311f3a495592d62070d9b3af38ecc4faa0d42",
+      "assessment_origin": "shadow_ai",
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "catalyst-packet:223e963f5d32b4527dd45844f49e83fce81bd32f37d4da9a1c79ec162d6e1143"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_substance_specificity.inference.1",
+              "evidence_ids": [
+                "catalyst-packet:223e963f5d32b4527dd45844f49e83fce81bd32f37d4da9a1c79ec162d6e1143"
+              ],
+              "statement": "Within the explicitly provider-relative boundary, no catalyst event was available to assess."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_substance_specificity.fact.1",
+              "evidence_ids": [
+                "catalyst-packet:223e963f5d32b4527dd45844f49e83fce81bd32f37d4da9a1c79ec162d6e1143"
+              ],
+              "statement": "The successful provider chronology contained zero events for the symbol at this decision time."
+            }
+          ],
+          "state": "assessed",
+          "value": "provider_relative_no_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:EDBL:ca0993e4ca112513b5ae200a27a1dbfcfd646ebad5c757d67cc8799f992b5727"
+          ],
+          "inferences": [
+            {
+              "claim_id": "chart_context_cleanliness.inference.1",
+              "evidence_ids": [
+                "daily-chart:EDBL:ca0993e4ca112513b5ae200a27a1dbfcfd646ebad5c757d67cc8799f992b5727"
+              ],
+              "statement": "Those bounded daily-history observations support the chart-context class near_resistance_or_failed_pop_history."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "chart_context_cleanliness.fact.1",
+              "evidence_ids": [
+                "daily-chart:EDBL:ca0993e4ca112513b5ae200a27a1dbfcfd646ebad5c757d67cc8799f992b5727"
+              ],
+              "statement": "The frozen daily record had 60 prior completed sessions, nearest overhead distance 6.448714810281531 percent, and 1 recent failed-pop-pattern session(s)."
+            }
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:5e1de7674505f551baf636ff9b71b20d14d70de394b644ce1fb428f1375a26fd"
+          ],
+          "inferences": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.inference.1",
+              "evidence_ids": [
+                "attention:5e1de7674505f551baf636ff9b71b20d14d70de394b644ce1fb428f1375a26fd"
+              ],
+              "statement": "Those bounded cross-sectional observations support the leadership class emerging_leader."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.fact.1",
+              "evidence_ids": [
+                "attention:5e1de7674505f551baf636ff9b71b20d14d70de394b644ce1fb428f1375a26fd"
+              ],
+              "statement": "The candidate's market rank was 1, 0 active candidate(s) ranked better, the gap to the leader was 0.0 percentage points, and consecutive leader minutes were 1."
+            }
+          ],
+          "state": "assessed",
+          "value": "emerging_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:EDBL:640a82c203a1518db835fb53158659e3255b10d0935a1268ca9716057376f825"
+          ],
+          "inferences": [],
+          "observed_facts": [
+            {
+              "claim_id": "theme_fit_no_news_acceptance.fact.1",
+              "evidence_ids": [
+                "theme-regime:EDBL:640a82c203a1518db835fb53158659e3255b10d0935a1268ca9716057376f825"
+              ],
+              "statement": "The theme/regime record reports 8 same-minute candidate(s) and 1 cross-candidate story link(s), but it contains no asserted semantic issuer-theme class."
+            }
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "contract_id": "discretion-context-assessment-shadow-v0.1",
+      "decision_time": "2026-07-27T12:19:00+00:00",
+      "knowledge_policy": {
+        "may_raise_deterministic_risk": false,
+        "may_submit_orders": false,
+        "runtime_strategy_effect": "none",
+        "uses_future_price_outcomes": false,
+        "uses_raw_transcripts": false,
+        "uses_retrospective_behavior_labels": false,
+        "uses_ross_actions": false
+      },
+      "logical_expires_at": "2026-07-27T12:24:00+00:00",
+      "model_provenance": {
+        "generated_at": "2026-08-19T18:41:35Z",
+        "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+        "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+        "prompt_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+        "prompt_id": "context-semantic-shadow-compiled-rubric-v0.1",
+        "provider": "openai"
+      },
+      "prohibited_outputs": {
+        "aggregate_quality_score": null,
+        "candidate_priority": null,
+        "order_action": null,
+        "position_size": null,
+        "risk_action": null,
+        "selection_action": null,
+        "trade_recommendation": null
+      },
+      "record_type": "shadow_semantic_context_assessment",
+      "runtime_strategy_effect": "none",
+      "schema_version": 1,
+      "source_snapshot_content_sha256": "3cc2f6757deb51e7384b9bb8f9aaa07e895661f2c5593378fb9e098734b440e9",
+      "symbol": "EDBL"
+    },
+    {
+      "assessment_content_sha256": "2cc9c32f110b9b1c6f40f287e05bb9003610e4837d723dcda1627ebbf6240f4f",
+      "assessment_origin": "shadow_ai",
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60692277"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_commitment_stage.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60692277"
+              ],
+              "statement": "The available wording supports the bounded commitment-stage class ambiguous_commitment_stage."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_commitment_stage.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60692277"
+              ],
+              "statement": "1 provider headline(s) were available at the decision time: Edible Garden Announces Significant Expansion Of Its Fresh Cut Herb Distribution With Walmart Across The Mid-Atlantic Region"
+            }
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60692277"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_substance_specificity.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60692277"
+              ],
+              "statement": "The available headline wording supports the bounded substance class specific_event_terms_incomplete."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_substance_specificity.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60692277"
+              ],
+              "statement": "1 provider headline(s) were available at the decision time: Edible Garden Announces Significant Expansion Of Its Fresh Cut Herb Distribution With Walmart Across The Mid-Atlantic Region"
+            }
+          ],
+          "state": "assessed",
+          "value": "specific_event_terms_incomplete"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:EDBL:14a94cf8ea10399da7603a7208ae3bf61d329df679a123d0035d435fb249ac27"
+          ],
+          "inferences": [
+            {
+              "claim_id": "chart_context_cleanliness.inference.1",
+              "evidence_ids": [
+                "daily-chart:EDBL:14a94cf8ea10399da7603a7208ae3bf61d329df679a123d0035d435fb249ac27"
+              ],
+              "statement": "Those bounded daily-history observations support the chart-context class near_resistance_or_failed_pop_history."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "chart_context_cleanliness.fact.1",
+              "evidence_ids": [
+                "daily-chart:EDBL:14a94cf8ea10399da7603a7208ae3bf61d329df679a123d0035d435fb249ac27"
+              ],
+              "statement": "The frozen daily record had 60 prior completed sessions, nearest overhead distance 13.461969993476863 percent, and 1 recent failed-pop-pattern session(s)."
+            }
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:e66b8ba65bb0dc3f6f3c9b699c51c3a6839f638f14fe9a1ffc1f4e4bd191f0fd"
+          ],
+          "inferences": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.inference.1",
+              "evidence_ids": [
+                "attention:e66b8ba65bb0dc3f6f3c9b699c51c3a6839f638f14fe9a1ffc1f4e4bd191f0fd"
+              ],
+              "statement": "Those bounded cross-sectional observations support the leadership class emerging_leader."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.fact.1",
+              "evidence_ids": [
+                "attention:e66b8ba65bb0dc3f6f3c9b699c51c3a6839f638f14fe9a1ffc1f4e4bd191f0fd"
+              ],
+              "statement": "The candidate's market rank was 1, 0 active candidate(s) ranked better, the gap to the leader was 0.0 percentage points, and consecutive leader minutes were 2."
+            }
+          ],
+          "state": "assessed",
+          "value": "emerging_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:EDBL:c2b8407dba2d81dd516be7d9d3538e9802718b145aac955a2c21dd31a6d42015"
+          ],
+          "inferences": [],
+          "observed_facts": [
+            {
+              "claim_id": "theme_fit_no_news_acceptance.fact.1",
+              "evidence_ids": [
+                "theme-regime:EDBL:c2b8407dba2d81dd516be7d9d3538e9802718b145aac955a2c21dd31a6d42015"
+              ],
+              "statement": "The theme/regime record reports 8 same-minute candidate(s) and 1 cross-candidate story link(s), but it contains no asserted semantic issuer-theme class."
+            }
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "contract_id": "discretion-context-assessment-shadow-v0.1",
+      "decision_time": "2026-07-27T12:20:00+00:00",
+      "knowledge_policy": {
+        "may_raise_deterministic_risk": false,
+        "may_submit_orders": false,
+        "runtime_strategy_effect": "none",
+        "uses_future_price_outcomes": false,
+        "uses_raw_transcripts": false,
+        "uses_retrospective_behavior_labels": false,
+        "uses_ross_actions": false
+      },
+      "logical_expires_at": "2026-07-27T12:25:00+00:00",
+      "model_provenance": {
+        "generated_at": "2026-08-19T18:41:35Z",
+        "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+        "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+        "prompt_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+        "prompt_id": "context-semantic-shadow-compiled-rubric-v0.1",
+        "provider": "openai"
+      },
+      "prohibited_outputs": {
+        "aggregate_quality_score": null,
+        "candidate_priority": null,
+        "order_action": null,
+        "position_size": null,
+        "risk_action": null,
+        "selection_action": null,
+        "trade_recommendation": null
+      },
+      "record_type": "shadow_semantic_context_assessment",
+      "runtime_strategy_effect": "none",
+      "schema_version": 1,
+      "source_snapshot_content_sha256": "915fc9c980f9b4a6261572b39c61e0e3d65f375a43f1758371d253aba0fbdb0d",
+      "symbol": "EDBL"
+    },
+    {
+      "assessment_content_sha256": "63bfcac805eef98190b3a3952be191c440f5e9a6f589bf6a5a6b9b21ff822eb8",
+      "assessment_origin": "shadow_ai",
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60684215"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_commitment_stage.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60684215"
+              ],
+              "statement": "The available wording supports the bounded commitment-stage class ambiguous_commitment_stage."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_commitment_stage.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60684215"
+              ],
+              "statement": "1 provider headline(s) were available at the decision time: Benzinga's 'Stock Whisper' Index: 5 Stocks Investors Secretly Monitor But Don't Talk About Yet"
+            }
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60684215"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_substance_specificity.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60684215"
+              ],
+              "statement": "The available headline wording supports the bounded substance class vague_or_incidental_event."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_substance_specificity.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60684215"
+              ],
+              "statement": "1 provider headline(s) were available at the decision time: Benzinga's 'Stock Whisper' Index: 5 Stocks Investors Secretly Monitor But Don't Talk About Yet"
+            }
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "daily-chart:AGPU:a10ad92e530d40760773e6742b37f04f6f5670dfcf97e006d7f4a5b437687877"
+          ],
+          "inferences": [
+            {
+              "claim_id": "chart_context_cleanliness.inference.1",
+              "evidence_ids": [
+                "daily-chart:AGPU:a10ad92e530d40760773e6742b37f04f6f5670dfcf97e006d7f4a5b437687877"
+              ],
+              "statement": "Those bounded daily-history observations support the chart-context class clear_room_and_clean_history."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "chart_context_cleanliness.fact.1",
+              "evidence_ids": [
+                "daily-chart:AGPU:a10ad92e530d40760773e6742b37f04f6f5670dfcf97e006d7f4a5b437687877"
+              ],
+              "statement": "The frozen daily record had 60 prior completed sessions, nearest overhead distance 32.62599469496021 percent, and 0 recent failed-pop-pattern session(s)."
+            }
+          ],
+          "state": "assessed",
+          "value": "clear_room_and_clean_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "attention:1e7faea88983327290026511a3a220d65593f73b1710bbb42179b82a446c41d5"
+          ],
+          "inferences": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.inference.1",
+              "evidence_ids": [
+                "attention:1e7faea88983327290026511a3a220d65593f73b1710bbb42179b82a446c41d5"
+              ],
+              "statement": "Those bounded cross-sectional observations support the leadership class not_current_leader."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.fact.1",
+              "evidence_ids": [
+                "attention:1e7faea88983327290026511a3a220d65593f73b1710bbb42179b82a446c41d5"
+              ],
+              "statement": "The candidate's market rank was 23, 8 active candidate(s) ranked better, the gap to the leader was 147.25184806360124 percentage points, and consecutive leader minutes were 0."
+            }
+          ],
+          "state": "assessed",
+          "value": "not_current_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:AGPU:276c34d643a1bf7b0ea79164e6e30b2d0cac2d05e0c6bb6f378f9e2ad499ced7"
+          ],
+          "inferences": [],
+          "observed_facts": [
+            {
+              "claim_id": "theme_fit_no_news_acceptance.fact.1",
+              "evidence_ids": [
+                "theme-regime:AGPU:276c34d643a1bf7b0ea79164e6e30b2d0cac2d05e0c6bb6f378f9e2ad499ced7"
+              ],
+              "statement": "The theme/regime record reports 10 same-minute candidate(s) and 1 cross-candidate story link(s), but it contains no asserted semantic issuer-theme class."
+            }
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "contract_id": "discretion-context-assessment-shadow-v0.1",
+      "decision_time": "2026-07-27T12:31:00+00:00",
+      "knowledge_policy": {
+        "may_raise_deterministic_risk": false,
+        "may_submit_orders": false,
+        "runtime_strategy_effect": "none",
+        "uses_future_price_outcomes": false,
+        "uses_raw_transcripts": false,
+        "uses_retrospective_behavior_labels": false,
+        "uses_ross_actions": false
+      },
+      "logical_expires_at": "2026-07-27T12:36:00+00:00",
+      "model_provenance": {
+        "generated_at": "2026-08-19T18:41:35Z",
+        "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+        "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+        "prompt_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+        "prompt_id": "context-semantic-shadow-compiled-rubric-v0.1",
+        "provider": "openai"
+      },
+      "prohibited_outputs": {
+        "aggregate_quality_score": null,
+        "candidate_priority": null,
+        "order_action": null,
+        "position_size": null,
+        "risk_action": null,
+        "selection_action": null,
+        "trade_recommendation": null
+      },
+      "record_type": "shadow_semantic_context_assessment",
+      "runtime_strategy_effect": "none",
+      "schema_version": 1,
+      "source_snapshot_content_sha256": "7fc8a6bd3f90f68ee1116028908765c6a91047852d3fb11999f3807fef71ebba",
+      "symbol": "AGPU"
+    },
+    {
+      "assessment_content_sha256": "ae4f5e49217bc1197f416347f4fa4e6415ea83aa0d3700f37ac1ad69834354c8",
+      "assessment_origin": "shadow_ai",
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "catalyst-packet:4243f721a7866c9bbb413fc063f83c3f5537d07683c27311f0ed96bdf797382e"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_substance_specificity.inference.1",
+              "evidence_ids": [
+                "catalyst-packet:4243f721a7866c9bbb413fc063f83c3f5537d07683c27311f0ed96bdf797382e"
+              ],
+              "statement": "Within the explicitly provider-relative boundary, no catalyst event was available to assess."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_substance_specificity.fact.1",
+              "evidence_ids": [
+                "catalyst-packet:4243f721a7866c9bbb413fc063f83c3f5537d07683c27311f0ed96bdf797382e"
+              ],
+              "statement": "The successful provider chronology contained zero events for the symbol at this decision time."
+            }
+          ],
+          "state": "assessed",
+          "value": "provider_relative_no_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:ENTX:78c7a7f577b61084e3bcffd625e12fdbe4e3882645f940b7d504c571e4d11432"
+          ],
+          "inferences": [
+            {
+              "claim_id": "chart_context_cleanliness.inference.1",
+              "evidence_ids": [
+                "daily-chart:ENTX:78c7a7f577b61084e3bcffd625e12fdbe4e3882645f940b7d504c571e4d11432"
+              ],
+              "statement": "Those bounded daily-history observations support the chart-context class near_resistance_or_failed_pop_history."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "chart_context_cleanliness.fact.1",
+              "evidence_ids": [
+                "daily-chart:ENTX:78c7a7f577b61084e3bcffd625e12fdbe4e3882645f940b7d504c571e4d11432"
+              ],
+              "statement": "The frozen daily record had 60 prior completed sessions, nearest overhead distance 4.901886792452825 percent, and 0 recent failed-pop-pattern session(s)."
+            }
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "attention:11869b72d17a6a981390050d3ca63ee804b79a6b237dbbefc3c00a0e1356af0e"
+          ],
+          "inferences": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.inference.1",
+              "evidence_ids": [
+                "attention:11869b72d17a6a981390050d3ca63ee804b79a6b237dbbefc3c00a0e1356af0e"
+              ],
+              "statement": "Those bounded cross-sectional observations support the leadership class not_current_leader."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.fact.1",
+              "evidence_ids": [
+                "attention:11869b72d17a6a981390050d3ca63ee804b79a6b237dbbefc3c00a0e1356af0e"
+              ],
+              "statement": "The candidate's market rank was 9, 4 active candidate(s) ranked better, the gap to the leader was 128.05654808140434 percentage points, and consecutive leader minutes were 0."
+            }
+          ],
+          "state": "assessed",
+          "value": "not_current_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:ENTX:b4ba302c4b1223d8cec39bfe0d87cdcde5ff4ba969a4c0b3bdfa2249c7ae6df2"
+          ],
+          "inferences": [],
+          "observed_facts": [
+            {
+              "claim_id": "theme_fit_no_news_acceptance.fact.1",
+              "evidence_ids": [
+                "theme-regime:ENTX:b4ba302c4b1223d8cec39bfe0d87cdcde5ff4ba969a4c0b3bdfa2249c7ae6df2"
+              ],
+              "statement": "The theme/regime record reports 10 same-minute candidate(s) and 1 cross-candidate story link(s), but it contains no asserted semantic issuer-theme class."
+            }
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "contract_id": "discretion-context-assessment-shadow-v0.1",
+      "decision_time": "2026-07-27T12:31:00+00:00",
+      "knowledge_policy": {
+        "may_raise_deterministic_risk": false,
+        "may_submit_orders": false,
+        "runtime_strategy_effect": "none",
+        "uses_future_price_outcomes": false,
+        "uses_raw_transcripts": false,
+        "uses_retrospective_behavior_labels": false,
+        "uses_ross_actions": false
+      },
+      "logical_expires_at": "2026-07-27T12:36:00+00:00",
+      "model_provenance": {
+        "generated_at": "2026-08-19T18:41:35Z",
+        "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+        "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+        "prompt_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+        "prompt_id": "context-semantic-shadow-compiled-rubric-v0.1",
+        "provider": "openai"
+      },
+      "prohibited_outputs": {
+        "aggregate_quality_score": null,
+        "candidate_priority": null,
+        "order_action": null,
+        "position_size": null,
+        "risk_action": null,
+        "selection_action": null,
+        "trade_recommendation": null
+      },
+      "record_type": "shadow_semantic_context_assessment",
+      "runtime_strategy_effect": "none",
+      "schema_version": 1,
+      "source_snapshot_content_sha256": "3b4b6ff63003fb37e555fec60f0b720736c3680bba8ec275be0d74c2aef6894f",
+      "symbol": "ENTX"
+    },
+    {
+      "assessment_content_sha256": "6515a6672a40bfd7aaffba54866b8d6f0b9bb70ff8dbcd5e0fefc1050ce5e0e6",
+      "assessment_origin": "shadow_ai",
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60692657"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_commitment_stage.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60692657"
+              ],
+              "statement": "The available wording supports the bounded commitment-stage class definitive_agreement_or_completed_action."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_commitment_stage.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60692657"
+              ],
+              "statement": "1 provider headline(s) were available at the decision time: Entera Bio Enters Into Securities Purchase Agreement For Oversubscribed Private Placement Financing, Expected To Result In Aggregate Gross Proceeds Of ~$275M"
+            }
+          ],
+          "state": "assessed",
+          "value": "definitive_agreement_or_completed_action"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60692657"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_substance_specificity.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60692657"
+              ],
+              "statement": "The available headline wording supports the bounded substance class specific_event_with_explicit_terms."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_substance_specificity.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60692657"
+              ],
+              "statement": "1 provider headline(s) were available at the decision time: Entera Bio Enters Into Securities Purchase Agreement For Oversubscribed Private Placement Financing, Expected To Result In Aggregate Gross Proceeds Of ~$275M"
+            }
+          ],
+          "state": "assessed",
+          "value": "specific_event_with_explicit_terms"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "daily-chart:ENTX:f06bcf29797e7bebb4edce5ae270338b78a165bdda17d2e862f8adedc6f2fc2e"
+          ],
+          "inferences": [
+            {
+              "claim_id": "chart_context_cleanliness.inference.1",
+              "evidence_ids": [
+                "daily-chart:ENTX:f06bcf29797e7bebb4edce5ae270338b78a165bdda17d2e862f8adedc6f2fc2e"
+              ],
+              "statement": "Those bounded daily-history observations support the chart-context class mixed_chart_context."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "chart_context_cleanliness.fact.1",
+              "evidence_ids": [
+                "daily-chart:ENTX:f06bcf29797e7bebb4edce5ae270338b78a165bdda17d2e862f8adedc6f2fc2e"
+              ],
+              "statement": "The frozen daily record had 60 prior completed sessions, nearest overhead distance None percent, and 0 recent failed-pop-pattern session(s)."
+            }
+          ],
+          "state": "assessed",
+          "value": "mixed_chart_context"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "attention:21b2e3a32a918530db1c18a9ac6a7a1c23a220d543dabb54c1482d5ba7d7e568"
+          ],
+          "inferences": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.inference.1",
+              "evidence_ids": [
+                "attention:21b2e3a32a918530db1c18a9ac6a7a1c23a220d543dabb54c1482d5ba7d7e568"
+              ],
+              "statement": "Those bounded cross-sectional observations support the leadership class not_current_leader."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.fact.1",
+              "evidence_ids": [
+                "attention:21b2e3a32a918530db1c18a9ac6a7a1c23a220d543dabb54c1482d5ba7d7e568"
+              ],
+              "statement": "The candidate's market rank was 6, 3 active candidate(s) ranked better, the gap to the leader was 97.38084511418364 percentage points, and consecutive leader minutes were 0."
+            }
+          ],
+          "state": "assessed",
+          "value": "not_current_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:ENTX:a6b078f131bf49e041629c9352fbc48ccb50071db5054b092c891899f7f5a28b"
+          ],
+          "inferences": [],
+          "observed_facts": [
+            {
+              "claim_id": "theme_fit_no_news_acceptance.fact.1",
+              "evidence_ids": [
+                "theme-regime:ENTX:a6b078f131bf49e041629c9352fbc48ccb50071db5054b092c891899f7f5a28b"
+              ],
+              "statement": "The theme/regime record reports 10 same-minute candidate(s) and 1 cross-candidate story link(s), but it contains no asserted semantic issuer-theme class."
+            }
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "contract_id": "discretion-context-assessment-shadow-v0.1",
+      "decision_time": "2026-07-27T12:34:00+00:00",
+      "knowledge_policy": {
+        "may_raise_deterministic_risk": false,
+        "may_submit_orders": false,
+        "runtime_strategy_effect": "none",
+        "uses_future_price_outcomes": false,
+        "uses_raw_transcripts": false,
+        "uses_retrospective_behavior_labels": false,
+        "uses_ross_actions": false
+      },
+      "logical_expires_at": "2026-07-27T12:39:00+00:00",
+      "model_provenance": {
+        "generated_at": "2026-08-19T18:41:35Z",
+        "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+        "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+        "prompt_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+        "prompt_id": "context-semantic-shadow-compiled-rubric-v0.1",
+        "provider": "openai"
+      },
+      "prohibited_outputs": {
+        "aggregate_quality_score": null,
+        "candidate_priority": null,
+        "order_action": null,
+        "position_size": null,
+        "risk_action": null,
+        "selection_action": null,
+        "trade_recommendation": null
+      },
+      "record_type": "shadow_semantic_context_assessment",
+      "runtime_strategy_effect": "none",
+      "schema_version": 1,
+      "source_snapshot_content_sha256": "7671ba86f8c0a9af06df2c98ec1009036b41b1280cb694d2405b270707107b60",
+      "symbol": "ENTX"
+    },
+    {
+      "assessment_content_sha256": "f3db491e1ff5e20c524ad0978d569f7a2822b24cae378bcf7ae0c5ca90f46a8d",
+      "assessment_origin": "shadow_ai",
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60684215",
+            "headline:alpaca-benzinga:60692782"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_commitment_stage.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60684215",
+                "headline:alpaca-benzinga:60692782"
+              ],
+              "statement": "The available wording supports the bounded commitment-stage class ambiguous_commitment_stage."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_commitment_stage.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60684215",
+                "headline:alpaca-benzinga:60692782"
+              ],
+              "statement": "2 provider headline(s) were available at the decision time: Benzinga's 'Stock Whisper' Index: 5 Stocks Investors Secretly Monitor But Don't Talk About Yet | Axe Compute Announces New 5-Yr Customer Agreement With Total Committed Contract Value Of Over $1.5B To Deploy NVIDIA Blackwell-Based AI Infrastructure Cluster In US"
+            }
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60684215",
+            "headline:alpaca-benzinga:60692782"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_substance_specificity.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60684215",
+                "headline:alpaca-benzinga:60692782"
+              ],
+              "statement": "The available headline wording supports the bounded substance class mixed_or_ambiguous_event_substance."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_substance_specificity.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60684215",
+                "headline:alpaca-benzinga:60692782"
+              ],
+              "statement": "2 provider headline(s) were available at the decision time: Benzinga's 'Stock Whisper' Index: 5 Stocks Investors Secretly Monitor But Don't Talk About Yet | Axe Compute Announces New 5-Yr Customer Agreement With Total Committed Contract Value Of Over $1.5B To Deploy NVIDIA Blackwell-Based AI Infrastructure Cluster In US"
+            }
+          ],
+          "state": "assessed",
+          "value": "mixed_or_ambiguous_event_substance"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "daily-chart:AGPU:5d8532de8af8906e2a308a77d96967d7072cbbaa992cc075e6af317602b5a533"
+          ],
+          "inferences": [
+            {
+              "claim_id": "chart_context_cleanliness.inference.1",
+              "evidence_ids": [
+                "daily-chart:AGPU:5d8532de8af8906e2a308a77d96967d7072cbbaa992cc075e6af317602b5a533"
+              ],
+              "statement": "Those bounded daily-history observations support the chart-context class clear_room_and_clean_history."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "chart_context_cleanliness.fact.1",
+              "evidence_ids": [
+                "daily-chart:AGPU:5d8532de8af8906e2a308a77d96967d7072cbbaa992cc075e6af317602b5a533"
+              ],
+              "statement": "The frozen daily record had 60 prior completed sessions, nearest overhead distance 29.366106080206976 percent, and 0 recent failed-pop-pattern session(s)."
+            }
+          ],
+          "state": "assessed",
+          "value": "clear_room_and_clean_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "attention:7f67262c3c2735eccce75d4b3840302dce6b2348ecc7b95d70931001e6f186ab"
+          ],
+          "inferences": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.inference.1",
+              "evidence_ids": [
+                "attention:7f67262c3c2735eccce75d4b3840302dce6b2348ecc7b95d70931001e6f186ab"
+              ],
+              "statement": "Those bounded cross-sectional observations support the leadership class not_current_leader."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.fact.1",
+              "evidence_ids": [
+                "attention:7f67262c3c2735eccce75d4b3840302dce6b2348ecc7b95d70931001e6f186ab"
+              ],
+              "statement": "The candidate's market rank was 18, 6 active candidate(s) ranked better, the gap to the leader was 137.15328467153282 percentage points, and consecutive leader minutes were 0."
+            }
+          ],
+          "state": "assessed",
+          "value": "not_current_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:AGPU:2e7f869e4edf547e415d9a9cd70282e269b74e7e18e14ee3870c7464bc51ec51"
+          ],
+          "inferences": [],
+          "observed_facts": [
+            {
+              "claim_id": "theme_fit_no_news_acceptance.fact.1",
+              "evidence_ids": [
+                "theme-regime:AGPU:2e7f869e4edf547e415d9a9cd70282e269b74e7e18e14ee3870c7464bc51ec51"
+              ],
+              "statement": "The theme/regime record reports 10 same-minute candidate(s) and 1 cross-candidate story link(s), but it contains no asserted semantic issuer-theme class."
+            }
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "contract_id": "discretion-context-assessment-shadow-v0.1",
+      "decision_time": "2026-07-27T12:37:00+00:00",
+      "knowledge_policy": {
+        "may_raise_deterministic_risk": false,
+        "may_submit_orders": false,
+        "runtime_strategy_effect": "none",
+        "uses_future_price_outcomes": false,
+        "uses_raw_transcripts": false,
+        "uses_retrospective_behavior_labels": false,
+        "uses_ross_actions": false
+      },
+      "logical_expires_at": "2026-07-27T12:42:00+00:00",
+      "model_provenance": {
+        "generated_at": "2026-08-19T18:41:35Z",
+        "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+        "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+        "prompt_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+        "prompt_id": "context-semantic-shadow-compiled-rubric-v0.1",
+        "provider": "openai"
+      },
+      "prohibited_outputs": {
+        "aggregate_quality_score": null,
+        "candidate_priority": null,
+        "order_action": null,
+        "position_size": null,
+        "risk_action": null,
+        "selection_action": null,
+        "trade_recommendation": null
+      },
+      "record_type": "shadow_semantic_context_assessment",
+      "runtime_strategy_effect": "none",
+      "schema_version": 1,
+      "source_snapshot_content_sha256": "af7851549e7dbfefbe69a65241d9987ec34ac7bea79f4876e892c209bee9b354",
+      "symbol": "AGPU"
+    },
+    {
+      "assessment_content_sha256": "fbbdf26bc9f3710156ef91abaa0a9d4e410928aa4a5f1aa04eb66d75f6ecc81a",
+      "assessment_origin": "shadow_ai",
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60692277",
+            "headline:alpaca-benzinga:60694379"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_commitment_stage.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60692277",
+                "headline:alpaca-benzinga:60694379"
+              ],
+              "statement": "The available wording supports the bounded commitment-stage class ambiguous_commitment_stage."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_commitment_stage.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60692277",
+                "headline:alpaca-benzinga:60694379"
+              ],
+              "statement": "2 provider headline(s) were available at the decision time: Edible Garden Announces Significant Expansion Of Its Fresh Cut Herb Distribution With Walmart Across The Mid-Atlantic Region | Edible Garden AG Shares Halted On Circuit Breaker To The Upside, Stock Now Up 164.33%"
+            }
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60692277",
+            "headline:alpaca-benzinga:60694379"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_substance_specificity.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60692277",
+                "headline:alpaca-benzinga:60694379"
+              ],
+              "statement": "The available headline wording supports the bounded substance class mixed_or_ambiguous_event_substance."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_substance_specificity.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60692277",
+                "headline:alpaca-benzinga:60694379"
+              ],
+              "statement": "2 provider headline(s) were available at the decision time: Edible Garden Announces Significant Expansion Of Its Fresh Cut Herb Distribution With Walmart Across The Mid-Atlantic Region | Edible Garden AG Shares Halted On Circuit Breaker To The Upside, Stock Now Up 164.33%"
+            }
+          ],
+          "state": "assessed",
+          "value": "mixed_or_ambiguous_event_substance"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:EDBL:60d29c533d47a8cf11b7e9c046456d44721aefd3363212f9c6329576787f8b78"
+          ],
+          "inferences": [
+            {
+              "claim_id": "chart_context_cleanliness.inference.1",
+              "evidence_ids": [
+                "daily-chart:EDBL:60d29c533d47a8cf11b7e9c046456d44721aefd3363212f9c6329576787f8b78"
+              ],
+              "statement": "Those bounded daily-history observations support the chart-context class near_resistance_or_failed_pop_history."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "chart_context_cleanliness.fact.1",
+              "evidence_ids": [
+                "daily-chart:EDBL:60d29c533d47a8cf11b7e9c046456d44721aefd3363212f9c6329576787f8b78"
+              ],
+              "statement": "The frozen daily record had 60 prior completed sessions, nearest overhead distance 4.781445783132532 percent, and 1 recent failed-pop-pattern session(s)."
+            }
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "attention:c231eba86251ad3143e504c583867a732ccd81f2f9abb66718c8bff7f5393144"
+          ],
+          "inferences": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.inference.1",
+              "evidence_ids": [
+                "attention:c231eba86251ad3143e504c583867a732ccd81f2f9abb66718c8bff7f5393144"
+              ],
+              "statement": "Those bounded cross-sectional observations support the leadership class dominant_persistent_leader."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.fact.1",
+              "evidence_ids": [
+                "attention:c231eba86251ad3143e504c583867a732ccd81f2f9abb66718c8bff7f5393144"
+              ],
+              "statement": "The candidate's market rank was 1, 0 active candidate(s) ranked better, the gap to the leader was 0.0 percentage points, and consecutive leader minutes were 35."
+            }
+          ],
+          "state": "assessed",
+          "value": "dominant_persistent_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:EDBL:db1cc08f89bdf70449815a19eed7fd50d532227d316a848282fbc04bd18b44de"
+          ],
+          "inferences": [],
+          "observed_facts": [
+            {
+              "claim_id": "theme_fit_no_news_acceptance.fact.1",
+              "evidence_ids": [
+                "theme-regime:EDBL:db1cc08f89bdf70449815a19eed7fd50d532227d316a848282fbc04bd18b44de"
+              ],
+              "statement": "The theme/regime record reports 10 same-minute candidate(s) and 1 cross-candidate story link(s), but it contains no asserted semantic issuer-theme class."
+            }
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "contract_id": "discretion-context-assessment-shadow-v0.1",
+      "decision_time": "2026-07-27T13:32:00+00:00",
+      "knowledge_policy": {
+        "may_raise_deterministic_risk": false,
+        "may_submit_orders": false,
+        "runtime_strategy_effect": "none",
+        "uses_future_price_outcomes": false,
+        "uses_raw_transcripts": false,
+        "uses_retrospective_behavior_labels": false,
+        "uses_ross_actions": false
+      },
+      "logical_expires_at": "2026-07-27T13:37:00+00:00",
+      "model_provenance": {
+        "generated_at": "2026-08-19T18:41:35Z",
+        "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+        "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+        "prompt_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+        "prompt_id": "context-semantic-shadow-compiled-rubric-v0.1",
+        "provider": "openai"
+      },
+      "prohibited_outputs": {
+        "aggregate_quality_score": null,
+        "candidate_priority": null,
+        "order_action": null,
+        "position_size": null,
+        "risk_action": null,
+        "selection_action": null,
+        "trade_recommendation": null
+      },
+      "record_type": "shadow_semantic_context_assessment",
+      "runtime_strategy_effect": "none",
+      "schema_version": 1,
+      "source_snapshot_content_sha256": "82e4fc0dd1ba8ffc1870e1df38814638b7d1b75fdc89e88593b1ea7956a09855",
+      "symbol": "EDBL"
+    },
+    {
+      "assessment_content_sha256": "5fc33afff04523208aa13dfc4c57e7a699ba0f0c0a9899788eaaa66ccb0621ef",
+      "assessment_origin": "shadow_ai",
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60692934",
+            "headline:alpaca-benzinga:60693119",
+            "headline:alpaca-benzinga:60693156",
+            "headline:alpaca-benzinga:60693467"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_commitment_stage.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60692934",
+                "headline:alpaca-benzinga:60693119",
+                "headline:alpaca-benzinga:60693156",
+                "headline:alpaca-benzinga:60693467"
+              ],
+              "statement": "The available wording supports the bounded commitment-stage class definitive_agreement_or_completed_action."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_commitment_stage.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60692934",
+                "headline:alpaca-benzinga:60693119",
+                "headline:alpaca-benzinga:60693156",
+                "headline:alpaca-benzinga:60693467"
+              ],
+              "statement": "4 provider headline(s) were available at the decision time: Immersion Q4 EPS $0.12 Beats $0.06 Estimate, Sales $270.000M Beat $3.430M Estimate | UPDATE: Immersion Q4 Adj. EPS $0.30 Beats $0.11 Estimate, Sales $270.000M Down From $471.262M YoY | UPDATE: Immersion Q4 Adj. EPS $0.30 Beats $0.11 Estimate, Sales $270.000M Down From $284.876M YoY | Immersion Q4 Adj. EPS $0.30 Beats $0.11 Estimate, Sales $270.000M Down From $284.876M YoY"
+            }
+          ],
+          "state": "assessed",
+          "value": "definitive_agreement_or_completed_action"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60692934",
+            "headline:alpaca-benzinga:60693119",
+            "headline:alpaca-benzinga:60693156",
+            "headline:alpaca-benzinga:60693467"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_substance_specificity.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60692934",
+                "headline:alpaca-benzinga:60693119",
+                "headline:alpaca-benzinga:60693156",
+                "headline:alpaca-benzinga:60693467"
+              ],
+              "statement": "The available headline wording supports the bounded substance class specific_event_with_explicit_terms."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_substance_specificity.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60692934",
+                "headline:alpaca-benzinga:60693119",
+                "headline:alpaca-benzinga:60693156",
+                "headline:alpaca-benzinga:60693467"
+              ],
+              "statement": "4 provider headline(s) were available at the decision time: Immersion Q4 EPS $0.12 Beats $0.06 Estimate, Sales $270.000M Beat $3.430M Estimate | UPDATE: Immersion Q4 Adj. EPS $0.30 Beats $0.11 Estimate, Sales $270.000M Down From $471.262M YoY | UPDATE: Immersion Q4 Adj. EPS $0.30 Beats $0.11 Estimate, Sales $270.000M Down From $284.876M YoY | Immersion Q4 Adj. EPS $0.30 Beats $0.11 Estimate, Sales $270.000M Down From $284.876M YoY"
+            }
+          ],
+          "state": "assessed",
+          "value": "specific_event_with_explicit_terms"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "daily-chart:IMMR:4b8192922cff0cd9f0ff2bd1a3a08faa007212305baf703f62f9efd98a44d0d7"
+          ],
+          "inferences": [
+            {
+              "claim_id": "chart_context_cleanliness.inference.1",
+              "evidence_ids": [
+                "daily-chart:IMMR:4b8192922cff0cd9f0ff2bd1a3a08faa007212305baf703f62f9efd98a44d0d7"
+              ],
+              "statement": "Those bounded daily-history observations support the chart-context class mixed_chart_context."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "chart_context_cleanliness.fact.1",
+              "evidence_ids": [
+                "daily-chart:IMMR:4b8192922cff0cd9f0ff2bd1a3a08faa007212305baf703f62f9efd98a44d0d7"
+              ],
+              "statement": "The frozen daily record had 60 prior completed sessions, nearest overhead distance None percent, and 0 recent failed-pop-pattern session(s)."
+            }
+          ],
+          "state": "assessed",
+          "value": "mixed_chart_context"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "attention:305e3e14ec72c5a459a647eb5325ddba5a93ae9f760e1c0c52bc4b34c7da6303"
+          ],
+          "inferences": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.inference.1",
+              "evidence_ids": [
+                "attention:305e3e14ec72c5a459a647eb5325ddba5a93ae9f760e1c0c52bc4b34c7da6303"
+              ],
+              "statement": "Those bounded cross-sectional observations support the leadership class not_current_leader."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.fact.1",
+              "evidence_ids": [
+                "attention:305e3e14ec72c5a459a647eb5325ddba5a93ae9f760e1c0c52bc4b34c7da6303"
+              ],
+              "statement": "The candidate's market rank was 20, 8 active candidate(s) ranked better, the gap to the leader was 151.44930835059202 percentage points, and consecutive leader minutes were 0."
+            }
+          ],
+          "state": "assessed",
+          "value": "not_current_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:IMMR:34b19126228c4bc321a59a4786a0f364b7d49597bad9f31d684e5c17d1be1e9e"
+          ],
+          "inferences": [],
+          "observed_facts": [
+            {
+              "claim_id": "theme_fit_no_news_acceptance.fact.1",
+              "evidence_ids": [
+                "theme-regime:IMMR:34b19126228c4bc321a59a4786a0f364b7d49597bad9f31d684e5c17d1be1e9e"
+              ],
+              "statement": "The theme/regime record reports 11 same-minute candidate(s) and 1 cross-candidate story link(s), but it contains no asserted semantic issuer-theme class."
+            }
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "contract_id": "discretion-context-assessment-shadow-v0.1",
+      "decision_time": "2026-07-27T13:34:00+00:00",
+      "knowledge_policy": {
+        "may_raise_deterministic_risk": false,
+        "may_submit_orders": false,
+        "runtime_strategy_effect": "none",
+        "uses_future_price_outcomes": false,
+        "uses_raw_transcripts": false,
+        "uses_retrospective_behavior_labels": false,
+        "uses_ross_actions": false
+      },
+      "logical_expires_at": "2026-07-27T13:39:00+00:00",
+      "model_provenance": {
+        "generated_at": "2026-08-19T18:41:35Z",
+        "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+        "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+        "prompt_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+        "prompt_id": "context-semantic-shadow-compiled-rubric-v0.1",
+        "provider": "openai"
+      },
+      "prohibited_outputs": {
+        "aggregate_quality_score": null,
+        "candidate_priority": null,
+        "order_action": null,
+        "position_size": null,
+        "risk_action": null,
+        "selection_action": null,
+        "trade_recommendation": null
+      },
+      "record_type": "shadow_semantic_context_assessment",
+      "runtime_strategy_effect": "none",
+      "schema_version": 1,
+      "source_snapshot_content_sha256": "01d0772e8c49db46b25afb9d93a48a087760df00d439cbe15a4016a4b6d6b7b0",
+      "symbol": "IMMR"
+    },
+    {
+      "assessment_content_sha256": "456008660a2a248d8771c9e739afde5cd1a9dd493745c44fb4ef755c90648a43",
+      "assessment_origin": "shadow_ai",
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "catalyst-packet:29552231db40e7e26c31958f17cdc20f549c7494017da007b6b9b0d5a6c8f9da"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_substance_specificity.inference.1",
+              "evidence_ids": [
+                "catalyst-packet:29552231db40e7e26c31958f17cdc20f549c7494017da007b6b9b0d5a6c8f9da"
+              ],
+              "statement": "Within the explicitly provider-relative boundary, no catalyst event was available to assess."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_substance_specificity.fact.1",
+              "evidence_ids": [
+                "catalyst-packet:29552231db40e7e26c31958f17cdc20f549c7494017da007b6b9b0d5a6c8f9da"
+              ],
+              "statement": "The successful provider chronology contained zero events for the symbol at this decision time."
+            }
+          ],
+          "state": "assessed",
+          "value": "provider_relative_no_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:LSE:192fa651c4de287a414ad4fc24cf4ae54e7ef56a341dc9c40eeaf032d7468dfb"
+          ],
+          "inferences": [
+            {
+              "claim_id": "chart_context_cleanliness.inference.1",
+              "evidence_ids": [
+                "daily-chart:LSE:192fa651c4de287a414ad4fc24cf4ae54e7ef56a341dc9c40eeaf032d7468dfb"
+              ],
+              "statement": "Those bounded daily-history observations support the chart-context class near_resistance_or_failed_pop_history."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "chart_context_cleanliness.fact.1",
+              "evidence_ids": [
+                "daily-chart:LSE:192fa651c4de287a414ad4fc24cf4ae54e7ef56a341dc9c40eeaf032d7468dfb"
+              ],
+              "statement": "The frozen daily record had 60 prior completed sessions, nearest overhead distance 3.6495440666348244 percent, and 0 recent failed-pop-pattern session(s)."
+            }
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "attention:a7ffb9ffce78c95244a5c87c76ae16599d16a027074a9958823edc61ac04510f"
+          ],
+          "inferences": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.inference.1",
+              "evidence_ids": [
+                "attention:a7ffb9ffce78c95244a5c87c76ae16599d16a027074a9958823edc61ac04510f"
+              ],
+              "statement": "Those bounded cross-sectional observations support the leadership class not_current_leader."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.fact.1",
+              "evidence_ids": [
+                "attention:a7ffb9ffce78c95244a5c87c76ae16599d16a027074a9958823edc61ac04510f"
+              ],
+              "statement": "The candidate's market rank was 44, 10 active candidate(s) ranked better, the gap to the leader was 131.7314437518542 percentage points, and consecutive leader minutes were 0."
+            }
+          ],
+          "state": "assessed",
+          "value": "not_current_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:LSE:d1b0931527de9ec4d4efca4414f16f824de03022dd9e9ce7558c9b9df9f3d225"
+          ],
+          "inferences": [],
+          "observed_facts": [
+            {
+              "claim_id": "theme_fit_no_news_acceptance.fact.1",
+              "evidence_ids": [
+                "theme-regime:LSE:d1b0931527de9ec4d4efca4414f16f824de03022dd9e9ce7558c9b9df9f3d225"
+              ],
+              "statement": "The theme/regime record reports 13 same-minute candidate(s) and 1 cross-candidate story link(s), but it contains no asserted semantic issuer-theme class."
+            }
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "contract_id": "discretion-context-assessment-shadow-v0.1",
+      "decision_time": "2026-07-27T13:39:00+00:00",
+      "knowledge_policy": {
+        "may_raise_deterministic_risk": false,
+        "may_submit_orders": false,
+        "runtime_strategy_effect": "none",
+        "uses_future_price_outcomes": false,
+        "uses_raw_transcripts": false,
+        "uses_retrospective_behavior_labels": false,
+        "uses_ross_actions": false
+      },
+      "logical_expires_at": "2026-07-27T13:44:00+00:00",
+      "model_provenance": {
+        "generated_at": "2026-08-19T18:41:35Z",
+        "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+        "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+        "prompt_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+        "prompt_id": "context-semantic-shadow-compiled-rubric-v0.1",
+        "provider": "openai"
+      },
+      "prohibited_outputs": {
+        "aggregate_quality_score": null,
+        "candidate_priority": null,
+        "order_action": null,
+        "position_size": null,
+        "risk_action": null,
+        "selection_action": null,
+        "trade_recommendation": null
+      },
+      "record_type": "shadow_semantic_context_assessment",
+      "runtime_strategy_effect": "none",
+      "schema_version": 1,
+      "source_snapshot_content_sha256": "39bc1b38dc12fe78333d6a45971da3ac195a4e01d73d5163f330f9f1ff4d7719",
+      "symbol": "LSE"
+    },
+    {
+      "assessment_content_sha256": "9c01f831688190cc91417fac5cb29b9198a3f90c4a9a77a6c38b7d240619e918",
+      "assessment_origin": "shadow_ai",
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60682638"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_commitment_stage.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60682638"
+              ],
+              "statement": "The available wording supports the bounded commitment-stage class ambiguous_commitment_stage."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_commitment_stage.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60682638"
+              ],
+              "statement": "1 provider headline(s) were available at the decision time: 12 Consumer Discretionary Stocks Moving In Friday's After-Market Session"
+            }
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60682638"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_substance_specificity.inference.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60682638"
+              ],
+              "statement": "The available headline wording supports the bounded substance class vague_or_incidental_event."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_substance_specificity.fact.1",
+              "evidence_ids": [
+                "headline:alpaca-benzinga:60682638"
+              ],
+              "statement": "1 provider headline(s) were available at the decision time: 12 Consumer Discretionary Stocks Moving In Friday's After-Market Session"
+            }
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "daily-chart:LVWR:aa44fa877aeba1636ebb8fa883f5e5056da3622212fc9ec4aea58ee4226a957e"
+          ],
+          "inferences": [
+            {
+              "claim_id": "chart_context_cleanliness.inference.1",
+              "evidence_ids": [
+                "daily-chart:LVWR:aa44fa877aeba1636ebb8fa883f5e5056da3622212fc9ec4aea58ee4226a957e"
+              ],
+              "statement": "Those bounded daily-history observations support the chart-context class mixed_chart_context."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "chart_context_cleanliness.fact.1",
+              "evidence_ids": [
+                "daily-chart:LVWR:aa44fa877aeba1636ebb8fa883f5e5056da3622212fc9ec4aea58ee4226a957e"
+              ],
+              "statement": "The frozen daily record had 60 prior completed sessions, nearest overhead distance None percent, and 0 recent failed-pop-pattern session(s)."
+            }
+          ],
+          "state": "assessed",
+          "value": "mixed_chart_context"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "attention:74269be0425d34794dece0ea924f3b8177822d88bf5814f98450a84ac571c8ec"
+          ],
+          "inferences": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.inference.1",
+              "evidence_ids": [
+                "attention:74269be0425d34794dece0ea924f3b8177822d88bf5814f98450a84ac571c8ec"
+              ],
+              "statement": "Those bounded cross-sectional observations support the leadership class not_current_leader."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.fact.1",
+              "evidence_ids": [
+                "attention:74269be0425d34794dece0ea924f3b8177822d88bf5814f98450a84ac571c8ec"
+              ],
+              "statement": "The candidate's market rank was 6, 3 active candidate(s) ranked better, the gap to the leader was 88.9251810487741 percentage points, and consecutive leader minutes were 0."
+            }
+          ],
+          "state": "assessed",
+          "value": "not_current_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:LVWR:c9f97222bfb8cba6ee0a817b3bdfc4df0a7e23cb8a45ea7471d59cd2086c5bae"
+          ],
+          "inferences": [],
+          "observed_facts": [
+            {
+              "claim_id": "theme_fit_no_news_acceptance.fact.1",
+              "evidence_ids": [
+                "theme-regime:LVWR:c9f97222bfb8cba6ee0a817b3bdfc4df0a7e23cb8a45ea7471d59cd2086c5bae"
+              ],
+              "statement": "The theme/regime record reports 13 same-minute candidate(s) and 1 cross-candidate story link(s), but it contains no asserted semantic issuer-theme class."
+            }
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "contract_id": "discretion-context-assessment-shadow-v0.1",
+      "decision_time": "2026-07-27T13:39:00+00:00",
+      "knowledge_policy": {
+        "may_raise_deterministic_risk": false,
+        "may_submit_orders": false,
+        "runtime_strategy_effect": "none",
+        "uses_future_price_outcomes": false,
+        "uses_raw_transcripts": false,
+        "uses_retrospective_behavior_labels": false,
+        "uses_ross_actions": false
+      },
+      "logical_expires_at": "2026-07-27T13:44:00+00:00",
+      "model_provenance": {
+        "generated_at": "2026-08-19T18:41:35Z",
+        "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+        "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+        "prompt_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+        "prompt_id": "context-semantic-shadow-compiled-rubric-v0.1",
+        "provider": "openai"
+      },
+      "prohibited_outputs": {
+        "aggregate_quality_score": null,
+        "candidate_priority": null,
+        "order_action": null,
+        "position_size": null,
+        "risk_action": null,
+        "selection_action": null,
+        "trade_recommendation": null
+      },
+      "record_type": "shadow_semantic_context_assessment",
+      "runtime_strategy_effect": "none",
+      "schema_version": 1,
+      "source_snapshot_content_sha256": "b8a2a0f16968ce948a3e761a0a87ee8e3993760585225aef1e991818a38be4d0",
+      "symbol": "LVWR"
+    },
+    {
+      "assessment_content_sha256": "1ca451ee0981196aaaf4dd3f3c1a4cbd77080b5cc04a6a40028d2cca22993840",
+      "assessment_origin": "shadow_ai",
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "inferences": [],
+          "observed_facts": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "catalyst-packet:473521ee2acc125c74c96b912a95d89f66591808191acb6046d48ddf8ef246ee"
+          ],
+          "inferences": [
+            {
+              "claim_id": "catalyst_substance_specificity.inference.1",
+              "evidence_ids": [
+                "catalyst-packet:473521ee2acc125c74c96b912a95d89f66591808191acb6046d48ddf8ef246ee"
+              ],
+              "statement": "Within the explicitly provider-relative boundary, no catalyst event was available to assess."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "catalyst_substance_specificity.fact.1",
+              "evidence_ids": [
+                "catalyst-packet:473521ee2acc125c74c96b912a95d89f66591808191acb6046d48ddf8ef246ee"
+              ],
+              "statement": "The successful provider chronology contained zero events for the symbol at this decision time."
+            }
+          ],
+          "state": "assessed",
+          "value": "provider_relative_no_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:NIPG:a7d0d31223a22c47c93783eddb1514ece016cc1b31c0e67baf6b9ea91466d5c4"
+          ],
+          "inferences": [
+            {
+              "claim_id": "chart_context_cleanliness.inference.1",
+              "evidence_ids": [
+                "daily-chart:NIPG:a7d0d31223a22c47c93783eddb1514ece016cc1b31c0e67baf6b9ea91466d5c4"
+              ],
+              "statement": "Those bounded daily-history observations support the chart-context class near_resistance_or_failed_pop_history."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "chart_context_cleanliness.fact.1",
+              "evidence_ids": [
+                "daily-chart:NIPG:a7d0d31223a22c47c93783eddb1514ece016cc1b31c0e67baf6b9ea91466d5c4"
+              ],
+              "statement": "The frozen daily record had 60 prior completed sessions, nearest overhead distance 4.999999999999982 percent, and 0 recent failed-pop-pattern session(s)."
+            }
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "attention:ae667ca2349fcb6a4886e276578c77faddc9c80aebdf910c65cc01b0adf2e3bc"
+          ],
+          "inferences": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.inference.1",
+              "evidence_ids": [
+                "attention:ae667ca2349fcb6a4886e276578c77faddc9c80aebdf910c65cc01b0adf2e3bc"
+              ],
+              "statement": "Those bounded cross-sectional observations support the leadership class not_current_leader."
+            }
+          ],
+          "observed_facts": [
+            {
+              "claim_id": "opportunity_obviousness_leadership_quality.fact.1",
+              "evidence_ids": [
+                "attention:ae667ca2349fcb6a4886e276578c77faddc9c80aebdf910c65cc01b0adf2e3bc"
+              ],
+              "statement": "The candidate's market rank was 19, 8 active candidate(s) ranked better, the gap to the leader was 126.22765564002465 percentage points, and consecutive leader minutes were 0."
+            }
+          ],
+          "state": "assessed",
+          "value": "not_current_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:NIPG:11ebae3d564f53916b9f1bef93e9aee97145211d446c7c60c6db2e24cfc7ba2e"
+          ],
+          "inferences": [],
+          "observed_facts": [
+            {
+              "claim_id": "theme_fit_no_news_acceptance.fact.1",
+              "evidence_ids": [
+                "theme-regime:NIPG:11ebae3d564f53916b9f1bef93e9aee97145211d446c7c60c6db2e24cfc7ba2e"
+              ],
+              "statement": "The theme/regime record reports 14 same-minute candidate(s) and 1 cross-candidate story link(s), but it contains no asserted semantic issuer-theme class."
+            }
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "contract_id": "discretion-context-assessment-shadow-v0.1",
+      "decision_time": "2026-07-27T13:46:00+00:00",
+      "knowledge_policy": {
+        "may_raise_deterministic_risk": false,
+        "may_submit_orders": false,
+        "runtime_strategy_effect": "none",
+        "uses_future_price_outcomes": false,
+        "uses_raw_transcripts": false,
+        "uses_retrospective_behavior_labels": false,
+        "uses_ross_actions": false
+      },
+      "logical_expires_at": "2026-07-27T13:51:00+00:00",
+      "model_provenance": {
+        "generated_at": "2026-08-19T18:41:35Z",
+        "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+        "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+        "prompt_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+        "prompt_id": "context-semantic-shadow-compiled-rubric-v0.1",
+        "provider": "openai"
+      },
+      "prohibited_outputs": {
+        "aggregate_quality_score": null,
+        "candidate_priority": null,
+        "order_action": null,
+        "position_size": null,
+        "risk_action": null,
+        "selection_action": null,
+        "trade_recommendation": null
+      },
+      "record_type": "shadow_semantic_context_assessment",
+      "runtime_strategy_effect": "none",
+      "schema_version": 1,
+      "source_snapshot_content_sha256": "518e29930c949879292fd0fe17eb73892bc7bbf5c242eb150534a85e6f40f6f4",
+      "symbol": "NIPG"
+    }
+  ],
+  "rubric_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+  "rubric_id": "context-semantic-shadow-compiled-rubric-v0.1",
+  "schema_version": 1,
+  "source_snapshot_date_content_sha256": "f9dab7486c9320efc758d0a7f39282aa74842266ad10ef6ec80fdd706a125455",
+  "source_snapshot_runtime_content_sha256": "6dcc6f25ddb73e63b5f9c714e0c890ab954b15b099e7ba3a71ef948f9760939f",
+  "trading_date": "2026-07-27"
+}

@@ -1,0 +1,143 @@
+{
+  "artifact_id": "ross-context-heldout-semantic-shadow-runtime-v0.1",
+  "axis_statistics": {
+    "catalyst_commitment_stage": {
+      "confidence": {
+        "low": 187,
+        "medium": 67
+      },
+      "states": {
+        "abstained": 60,
+        "assessed": 254
+      },
+      "values": {
+        "ambiguous_commitment_stage": 187,
+        "authorization_not_execution": 1,
+        "definitive_agreement_or_completed_action": 63,
+        "exploration_or_pursuit": 3
+      }
+    },
+    "catalyst_credibility_repetition": {
+      "confidence": {},
+      "states": {
+        "abstained": 314
+      },
+      "values": {}
+    },
+    "catalyst_substance_specificity": {
+      "confidence": {
+        "high": 126,
+        "low": 93,
+        "medium": 95
+      },
+      "states": {
+        "assessed": 314
+      },
+      "values": {
+        "mixed_or_ambiguous_event_substance": 93,
+        "provider_relative_no_event": 60,
+        "specific_event_terms_incomplete": 6,
+        "specific_event_with_explicit_terms": 66,
+        "vague_or_incidental_event": 89
+      }
+    },
+    "chart_context_cleanliness": {
+      "confidence": {
+        "high": 108,
+        "medium": 177
+      },
+      "states": {
+        "abstained": 29,
+        "assessed": 285
+      },
+      "values": {
+        "clear_room_and_clean_history": 31,
+        "mixed_chart_context": 146,
+        "near_resistance_or_failed_pop_history": 108
+      }
+    },
+    "opportunity_obviousness_leadership_quality": {
+      "confidence": {
+        "high": 231,
+        "medium": 54
+      },
+      "states": {
+        "abstained": 29,
+        "assessed": 285
+      },
+      "values": {
+        "competitive_not_dominant": 45,
+        "dominant_persistent_leader": 12,
+        "emerging_leader": 9,
+        "not_current_leader": 219
+      }
+    },
+    "theme_fit_no_news_acceptance": {
+      "confidence": {},
+      "states": {
+        "abstained": 314
+      },
+      "values": {}
+    }
+  },
+  "causal_boundary": {
+    "aggregate_score_created": false,
+    "runtime_strategy_effect": "none",
+    "selection_threshold_created": false,
+    "uses_later_prices": false,
+    "uses_raw_transcripts": false,
+    "uses_recap_inventory": false,
+    "uses_retrospective_labels": false,
+    "uses_ross_actions": false,
+    "uses_trade_outcomes": false
+  },
+  "content_sha256": "9b3be7a17f29e638b0e1da14b4d050762503bab17c74c3f97e62b99489f25cd4",
+  "contract_id": "discretion-context-assessment-shadow-v0.1",
+  "date_content_sha256s": {
+    "2026-07-24": "a633a718333ccb3545d4ff38b5c8b9e6191b90ee39dc831239e42045ec0cb2f2",
+    "2026-07-27": "4690caf4569c9cc6101fcb8acf9a0f3c932f951a135604f67fe7a09e4a50b650",
+    "2026-07-28": "40a38df75f4fe92da4fa52d5be3c14340b87ecfda17f2e65889c84ac52f0fb33",
+    "2026-07-29": "09a93967159c87a899a9b77b2d41cf92495c3806c7a49857939d433b9e624e49",
+    "2026-07-30": "78288a23b99158294b0a852e9eeb8c9a0bc7ea74cb9cc8f2fbe95a8d3df6c5f7",
+    "2026-07-31": "b684341c231583f34c5d6397dcea32115c8b68eac9b5d69df6b5ad554fa460c4",
+    "2026-08-03": "c1b5e2a2b0a3db25d7a3f8742568392727eca1e66db58e096ae5b79af11afbd6",
+    "2026-08-04": "3693c9cb3bc5723fce266b5393ac6a7e255faa38c508283ff81c9afe046bfac5",
+    "2026-08-05": "2f58c5747e3e1da0fec0f39dc7f7177b0a6d60a0275ae373ca41cf7e0db4080a",
+    "2026-08-06": "5d0e56e30aaf48024af13ab95e144ca5a20932c389151bfd0306ea7cf4223bd1"
+  },
+  "dates": [
+    "2026-07-24",
+    "2026-07-27",
+    "2026-07-28",
+    "2026-07-29",
+    "2026-07-30",
+    "2026-07-31",
+    "2026-08-03",
+    "2026-08-04",
+    "2026-08-05",
+    "2026-08-06"
+  ],
+  "eligibility": {
+    "descriptive_component_comparison_allowed": true,
+    "frozen_before_retrospective_review": true,
+    "policy_promotion_eligible": false,
+    "portfolio_backtest": false,
+    "representative_panel": false
+  },
+  "generated_at": "2026-08-19T18:41:35Z",
+  "generation_mode": "deterministic_compilation_of_frozen_ai_authored_rubric",
+  "generator_source_sha256": "af14975d8af8e3d7814edde8cc8a8c2282866a5e4f989668eedae52822377d56",
+  "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+  "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+  "record_count": 314,
+  "rubric_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+  "rubric_id": "context-semantic-shadow-compiled-rubric-v0.1",
+  "schema_version": 1,
+  "source_parent": {
+    "artifact_id": "ross-context-heldout-runtime-v0.1",
+    "github_artifact_id": 9376599434,
+    "runtime_manifest_content_sha256": "3567619bfb6b7b2c177d02cc69f15423bf605663519017a6638b0394e4153702",
+    "snapshot_runtime_content_sha256": "6dcc6f25ddb73e63b5f9c714e0c890ab954b15b099e7ba3a71ef948f9760939f",
+    "zip_sha256": "a29186eb092752cfafc031360cacf348bea5e607cb19ce326ddaff2ddfedac1a"
+  }
+}

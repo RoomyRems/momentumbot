@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "rubric_id": "context-semantic-shadow-compiled-rubric-v0.1",
+  "artifact_type": "label_blind_ai_authored_compiled_semantic_rubric",
+  "status": "frozen_before_retrospective_source_inventory",
+  "purpose": "Apply one conservative, reproducible semantic shadow to the frozen context snapshots without selection, order, size, risk, or policy authority.",
+  "generation_mode": {
+    "authoring_model": "gpt-5.6-sol-work-mode",
+    "runtime_application": "deterministic_compilation_of_the_frozen_ai_authored_rubric",
+    "external_model_api_call_per_record": false,
+    "claim_limit": "This is a reproducible first semantic proxy authored by the Work Mode model, not a claim that a separately hosted model independently inferred every record."
+  },
+  "frozen_parent": {
+    "artifact_id": "ross-context-heldout-runtime-v0.1",
+    "github_artifact_id": 9376599434,
+    "zip_sha256": "a29186eb092752cfafc031360cacf348bea5e607cb19ce326ddaff2ddfedac1a",
+    "runtime_manifest_content_sha256": "3567619bfb6b7b2c177d02cc69f15423bf605663519017a6638b0394e4153702",
+    "snapshot_runtime_content_sha256": "6dcc6f25ddb73e63b5f9c714e0c890ab954b15b099e7ba3a71ef948f9760939f"
+  },
+  "knowledge_boundary": {
+    "uses_only_frozen_snapshot_evidence": true,
+    "uses_raw_transcripts": false,
+    "uses_recap_inventory": false,
+    "uses_ross_actions": false,
+    "uses_retrospective_labels": false,
+    "uses_trade_outcomes": false,
+    "uses_later_prices": false,
+    "uses_excluded_pilot_to_fit_rubric": false
+  },
+  "axis_policy": {
+    "catalyst_substance_specificity": {
+      "assess_provider_relative_no_event_from_successful_zero_event_chronology": true,
+      "treat_market_roundups_mover_explainers_and_halts_as_vague_or_incidental": true,
+      "treat_direct_issuer_events_with_quantified_terms_as_specific_with_explicit_terms": true,
+      "treat_direct_issuer_events_without_quantified_terms_as_specific_with_incomplete_terms": true,
+      "treat_mixed_specific_and_generic_headlines_as_mixed_or_ambiguous": true
+    },
+    "catalyst_commitment_stage": {
+      "withdrawal_or_cancellation_language_precedes_other_classes": true,
+      "exploration_proposal_or_pursuit_language": true,
+      "authorization_without_execution_language": true,
+      "definitive_agreement_completed_action_results_or_guidance_language": true,
+      "generic_mover_or_unclear_language_is_ambiguous": true
+    },
+    "catalyst_credibility_repetition": {
+      "always_abstain_without_filing_corroboration_or_issuer_event_history": true,
+      "abstain_reason": "insufficient_evidence"
+    },
+    "theme_fit_no_news_acceptance": {
+      "always_abstain_without_an_explicit_semantic_theme_mapping": true,
+      "cohort_and_provider_news_counts_do_not_establish_theme_fit": true,
+      "abstain_reason": "insufficient_evidence"
+    },
+    "opportunity_obviousness_leadership_quality": {
+      "dominant_persistent_leader_requires_current_lead_and_at_least_three_consecutive_leader_minutes": true,
+      "current_leader_below_three_consecutive_minutes_is_emerging": true,
+      "nonleader_is_competitive_when_top_five_or_no_more_than_two_active_candidates_rank_better_with_gap_no_more_than_fifteen_percentage_points": true,
+      "nonleader_is_not_current_leader_when_rank_exceeds_ten_or_gap_exceeds_thirty_percentage_points": true,
+      "otherwise_mixed_or_ambiguous": true,
+      "missing_completed_candidate_bar_forces_abstention": true
+    },
+    "chart_context_cleanliness": {
+      "recent_failed_pop_definition": "A prior completed session has at least 20 percent high excursion, at least 25 percent high-to-close fade, and at least 2x volume versus its prior-20-session mean.",
+      "near_resistance_definition": "The nearest frozen overhead reference is no more than 5 percent above decision price.",
+      "clear_room_definition": "The nearest frozen overhead reference is at least 20 percent above decision price, at least 20 sessions are present, and no recent failed-pop session is present.",
+      "near_resistance_or_any_recent_failed_pop": "near_resistance_or_failed_pop_history",
+      "clear_room_and_no_recent_failed_pop": "clear_room_and_clean_history",
+      "available_but_neither_condition": "mixed_chart_context",
+      "missing_daily_domain_forces_abstention": true
+    }
+  },
+  "authority": {
+    "aggregate_score": null,
+    "selection_threshold": null,
+    "candidate_priority": null,
+    "trade_recommendation": null,
+    "order_action": null,
+    "position_size": null,
+    "risk_action": null,
+    "runtime_strategy_effect": "none",
+    "policy_promotion_eligible": false
+  }
+}

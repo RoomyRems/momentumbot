@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "audit_id": "context-semantic-shadow-v0.1-2026-08-19",
+  "audited_at_utc": "2026-08-19T18:41:35Z",
+  "repository": "RoomyRems/momentumbot",
+  "branch": "phase-3-historical-snapshot",
+  "source_checkpoint": {
+    "commit_sha": "a6cde99155583eb0f943a3c5d409fb694d09a22d",
+    "tree_sha": "7656563725e0c0d7a7810d7e563ba103088d9994"
+  },
+  "frozen_parent": {
+    "artifact_id": "ross-context-heldout-runtime-v0.1",
+    "github_artifact_id": 9376599434,
+    "workflow_run_id": 32260356870,
+    "zip_sha256": "a29186eb092752cfafc031360cacf348bea5e607cb19ce326ddaff2ddfedac1a",
+    "runtime_manifest_content_sha256": "3567619bfb6b7b2c177d02cc69f15423bf605663519017a6638b0394e4153702",
+    "snapshot_runtime_content_sha256": "6dcc6f25ddb73e63b5f9c714e0c890ab954b15b099e7ba3a71ef948f9760939f"
+  },
+  "rubric": {
+    "rubric_id": "context-semantic-shadow-compiled-rubric-v0.1",
+    "path": "research/strategy/context-semantic-shadow-compiled-rubric-v0.1.json",
+    "file_sha256": "cd8308c6e94f1e7425086b07758a676bf69db254c28c7d3700c10e653f2b3da1",
+    "content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+    "frozen_before_retrospective_source_inventory": true
+  },
+  "artifact": {
+    "artifact_id": "ross-context-heldout-semantic-shadow-runtime-v0.1",
+    "path": "research/frozen/context-semantic-shadow-runtime-v0.1",
+    "manifest_file_sha256": "6efbb111018451d9b9a366c5e6a8d5f34e6f7dc76a0c60937e62f111cd5fc31e",
+    "manifest_content_sha256": "9b3be7a17f29e638b0e1da14b4d050762503bab17c74c3f97e62b99489f25cd4",
+    "generator_source_sha256": "af14975d8af8e3d7814edde8cc8a8c2282866a5e4f989668eedae52822377d56",
+    "size_bytes": 2511446,
+    "record_count": 314,
+    "date_count": 10,
+    "source_snapshot_count": 314
+  },
+  "generation_provenance": {
+    "provider": "openai",
+    "authoring_model": "gpt-5.6-sol-work-mode",
+    "model_id": "gpt-5.6-sol-work-mode-compiled-rubric-v0.1",
+    "label_blind_run_id": "chatgpt-workmode-context-shadow-v0.1-2026-08-19",
+    "runtime_application": "deterministic_compilation_of_the_frozen_ai_authored_rubric",
+    "external_model_api_call_per_record": false,
+    "claim_limit": "This artifact is a reproducible first semantic proxy authored by the Work Mode model, not a claim that a separately hosted model independently inferred every record."
+  },
+  "axis_coverage": {
+    "catalyst_substance_specificity": {
+      "assessed": 314,
+      "abstained": 0
+    },
+    "catalyst_commitment_stage": {
+      "assessed": 254,
+      "abstained": 60
+    },
+    "catalyst_credibility_repetition": {
+      "assessed": 0,
+      "abstained": 314
+    },
+    "theme_fit_no_news_acceptance": {
+      "assessed": 0,
+      "abstained": 314
+    },
+    "opportunity_obviousness_leadership_quality": {
+      "assessed": 285,
+      "abstained": 29
+    },
+    "chart_context_cleanliness": {
+      "assessed": 285,
+      "abstained": 29
+    }
+  },
+  "integrity": {
+    "source_zip_digest_verified": true,
+    "source_zip_integrity_verified": true,
+    "source_runtime_manifest_verified": true,
+    "source_snapshot_root_and_all_date_hashes_verified": true,
+    "all_source_snapshots_validated": true,
+    "all_assessment_content_hashes_recomputed": true,
+    "all_claim_citation_unions_validated": true,
+    "all_dates_match_registration": true
+  },
+  "causal_boundary": {
+    "uses_raw_transcripts": false,
+    "uses_recap_inventory": false,
+    "uses_ross_actions": false,
+    "uses_retrospective_labels": false,
+    "uses_trade_outcomes": false,
+    "uses_later_prices": false,
+    "aggregate_score_created": false,
+    "selection_threshold_created": false,
+    "runtime_strategy_effect": "none"
+  },
+  "eligibility": {
+    "retrospective_source_inventory_may_start_after_this_freeze": true,
+    "descriptive_component_comparison_allowed": true,
+    "policy_promotion_eligible": false,
+    "representative_panel": false,
+    "portfolio_backtest": false,
+    "full_imitation_claim_eligible": false
+  },
+  "conclusion": "frozen_label_blind_compiled_semantic_shadow_retrospective_review_may_begin_no_policy_promotion"
+}
