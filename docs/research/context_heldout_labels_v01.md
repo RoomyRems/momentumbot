@@ -1,6 +1,6 @@
 # Context held-out retrospective labels v0.1
 
-Status: **frozen conservative retrospective evidence; component comparison may begin; no runtime or policy change**.
+Status: **frozen conservative retrospective evidence; descriptive component comparison complete; no runtime or policy change**.
 
 ## Causal order
 
@@ -60,14 +60,15 @@ Off-candidate actions remain acquisition evidence and never receive fabricated f
 
 Caption text is not assumed error-free. Seven corrections are explicit rather than silently applied: `EDGL` to `EDBL`, `NBI YA` to `BIYA`, the `INFL` / `INLX` / `INFS` variants to `INLF`, `AMMX` to `AMIX`, `XYT` to `YXT`, `NMI` to `NAMI`, and `DSW` to `DSY`. The first five resolve to frozen candidates through same-record or companion-record evidence. The latter two resolve only the internally consistent off-candidate identity. The symbol transcribed as `MB` stays unresolved.
 
-## Limits and next gate
+## Limits and completed comparison gate
 
 These recaps establish retrospective sequence and account action, not synchronized decision timestamps, complete order history or all opportunity evaluations. They do not expose buying power, divided attention, Level 2, time and sales, complete exits or later opportunity cost to the runtime.
 
-The next valid step is a descriptive, no-fitting component comparison. It may report deterministic coverage, semantic assessed/abstained states and explicit account actions separately. It may not create an aggregate context score, tune a threshold, alter Micro-v0.1, promote a policy or claim representative Ross imitation.
+The descriptive, no-fitting component comparison is frozen as `ross-context-heldout-comparison-v0.1`, content SHA-256 `d93d61ed0ebd5657bbed135beb7fe2d7b0f337d1e3f76720c0f1dcff7908ff54`. It reports deterministic coverage, semantic assessed/abstained states and explicit account actions separately. It creates no aggregate context score, tunes no threshold, leaves Micro-v0.1 unchanged, promotes no policy and makes no representative Ross-imitation claim. See `docs/research/context_heldout_comparison_v01.md`.
 
 ## Files
 
 - Label artifact: `research/data-audits/context-heldout-labels-v0.1-2026-08-19.json`
 - Validator: `src/momentumbot/research/context_heldout_labels.py`
 - Tests: `tests/test_context_heldout_labels.py`
+- Completed comparison: `docs/research/context_heldout_comparison_v01.md`

@@ -52,6 +52,6 @@ The simulator uses the separate `paper-safe` risk policy by default. The aggress
 
 ## Current gate
 
-The ten-session scanner, unchanged Micro-v0.1 replay, retrospective Ross labels and no-retuning component comparison are frozen. The new 2026-07-24 through 2026-08-06 context panel now has a verified deterministic runtime, a frozen label-blind compiled semantic shadow and frozen conservative account-scoped retrospective labels. The active gate is descriptive component comparison without fitting, scoring or policy promotion. See `docs/project/current_state.md` for the exact checkpoint and next steps.
+The ten-session scanner, unchanged Micro-v0.1 replay, retrospective Ross labels and no-retuning component comparison are frozen. The 2026-07-24 through 2026-08-06 context panel now also has a verified deterministic runtime, a frozen label-blind compiled semantic shadow, frozen conservative account-scoped labels and a frozen descriptive component comparison. The active gate is causal campaign, portfolio and account-state representation; no fitted context score or policy was promoted. See `docs/project/current_state.md` for the exact checkpoint and next steps.
 
 The provisional universe makes an auditable decision for every fetched historical ticker but remains explicitly non-promotable until those downstream gates are complete. A current provider asset census—even one containing inactive rows—remains conditional diagnostic evidence only. AI remains shadow-only until the deterministic baseline has credible walk-forward results.

@@ -26,6 +26,7 @@ This file is a routing checkpoint, not a second policy specification. Follow its
 - Push-triggered workflow run `32260356870` at exact head `4a9f3512c1a79ae5d0df86f4a83a3864b2aa2ad2` and tree `3659efff5dc9567b4e5da3080bc80cc59ddeb327` succeeded. Artifact `9376599434`, `context-heldout-runtime-v0.1`, has independently recomputed ZIP SHA-256 `a29186eb092752cfafc031360cacf348bea5e607cb19ce326ddaff2ddfedac1a`. All 115 manifest/content SHA-256 claims and parent-child bindings recompute; provider-independent replay reproduces all 195 candidates and 18,954 scanner rows. The artifact covers the exact ten registered sessions, includes no semantic AI, has no strategy authority, and is not policy-promotion evidence. The permanent success audit is `research/data-audits/context-heldout-runtime-v0.1-run-32260356870-success-2026-08-19.json`.
 - The label-blind compiled semantic shadow is now frozen as `ross-context-heldout-semantic-shadow-runtime-v0.1`, manifest content SHA-256 `9b3be7a17f29e638b0e1da14b4d050762503bab17c74c3f97e62b99489f25cd4`. It binds all 314 exact snapshots and the parent ZIP/runtime hashes. GPT-5.6 Sol in Work Mode authored the frozen rubric, content SHA-256 `959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3`, before retrospective source inventory; repository code applies it deterministically for exact reproducibility. This is transparently a compiled semantic proxy, not a claim of 314 separately hosted model calls. It assesses headline substance on 314 snapshots, commitment on 254, leadership and chart context on 285 each, and abstains on every credibility/repetition and theme-fit axis because required semantic evidence is absent. It has no aggregate score, selection threshold, order, size, risk, or policy authority. The permanent audit is `research/data-audits/context-semantic-shadow-v0.1-2026-08-19.json`.
 - Conservative retrospective evidence is now frozen separately as `ross-context-heldout-labels-v0.1`, content SHA-256 `3ff85b371de31ea5dc1d2e4afc4e334c6f6f5051bfe5c7340fb51007527b7cd1`. The eight supplied files contain 2,292 records; 14 caption records cover all ten fixed trading sessions without replacing a date. Publication date was not silently equated with trading date: the July 24 upload describing the excluded July 23 session remains excluded, while two August 7 uploads are internally resolved to the August 6 day-31 account recaps. Across 195 candidate symbol-dates per account, 11 main and 6 small participations and 4 main and 8 small explicit rejections are retained; the remaining 180 main and 181 small actions remain unmentioned or unobservable. Main and small accounts remain separate, seven ticker corrections are explicit, raw captions are not committed or used in runtime, and labels have no score, threshold, order, risk or policy authority.
+- The context component comparison is frozen as `ross-context-heldout-comparison-v0.1`, content SHA-256 `d93d61ed0ebd5657bbed135beb7fe2d7b0f337d1e3f76720c0f1dcff7908ff54`. All 314 semantic records bind the exact deterministic snapshot keys and hashes, and all 2,545 cited evidence references resolve. Candidate activation is the neutral comparison anchor for 29 explicit account actions across 18 acquired symbol-dates; it is not claimed as trade time, and later source-change rows are not searched for a favorable match. Scanner, attention, catalyst chronology, daily-chart and theme/regime evidence cover all 195 activations, while filing corroboration, issuer history, dedicated liquidity, account state and portfolio attention cover none. Credibility/repetition and theme-fit axes therefore abstain on all 195 activations. Candidate acquisition remains separate: 11/17 main and 6/9 small completed-trade actions, or 12/18 unique traded symbol-dates, were acquired. No score, threshold, technical rule or policy was created.
 
 Exact provenance lives in:
 
@@ -40,6 +41,7 @@ Exact provenance lives in:
 - `research/data-audits/context-heldout-runtime-v0.1-run-32260356870-success-2026-08-19.json`
 - `research/data-audits/context-semantic-shadow-v0.1-2026-08-19.json`
 - `research/data-audits/context-heldout-labels-v0.1-2026-08-19.json`
+- `research/data-audits/context-heldout-comparison-v0.1-2026-08-19.json`
 - `research/strategy/discretion-heldout-panel-v0.1.json`
 - `research/strategy/discretion-context-assessment-shadow-v0.1.json`
 - `research/strategy/context-heldout-panel-v0.1.json`
@@ -56,26 +58,20 @@ Exact provenance lives in:
 - `docs/research/context_heldout_runtime_v01.md`
 - `docs/research/context_semantic_shadow_v01.md`
 - `docs/research/context_heldout_labels_v01.md`
+- `docs/research/context_heldout_comparison_v01.md`
 
 ## Active gate
 
-The preregistered deterministic runtime, label-blind semantic shadow and conservative retrospective labels are now frozen. Continue without changing Micro-v0.1:
-
-1. preserve artifact `9376599434` and its permanent success audit as the immutable pre-label parent;
-2. preserve semantic-shadow manifest `9b3be7a17f29e638b0e1da14b4d050762503bab17c74c3f97e62b99489f25cd4` as the immutable pre-label semantic parent;
-3. preserve retrospective label content SHA-256 `3ff85b371de31ea5dc1d2e4afc4e334c6f6f5051bfe5c7340fb51007527b7cd1` and its sparse unknown-by-default account policy;
-4. compare deterministic coverage, semantic assessed/abstained states and explicit account actions descriptively without fitting; and
-5. keep candidate acquisition, contextual assessment, Micro setup and execution as separate measurable gates with no aggregate score.
+The preregistered context sequence is complete and frozen through comparison. Preserve artifact `9376599434`, semantic manifest `9b3be7a17f29e638b0e1da14b4d050762503bab17c74c3f97e62b99489f25cd4`, labels `3ff85b371de31ea5dc1d2e4afc4e334c6f6f5051bfe5c7340fb51007527b7cd1` and comparison `d93d61ed0ebd5657bbed135beb7fe2d7b0f337d1e3f76720c0f1dcff7908ff54` as immutable parents. Continue without changing Micro-v0.1 by adding causal campaign, portfolio and account-state representation so repeated setup emissions are consolidated into account-feasible decisions. Candidate acquisition, context, Micro setup and execution remain separate gates with no aggregate score.
 
 The ten-session result is a component diagnostic, not a portfolio backtest. Repeated plans can belong to one campaign, and buying power, divided attention, Level 2, tape-based management and complete exits are still absent.
 
 ## Next gates
 
-1. Compare each deterministic and semantic context component against the frozen 2026-07-24 through 2026-08-06 account labels descriptively without fitting, ranking or an aggregate score.
-2. Add campaign/portfolio/account state so repeated Micro emissions are consolidated into decisions Ross could actually take.
-3. Add realistic execution and latency, then Level 2/time-and-sales capture and deterministic summaries where historical or live data permits.
-4. Validate any AI contribution out of sample and in live shadow before it can affect paper decisions.
-5. Run a larger preregistered walk-forward panel before considering policy promotion or interpreting P&L.
+1. Add campaign/portfolio/account state so repeated Micro emissions are consolidated into decisions Ross could actually take.
+2. Add realistic execution and latency, then Level 2/time-and-sales capture and deterministic summaries where historical or live data permits.
+3. Validate any AI contribution out of sample and in live shadow before it can affect paper decisions.
+4. Run a larger preregistered walk-forward panel before considering policy promotion or interpreting P&L.
 
 ## Explicitly not ready
 

@@ -1,0 +1,4944 @@
+{
+  "action_group_descriptives": {
+    "main_account:explicitly_skipped_or_rejected": {
+      "decision_count": 4,
+      "deterministic_evidence_coverage": {
+        "domains": {
+          "account_state": {
+            "missing": 4,
+            "present": 0
+          },
+          "attention_leadership": {
+            "missing": 0,
+            "present": 4
+          },
+          "catalyst_chronology": {
+            "missing": 0,
+            "present": 4
+          },
+          "catalyst_headline": {
+            "missing": 0,
+            "present": 4
+          },
+          "daily_chart": {
+            "missing": 0,
+            "present": 4
+          },
+          "filing_corroboration": {
+            "missing": 4,
+            "present": 0
+          },
+          "issuer_event_history": {
+            "missing": 4,
+            "present": 0
+          },
+          "liquidity": {
+            "missing": 4,
+            "present": 0
+          },
+          "portfolio_attention": {
+            "missing": 4,
+            "present": 0
+          },
+          "scanner_market": {
+            "missing": 0,
+            "present": 4
+          },
+          "theme_regime": {
+            "missing": 0,
+            "present": 4
+          }
+        },
+        "record_count": 4
+      },
+      "semantic_axis_descriptives": {
+        "axes": {
+          "catalyst_commitment_stage": {
+            "abstain_reasons": {},
+            "axis_instances_with_evidence_citations": 4,
+            "confidence": {
+              "low": 4
+            },
+            "evidence_reference_count": 7,
+            "states": {
+              "assessed": 4
+            },
+            "values": {
+              "ambiguous_commitment_stage": 4
+            }
+          },
+          "catalyst_credibility_repetition": {
+            "abstain_reasons": {
+              "insufficient_evidence": 4
+            },
+            "axis_instances_with_evidence_citations": 0,
+            "confidence": {},
+            "evidence_reference_count": 0,
+            "states": {
+              "abstained": 4
+            },
+            "values": {}
+          },
+          "catalyst_substance_specificity": {
+            "abstain_reasons": {},
+            "axis_instances_with_evidence_citations": 4,
+            "confidence": {
+              "medium": 4
+            },
+            "evidence_reference_count": 7,
+            "states": {
+              "assessed": 4
+            },
+            "values": {
+              "vague_or_incidental_event": 4
+            }
+          },
+          "chart_context_cleanliness": {
+            "abstain_reasons": {},
+            "axis_instances_with_evidence_citations": 4,
+            "confidence": {
+              "high": 3,
+              "medium": 1
+            },
+            "evidence_reference_count": 4,
+            "states": {
+              "assessed": 4
+            },
+            "values": {
+              "clear_room_and_clean_history": 1,
+              "near_resistance_or_failed_pop_history": 3
+            }
+          },
+          "opportunity_obviousness_leadership_quality": {
+            "abstain_reasons": {},
+            "axis_instances_with_evidence_citations": 4,
+            "confidence": {
+              "high": 1,
+              "medium": 3
+            },
+            "evidence_reference_count": 4,
+            "states": {
+              "assessed": 4
+            },
+            "values": {
+              "competitive_not_dominant": 2,
+              "emerging_leader": 1,
+              "not_current_leader": 1
+            }
+          },
+          "theme_fit_no_news_acceptance": {
+            "abstain_reasons": {
+              "insufficient_evidence": 4
+            },
+            "axis_instances_with_evidence_citations": 4,
+            "confidence": {},
+            "evidence_reference_count": 4,
+            "states": {
+              "abstained": 4
+            },
+            "values": {}
+          }
+        },
+        "record_count": 4
+      }
+    },
+    "main_account:participated": {
+      "decision_count": 11,
+      "deterministic_evidence_coverage": {
+        "domains": {
+          "account_state": {
+            "missing": 11,
+            "present": 0
+          },
+          "attention_leadership": {
+            "missing": 0,
+            "present": 11
+          },
+          "catalyst_chronology": {
+            "missing": 0,
+            "present": 11
+          },
+          "catalyst_headline": {
+            "missing": 3,
+            "present": 8
+          },
+          "daily_chart": {
+            "missing": 0,
+            "present": 11
+          },
+          "filing_corroboration": {
+            "missing": 11,
+            "present": 0
+          },
+          "issuer_event_history": {
+            "missing": 11,
+            "present": 0
+          },
+          "liquidity": {
+            "missing": 11,
+            "present": 0
+          },
+          "portfolio_attention": {
+            "missing": 11,
+            "present": 0
+          },
+          "scanner_market": {
+            "missing": 0,
+            "present": 11
+          },
+          "theme_regime": {
+            "missing": 0,
+            "present": 11
+          }
+        },
+        "record_count": 11
+      },
+      "semantic_axis_descriptives": {
+        "axes": {
+          "catalyst_commitment_stage": {
+            "abstain_reasons": {
+              "required_evidence_domain_unavailable": 3
+            },
+            "axis_instances_with_evidence_citations": 8,
+            "confidence": {
+              "low": 5,
+              "medium": 3
+            },
+            "evidence_reference_count": 16,
+            "states": {
+              "abstained": 3,
+              "assessed": 8
+            },
+            "values": {
+              "ambiguous_commitment_stage": 5,
+              "definitive_agreement_or_completed_action": 3
+            }
+          },
+          "catalyst_credibility_repetition": {
+            "abstain_reasons": {
+              "insufficient_evidence": 8,
+              "required_evidence_domain_unavailable": 3
+            },
+            "axis_instances_with_evidence_citations": 0,
+            "confidence": {},
+            "evidence_reference_count": 0,
+            "states": {
+              "abstained": 11
+            },
+            "values": {}
+          },
+          "catalyst_substance_specificity": {
+            "abstain_reasons": {},
+            "axis_instances_with_evidence_citations": 11,
+            "confidence": {
+              "high": 5,
+              "low": 1,
+              "medium": 5
+            },
+            "evidence_reference_count": 19,
+            "states": {
+              "assessed": 11
+            },
+            "values": {
+              "mixed_or_ambiguous_event_substance": 1,
+              "provider_relative_no_event": 3,
+              "specific_event_terms_incomplete": 1,
+              "specific_event_with_explicit_terms": 2,
+              "vague_or_incidental_event": 4
+            }
+          },
+          "chart_context_cleanliness": {
+            "abstain_reasons": {},
+            "axis_instances_with_evidence_citations": 11,
+            "confidence": {
+              "high": 5,
+              "medium": 6
+            },
+            "evidence_reference_count": 11,
+            "states": {
+              "assessed": 11
+            },
+            "values": {
+              "clear_room_and_clean_history": 5,
+              "mixed_chart_context": 1,
+              "near_resistance_or_failed_pop_history": 5
+            }
+          },
+          "opportunity_obviousness_leadership_quality": {
+            "abstain_reasons": {},
+            "axis_instances_with_evidence_citations": 11,
+            "confidence": {
+              "high": 1,
+              "medium": 10
+            },
+            "evidence_reference_count": 11,
+            "states": {
+              "assessed": 11
+            },
+            "values": {
+              "competitive_not_dominant": 7,
+              "emerging_leader": 3,
+              "not_current_leader": 1
+            }
+          },
+          "theme_fit_no_news_acceptance": {
+            "abstain_reasons": {
+              "insufficient_evidence": 11
+            },
+            "axis_instances_with_evidence_citations": 11,
+            "confidence": {},
+            "evidence_reference_count": 11,
+            "states": {
+              "abstained": 11
+            },
+            "values": {}
+          }
+        },
+        "record_count": 11
+      }
+    },
+    "small_account:explicitly_skipped_or_rejected": {
+      "decision_count": 8,
+      "deterministic_evidence_coverage": {
+        "domains": {
+          "account_state": {
+            "missing": 8,
+            "present": 0
+          },
+          "attention_leadership": {
+            "missing": 0,
+            "present": 8
+          },
+          "catalyst_chronology": {
+            "missing": 0,
+            "present": 8
+          },
+          "catalyst_headline": {
+            "missing": 2,
+            "present": 6
+          },
+          "daily_chart": {
+            "missing": 0,
+            "present": 8
+          },
+          "filing_corroboration": {
+            "missing": 8,
+            "present": 0
+          },
+          "issuer_event_history": {
+            "missing": 8,
+            "present": 0
+          },
+          "liquidity": {
+            "missing": 8,
+            "present": 0
+          },
+          "portfolio_attention": {
+            "missing": 8,
+            "present": 0
+          },
+          "scanner_market": {
+            "missing": 0,
+            "present": 8
+          },
+          "theme_regime": {
+            "missing": 0,
+            "present": 8
+          }
+        },
+        "record_count": 8
+      },
+      "semantic_axis_descriptives": {
+        "axes": {
+          "catalyst_commitment_stage": {
+            "abstain_reasons": {
+              "required_evidence_domain_unavailable": 2
+            },
+            "axis_instances_with_evidence_citations": 6,
+            "confidence": {
+              "low": 5,
+              "medium": 1
+            },
+            "evidence_reference_count": 10,
+            "states": {
+              "abstained": 2,
+              "assessed": 6
+            },
+            "values": {
+              "ambiguous_commitment_stage": 5,
+              "definitive_agreement_or_completed_action": 1
+            }
+          },
+          "catalyst_credibility_repetition": {
+            "abstain_reasons": {
+              "insufficient_evidence": 6,
+              "required_evidence_domain_unavailable": 2
+            },
+            "axis_instances_with_evidence_citations": 0,
+            "confidence": {},
+            "evidence_reference_count": 0,
+            "states": {
+              "abstained": 8
+            },
+            "values": {}
+          },
+          "catalyst_substance_specificity": {
+            "abstain_reasons": {},
+            "axis_instances_with_evidence_citations": 8,
+            "confidence": {
+              "high": 3,
+              "medium": 5
+            },
+            "evidence_reference_count": 12,
+            "states": {
+              "assessed": 8
+            },
+            "values": {
+              "provider_relative_no_event": 2,
+              "specific_event_with_explicit_terms": 1,
+              "vague_or_incidental_event": 5
+            }
+          },
+          "chart_context_cleanliness": {
+            "abstain_reasons": {},
+            "axis_instances_with_evidence_citations": 8,
+            "confidence": {
+              "high": 7,
+              "medium": 1
+            },
+            "evidence_reference_count": 8,
+            "states": {
+              "assessed": 8
+            },
+            "values": {
+              "clear_room_and_clean_history": 1,
+              "near_resistance_or_failed_pop_history": 7
+            }
+          },
+          "opportunity_obviousness_leadership_quality": {
+            "abstain_reasons": {},
+            "axis_instances_with_evidence_citations": 8,
+            "confidence": {
+              "high": 2,
+              "medium": 6
+            },
+            "evidence_reference_count": 8,
+            "states": {
+              "assessed": 8
+            },
+            "values": {
+              "competitive_not_dominant": 4,
+              "emerging_leader": 2,
+              "not_current_leader": 2
+            }
+          },
+          "theme_fit_no_news_acceptance": {
+            "abstain_reasons": {
+              "insufficient_evidence": 8
+            },
+            "axis_instances_with_evidence_citations": 8,
+            "confidence": {},
+            "evidence_reference_count": 8,
+            "states": {
+              "abstained": 8
+            },
+            "values": {}
+          }
+        },
+        "record_count": 8
+      }
+    },
+    "small_account:participated": {
+      "decision_count": 6,
+      "deterministic_evidence_coverage": {
+        "domains": {
+          "account_state": {
+            "missing": 6,
+            "present": 0
+          },
+          "attention_leadership": {
+            "missing": 0,
+            "present": 6
+          },
+          "catalyst_chronology": {
+            "missing": 0,
+            "present": 6
+          },
+          "catalyst_headline": {
+            "missing": 2,
+            "present": 4
+          },
+          "daily_chart": {
+            "missing": 0,
+            "present": 6
+          },
+          "filing_corroboration": {
+            "missing": 6,
+            "present": 0
+          },
+          "issuer_event_history": {
+            "missing": 6,
+            "present": 0
+          },
+          "liquidity": {
+            "missing": 6,
+            "present": 0
+          },
+          "portfolio_attention": {
+            "missing": 6,
+            "present": 0
+          },
+          "scanner_market": {
+            "missing": 0,
+            "present": 6
+          },
+          "theme_regime": {
+            "missing": 0,
+            "present": 6
+          }
+        },
+        "record_count": 6
+      },
+      "semantic_axis_descriptives": {
+        "axes": {
+          "catalyst_commitment_stage": {
+            "abstain_reasons": {
+              "required_evidence_domain_unavailable": 2
+            },
+            "axis_instances_with_evidence_citations": 4,
+            "confidence": {
+              "low": 2,
+              "medium": 2
+            },
+            "evidence_reference_count": 5,
+            "states": {
+              "abstained": 2,
+              "assessed": 4
+            },
+            "values": {
+              "ambiguous_commitment_stage": 2,
+              "definitive_agreement_or_completed_action": 2
+            }
+          },
+          "catalyst_credibility_repetition": {
+            "abstain_reasons": {
+              "insufficient_evidence": 4,
+              "required_evidence_domain_unavailable": 2
+            },
+            "axis_instances_with_evidence_citations": 0,
+            "confidence": {},
+            "evidence_reference_count": 0,
+            "states": {
+              "abstained": 6
+            },
+            "values": {}
+          },
+          "catalyst_substance_specificity": {
+            "abstain_reasons": {},
+            "axis_instances_with_evidence_citations": 6,
+            "confidence": {
+              "high": 3,
+              "medium": 3
+            },
+            "evidence_reference_count": 7,
+            "states": {
+              "assessed": 6
+            },
+            "values": {
+              "provider_relative_no_event": 2,
+              "specific_event_terms_incomplete": 1,
+              "specific_event_with_explicit_terms": 1,
+              "vague_or_incidental_event": 2
+            }
+          },
+          "chart_context_cleanliness": {
+            "abstain_reasons": {},
+            "axis_instances_with_evidence_citations": 6,
+            "confidence": {
+              "high": 3,
+              "medium": 3
+            },
+            "evidence_reference_count": 6,
+            "states": {
+              "assessed": 6
+            },
+            "values": {
+              "clear_room_and_clean_history": 2,
+              "mixed_chart_context": 1,
+              "near_resistance_or_failed_pop_history": 3
+            }
+          },
+          "opportunity_obviousness_leadership_quality": {
+            "abstain_reasons": {},
+            "axis_instances_with_evidence_citations": 6,
+            "confidence": {
+              "medium": 6
+            },
+            "evidence_reference_count": 6,
+            "states": {
+              "assessed": 6
+            },
+            "values": {
+              "competitive_not_dominant": 5,
+              "emerging_leader": 1
+            }
+          },
+          "theme_fit_no_news_acceptance": {
+            "abstain_reasons": {
+              "insufficient_evidence": 6
+            },
+            "axis_instances_with_evidence_citations": 6,
+            "confidence": {},
+            "evidence_reference_count": 6,
+            "states": {
+              "abstained": 6
+            },
+            "values": {}
+          }
+        },
+        "record_count": 6
+      }
+    }
+  },
+  "aggregate_context_score_allowed": false,
+  "artifact_id": "ross-context-heldout-comparison-v0.1",
+  "artifact_type": "retrospective_descriptive_context_component_comparison",
+  "candidate_acquisition": {
+    "main_account": {
+      "acquired_completed_trade_action_count": 11,
+      "descriptive_acquisition_fraction": 0.6470588235294118,
+      "observed_completed_trade_action_count": 17,
+      "off_candidate_completed_trade_action_count": 6
+    },
+    "small_account": {
+      "acquired_completed_trade_action_count": 6,
+      "descriptive_acquisition_fraction": 0.6666666666666666,
+      "observed_completed_trade_action_count": 9,
+      "off_candidate_completed_trade_action_count": 3
+    },
+    "unique_symbol_dates": {
+      "acquired_completed_trade_symbol_date_count": 12,
+      "descriptive_acquisition_fraction": 0.6666666666666666,
+      "observed_completed_trade_symbol_date_count": 18,
+      "off_candidate_completed_trade_symbol_date_count": 6
+    }
+  },
+  "candidate_actions": [
+    {
+      "account": "main_account",
+      "activation_time": "2026-07-24T13:03:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 0,
+          "active_market_candidate_count": 7,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 14.460582942259734,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 2
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 0,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 1,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 1
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 100.84102177869832,
+          "nearest_overhead_source_type": "trailing_high"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 1858984,
+          "disposition": "feature_state_provider_news_present_unclassified",
+          "estimated_float_shares": 349010,
+          "exact_same_time_rvol": 11.107540680896312,
+          "percent_gain": 85.98832684824902,
+          "price": 4.7799,
+          "provider_news_event_count_as_of": 1,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 2
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 1,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 7,
+            "provider_relative_no_news_candidate_count": 0
+          },
+          "same_minute_observed_candidate_count": 7,
+          "subject_candidate_headline_count": 1
+        }
+      },
+      "deterministic_snapshot_content_sha256": "014f6fd5a822470fd636c6805fd0ad5777e4759ade1025e2b877afd10f875925",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "semantic_assessment_content_sha256": "cc1381830cc9577457e3b079fbe28c7edd37d3922eef77c2a3279d1fd444790b",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60665382"
+          ],
+          "state": "assessed",
+          "value": "definitive_agreement_or_completed_action"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60665382"
+          ],
+          "state": "assessed",
+          "value": "specific_event_terms_incomplete"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "daily-chart:MSS:ba00dc2265e06ebf946ac9f62b9491f59c3224f9ad855a7311afda6f1e5758f0"
+          ],
+          "state": "assessed",
+          "value": "clear_room_and_clean_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:66d5225aa3851d64dbfffe19d14b618ed52cce7f771ddef80a976661f926104c"
+          ],
+          "state": "assessed",
+          "value": "competitive_not_dominant"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:MSS:a93d73b6ce08dd8b8615597aa57d181a8212d69e711cd09d42390a588b9bb87f"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "MSS",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-07-24"
+    },
+    {
+      "account": "small_account",
+      "activation_time": "2026-07-24T13:03:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 0,
+          "active_market_candidate_count": 7,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 14.460582942259734,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 2
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 0,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 1,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 1
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 100.84102177869832,
+          "nearest_overhead_source_type": "trailing_high"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 1858984,
+          "disposition": "feature_state_provider_news_present_unclassified",
+          "estimated_float_shares": 349010,
+          "exact_same_time_rvol": 11.107540680896312,
+          "percent_gain": 85.98832684824902,
+          "price": 4.7799,
+          "provider_news_event_count_as_of": 1,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 2
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 1,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 7,
+            "provider_relative_no_news_candidate_count": 0
+          },
+          "same_minute_observed_candidate_count": 7,
+          "subject_candidate_headline_count": 1
+        }
+      },
+      "deterministic_snapshot_content_sha256": "014f6fd5a822470fd636c6805fd0ad5777e4759ade1025e2b877afd10f875925",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "semantic_assessment_content_sha256": "cc1381830cc9577457e3b079fbe28c7edd37d3922eef77c2a3279d1fd444790b",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60665382"
+          ],
+          "state": "assessed",
+          "value": "definitive_agreement_or_completed_action"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60665382"
+          ],
+          "state": "assessed",
+          "value": "specific_event_terms_incomplete"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "daily-chart:MSS:ba00dc2265e06ebf946ac9f62b9491f59c3224f9ad855a7311afda6f1e5758f0"
+          ],
+          "state": "assessed",
+          "value": "clear_room_and_clean_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:66d5225aa3851d64dbfffe19d14b618ed52cce7f771ddef80a976661f926104c"
+          ],
+          "state": "assessed",
+          "value": "competitive_not_dominant"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:MSS:a93d73b6ce08dd8b8615597aa57d181a8212d69e711cd09d42390a588b9bb87f"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "MSS",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-07-24"
+    },
+    {
+      "account": "main_account",
+      "activation_time": "2026-07-27T11:00:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 1,
+          "active_market_candidate_count": 4,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 96.29964746353,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 5
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 2,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 2,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 0
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 45.35477941176469,
+          "nearest_overhead_source_type": "simple_moving_average"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 7565204,
+          "disposition": "feature_state_provider_news_present_unclassified",
+          "estimated_float_shares": 118583,
+          "exact_same_time_rvol": 26.56285067986424,
+          "percent_gain": 40.93264248704664,
+          "price": 2.72,
+          "provider_news_event_count_as_of": 2,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 5
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 1,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 3,
+            "provider_relative_no_news_candidate_count": 1
+          },
+          "same_minute_observed_candidate_count": 4,
+          "subject_candidate_headline_count": 2
+        }
+      },
+      "deterministic_snapshot_content_sha256": "8d5ab6746ff43c27f70cf8d4da0e4b6b0a9a5b1c3db16c790b54a6aeaf590511",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "explicitly_skipped_or_rejected",
+      "semantic_assessment_content_sha256": "65d96852373229e3971e11c8e23041123067b64105b9a39a67554e49c4a3f908",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60682636",
+            "headline:alpaca-benzinga:60688317"
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60682636",
+            "headline:alpaca-benzinga:60688317"
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:BIYA:31d1a54811942acf4b6081d85868b2c403fc6b13b3b43349b6f050e8b2531ff8"
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:58ae7e0c528430d9d6239449279c108074797a06be6fc51f01b4b335b12a483f"
+          ],
+          "state": "assessed",
+          "value": "competitive_not_dominant"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:BIYA:747cb95088c260d71618550ce9a5c3c71f973f6897a2f4151eaf4c666a1ceb8d"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "BIYA",
+      "trade_completion": "no_trade",
+      "trading_date": "2026-07-27"
+    },
+    {
+      "account": "small_account",
+      "activation_time": "2026-07-27T11:00:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 1,
+          "active_market_candidate_count": 4,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 96.29964746353,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 5
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 2,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 2,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 0
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 45.35477941176469,
+          "nearest_overhead_source_type": "simple_moving_average"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 7565204,
+          "disposition": "feature_state_provider_news_present_unclassified",
+          "estimated_float_shares": 118583,
+          "exact_same_time_rvol": 26.56285067986424,
+          "percent_gain": 40.93264248704664,
+          "price": 2.72,
+          "provider_news_event_count_as_of": 2,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 5
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 1,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 3,
+            "provider_relative_no_news_candidate_count": 1
+          },
+          "same_minute_observed_candidate_count": 4,
+          "subject_candidate_headline_count": 2
+        }
+      },
+      "deterministic_snapshot_content_sha256": "8d5ab6746ff43c27f70cf8d4da0e4b6b0a9a5b1c3db16c790b54a6aeaf590511",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "explicitly_skipped_or_rejected",
+      "semantic_assessment_content_sha256": "65d96852373229e3971e11c8e23041123067b64105b9a39a67554e49c4a3f908",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60682636",
+            "headline:alpaca-benzinga:60688317"
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60682636",
+            "headline:alpaca-benzinga:60688317"
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:BIYA:31d1a54811942acf4b6081d85868b2c403fc6b13b3b43349b6f050e8b2531ff8"
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:58ae7e0c528430d9d6239449279c108074797a06be6fc51f01b4b335b12a483f"
+          ],
+          "state": "assessed",
+          "value": "competitive_not_dominant"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:BIYA:747cb95088c260d71618550ce9a5c3c71f973f6897a2f4151eaf4c666a1ceb8d"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "BIYA",
+      "trade_completion": "no_trade",
+      "trading_date": "2026-07-27"
+    },
+    {
+      "account": "small_account",
+      "activation_time": "2026-07-27T11:00:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 2,
+          "active_market_candidate_count": 4,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 102.51964627241571,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 7
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 1,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 1,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 0
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 49.3174061433447,
+          "nearest_overhead_source_type": "trailing_high"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 4037591,
+          "disposition": "feature_state_provider_news_present_unclassified",
+          "estimated_float_shares": 482138,
+          "exact_same_time_rvol": 612.0956469799919,
+          "percent_gain": 34.71264367816094,
+          "price": 5.86,
+          "provider_news_event_count_as_of": 1,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 7
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 1,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 3,
+            "provider_relative_no_news_candidate_count": 1
+          },
+          "same_minute_observed_candidate_count": 4,
+          "subject_candidate_headline_count": 1
+        }
+      },
+      "deterministic_snapshot_content_sha256": "514a51a965392712d9f9b7ffb0859f63df76cb009937282d761bc33fe10c915b",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "explicitly_skipped_or_rejected",
+      "semantic_assessment_content_sha256": "70078dadb54295a73c738ad2001f10596c3362266e1f5b5502d2f08d3a37d23c",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60688317"
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60688317"
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:DFNS:3f53ec151a1baf5b9b8e4f6fdc8a5d3d9fbbc9654b748eaa7f8c625bda243c97"
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "attention:c56fe8bab1ede545f3e8e37e9c9e0721f2f57a5f25b145d566b24d694e755cf4"
+          ],
+          "state": "assessed",
+          "value": "not_current_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:DFNS:62a0b92101bc9713e5812d9e2577656d9ba1902abfdb8608f9698fada8e5ff07"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "DFNS",
+      "trade_completion": "no_trade",
+      "trading_date": "2026-07-27"
+    },
+    {
+      "account": "main_account",
+      "activation_time": "2026-07-27T12:19:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 0,
+          "active_market_candidate_count": 8,
+          "candidate_consecutive_market_leader_minutes": 1,
+          "candidate_gap_to_leader_pct_points": 0.0,
+          "candidate_is_market_leader": true,
+          "candidate_top_gainer_rank": 1
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 0,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 0,
+          "provider_relative_no_news_as_of": true,
+          "single_symbol_event_count": 0
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 6.448714810281531,
+          "nearest_overhead_source_type": "simple_moving_average"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": false,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 1448347,
+          "disposition": "feature_state_provider_relative_no_news_unclassified",
+          "estimated_float_shares": 121537,
+          "exact_same_time_rvol": 5.500840538227037,
+          "percent_gain": 160.19108280254778,
+          "price": 8.17,
+          "provider_news_event_count_as_of": 0,
+          "provider_relative_no_news_as_of": true,
+          "top_gainer_rank": 1
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 1,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 4,
+            "provider_relative_no_news_candidate_count": 4
+          },
+          "same_minute_observed_candidate_count": 8,
+          "subject_candidate_headline_count": 0
+        }
+      },
+      "deterministic_snapshot_content_sha256": "3cc2f6757deb51e7384b9bb8f9aaa07e895661f2c5593378fb9e098734b440e9",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "semantic_assessment_content_sha256": "b5fbe75cc68d375471eb29788de311f3a495592d62070d9b3af38ecc4faa0d42",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "catalyst-packet:223e963f5d32b4527dd45844f49e83fce81bd32f37d4da9a1c79ec162d6e1143"
+          ],
+          "state": "assessed",
+          "value": "provider_relative_no_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:EDBL:ca0993e4ca112513b5ae200a27a1dbfcfd646ebad5c757d67cc8799f992b5727"
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:5e1de7674505f551baf636ff9b71b20d14d70de394b644ce1fb428f1375a26fd"
+          ],
+          "state": "assessed",
+          "value": "emerging_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:EDBL:640a82c203a1518db835fb53158659e3255b10d0935a1268ca9716057376f825"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "EDBL",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-07-27"
+    },
+    {
+      "account": "small_account",
+      "activation_time": "2026-07-27T12:19:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 0,
+          "active_market_candidate_count": 8,
+          "candidate_consecutive_market_leader_minutes": 1,
+          "candidate_gap_to_leader_pct_points": 0.0,
+          "candidate_is_market_leader": true,
+          "candidate_top_gainer_rank": 1
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 0,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 0,
+          "provider_relative_no_news_as_of": true,
+          "single_symbol_event_count": 0
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 6.448714810281531,
+          "nearest_overhead_source_type": "simple_moving_average"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": false,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 1448347,
+          "disposition": "feature_state_provider_relative_no_news_unclassified",
+          "estimated_float_shares": 121537,
+          "exact_same_time_rvol": 5.500840538227037,
+          "percent_gain": 160.19108280254778,
+          "price": 8.17,
+          "provider_news_event_count_as_of": 0,
+          "provider_relative_no_news_as_of": true,
+          "top_gainer_rank": 1
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 1,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 4,
+            "provider_relative_no_news_candidate_count": 4
+          },
+          "same_minute_observed_candidate_count": 8,
+          "subject_candidate_headline_count": 0
+        }
+      },
+      "deterministic_snapshot_content_sha256": "3cc2f6757deb51e7384b9bb8f9aaa07e895661f2c5593378fb9e098734b440e9",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "explicitly_skipped_or_rejected",
+      "semantic_assessment_content_sha256": "b5fbe75cc68d375471eb29788de311f3a495592d62070d9b3af38ecc4faa0d42",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "catalyst-packet:223e963f5d32b4527dd45844f49e83fce81bd32f37d4da9a1c79ec162d6e1143"
+          ],
+          "state": "assessed",
+          "value": "provider_relative_no_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:EDBL:ca0993e4ca112513b5ae200a27a1dbfcfd646ebad5c757d67cc8799f992b5727"
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:5e1de7674505f551baf636ff9b71b20d14d70de394b644ce1fb428f1375a26fd"
+          ],
+          "state": "assessed",
+          "value": "emerging_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:EDBL:640a82c203a1518db835fb53158659e3255b10d0935a1268ca9716057376f825"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "EDBL",
+      "trade_completion": "no_trade",
+      "trading_date": "2026-07-27"
+    },
+    {
+      "account": "small_account",
+      "activation_time": "2026-07-27T11:00:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 0,
+          "active_market_candidate_count": 4,
+          "candidate_consecutive_market_leader_minutes": 1,
+          "candidate_gap_to_leader_pct_points": 0.0,
+          "candidate_is_market_leader": true,
+          "candidate_top_gainer_rank": 1
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 0,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 0,
+          "provider_relative_no_news_as_of": true,
+          "single_symbol_event_count": 0
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 7.2835648148148024,
+          "nearest_overhead_source_type": "simple_moving_average"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": false,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 25129753,
+          "disposition": "feature_state_unknown_fail_closed_float",
+          "estimated_float_shares": null,
+          "exact_same_time_rvol": 257.1263266999614,
+          "percent_gain": 137.23228995057664,
+          "price": 2.16,
+          "provider_news_event_count_as_of": 0,
+          "provider_relative_no_news_as_of": true,
+          "top_gainer_rank": 1
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 1,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 3,
+            "provider_relative_no_news_candidate_count": 1
+          },
+          "same_minute_observed_candidate_count": 4,
+          "subject_candidate_headline_count": 0
+        }
+      },
+      "deterministic_snapshot_content_sha256": "031a48c56cee638f710b1080f238eca8816434c7d55a5070d528c16a249dd348",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "explicitly_skipped_or_rejected",
+      "semantic_assessment_content_sha256": "dca87a3cbfbd74eda8327954dc426d2a222e9810e468f2cb10ea2a8c68310285",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "catalyst-packet:0b3f0e1d1c2c2eae61dbbb4eaca4c6cfd3bb502cd671c5da43c67da8fd727534"
+          ],
+          "state": "assessed",
+          "value": "provider_relative_no_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:LGHL:91b491fc262e02aa9d61bceab7471c6552ad60c732b0e1c4fb60d6e83572de8e"
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:8fe1975f5fecb0b2c2f4e76a12baaee32e12b70cf3a6e9b5e1934a5547fa389b"
+          ],
+          "state": "assessed",
+          "value": "emerging_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:LGHL:5349be3cc0b293cc084cf1c1013453c56c9891b270fbe85143f56481ac82529d"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "LGHL",
+      "trade_completion": "no_trade",
+      "trading_date": "2026-07-27"
+    },
+    {
+      "account": "main_account",
+      "activation_time": "2026-07-28T11:00:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 2,
+          "active_market_candidate_count": 4,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 77.6994188737135,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 6
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 2,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 2,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 0
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 48.0864197530864,
+          "nearest_overhead_source_type": "trailing_high"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 1222937,
+          "disposition": "feature_state_provider_news_present_unclassified",
+          "estimated_float_shares": 482138,
+          "exact_same_time_rvol": 14.000769795795753,
+          "percent_gain": 23.664122137404586,
+          "price": 16.2,
+          "provider_news_event_count_as_of": 2,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 6
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 2,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 4,
+            "provider_relative_no_news_candidate_count": 0
+          },
+          "same_minute_observed_candidate_count": 4,
+          "subject_candidate_headline_count": 2
+        }
+      },
+      "deterministic_snapshot_content_sha256": "6af3d1753eec15163cb12c4c66403b4ff6c43f68d4ed4cc63098188297db7311",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "explicitly_skipped_or_rejected",
+      "semantic_assessment_content_sha256": "8c8acb91924d3780ade26f52e380d4e4d16e43928e789a2b0f8f235b9dc2dfb7",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60712790",
+            "headline:alpaca-benzinga:60714314"
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60712790",
+            "headline:alpaca-benzinga:60714314"
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:DFNS:018eaa0bb52afe9a349784816f9f325501509857c1678cb247b25b47f01cffb7"
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "attention:ff52baa9b89ee70bedbcc0e1fd0779fd0fb72e7a3095838efbd14356197ef953"
+          ],
+          "state": "assessed",
+          "value": "not_current_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:DFNS:9f9ad2f13414997771a44cb47c648f453729d5d3cd10d8580b73134ad6657de0"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "DFNS",
+      "trade_completion": "no_trade",
+      "trading_date": "2026-07-28"
+    },
+    {
+      "account": "small_account",
+      "activation_time": "2026-07-28T11:00:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 2,
+          "active_market_candidate_count": 4,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 77.6994188737135,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 6
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 2,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 2,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 0
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 48.0864197530864,
+          "nearest_overhead_source_type": "trailing_high"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 1222937,
+          "disposition": "feature_state_provider_news_present_unclassified",
+          "estimated_float_shares": 482138,
+          "exact_same_time_rvol": 14.000769795795753,
+          "percent_gain": 23.664122137404586,
+          "price": 16.2,
+          "provider_news_event_count_as_of": 2,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 6
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 2,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 4,
+            "provider_relative_no_news_candidate_count": 0
+          },
+          "same_minute_observed_candidate_count": 4,
+          "subject_candidate_headline_count": 2
+        }
+      },
+      "deterministic_snapshot_content_sha256": "6af3d1753eec15163cb12c4c66403b4ff6c43f68d4ed4cc63098188297db7311",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "explicitly_skipped_or_rejected",
+      "semantic_assessment_content_sha256": "8c8acb91924d3780ade26f52e380d4e4d16e43928e789a2b0f8f235b9dc2dfb7",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60712790",
+            "headline:alpaca-benzinga:60714314"
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60712790",
+            "headline:alpaca-benzinga:60714314"
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:DFNS:018eaa0bb52afe9a349784816f9f325501509857c1678cb247b25b47f01cffb7"
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "attention:ff52baa9b89ee70bedbcc0e1fd0779fd0fb72e7a3095838efbd14356197ef953"
+          ],
+          "state": "assessed",
+          "value": "not_current_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:DFNS:9f9ad2f13414997771a44cb47c648f453729d5d3cd10d8580b73134ad6657de0"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "DFNS",
+      "trade_completion": "no_trade",
+      "trading_date": "2026-07-28"
+    },
+    {
+      "account": "main_account",
+      "activation_time": "2026-07-28T11:00:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 0,
+          "active_market_candidate_count": 4,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 59.900126376971755,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 2
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 2,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 2,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 0
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 4.739224137931042,
+          "nearest_overhead_source_type": "trailing_high"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 4788075,
+          "disposition": "feature_state_provider_news_present_unclassified",
+          "estimated_float_shares": 2000,
+          "exact_same_time_rvol": 10.462066491465487,
+          "percent_gain": 41.46341463414633,
+          "price": 4.64,
+          "provider_news_event_count_as_of": 2,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 2
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 2,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 4,
+            "provider_relative_no_news_candidate_count": 0
+          },
+          "same_minute_observed_candidate_count": 4,
+          "subject_candidate_headline_count": 2
+        }
+      },
+      "deterministic_snapshot_content_sha256": "2aa2ddf17d99af00fbc65199839d840674365cf95c82a69ac704d0f4eea3b868",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "semantic_assessment_content_sha256": "f07dfb64af637f04ace3fbf28c7790b76c2b5f21e261e82e6c5cf978ce71a9d6",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60712791",
+            "headline:alpaca-benzinga:60716215"
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60712791",
+            "headline:alpaca-benzinga:60716215"
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:INLF:0b1a7b772cb953d77a57defd4594a26faa4c26f9fe59eac296b9274b172b77c2"
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:04974b7f1f49e45b360c07d869659831684d9604d64e855945ff7917ed642424"
+          ],
+          "state": "assessed",
+          "value": "competitive_not_dominant"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:INLF:edb8d80962eb3b62523807fb97e25a94d96de82747c5c8ace8394b5b899764c0"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "INLF",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-07-28"
+    },
+    {
+      "account": "small_account",
+      "activation_time": "2026-07-28T11:00:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 0,
+          "active_market_candidate_count": 4,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 59.900126376971755,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 2
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 2,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 2,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 0
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 4.739224137931042,
+          "nearest_overhead_source_type": "trailing_high"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 4788075,
+          "disposition": "feature_state_provider_news_present_unclassified",
+          "estimated_float_shares": 2000,
+          "exact_same_time_rvol": 10.462066491465487,
+          "percent_gain": 41.46341463414633,
+          "price": 4.64,
+          "provider_news_event_count_as_of": 2,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 2
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 2,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 4,
+            "provider_relative_no_news_candidate_count": 0
+          },
+          "same_minute_observed_candidate_count": 4,
+          "subject_candidate_headline_count": 2
+        }
+      },
+      "deterministic_snapshot_content_sha256": "2aa2ddf17d99af00fbc65199839d840674365cf95c82a69ac704d0f4eea3b868",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "semantic_assessment_content_sha256": "f07dfb64af637f04ace3fbf28c7790b76c2b5f21e261e82e6c5cf978ce71a9d6",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60712791",
+            "headline:alpaca-benzinga:60716215"
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60712791",
+            "headline:alpaca-benzinga:60716215"
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:INLF:0b1a7b772cb953d77a57defd4594a26faa4c26f9fe59eac296b9274b172b77c2"
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:04974b7f1f49e45b360c07d869659831684d9604d64e855945ff7917ed642424"
+          ],
+          "state": "assessed",
+          "value": "competitive_not_dominant"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:INLF:edb8d80962eb3b62523807fb97e25a94d96de82747c5c8ace8394b5b899764c0"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "INLF",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-07-28"
+    },
+    {
+      "account": "main_account",
+      "activation_time": "2026-07-29T12:03:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 0,
+          "active_market_candidate_count": 9,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 17.28778506126571,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 2
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 0,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 1,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 1
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 20.911415594824632,
+          "nearest_overhead_source_type": "trailing_high"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 2014919,
+          "disposition": "feature_state_provider_news_present_unclassified",
+          "estimated_float_shares": 510004,
+          "exact_same_time_rvol": 10.864000431342419,
+          "percent_gain": 83.22377622377621,
+          "price": 2.6201,
+          "provider_news_event_count_as_of": 1,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 2
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 1,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 8,
+            "provider_relative_no_news_candidate_count": 1
+          },
+          "same_minute_observed_candidate_count": 9,
+          "subject_candidate_headline_count": 1
+        }
+      },
+      "deterministic_snapshot_content_sha256": "98ae4cfa36f31a62ee8f8d53d9dccdf7c5ce9b289d3d4458468d640e68cc07d4",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "semantic_assessment_content_sha256": "db9195a450ea0a91b25fd9cbd2ffdc3753336012210534ba6e931bb45f860234",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60756746"
+          ],
+          "state": "assessed",
+          "value": "definitive_agreement_or_completed_action"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60756746"
+          ],
+          "state": "assessed",
+          "value": "specific_event_with_explicit_terms"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "daily-chart:NCRA:28ca8a5629f7288f5bd1f23fb91c6a8b9af8f8907a5ac0edabd3d8de284f2327"
+          ],
+          "state": "assessed",
+          "value": "clear_room_and_clean_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:4788ba61e28c945d45dc7e9e453488abb654ade1a2b33fc2a1522864d51aea09"
+          ],
+          "state": "assessed",
+          "value": "competitive_not_dominant"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:NCRA:5f6c46be55d8da6dc7f80d08931f9b760b5b1e247636f2b0b92e0b79c0c6dbc0"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "NCRA",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-07-29"
+    },
+    {
+      "account": "small_account",
+      "activation_time": "2026-07-29T12:03:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 0,
+          "active_market_candidate_count": 9,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 17.28778506126571,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 2
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 0,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 1,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 1
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 20.911415594824632,
+          "nearest_overhead_source_type": "trailing_high"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 2014919,
+          "disposition": "feature_state_provider_news_present_unclassified",
+          "estimated_float_shares": 510004,
+          "exact_same_time_rvol": 10.864000431342419,
+          "percent_gain": 83.22377622377621,
+          "price": 2.6201,
+          "provider_news_event_count_as_of": 1,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 2
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 1,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 8,
+            "provider_relative_no_news_candidate_count": 1
+          },
+          "same_minute_observed_candidate_count": 9,
+          "subject_candidate_headline_count": 1
+        }
+      },
+      "deterministic_snapshot_content_sha256": "98ae4cfa36f31a62ee8f8d53d9dccdf7c5ce9b289d3d4458468d640e68cc07d4",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "explicitly_skipped_or_rejected",
+      "semantic_assessment_content_sha256": "db9195a450ea0a91b25fd9cbd2ffdc3753336012210534ba6e931bb45f860234",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60756746"
+          ],
+          "state": "assessed",
+          "value": "definitive_agreement_or_completed_action"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60756746"
+          ],
+          "state": "assessed",
+          "value": "specific_event_with_explicit_terms"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "daily-chart:NCRA:28ca8a5629f7288f5bd1f23fb91c6a8b9af8f8907a5ac0edabd3d8de284f2327"
+          ],
+          "state": "assessed",
+          "value": "clear_room_and_clean_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:4788ba61e28c945d45dc7e9e453488abb654ade1a2b33fc2a1522864d51aea09"
+          ],
+          "state": "assessed",
+          "value": "competitive_not_dominant"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:NCRA:5f6c46be55d8da6dc7f80d08931f9b760b5b1e247636f2b0b92e0b79c0c6dbc0"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "NCRA",
+      "trade_completion": "no_trade",
+      "trading_date": "2026-07-29"
+    },
+    {
+      "account": "main_account",
+      "activation_time": "2026-07-30T11:00:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 0,
+          "active_market_candidate_count": 4,
+          "candidate_consecutive_market_leader_minutes": 1,
+          "candidate_gap_to_leader_pct_points": 0.0,
+          "candidate_is_market_leader": true,
+          "candidate_top_gainer_rank": 1
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 2,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 3,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 1
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 139.75662650602408,
+          "nearest_overhead_source_type": "simple_moving_average"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 7259278,
+          "disposition": "feature_state_provider_news_present_unclassified",
+          "estimated_float_shares": 76593,
+          "exact_same_time_rvol": 692.3079417335359,
+          "percent_gain": 119.57671957671963,
+          "price": 4.15,
+          "provider_news_event_count_as_of": 3,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 1
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 1,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 3,
+            "provider_relative_no_news_candidate_count": 1
+          },
+          "same_minute_observed_candidate_count": 4,
+          "subject_candidate_headline_count": 3
+        }
+      },
+      "deterministic_snapshot_content_sha256": "f348c969e8879d27c2486945155b20f69001522cb8f81a6cb07a27f248635c52",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "semantic_assessment_content_sha256": "334ad7bad031f3e2de2a20f731077313ed636d7726ecc7dad072e2d57328da96",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60783917",
+            "headline:alpaca-benzinga:60786623",
+            "headline:alpaca-benzinga:60788399"
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60783917",
+            "headline:alpaca-benzinga:60786623",
+            "headline:alpaca-benzinga:60788399"
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "daily-chart:NUWE:1af253ddbd3d6464b8534952a792a267039047768539d59da2556e32aba965a5"
+          ],
+          "state": "assessed",
+          "value": "clear_room_and_clean_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:a68ac589c4d0474e6f381e0ba4513b53222a1dba26a6f35395287003e60989a1"
+          ],
+          "state": "assessed",
+          "value": "emerging_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:NUWE:5383ef626b3d2058d4b14c352415f13c7ff24aa7f5389a3aa7239fa2aae92042"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "NUWE",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-07-30"
+    },
+    {
+      "account": "main_account",
+      "activation_time": "2026-07-30T12:13:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 2,
+          "active_market_candidate_count": 11,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 85.46849087893867,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 6
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 2,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 3,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 1
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": null,
+          "nearest_overhead_source_type": null
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 138543,
+          "disposition": "feature_state_unknown_fail_closed_float",
+          "estimated_float_shares": null,
+          "exact_same_time_rvol": 6.168976606130015,
+          "percent_gain": 36.75373134328357,
+          "price": 14.66,
+          "provider_news_event_count_as_of": 3,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 6
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 3,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 10,
+            "provider_relative_no_news_candidate_count": 1
+          },
+          "same_minute_observed_candidate_count": 11,
+          "subject_candidate_headline_count": 3
+        }
+      },
+      "deterministic_snapshot_content_sha256": "30c7da734245883dff6b4b42b3fc810478471281db416ae7dac10e66460d9c9b",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "semantic_assessment_content_sha256": "b415e3b6179a25c6851b630855aceb4934ada7cffd2f19f633909dbb0ef1ae5a",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60783560",
+            "headline:alpaca-benzinga:60783916",
+            "headline:alpaca-benzinga:60795591"
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60783560",
+            "headline:alpaca-benzinga:60783916",
+            "headline:alpaca-benzinga:60795591"
+          ],
+          "state": "assessed",
+          "value": "mixed_or_ambiguous_event_substance"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:PN:9382f80cae15260182459a0d8a00f5b5179e84985a76a60a3dafba67abcd9efe"
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "attention:03fdfce73462d4d8797599253dea033c5386a3e25323c3b18d09f160ccca416e"
+          ],
+          "state": "assessed",
+          "value": "not_current_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:PN:f04de95319cc3294d2cc7139dfcce701f0d48687de1c84d2dfeede4613061953"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "PN",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-07-30"
+    },
+    {
+      "account": "main_account",
+      "activation_time": "2026-07-31T12:21:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 0,
+          "active_market_candidate_count": 6,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 1.0341179198793498,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 2
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 0,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 0,
+          "provider_relative_no_news_as_of": true,
+          "single_symbol_event_count": 0
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 69.33638443935928,
+          "nearest_overhead_source_type": "trailing_high"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": false,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 1179953,
+          "disposition": "feature_state_provider_relative_no_news_unclassified",
+          "estimated_float_shares": 517512,
+          "exact_same_time_rvol": 5.040895250809053,
+          "percent_gain": 132.44680851063833,
+          "price": 4.37,
+          "provider_news_event_count_as_of": 0,
+          "provider_relative_no_news_as_of": true,
+          "top_gainer_rank": 2
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 0,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 3,
+            "provider_relative_no_news_candidate_count": 3
+          },
+          "same_minute_observed_candidate_count": 6,
+          "subject_candidate_headline_count": 0
+        }
+      },
+      "deterministic_snapshot_content_sha256": "63744ef30724de7a87279fb82c54d27ef28dfc35e2ade3a97552c4fb53492fe3",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "semantic_assessment_content_sha256": "9f8a98d19bc4ccf3fd37d3b38f7198a909fc9ff134cb19c411f2729313d05532",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "catalyst-packet:4a6b25a41d4ba361da5c5bcf48862ae7925e881ef957da47c80c04aa0bc05e15"
+          ],
+          "state": "assessed",
+          "value": "provider_relative_no_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "daily-chart:FCUV:746c1667db2ccf7f924ece76d2a7f484fb382bcbbf3b1171d84c5020bc3b670a"
+          ],
+          "state": "assessed",
+          "value": "clear_room_and_clean_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:c7404d0bcfa86c65bf41867869b345112f92a9b710a14c748bc9a057a187dc43"
+          ],
+          "state": "assessed",
+          "value": "competitive_not_dominant"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:FCUV:224456b12e3ae456fd9337706da7efe32c9497576f43d192476b70649852f031"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "FCUV",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-07-31"
+    },
+    {
+      "account": "small_account",
+      "activation_time": "2026-07-31T12:21:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 0,
+          "active_market_candidate_count": 6,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 1.0341179198793498,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 2
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 0,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 0,
+          "provider_relative_no_news_as_of": true,
+          "single_symbol_event_count": 0
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 69.33638443935928,
+          "nearest_overhead_source_type": "trailing_high"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": false,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 1179953,
+          "disposition": "feature_state_provider_relative_no_news_unclassified",
+          "estimated_float_shares": 517512,
+          "exact_same_time_rvol": 5.040895250809053,
+          "percent_gain": 132.44680851063833,
+          "price": 4.37,
+          "provider_news_event_count_as_of": 0,
+          "provider_relative_no_news_as_of": true,
+          "top_gainer_rank": 2
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 0,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 3,
+            "provider_relative_no_news_candidate_count": 3
+          },
+          "same_minute_observed_candidate_count": 6,
+          "subject_candidate_headline_count": 0
+        }
+      },
+      "deterministic_snapshot_content_sha256": "63744ef30724de7a87279fb82c54d27ef28dfc35e2ade3a97552c4fb53492fe3",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "semantic_assessment_content_sha256": "9f8a98d19bc4ccf3fd37d3b38f7198a909fc9ff134cb19c411f2729313d05532",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "catalyst-packet:4a6b25a41d4ba361da5c5bcf48862ae7925e881ef957da47c80c04aa0bc05e15"
+          ],
+          "state": "assessed",
+          "value": "provider_relative_no_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "daily-chart:FCUV:746c1667db2ccf7f924ece76d2a7f484fb382bcbbf3b1171d84c5020bc3b670a"
+          ],
+          "state": "assessed",
+          "value": "clear_room_and_clean_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:c7404d0bcfa86c65bf41867869b345112f92a9b710a14c748bc9a057a187dc43"
+          ],
+          "state": "assessed",
+          "value": "competitive_not_dominant"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:FCUV:224456b12e3ae456fd9337706da7efe32c9497576f43d192476b70649852f031"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "FCUV",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-07-31"
+    },
+    {
+      "account": "main_account",
+      "activation_time": "2026-08-03T12:31:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 2,
+          "active_market_candidate_count": 10,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 449.6336996336996,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 5
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 0,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 0,
+          "provider_relative_no_news_as_of": true,
+          "single_symbol_event_count": 0
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 2.6315789473684292,
+          "nearest_overhead_source_type": "trailing_high"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": false,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 902223,
+          "disposition": "feature_state_provider_relative_no_news_unclassified",
+          "estimated_float_shares": 1002998,
+          "exact_same_time_rvol": 60.247005088344885,
+          "percent_gain": 67.03296703296704,
+          "price": 3.04,
+          "provider_news_event_count_as_of": 0,
+          "provider_relative_no_news_as_of": true,
+          "top_gainer_rank": 5
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 2,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 8,
+            "provider_relative_no_news_candidate_count": 2
+          },
+          "same_minute_observed_candidate_count": 10,
+          "subject_candidate_headline_count": 0
+        }
+      },
+      "deterministic_snapshot_content_sha256": "ca82b5786ba049836686117a31fe60cb846cacaae434508f9aa6004552d0ffce",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "semantic_assessment_content_sha256": "372fa4ad86b45b638e3ff6b4c058e28ecf86a802dd6e68d25273cccd1c10a6d3",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "catalyst-packet:d16e17847f5cc15d6921b967b40f85764075aeafa3d554488cbaa23921c70c0e"
+          ],
+          "state": "assessed",
+          "value": "provider_relative_no_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:EZRA:27d3628b2c9886247fdaa0f31cab9c566444abd5657930f17be3fe8c065d6202"
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:cf886a0405f354ff9376b2faac9836f46ead4fa92fc1f85b56a07253385789b1"
+          ],
+          "state": "assessed",
+          "value": "competitive_not_dominant"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:EZRA:1fe3ccff1d0e5bb1e93650d199a9037c47d64486f4d50bda43e148e05758c93d"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "EZRA",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-08-03"
+    },
+    {
+      "account": "small_account",
+      "activation_time": "2026-08-03T12:31:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 2,
+          "active_market_candidate_count": 10,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 449.6336996336996,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 5
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 0,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 0,
+          "provider_relative_no_news_as_of": true,
+          "single_symbol_event_count": 0
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 2.6315789473684292,
+          "nearest_overhead_source_type": "trailing_high"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": false,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 902223,
+          "disposition": "feature_state_provider_relative_no_news_unclassified",
+          "estimated_float_shares": 1002998,
+          "exact_same_time_rvol": 60.247005088344885,
+          "percent_gain": 67.03296703296704,
+          "price": 3.04,
+          "provider_news_event_count_as_of": 0,
+          "provider_relative_no_news_as_of": true,
+          "top_gainer_rank": 5
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 2,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 8,
+            "provider_relative_no_news_candidate_count": 2
+          },
+          "same_minute_observed_candidate_count": 10,
+          "subject_candidate_headline_count": 0
+        }
+      },
+      "deterministic_snapshot_content_sha256": "ca82b5786ba049836686117a31fe60cb846cacaae434508f9aa6004552d0ffce",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "semantic_assessment_content_sha256": "372fa4ad86b45b638e3ff6b4c058e28ecf86a802dd6e68d25273cccd1c10a6d3",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "required_evidence_domain_unavailable",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "catalyst-packet:d16e17847f5cc15d6921b967b40f85764075aeafa3d554488cbaa23921c70c0e"
+          ],
+          "state": "assessed",
+          "value": "provider_relative_no_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:EZRA:27d3628b2c9886247fdaa0f31cab9c566444abd5657930f17be3fe8c065d6202"
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:cf886a0405f354ff9376b2faac9836f46ead4fa92fc1f85b56a07253385789b1"
+          ],
+          "state": "assessed",
+          "value": "competitive_not_dominant"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:EZRA:1fe3ccff1d0e5bb1e93650d199a9037c47d64486f4d50bda43e148e05758c93d"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "EZRA",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-08-03"
+    },
+    {
+      "account": "main_account",
+      "activation_time": "2026-08-03T11:00:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 1,
+          "active_market_candidate_count": 3,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 102.32649498035791,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 5
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 2,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 3,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 1
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 3.34900117508814,
+          "nearest_overhead_source_type": "trailing_high"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 2006232,
+          "disposition": "feature_state_provider_news_present_unclassified",
+          "estimated_float_shares": 517512,
+          "exact_same_time_rvol": 9.795199520666849,
+          "percent_gain": 46.72413793103449,
+          "price": 17.02,
+          "provider_news_event_count_as_of": 3,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 5
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 1,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 3,
+            "provider_relative_no_news_candidate_count": 0
+          },
+          "same_minute_observed_candidate_count": 3,
+          "subject_candidate_headline_count": 3
+        }
+      },
+      "deterministic_snapshot_content_sha256": "e92f015905c18d88122810d1dd17d9dec053042ea7c1975f49f86feef9a76088",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "semantic_assessment_content_sha256": "5a54f80cf6f2b8594b9ee2a7027ffa6a2442ed4c1edef4517651360d5ab0785d",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60857827",
+            "headline:alpaca-benzinga:60864754",
+            "headline:alpaca-benzinga:60866304"
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60857827",
+            "headline:alpaca-benzinga:60864754",
+            "headline:alpaca-benzinga:60866304"
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:FCUV:b0b4bcc984cfdb675d59c7913c6047d9a1bca41654400354471b182e5e583dff"
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:1587952811b4940e008927d1e9960f166f6347bfd17285680940a8554ed4c77e"
+          ],
+          "state": "assessed",
+          "value": "competitive_not_dominant"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:FCUV:4d9fd4c10245ae40994b2676544743e9df4cc7d5cd36a3f551017e9fe9441777"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "FCUV",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-08-03"
+    },
+    {
+      "account": "small_account",
+      "activation_time": "2026-08-03T11:00:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 1,
+          "active_market_candidate_count": 3,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 102.32649498035791,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 5
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 2,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 3,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 1
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 3.34900117508814,
+          "nearest_overhead_source_type": "trailing_high"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 2006232,
+          "disposition": "feature_state_provider_news_present_unclassified",
+          "estimated_float_shares": 517512,
+          "exact_same_time_rvol": 9.795199520666849,
+          "percent_gain": 46.72413793103449,
+          "price": 17.02,
+          "provider_news_event_count_as_of": 3,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 5
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 1,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 3,
+            "provider_relative_no_news_candidate_count": 0
+          },
+          "same_minute_observed_candidate_count": 3,
+          "subject_candidate_headline_count": 3
+        }
+      },
+      "deterministic_snapshot_content_sha256": "e92f015905c18d88122810d1dd17d9dec053042ea7c1975f49f86feef9a76088",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "explicitly_skipped_or_rejected",
+      "semantic_assessment_content_sha256": "5a54f80cf6f2b8594b9ee2a7027ffa6a2442ed4c1edef4517651360d5ab0785d",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60857827",
+            "headline:alpaca-benzinga:60864754",
+            "headline:alpaca-benzinga:60866304"
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60857827",
+            "headline:alpaca-benzinga:60864754",
+            "headline:alpaca-benzinga:60866304"
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:FCUV:b0b4bcc984cfdb675d59c7913c6047d9a1bca41654400354471b182e5e583dff"
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:1587952811b4940e008927d1e9960f166f6347bfd17285680940a8554ed4c77e"
+          ],
+          "state": "assessed",
+          "value": "competitive_not_dominant"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:FCUV:4d9fd4c10245ae40994b2676544743e9df4cc7d5cd36a3f551017e9fe9441777"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "FCUV",
+      "trade_completion": "no_trade",
+      "trading_date": "2026-08-03"
+    },
+    {
+      "account": "main_account",
+      "activation_time": "2026-08-03T11:34:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 0,
+          "active_market_candidate_count": 7,
+          "candidate_consecutive_market_leader_minutes": 1,
+          "candidate_gap_to_leader_pct_points": 0.0,
+          "candidate_is_market_leader": true,
+          "candidate_top_gainer_rank": 1
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 0,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 1,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 1
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": null,
+          "nearest_overhead_source_type": null
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 1273293,
+          "disposition": "feature_state_provider_news_present_unclassified",
+          "estimated_float_shares": 4764612,
+          "exact_same_time_rvol": 233.36027446969948,
+          "percent_gain": 359.25925925925924,
+          "price": 2.48,
+          "provider_news_event_count_as_of": 1,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 1
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 1,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 5,
+            "provider_relative_no_news_candidate_count": 2
+          },
+          "same_minute_observed_candidate_count": 7,
+          "subject_candidate_headline_count": 1
+        }
+      },
+      "deterministic_snapshot_content_sha256": "3deb02cf8e7cd914643d1de8e245ae4b755fc29fd0908a0dadc759c9dc33e4e7",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "semantic_assessment_content_sha256": "4ccfc5679a34fc52324647b11e6cdcd534afaa53130f47cf2cb87989ddec55ab",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60868399"
+          ],
+          "state": "assessed",
+          "value": "definitive_agreement_or_completed_action"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60868399"
+          ],
+          "state": "assessed",
+          "value": "specific_event_with_explicit_terms"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "daily-chart:HYFM:b7d2fe6d834c6ae0eb6c372e1567c26d8daa6a861bdc080918a9941cf8f691ce"
+          ],
+          "state": "assessed",
+          "value": "mixed_chart_context"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:5f547fbdc6b0a76bd8494fddc10a7bb46a87d1b90ca2ecab5bf7430799407e69"
+          ],
+          "state": "assessed",
+          "value": "emerging_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:HYFM:2aca124d9f95f837c4bb309026899e5cab11f1398b94d817aaa4668815fb73e6"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "HYFM",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-08-03"
+    },
+    {
+      "account": "small_account",
+      "activation_time": "2026-08-03T11:34:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 0,
+          "active_market_candidate_count": 7,
+          "candidate_consecutive_market_leader_minutes": 1,
+          "candidate_gap_to_leader_pct_points": 0.0,
+          "candidate_is_market_leader": true,
+          "candidate_top_gainer_rank": 1
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 0,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 1,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 1
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": null,
+          "nearest_overhead_source_type": null
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 1273293,
+          "disposition": "feature_state_provider_news_present_unclassified",
+          "estimated_float_shares": 4764612,
+          "exact_same_time_rvol": 233.36027446969948,
+          "percent_gain": 359.25925925925924,
+          "price": 2.48,
+          "provider_news_event_count_as_of": 1,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 1
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 1,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 5,
+            "provider_relative_no_news_candidate_count": 2
+          },
+          "same_minute_observed_candidate_count": 7,
+          "subject_candidate_headline_count": 1
+        }
+      },
+      "deterministic_snapshot_content_sha256": "3deb02cf8e7cd914643d1de8e245ae4b755fc29fd0908a0dadc759c9dc33e4e7",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "semantic_assessment_content_sha256": "4ccfc5679a34fc52324647b11e6cdcd534afaa53130f47cf2cb87989ddec55ab",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60868399"
+          ],
+          "state": "assessed",
+          "value": "definitive_agreement_or_completed_action"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60868399"
+          ],
+          "state": "assessed",
+          "value": "specific_event_with_explicit_terms"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "daily-chart:HYFM:b7d2fe6d834c6ae0eb6c372e1567c26d8daa6a861bdc080918a9941cf8f691ce"
+          ],
+          "state": "assessed",
+          "value": "mixed_chart_context"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:5f547fbdc6b0a76bd8494fddc10a7bb46a87d1b90ca2ecab5bf7430799407e69"
+          ],
+          "state": "assessed",
+          "value": "emerging_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:HYFM:2aca124d9f95f837c4bb309026899e5cab11f1398b94d817aaa4668815fb73e6"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "HYFM",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-08-03"
+    },
+    {
+      "account": "main_account",
+      "activation_time": "2026-08-03T11:00:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 0,
+          "active_market_candidate_count": 3,
+          "candidate_consecutive_market_leader_minutes": 1,
+          "candidate_gap_to_leader_pct_points": 0.0,
+          "candidate_is_market_leader": true,
+          "candidate_top_gainer_rank": 1
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 2,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 2,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 0
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 128.2083862770013,
+          "nearest_overhead_source_type": "trailing_high"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 8260563,
+          "disposition": "feature_state_provider_news_present_unclassified",
+          "estimated_float_shares": 563338,
+          "exact_same_time_rvol": 56.37504374569026,
+          "percent_gain": 149.0506329113924,
+          "price": 7.87,
+          "provider_news_event_count_as_of": 2,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 1
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 1,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 3,
+            "provider_relative_no_news_candidate_count": 0
+          },
+          "same_minute_observed_candidate_count": 3,
+          "subject_candidate_headline_count": 2
+        }
+      },
+      "deterministic_snapshot_content_sha256": "b40e65ec8146a38c0a0ea2e2500f4be34c11f2253c0b6af892eddb1410fdc5ef",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "explicitly_skipped_or_rejected",
+      "semantic_assessment_content_sha256": "81cece7ef50d9987fed50caaf774636f0b4d4b9bbcc97567f83981e1a48f9ce0",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60857830",
+            "headline:alpaca-benzinga:60864754"
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60857830",
+            "headline:alpaca-benzinga:60864754"
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "daily-chart:UPC:48be2e1c5822052552d9ccbdac33e87aa7fe132a9b4256533a175bcc47280281"
+          ],
+          "state": "assessed",
+          "value": "clear_room_and_clean_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:2216c3e4fc62b70e5e85de214372acb34b7df3f5e80065fd25a5875345aa2f90"
+          ],
+          "state": "assessed",
+          "value": "emerging_leader"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:UPC:f200e3b80f9f67e40af9dfc254ceb12cb63507d21083ee0b19d391ee1012ea35"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "UPC",
+      "trade_completion": "no_trade",
+      "trading_date": "2026-08-03"
+    },
+    {
+      "account": "main_account",
+      "activation_time": "2026-08-04T12:22:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 1,
+          "active_market_candidate_count": 8,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 62.51810487741031,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 5
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 0,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 1,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 1
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 3.1553797468354405,
+          "nearest_overhead_source_type": "simple_moving_average"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 2114149,
+          "disposition": "feature_state_provider_news_present_unclassified",
+          "estimated_float_shares": 543268,
+          "exact_same_time_rvol": 5.785404109361498,
+          "percent_gain": 73.15068493150687,
+          "price": 6.32,
+          "provider_news_event_count_as_of": 1,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 5
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 4,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 8,
+            "provider_relative_no_news_candidate_count": 0
+          },
+          "same_minute_observed_candidate_count": 8,
+          "subject_candidate_headline_count": 1
+        }
+      },
+      "deterministic_snapshot_content_sha256": "bf2f7269231e6de502800646e0ecfe4bef40930fd3a6c4443143d6b36eb4e6d0",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "explicitly_skipped_or_rejected",
+      "semantic_assessment_content_sha256": "bc47a73a9fa2bf940d6b958c43909a833356c8390db1c2337b858756edcccfcd",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60903763"
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60903763"
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:AMIX:61153558ed0ddcf659993bce9d944a40b149a50452fd62d9dfc854eac1d7a0fb"
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:cf98536c948f2cb66a94c254dfe7bccbd90f9eecad1ce0253d78fd080e64a821"
+          ],
+          "state": "assessed",
+          "value": "competitive_not_dominant"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:AMIX:ff09c9f99499b5703b4d938d41138974f9a2662bd8aeb3cf0323629ec669db27"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "AMIX",
+      "trade_completion": "no_trade",
+      "trading_date": "2026-08-04"
+    },
+    {
+      "account": "small_account",
+      "activation_time": "2026-08-04T12:22:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 1,
+          "active_market_candidate_count": 8,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 62.51810487741031,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 5
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 0,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 1,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 1
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 3.1553797468354405,
+          "nearest_overhead_source_type": "simple_moving_average"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 2114149,
+          "disposition": "feature_state_provider_news_present_unclassified",
+          "estimated_float_shares": 543268,
+          "exact_same_time_rvol": 5.785404109361498,
+          "percent_gain": 73.15068493150687,
+          "price": 6.32,
+          "provider_news_event_count_as_of": 1,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 5
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 4,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 8,
+            "provider_relative_no_news_candidate_count": 0
+          },
+          "same_minute_observed_candidate_count": 8,
+          "subject_candidate_headline_count": 1
+        }
+      },
+      "deterministic_snapshot_content_sha256": "bf2f7269231e6de502800646e0ecfe4bef40930fd3a6c4443143d6b36eb4e6d0",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "explicitly_skipped_or_rejected",
+      "semantic_assessment_content_sha256": "bc47a73a9fa2bf940d6b958c43909a833356c8390db1c2337b858756edcccfcd",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60903763"
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60903763"
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:AMIX:61153558ed0ddcf659993bce9d944a40b149a50452fd62d9dfc854eac1d7a0fb"
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:cf98536c948f2cb66a94c254dfe7bccbd90f9eecad1ce0253d78fd080e64a821"
+          ],
+          "state": "assessed",
+          "value": "competitive_not_dominant"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:AMIX:ff09c9f99499b5703b4d938d41138974f9a2662bd8aeb3cf0323629ec669db27"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "AMIX",
+      "trade_completion": "no_trade",
+      "trading_date": "2026-08-04"
+    },
+    {
+      "account": "small_account",
+      "activation_time": "2026-08-05T11:55:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 0,
+          "active_market_candidate_count": 16,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 62.31401042489339,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 4
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 1,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 1,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 0
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 1.5272727272727327,
+          "nearest_overhead_source_type": "simple_moving_average"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 23030,
+          "disposition": "feature_state_unknown_fail_closed_float",
+          "estimated_float_shares": null,
+          "exact_same_time_rvol": 10.561410266993185,
+          "percent_gain": 43.84615384615385,
+          "price": 3.74,
+          "provider_news_event_count_as_of": 1,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 4
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 2,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 14,
+            "provider_relative_no_news_candidate_count": 2
+          },
+          "same_minute_observed_candidate_count": 16,
+          "subject_candidate_headline_count": 1
+        }
+      },
+      "deterministic_snapshot_content_sha256": "58d2d885108b8a87864a7c21d2e7e447dd667309e16d645d15dd286cb0fd98cc",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "semantic_assessment_content_sha256": "f4d0fe4c57609c2607908895250c5b28be6f48cedabe929d9fc63bdf92ad49cb",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60934198"
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60934198"
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "high",
+          "evidence_ids": [
+            "daily-chart:YXT:fa978479c8c5bd7c568d940e4e73b0546224cb24b2882f2d1cf8257516efb2b5"
+          ],
+          "state": "assessed",
+          "value": "near_resistance_or_failed_pop_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:c7c66e957a72ca266155354d1772ac868ef974c1245f32eb876cf3456fc737f8"
+          ],
+          "state": "assessed",
+          "value": "competitive_not_dominant"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:YXT:0bedf2305872da1fb242d83df2d0128bcdfdba04a65edc61d963d6f692054c48"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "YXT",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-08-05"
+    },
+    {
+      "account": "main_account",
+      "activation_time": "2026-08-06T11:00:00+00:00",
+      "candidate_acquired": true,
+      "comparison_snapshot_role": "candidate_activation_neutral_anchor_not_claimed_trade_time",
+      "deterministic_components": {
+        "attention_leadership": {
+          "active_candidates_with_better_market_rank": 1,
+          "active_market_candidate_count": 8,
+          "candidate_consecutive_market_leader_minutes": 0,
+          "candidate_gap_to_leader_pct_points": 29.07099530682727,
+          "candidate_is_market_leader": false,
+          "candidate_top_gainer_rank": 3
+        },
+        "catalyst_chronology": {
+          "multi_symbol_event_count": 1,
+          "news_provider_status": "success",
+          "provider_news_event_count_as_of": 2,
+          "provider_relative_no_news_as_of": false,
+          "single_symbol_event_count": 1
+        },
+        "daily_chart": {
+          "history_complete_for_requested_window": true,
+          "included_prior_completed_sessions": 60,
+          "moving_average_200_status": "deferred_identity_window_not_frozen",
+          "nearest_overhead_distance_pct": 69.67953985209535,
+          "nearest_overhead_source_type": "trailing_high"
+        },
+        "evidence_coverage": {
+          "account_state": false,
+          "attention_leadership": true,
+          "catalyst_chronology": true,
+          "catalyst_headline": true,
+          "daily_chart": true,
+          "filing_corroboration": false,
+          "issuer_event_history": false,
+          "liquidity": false,
+          "portfolio_attention": false,
+          "scanner_market": true,
+          "theme_regime": true
+        },
+        "scanner_market": {
+          "candidate_completed_bar_present": true,
+          "cumulative_volume": 4329108,
+          "disposition": "feature_state_provider_news_present_unclassified",
+          "estimated_float_shares": 2675412,
+          "exact_same_time_rvol": 150.1246325870174,
+          "percent_gain": 98.42391304347824,
+          "price": 7.302,
+          "provider_news_event_count_as_of": 2,
+          "provider_relative_no_news_as_of": false,
+          "top_gainer_rank": 3
+        },
+        "theme_regime": {
+          "cross_candidate_story_count": 1,
+          "prior_completed_session_count": 5,
+          "same_minute_news_state_counts": {
+            "provider_error_candidate_count": 0,
+            "provider_news_candidate_count": 6,
+            "provider_relative_no_news_candidate_count": 2
+          },
+          "same_minute_observed_candidate_count": 8,
+          "subject_candidate_headline_count": 2
+        }
+      },
+      "deterministic_snapshot_content_sha256": "4c990e377a45f0eea27fc91541d69d552f8a377f46fe2136d2096cc9b10c21f2",
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "semantic_assessment_content_sha256": "7047437d5b2f061b987e5882e4942046aa49c298d87d38caa8d34f832abb9318",
+      "semantic_axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reason": null,
+          "confidence": "low",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60981063",
+            "headline:alpaca-benzinga:60982906"
+          ],
+          "state": "assessed",
+          "value": "ambiguous_commitment_stage"
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [],
+          "state": "abstained",
+          "value": null
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "headline:alpaca-benzinga:60981063",
+            "headline:alpaca-benzinga:60982906"
+          ],
+          "state": "assessed",
+          "value": "vague_or_incidental_event"
+        },
+        "chart_context_cleanliness": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "daily-chart:CLRO:b0aa0bd180873333db0f1d5623784dc508b215339847639e9faedfbf5c5bef23"
+          ],
+          "state": "assessed",
+          "value": "clear_room_and_clean_history"
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reason": null,
+          "confidence": "medium",
+          "evidence_ids": [
+            "attention:5a8c64bb61a1816eb5ee5c86da25849d53e57da77418e20293b151526a25b4b6"
+          ],
+          "state": "assessed",
+          "value": "competitive_not_dominant"
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reason": "insufficient_evidence",
+          "confidence": null,
+          "evidence_ids": [
+            "theme-regime:CLRO:3a160328e4384d359432e8f22f5ef66082b953525f7db12527eab45a4e8b606d"
+          ],
+          "state": "abstained",
+          "value": null
+        }
+      },
+      "symbol": "CLRO",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-08-06"
+    }
+  ],
+  "comparison_scope": {
+    "account_scoped": true,
+    "activation_anchor_is_trade_time_proxy": false,
+    "all_causal_market_candidates_retained": true,
+    "exact_human_decision_time_claimed": false,
+    "explicit_participation_and_skip_only_for_action_groups": true,
+    "later_source_change_snapshots_used_for_action_comparison": false,
+    "paired_snapshot_rule": "candidate_activation",
+    "registered_dates": [
+      "2026-07-24",
+      "2026-07-27",
+      "2026-07-28",
+      "2026-07-29",
+      "2026-07-30",
+      "2026-07-31",
+      "2026-08-03",
+      "2026-08-04",
+      "2026-08-05",
+      "2026-08-06"
+    ],
+    "top_n_or_rank_filter_applied": false,
+    "unclear_unmentioned_and_unavailable_excluded_from_action_groups": true
+  },
+  "comparison_status": "frozen_descriptive_only",
+  "content_sha256": "d93d61ed0ebd5657bbed135beb7fe2d7b0f337d1e3f76720c0f1dcff7908ff54",
+  "deterministic_component_descriptives": {
+    "all_frozen_snapshots": {
+      "catalyst_news_provider_status_counts": {
+        "success": 314
+      },
+      "domains": {
+        "account_state": {
+          "missing": 314,
+          "present": 0
+        },
+        "attention_leadership": {
+          "missing": 0,
+          "present": 314
+        },
+        "catalyst_chronology": {
+          "missing": 0,
+          "present": 314
+        },
+        "catalyst_headline": {
+          "missing": 60,
+          "present": 254
+        },
+        "daily_chart": {
+          "missing": 29,
+          "present": 285
+        },
+        "filing_corroboration": {
+          "missing": 314,
+          "present": 0
+        },
+        "issuer_event_history": {
+          "missing": 314,
+          "present": 0
+        },
+        "liquidity": {
+          "missing": 314,
+          "present": 0
+        },
+        "portfolio_attention": {
+          "missing": 314,
+          "present": 0
+        },
+        "scanner_market": {
+          "missing": 0,
+          "present": 314
+        },
+        "theme_regime": {
+          "missing": 0,
+          "present": 314
+        }
+      },
+      "record_count": 314,
+      "scanner_float_provider_status_counts": {
+        "sec_companyfacts_not_found": 2,
+        "success_no_eligible_sec_evidence": 9,
+        "success_selected_evidence_exact_acceptance": 303
+      },
+      "scanner_news_provider_status_counts": {
+        "success": 314
+      },
+      "snapshot_reason_counts": {
+        "candidate_activation": 195,
+        "source_evidence_changed": 119
+      }
+    },
+    "candidate_activation_snapshots": {
+      "catalyst_news_provider_status_counts": {
+        "success": 195
+      },
+      "domains": {
+        "account_state": {
+          "missing": 195,
+          "present": 0
+        },
+        "attention_leadership": {
+          "missing": 0,
+          "present": 195
+        },
+        "catalyst_chronology": {
+          "missing": 0,
+          "present": 195
+        },
+        "catalyst_headline": {
+          "missing": 60,
+          "present": 135
+        },
+        "daily_chart": {
+          "missing": 0,
+          "present": 195
+        },
+        "filing_corroboration": {
+          "missing": 195,
+          "present": 0
+        },
+        "issuer_event_history": {
+          "missing": 195,
+          "present": 0
+        },
+        "liquidity": {
+          "missing": 195,
+          "present": 0
+        },
+        "portfolio_attention": {
+          "missing": 195,
+          "present": 0
+        },
+        "scanner_market": {
+          "missing": 0,
+          "present": 195
+        },
+        "theme_regime": {
+          "missing": 0,
+          "present": 195
+        }
+      },
+      "record_count": 195,
+      "scanner_float_provider_status_counts": {
+        "sec_companyfacts_not_found": 1,
+        "success_no_eligible_sec_evidence": 7,
+        "success_selected_evidence_exact_acceptance": 187
+      },
+      "scanner_news_provider_status_counts": {
+        "success": 195
+      },
+      "snapshot_reason_counts": {
+        "candidate_activation": 195
+      }
+    },
+    "explicit_candidate_symbol_dates_at_activation": {
+      "catalyst_news_provider_status_counts": {
+        "success": 18
+      },
+      "domains": {
+        "account_state": {
+          "missing": 18,
+          "present": 0
+        },
+        "attention_leadership": {
+          "missing": 0,
+          "present": 18
+        },
+        "catalyst_chronology": {
+          "missing": 0,
+          "present": 18
+        },
+        "catalyst_headline": {
+          "missing": 4,
+          "present": 14
+        },
+        "daily_chart": {
+          "missing": 0,
+          "present": 18
+        },
+        "filing_corroboration": {
+          "missing": 18,
+          "present": 0
+        },
+        "issuer_event_history": {
+          "missing": 18,
+          "present": 0
+        },
+        "liquidity": {
+          "missing": 18,
+          "present": 0
+        },
+        "portfolio_attention": {
+          "missing": 18,
+          "present": 0
+        },
+        "scanner_market": {
+          "missing": 0,
+          "present": 18
+        },
+        "theme_regime": {
+          "missing": 0,
+          "present": 18
+        }
+      },
+      "record_count": 18,
+      "scanner_float_provider_status_counts": {
+        "success_no_eligible_sec_evidence": 2,
+        "success_selected_evidence_exact_acceptance": 16
+      },
+      "scanner_news_provider_status_counts": {
+        "success": 18
+      },
+      "snapshot_reason_counts": {
+        "candidate_activation": 18
+      }
+    }
+  },
+  "frozen_component_pairing": {
+    "all_record_keys_paired": true,
+    "all_semantic_citations_resolve_to_exact_snapshot": true,
+    "all_source_snapshot_hashes_match": true,
+    "axis_instances_with_evidence_citations": 1481,
+    "deterministic_record_count": 314,
+    "exact_key_pair_count": 314,
+    "exact_source_snapshot_hash_match_count": 314,
+    "references_resolved_to_exact_snapshot_count": 2545,
+    "semantic_axis_instance_count": 1884,
+    "semantic_evidence_reference_count": 2545,
+    "semantic_record_count": 314
+  },
+  "interpretation": {
+    "activation_is_a_neutral_shared_anchor_not_a_reconstructed_trade_time": true,
+    "candidate_acquisition_and_context_assessment_are_separate_gates": true,
+    "group_counts_are_descriptive_not_accuracy_estimates": true,
+    "micro_v0_1_unchanged": true,
+    "no_component_value_is_declared_a_trade_rule": true,
+    "no_overall_or_aggregate_score": true,
+    "panel_is_nonrepresentative_and_not_fit_evidence": true
+  },
+  "off_candidate_actions": [
+    {
+      "account": "main_account",
+      "candidate_acquired": false,
+      "deterministic_components": null,
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "identity_resolution_status": "internally_corroborated",
+      "semantic_axes": null,
+      "symbol": "EXYN",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-07-24"
+    },
+    {
+      "account": "small_account",
+      "candidate_acquired": false,
+      "deterministic_components": null,
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "identity_resolution_status": "internally_corroborated",
+      "semantic_axes": null,
+      "symbol": "EXYN",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-07-24"
+    },
+    {
+      "account": "main_account",
+      "candidate_acquired": false,
+      "deterministic_components": null,
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "explicitly_skipped_or_rejected",
+      "identity_resolution_status": "internally_corroborated",
+      "semantic_axes": null,
+      "symbol": "LVWR",
+      "trade_completion": "no_trade",
+      "trading_date": "2026-07-24"
+    },
+    {
+      "account": "main_account",
+      "candidate_acquired": false,
+      "deterministic_components": null,
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "identity_resolution_status": "internally_corroborated",
+      "semantic_axes": null,
+      "symbol": "VTIX",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-07-27"
+    },
+    {
+      "account": "small_account",
+      "candidate_acquired": false,
+      "deterministic_components": null,
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "identity_resolution_status": "internally_corroborated",
+      "semantic_axes": null,
+      "symbol": "VTIX",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-07-27"
+    },
+    {
+      "account": "main_account",
+      "candidate_acquired": false,
+      "deterministic_components": null,
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "identity_resolution_status": "internally_corroborated",
+      "semantic_axes": null,
+      "symbol": "DFNS",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-07-29"
+    },
+    {
+      "account": "main_account",
+      "candidate_acquired": false,
+      "deterministic_components": null,
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "explicitly_skipped_or_rejected",
+      "identity_resolution_status": "internally_corroborated",
+      "semantic_axes": null,
+      "symbol": "DFNS",
+      "trade_completion": "no_trade",
+      "trading_date": "2026-07-30"
+    },
+    {
+      "account": "main_account",
+      "candidate_acquired": false,
+      "deterministic_components": null,
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "identity_resolution_status": "internally_corroborated",
+      "semantic_axes": null,
+      "symbol": "DSY",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-08-06"
+    },
+    {
+      "account": "small_account",
+      "candidate_acquired": false,
+      "deterministic_components": null,
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "identity_resolution_status": "internally_corroborated",
+      "semantic_axes": null,
+      "symbol": "DSY",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-08-06"
+    },
+    {
+      "account": "main_account",
+      "candidate_acquired": false,
+      "deterministic_components": null,
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "identity_resolution_status": "unresolved",
+      "semantic_axes": null,
+      "symbol": "MB",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-08-06"
+    },
+    {
+      "account": "main_account",
+      "candidate_acquired": false,
+      "deterministic_components": null,
+      "human_evidence_timing_quality": "retrospective_sequence_only",
+      "human_state": "participated",
+      "identity_resolution_status": "internally_corroborated",
+      "semantic_axes": null,
+      "symbol": "NAMI",
+      "trade_completion": "completed_trade",
+      "trading_date": "2026-08-06"
+    }
+  ],
+  "overall_imitation_score_allowed": false,
+  "panel_counts": {
+    "candidate_account_label_slot_count": 390,
+    "candidate_symbol_date_count": 195,
+    "deterministic_snapshot_count": 314,
+    "explicit_candidate_account_action_count": 29,
+    "explicit_candidate_symbol_date_count": 18,
+    "off_candidate_account_action_count": 11,
+    "registered_date_count": 10,
+    "semantic_record_count": 314
+  },
+  "policy_promotion_eligible": false,
+  "runtime_strategy_effect": "none",
+  "schema_version": 1,
+  "selection_threshold_fitting_allowed": false,
+  "semantic_component_descriptives": {
+    "all_frozen_snapshots": {
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reasons": {
+            "required_evidence_domain_unavailable": 60
+          },
+          "axis_instances_with_evidence_citations": 254,
+          "confidence": {
+            "low": 187,
+            "medium": 67
+          },
+          "evidence_reference_count": 786,
+          "states": {
+            "abstained": 60,
+            "assessed": 254
+          },
+          "values": {
+            "ambiguous_commitment_stage": 187,
+            "authorization_not_execution": 1,
+            "definitive_agreement_or_completed_action": 63,
+            "exploration_or_pursuit": 3
+          }
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reasons": {
+            "insufficient_evidence": 254,
+            "required_evidence_domain_unavailable": 60
+          },
+          "axis_instances_with_evidence_citations": 0,
+          "confidence": {},
+          "evidence_reference_count": 0,
+          "states": {
+            "abstained": 314
+          },
+          "values": {}
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reasons": {},
+          "axis_instances_with_evidence_citations": 314,
+          "confidence": {
+            "high": 126,
+            "low": 93,
+            "medium": 95
+          },
+          "evidence_reference_count": 846,
+          "states": {
+            "assessed": 314
+          },
+          "values": {
+            "mixed_or_ambiguous_event_substance": 93,
+            "provider_relative_no_event": 60,
+            "specific_event_terms_incomplete": 6,
+            "specific_event_with_explicit_terms": 66,
+            "vague_or_incidental_event": 89
+          }
+        },
+        "chart_context_cleanliness": {
+          "abstain_reasons": {
+            "required_evidence_domain_unavailable": 29
+          },
+          "axis_instances_with_evidence_citations": 285,
+          "confidence": {
+            "high": 108,
+            "medium": 177
+          },
+          "evidence_reference_count": 285,
+          "states": {
+            "abstained": 29,
+            "assessed": 285
+          },
+          "values": {
+            "clear_room_and_clean_history": 31,
+            "mixed_chart_context": 146,
+            "near_resistance_or_failed_pop_history": 108
+          }
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reasons": {
+            "source_unavailable": 29
+          },
+          "axis_instances_with_evidence_citations": 314,
+          "confidence": {
+            "high": 231,
+            "medium": 54
+          },
+          "evidence_reference_count": 314,
+          "states": {
+            "abstained": 29,
+            "assessed": 285
+          },
+          "values": {
+            "competitive_not_dominant": 45,
+            "dominant_persistent_leader": 12,
+            "emerging_leader": 9,
+            "not_current_leader": 219
+          }
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reasons": {
+            "insufficient_evidence": 314
+          },
+          "axis_instances_with_evidence_citations": 314,
+          "confidence": {},
+          "evidence_reference_count": 314,
+          "states": {
+            "abstained": 314
+          },
+          "values": {}
+        }
+      },
+      "record_count": 314
+    },
+    "candidate_activation_snapshots": {
+      "axes": {
+        "catalyst_commitment_stage": {
+          "abstain_reasons": {
+            "required_evidence_domain_unavailable": 60
+          },
+          "axis_instances_with_evidence_citations": 135,
+          "confidence": {
+            "low": 79,
+            "medium": 56
+          },
+          "evidence_reference_count": 311,
+          "states": {
+            "abstained": 60,
+            "assessed": 135
+          },
+          "values": {
+            "ambiguous_commitment_stage": 79,
+            "authorization_not_execution": 1,
+            "definitive_agreement_or_completed_action": 53,
+            "exploration_or_pursuit": 2
+          }
+        },
+        "catalyst_credibility_repetition": {
+          "abstain_reasons": {
+            "insufficient_evidence": 135,
+            "required_evidence_domain_unavailable": 60
+          },
+          "axis_instances_with_evidence_citations": 0,
+          "confidence": {},
+          "evidence_reference_count": 0,
+          "states": {
+            "abstained": 195
+          },
+          "values": {}
+        },
+        "catalyst_substance_specificity": {
+          "abstain_reasons": {},
+          "axis_instances_with_evidence_citations": 195,
+          "confidence": {
+            "high": 116,
+            "low": 34,
+            "medium": 45
+          },
+          "evidence_reference_count": 371,
+          "states": {
+            "assessed": 195
+          },
+          "values": {
+            "mixed_or_ambiguous_event_substance": 34,
+            "provider_relative_no_event": 60,
+            "specific_event_terms_incomplete": 3,
+            "specific_event_with_explicit_terms": 56,
+            "vague_or_incidental_event": 42
+          }
+        },
+        "chart_context_cleanliness": {
+          "abstain_reasons": {},
+          "axis_instances_with_evidence_citations": 195,
+          "confidence": {
+            "high": 72,
+            "medium": 123
+          },
+          "evidence_reference_count": 195,
+          "states": {
+            "assessed": 195
+          },
+          "values": {
+            "clear_room_and_clean_history": 20,
+            "mixed_chart_context": 103,
+            "near_resistance_or_failed_pop_history": 72
+          }
+        },
+        "opportunity_obviousness_leadership_quality": {
+          "abstain_reasons": {},
+          "axis_instances_with_evidence_citations": 195,
+          "confidence": {
+            "high": 167,
+            "medium": 28
+          },
+          "evidence_reference_count": 195,
+          "states": {
+            "assessed": 195
+          },
+          "values": {
+            "competitive_not_dominant": 21,
+            "emerging_leader": 7,
+            "not_current_leader": 167
+          }
+        },
+        "theme_fit_no_news_acceptance": {
+          "abstain_reasons": {
+            "insufficient_evidence": 195
+          },
+          "axis_instances_with_evidence_citations": 195,
+          "confidence": {},
+          "evidence_reference_count": 195,
+          "states": {
+            "abstained": 195
+          },
+          "values": {}
+        }
+      },
+      "record_count": 195
+    }
+  },
+  "source_content_sha256s": {
+    "deterministic_runtime_manifest": "3567619bfb6b7b2c177d02cc69f15423bf605663519017a6638b0394e4153702",
+    "deterministic_runtime_zip": "a29186eb092752cfafc031360cacf348bea5e607cb19ce326ddaff2ddfedac1a",
+    "deterministic_snapshot_runtime": "6dcc6f25ddb73e63b5f9c714e0c890ab954b15b099e7ba3a71ef948f9760939f",
+    "labels": "3ff85b371de31ea5dc1d2e4afc4e334c6f6f5051bfe5c7340fb51007527b7cd1",
+    "semantic_manifest": "9b3be7a17f29e638b0e1da14b4d050762503bab17c74c3f97e62b99489f25cd4",
+    "semantic_rubric": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3"
+  },
+  "technical_rule_retuning_allowed": false
+}
