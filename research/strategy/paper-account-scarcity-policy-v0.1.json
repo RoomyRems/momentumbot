@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "contract_id": "paper-account-scarcity-policy-v0.1",
+  "artifact_type": "research_paper_account_and_scarcity_policy_contract",
+  "status": "preregistered_not_integrated",
+  "runtime_strategy_effect": "none_not_integrated",
+  "policy_promotion_eligible": false,
+  "portfolio_backtest_eligible": false,
+  "ross_replication_claim_eligible": false,
+  "hypothesis": "The existing paper-safe risk policy can be materialized into explicit main- and small-account ledger constraints, and exact-time capacity collisions can be ordered with the existing causal candidate ranking, without fitting retrospective actions or changing scanner or Micro-v0.1 behavior.",
+  "frozen_parents": {
+    "campaign_ledger_contract_id": "campaign-portfolio-account-state-v0.1",
+    "campaign_ledger_contract_content_sha256": "f2a80f4350e6283e2638702d70515bf03ee6c930e7d52706d09ef5e1d9f419b6",
+    "micro_policy_id": "micro-v0.1",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "paper_safe_risk_fingerprint": "dc8de12fe70d0035ec0dcb5883023196b5f3012457bda533b5acdd1fc70d42f3",
+    "general_strategy_profile_fingerprint": "7d15fb979701324bf862b1dc37e5f9b514dcf1ab8cf1e062ae4a60027233d4ff",
+    "small_strategy_profile_fingerprint": "fb86fc5326903cab16c283a03d8e371f66487f41589fb1b69b79f8912a0a6489"
+  },
+  "knowledge_policy": {
+    "runtime_inputs_available_by_decision_time": true,
+    "raw_transcripts_allowed_at_runtime": false,
+    "retrospective_actions_or_labels_allowed_at_runtime": false,
+    "later_prices_or_outcomes_allowed_at_runtime": false,
+    "semantic_ai_used_for_priority": false,
+    "ai_may_create_orders_or_raise_risk": false
+  },
+  "account_policies": [
+    {
+      "policy_id": "paper-safe-main-account-v0.1",
+      "account_class": "main",
+      "strategy_profile_id": "current-general-2026",
+      "numeric_risk_source": "existing_paper_safe_policy_only",
+      "structural_cap_classification": "conservative_project_safety_translation",
+      "max_open_positions": 1,
+      "max_entries_per_campaign": 2,
+      "allow_reentry": true,
+      "first_session_entry_must_be_starter": true,
+      "risk_per_campaign_fraction_of_starting_equity": 0.0025,
+      "max_daily_loss_fraction_of_starting_equity": 0.01,
+      "max_campaign_notional_fraction_of_starting_equity": 0.50,
+      "profit_giveback_fraction": 0.50,
+      "max_entry_slippage_bps": null
+    },
+    {
+      "policy_id": "paper-safe-small-account-v0.1",
+      "account_class": "small",
+      "strategy_profile_id": "current-small-account-2026",
+      "numeric_risk_source": "existing_paper_safe_policy_only",
+      "structural_cap_classification": "conservative_project_safety_translation",
+      "max_open_positions": 1,
+      "max_entries_per_campaign": 2,
+      "allow_reentry": true,
+      "first_session_entry_must_be_starter": true,
+      "risk_per_campaign_fraction_of_starting_equity": 0.0025,
+      "max_daily_loss_fraction_of_starting_equity": 0.01,
+      "max_campaign_notional_fraction_of_starting_equity": 0.50,
+      "profit_giveback_fraction": 0.50,
+      "max_entry_slippage_bps": null
+    }
+  ],
+  "materialization_contract": {
+    "session_inputs": ["unique account ID", "account class", "starting equity", "starting buying power"],
+    "campaign_open_notional": "minimum of starting buying power and 50% of starting equity",
+    "total_open_notional": "same as campaign cap because one open position is permitted",
+    "campaign_and_total_open_risk": "0.25% of starting equity",
+    "starter_max_notional": "same as campaign cap; no unsourced smaller starter fraction is invented",
+    "daily_max_loss_dollars": "1% of starting equity",
+    "profit_giveback": "50% of session high-water realized profit",
+    "slippage": "recorded by the ledger; frozen execution approval remains authoritative"
+  },
+  "scarce_capital_priority": {
+    "scope": "one account only",
+    "ordered_fields": [
+      "execution_at ascending",
+      "existing CandidateSnapshot.ranking_key descending",
+      "candidate snapshot timestamp ascending",
+      "symbol ascending",
+      "plan_id ascending",
+      "opportunity_id ascending"
+    ],
+    "cross_account_priority": "unresolved_fail_closed",
+    "top_n_candidate_filter": false,
+    "semantic_context_used": false,
+    "activation_without_capacity_collision_changed": false
+  },
+  "offline_transcript_boundary_evidence": {
+    "archive_file_sha256": "c59a8dd67bf4cb2b3bb4539996bbe1b648b1503a73916371b2f98661a4d33db0",
+    "runtime_allowed": false,
+    "used_to_set_numeric_risk_values": false,
+    "ticker_or_behavior_labels_used": false,
+    "observations": [
+      {
+        "video_id": "oaHTe5lotSQ",
+        "published_at": "2026-01-03",
+        "title": "I Reset My Account to $2,000 (AGAIN) Robinhood Challenge Ep 1",
+        "observation": "A specific challenge described one trade per day and a 10% daily max-risk/target. That aggressive challenge value is not adopted by the paper policy.",
+        "policy_role": "boundary_only"
+      },
+      {
+        "video_id": "8SWCCRLg1p0",
+        "published_at": "2026-04-25",
+        "title": "Ultimate Guide to Trading in a Small Account",
+        "observation": "A beta-phase teaching exercise recommends one trade per day and concentrating buying power on the best setup; it is a training stage, not a universal current-account limit.",
+        "policy_role": "boundary_only"
+      },
+      {
+        "video_id": "5AV2OLWD1gc",
+        "published_at": "2026-05-21",
+        "title": "Top 5 Reasons Why Traders Lose Money — Don’t Make These Mistakes!!!",
+        "observation": "The first trade is described as a starter used to test the market before greater aggression. No numerical starter fraction is stated.",
+        "policy_role": "boundary_only"
+      },
+      {
+        "video_id": "2IMvfIR1TPA",
+        "published_at": "2026-05-30",
+        "title": "I Reset My Account to $2,000 (AGAIN) Charles Schwab ThinkorSwim Challenge Ep 1",
+        "observation": "The order-script example uses 50% of buying power but explicitly calls 25%, 75% or 80% adjustable and says the earlier cash-account one-trade convention changed. It cannot establish a stable Ross sizing constant.",
+        "policy_role": "boundary_only"
+      },
+      {
+        "video_id": "L1mi5ENCn98",
+        "published_at": "2026-06-19",
+        "title": "+100% Move then 3 Halts Down on Bad News! (Reminder: Market Closed Tomorrow)",
+        "observation": "The recap says attention priority moved back to the main account after the small account had previously been front and center. Cross-account dispatch priority is therefore not frozen as a universal rule.",
+        "policy_role": "boundary_only"
+      }
+    ]
+  },
+  "prohibited_interpretations": [
+    "The paper-safe values are project safeguards, not Ross-replication estimates.",
+    "The one-position and two-entry caps are conservative engineering translations, not transcript-authored constants.",
+    "Priority ordering is not a top-N scanner rule and does nothing when account capacity is not contested.",
+    "Main-versus-small divided attention remains unresolved.",
+    "No historical portfolio replay or profitability result exists at registration."
+  ],
+  "promotion_gate": "Integrate these exact policies with a newly preregistered label-blind chronological scanner, Micro, execution and ledger stream; freeze all account artifacts before opening retrospective actions or outcomes."
+}

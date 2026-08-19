@@ -79,6 +79,8 @@ The paper risk policy is deliberately separate from Ross's account-sizing exampl
 
 The ledger has no account-limit defaults and is not wired to the baseline runtime. It does not choose among equal-time opportunities, create or size orders, or synthesize fills. A simultaneous capital collision remains explicitly unresolved until a deterministic priority is separately registered. This keeps position/account mechanics deterministic without smuggling in an untested selection or aggression policy.
 
+`paper-account-scarcity-policy-v0.1` supplies the first separately registered limits. Main and small accounts retain distinct IDs and scanner profiles while sharing the existing project `paper-safe` envelope: 0.25% maximum open campaign risk, 1% daily loss, 50% position value and 50% profit giveback, all materialized from causal session-start equity and buying power. A one-position/two-entry cap is classified as conservative paper engineering, not a Ross-authored rule. Same-account capacity collisions reuse the existing candidate ranking; cross-account attention remains unresolved and fails closed.
+
 ## Causal setup translation
 
 The first deterministic setup is the current first-pullback confirmation entry. It requires a fresh session-high impulse, <=50% pullback, volume contraction, VWAP/EMA9 support, positive 12/26/9 MACD, limited topping-tail rejection, and >=2R room back to the prior high. The trigger is armed from completed data for the next bar.

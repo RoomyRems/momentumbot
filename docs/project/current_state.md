@@ -28,6 +28,7 @@ This file is a routing checkpoint, not a second policy specification. Follow its
 - Conservative retrospective evidence is now frozen separately as `ross-context-heldout-labels-v0.1`, content SHA-256 `3ff85b371de31ea5dc1d2e4afc4e334c6f6f5051bfe5c7340fb51007527b7cd1`. The eight supplied files contain 2,292 records; 14 caption records cover all ten fixed trading sessions without replacing a date. Publication date was not silently equated with trading date: the July 24 upload describing the excluded July 23 session remains excluded, while two August 7 uploads are internally resolved to the August 6 day-31 account recaps. Across 195 candidate symbol-dates per account, 11 main and 6 small participations and 4 main and 8 small explicit rejections are retained; the remaining 180 main and 181 small actions remain unmentioned or unobservable. Main and small accounts remain separate, seven ticker corrections are explicit, raw captions are not committed or used in runtime, and labels have no score, threshold, order, risk or policy authority.
 - The context component comparison is frozen as `ross-context-heldout-comparison-v0.1`, content SHA-256 `d93d61ed0ebd5657bbed135beb7fe2d7b0f337d1e3f76720c0f1dcff7908ff54`. All 314 semantic records bind the exact deterministic snapshot keys and hashes, and all 2,545 cited evidence references resolve. Candidate activation is the neutral comparison anchor for 29 explicit account actions across 18 acquired symbol-dates; it is not claimed as trade time, and later source-change rows are not searched for a favorable match. Scanner, attention, catalyst chronology, daily-chart and theme/regime evidence cover all 195 activations, while filing corroboration, issuer history, dedicated liquidity, account state and portfolio attention cover none. Credibility/repetition and theme-fit axes therefore abstain on all 195 activations. Candidate acquisition remains separate: 11/17 main and 6/9 small completed-trade actions, or 12/18 unique traded symbol-dates, were acquired. No score, threshold, technical rule or policy was created.
 - The standalone mechanical campaign/portfolio/account-state foundation is frozen as `campaign-portfolio-account-state-v0.1`, contract content SHA-256 `f2a80f4350e6283e2638702d70515bf03ee6c930e7d52706d09ef5e1d9f419b6`. It consolidates repeated plan emissions by candidate activation while binding unique account ID, main/small class and policy version. The causal ledger represents FIFO held lots, cash-like buying power, notional/open-risk and position limits, starter/add/re-entry state, no averaging down, halts, realized P&L/high water, irreversible session locks, post-lock flatten requirements and simultaneous opportunity collisions. It has no numerical account defaults, candidate-selection/order/size/fill authority, historical runtime integration, portfolio result or promotion eligibility. The permanent mechanical audit is `research/data-audits/campaign-portfolio-account-state-v0.1-2026-08-19.json`.
+- The separate account/scarcity policy is frozen as `paper-account-scarcity-policy-v0.1`, contract content SHA-256 `78dd5e3aef9485fc77f07632baec0274dceecb44c8cefd68ab8ea03e7727ceff` and policy-bundle SHA-256 `df66cfb6637783f69e86379e63428813ce521bd3b648a7ab0131d1c7250cff51`. Main and small accounts retain distinct policy IDs and existing scanner profiles while materializing the unchanged project `paper-safe` 0.25% campaign-risk, 1% daily-loss, 50% position-notional and 50% giveback limits from session-start equity and buying power. The one-position/two-entry cap is explicitly conservative project safety, not a Ross claim. Same-account collisions reuse the existing label-blind candidate ranking; cross-account priority remains unresolved and fails closed. Five pre-held-out transcript records were reviewed only to document why variable challenge aggression and account-attention priority were not adopted; they did not set the numbers and remain runtime-prohibited. No historical integration, portfolio result or promotion claim exists. The permanent audit is `research/data-audits/paper-account-scarcity-policy-v0.1-2026-08-19.json`.
 
 Exact provenance lives in:
 
@@ -44,6 +45,7 @@ Exact provenance lives in:
 - `research/data-audits/context-heldout-labels-v0.1-2026-08-19.json`
 - `research/data-audits/context-heldout-comparison-v0.1-2026-08-19.json`
 - `research/data-audits/campaign-portfolio-account-state-v0.1-2026-08-19.json`
+- `research/data-audits/paper-account-scarcity-policy-v0.1-2026-08-19.json`
 - `research/strategy/discretion-heldout-panel-v0.1.json`
 - `research/strategy/discretion-context-assessment-shadow-v0.1.json`
 - `research/strategy/context-heldout-panel-v0.1.json`
@@ -51,6 +53,7 @@ Exact provenance lives in:
 - `research/strategy/theme-regime-context-shadow-v0.1.json`
 - `research/strategy/context-semantic-shadow-compiled-rubric-v0.1.json`
 - `research/strategy/campaign-portfolio-account-state-v0.1.json`
+- `research/strategy/paper-account-scarcity-policy-v0.1.json`
 - `research/frozen/context-semantic-shadow-runtime-v0.1/manifest.json`
 - `docs/research/discretion_heldout_panel_v01.md`
 - `docs/research/discretion_heldout_labels_v01.md`
@@ -63,16 +66,17 @@ Exact provenance lives in:
 - `docs/research/context_heldout_labels_v01.md`
 - `docs/research/context_heldout_comparison_v01.md`
 - `docs/research/campaign_portfolio_account_state_v01.md`
+- `docs/research/paper_account_scarcity_policy_v01.md`
 
 ## Active gate
 
-The preregistered context sequence is complete and frozen through comparison, and the standalone campaign/portfolio/account-state mechanics are frozen at `f2a80f4350e6283e2638702d70515bf03ee6c930e7d52706d09ef5e1d9f419b6`. Preserve artifact `9376599434`, semantic manifest `9b3be7a17f29e638b0e1da14b4d050762503bab17c74c3f97e62b99489f25cd4`, labels `3ff85b371de31ea5dc1d2e4afc4e334c6f6f5051bfe5c7340fb51007527b7cd1`, comparison `d93d61ed0ebd5657bbed135beb7fe2d7b0f337d1e3f76720c0f1dcff7908ff54` and the new ledger contract as immutable parents. Continue without changing Micro-v0.1 by separately registering numerical main/small account constraints and a deterministic scarce-capital priority, then integrate a new label-blind chronological event stream. Candidate acquisition, context, Micro setup, execution and portfolio feasibility remain separate gates with no aggregate score.
+The preregistered context sequence is complete and frozen through comparison. The standalone campaign ledger is frozen at `f2a80f4350e6283e2638702d70515bf03ee6c930e7d52706d09ef5e1d9f419b6`, and its paper account/scarcity policy is frozen at `78dd5e3aef9485fc77f07632baec0274dceecb44c8cefd68ab8ea03e7727ceff`. Preserve artifact `9376599434`, semantic manifest `9b3be7a17f29e638b0e1da14b4d050762503bab17c74c3f97e62b99489f25cd4`, labels `3ff85b371de31ea5dc1d2e4afc4e334c6f6f5051bfe5c7340fb51007527b7cd1`, comparison `d93d61ed0ebd5657bbed135beb7fe2d7b0f337d1e3f76720c0f1dcff7908ff54`, ledger and account-policy contracts as immutable parents. Continue without changing Micro-v0.1 by preregistering a new label-blind chronological integration of scanner, Micro, execution, account-policy and ledger events. Candidate acquisition, context, Micro setup, execution and portfolio feasibility remain separate gates with no aggregate score.
 
-The ten-session result is a component diagnostic, not a portfolio backtest. The standalone ledger can represent buying power and simultaneous attention mechanically, but the frozen ten-session runtime has not been replayed through it. Numerical account policies, scarce-capital selection, Level 2, tape-based management and complete execution/exit reconstruction are still absent.
+The ten-session result is a component diagnostic, not a portfolio backtest. The ledger and paper policy can now represent buying power and same-account scarcity mechanically, but no frozen historical runtime has been replayed through them. Cross-account attention, Level 2, tape-based management and complete execution/exit reconstruction remain absent.
 
 ## Next gates
 
-1. Register numerical main/small account policies and a deterministic simultaneous-opportunity priority, then integrate the frozen component stream on a new label-blind chronological panel.
+1. Preregister and build a label-blind chronological integration binding exact scanner, Micro, execution, account-policy and campaign-ledger events on a new panel.
 2. Add realistic execution and latency, then Level 2/time-and-sales capture and deterministic summaries where historical or live data permits.
 3. Validate any AI contribution out of sample and in live shadow before it can affect paper decisions.
 4. Run a larger preregistered walk-forward panel before considering policy promotion or interpreting P&L.
