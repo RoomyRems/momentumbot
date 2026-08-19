@@ -253,6 +253,72 @@ class ContextRuntimeTests(unittest.TestCase):
             attempts[2]["completed_stages"]["market_candidate_total"], 195
         )
 
+    def test_run_32243689589_failure_is_permanent_and_not_promotable(self):
+        root = Path(__file__).resolve().parents[1] / "research" / "data-audits"
+        audit = json.loads(
+            (
+                root
+                / (
+                    "context-heldout-runtime-v0.1-run-32243689589-"
+                    "attempt-1-failure-2026-08-19.json"
+                )
+            ).read_text(encoding="utf-8")
+        )
+        self.assertEqual(audit["workflow"]["run_id"], 32243689589)
+        self.assertEqual(audit["workflow"]["run_attempt"], 1)
+        self.assertEqual(audit["workflow"]["job_id"], 96039545750)
+        self.assertEqual(
+            audit["workflow"]["head_sha"],
+            "e1d29d59498572977b2f8bd0b159fa4475275560",
+        )
+        self.assertEqual(
+            audit["workflow"]["head_tree_sha"],
+            "5d4e88577033d9f80e4e494b28ec10d459d7ed29",
+        )
+        self.assertEqual(
+            audit["registered_inputs"]["runtime_request_content_sha256"],
+            RUNTIME_REQUEST_CONTENT_SHA256,
+        )
+        self.assertEqual(
+            audit["registered_inputs"][
+                "prior_runtime_manifest_content_sha256"
+            ],
+            "2414f7389bf68d5a5e4b3302c646c9111020cb79ce06fc0213f7872062f79c48",
+        )
+        self.assertTrue(
+            audit["completed_stages"][
+                "provider_independent_scanner_replay_validated_for_all_dates"
+            ]
+        )
+        self.assertEqual(
+            audit["completed_stages"]["market_candidate_total"], 195
+        )
+        self.assertEqual(
+            audit["completed_stages"]["market_manifest_content_sha256"],
+            "e2ae38c63d8aeb5a1cd19f319114d677c84973f59c31fc8f03ca7ec4914d84f8",
+        )
+        self.assertEqual(
+            audit["failure"]["root_cause_classification"],
+            "unhandled_explicit_null_scanner_price_in_daily_chart_materializer",
+        )
+        self.assertEqual(
+            audit["diagnostic_artifact"]["zip_sha256"],
+            "377d79ef0613ae2b92633883caf00dba447f7567ae8c1e1af1203455788ead77",
+        )
+        for field in (
+            "uses_raw_transcripts",
+            "uses_recap_inventory",
+            "uses_ross_actions",
+            "uses_retrospective_labels",
+            "uses_later_price_outcomes",
+            "semantic_ai_included",
+        ):
+            self.assertFalse(audit["causal_boundary"][field])
+        self.assertFalse(audit["disposition"]["partial_artifact_frozen"])
+        self.assertFalse(audit["disposition"]["label_review_eligible"])
+        self.assertFalse(audit["disposition"]["policy_promotion_eligible"])
+        self.assertEqual(audit["disposition"]["runtime_strategy_effect"], "none")
+
     def test_workflow_uses_registered_builders_and_no_transcript_archive(self):
         root = Path(__file__).resolve().parents[1]
         workflow = (
@@ -439,6 +505,80 @@ class ContextRuntimeTests(unittest.TestCase):
         )
         self.assertEqual(records, [])
         self.assertEqual(unavailable[0]["reason"], "no_prior_completed_split_adjusted_daily_bars")
+
+    def test_daily_runtime_preserves_null_decision_price_as_unavailable(self):
+        scanner = _scanner_row()
+        scanner["candidate_completed_bar_present"] = False
+        scanner["candidate_bar_available_at"] = None
+        scanner["price"] = None
+        scanner["disposition"] = (
+            "feature_state_unknown_fail_closed_missing_candidate_completed_bar"
+        )
+        packet = {
+            "symbol": "AAA",
+            "decision_time": scanner["decision_time"],
+            "packet_reason": "provider_event_set_changed",
+        }
+        identity = {
+            "ticker": "AAA",
+            "identity_identifier_kind": "composite_figi",
+            "identity_identifier": "BBG000TEST01",
+        }
+
+        records, unavailable = build_daily_records_for_date(
+            trading_date="2026-08-03",
+            scanner_rows=[scanner],
+            catalyst_packets=[packet],
+            identity_rows=[identity],
+            split_daily_bars_by_symbol={"AAA": _bars()},
+        )
+
+        self.assertEqual(records, [])
+        self.assertEqual(
+            unavailable,
+            [
+                {
+                    "symbol": "AAA",
+                    "decision_time": scanner["decision_time"],
+                    "packet_reason": "provider_event_set_changed",
+                    "reason": (
+                        "decision_price_unavailable_"
+                        "missing_candidate_completed_bar"
+                    ),
+                    "scanner_disposition": (
+                        "feature_state_unknown_fail_closed_"
+                        "missing_candidate_completed_bar"
+                    ),
+                }
+            ],
+        )
+        self.assertNotIn("decision_price", unavailable[0])
+
+    def test_daily_runtime_keeps_invalid_non_null_price_fail_closed(self):
+        packet = {
+            "symbol": "AAA",
+            "decision_time": _scanner_row()["decision_time"],
+            "packet_reason": "provider_event_set_changed",
+        }
+        identity = {
+            "ticker": "AAA",
+            "identity_identifier_kind": "composite_figi",
+            "identity_identifier": "BBG000TEST01",
+        }
+
+        for decision_price in (0.0, "not-a-price"):
+            scanner = _scanner_row()
+            scanner["price"] = decision_price
+            with self.subTest(decision_price=decision_price), self.assertRaises(
+                ValueError
+            ):
+                build_daily_records_for_date(
+                    trading_date="2026-08-03",
+                    scanner_rows=[scanner],
+                    catalyst_packets=[packet],
+                    identity_rows=[identity],
+                    split_daily_bars_by_symbol={"AAA": _bars()},
+                )
 
 
 if __name__ == "__main__":

@@ -1,0 +1,129 @@
+{
+  "audit_id": "context-heldout-runtime-v0.1-run-32243689589-attempt-1-failure-2026-08-19",
+  "causal_boundary": {
+    "all_market_candidates_retained": true,
+    "runtime_strategy_effect": "none",
+    "semantic_ai_included": false,
+    "top_n_selection_applied": false,
+    "uses_later_price_outcomes": false,
+    "uses_raw_transcripts": false,
+    "uses_recap_inventory": false,
+    "uses_retrospective_labels": false,
+    "uses_ross_actions": false
+  },
+  "completed_stages": {
+    "contract_and_regression_step_passed": true,
+    "daily_chart_dates_completed": [
+      "2026-07-24",
+      "2026-07-27"
+    ],
+    "market_candidate_counts": {
+      "2026-07-24": 10,
+      "2026-07-27": 14,
+      "2026-07-28": 14,
+      "2026-07-29": 18,
+      "2026-07-30": 22,
+      "2026-07-31": 11,
+      "2026-08-03": 19,
+      "2026-08-04": 20,
+      "2026-08-05": 30,
+      "2026-08-06": 37
+    },
+    "market_candidate_total": 195,
+    "market_manifest_content_sha256": "e2ae38c63d8aeb5a1cd19f319114d677c84973f59c31fc8f03ca7ec4914d84f8",
+    "provider_independent_scanner_replay_validated_for_all_dates": true,
+    "provider_pipeline_completed": true,
+    "registered_dates_completed": [
+      "2026-07-24",
+      "2026-07-27",
+      "2026-07-28",
+      "2026-07-29",
+      "2026-07-30",
+      "2026-07-31",
+      "2026-08-03",
+      "2026-08-04",
+      "2026-08-05",
+      "2026-08-06"
+    ],
+    "theme_regime_materialization_completed": false,
+    "context_snapshot_materialization_completed": false
+  },
+  "diagnostic_artifact": {
+    "eligible_as_frozen_runtime": false,
+    "id": 9365791454,
+    "name": "context-heldout-runtime-v0.1",
+    "size_bytes": 30186709,
+    "zip_sha256": "377d79ef0613ae2b92633883caf00dba447f7567ae8c1e1af1203455788ead77"
+  },
+  "disposition": {
+    "label_review_eligible": false,
+    "partial_artifact_frozen": false,
+    "policy_promotion_eligible": false,
+    "runtime_strategy_effect": "none"
+  },
+  "failure": {
+    "callsite": "scripts/build_context_daily_chart_runtime.py:build_daily_records_for_date",
+    "exact_error": "TypeError: float() argument must be a string or a real number, not 'NoneType'",
+    "failed_step": "Materialize causal daily-chart records",
+    "failed_trading_date": "2026-07-28",
+    "first_offending_decision": {
+      "decision_time": "2026-07-28T12:06:00+00:00",
+      "disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar",
+      "packet_reason": "provider_event_set_changed",
+      "symbol": "SAIH"
+    },
+    "null_decision_price_packet_counts": {
+      "2026-07-24": 0,
+      "2026-07-27": 0,
+      "2026-07-28": 3,
+      "2026-07-29": 5,
+      "2026-07-30": 5,
+      "2026-07-31": 0,
+      "2026-08-03": 3,
+      "2026-08-04": 4,
+      "2026-08-05": 4,
+      "2026-08-06": 5
+    },
+    "null_decision_price_packet_total": 29,
+    "price_imputation_permitted": false,
+    "root_cause": "The causal scanner correctly retained fail-closed provider-event-change rows whose exact completed candidate bar was absent and therefore recorded price as null. The downstream daily-chart materializer assumed every exact scanner row had a numeric price and called float(None), even though overhead-distance evidence cannot be computed without inventing a decision-time price.",
+    "root_cause_classification": "unhandled_explicit_null_scanner_price_in_daily_chart_materializer"
+  },
+  "recorded_at_utc": "2026-08-19T13:44:28Z",
+  "registered_inputs": {
+    "prior_runtime_manifest_content_sha256": "2414f7389bf68d5a5e4b3302c646c9111020cb79ce06fc0213f7872062f79c48",
+    "registered_dates": [
+      "2026-07-24",
+      "2026-07-27",
+      "2026-07-28",
+      "2026-07-29",
+      "2026-07-30",
+      "2026-07-31",
+      "2026-08-03",
+      "2026-08-04",
+      "2026-08-05",
+      "2026-08-06"
+    ],
+    "runtime_request_content_sha256": "9459660565c6c76c4af2fd09fd8362789bfda89fe57601d0f016b189112bbff0"
+  },
+  "repair": {
+    "data_policy_changed": false,
+    "decision_price_imputed_or_substituted": false,
+    "explicit_unavailable_daily_chart_record_added": true,
+    "micro_policy_changed": false,
+    "null_price_regression_added": true,
+    "scanner_thresholds_changed": false
+  },
+  "schema_version": 1,
+  "workflow": {
+    "branch": "phase-3-historical-snapshot",
+    "conclusion": "failure",
+    "head_sha": "e1d29d59498572977b2f8bd0b159fa4475275560",
+    "head_tree_sha": "5d4e88577033d9f80e4e494b28ec10d459d7ed29",
+    "job_id": 96039545750,
+    "name": "Context held-out label-blind runtime",
+    "repository": "RoomyRems/momentumbot",
+    "run_attempt": 1,
+    "run_id": 32243689589
+  }
+}

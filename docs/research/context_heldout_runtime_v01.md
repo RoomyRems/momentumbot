@@ -14,7 +14,9 @@ Workflow run `32204337846` attempt 1 then passed the contract/regression gate bu
 
 Attempt 2 completed all ten provider/scanner dates, retained all 195 candidates, and passed provider-independent scanner replay. It then failed in `freeze_market_runtime_manifest()` because `contract_hash` and `request` were not defined in that function. Its diagnostic artifact is `9351037605`, ZIP SHA-256 `08167f2239368ef5b5d752652d48899af3929acdfc3b3d09865822b68375ed1c`. The repair loads and validates the frozen panel contract and runtime request through one shared helper used by both the session-calendar check and final manifest freeze. A deterministic regression now executes the final manifest-binding path and asserts the exact frozen contract and request hashes. The permanent audit is `research/data-audits/context-heldout-runtime-v0.1-run-32204337846-attempt-2-failure-2026-08-19.json`.
 
-All three failed-run artifacts remain diagnostic only: they are not frozen runtime results, are not eligible for label review, and cannot support a policy promotion. No recap or transcript inventory was opened for any repair.
+Push-triggered run `32243689589` completed the full ten-date market/scanner stage, retained all 195 candidates, and passed provider-independent scanner replay. It then failed on July 28 while materializing daily-chart records because a valid fail-closed scanner row had `price = null` when its exact completed candidate bar was absent, and the downstream builder called `float(None)`. Its diagnostic artifact is `9365791454`, ZIP SHA-256 `377d79ef0613ae2b92633883caf00dba447f7567ae8c1e1af1203455788ead77`. The repair preserves an explicit unavailable daily-chart row with the exact packet reason and scanner disposition. It never carries forward, looks ahead, or substitutes another price; non-null malformed or non-positive prices still fail closed. The permanent audit is `research/data-audits/context-heldout-runtime-v0.1-run-32243689589-attempt-1-failure-2026-08-19.json`.
+
+All four failed-run artifacts remain diagnostic only: they are not frozen runtime results, are not eligible for label review, and cannot support a policy promotion. No recap or transcript inventory was opened for any repair.
 
 ## Purpose
 
@@ -34,7 +36,7 @@ This workflow materializes the deterministic evidence side of `ross-context-held
 
 ## Failure behavior
 
-Provider failures propagate. A rejected frozen candidate, invalid identity lineage, scanner replay mismatch, future headline, current-session daily bar, inconsistent rank lineage, changed prior-runtime hash, or missing source artifact fails the workflow. Missing prior daily history for a valid recent listing is preserved as an explicit unavailable record and leaves the daily-chart domain absent; it is not converted to zeros.
+Provider failures propagate. A rejected frozen candidate, invalid identity lineage, scanner replay mismatch, future headline, current-session daily bar, inconsistent rank lineage, changed prior-runtime hash, or missing source artifact fails the workflow. Missing prior daily history for a valid recent listing is preserved as an explicit unavailable record and leaves the daily-chart domain absent; it is not converted to zeros. A valid fail-closed scanner row with no exact completed candidate bar and therefore no decision price is also preserved as explicit unavailable evidence. No prior, next, nearest, or later price is imputed.
 
 The upload step runs even after failure so diagnostic partial artifacts are preserved, but a partial artifact is not considered frozen or eligible for recap review.
 

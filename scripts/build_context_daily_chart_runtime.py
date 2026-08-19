@@ -76,6 +76,21 @@ def build_daily_records_for_date(
         identity = identities.get(symbol)
         if identity is None:
             raise ValueError("daily context candidate lacks resolved identity")
+        decision_price = scanner["price"]
+        if decision_price is None:
+            unavailable.append(
+                {
+                    "symbol": symbol,
+                    "decision_time": decision_time,
+                    "packet_reason": packet.get("packet_reason"),
+                    "reason": (
+                        "decision_price_unavailable_"
+                        "missing_candidate_completed_bar"
+                    ),
+                    "scanner_disposition": scanner.get("disposition"),
+                }
+            )
+            continue
         frame = split_daily_bars_by_symbol.get(symbol, pd.DataFrame())
         prior = frame
         if not frame.empty:
@@ -97,7 +112,7 @@ def build_daily_records_for_date(
                 prior,
                 symbol=symbol,
                 decision_time=decision_time,
-                decision_price=float(scanner["price"]),
+                decision_price=float(decision_price),
                 identity_identifier_kind=str(
                     identity["identity_identifier_kind"]
                 ),
