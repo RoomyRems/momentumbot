@@ -4,6 +4,12 @@ Status: **registered workflow; not yet successfully materialized or frozen**.
 
 Registered request content SHA-256: `9459660565c6c76c4af2fd09fd8362789bfda89fe57601d0f016b189112bbff0`.
 
+## First build result and repair
+
+Workflow run `32197398999` failed during causal float enrichment on 2026-08-06. Market discovery had completed for all ten dates and retained all 195 candidates; valid float manifests were written for the first nine dates. The diagnostic artifact is `9348281247`, ZIP SHA-256 `feaa127fc2d126603ffd73193b850c67c6bf18e911a6d805db7c79354ef28952`. It is partial, not frozen, not eligible for label review, and not policy evidence.
+
+The exact blocker was an Alpaca 403 for recent SIP data. The basis downloader asked for its usual 15-calendar-day forward buffer even when an SEC measure date equaled the causal trading date. Those later bars were unnecessary because basis observation only selects sessions on or before the measure date. The repair caps the exclusive query end at the day after the causal trading date and rejects any future measure date. SIP feed, raw/split comparisons, decision-date `asof`, float rules, scanner thresholds, and Micro-v0.1 are unchanged. The permanent failure audit is `research/data-audits/context-heldout-runtime-v0.1-run-32197398999-failure-2026-08-18.json`.
+
 ## Purpose
 
 This workflow materializes the deterministic evidence side of `ross-context-heldout-panel-v0.1` before any recap inventory or retrospective labels are opened. It does not run a semantic AI reviewer and cannot affect scanner, Micro-v0.1, orders, size, or risk.

@@ -2,9 +2,10 @@ from __future__ import annotations
 
 import unittest
 import urllib.error
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 
 from scripts.build_causal_float_enrichment import (
+    _basis_query_window,
     _sec_call,
     _selected_evidence_status,
     _validate_sec_entity,
@@ -12,6 +13,31 @@ from scripts.build_causal_float_enrichment import (
 
 
 class BuildCausalFloatEnrichmentTests(unittest.TestCase):
+    def test_recent_basis_window_cannot_query_after_trading_date(self) -> None:
+        start, end = _basis_query_window(
+            [date(2026, 8, 6)],
+            trading_date=date(2026, 8, 6),
+        )
+
+        self.assertEqual(start, datetime(2026, 7, 23, tzinfo=timezone.utc))
+        self.assertEqual(end, datetime(2026, 8, 7, tzinfo=timezone.utc))
+
+    def test_old_basis_window_preserves_calendar_gap_buffer(self) -> None:
+        start, end = _basis_query_window(
+            [date(2026, 6, 1)],
+            trading_date=date(2026, 8, 6),
+        )
+
+        self.assertEqual(start, datetime(2026, 5, 18, tzinfo=timezone.utc))
+        self.assertEqual(end, datetime(2026, 6, 16, tzinfo=timezone.utc))
+
+    def test_future_basis_date_fails_closed(self) -> None:
+        with self.assertRaisesRegex(ValueError, "causal trading date"):
+            _basis_query_window(
+                [date(2026, 8, 7)],
+                trading_date=date(2026, 8, 6),
+            )
+
     def test_sec_call_retries_transient_failure(self) -> None:
         calls = 0
 

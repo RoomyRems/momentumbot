@@ -151,6 +151,42 @@ class ContextRuntimeTests(unittest.TestCase):
         }
         self.assertEqual(observed, FROZEN_CONTRACT_CONTENT_SHA256S)
 
+    def test_first_runtime_failure_is_permanent_and_not_promotable(self):
+        root = Path(__file__).resolve().parents[1]
+        audit = json.loads(
+            (
+                root
+                / "research"
+                / "data-audits"
+                / "context-heldout-runtime-v0.1-run-32197398999-failure-2026-08-18.json"
+            ).read_text(encoding="utf-8")
+        )
+        self.assertEqual(audit["workflow"]["run_id"], 32197398999)
+        self.assertEqual(audit["workflow"]["conclusion"], "failure")
+        self.assertEqual(
+            audit["registered_inputs"]["runtime_request_content_sha256"],
+            RUNTIME_REQUEST_CONTENT_SHA256,
+        )
+        self.assertEqual(
+            audit["registered_inputs"]["prior_runtime_manifest_content_sha256"],
+            "2414f7389bf68d5a5e4b3302c646c9111020cb79ce06fc0213f7872062f79c48",
+        )
+        self.assertEqual(len(audit["completed_stages"]["float_dates"]), 9)
+        self.assertEqual(audit["failure"]["failed_trading_date"], "2026-08-06")
+        for field in (
+            "uses_raw_transcripts",
+            "uses_recap_inventory",
+            "uses_ross_actions",
+            "uses_retrospective_labels",
+            "uses_later_price_outcomes",
+            "semantic_ai_included",
+        ):
+            self.assertFalse(audit["causal_boundary"][field])
+        self.assertFalse(audit["disposition"]["partial_artifact_frozen"])
+        self.assertFalse(audit["disposition"]["label_review_eligible"])
+        self.assertFalse(audit["disposition"]["policy_promotion_eligible"])
+        self.assertEqual(audit["disposition"]["runtime_strategy_effect"], "none")
+
     def test_workflow_uses_registered_builders_and_no_transcript_archive(self):
         root = Path(__file__).resolve().parents[1]
         workflow = (

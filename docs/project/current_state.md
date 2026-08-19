@@ -20,6 +20,7 @@ This file is a routing checkpoint, not a second policy specification. Follow its
 - The deterministic daily-chart evidence layer is frozen as `daily-chart-context-shadow-v0.1`, contract content SHA-256 `55262a3c6537d1511248577c0e01f0a36775ed98bff9d6839b12e00da3f2fa87`. It uses at most 60 completed pre-decision sessions, split-adjusted to the decision-date share basis, to expose 20/50-session averages, 5/20/50-session levels, raw recent-session fade metrics, and exact overhead-reference distances. It freezes no failed-pop threshold or chart score. A 200-session average is explicitly deferred until identity continuity is extended beyond the current 120-calendar-day gate. No held-out daily-chart runtime artifact has been materialized yet.
 - The deterministic theme/regime evidence layer is frozen as `theme-regime-context-shadow-v0.1`, contract content SHA-256 `e240babc3004c33f2a9fd16ed80f3be24d8a332c48eb603ebfe57a9c795a92e0`. It exposes the exact same-minute ranked candidate cohort, provider-relative news/no-news participation, available cross-candidate headline associations, and up to five earlier completed-session summaries. It freezes no hot/cold threshold, theme taxonomy, theme-fit rule, no-news acceptance threshold, or score. No held-out theme/regime runtime artifact has been materialized yet.
 - The label-blind provider workflow for the registered context panel is now requested as `ross-context-heldout-runtime-request-v0.1`, content SHA-256 `9459660565c6c76c4af2fd09fd8362789bfda89fe57601d0f016b189112bbff0`. It rebuilds all market/scanner inputs, materializes daily and theme evidence only at activation or causal provider-news changes, and composes hash-bound context snapshots. It uses the exact prior runtime manifest `2414f7389...` only for five already-completed scanner-session summaries. The workflow has not yet produced a successful frozen artifact; recap inventory remains prohibited until it does.
+- The first build attempt, workflow run `32197398999`, completed all ten market-discovery dates and retained 195 candidates, then failed in 2026-08-06 float enrichment because the basis-bar query extended beyond the causal trading date into the provider's recent SIP entitlement window. Its partial artifact `9348281247` is diagnostic only. The acquisition repair caps the exclusive query end at the day after the causal trading date, rejects future measure dates, and leaves SIP, raw/split basis comparison, `asof`, scanner thresholds, and Micro-v0.1 unchanged. No recap or transcript inventory was opened.
 
 Exact provenance lives in:
 
@@ -27,6 +28,7 @@ Exact provenance lives in:
 - `research/data-audits/discretion-heldout-micro-runtime-v0.1-2026-08-17.json`
 - `research/data-audits/discretion-heldout-labels-v0.1-2026-08-18.json`
 - `research/data-audits/discretion-heldout-comparison-v0.1-2026-08-18.json`
+- `research/data-audits/context-heldout-runtime-v0.1-run-32197398999-failure-2026-08-18.json`
 - `research/strategy/discretion-heldout-panel-v0.1.json`
 - `research/strategy/discretion-context-assessment-shadow-v0.1.json`
 - `research/strategy/context-heldout-panel-v0.1.json`

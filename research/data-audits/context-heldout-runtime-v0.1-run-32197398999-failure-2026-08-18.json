@@ -1,0 +1,113 @@
+{
+  "audit_id": "context-heldout-runtime-v0.1-run-32197398999-failure-2026-08-18",
+  "causal_boundary": {
+    "all_market_candidates_retained_in_completed_market_discovery": true,
+    "semantic_ai_included": false,
+    "top_n_selection_applied": false,
+    "uses_later_price_outcomes": false,
+    "uses_raw_transcripts": false,
+    "uses_recap_inventory": false,
+    "uses_retrospective_labels": false,
+    "uses_ross_actions": false
+  },
+  "completed_stages": {
+    "float_dates": [
+      "2026-07-24",
+      "2026-07-27",
+      "2026-07-28",
+      "2026-07-29",
+      "2026-07-30",
+      "2026-07-31",
+      "2026-08-03",
+      "2026-08-04",
+      "2026-08-05"
+    ],
+    "market_candidate_counts": {
+      "2026-07-24": 10,
+      "2026-07-27": 14,
+      "2026-07-28": 14,
+      "2026-07-29": 18,
+      "2026-07-30": 22,
+      "2026-07-31": 11,
+      "2026-08-03": 19,
+      "2026-08-04": 20,
+      "2026-08-05": 30,
+      "2026-08-06": 37
+    },
+    "market_candidate_total": 195,
+    "market_discovery_dates": [
+      "2026-07-24",
+      "2026-07-27",
+      "2026-07-28",
+      "2026-07-29",
+      "2026-07-30",
+      "2026-07-31",
+      "2026-08-03",
+      "2026-08-04",
+      "2026-08-05",
+      "2026-08-06"
+    ]
+  },
+  "diagnostic_artifact": {
+    "eligible_as_frozen_runtime": false,
+    "id": 9348281247,
+    "name": "context-heldout-runtime-v0.1",
+    "size_bytes": 18553657,
+    "zip_sha256": "feaa127fc2d126603ffd73193b850c67c6bf18e911a6d805db7c79354ef28952"
+  },
+  "disposition": {
+    "label_review_eligible": false,
+    "partial_artifact_frozen": false,
+    "policy_promotion_eligible": false,
+    "runtime_strategy_effect": "none"
+  },
+  "failure": {
+    "callsite": "scripts/build_causal_float_enrichment.py:_download_basis raw SIP daily bars",
+    "exact_error": "HTTP 403 for provider request: {\"message\":\"subscription does not permit querying recent SIP data\"}",
+    "failed_step": "Build registered label-blind market and scanner runtime",
+    "failed_trading_date": "2026-08-06",
+    "provider": "Alpaca historical bars",
+    "root_cause": "The SEC measure-date basis query kept its historical 15-calendar-day forward buffer even when the measure date reached the causal trading date. That made the request extend beyond the decision session into the provider's recent SIP entitlement window. observe_basis only selects a session on or before the requested measure date, so those later bars were neither causal nor necessary.",
+    "root_cause_classification": "causally_unbounded_basis_query_end",
+    "status_code": 403
+  },
+  "recorded_at_utc": "2026-08-19T00:33:00Z",
+  "registered_inputs": {
+    "prior_runtime_manifest_content_sha256": "2414f7389bf68d5a5e4b3302c646c9111020cb79ce06fc0213f7872062f79c48",
+    "registered_dates": [
+      "2026-07-24",
+      "2026-07-27",
+      "2026-07-28",
+      "2026-07-29",
+      "2026-07-30",
+      "2026-07-31",
+      "2026-08-03",
+      "2026-08-04",
+      "2026-08-05",
+      "2026-08-06"
+    ],
+    "runtime_request_content_sha256": "9459660565c6c76c4af2fd09fd8362789bfda89fe57601d0f016b189112bbff0"
+  },
+  "repair": {
+    "asof_remains_causal_trading_date": true,
+    "basis_adjustments_unchanged": [
+      "raw",
+      "split"
+    ],
+    "basis_feed_unchanged": "sip",
+    "future_measure_dates_fail_closed": true,
+    "micro_policy_changed": false,
+    "query_end_rule": "min(original_measure_date_plus_15_days, causal_trading_date_plus_1_day_exclusive)",
+    "scanner_thresholds_changed": false
+  },
+  "schema_version": 1,
+  "workflow": {
+    "branch": "phase-3-historical-snapshot",
+    "conclusion": "failure",
+    "head_sha": "d8b0405548f89526a1b20b97f5e4211ee6a4a969",
+    "job_id": 95904100728,
+    "name": "Context held-out label-blind runtime",
+    "repository": "RoomyRems/momentumbot",
+    "run_id": 32197398999
+  }
+}

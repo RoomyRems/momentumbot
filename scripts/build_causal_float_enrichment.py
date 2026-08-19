@@ -72,15 +72,9 @@ def _download_basis(
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     if not requested_dates:
         return pd.DataFrame(), pd.DataFrame()
-    start = datetime.combine(
-        min(requested_dates) - timedelta(days=14),
-        time(0),
-        timezone.utc,
-    )
-    end = datetime.combine(
-        max(requested_dates) + timedelta(days=15),
-        time(0),
-        timezone.utc,
+    start, end = _basis_query_window(
+        requested_dates,
+        trading_date=trading_date,
     )
     raw = client.bars(
         [symbol],
@@ -101,6 +95,33 @@ def _download_basis(
         asof=trading_date,
     ).get(symbol, pd.DataFrame())
     return raw, split
+
+
+def _basis_query_window(
+    requested_dates: list[date],
+    *,
+    trading_date: date,
+) -> tuple[datetime, datetime]:
+    if not requested_dates:
+        raise ValueError("at least one basis date is required")
+    if max(requested_dates) > trading_date:
+        raise ValueError("basis date cannot follow the causal trading date")
+    start = datetime.combine(
+        min(requested_dates) - timedelta(days=14),
+        time(0),
+        timezone.utc,
+    )
+    desired_end = datetime.combine(
+        max(requested_dates) + timedelta(days=15),
+        time(0),
+        timezone.utc,
+    )
+    causal_end = datetime.combine(
+        trading_date + timedelta(days=1),
+        time(0),
+        timezone.utc,
+    )
+    return start, min(desired_end, causal_end)
 
 
 def _selected_evidence_status(

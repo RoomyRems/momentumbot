@@ -13,8 +13,10 @@ on:
       - src/momentumbot/research/daily_chart_context.py
       - src/momentumbot/research/theme_regime_context.py
       - scripts/build_context_heldout_market_runtime.py
+      - scripts/build_causal_float_enrichment.py
       - scripts/build_context_daily_chart_runtime.py
       - scripts/build_context_snapshot_runtime.py
+      - tests/test_build_causal_float_enrichment.py
       - tests/test_context_runtime.py
       - .github/workflows/context-heldout-runtime.yml
 
@@ -56,6 +58,7 @@ jobs:
           tests.test_identity_continuity
           tests.test_identity_resolved_universe
           tests.test_causal_market_discovery
+          tests.test_build_causal_float_enrichment
           tests.test_historical_data
           tests.test_historical_float
           tests.test_historical_news
