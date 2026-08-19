@@ -1,6 +1,6 @@
 # Context held-out deterministic runtime v0.1
 
-Status: **registered workflow; not yet successfully materialized or frozen**.
+Status: **successfully materialized, independently verified, and frozen; no policy promotion**.
 
 Registered request content SHA-256: `9459660565c6c76c4af2fd09fd8362789bfda89fe57601d0f016b189112bbff0`.
 
@@ -17,6 +17,16 @@ Attempt 2 completed all ten provider/scanner dates, retained all 195 candidates,
 Push-triggered run `32243689589` completed the full ten-date market/scanner stage, retained all 195 candidates, and passed provider-independent scanner replay. It then failed on July 28 while materializing daily-chart records because a valid fail-closed scanner row had `price = null` when its exact completed candidate bar was absent, and the downstream builder called `float(None)`. Its diagnostic artifact is `9365791454`, ZIP SHA-256 `377d79ef0613ae2b92633883caf00dba447f7567ae8c1e1af1203455788ead77`. The repair preserves an explicit unavailable daily-chart row with the exact packet reason and scanner disposition. It never carries forward, looks ahead, or substitutes another price; non-null malformed or non-positive prices still fail closed. The permanent audit is `research/data-audits/context-heldout-runtime-v0.1-run-32243689589-attempt-1-failure-2026-08-19.json`.
 
 All four failed-run artifacts remain diagnostic only: they are not frozen runtime results, are not eligible for label review, and cannot support a policy promotion. No recap or transcript inventory was opened for any repair.
+
+## Successful frozen result
+
+Push-triggered workflow run `32260356870` succeeded at exact head `4a9f3512c1a79ae5d0df86f4a83a3864b2aa2ad2` and exact tree `3659efff5dc9567b4e5da3080bc80cc59ddeb327`. Artifact `9376599434`, `context-heldout-runtime-v0.1`, is 39,331,089 bytes and has independently recomputed ZIP SHA-256 `a29186eb092752cfafc031360cacf348bea5e607cb19ce326ddaff2ddfedac1a`, matching GitHub's digest.
+
+Independent verification recomputed all 115 artifact `content_sha256` claims, every parent-child manifest binding, and the compressed scanner sidecar hashes. Provider-independent replay reproduced all 195 retained market candidates and all 18,954 scanner rows. The exact registered dates are 2026-07-24, 07-27, 07-28, 07-29, 07-30, 07-31, 08-03, 08-04, 08-05, and 08-06. The daily-chart runtime contains 285 records and 29 explicit unavailable rows for exact fail-closed scanner decisions with no completed candidate bar and `price = null`; no price was imputed.
+
+The market, daily, deterministic aggregate, and final manifest content SHA-256 values are respectively `7f4a39a9fa0c5963315cc222deca7e40f30dbf83d46d61384c18d3b5a87b5cac`, `e39cc7e606dd34568061d39eb5b1df4706221c5b728813a1b3715f3236a17c30`, `d24a26bf86d4d9a675cb87bd2bbc196956500f17300ec765bf8d3bae9b9d32a4`, and `3567619bfb6b7b2c177d02cc69f15423bf605663519017a6638b0394e4153702`. The runtime binds the exact frozen request hash `9459660565c6c76c4af2fd09fd8362789bfda89fe57601d0f016b189112bbff0` and prior-runtime hash `2414f7389bf68d5a5e4b3302c646c9111020cb79ce06fc0213f7872062f79c48`.
+
+All label-blind knowledge flags remain intact. The artifact contains no semantic AI or semantic assessments, has no strategy, order, size, or risk authority, and is not eligible for policy promotion, representative-panel claims, a portfolio backtest, or a full-imitation claim. No recap or transcript file was opened or inventoried during verification. The permanent audit is `research/data-audits/context-heldout-runtime-v0.1-run-32260356870-success-2026-08-19.json`.
 
 ## Purpose
 

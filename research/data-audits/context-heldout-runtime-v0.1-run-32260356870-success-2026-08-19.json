@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "audit_id": "context-heldout-runtime-v0.1-run-32260356870-success-2026-08-19",
+  "audited_at_utc": "2026-08-19T18:14:38Z",
+  "workflow": {
+    "repository": "RoomyRems/momentumbot",
+    "name": "Context held-out label-blind runtime",
+    "run_id": 32260356870,
+    "run_attempt": 1,
+    "job_id": 96091880582,
+    "event": "push",
+    "branch": "phase-3-historical-snapshot",
+    "head_sha": "4a9f3512c1a79ae5d0df86f4a83a3864b2aa2ad2",
+    "tree_sha": "3659efff5dc9567b4e5da3080bc80cc59ddeb327",
+    "conclusion": "success",
+    "started_at_utc": "2026-08-19T13:49:51Z",
+    "completed_at_utc": "2026-08-19T17:43:05Z"
+  },
+  "artifact": {
+    "id": 9376599434,
+    "name": "context-heldout-runtime-v0.1",
+    "size_bytes": 39331089,
+    "created_at_utc": "2026-08-19T17:43:03Z",
+    "expires_at_utc": "2026-09-18T17:42:57Z",
+    "github_digest": "sha256:a29186eb092752cfafc031360cacf348bea5e607cb19ce326ddaff2ddfedac1a",
+    "independently_computed_zip_sha256": "a29186eb092752cfafc031360cacf348bea5e607cb19ce326ddaff2ddfedac1a"
+  },
+  "registered_inputs": {
+    "dates": [
+      "2026-07-24",
+      "2026-07-27",
+      "2026-07-28",
+      "2026-07-29",
+      "2026-07-30",
+      "2026-07-31",
+      "2026-08-03",
+      "2026-08-04",
+      "2026-08-05",
+      "2026-08-06"
+    ],
+    "runtime_request_content_sha256": "9459660565c6c76c4af2fd09fd8362789bfda89fe57601d0f016b189112bbff0",
+    "prior_runtime_manifest_content_sha256": "2414f7389bf68d5a5e4b3302c646c9111020cb79ce06fc0213f7872062f79c48"
+  },
+  "manifest_hashes": {
+    "market_runtime": {
+      "file_sha256": "d966a470110b457cde01c794d4a9ebd23e46e37eef9078d214c334c6f5455497",
+      "content_sha256": "7f4a39a9fa0c5963315cc222deca7e40f30dbf83d46d61384c18d3b5a87b5cac"
+    },
+    "daily_chart_runtime": {
+      "file_sha256": "c9de651226f85548cf573df0e6f5b92cbde213199fdd2457ef4285e82de0b107",
+      "content_sha256": "e39cc7e606dd34568061d39eb5b1df4706221c5b728813a1b3715f3236a17c30"
+    },
+    "deterministic_context_runtime": {
+      "file_sha256": "b633d2e99d5bbcc141c2409e5f0210a6bdb866a93c833c7f9fbbd78c81b76b11",
+      "content_sha256": "d24a26bf86d4d9a675cb87bd2bbc196956500f17300ec765bf8d3bae9b9d32a4"
+    },
+    "final_runtime": {
+      "file_sha256": "9f7dff23f1d45c2eb324a7693430bfbc822279e5a60b87da3b731a97b4703ef9",
+      "content_sha256": "3567619bfb6b7b2c177d02cc69f15423bf605663519017a6638b0394e4153702"
+    },
+    "child_runtime_content_sha256s": {
+      "ross-context-heldout-attention-runtime-v0.1": "8ca6a287718af8da763fdf894638970edabad0fc70cd0ca9935c0201819e1f4a",
+      "ross-context-heldout-catalyst-runtime-v0.1": "21590d4f53cd0b3a0a12f0034c4f96d7fd4161e525254cabe361af612d3b4e9a",
+      "ross-context-heldout-snapshot-runtime-v0.1": "6dcc6f25ddb73e63b5f9c714e0c890ab954b15b099e7ba3a71ef948f9760939f",
+      "ross-context-heldout-theme-regime-runtime-v0.1": "233bd12969c1d327f2c32c6f8a3d1ea1f331f4aeb8bc1b7ab4cb7dd7befa1ce4"
+    }
+  },
+  "independent_verification": {
+    "zip_digest_matches_github": true,
+    "zip_integrity_test_passed": true,
+    "content_sha256_claim_count": 115,
+    "all_content_sha256_claims_recomputed": true,
+    "ordered_content_claims_sha256": "1b3c1042c27b018c670abbe30744bd65d082f3dc2f1dbd7f2d01f28d1e35a341",
+    "all_parent_child_hash_links_match": true,
+    "compressed_scanner_sidecar_hashes_match": true,
+    "provider_independent_scanner_replay_matches": true,
+    "rebuilt_market_manifest_matches_artifact": true,
+    "market_candidate_count": 195,
+    "scanner_row_count": 18954,
+    "daily_chart_record_count": 285,
+    "daily_chart_unavailable_count": 29,
+    "null_price_unavailable_count": 29,
+    "null_price_unavailable_rows_sha256": "bc4ae38b0abf0619b22f7c63a615154a9206aa48e00d121c06e99ca9f938abc2",
+    "attention_record_count": 18954,
+    "catalyst_record_count": 314,
+    "theme_regime_record_count": 314,
+    "context_snapshot_record_count": 314
+  },
+  "null_price_unavailable_rows": [
+    {"trading_date": "2026-07-28", "symbol": "SAIH", "decision_time": "2026-07-28T12:06:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-07-28", "symbol": "DFNS", "decision_time": "2026-07-28T13:36:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-07-28", "symbol": "INLF", "decision_time": "2026-07-28T13:51:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-07-29", "symbol": "ALMU", "decision_time": "2026-07-29T12:06:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-07-29", "symbol": "ANIK", "decision_time": "2026-07-29T12:06:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-07-29", "symbol": "BRAI", "decision_time": "2026-07-29T12:06:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-07-29", "symbol": "AMIX", "decision_time": "2026-07-29T13:38:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-07-29", "symbol": "STFS", "decision_time": "2026-07-29T13:47:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-07-30", "symbol": "PRCH", "decision_time": "2026-07-30T11:26:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-07-30", "symbol": "PRCH", "decision_time": "2026-07-30T12:07:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-07-30", "symbol": "TAL", "decision_time": "2026-07-30T12:07:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-07-30", "symbol": "PGY", "decision_time": "2026-07-30T12:53:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-07-30", "symbol": "PRCH", "decision_time": "2026-07-30T13:15:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-08-03", "symbol": "ZSQR", "decision_time": "2026-08-03T11:10:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-08-03", "symbol": "SAIH", "decision_time": "2026-08-03T12:07:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-08-03", "symbol": "HYFM", "decision_time": "2026-08-03T13:44:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-08-04", "symbol": "BLZE", "decision_time": "2026-08-04T11:15:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-08-04", "symbol": "ADXN", "decision_time": "2026-08-04T12:06:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-08-04", "symbol": "AMIX", "decision_time": "2026-08-04T13:33:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-08-04", "symbol": "AMIX", "decision_time": "2026-08-04T13:42:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-08-05", "symbol": "COMP", "decision_time": "2026-08-05T11:09:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-08-05", "symbol": "BLMN", "decision_time": "2026-08-05T12:06:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-08-05", "symbol": "SWIM", "decision_time": "2026-08-05T12:06:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-08-05", "symbol": "YXT", "decision_time": "2026-08-05T13:44:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-08-06", "symbol": "EVH", "decision_time": "2026-08-06T11:06:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-08-06", "symbol": "EVH", "decision_time": "2026-08-06T11:07:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-08-06", "symbol": "LPSN", "decision_time": "2026-08-06T12:06:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-08-06", "symbol": "TCPC", "decision_time": "2026-08-06T12:51:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"},
+    {"trading_date": "2026-08-06", "symbol": "WYHG", "decision_time": "2026-08-06T13:44:00+00:00", "packet_reason": "provider_event_set_changed", "reason": "decision_price_unavailable_missing_candidate_completed_bar", "scanner_disposition": "feature_state_unknown_fail_closed_missing_candidate_completed_bar"}
+  ],
+  "causal_boundary": {
+    "all_market_candidates_retained": true,
+    "top_n_selection_applied": false,
+    "uses_raw_transcripts": false,
+    "uses_recap_inventory": false,
+    "uses_ross_actions": false,
+    "uses_retrospective_labels": false,
+    "uses_retrospective_trade_outcomes": false,
+    "uses_later_price_outcomes": false,
+    "semantic_ai_included": false,
+    "semantic_assessments_included": false,
+    "runtime_strategy_effect": "none"
+  },
+  "eligibility": {
+    "runtime_inputs_frozen": true,
+    "human_label_review_may_start_after_successful_artifact_freeze": true,
+    "representative_panel": false,
+    "portfolio_backtest": false,
+    "policy_promotion_eligible": false,
+    "full_imitation_claim_eligible": false
+  },
+  "restrictions_observed": {
+    "recap_files_opened_or_inventoried": false,
+    "transcript_files_opened_or_inventoried": false,
+    "micro_v0_1_changed": false,
+    "scanner_thresholds_changed": false,
+    "data_policy_changed": false
+  },
+  "conclusion": "successfully_frozen_label_blind_deterministic_context_runtime_no_policy_promotion"
+}

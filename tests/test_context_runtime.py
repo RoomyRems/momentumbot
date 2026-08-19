@@ -319,6 +319,80 @@ class ContextRuntimeTests(unittest.TestCase):
         self.assertFalse(audit["disposition"]["policy_promotion_eligible"])
         self.assertEqual(audit["disposition"]["runtime_strategy_effect"], "none")
 
+    def test_run_32260356870_success_is_permanent_verified_and_not_promotable(self):
+        root = Path(__file__).resolve().parents[1] / "research" / "data-audits"
+        audit = json.loads(
+            (
+                root
+                / (
+                    "context-heldout-runtime-v0.1-run-32260356870-"
+                    "success-2026-08-19.json"
+                )
+            ).read_text(encoding="utf-8")
+        )
+        self.assertEqual(audit["workflow"]["run_id"], 32260356870)
+        self.assertEqual(audit["workflow"]["conclusion"], "success")
+        self.assertEqual(
+            audit["workflow"]["head_sha"],
+            "4a9f3512c1a79ae5d0df86f4a83a3864b2aa2ad2",
+        )
+        self.assertEqual(
+            audit["workflow"]["tree_sha"],
+            "3659efff5dc9567b4e5da3080bc80cc59ddeb327",
+        )
+        self.assertEqual(audit["artifact"]["id"], 9376599434)
+        self.assertEqual(
+            audit["artifact"]["independently_computed_zip_sha256"],
+            "a29186eb092752cfafc031360cacf348bea5e607cb19ce326ddaff2ddfedac1a",
+        )
+        self.assertEqual(
+            audit["registered_inputs"]["runtime_request_content_sha256"],
+            RUNTIME_REQUEST_CONTENT_SHA256,
+        )
+        self.assertEqual(
+            audit["registered_inputs"][
+                "prior_runtime_manifest_content_sha256"
+            ],
+            "2414f7389bf68d5a5e4b3302c646c9111020cb79ce06fc0213f7872062f79c48",
+        )
+        verification = audit["independent_verification"]
+        self.assertEqual(verification["content_sha256_claim_count"], 115)
+        self.assertTrue(verification["all_content_sha256_claims_recomputed"])
+        self.assertTrue(verification["all_parent_child_hash_links_match"])
+        self.assertTrue(verification["provider_independent_scanner_replay_matches"])
+        self.assertEqual(verification["market_candidate_count"], 195)
+        self.assertEqual(verification["scanner_row_count"], 18954)
+        self.assertEqual(verification["null_price_unavailable_count"], 29)
+        unavailable = audit["null_price_unavailable_rows"]
+        self.assertEqual(len(unavailable), 29)
+        self.assertEqual(
+            json_fingerprint(unavailable),
+            verification["null_price_unavailable_rows_sha256"],
+        )
+        for row in unavailable:
+            self.assertEqual(
+                row["reason"],
+                "decision_price_unavailable_missing_candidate_completed_bar",
+            )
+            self.assertEqual(
+                row["scanner_disposition"],
+                "feature_state_unknown_fail_closed_missing_candidate_completed_bar",
+            )
+        for field in (
+            "uses_raw_transcripts",
+            "uses_recap_inventory",
+            "uses_ross_actions",
+            "uses_retrospective_labels",
+            "uses_later_price_outcomes",
+            "semantic_ai_included",
+            "semantic_assessments_included",
+            "top_n_selection_applied",
+        ):
+            self.assertFalse(audit["causal_boundary"][field])
+        self.assertTrue(audit["causal_boundary"]["all_market_candidates_retained"])
+        self.assertEqual(audit["causal_boundary"]["runtime_strategy_effect"], "none")
+        self.assertFalse(audit["eligibility"]["policy_promotion_eligible"])
+
     def test_workflow_uses_registered_builders_and_no_transcript_archive(self):
         root = Path(__file__).resolve().parents[1]
         workflow = (
