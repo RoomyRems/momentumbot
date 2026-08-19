@@ -1,0 +1,980 @@
+{
+  "schema_version": 1,
+  "artifact_id": "ross-context-heldout-labels-v0.1",
+  "artifact_type": "retrospective_account_scoped_context_labels",
+  "created_at_utc": "2026-08-19T20:13:20Z",
+  "label_status": "frozen_retrospective_evidence",
+  "purpose": "Freeze conservative account-scoped behavior evidence for the ten already-registered context sessions only after the deterministic runtime and semantic shadow were frozen.",
+  "runtime_strategy_effect": "none",
+  "policy_promotion_eligible": false,
+  "technical_rule_retuning_allowed": false,
+  "selection_threshold_fitting_allowed": false,
+  "aggregate_score_allowed": false,
+  "overall_imitation_score_allowed": false,
+  "registration": {
+    "contract_id": "ross-context-heldout-panel-v0.1",
+    "contract_file_sha256": "25123571f5fc79c7b89de31668448a4f01bb6f0ab4aee765c5cd4020f875cf1a",
+    "contract_content_sha256": "d227792368b3bff5c3c2365cacd204c11b7991daeb557efba450c22f076d8898",
+    "dates_replaced_after_source_review": false
+  },
+  "frozen_parents": {
+    "deterministic_runtime": {
+      "artifact_id": "ross-context-heldout-runtime-v0.1",
+      "github_artifact_id": 9376599434,
+      "workflow_run_id": 32260356870,
+      "workflow_head_sha": "4a9f3512c1a79ae5d0df86f4a83a3864b2aa2ad2",
+      "workflow_tree_sha": "3659efff5dc9567b4e5da3080bc80cc59ddeb327",
+      "zip_sha256": "a29186eb092752cfafc031360cacf348bea5e607cb19ce326ddaff2ddfedac1a",
+      "runtime_manifest_content_sha256": "3567619bfb6b7b2c177d02cc69f15423bf605663519017a6638b0394e4153702",
+      "snapshot_runtime_content_sha256": "6dcc6f25ddb73e63b5f9c714e0c890ab954b15b099e7ba3a71ef948f9760939f",
+      "labels_loaded_during_generation": false
+    },
+    "semantic_shadow": {
+      "artifact_id": "ross-context-heldout-semantic-shadow-runtime-v0.1",
+      "manifest_content_sha256": "9b3be7a17f29e638b0e1da14b4d050762503bab17c74c3f97e62b99489f25cd4",
+      "rubric_content_sha256": "959256aedcc7ed89c8120b19cd1640547a63eb24fcca359c476117ba679f13d3",
+      "remote_checkpoint_commit_sha": "9c685ad3b9cd2f2a1192813084e355838777b4b9",
+      "authorized_local_equivalent_commit_sha": "531021e2a6bd8eec3d81244d027d4c59ad5b23ea",
+      "checkpoint_tree_sha": "0c899fb80203c13fc4e5b59b758f1690ca892a33",
+      "remote_and_local_tree_identical": true,
+      "retrospective_inventory_opened_before_freeze": false
+    }
+  },
+  "source_archive": {
+    "file_count": 8,
+    "record_count": 2292,
+    "files": [
+      {
+        "file_id": "part-1",
+        "supplied_filename": "dataset_daytradewarrior-part-1-1786762403787_2026-08-15_02-53-57-508(1).json",
+        "file_sha256": "c59a8dd67bf4cb2b3bb4539996bbe1b648b1503a73916371b2f98661a4d33db0",
+        "record_count": 300
+      },
+      {
+        "file_id": "part-2",
+        "supplied_filename": "dataset_daytradewarrior-part-2-1786762403787_2026-08-15_02-54-30-375.jsonl",
+        "file_sha256": "536022ff78231cf34663728d97b498870e2e1065c2cfcb226b066bbcbf3760fc",
+        "record_count": 300
+      },
+      {
+        "file_id": "part-3",
+        "supplied_filename": "dataset_daytradewarrior-part-3-1786762403787_2026-08-15_02-54-56-905.jsonl",
+        "file_sha256": "1a5694e50977f5f833bab26c9205d8fe0da8226c9b59cbd738371e15d37b5b20",
+        "record_count": 300
+      },
+      {
+        "file_id": "part-4",
+        "supplied_filename": "dataset_daytradewarrior-part-4-1786762403787_2026-08-15_02-55-21-787.jsonl",
+        "file_sha256": "9441b1abf8005905cb860f9a2dd13c6802fcc17417c2020eaf131f616c7c718a",
+        "record_count": 300
+      },
+      {
+        "file_id": "part-5",
+        "supplied_filename": "dataset_daytradewarrior-part-5-1786762403787_2026-08-15_02-55-43-874.jsonl",
+        "file_sha256": "f864193c2a153d30d57e3d283201cf1f69419d93157a3f51cc6fbe35af4bf098",
+        "record_count": 300
+      },
+      {
+        "file_id": "part-6",
+        "supplied_filename": "dataset_daytradewarrior-part-6-1786762403787_2026-08-15_02-56-10-651.jsonl",
+        "file_sha256": "0d40e3ac5583181cbe266410f565b609f92138df124ae9f304de1381b4b823b4",
+        "record_count": 300
+      },
+      {
+        "file_id": "part-7",
+        "supplied_filename": "dataset_daytradewarrior-part-7-1786762403787_2026-08-15_02-56-38-763.jsonl",
+        "file_sha256": "605a75bfcbe4addfa514d77e4771acdfd2b78e4c39c858cf037d129104030c29",
+        "record_count": 300
+      },
+      {
+        "file_id": "part-8",
+        "supplied_filename": "dataset_daytradewarrior-part-8-1786762403787_2026-08-15_02-56-58-095.jsonl",
+        "file_sha256": "8338d30844f3104aac82ce5e35dbb39c52ec8fcb1145238775fcc095800a4486",
+        "record_count": 192
+      }
+    ],
+    "raw_archive_committed_to_repository": false,
+    "allowed_in_runtime": false,
+    "transcript_text_assumed_error_free": false,
+    "copyright_handling": "Only record metadata, hashes, explicit correction provenance, and short paraphrased evidence summaries are retained."
+  },
+  "sources": [
+    {
+      "source_id": "youtube:p73Vmwgg64c",
+      "archive_file_id": "part-1",
+      "batch_record_index": 20,
+      "video_id": "p73Vmwgg64c",
+      "url": "https://www.youtube.com/watch?v=p73Vmwgg64c",
+      "title": "THIS is why today was choppy...",
+      "published_date_text": "Jul 24, 2026",
+      "trading_dates": ["2026-07-24"],
+      "account_coverage": ["main_account"],
+      "caption_status": "OK",
+      "caption_character_count": 10941,
+      "caption_utf8_sha256": "014d1cef61a9ccb5955cd0f1074df77f8d4d6949694ef6ecba6f76564055de91",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_main_account_recap"
+    },
+    {
+      "source_id": "youtube:b-iczURZwJY",
+      "archive_file_id": "part-1",
+      "batch_record_index": 11,
+      "video_id": "b-iczURZwJY",
+      "url": "https://www.youtube.com/watch?v=b-iczURZwJY",
+      "title": "One Winner and One Loser...",
+      "published_date_text": "Jul 24, 2026",
+      "trading_dates": ["2026-07-24"],
+      "account_coverage": ["small_account"],
+      "caption_status": "OK",
+      "caption_character_count": 8443,
+      "caption_utf8_sha256": "476fc09f1bdf845328a2d4db40b23622a75d4ae163cdd58b43058a8d29e8d1b5",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_small_account_recap"
+    },
+    {
+      "source_id": "youtube:83Yuliq1vHA",
+      "archive_file_id": "part-1",
+      "batch_record_index": 19,
+      "video_id": "83Yuliq1vHA",
+      "url": "https://www.youtube.com/watch?v=83Yuliq1vHA",
+      "title": "Record Breaking Green Day!",
+      "published_date_text": "Jul 27, 2026",
+      "trading_dates": ["2026-07-27"],
+      "account_coverage": ["small_account", "main_account"],
+      "caption_status": "OK",
+      "caption_character_count": 9241,
+      "caption_utf8_sha256": "143035d35635bf1996949369dc47fdaf7c523cbcec990d897354f79503c8a4a2",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_small_account_recap"
+    },
+    {
+      "source_id": "youtube:Ht5j4VMdRMo",
+      "archive_file_id": "part-1",
+      "batch_record_index": 5,
+      "video_id": "Ht5j4VMdRMo",
+      "url": "https://www.youtube.com/watch?v=Ht5j4VMdRMo",
+      "title": "Trading Tesla and Walmart Breaking News Headlines...",
+      "published_date_text": "Jul 27, 2026",
+      "trading_dates": ["2026-07-27"],
+      "account_coverage": ["main_account", "small_account"],
+      "caption_status": "OK",
+      "caption_character_count": 9639,
+      "caption_utf8_sha256": "d52cd516fccd78ca5787822fb4b268df9d816f6fa49cdb83165efd7184412aa4",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_main_account_recap"
+    },
+    {
+      "source_id": "youtube:1ml6zHikpsE",
+      "archive_file_id": "part-1",
+      "batch_record_index": 43,
+      "video_id": "1ml6zHikpsE",
+      "url": "https://www.youtube.com/watch?v=1ml6zHikpsE",
+      "title": "Max Loss Red Day...",
+      "published_date_text": "Jul 28, 2026",
+      "trading_dates": ["2026-07-28"],
+      "account_coverage": ["main_account"],
+      "caption_status": "OK",
+      "caption_character_count": 11550,
+      "caption_utf8_sha256": "9f5d77856f95053ae5acdba339ac017a95dc1d8dafa309b8013d1617232015f8",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_main_account_recap"
+    },
+    {
+      "source_id": "youtube:Zj0DYfQilso",
+      "archive_file_id": "part-1",
+      "batch_record_index": 17,
+      "video_id": "Zj0DYfQilso",
+      "url": "https://www.youtube.com/watch?v=Zj0DYfQilso",
+      "title": "Biggest Red Day...",
+      "published_date_text": "Jul 28, 2026",
+      "trading_dates": ["2026-07-28"],
+      "account_coverage": ["small_account"],
+      "caption_status": "OK",
+      "caption_character_count": 14486,
+      "caption_utf8_sha256": "8e86824cf2611b48edb76096a79097fad1739320924ca794aa1380f754e83e4f",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_small_account_recap"
+    },
+    {
+      "source_id": "youtube:SuY-q_OWMHw",
+      "archive_file_id": "part-1",
+      "batch_record_index": 86,
+      "video_id": "SuY-q_OWMHw",
+      "url": "https://www.youtube.com/watch?v=SuY-q_OWMHw",
+      "title": "Taiwan Stock with Breaking News Goes up 177%",
+      "published_date_text": "Jul 29, 2026",
+      "trading_dates": ["2026-07-29"],
+      "account_coverage": ["main_account", "small_account"],
+      "caption_status": "OK",
+      "caption_character_count": 19049,
+      "caption_utf8_sha256": "ffd44c30429a3895ba76de9019c542c29f4b8d07a90738b4232f42f7cf3cb91c",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_main_account_recap_with_small_account_status"
+    },
+    {
+      "source_id": "youtube:Ctp_STuX_l4",
+      "archive_file_id": "part-1",
+      "batch_record_index": 38,
+      "video_id": "Ctp_STuX_l4",
+      "url": "https://www.youtube.com/watch?v=Ctp_STuX_l4",
+      "title": "US Healthcare Stock Up 220% in 24hrs...",
+      "published_date_text": "Jul 30, 2026",
+      "trading_dates": ["2026-07-30"],
+      "account_coverage": ["main_account"],
+      "caption_status": "OK",
+      "caption_character_count": 12414,
+      "caption_utf8_sha256": "d3f5a30b619bff887e1ed8c3f020f8ddd0b0a7b2033d99e23128a63c8841a372",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_main_account_recap"
+    },
+    {
+      "source_id": "youtube:LN-eW6OPddw",
+      "archive_file_id": "part-1",
+      "batch_record_index": 33,
+      "video_id": "LN-eW6OPddw",
+      "url": "https://www.youtube.com/watch?v=LN-eW6OPddw",
+      "title": "Biggest Green Day of JULY!!",
+      "published_date_text": "Jul 31, 2026",
+      "trading_dates": ["2026-07-29", "2026-07-30", "2026-07-31"],
+      "account_coverage": ["small_account", "main_account"],
+      "caption_status": "OK",
+      "caption_character_count": 10623,
+      "caption_utf8_sha256": "3938c848010e71b59acb4e3d11a65952eb1c81d339ea3e81144be81818e52650",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_recap_with_explicit_prior_two_session_small_account_status"
+    },
+    {
+      "source_id": "youtube:bcn3-gerSsQ",
+      "archive_file_id": "part-1",
+      "batch_record_index": 12,
+      "video_id": "bcn3-gerSsQ",
+      "url": "https://www.youtube.com/watch?v=bcn3-gerSsQ",
+      "title": "We just had a 500% Short Squeeze on MONDAY MORNING!",
+      "published_date_text": "Aug 3, 2026",
+      "trading_dates": ["2026-08-03"],
+      "account_coverage": ["small_account", "main_account"],
+      "caption_status": "OK",
+      "caption_character_count": 15456,
+      "caption_utf8_sha256": "a923c351d94c78a7c9547976fbaedc79dfa5723b17cb108424335f12f4dce405",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_combined_account_recap"
+    },
+    {
+      "source_id": "youtube:kew1-rBx4kk",
+      "archive_file_id": "part-1",
+      "batch_record_index": 23,
+      "video_id": "kew1-rBx4kk",
+      "url": "https://www.youtube.com/watch?v=kew1-rBx4kk",
+      "title": "Shorts Got Squeezed AGAIN! This Time It Was Another +500%",
+      "published_date_text": "Aug 4, 2026",
+      "trading_dates": ["2026-08-04"],
+      "account_coverage": ["main_account", "small_account"],
+      "caption_status": "OK",
+      "caption_character_count": 13908,
+      "caption_utf8_sha256": "db6d8b29a5e7cfb27b0fc47a7b2c143a6621c07408ca398f933387de00272a95",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_combined_account_no_trade_recap"
+    },
+    {
+      "source_id": "youtube:xGIa8Vg0PWM",
+      "archive_file_id": "part-1",
+      "batch_record_index": 35,
+      "video_id": "xGIa8Vg0PWM",
+      "url": "https://www.youtube.com/watch?v=xGIa8Vg0PWM",
+      "title": "Growing a $2k Account to $65,662.04 in 30 Days (My Day Trading Strategy)",
+      "published_date_text": "Aug 5, 2026",
+      "trading_dates": ["2026-08-05"],
+      "account_coverage": ["small_account"],
+      "caption_status": "OK",
+      "caption_character_count": 62785,
+      "caption_utf8_sha256": "13184fcc8348b319d5e00037f1a6e15a056d35e12c99b382641180468c54c722",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "same_day_course_with_day_30_small_account_trade_case"
+    },
+    {
+      "source_id": "youtube:coqONALABpo",
+      "archive_file_id": "part-1",
+      "batch_record_index": 69,
+      "video_id": "coqONALABpo",
+      "url": "https://www.youtube.com/watch?v=coqONALABpo",
+      "title": "The Most Obvious Stock Today...",
+      "published_date_text": "Aug 7, 2026",
+      "trading_dates": ["2026-08-06"],
+      "account_coverage": ["small_account", "main_account"],
+      "caption_status": "OK",
+      "caption_character_count": 9056,
+      "caption_utf8_sha256": "697b5dadecf0745f28522d92e3f5cbd76e2feb7cc407b979e490e0c98648dfe8",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "one_day_delayed_day_31_small_account_recap_following_august_5_day_30"
+    },
+    {
+      "source_id": "youtube:cZcprj_8wEM",
+      "archive_file_id": "part-1",
+      "batch_record_index": 108,
+      "video_id": "cZcprj_8wEM",
+      "url": "https://www.youtube.com/watch?v=cZcprj_8wEM",
+      "title": "BIGGEST RED DAY OF 2026",
+      "published_date_text": "Aug 7, 2026",
+      "trading_dates": ["2026-08-06"],
+      "account_coverage": ["main_account", "small_account"],
+      "caption_status": "OK",
+      "caption_character_count": 29873,
+      "caption_utf8_sha256": "4073d03b2920285d1e9bc0421b7780cf69d41a0d0b025cb6f3d6b999b5c5dd91",
+      "evidence_timing_quality": "retrospective_sequence_only",
+      "content_date_resolution": "one_day_delayed_main_account_companion_to_day_31_small_account_recap"
+    }
+  ],
+  "excluded_source_records": [
+    {
+      "source_id": "youtube:CA8i4Rc2bUY",
+      "archive_file_id": "part-1",
+      "batch_record_index": 102,
+      "title": "I Took A Ride On The Rollercoaster...",
+      "published_date_text": "Jul 24, 2026",
+      "caption_character_count": 8895,
+      "caption_utf8_sha256": "e0817f52a1f555f1c6afa4a3945dd012ae0244215e8881f6824ad22c335bc633",
+      "content_date_resolution": "delayed_recap_of_2026-07-23_excluded_prior_pilot_session",
+      "basis": "The recap identifies EHGO and ZCMD as the current-session trades and refers to the next day as tomorrow; those actions are the already-reviewed July 23 pilot evidence, not July 24 evidence.",
+      "used_for_labels": false
+    },
+    {
+      "source_id": "youtube:ofCxvrijsss",
+      "archive_file_id": "part-1",
+      "batch_record_index": 24,
+      "title": "Shorts Keep Getting Squeezed!",
+      "published_date_text": "Aug 7, 2026",
+      "caption_character_count": 16664,
+      "caption_utf8_sha256": "89c9bb6eea1454f04a0dc3767be4fab1860e9b37d6dd190dfe3a58f5dc2f95f2",
+      "content_date_resolution": "same_day_2026-08-07_after_registered_panel",
+      "basis": "The recap describes the session after day 31 and therefore falls after the fixed August 6 endpoint.",
+      "used_for_labels": false
+    }
+  ],
+  "transcription_corrections": [
+    {
+      "correction_id": "2026-07-27-edgl-to-edbl",
+      "source_id": "youtube:Ht5j4VMdRMo",
+      "observed_text": "EDGL and EDBL",
+      "canonical_symbol": "EDBL",
+      "resolution_status": "frozen_candidate_match",
+      "basis": "The main recap later uses EDBL, the companion small-account recap uses EDBL, and EDBL is the frozen candidate tied to the Walmart catalyst.",
+      "silent_rewrite_allowed": false
+    },
+    {
+      "correction_id": "2026-07-27-nbi-ya-to-biya",
+      "source_id": "youtube:83Yuliq1vHA",
+      "observed_text": "NBI YA",
+      "canonical_symbol": "BIYA",
+      "resolution_status": "frozen_candidate_match",
+      "basis": "BIYA is the frozen candidate and the companion recap identifies the same no-news Cayman Islands holding company as BIYA.",
+      "silent_rewrite_allowed": false
+    },
+    {
+      "correction_id": "2026-07-28-infl-inlx-infs-to-inlf",
+      "source_id": "youtube:Zj0DYfQilso",
+      "observed_text": "INFL, INLX, INFS and INLF",
+      "canonical_symbol": "INLF",
+      "resolution_status": "frozen_candidate_match",
+      "basis": "Both account recaps repeatedly settle on INLF and INLF is the frozen candidate with the described halt sequence.",
+      "silent_rewrite_allowed": false
+    },
+    {
+      "correction_id": "2026-07-29-ammx-to-amix",
+      "source_id": "youtube:SuY-q_OWMHw",
+      "observed_text": "AMMX and AMIX",
+      "canonical_symbol": "AMIX",
+      "resolution_status": "frozen_candidate_match",
+      "basis": "The recap begins and continues with AMIX, and AMIX is the frozen candidate; no action label is inferred from the discussion.",
+      "silent_rewrite_allowed": false
+    },
+    {
+      "correction_id": "2026-08-05-xyt-to-yxt",
+      "source_id": "youtube:xGIa8Vg0PWM",
+      "observed_text": "XYT and YXT",
+      "canonical_symbol": "YXT",
+      "resolution_status": "frozen_candidate_match",
+      "basis": "The course immediately self-corrects to YXT and YXT is the frozen candidate used throughout the same-day trade example.",
+      "silent_rewrite_allowed": false
+    },
+    {
+      "correction_id": "2026-08-06-nmi-to-nami",
+      "source_id": "youtube:cZcprj_8wEM",
+      "observed_text": "NMI and NAMI",
+      "canonical_symbol": "NAMI",
+      "resolution_status": "internally_corroborated",
+      "basis": "The recap repeatedly uses NAMI for the same off-candidate chart and position and uses NMI only as a transcription variant.",
+      "silent_rewrite_allowed": false
+    },
+    {
+      "correction_id": "2026-08-06-dsw-to-dsy",
+      "source_id": "youtube:cZcprj_8wEM",
+      "observed_text": "DSW and DSY",
+      "canonical_symbol": "DSY",
+      "resolution_status": "internally_corroborated",
+      "basis": "The main recap repeatedly uses DSY after one DSW rendering and the companion small-account recap identifies the same VWAP false-break trade as DSY.",
+      "silent_rewrite_allowed": false
+    }
+  ],
+  "label_policy": {
+    "action_states": [
+      "participated",
+      "explicitly_skipped_or_rejected",
+      "discussed_but_action_unclear",
+      "not_mentioned_or_unobservable",
+      "source_unavailable"
+    ],
+    "default_unlisted_candidate_state": "not_mentioned_or_unobservable",
+    "no_trade_session_converts_unmentioned_to_skip": false,
+    "accounts_merged": false,
+    "participated_requires_reported_completed_trade": true,
+    "attempted_unfilled_order_counts_as_participation": false,
+    "off_candidate_actions_retained": true,
+    "ticker_corrections_must_be_explicit": true,
+    "publication_date_alone_determines_trading_date": false,
+    "evidence_timing_limit": "The recaps establish retrospective sequence and account action, not exact decision-time timestamps."
+  },
+  "date_results": {
+    "2026-07-24": {
+      "source_ids": ["youtube:p73Vmwgg64c", "youtube:b-iczURZwJY"],
+      "candidate_count": 10,
+      "candidate_symbols": ["ADVB", "AKAN", "BYRN", "CJMB", "JEM", "MSS", "NDLS", "PN", "VIVK", "WLDS"],
+      "candidate_symbols_sha256": "13b96af8b6928a814189a1394c6a11b0d55d89c6909c40d929b4b53e243b8373",
+      "account_session_evidence": {
+        "main_account": {"activity_state": "reported_trade_day", "source_ids": ["youtube:p73Vmwgg64c"]},
+        "small_account": {"activity_state": "reported_trade_day", "source_ids": ["youtube:b-iczURZwJY"]}
+      },
+      "explicit_candidate_symbol_count": 1,
+      "explicit_candidate_labels": [
+        {
+          "symbol": "MSS",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:p73Vmwgg64c"],
+            "evidence_summary": "He reported a completed main-account MSS trade and profit after waiting for the low-float news mover to prove itself."
+          },
+          "small_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:b-iczURZwJY"],
+            "evidence_summary": "He reported buying MSS in the small account on a VWAP curl and stopping out for a completed losing trade."
+          }
+        }
+      ],
+      "observed_off_candidate_actions": [
+        {
+          "canonical_symbol": "LVWR",
+          "reported_symbols": ["LVWR"],
+          "identity_resolution_status": "internally_corroborated",
+          "main_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": ["youtube:p73Vmwgg64c"],
+            "evidence_summary": "He identified LVWR as the first leading gainer but explicitly reported no trade because the cheaper, lighter setup offered no usable opportunity."
+          }
+        },
+        {
+          "canonical_symbol": "EXYN",
+          "reported_symbols": ["EXYN"],
+          "identity_resolution_status": "internally_corroborated",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:p73Vmwgg64c"],
+            "evidence_summary": "He reported a completed main-account EXYN breakout trade before its reversal."
+          },
+          "small_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:b-iczURZwJY"],
+            "evidence_summary": "He reported a completed profitable EXYN high-of-day breakout trade in the small account."
+          }
+        }
+      ],
+      "context_observations": [
+        "The recap describes dispersed attention and repeated failures among news-bearing US stocks while no-news Chinese names held the market theme.",
+        "The excluded July 24 upload about EHGO and ZCMD is bound to the prior July 23 session and contributes no labels here."
+      ]
+    },
+    "2026-07-27": {
+      "source_ids": ["youtube:83Yuliq1vHA", "youtube:Ht5j4VMdRMo"],
+      "candidate_count": 14,
+      "candidate_symbols": ["AGPU", "BIYA", "DFNS", "EDBL", "ENTX", "IMMR", "LGHL", "LSE", "LVWR", "NCTY", "NIPG", "OMER", "PLRZ", "VEEE"],
+      "candidate_symbols_sha256": "6a0ec20bfa5519e42cc18df95fe3684ced8731a58bddbb8aac78af607bf956d8",
+      "account_session_evidence": {
+        "main_account": {"activity_state": "reported_trade_day", "source_ids": ["youtube:Ht5j4VMdRMo"]},
+        "small_account": {"activity_state": "reported_trade_day", "source_ids": ["youtube:83Yuliq1vHA"]}
+      },
+      "explicit_candidate_symbol_count": 4,
+      "explicit_candidate_labels": [
+        {
+          "symbol": "BIYA",
+          "main_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": ["youtube:Ht5j4VMdRMo"],
+            "evidence_summary": "He explicitly remained on the sidelines in BIYA despite its no-news squeeze."
+          },
+          "small_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": ["youtube:83Yuliq1vHA"],
+            "evidence_summary": "He explicitly reported no small-account BIYA trade after noting its cheaper price and failed recent pops."
+          }
+        },
+        {
+          "symbol": "DFNS",
+          "small_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": ["youtube:83Yuliq1vHA"],
+            "evidence_summary": "He explicitly reported no small-account DFNS trade after the early continuation failed to create a later setup."
+          }
+        },
+        {
+          "symbol": "EDBL",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:Ht5j4VMdRMo"],
+            "evidence_summary": "He reported several completed main-account EDBL trades around the Walmart catalyst and VWAP reclaim."
+          },
+          "small_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": ["youtube:83Yuliq1vHA"],
+            "evidence_summary": "He explicitly said he traded EDBL only in the main account because he lacked small-account confidence after missing the beginning."
+          }
+        },
+        {
+          "symbol": "LGHL",
+          "small_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": ["youtube:83Yuliq1vHA"],
+            "evidence_summary": "He explicitly reported no small-account LGHL trade after finding no premarket opportunity."
+          }
+        }
+      ],
+      "observed_off_candidate_actions": [
+        {
+          "canonical_symbol": "VTIX",
+          "reported_symbols": ["VTIX"],
+          "identity_resolution_status": "internally_corroborated",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:Ht5j4VMdRMo"],
+            "evidence_summary": "He reported a completed main-account VTIX micro-pullback trade after the Tesla product headline."
+          },
+          "small_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:83Yuliq1vHA"],
+            "evidence_summary": "He reported a completed profitable VTIX pullback trade in the small account."
+          }
+        }
+      ],
+      "context_observations": [
+        "The same EDBL setup produced main-account participation but small-account rejection, while VTIX was traded in both accounts outside the frozen candidate universe."
+      ]
+    },
+    "2026-07-28": {
+      "source_ids": ["youtube:1ml6zHikpsE", "youtube:Zj0DYfQilso"],
+      "candidate_count": 14,
+      "candidate_symbols": ["ALT", "BHST", "BIYA", "BYRN", "DFNS", "EGG", "FIRY", "INLF", "KVAC", "LVWR", "PMN", "POLA", "PRLD", "SAIH"],
+      "candidate_symbols_sha256": "28077928dc0d6626c80fefa76474310535b48b818d00009dd2ed0434c083439f",
+      "account_session_evidence": {
+        "main_account": {"activity_state": "reported_trade_day", "source_ids": ["youtube:1ml6zHikpsE"]},
+        "small_account": {"activity_state": "reported_trade_day", "source_ids": ["youtube:Zj0DYfQilso"]}
+      },
+      "explicit_candidate_symbol_count": 2,
+      "explicit_candidate_labels": [
+        {
+          "symbol": "DFNS",
+          "main_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": ["youtube:1ml6zHikpsE"],
+            "evidence_summary": "He explicitly left DFNS alone premarket because of light volume and wide spreads, then reported missing its opening surge."
+          },
+          "small_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": ["youtube:Zj0DYfQilso"],
+            "evidence_summary": "He explicitly reported no small-account DFNS trade because the light-volume continuation lacked a fresh catalyst and was not trusted."
+          }
+        },
+        {
+          "symbol": "INLF",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:1ml6zHikpsE"],
+            "evidence_summary": "He reported a completed main-account INLF trade and large loss after entering late and holding into a halt down."
+          },
+          "small_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:Zj0DYfQilso"],
+            "evidence_summary": "He reported two completed small-account INLF attempts and a large combined loss."
+          }
+        }
+      ],
+      "observed_off_candidate_actions": [],
+      "context_observations": [
+        "Both accounts rejected DFNS before the open and later participated in INLF after opening-session halts and FOMO altered the decision context."
+      ]
+    },
+    "2026-07-29": {
+      "source_ids": ["youtube:SuY-q_OWMHw", "youtube:LN-eW6OPddw"],
+      "candidate_count": 18,
+      "candidate_symbols": ["ALMU", "AMIX", "ANIK", "AVTR", "BRAI", "CLW", "EGG", "FIEE", "GMM", "HTLM", "MPLT", "NCRA", "PYPD", "QUAD", "RBBN", "STFS", "VIVK", "VRRM"],
+      "candidate_symbols_sha256": "c4e83c9d03511ab3ad3d3873d8d31c52fe5ae3760ef6ffa163962eaabdace34e",
+      "account_session_evidence": {
+        "main_account": {"activity_state": "reported_trade_day", "source_ids": ["youtube:SuY-q_OWMHw"]},
+        "small_account": {"activity_state": "reported_no_completed_trade_day", "source_ids": ["youtube:SuY-q_OWMHw", "youtube:LN-eW6OPddw"]}
+      },
+      "explicit_candidate_symbol_count": 1,
+      "explicit_candidate_labels": [
+        {
+          "symbol": "NCRA",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:SuY-q_OWMHw"],
+            "evidence_summary": "He reported multiple completed main-account NCRA trades after the Taiwan AI-infrastructure news mover reclaimed VWAP."
+          },
+          "small_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": ["youtube:SuY-q_OWMHw"],
+            "evidence_summary": "He explicitly left NCRA out of the small account because he was not confident enough that the first trade would work."
+          }
+        }
+      ],
+      "observed_off_candidate_actions": [
+        {
+          "canonical_symbol": "DFNS",
+          "reported_symbols": ["DFNS"],
+          "identity_resolution_status": "internally_corroborated",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:SuY-q_OWMHw"],
+            "evidence_summary": "He reported a completed main-account DFNS opening-halt trade and loss."
+          }
+        }
+      ],
+      "context_observations": [
+        "The small account took no completed trades; that session-level fact does not convert any other unmentioned candidate into a skip."
+      ]
+    },
+    "2026-07-30": {
+      "source_ids": ["youtube:Ctp_STuX_l4", "youtube:LN-eW6OPddw"],
+      "candidate_count": 22,
+      "candidate_symbols": ["ANIK", "APUS", "ATHR", "BHC", "BOOM", "CMCO", "DGNX", "FFAI", "FMC", "FOSL", "GWAV", "NUWE", "PGY", "PN", "PRCH", "PSQH", "SMHI", "STAK", "STKH", "TAL", "XRX", "YAAS"],
+      "candidate_symbols_sha256": "7219af0586985663b5747906a28660e9367216c087621b123e5770ea335e8d73",
+      "account_session_evidence": {
+        "main_account": {"activity_state": "reported_trade_day", "source_ids": ["youtube:Ctp_STuX_l4"]},
+        "small_account": {"activity_state": "reported_no_completed_trade_day", "source_ids": ["youtube:LN-eW6OPddw"]}
+      },
+      "explicit_candidate_symbol_count": 2,
+      "explicit_candidate_labels": [
+        {
+          "symbol": "NUWE",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:Ctp_STuX_l4"],
+            "evidence_summary": "He reported several completed main-account NUWE trades during the high-volume move and stopped after repeated heavy rejections."
+          }
+        },
+        {
+          "symbol": "PN",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:Ctp_STuX_l4"],
+            "evidence_summary": "He reported two completed main-account PN trades and a net loss after low volume failed to sustain attention."
+          }
+        }
+      ],
+      "observed_off_candidate_actions": [
+        {
+          "canonical_symbol": "DFNS",
+          "reported_symbols": ["DFNS"],
+          "identity_resolution_status": "internally_corroborated",
+          "main_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": ["youtube:Ctp_STuX_l4"],
+            "evidence_summary": "He explicitly reported no current-session DFNS trade after recognizing declining volume and liquidity."
+          }
+        }
+      ],
+      "context_observations": [
+        "The small account had no completed trade, but no current frozen candidate received a small-account skip label."
+      ]
+    },
+    "2026-07-31": {
+      "source_ids": ["youtube:LN-eW6OPddw"],
+      "candidate_count": 11,
+      "candidate_symbols": ["AMCX", "BSBR", "BUDA", "DUOT", "FCUV", "FIEE", "GNLN", "NWL", "PWP", "REPL", "TCX"],
+      "candidate_symbols_sha256": "f94888988c4e62d292cfc9a1c13a81f46c2daad007905fdea154248219f0f290",
+      "account_session_evidence": {
+        "main_account": {"activity_state": "reported_trade_day", "source_ids": ["youtube:LN-eW6OPddw"]},
+        "small_account": {"activity_state": "reported_trade_day", "source_ids": ["youtube:LN-eW6OPddw"]}
+      },
+      "explicit_candidate_symbol_count": 1,
+      "explicit_candidate_labels": [
+        {
+          "symbol": "FCUV",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:LN-eW6OPddw"],
+            "evidence_summary": "He explicitly reported main-account FCUV participation before the stock extended into its larger squeeze."
+          },
+          "small_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:LN-eW6OPddw"],
+            "evidence_summary": "He reported one completed small-account FCUV trade at the opening breakout and a substantial profit."
+          }
+        }
+      ],
+      "observed_off_candidate_actions": [],
+      "context_observations": [
+        "FCUV was the only candidate with explicit account actions; discussion of other movers does not establish a trade or rejection."
+      ]
+    },
+    "2026-08-03": {
+      "source_ids": ["youtube:bcn3-gerSsQ"],
+      "candidate_count": 19,
+      "candidate_symbols": ["BIOA", "CNH", "COHN", "CVV", "EDBL", "EZRA", "FCUV", "FOSL", "HYFM", "MTC", "PFAI", "RUBI", "SAIH", "SBH", "SGLY", "SRL", "UPC", "XAIR", "ZSQR"],
+      "candidate_symbols_sha256": "db1099a3b9b493c4e697a3175395a99cae93677b3232f24053f50cedc50300fd",
+      "account_session_evidence": {
+        "main_account": {"activity_state": "reported_trade_day", "source_ids": ["youtube:bcn3-gerSsQ"]},
+        "small_account": {"activity_state": "reported_trade_day", "source_ids": ["youtube:bcn3-gerSsQ"]}
+      },
+      "explicit_candidate_symbol_count": 4,
+      "explicit_candidate_labels": [
+        {
+          "symbol": "EZRA",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:bcn3-gerSsQ"],
+            "evidence_summary": "He reported several completed main-account EZRA trades and profit as the move became more expert-level."
+          },
+          "small_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:bcn3-gerSsQ"],
+            "evidence_summary": "He reported one completed small-account EZRA trade and loss before declining to re-enter that account."
+          }
+        },
+        {
+          "symbol": "FCUV",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:bcn3-gerSsQ"],
+            "evidence_summary": "He reported a completed main-account FCUV continuation trade and loss."
+          },
+          "small_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": ["youtube:bcn3-gerSsQ"],
+            "evidence_summary": "He explicitly avoided FCUV in the small account because the roughly twenty-dollar price consumed too much buying power."
+          }
+        },
+        {
+          "symbol": "HYFM",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:bcn3-gerSsQ"],
+            "evidence_summary": "He reported completed main-account HYFM trades, with weaker results after prioritizing the small account."
+          },
+          "small_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:bcn3-gerSsQ"],
+            "evidence_summary": "He reported five completed small-account HYFM trades and a large net profit on the low-priced leading gainer."
+          }
+        },
+        {
+          "symbol": "UPC",
+          "main_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": ["youtube:bcn3-gerSsQ"],
+            "evidence_summary": "He explicitly did not take the too-early UPC move and reported no later opportunity after repeated VWAP rejections."
+          }
+        }
+      ],
+      "observed_off_candidate_actions": [],
+      "context_observations": [
+        "The same HYFM and EZRA symbols were traded in both accounts, while FCUV was traded only in the main account because of small-account buying-power constraints."
+      ]
+    },
+    "2026-08-04": {
+      "source_ids": ["youtube:kew1-rBx4kk"],
+      "candidate_count": 20,
+      "candidate_symbols": ["ACRE", "ADXN", "AMIX", "ARVN", "BLZE", "BTDR", "BWEN", "DDD", "DXST", "GENI", "HLMN", "INFU", "MED", "MOVE", "NUWE", "POET", "SEAT", "SNAP", "WATT", "XGN"],
+      "candidate_symbols_sha256": "2edf8876da8cdc648b2629092ab83c53b22af2e23736d8cf56bf5fd504b53940",
+      "account_session_evidence": {
+        "main_account": {"activity_state": "reported_no_completed_trade_day", "source_ids": ["youtube:kew1-rBx4kk"]},
+        "small_account": {"activity_state": "reported_no_completed_trade_day", "source_ids": ["youtube:kew1-rBx4kk"]}
+      },
+      "explicit_candidate_symbol_count": 1,
+      "explicit_candidate_labels": [
+        {
+          "symbol": "AMIX",
+          "main_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": ["youtube:kew1-rBx4kk"],
+            "evidence_summary": "He explicitly took no main-account AMIX trade after judging the early move a backside trap and missing the later halt-driven squeeze."
+          },
+          "small_account": {
+            "state": "explicitly_skipped_or_rejected",
+            "trade_completion": "no_trade",
+            "source_ids": ["youtube:kew1-rBx4kk"],
+            "evidence_summary": "He explicitly reported zero small-account AMIX trades on the no-trade day."
+          }
+        }
+      ],
+      "observed_off_candidate_actions": [],
+      "context_observations": [
+        "AMIX rose more than five hundred percent without either account participating; the no-trade session leaves every other candidate unknown rather than skipped."
+      ]
+    },
+    "2026-08-05": {
+      "source_ids": ["youtube:xGIa8Vg0PWM"],
+      "candidate_count": 30,
+      "candidate_symbols": ["AMPX", "APPS", "BEEP", "BLMN", "BVS", "COMP", "CRCT", "DIBS", "FTCI", "GEG", "GSM", "GTE", "HGTY", "HYFM", "INLF", "JDZG", "JLHL", "KODK", "NGL", "NXDR", "OESX", "OGG", "ORN", "OSPN", "PRGO", "SEV", "SWIM", "TBI", "YXT", "ZJYL"],
+      "candidate_symbols_sha256": "bf675d1b42ccd5239ad5fa0f6b91404095acb361407c8736b58840a1280098b4",
+      "account_session_evidence": {
+        "main_account": {"activity_state": "coverage_incomplete", "source_ids": ["youtube:xGIa8Vg0PWM"]},
+        "small_account": {"activity_state": "reported_trade_day", "source_ids": ["youtube:xGIa8Vg0PWM"]}
+      },
+      "explicit_candidate_symbol_count": 1,
+      "explicit_candidate_labels": [
+        {
+          "symbol": "YXT",
+          "small_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:xGIa8Vg0PWM"],
+            "evidence_summary": "The day-30 course reports completed small-account YXT trades, shows the first 5,000-share entry, and attributes the day's large gain to the leading no-news mover."
+          }
+        }
+      ],
+      "observed_off_candidate_actions": [],
+      "context_observations": [
+        "The source is a same-day course built around the small-account YXT case; it does not resolve the main account's same-day candidate actions."
+      ]
+    },
+    "2026-08-06": {
+      "source_ids": ["youtube:coqONALABpo", "youtube:cZcprj_8wEM"],
+      "candidate_count": 37,
+      "candidate_symbols": ["ADMA", "ARHS", "ARRY", "ASPN", "CAI", "CARL", "CION", "CLOV", "CLRO", "CRON", "DCTH", "DNOW", "EOLS", "EVH", "FVN", "GTM", "HNST", "IOVA", "KELYA", "KRO", "LCUT", "LPSN", "MATV", "OEC", "OESX", "OPRT", "PAVS", "PAYS", "PEPG", "PFAI", "SBGI", "SGHT", "SORA", "SOUN", "TASK", "TCPC", "WYHG"],
+      "candidate_symbols_sha256": "e8c49784ff587a5ff44fd2f5d395e3ea6ae1b5ae590f2137c0c4e528d2619137",
+      "account_session_evidence": {
+        "main_account": {"activity_state": "reported_trade_day", "source_ids": ["youtube:cZcprj_8wEM"]},
+        "small_account": {"activity_state": "reported_trade_day", "source_ids": ["youtube:coqONALABpo"]}
+      },
+      "explicit_candidate_symbol_count": 1,
+      "explicit_candidate_labels": [
+        {
+          "symbol": "CLRO",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:cZcprj_8wEM"],
+            "evidence_summary": "He reported a completed main-account CLRO continuation trade and loss after entering too high on the prior day's mover."
+          }
+        }
+      ],
+      "observed_off_candidate_actions": [
+        {
+          "canonical_symbol": "DSY",
+          "reported_symbols": ["DSW", "DSY"],
+          "identity_resolution_status": "internally_corroborated",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:cZcprj_8wEM"],
+            "evidence_summary": "He reported a completed main-account DSY VWAP-break trade and the session's largest loss."
+          },
+          "small_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:coqONALABpo"],
+            "evidence_summary": "He reported one completed small-account DSY trade that exited near break-even after the failed VWAP move."
+          }
+        },
+        {
+          "canonical_symbol": "MB",
+          "reported_symbols": ["MB"],
+          "identity_resolution_status": "unresolved",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:cZcprj_8wEM"],
+            "evidence_summary": "He reported one completed main-account trade and loss on the stock transcribed as MB; no frozen candidate identity is asserted."
+          }
+        },
+        {
+          "canonical_symbol": "NAMI",
+          "reported_symbols": ["NAMI", "NMI"],
+          "identity_resolution_status": "internally_corroborated",
+          "main_account": {
+            "state": "participated",
+            "trade_completion": "completed_trade",
+            "source_ids": ["youtube:cZcprj_8wEM"],
+            "evidence_summary": "He reported several completed main-account NAMI trades, first reaching a profit and then reversing to a loss."
+          }
+        }
+      ],
+      "context_observations": [
+        "The two recaps were published August 7 but explicitly describe day 31 following the August 5 day-30 challenge session and are assigned to the fixed August 6 trading date.",
+        "Only CLRO intersects the frozen candidate universe; the other reported account actions remain off-candidate observations."
+      ]
+    }
+  },
+  "summary": {
+    "registered_date_count": 10,
+    "source_record_count": 14,
+    "candidate_symbol_date_count": 195,
+    "explicit_candidate_symbol_date_count": 18,
+    "account_action_states": {
+      "main_account": {
+        "participated": 11,
+        "explicitly_skipped_or_rejected": 4,
+        "discussed_but_action_unclear": 0,
+        "not_mentioned_or_unobservable": 180,
+        "source_unavailable": 0
+      },
+      "small_account": {
+        "participated": 6,
+        "explicitly_skipped_or_rejected": 8,
+        "discussed_but_action_unclear": 0,
+        "not_mentioned_or_unobservable": 181,
+        "source_unavailable": 0
+      }
+    },
+    "off_candidate_completed_trade_actions": {
+      "main_account": 6,
+      "small_account": 3
+    },
+    "dates_with_available_source": 10,
+    "dates_replaced": 0,
+    "accounts_merged": false,
+    "policy_promotion_eligible": false
+  },
+  "content_sha256": "3ff85b371de31ea5dc1d2e4afc4e334c6f6f5051bfe5c7340fb51007527b7cd1"
+}
