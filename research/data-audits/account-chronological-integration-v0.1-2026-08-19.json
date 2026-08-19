@@ -7,14 +7,14 @@
   "source_parent_commit": "7f0d90ffd3ccd4c585f1c33f25fc7253f9c67db4",
   "contract": {
     "path": "research/strategy/account-chronological-integration-v0.1.json",
-    "canonical_content_sha256": "8f76871c4b5c4a674e181f0e1ce4dc1531599bd379c7d7c0303ba37ba929ea98",
-    "file_sha256": "5e43ff51862a305faa8763c5bc0f6ea021146539d970490bb7bc33ec9cbb467e"
+    "canonical_content_sha256": "64489aa27fec5eaf8ca12c94f4aeb47344d49a79b14df1bdda706cd23cc9ce73",
+    "file_sha256": "936b153f9e20ff41ec52c02b27456be6a860d85e67fed955a619fcf7d504764f"
   },
   "implementation": {
     "path": "src/momentumbot/research/account_chronological_integration.py",
-    "file_sha256": "a4423b65d5a7515fe0704596f9a320126638b6b82980a722f939623903881dc1",
+    "file_sha256": "917257a23abba6a075f6ba1fb97b5a01fb2729dfd63d8c90f7655d6d590afe41",
     "documentation_path": "docs/research/account_chronological_integration_v01.md",
-    "documentation_file_sha256": "5b307aae7c338387308414d47ff199eeff0f03a23c73bdf125bbc4a2f49bb361"
+    "documentation_file_sha256": "7569156198d330faa0dcc97c86c69737e8b09c8e2e4eb61484b150162bfc94ae"
   },
   "frozen_parents": {
     "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
@@ -24,19 +24,21 @@
   },
   "calendar_registration": {
     "prior_review_cutoff": "2026-08-06",
+    "registration_date": "2026-08-19",
     "registered_dates": [
-      "2026-08-07",
-      "2026-08-10",
-      "2026-08-11",
-      "2026-08-12",
-      "2026-08-13",
-      "2026-08-14",
-      "2026-08-17",
-      "2026-08-18",
-      "2026-08-19",
-      "2026-08-20"
+      "2026-08-24",
+      "2026-08-25",
+      "2026-08-26",
+      "2026-08-27",
+      "2026-08-28",
+      "2026-08-31",
+      "2026-09-01",
+      "2026-09-02",
+      "2026-09-03",
+      "2026-09-04"
     ],
-    "final_session_incomplete_at_registration": true,
+    "all_sessions_future_at_registration": true,
+    "implementation_buffer_dates": ["2026-08-20", "2026-08-21"],
     "source_inventory_used": false,
     "symbols_used": false,
     "retrospective_behavior_used": false,
@@ -79,5 +81,5 @@
     "policy_promotion_eligible": false,
     "ross_replication_claim_eligible": false
   },
-  "next_gate": "Supply or capture hash-bound pre-decision main and small account snapshots, build the registered union market and Micro-v0.1 runtime, and freeze both account artifacts before any retrospective review."
+  "next_gate": "Supply or capture hash-bound pre-decision main and small account snapshots, build the prospective registered union market and Micro-v0.1 runtime, and freeze both account artifacts before any retrospective review."
 }

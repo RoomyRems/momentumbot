@@ -26,6 +26,7 @@ from momentumbot.research.account_chronological_integration import (
     CONTRACT_ID,
     MICRO_POLICY_FINGERPRINT,
     PANEL_ID,
+    REGISTRATION_DATE,
     REGISTERED_DATES,
     AccountCandidateRuntime,
     AccountSessionSnapshot,
@@ -47,7 +48,7 @@ AUDIT = (
     / "data-audits"
     / "account-chronological-integration-v0.1-2026-08-19.json"
 )
-SESSION = date(2026, 8, 19)
+SESSION = date(2026, 8, 24)
 HASH_A = "a" * 64
 HASH_B = "b" * 64
 
@@ -55,7 +56,7 @@ HASH_B = "b" * 64
 def _candidate(
     symbol: str,
     *,
-    at: str = "2026-08-19T13:00:00+00:00",
+    at: str = "2026-08-24T13:00:00+00:00",
     quality: CandidateQuality = CandidateQuality.A_QUALITY,
     rank: int = 1,
     gain: float = 40.0,
@@ -85,9 +86,9 @@ def _candidate(
 def _replay(
     symbol: str,
     *,
-    qualified_at: str = "2026-08-19T13:00:00+00:00",
-    armed_at: str = "2026-08-19T13:00:10+00:00",
-    fill_at: str | None = "2026-08-19T13:00:11+00:00",
+    qualified_at: str = "2026-08-24T13:00:00+00:00",
+    armed_at: str = "2026-08-24T13:00:10+00:00",
+    fill_at: str | None = "2026-08-24T13:00:11+00:00",
     fill_price: float = 10.0,
     stop_price: float = 9.0,
     exit_at: str | None = None,
@@ -180,7 +181,7 @@ def _account(
     account_class: AccountClass = AccountClass.MAIN,
     equity: float = 10_000.0,
     buying_power: float = 10_000.0,
-    captured_at: str = "2026-08-19T10:59:00+00:00",
+    captured_at: str = "2026-08-24T10:59:00+00:00",
 ) -> AccountSessionSnapshot:
     return AccountSessionSnapshot(
         account_id=f"{account_class.value}-paper",
@@ -204,18 +205,19 @@ class AccountIntegrationContractTests(unittest.TestCase):
         self.assertEqual(
             REGISTERED_DATES,
             (
-                "2026-08-07",
-                "2026-08-10",
-                "2026-08-11",
-                "2026-08-12",
-                "2026-08-13",
-                "2026-08-14",
-                "2026-08-17",
-                "2026-08-18",
-                "2026-08-19",
-                "2026-08-20",
+                "2026-08-24",
+                "2026-08-25",
+                "2026-08-26",
+                "2026-08-27",
+                "2026-08-28",
+                "2026-08-31",
+                "2026-09-01",
+                "2026-09-02",
+                "2026-09-03",
+                "2026-09-04",
             ),
         )
+        self.assertEqual(REGISTRATION_DATE, date(2026, 8, 19))
         self.assertFalse(self.payload["source_inventory_started"])
         self.assertFalse(self.payload["retrospective_review_started"])
         self.assertFalse(
@@ -237,7 +239,7 @@ class AccountIntegrationContractTests(unittest.TestCase):
 
     def test_dates_and_retrospective_keys_fail_closed(self):
         changed = copy.deepcopy(self.payload)
-        changed["sampling_contract"]["registered_dates"][-1] = "2026-08-21"
+        changed["sampling_contract"]["registered_dates"][-1] = "2026-09-08"
         with self.assertRaisesRegex(ValueError, "registered_dates differ"):
             validate_account_integration_contract(changed)
 
@@ -286,12 +288,12 @@ class AccountSnapshotTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "lowercase SHA-256"):
             replace(_account(), source_content_sha256="bad")
         with self.assertRaisesRegex(ValueError, "captured by strategy session start"):
-            _account(captured_at="2026-08-19T11:01:00+00:00")
+            _account(captured_at="2026-08-24T11:01:00+00:00")
         with self.assertRaisesRegex(ValueError, "registered integration panel"):
             replace(
                 _account(),
-                session_date=date(2026, 8, 21),
-                captured_at=datetime.fromisoformat("2026-08-21T10:59:00+00:00"),
+                session_date=date(2026, 9, 8),
+                captured_at=datetime.fromisoformat("2026-09-08T10:59:00+00:00"),
             )
 
     def test_main_and_small_profiles_cannot_be_mixed(self):
@@ -369,15 +371,15 @@ class ChronologicalIntegrationTests(unittest.TestCase):
         early = _record(
             "EARLY",
             snapshot=_candidate("EARLY", rank=5, gain=15.0),
-            replay=_replay("EARLY", fill_at="2026-08-19T13:00:11+00:00"),
+            replay=_replay("EARLY", fill_at="2026-08-24T13:00:11+00:00"),
         )
         late = _record(
             "LATE",
             snapshot=_candidate("LATE", rank=1, gain=100.0),
             replay=_replay(
                 "LATE",
-                armed_at="2026-08-19T13:00:10+00:00",
-                fill_at="2026-08-19T13:00:12+00:00",
+                armed_at="2026-08-24T13:00:10+00:00",
+                fill_at="2026-08-24T13:00:12+00:00",
             ),
         )
         artifact = integrate_account_session(_account(), (late, early))
@@ -394,8 +396,8 @@ class ChronologicalIntegrationTests(unittest.TestCase):
             "FIRST",
             replay=_replay(
                 "FIRST",
-                fill_at="2026-08-19T13:00:11+00:00",
-                exit_at="2026-08-19T13:00:30+00:00",
+                fill_at="2026-08-24T13:00:11+00:00",
+                exit_at="2026-08-24T13:00:30+00:00",
                 exit_price=11.0,
                 status=MicroExecutionStatus.TARGET_HIT,
             ),
@@ -404,21 +406,21 @@ class ChronologicalIntegrationTests(unittest.TestCase):
             "SECOND",
             snapshot=_candidate(
                 "SECOND",
-                at="2026-08-19T13:00:20+00:00",
+                at="2026-08-24T13:00:20+00:00",
                 rank=1,
             ),
             replay=_replay(
                 "SECOND",
-                qualified_at="2026-08-19T13:00:20+00:00",
-                armed_at="2026-08-19T13:00:20+00:00",
-                fill_at="2026-08-19T13:00:30+00:00",
+                qualified_at="2026-08-24T13:00:20+00:00",
+                armed_at="2026-08-24T13:00:20+00:00",
+                fill_at="2026-08-24T13:00:30+00:00",
             ),
         )
         artifact = integrate_account_session(_account(), (first, second))
         at_collision = [
             row
             for row in artifact["integration_events"]
-            if row["at"] == "2026-08-19T13:00:30+00:00"
+            if row["at"] == "2026-08-24T13:00:30+00:00"
         ]
         self.assertEqual(
             [row["event_type"] for row in at_collision],
@@ -432,7 +434,7 @@ class ChronologicalIntegrationTests(unittest.TestCase):
     def test_accepted_plan_local_exit_uses_accepted_quantity(self):
         replay = _replay(
             "AAA",
-            exit_at="2026-08-19T13:00:15+00:00",
+            exit_at="2026-08-24T13:00:15+00:00",
             exit_price=11.0,
             status=MicroExecutionStatus.TARGET_HIT,
         )

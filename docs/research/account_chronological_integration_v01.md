@@ -4,7 +4,7 @@
 
 The isolated hypothesis is that the frozen scanner profiles, unchanged Micro-v0.1 replay, deterministic execution outcomes, paper account policy, scarce-capital order and campaign ledger can be composed into one reproducible account-local event stream without retrospective behavior or outcome knowledge.
 
-The calendar is frozen as the first ten scheduled U.S. equity sessions after the completed August 6 review boundary: August 7, 10–14 and 17–20, 2026. The August 20 session had not completed when registration was written. No transcript inventory, symbol list, Ross action, later price or result was used to select a date, and a missing source cannot replace one.
+The calendar was frozen on August 19 as the ten scheduled U.S. equity sessions from Monday, August 24 through Friday, September 4, 2026. Every session was still future, and August 20–21 are an explicit implementation/authorization buffer for the account-input capture path. Required inputs can therefore be captured before the strategy starts rather than reconstructed after market results exist. No transcript inventory, symbol list, Ross action, later price or result was used to select a date, and a missing source cannot replace one.
 
 ## Causal inputs
 
@@ -24,4 +24,4 @@ Accepted entries and their plan-local stop or target exits are applied to the fr
 
 The artifact is label-blind and shadow-only. It creates no broker order, cross-account dispatch decision, locate, Level 2 queue, complete management path, portfolio backtest or promotion evidence. Semantic context remains parallel and has no sizing or selection authority.
 
-The implementation is mechanically composable with synthetic fixtures, but the registered market/Micro/account runtime is not yet built. The next valid step is to supply or capture hash-bound pre-decision account snapshots, build the union market runtime for all ten dates, replay Micro-v0.1, and freeze both account artifacts before any retrospective source inventory or comparison.
+The implementation is mechanically composable with synthetic fixtures, but the registered market/Micro/account runtime is not yet built. The next valid step is to supply or capture hash-bound pre-decision account snapshots, build the union market runtime for all ten prospective dates, replay Micro-v0.1, and freeze both account artifacts before any retrospective source inventory or comparison.

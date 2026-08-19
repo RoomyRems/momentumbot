@@ -54,17 +54,18 @@ SCHEMA_VERSION = 1
 CONTRACT_ID = "account-chronological-integration-v0.1"
 PANEL_ID = "ross-account-integration-panel-v0.1"
 PRIOR_REVIEW_CUTOFF = date(2026, 8, 6)
+REGISTRATION_DATE = date(2026, 8, 19)
 REGISTERED_DATES = (
-    "2026-08-07",
-    "2026-08-10",
-    "2026-08-11",
-    "2026-08-12",
-    "2026-08-13",
-    "2026-08-14",
-    "2026-08-17",
-    "2026-08-18",
-    "2026-08-19",
-    "2026-08-20",
+    "2026-08-24",
+    "2026-08-25",
+    "2026-08-26",
+    "2026-08-27",
+    "2026-08-28",
+    "2026-08-31",
+    "2026-09-01",
+    "2026-09-02",
+    "2026-09-03",
+    "2026-09-04",
 )
 MICRO_POLICY_FINGERPRINT = (
     "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa"
@@ -610,8 +611,10 @@ def validate_account_integration_contract(payload: Mapping[str, object]) -> None
     panel = _mapping(payload, "sampling_contract")
     if panel.get("prior_review_cutoff") != PRIOR_REVIEW_CUTOFF.isoformat():
         raise ValueError("sampling_contract.prior_review_cutoff changed")
+    if panel.get("registration_date") != REGISTRATION_DATE.isoformat():
+        raise ValueError("sampling_contract.registration_date changed")
     if panel.get("selection_rule") != (
-        "first_ten_scheduled_us_equity_sessions_strictly_after_prior_review_cutoff"
+        "first_ten_scheduled_us_equity_sessions_beginning_first_monday_after_registration"
     ):
         raise ValueError("sampling selection rule changed")
     if panel.get("registered_dates") != list(REGISTERED_DATES):
@@ -631,6 +634,8 @@ def validate_account_integration_contract(payload: Mapping[str, object]) -> None
     sessions = tuple(date.fromisoformat(value) for value in REGISTERED_DATES)
     if any(value <= PRIOR_REVIEW_CUTOFF for value in sessions):
         raise ValueError("registered sessions must follow the prior review cutoff")
+    if any(value <= REGISTRATION_DATE for value in sessions):
+        raise ValueError("registered sessions must be prospective at registration")
     if any(value.weekday() >= 5 for value in sessions):
         raise ValueError("registered sessions must be weekdays")
 
