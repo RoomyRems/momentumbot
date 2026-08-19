@@ -81,6 +81,8 @@ The ledger has no account-limit defaults and is not wired to the baseline runtim
 
 `paper-account-scarcity-policy-v0.1` supplies the first separately registered limits. Main and small accounts retain distinct IDs and scanner profiles while sharing the existing project `paper-safe` envelope: 0.25% maximum open campaign risk, 1% daily loss, 50% position value and 50% profit giveback, all materialized from causal session-start equity and buying power. A one-position/two-entry cap is classified as conservative paper engineering, not a Ross-authored rule. Same-account capacity collisions reuse the existing candidate ranking; cross-account attention remains unresolved and fails closed.
 
+`account-chronological-integration-v0.1` is the separate composer above those frozen parents. It requires a hash-bound main or small account snapshot captured by the 7:00 a.m. New York strategy start, retains unavailable candidate/Micro records, emits plans before entries, orders exact-time entries with the account-local scarcity rule, and applies exits only after entries at the same timestamp. Synthetic quantity is the maximum whole-share size inside every remaining paper-safe risk/notional limit. That quantity is a deterministic research envelope rather than a liquidity or Ross-sizing claim. `filled_open` outcomes stay unresolved, so the artifact remains ineligible for portfolio-backtest interpretation.
+
 ## Causal setup translation
 
 The first deterministic setup is the current first-pullback confirmation entry. It requires a fresh session-high impulse, <=50% pullback, volume contraction, VWAP/EMA9 support, positive 12/26/9 MACD, limited topping-tail rejection, and >=2R room back to the prior high. The trigger is armed from completed data for the next bar.

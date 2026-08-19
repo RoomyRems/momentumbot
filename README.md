@@ -21,6 +21,7 @@ For a cold-start project map, current checkpoint and experiment protocol, begin 
 - deterministic session risk state and irreversible lockouts;
 - standalone account-scoped campaign/portfolio ledger with buying-power, held-position, halt, entry-role and daily-P&L state;
 - named main/small paper-account materialization and label-blind same-account scarcity ordering;
+- preregistered account-local chronological composition with hash-bound pre-decision balances and deterministic whole-share research sizing;
 - frozen-snapshot contract requiring a complete universe and point-in-time float;
 - conservative OHLC ambiguity handling;
 - campaign IDs so repeated plan emissions in one candidate activation are not mistaken for independent ideas.
@@ -54,6 +55,6 @@ The simulator uses the separate `paper-safe` risk policy by default. The aggress
 
 ## Current gate
 
-The ten-session scanner, unchanged Micro-v0.1 replay, retrospective Ross labels and no-retuning component comparison are frozen. The 2026-07-24 through 2026-08-06 context panel now also has a verified deterministic runtime, a frozen label-blind compiled semantic shadow, frozen conservative account-scoped labels and a frozen descriptive component comparison. The standalone campaign ledger and separate main/small paper-safety and same-account scarcity policies are now mechanically frozen without historical runtime integration. The active gate is a newly preregistered label-blind chronological integration of scanner, Micro, execution, account-policy and ledger events. No fitted context score or Ross-style aggressive sizing policy was promoted. See `docs/project/current_state.md` for the exact checkpoint and next steps.
+The ten-session scanner, unchanged Micro-v0.1 replay, retrospective Ross labels and no-retuning component comparison are frozen. The 2026-07-24 through 2026-08-06 context panel now also has a verified deterministic runtime, a frozen label-blind compiled semantic shadow, frozen conservative account-scoped labels and a frozen descriptive component comparison. The campaign ledger, separate main/small paper-safety policy, and account-local chronological composer are mechanically frozen. The new calendar-only account-integration panel covers August 7–20, 2026, with the final session registered before completion. Its market, Micro and account runtimes have not started: each account/date first needs a hash-bound account snapshot captured by the strategy start. No fitted context score or Ross-style aggressive sizing policy was promoted. See `docs/project/current_state.md` for the exact checkpoint and next steps.
 
 The provisional universe makes an auditable decision for every fetched historical ticker but remains explicitly non-promotable until those downstream gates are complete. A current provider asset census—even one containing inactive rows—remains conditional diagnostic evidence only. AI remains shadow-only until the deterministic baseline has credible walk-forward results.

@@ -1,0 +1,83 @@
+{
+  "artifact_id": "account-chronological-integration-v0.1",
+  "panel_id": "ross-account-integration-panel-v0.1",
+  "artifact_type": "chronological_account_integration_registration_and_mechanical_audit",
+  "status": "frozen_registration_and_engine_runtime_not_started",
+  "audit_date": "2026-08-19",
+  "source_parent_commit": "7f0d90ffd3ccd4c585f1c33f25fc7253f9c67db4",
+  "contract": {
+    "path": "research/strategy/account-chronological-integration-v0.1.json",
+    "canonical_content_sha256": "8f76871c4b5c4a674e181f0e1ce4dc1531599bd379c7d7c0303ba37ba929ea98",
+    "file_sha256": "5e43ff51862a305faa8763c5bc0f6ea021146539d970490bb7bc33ec9cbb467e"
+  },
+  "implementation": {
+    "path": "src/momentumbot/research/account_chronological_integration.py",
+    "file_sha256": "a4423b65d5a7515fe0704596f9a320126638b6b82980a722f939623903881dc1",
+    "documentation_path": "docs/research/account_chronological_integration_v01.md",
+    "documentation_file_sha256": "5b307aae7c338387308414d47ff199eeff0f03a23c73bdf125bbc4a2f49bb361"
+  },
+  "frozen_parents": {
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "campaign_ledger_contract_content_sha256": "f2a80f4350e6283e2638702d70515bf03ee6c930e7d52706d09ef5e1d9f419b6",
+    "account_policy_contract_content_sha256": "78dd5e3aef9485fc77f07632baec0274dceecb44c8cefd68ab8ea03e7727ceff",
+    "account_policy_bundle_sha256": "df66cfb6637783f69e86379e63428813ce521bd3b648a7ab0131d1c7250cff51"
+  },
+  "calendar_registration": {
+    "prior_review_cutoff": "2026-08-06",
+    "registered_dates": [
+      "2026-08-07",
+      "2026-08-10",
+      "2026-08-11",
+      "2026-08-12",
+      "2026-08-13",
+      "2026-08-14",
+      "2026-08-17",
+      "2026-08-18",
+      "2026-08-19",
+      "2026-08-20"
+    ],
+    "final_session_incomplete_at_registration": true,
+    "source_inventory_used": false,
+    "symbols_used": false,
+    "retrospective_behavior_used": false,
+    "trade_results_used": false,
+    "date_replacement_allowed": false
+  },
+  "mechanical_result": {
+    "main_and_small_composed_separately": true,
+    "predecision_account_snapshot_required": true,
+    "fixed_historical_balances_invented": false,
+    "all_candidate_records_retained": true,
+    "activation_snapshot_used_for_scarcity_rank": true,
+    "same_time_exit_capacity_recycling": false,
+    "whole_share_risk_and_notional_sizing": true,
+    "zero_capacity_recorded_not_submitted": true,
+    "open_execution_outcome_left_unresolved": true,
+    "synthetic_composition_with_frozen_ledger": true
+  },
+  "verification": {
+    "focused_command": "PYTHONPATH=src python -m unittest tests.test_account_chronological_integration -v",
+    "focused_expected": "20 tests passing",
+    "full_command": "PYTHONPATH=src python -m unittest discover -s tests -v",
+    "full_expected": "508 tests passing"
+  },
+  "knowledge_boundary": {
+    "uploaded_transcript_archives_opened": false,
+    "raw_transcripts_allowed_at_runtime": false,
+    "retrospective_actions_labels_or_fills_used": false,
+    "later_price_outcomes_used": false,
+    "semantic_ai_used": false
+  },
+  "authority_boundary": {
+    "registered_market_runtime_built": false,
+    "registered_micro_runtime_built": false,
+    "registered_account_runtime_built": false,
+    "broker_order_authority": false,
+    "cross_account_dispatch_authority": false,
+    "complete_position_management": false,
+    "portfolio_backtest_eligible": false,
+    "policy_promotion_eligible": false,
+    "ross_replication_claim_eligible": false
+  },
+  "next_gate": "Supply or capture hash-bound pre-decision main and small account snapshots, build the registered union market and Micro-v0.1 runtime, and freeze both account artifacts before any retrospective review."
+}

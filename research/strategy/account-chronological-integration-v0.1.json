@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "contract_id": "account-chronological-integration-v0.1",
+  "panel_id": "ross-account-integration-panel-v0.1",
+  "artifact_type": "chronological_account_integration_registration",
+  "registration_status": "registered_unrun_label_blind",
+  "purpose": "Freeze the next calendar-only panel and exact causal composition of account-specific scanner candidates, Micro-v0.1 plans and execution outcomes, pre-decision account state, same-account scarcity priority, deterministic research sizing, and campaign-ledger events before any retrospective review.",
+  "runtime_strategy_effect": "shadow_only",
+  "retrospective_review_started": false,
+  "source_inventory_started": false,
+  "dates_may_be_replaced": false,
+  "portfolio_backtest_eligible": false,
+  "policy_promotion_eligible": false,
+  "ross_replication_claim_eligible": false,
+  "frozen_parents": {
+    "micro_policy_id": "micro-v0.1",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "campaign_ledger_contract_content_sha256": "f2a80f4350e6283e2638702d70515bf03ee6c930e7d52706d09ef5e1d9f419b6",
+    "account_policy_contract_content_sha256": "78dd5e3aef9485fc77f07632baec0274dceecb44c8cefd68ab8ea03e7727ceff",
+    "account_policy_bundle_sha256": "df66cfb6637783f69e86379e63428813ce521bd3b648a7ab0131d1c7250cff51",
+    "general_strategy_profile_fingerprint": "7d15fb979701324bf862b1dc37e5f9b514dcf1ab8cf1e062ae4a60027233d4ff",
+    "small_strategy_profile_fingerprint": "fb86fc5326903cab16c283a03d8e371f66487f41589fb1b69b79f8912a0a6489"
+  },
+  "sampling_contract": {
+    "prior_review_cutoff": "2026-08-06",
+    "selection_rule": "first_ten_scheduled_us_equity_sessions_strictly_after_prior_review_cutoff",
+    "registered_dates": [
+      "2026-08-07",
+      "2026-08-10",
+      "2026-08-11",
+      "2026-08-12",
+      "2026-08-13",
+      "2026-08-14",
+      "2026-08-17",
+      "2026-08-18",
+      "2026-08-19",
+      "2026-08-20"
+    ],
+    "registration_note": "The final scheduled session had not completed when the calendar was frozen; this makes the panel prospective at registration rather than selected from results.",
+    "date_selection_uses_source_inventory": false,
+    "date_selection_uses_symbols": false,
+    "date_selection_uses_retrospective_behavior": false,
+    "date_selection_uses_trade_results": false,
+    "missing_date_may_be_replaced": false,
+    "union_of_main_and_small_market_candidates_retained": true,
+    "top_n_filter_applied": false,
+    "scope_limit": "Ten consecutive scheduled sessions are a causal integration pilot, not representative evidence of profitability or Ross-level imitation."
+  },
+  "account_snapshot_contract": {
+    "required_fields": [
+      "unique account ID",
+      "account class",
+      "session date",
+      "capture timestamp",
+      "starting equity",
+      "starting buying power",
+      "source ID",
+      "source content SHA-256"
+    ],
+    "fixed_historical_balance_invented": false,
+    "source_must_be_hash_bound": true,
+    "captured_by_strategy_session_start": true,
+    "main_and_small_accounts_processed_separately": true,
+    "missing_snapshot_behavior": "fail_closed_no_account_runtime",
+    "cross_account_dispatch": "not represented"
+  },
+  "candidate_and_micro_contract": {
+    "candidate_universe": "union of every causal market candidate admitted by either frozen main or small scanner profile",
+    "account_qualification": "each account retains its own frozen strategy profile and a separate candidate disposition",
+    "candidate_activation_anchor": "first account-qualified completed scanner-bar decision",
+    "scarcity_rank_snapshot": "the exact causal activation CandidateSnapshot; later scanner state cannot cancel, upgrade, or rerank the frozen Micro opportunity",
+    "micro_policy": "unchanged Micro-v0.1",
+    "all_plan_emissions_retained": true,
+    "only_frozen_micro_execution_fills_may_create_entry_attempts": true,
+    "unavailable_candidate_or_micro_input": "retained explicitly with no fabricated plan or fill"
+  },
+  "sizing_contract": {
+    "rule": "maximum positive whole shares inside remaining buying power, starter, campaign and total notional, and campaign and total open-risk ceilings",
+    "fractional_shares_allowed": false,
+    "uses_full_remaining_registered_capacity": true,
+    "uses_observed_trade_size_as_liquidity": false,
+    "uses_level2_or_queue_model": false,
+    "quantity_zero_behavior": "record_not_submitted",
+    "classification": "deterministic_project_research_sizing_not_ross_behavior",
+    "authority_limit": "A modeled transaction print supports price-path research only; the resulting quantity is not a claim that displayed or hidden liquidity could fill it."
+  },
+  "chronology_contract": {
+    "event_order": [
+      "timestamp ascending",
+      "plan emissions before entry attempts at the same timestamp",
+      "same-time entry attempts by paper-account-scarcity-policy-v0.1",
+      "exit fills after entry attempts at the same timestamp",
+      "stable identifier tie-breakers"
+    ],
+    "activation_snapshot_used_for_same_time_rank": true,
+    "same_time_exit_recycles_capacity": false,
+    "cross_account_priority": "unresolved_fail_closed",
+    "accepted_entry_exit_quantity": "the accepted synthetic entry quantity, never the provider print size",
+    "open_micro_outcome": "remain open and explicitly unresolved; no session-close price is invented",
+    "plan_local_exit_limit": "stop or target exits are applied only to the accepted quantity for that exact Micro plan"
+  },
+  "knowledge_policy": {
+    "runtime_inputs_available_by_event_time": true,
+    "raw_transcripts_allowed_at_runtime": false,
+    "retrospective_actions_labels_or_fills_allowed_at_runtime": false,
+    "later_prices_or_outcomes_allowed_at_runtime": false,
+    "semantic_ai_used": false,
+    "labels_opened_only_after_runtime_hash_freeze": true
+  },
+  "workflow_sequence": [
+    "freeze_calendar_contract_and_integration_code_before_final_panel_session_completes",
+    "capture_or supply hash-bound pre-decision account snapshots separately for main and small accounts",
+    "build union market runtime and account-specific scanner dispositions without top-N filtering",
+    "replay unchanged Micro-v0.1 and deterministic execution for every eligible activation",
+    "compose each account independently in the registered chronological event order",
+    "freeze and verify all runtime hashes before any retrospective inventory or review",
+    "evaluate acquisition setup execution and portfolio feasibility as separate descriptive gates"
+  ],
+  "authority_boundary": {
+    "broker_orders_created": false,
+    "live_or_paper_broker_orders_submitted": false,
+    "cross_account_attention_modeled": false,
+    "halt_feed_integrated": false,
+    "level2_depth_queue_or_locate_modeled": false,
+    "complete_position_management_modeled": false,
+    "unresolved_open_positions_disqualify_portfolio_backtest": true,
+    "aggregate_context_score_used": false
+  },
+  "execution_status": {
+    "market_runtime": "not_started",
+    "micro_runtime": "not_started",
+    "account_runtime": "not_started",
+    "runtime_artifact_sha256": null,
+    "retrospective_evaluation": "not_started"
+  },
+  "promotion_gate": "After the ten dates and both account inputs are available, freeze a fully hash-bound label-blind runtime; only then may a separate retrospective component comparison be registered."
+}
