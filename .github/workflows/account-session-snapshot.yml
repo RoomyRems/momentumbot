@@ -1,0 +1,144 @@
+name: Account pre-session snapshot v0.1
+
+on:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - .github/workflows/account-session-snapshot.yml
+      - research/strategy/account-session-snapshot-capture-v0.1.json
+      - src/momentumbot/research/account_snapshot_capture.py
+      - scripts/capture_account_session_snapshots.py
+      - tests/test_account_snapshot_capture.py
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Validate credentials now or capture a registered pre-session snapshot
+        required: true
+        default: validate
+        type: choice
+        options:
+          - validate
+          - capture
+      session_date:
+        description: Optional YYYY-MM-DD capture guard; must equal today's New York date
+        required: false
+        type: string
+  schedule:
+    # The registered 2026 sessions are all on EDT (UTC-4).  GitHub cron has no
+    # year field, so the resolver also requires an exact registered 2026 date.
+    - cron: "15 9 24-28,31 8 *"
+    - cron: "15 9 1-4 9 *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: account-pre-session-snapshot-v0.1
+  cancel-in-progress: false
+
+jobs:
+  validate-or-capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          # GitHub schedules are sourced only from the default branch.  The
+          # same workflow is installed on main solely as a scheduler and must
+          # execute the frozen research branch rather than main's source tree.
+          ref: ${{ github.event_name == 'schedule' && 'phase-3-historical-snapshot' || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Resolve validation or registered capture
+        id: resolve
+        shell: bash
+        env:
+          REQUESTED_MODE: ${{ inputs.mode || 'validate' }}
+          REQUESTED_SESSION_DATE: ${{ inputs.session_date || '' }}
+        run: |
+          set -euo pipefail
+          current_et="$(TZ=America/New_York date +%F)"
+          registered="false"
+          case "$current_et" in
+            2026-08-24|2026-08-25|2026-08-26|2026-08-27|2026-08-28|2026-08-31|2026-09-01|2026-09-02|2026-09-03|2026-09-04)
+              registered="true"
+              ;;
+          esac
+
+          if [[ "${{ github.event_name }}" == "schedule" ]]; then
+            if [[ "$registered" != "true" ]]; then
+              echo "Scheduled wake-up is outside the frozen 2026 panel; no capture is permitted."
+              echo "should_run=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            mode="capture"
+            session_date="$current_et"
+          elif [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            mode="$REQUESTED_MODE"
+            session_date="$REQUESTED_SESSION_DATE"
+          else
+            mode="validate"
+            session_date=""
+          fi
+
+          if [[ "$mode" == "capture" ]]; then
+            if [[ "$registered" != "true" ]]; then
+              echo "Capture is permitted only on a registered 2026 session date." >&2
+              exit 1
+            fi
+            if [[ -n "$session_date" && "$session_date" != "$current_et" ]]; then
+              echo "Requested session date does not equal today's New York date." >&2
+              exit 1
+            fi
+            session_date="$current_et"
+            artifact_name="account-pre-session-snapshot-v0.1-${current_et}-${{ github.run_id }}-${{ github.run_attempt }}"
+          else
+            if [[ -n "$session_date" ]]; then
+              echo "Validation mode cannot claim a session date." >&2
+              exit 1
+            fi
+            artifact_name="account-credential-validation-v0.1-${{ github.run_id }}-${{ github.run_attempt }}"
+          fi
+
+          echo "should_run=true" >> "$GITHUB_OUTPUT"
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+          echo "session_date=$session_date" >> "$GITHUB_OUTPUT"
+          echo "artifact_name=$artifact_name" >> "$GITHUB_OUTPUT"
+          echo "runtime_head_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - name: Validate or capture both paper accounts
+        if: steps.resolve.outputs.should_run == 'true'
+        env:
+          ALPACA_MAIN_API_KEY: ${{ secrets.ALPACA_MAIN_API_KEY }}
+          ALPACA_MAIN_API_SECRET: ${{ secrets.ALPACA_MAIN_API_SECRET }}
+          ALPACA_SMALL_API_KEY: ${{ secrets.ALPACA_SMALL_API_KEY }}
+          ALPACA_SMALL_API_SECRET: ${{ secrets.ALPACA_SMALL_API_SECRET }}
+          ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT || 'https://paper-api.alpaca.markets' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          args=(
+            --mode "${{ steps.resolve.outputs.mode }}"
+            --output account-session-snapshot-v0.1
+            --workflow-run-id "${{ github.run_id }}"
+            --workflow-run-attempt "${{ github.run_attempt }}"
+            --workflow-event-name "${{ github.event_name }}"
+            --head-sha "${{ steps.resolve.outputs.runtime_head_sha }}"
+            --workflow-source-sha "${{ github.sha }}"
+          )
+          if [[ -n "${{ steps.resolve.outputs.session_date }}" ]]; then
+            args+=(--session-date "${{ steps.resolve.outputs.session_date }}")
+          fi
+          python scripts/capture_account_session_snapshots.py "${args[@]}"
+      - name: Upload hash-bound sanitized artifact
+        if: steps.resolve.outputs.should_run == 'true' && success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.resolve.outputs.artifact_name }}
+          path: account-session-snapshot-v0.1
+          if-no-files-found: error
+          retention-days: 90
