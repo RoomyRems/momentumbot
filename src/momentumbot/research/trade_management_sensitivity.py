@@ -349,9 +349,14 @@ def _read_frozen_archive_json(archive: ZipFile, name: str) -> dict[str, object]:
 
 def _read_frame(archive: ZipFile, name: str) -> pd.DataFrame:
     frame = pd.read_csv(io.BytesIO(archive.read(name)), compression="gzip")
-    if "timestamp" not in frame.columns:
-        raise ValueError(f"{name} lacks timestamp")
-    timestamps = pd.to_datetime(frame.pop("timestamp"), utc=True, format="mixed")
+    timestamp_column = "timestamp" if "timestamp" in frame.columns else "index"
+    if timestamp_column not in frame.columns:
+        raise ValueError(f"{name} lacks timestamp or index")
+    timestamps = pd.to_datetime(
+        frame.pop(timestamp_column),
+        utc=True,
+        format="mixed",
+    )
     frame.index = pd.DatetimeIndex(timestamps)
     if not frame.index.is_monotonic_increasing:
         raise ValueError(f"{name} is not time ordered")
