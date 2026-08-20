@@ -35,6 +35,7 @@
   "fixed_entry_cohorts": {
     "engineering": "every already-frozen Micro-v0.1 filled plan in the source runtime",
     "account_overlay": "only entries already accepted in each frozen historical-account-diagnostic-v0.1 session artifact",
+    "account_half_share_semantics": "apply the registered 0.5 fraction to accepted quantity without whole-share rounding; this is a normalized fixed-entry sensitivity, not a broker order or ledger recomposition",
     "capital_reuse_recomputed": false,
     "later_rejected_entries_reconsidered": false,
     "reason": "Changing exits can change later buying-power availability. Recomputing acceptance would change both management and portfolio chronology, so v0.1 intentionally keeps the entry set fixed."
