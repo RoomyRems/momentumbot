@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "audit_id": "historical-account-diagnostic-v0.1-2026-08-19",
+  "artifact_type": "retrospective_historical_account_diagnostic_audit",
+  "decision": {
+    "historical_account_feasibility_overlay_completed": true,
+    "full_backtest_completed": false,
+    "economic_return_estimated": false,
+    "policy_promotion_eligible": false,
+    "prospective_panel_modified": false
+  },
+  "source_artifacts": {
+    "causal_scanner_runtime": {
+      "artifact_id": 9305468839,
+      "artifact_name": "discretion-heldout-runtime-v0.1",
+      "workflow_run_id": 32071946359,
+      "zip_sha256": "850d9cfba27d7677904ccf147251b3ff914292102be0e3c62fec7bb47b6f73bb",
+      "manifest_content_sha256": "2414f7389bf68d5a5e4b3302c646c9111020cb79ce06fc0213f7872062f79c48"
+    },
+    "micro_runtime": {
+      "artifact_id": 9310627233,
+      "artifact_name": "discretion-heldout-micro-runtime-v0.1",
+      "workflow_run_id": 32096497787,
+      "zip_sha256": "3b59e4b1a69e268158f6ccbead1fe9abae425fc249e72b34f466e53ebba56b20",
+      "manifest_content_sha256": "feb2283acf1f180fd82b0e3c25acde1ebb9ebc036c47533e1d61fc9e8883e190"
+    }
+  },
+  "bound_files": [
+    {
+      "path": "research/strategy/historical-account-diagnostic-v0.1.json",
+      "file_sha256": "9d79bd5f2f0af10d1573695a70f7a8ce0d43be0c2eb0cb7795833ccd2c8e883f"
+    },
+    {
+      "path": "src/momentumbot/research/historical_account_diagnostic.py",
+      "file_sha256": "5470134e4688388afd10834e890b1c2a87e00cc2df82c644fa01a65546e1d304"
+    },
+    {
+      "path": "scripts/build_historical_account_diagnostic.py",
+      "file_sha256": "6bad93fc2bc4cbb4f63caee45d4d98183b80d94912140872b2031e03cf4de0b1"
+    },
+    {
+      "path": "docs/research/historical_account_diagnostic_v01.md",
+      "file_sha256": "4d6b826a38129d2a70efda4b538b96c907f0668bc0c7462209aa238cf75e907b"
+    },
+    {
+      "path": "docs/project/current_state.md",
+      "file_sha256": "627c5e0a1511803034163a73c9bbe957470d187dd7347fc2ffd79fc85134089d"
+    },
+    {
+      "path": "tests/test_historical_account_diagnostic.py",
+      "file_sha256": "bd93ba112ad425c4d4e09e5157c189ee3a456a07b8d606c549b902a220ff4174"
+    }
+  ],
+  "result": {
+    "manifest_path": "research/frozen/historical-account-diagnostic-v0.1/manifest.json",
+    "manifest_file_sha256": "226e33ff250e2838cd01cbf060b995d63ad1b4ccf5219432cb6a951aa9bacfbf",
+    "manifest_content_sha256": "e9dd428d30790dcbf9cd2d171cc2c86ef41a71e4c9a2463d24bfaa34d7048a48",
+    "session_artifact_count": 20,
+    "session_file_digest_listing_sha256": "e4e33a71720d1095467ffcfc9f3d87a1edd749e0de1b7e6c952420d857935cc5",
+    "main": {
+      "eligible_same_anchor_candidate_count": 27,
+      "accepted_entry_count": 10,
+      "accepted_stop_exit_count": 9,
+      "unresolved_open_position_session_count": 1,
+      "sum_of_independently_sized_realized_stop_pnl": -680.5700000000002,
+      "stop_pnl_fraction_of_fixed_30000_denominator": -0.022685666666666673
+    },
+    "small": {
+      "eligible_same_anchor_candidate_count": 6,
+      "accepted_entry_count": 2,
+      "accepted_stop_exit_count": 1,
+      "unresolved_open_position_session_count": 1,
+      "sum_of_independently_sized_realized_stop_pnl": -5.329999999999996,
+      "stop_pnl_fraction_of_fixed_2000_denominator": -0.0026649999999999977
+    }
+  },
+  "validation": {
+    "source_zip_hashes_recomputed": true,
+    "embedded_source_content_hashes_recomputed": true,
+    "daily_scanner_and_micro_hash_chain_recomputed": true,
+    "candidate_counts_reconciled": true,
+    "unchanged_account_engine_parent_validation_passed": true,
+    "deterministic_rebuild_byte_identical": true,
+    "focused_tests_passed": true,
+    "full_test_suite_passed": true,
+    "focused_test_count": 67,
+    "full_test_count": 528
+  },
+  "knowledge_boundary": {
+    "raw_transcripts_opened": false,
+    "ross_actions_labels_or_reported_fills_used": false,
+    "semantic_context_used": false,
+    "source_micro_runtime_label_blind": true,
+    "account_overlay_registered_after_sources_existed": true
+  },
+  "coverage_limits": [
+    "Account qualification is evaluated only at the already-frozen general market/Micro anchor; candidates first becoming account-eligible on later scanner rows are not re-anchored.",
+    "The small-account overlap can omit valid candidates priced from 1.50 through 1.99 because the source discovery used the general profile.",
+    "The historical source universe is not full-walk-forward eligible.",
+    "Each date restarts from a fixed synthetic balance; sessions do not compound.",
+    "The source Micro runtime modeled stop exits but no profit target or favorable discretionary exit; open fills remain unresolved.",
+    "Level 2, queue position, liquidity capacity, latency, cross-account attention and broker behavior are not modeled."
+  ],
+  "authority_boundary": {
+    "broker_orders_created_or_submitted": false,
+    "real_account_ids_or_secrets_used": false,
+    "historical_broker_balance_claim": false,
+    "full_backtest_completed": false,
+    "profitability_claim_allowed": false,
+    "policy_promotion_allowed": false
+  },
+  "next_gate": "Keep the prospective August 24 through September 4 capture unchanged. If an immediate return sensitivity is desired, preregister a separate causal favorable-exit and management model before replaying it; do not tune Micro-v0.1 from this diagnostic."
+}

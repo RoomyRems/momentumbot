@@ -1,0 +1,252 @@
+{
+  "account_class": "main",
+  "artifact_type": "historical_account_diagnostic_session",
+  "authority_boundary": {
+    "cross_session_compounding": false,
+    "historical_broker_balance_claim": false,
+    "independent_fixed_balance_session": true,
+    "policy_promotion_eligible": false,
+    "portfolio_backtest_eligible": false,
+    "unresolved_positions_marked_to_market": false
+  },
+  "composition_engine_output": {
+    "account": {
+      "account_class": "main",
+      "account_id": "synthetic-main-30000-historical-diagnostic",
+      "policy_id": "paper-safe-main-account-v0.1",
+      "snapshot_captured_at": "2026-07-21T06:59:00-04:00",
+      "snapshot_source_content_sha256": "8d6128e4be33e4500712a60a2787b17b1a2ab139ba7666d0029a8bdbecb12154",
+      "snapshot_source_id": "registered-synthetic-fixed-balance-v0.1",
+      "starting_buying_power": 30000.0,
+      "starting_equity": 30000.0,
+      "strategy_profile_id": "current-general-2026"
+    },
+    "artifact_type": "account_chronological_integration_shadow",
+    "authority_boundary": {
+      "broker_order_authority": false,
+      "cross_account_dispatch_authority": false,
+      "liquidity_or_locate_verified": false,
+      "policy_promotion_eligible": false,
+      "portfolio_backtest_eligible": false,
+      "research_sizing_only": true,
+      "ross_replication_claim_eligible": false,
+      "unmodeled_open_positions": 0
+    },
+    "candidate_records": [
+      {
+        "activation_id": "activation-022f15678f4b3726b141f10a8b57370934c3496ebcf5979c2fcb0319e3556256",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-21T13:32:00+00:00",
+        "micro_runtime_content_sha256": "05db2dcbdc3e5c1fff55c6d5e44c91d907571f4a011acc957aa49ae828397738",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "43133a388b0549d5c1706dac7555faf007b4e9b21eb7725ccae185d0f3c99840",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "GREE"
+      },
+      {
+        "activation_id": "activation-318a14cf4f7cb7df95a76abe720f24967e2f5d151f3113d970c5479f4d13fed3",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-21T13:17:00+00:00",
+        "micro_runtime_content_sha256": "6459a197b2f8aadf25cef50134524f0dca3ceb22172d4553c3caa22fc33c60d1",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "0da158cbc1e0dc66cccc6b0aa54ad10c6bf3a08f161f2bd9d303e4a3268d9293",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "VIVK"
+      },
+      {
+        "activation_id": "activation-3316b92d4f51fa9b85f9d712652c708d5595a6825bc3bdd3baa961ff408abf5c",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-21T13:43:00+00:00",
+        "micro_runtime_content_sha256": "fda22e65edbd8ef8ba43d5a3e8af61932c24df3655b52eb72dec2205c621bd28",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "adfa8d105712da0290ec32b47d81056df037b653863028a8f58dd3197acea052",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "AGPU"
+      },
+      {
+        "activation_id": "activation-41b69db7ee1141b2c50b2efe9569e6a5d1ff663d399d3474dce688e88179c355",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-21T13:57:00+00:00",
+        "micro_runtime_content_sha256": "0d6101efc0f872635a8b3d62971279ce73ccd71044ee1dfa832d4fba51958369",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "c1f17b2eced1d2266380b9fe36f6568201e211e6d97ce5dcb1ee31adcb68f5fd",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "BANL"
+      },
+      {
+        "activation_id": "activation-70d696d8d8579ecd807fb9e22ba9ec059a73590d4b2b24aa567ea789c47f9aff",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-21T11:00:00+00:00",
+        "micro_runtime_content_sha256": "f4c1a09e33e500b0a119aac5853070196f1e145ff0a2edbf3610d93ff2604d4a",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "87b8a800bea3260b23c299a74fee4aa6d80c1ad9b9c93592afa337a708919319",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "CRNT"
+      },
+      {
+        "activation_id": "activation-a90dda3106a6593c0a54045abe60a8899ca1103edbf8b60c835e8b09016c1f83",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-21T13:53:00+00:00",
+        "micro_runtime_content_sha256": "02a95c510517c122773c47d7f47b867c2fc8836f1f9c73b25ce7a461b268764c",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "c050aa68896c67e9854d7837656e958e05d410b5b502ca03c1f466318ba2e661",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "HELP"
+      },
+      {
+        "activation_id": "activation-c47a751a22fce67a5c3f3648e453f16349afb217e36c809685de931a2c1e086f",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-21T11:02:00+00:00",
+        "micro_runtime_content_sha256": "9c71660fb90f80fd0d6e6ba0f62396f8cdfd29e54a6cd3d92d2820beaed0c759",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "86a77b99f9ff26d10176bdacaffb51ec4f83530577c5e78f41993ea5dc59dba1",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "RPT"
+      },
+      {
+        "activation_id": "activation-ce10ed6de6f05772e2601e4e425f32e1739792beb0a8b4f229b28486235dbf1e",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-21T12:01:00+00:00",
+        "micro_runtime_content_sha256": "dcbaaf9a8be93d66f8570361cad3a84b0861cc19a7c49e3abf50bf392cca0208",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "02691224cea6296a253d16a24cbef3813ab93c50a77c6c7a655b52764cccab87",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "UTZ"
+      },
+      {
+        "activation_id": "activation-d3a05f20e97ed12ea8db2e18eb83747c873878cc037d003f3d2852f8c5894360",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-21T13:37:00+00:00",
+        "micro_runtime_content_sha256": "940ad0a96a3c3384213cdc35cbfe61fb246ea8860e1d5080f63ae8c1a437be16",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "63e6f2c4c33657cd74fefafd24cf9073d5e7d12812719f2098c023b33976c94e",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "FWRD"
+      },
+      {
+        "activation_id": "activation-d831456b0a08d522427be46acaca65afebd82d872035cfb21e8096f6c17faaa4",
+        "candidate_quality": "a_quality",
+        "candidate_snapshot_at": "2026-07-21T13:01:00+00:00",
+        "micro_runtime_content_sha256": "778d82836743ee15a8a257618f95f7f9038beade1aaf73f25a6208c181f9057a",
+        "runtime_status": "replayed",
+        "scanner_record_content_sha256": "9883075ff02d637b979cf47a92009cb4719a32bbba5eef68c8c7c1f1e2175601",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "IMNN"
+      },
+      {
+        "activation_id": "activation-ef08d7334f5a3a6b4bd7f249009f0448491301622138dbc169746a561f1e6e1e",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-21T13:56:00+00:00",
+        "micro_runtime_content_sha256": "837b24611280f19f9400dce7d0e732bccc723acf01dd5bc2e73cb9174366e2fb",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "4e33963488f453a8277fc668cd8157062b50605ac656dfd1b0e48a91507b517e",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "LMFA"
+      }
+    ],
+    "content_sha256": "e7f0346be76462a0a00e2b342318694dd47f7e4ebc4077eae6a4370d854bfb26",
+    "contract_id": "account-chronological-integration-v0.1",
+    "event_order": [
+      "timestamp ascending",
+      "plan emissions before entry attempts at the same timestamp",
+      "same-time entry attempts by paper-account-scarcity-policy-v0.1",
+      "exit fills after entry attempts at the same timestamp",
+      "stable identifier tie-breakers"
+    ],
+    "frozen_parents": {
+      "account_policy_bundle_sha256": "df66cfb6637783f69e86379e63428813ce521bd3b648a7ab0131d1c7250cff51",
+      "account_policy_contract_content_sha256": "78dd5e3aef9485fc77f07632baec0274dceecb44c8cefd68ab8ea03e7727ceff",
+      "campaign_ledger_contract_content_sha256": "f2a80f4350e6283e2638702d70515bf03ee6c930e7d52706d09ef5e1d9f419b6",
+      "general_strategy_profile_fingerprint": "7d15fb979701324bf862b1dc37e5f9b514dcf1ab8cf1e062ae4a60027233d4ff",
+      "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+      "micro_policy_id": "micro-v0.1",
+      "small_strategy_profile_fingerprint": "fb86fc5326903cab16c283a03d8e371f66487f41589fb1b69b79f8912a0a6489"
+    },
+    "integration_events": [],
+    "knowledge_policy": {
+      "runtime_market_execution_and_predecision_account_state_only": true,
+      "uses_later_price_outcomes": false,
+      "uses_raw_transcripts": false,
+      "uses_retrospective_labels": false,
+      "uses_ross_actions_or_fills": false,
+      "uses_semantic_ai": false
+    },
+    "ledger_artifact": {
+      "account": {
+        "account_class": "main",
+        "account_id": "synthetic-main-30000-historical-diagnostic",
+        "flatten_required": false,
+        "high_water_pnl": 0.0,
+        "lock_reason": null,
+        "locked": false,
+        "open_campaign_count": 0,
+        "policy_id": "paper-safe-main-account-v0.1",
+        "realized_pnl": 0.0,
+        "remaining_buying_power": 30000.0,
+        "starting_buying_power": 30000.0,
+        "starting_equity": 30000.0,
+        "total_open_notional": 0,
+        "total_open_risk": 0
+      },
+      "artifact_type": "campaign_portfolio_account_state_shadow",
+      "campaigns": [],
+      "contract_id": "campaign-portfolio-account-state-v0.1",
+      "events": [],
+      "halted_symbols": [],
+      "knowledge_policy": "runtime_market_and_order_state_only_no_retrospective_labels",
+      "policy_promotion_eligible": false,
+      "schema_version": 1,
+      "selection_authority": "none",
+      "session_date": "2026-07-21",
+      "simultaneous_opportunity_groups": [],
+      "size_authority": "none",
+      "strategy_authority": "none"
+    },
+    "panel_id": "ross-account-integration-panel-v0.1",
+    "schema_version": 1,
+    "session_date": "2026-07-21",
+    "sizing_rule": "maximum positive whole shares inside remaining buying power, starter, campaign and total notional, and campaign and total open-risk ceilings"
+  },
+  "content_sha256": "027087b0f741122a63f5e1f4adc9372823205e22032c04c370db60bda72ec233",
+  "contract_id": "historical-account-diagnostic-v0.1",
+  "coverage": {
+    "complete_account_qualified_activation_set": false,
+    "complete_market_universe": false,
+    "every_frozen_candidate_anchor_evaluated": true,
+    "reason": "Qualification is tested only at the frozen market/Micro anchor; a candidate first becoming account-eligible on a later scanner row is not re-anchored, and the historical universe is not full-walk-forward eligible."
+  },
+  "labels": [
+    "retrospective",
+    "diagnostic-only",
+    "non-promotable",
+    "not-a-full-backtest"
+  ],
+  "schema_version": 1,
+  "session_date": "2026-07-21",
+  "source_binding": {
+    "micro_date_manifest_content_sha256": "a5163a9699be15c0113e341611af91939de80a449dd34001a54a0fd4ca55222f",
+    "scanner_snapshot_content_sha256": "f067ed8b8da46eccf93334e94c5dc9b183139184a436a175e29066068dc9a183"
+  },
+  "summary": {
+    "accepted_entry_count": 0,
+    "accepted_exit_count": 0,
+    "eligible_candidate_count": 1,
+    "ending_equity_if_realized_only": 30000.0,
+    "fixed_starting_equity": 30000.0,
+    "not_applied_exit_count": 0,
+    "not_submitted_entry_count": 0,
+    "open_campaign_count": 0,
+    "plan_emission_count": 0,
+    "profile_rejected_candidate_count": 10,
+    "realized_pnl": 0.0,
+    "realized_stop_only_pnl_fraction_of_fixed_starting_equity": 0.0,
+    "rejected_entry_count": 0,
+    "rejected_exit_count": 0,
+    "session_lock_reason": null,
+    "session_locked": false,
+    "source_candidate_count": 11,
+    "unavailable_eligible_candidate_count": 0,
+    "unresolved_open_notional": 0.0,
+    "unresolved_open_risk": 0.0
+  }
+}

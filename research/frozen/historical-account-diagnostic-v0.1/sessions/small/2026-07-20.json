@@ -1,0 +1,233 @@
+{
+  "account_class": "small",
+  "artifact_type": "historical_account_diagnostic_session",
+  "authority_boundary": {
+    "cross_session_compounding": false,
+    "historical_broker_balance_claim": false,
+    "independent_fixed_balance_session": true,
+    "policy_promotion_eligible": false,
+    "portfolio_backtest_eligible": false,
+    "unresolved_positions_marked_to_market": false
+  },
+  "composition_engine_output": {
+    "account": {
+      "account_class": "small",
+      "account_id": "synthetic-small-2000-historical-diagnostic",
+      "policy_id": "paper-safe-small-account-v0.1",
+      "snapshot_captured_at": "2026-07-20T06:59:00-04:00",
+      "snapshot_source_content_sha256": "0506c45e3702b65ca22bef00e393207fc841bc43ca5e6009af977d225f99ced3",
+      "snapshot_source_id": "registered-synthetic-fixed-balance-v0.1",
+      "starting_buying_power": 2000.0,
+      "starting_equity": 2000.0,
+      "strategy_profile_id": "current-small-account-2026"
+    },
+    "artifact_type": "account_chronological_integration_shadow",
+    "authority_boundary": {
+      "broker_order_authority": false,
+      "cross_account_dispatch_authority": false,
+      "liquidity_or_locate_verified": false,
+      "policy_promotion_eligible": false,
+      "portfolio_backtest_eligible": false,
+      "research_sizing_only": true,
+      "ross_replication_claim_eligible": false,
+      "unmodeled_open_positions": 0
+    },
+    "candidate_records": [
+      {
+        "activation_id": "activation-25ff19d73fcf42528ba8dcf77d3e2735b12e8c86618bdbc2b2873872ee3c664c",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-20T11:03:00+00:00",
+        "micro_runtime_content_sha256": "e1f03c1a4bc84ce4f6bfe840a86004c9f0e1c0320fea9b94d572ebe8226748db",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "6e9b4d8770ddf53bcf110f617f2fe28271c5b75321b3256ffb738f7dcd61a783",
+        "strategy_profile_id": "current-small-account-2026",
+        "symbol": "NUAI"
+      },
+      {
+        "activation_id": "activation-2b028a371075e823d430b9473165a51dde7e8d828fac027b66dd449fb922be71",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-20T11:00:00+00:00",
+        "micro_runtime_content_sha256": "4a8d56882e05c78cf6c4d6403468b65883db2e56f1a2a801018aa488b7d4d56f",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "fffb39149b9f267de41cac5eff94a2bae24ed583b8513a6f95cad86ed788ce29",
+        "strategy_profile_id": "current-small-account-2026",
+        "symbol": "AMC"
+      },
+      {
+        "activation_id": "activation-2d9da69f33d3a34ca0f08aaddf261a90c238a00b4930504d353fe73250be04a5",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-20T11:00:00+00:00",
+        "micro_runtime_content_sha256": "4e13c29b7858b4c2f6799f4f8e4bab60bd7d45fabcd197313083fbe6e3332643",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "35b6687e594db5bb81fa6b1d168009cf4addcd3cb2f0f5bc4c141bd761214c7b",
+        "strategy_profile_id": "current-small-account-2026",
+        "symbol": "ADVB"
+      },
+      {
+        "activation_id": "activation-2f22274259d7fb9e412cb4e75e991494c14630d0fdd443ac1a4491eb3e30cd5b",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-20T13:14:00+00:00",
+        "micro_runtime_content_sha256": "51d0d868bc5e5662c94abfb073f4134d2a9af65fe32efaca64879a9f14d849cb",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "49af80fa4640c933c649b2a9bb72033736e65909ff7d7fea51aa00a17cc96f1e",
+        "strategy_profile_id": "current-small-account-2026",
+        "symbol": "NIKI"
+      },
+      {
+        "activation_id": "activation-4215757a9e1eae25ae072a6db633263b12a7762d2f1031e27063ff3f24925a45",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-20T11:00:00+00:00",
+        "micro_runtime_content_sha256": "ce1d590d485f14421e019401f04bf110539e2d9e195ec26275bf8ebb4e373d98",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "b2fc0766e72f13162abb026908993ad7b16c87d31fb9692ef2ca1cadee18f106",
+        "strategy_profile_id": "current-small-account-2026",
+        "symbol": "BIYA"
+      },
+      {
+        "activation_id": "activation-89e7c1bde77a6605aa228c32cb07ccfa3699a7a39a086284d3266635c6a15dd6",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-20T13:44:00+00:00",
+        "micro_runtime_content_sha256": "496fb2de2cbc1f67e8ef50dc39bc8f24163809fb9ae5ef61fb2086e45300e10c",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "40edd716499ddf36a3ac43a3e4aaeceacddba574c022d61413152e5c318ec989",
+        "strategy_profile_id": "current-small-account-2026",
+        "symbol": "XNCR"
+      },
+      {
+        "activation_id": "activation-915ddffd2f8f8cab48aad478d021558a5a61446c433ee91d6af15e1399e0e520",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-20T13:02:00+00:00",
+        "micro_runtime_content_sha256": "c5bf2b07c6372bbacadf628712e9dfc9327fb160d8271ebf94a3ddccd1df5af7",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "5c74bc8e34cb44b900402c912790e74fd52d3b84e6efb5161c57ea55bd86ac8b",
+        "strategy_profile_id": "current-small-account-2026",
+        "symbol": "RMTI"
+      },
+      {
+        "activation_id": "activation-936dffb8bc560071477c705e7e790d92837e6014e0d0972ce2b59ccdb52863de",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-20T11:00:00+00:00",
+        "micro_runtime_content_sha256": "64e1267149270f947e8f15e55a0423c9cdee8dfb1bfba364e4d2d62f12681450",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "81ac7b5e98646668c01d64bd5ba6996a501980c0898c80621ddba442cb6275d3",
+        "strategy_profile_id": "current-small-account-2026",
+        "symbol": "BXBL"
+      },
+      {
+        "activation_id": "activation-eea8a2945939db0e9231107ec8209c678f14d737aecf3ef55ab32672ced5b1f7",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-20T11:03:00+00:00",
+        "micro_runtime_content_sha256": "299d54e378765c1473aff5db145b4e0f97c09fb57505854699ed49bd0f78245d",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "5e2b29e5a4d2e030ddb7a5eb08f3efdd3218dc4143682c643a283f528e31b540",
+        "strategy_profile_id": "current-small-account-2026",
+        "symbol": "ARMP"
+      }
+    ],
+    "content_sha256": "d4798a99f12fd01193da26ce0cea7bf6119a7f866b2fd884c265494d845ad912",
+    "contract_id": "account-chronological-integration-v0.1",
+    "event_order": [
+      "timestamp ascending",
+      "plan emissions before entry attempts at the same timestamp",
+      "same-time entry attempts by paper-account-scarcity-policy-v0.1",
+      "exit fills after entry attempts at the same timestamp",
+      "stable identifier tie-breakers"
+    ],
+    "frozen_parents": {
+      "account_policy_bundle_sha256": "df66cfb6637783f69e86379e63428813ce521bd3b648a7ab0131d1c7250cff51",
+      "account_policy_contract_content_sha256": "78dd5e3aef9485fc77f07632baec0274dceecb44c8cefd68ab8ea03e7727ceff",
+      "campaign_ledger_contract_content_sha256": "f2a80f4350e6283e2638702d70515bf03ee6c930e7d52706d09ef5e1d9f419b6",
+      "general_strategy_profile_fingerprint": "7d15fb979701324bf862b1dc37e5f9b514dcf1ab8cf1e062ae4a60027233d4ff",
+      "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+      "micro_policy_id": "micro-v0.1",
+      "small_strategy_profile_fingerprint": "fb86fc5326903cab16c283a03d8e371f66487f41589fb1b69b79f8912a0a6489"
+    },
+    "integration_events": [],
+    "knowledge_policy": {
+      "runtime_market_execution_and_predecision_account_state_only": true,
+      "uses_later_price_outcomes": false,
+      "uses_raw_transcripts": false,
+      "uses_retrospective_labels": false,
+      "uses_ross_actions_or_fills": false,
+      "uses_semantic_ai": false
+    },
+    "ledger_artifact": {
+      "account": {
+        "account_class": "small",
+        "account_id": "synthetic-small-2000-historical-diagnostic",
+        "flatten_required": false,
+        "high_water_pnl": 0.0,
+        "lock_reason": null,
+        "locked": false,
+        "open_campaign_count": 0,
+        "policy_id": "paper-safe-small-account-v0.1",
+        "realized_pnl": 0.0,
+        "remaining_buying_power": 2000.0,
+        "starting_buying_power": 2000.0,
+        "starting_equity": 2000.0,
+        "total_open_notional": 0,
+        "total_open_risk": 0
+      },
+      "artifact_type": "campaign_portfolio_account_state_shadow",
+      "campaigns": [],
+      "contract_id": "campaign-portfolio-account-state-v0.1",
+      "events": [],
+      "halted_symbols": [],
+      "knowledge_policy": "runtime_market_and_order_state_only_no_retrospective_labels",
+      "policy_promotion_eligible": false,
+      "schema_version": 1,
+      "selection_authority": "none",
+      "session_date": "2026-07-20",
+      "simultaneous_opportunity_groups": [],
+      "size_authority": "none",
+      "strategy_authority": "none"
+    },
+    "panel_id": "ross-account-integration-panel-v0.1",
+    "schema_version": 1,
+    "session_date": "2026-07-20",
+    "sizing_rule": "maximum positive whole shares inside remaining buying power, starter, campaign and total notional, and campaign and total open-risk ceilings"
+  },
+  "content_sha256": "b7abfed497789ef33497800ba942cc802ed078ff7ac9a662633ce51388d1c404",
+  "contract_id": "historical-account-diagnostic-v0.1",
+  "coverage": {
+    "complete_account_qualified_activation_set": false,
+    "complete_market_universe": false,
+    "complete_small_profile_candidate_universe": false,
+    "every_frozen_candidate_anchor_evaluated": true,
+    "reason": "The general-profile source may omit small-profile candidates priced from 1.50 through 1.99, and candidates first satisfying the small profile after the frozen general anchor are not re-anchored."
+  },
+  "labels": [
+    "retrospective",
+    "diagnostic-only",
+    "non-promotable",
+    "not-a-full-backtest"
+  ],
+  "schema_version": 1,
+  "session_date": "2026-07-20",
+  "source_binding": {
+    "micro_date_manifest_content_sha256": "11e74997450a85ec1b29dab5b21822a3b6ee1f57f423351e853290a74982ab85",
+    "scanner_snapshot_content_sha256": "6499fbc2550612550526bcb339bda14a4caf8c19cda0fe3647f167895f04ac61"
+  },
+  "summary": {
+    "accepted_entry_count": 0,
+    "accepted_exit_count": 0,
+    "eligible_candidate_count": 0,
+    "ending_equity_if_realized_only": 2000.0,
+    "fixed_starting_equity": 2000.0,
+    "not_applied_exit_count": 0,
+    "not_submitted_entry_count": 0,
+    "open_campaign_count": 0,
+    "plan_emission_count": 0,
+    "profile_rejected_candidate_count": 9,
+    "realized_pnl": 0.0,
+    "realized_stop_only_pnl_fraction_of_fixed_starting_equity": 0.0,
+    "rejected_entry_count": 0,
+    "rejected_exit_count": 0,
+    "session_lock_reason": null,
+    "session_locked": false,
+    "source_candidate_count": 9,
+    "unavailable_eligible_candidate_count": 0,
+    "unresolved_open_notional": 0.0,
+    "unresolved_open_risk": 0.0
+  }
+}

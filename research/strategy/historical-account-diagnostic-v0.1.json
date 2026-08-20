@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "contract_id": "historical-account-diagnostic-v0.1",
+  "artifact_type": "retrospective_account_overlay_registration",
+  "registration_date": "2026-08-19",
+  "registration_status": "registered_after_source_runtime_before_account_composition",
+  "purpose": "Apply the already-frozen paper account constraints and chronological ledger to an already-frozen label-blind historical scanner and Micro runtime, solely to obtain an immediate account-feasibility diagnostic while the separate prospective account panel accumulates.",
+  "runtime_strategy_effect": "none_shadow_only",
+  "prospective_contract_modified": false,
+  "portfolio_backtest_eligible": false,
+  "policy_promotion_eligible": false,
+  "profitability_claim_eligible": false,
+  "ross_replication_claim_eligible": false,
+  "frozen_parents": {
+    "micro_policy_id": "micro-v0.1",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "campaign_ledger_contract_content_sha256": "f2a80f4350e6283e2638702d70515bf03ee6c930e7d52706d09ef5e1d9f419b6",
+    "account_policy_contract_content_sha256": "78dd5e3aef9485fc77f07632baec0274dceecb44c8cefd68ab8ea03e7727ceff",
+    "account_policy_bundle_sha256": "df66cfb6637783f69e86379e63428813ce521bd3b648a7ab0131d1c7250cff51",
+    "prospective_account_integration_contract_content_sha256": "64489aa27fec5eaf8ca12c94f4aeb47344d49a79b14df1bdda706cd23cc9ce73",
+    "general_strategy_profile_fingerprint": "7d15fb979701324bf862b1dc37e5f9b514dcf1ab8cf1e062ae4a60027233d4ff",
+    "small_strategy_profile_fingerprint": "fb86fc5326903cab16c283a03d8e371f66487f41589fb1b69b79f8912a0a6489"
+  },
+  "frozen_sources": {
+    "causal_scanner_runtime": {
+      "artifact_id": 9305468839,
+      "artifact_name": "discretion-heldout-runtime-v0.1",
+      "workflow_run_id": 32071946359,
+      "workflow_head_sha": "6a83aca89f0e6fc5cf98e7d34fcb403d81674b8a",
+      "zip_sha256": "850d9cfba27d7677904ccf147251b3ff914292102be0e3c62fec7bb47b6f73bb",
+      "heldout_manifest_file_sha256": "a55ea217d65ada1d189af51111b801b60610c3a62cf3838dcafd98b5a115385f",
+      "heldout_manifest_content_sha256": "2414f7389bf68d5a5e4b3302c646c9111020cb79ce06fc0213f7872062f79c48",
+      "scanner_aggregate_manifest_file_sha256": "34ce9c43df2f51f1c0b181bae5c72b144afc6b848c7d2bea4927b5c1c832de0c",
+      "scanner_aggregate_manifest_content_sha256": "008ef162413ad3626944c44a6c8e964cbb825a6253fdfe360701d55d454e70a0"
+    },
+    "micro_runtime": {
+      "artifact_id": 9310627233,
+      "artifact_name": "discretion-heldout-micro-runtime-v0.1",
+      "workflow_run_id": 32096497787,
+      "workflow_head_sha": "381303091edfbcdf2584a7a4b6f1c73dfcbee33e",
+      "zip_sha256": "3b59e4b1a69e268158f6ccbead1fe9abae425fc249e72b34f466e53ebba56b20",
+      "manifest_file_sha256": "cd1f52248ede37ac66010997c7b7f547efd023de27fe086846ad77863af40fa1",
+      "manifest_content_sha256": "feb2283acf1f180fd82b0e3c25acde1ebb9ebc036c47533e1d61fc9e8883e190",
+      "source_heldout_runtime_content_sha256": "2414f7389bf68d5a5e4b3302c646c9111020cb79ce06fc0213f7872062f79c48"
+    }
+  },
+  "sampling_contract": {
+    "dates": [
+      "2026-07-10",
+      "2026-07-13",
+      "2026-07-14",
+      "2026-07-15",
+      "2026-07-16",
+      "2026-07-17",
+      "2026-07-20",
+      "2026-07-21",
+      "2026-07-22",
+      "2026-07-23"
+    ],
+    "candidate_source": "every causal-market-discovery-v0.2 activation retained by discretion-heldout-runtime-v0.1",
+    "date_or_symbol_selection_changed": false,
+    "top_n_filter_applied": false,
+    "source_runtime_replayed_or_recomputed": false,
+    "known_at_registration": "Both source artifacts and their aggregate plan/fill counts already existed and had been inspected before this account overlay was registered; this is retrospective composition, not a held-out or prospective experiment."
+  },
+  "candidate_contract": {
+    "activation_anchor": "exact scanner row matching the frozen Micro candidate_qualified_at",
+    "features": [
+      "price",
+      "cumulative_volume",
+      "exact_same_time_rvol",
+      "percent_gain",
+      "estimated_float_shares",
+      "has_provider_news_as_of",
+      "top_gainer_rank"
+    ],
+    "account_profile_reapplication": "apply the unchanged current-general-2026 or current-small-account-2026 thresholds to the exact causal activation row",
+    "provider_news_semantics": "publication-timed Alpaca/Benzinga provider presence is used only as the existing has_fresh_news boolean; headline catalyst quality remains unclassified",
+    "rejected_candidate_behavior": "retain the record and Micro hash but do not expose its plans or outcomes to the account ledger",
+    "small_account_coverage": "partial_same_anchor_overlap_only because the source discovery and Micro replay used the first general-profile market anchor; it can omit small-profile candidates priced from 1.50 through 1.99 and candidates first satisfying the small account profile after that anchor",
+    "main_account_coverage": "partial_same_anchor_overlap_only because account qualification is tested at the already-frozen market/Micro anchor rather than searching later scanner rows for a more favorable account-qualified activation; the source universe itself is also not full-walk-forward eligible"
+  },
+  "synthetic_account_contract": {
+    "main": {
+      "account_id": "synthetic-main-30000-historical-diagnostic",
+      "account_class": "main",
+      "starting_equity": 30000.0,
+      "starting_buying_power": 30000.0
+    },
+    "small": {
+      "account_id": "synthetic-small-2000-historical-diagnostic",
+      "account_class": "small",
+      "starting_equity": 2000.0,
+      "starting_buying_power": 2000.0
+    },
+    "balance_semantics": "Each historical session is an independent fixed-balance feasibility scenario. Profit, loss, positions, and buying power do not carry between sessions.",
+    "buying_power_assumption": "cash-like buying power equal to starting equity; the unchanged 50 percent notional cap binds before this assumption can increase size",
+    "broker_snapshot_claim": false,
+    "real_account_identifier_or_secret_used": false
+  },
+  "chronology_and_sizing_contract": {
+    "composition_engine": "unchanged account-chronological-integration-v0.1",
+    "event_order": [
+      "timestamp ascending",
+      "plan emissions before entry attempts at the same timestamp",
+      "same-time entry attempts by paper-account-scarcity-policy-v0.1",
+      "exit fills after entry attempts at the same timestamp",
+      "stable identifier tie-breakers"
+    ],
+    "sizing_rule": "maximum positive whole shares inside remaining buying power, starter, campaign and total notional, and campaign and total open-risk ceilings",
+    "filled_open_behavior": "remain open and unresolved; no session-close exit is invented",
+    "cross_account_priority": "unresolved; accounts are composed independently"
+  },
+  "knowledge_policy": {
+    "raw_transcripts_used": false,
+    "ross_actions_labels_or_reported_fills_used": false,
+    "retrospective_behavior_labels_used": false,
+    "semantic_context_used": false,
+    "source_micro_outcomes_used": true,
+    "source_micro_outcome_role": "already-frozen label-blind price-path evidence supplied only after account profile qualification",
+    "later_unmodeled_prices_used_to_close_positions": false
+  },
+  "reporting_contract": {
+    "primary_outputs": [
+      "per-session accepted and rejected entry events",
+      "per-session realized P&L",
+      "unresolved open positions and exposure",
+      "ten-session sum of independently sized realized P&L"
+    ],
+    "return_denominator": "fixed starting equity, not a compounded equity curve",
+    "unresolved_positions_excluded_from_realized_pnl": true,
+    "required_labels": [
+      "retrospective",
+      "diagnostic-only",
+      "non-promotable",
+      "not-a-full-backtest"
+    ]
+  },
+  "execution_status": {
+    "account_composition": "not_started_at_registration",
+    "runtime_artifact_sha256": null
+  }
+}

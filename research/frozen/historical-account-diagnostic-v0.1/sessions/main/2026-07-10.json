@@ -1,0 +1,519 @@
+{
+  "account_class": "main",
+  "artifact_type": "historical_account_diagnostic_session",
+  "authority_boundary": {
+    "cross_session_compounding": false,
+    "historical_broker_balance_claim": false,
+    "independent_fixed_balance_session": true,
+    "policy_promotion_eligible": false,
+    "portfolio_backtest_eligible": false,
+    "unresolved_positions_marked_to_market": false
+  },
+  "composition_engine_output": {
+    "account": {
+      "account_class": "main",
+      "account_id": "synthetic-main-30000-historical-diagnostic",
+      "policy_id": "paper-safe-main-account-v0.1",
+      "snapshot_captured_at": "2026-07-10T06:59:00-04:00",
+      "snapshot_source_content_sha256": "105c01e2463d248744b3da645c15de5a07c5e72abbed507c335e49d1d53165bc",
+      "snapshot_source_id": "registered-synthetic-fixed-balance-v0.1",
+      "starting_buying_power": 30000.0,
+      "starting_equity": 30000.0,
+      "strategy_profile_id": "current-general-2026"
+    },
+    "artifact_type": "account_chronological_integration_shadow",
+    "authority_boundary": {
+      "broker_order_authority": false,
+      "cross_account_dispatch_authority": false,
+      "liquidity_or_locate_verified": false,
+      "policy_promotion_eligible": false,
+      "portfolio_backtest_eligible": false,
+      "research_sizing_only": true,
+      "ross_replication_claim_eligible": false,
+      "unmodeled_open_positions": 1
+    },
+    "candidate_records": [
+      {
+        "activation_id": "activation-0377975e0ceabc84cc9038945b73f58c60a8960df885eb27b1f8e336d30d30db",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-10T11:00:00+00:00",
+        "micro_runtime_content_sha256": "1ae385a829eb09eeaa1b577998383e8e1c311fccc175ce39ce969bb6c3fba7de",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "05657d8e97c87e660a985428b0e7d5434a7ed8eb07de4dc46ab75573c4b53e32",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "JLHL"
+      },
+      {
+        "activation_id": "activation-0907abbfcf15745b8b7f2436d8e970b2006e0f228f3b86c895ee4e055e13da11",
+        "candidate_quality": "a_quality",
+        "candidate_snapshot_at": "2026-07-10T11:00:00+00:00",
+        "micro_runtime_content_sha256": "9e4759b34828bb9b7da217386131506ec10cb5dd92b3613c50a45cdf7a65ccaa",
+        "runtime_status": "replayed",
+        "scanner_record_content_sha256": "7eeac6e43046e8baf93497b141280fc212f383319df9430149b2a9a39f2d7b10",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "WOK"
+      },
+      {
+        "activation_id": "activation-287474f8f643d40c723734ca033b5b12a15b1c5a2d339f97ca37ffaafb4c9142",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-10T13:44:00+00:00",
+        "micro_runtime_content_sha256": "aa563e4d7bfcc51088ca13a92245fdff9a180bd560dcdbf80106a4492673326b",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "dfea2ceffe38327177efa7ca57f6af6d6b751a0d8557b763620cfd7e1c15a012",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "OPRT"
+      },
+      {
+        "activation_id": "activation-3d58b00a865d792c74695afe4b99d2fc4a018cca405b3c4ceab4feb276190d2d",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-10T11:01:00+00:00",
+        "micro_runtime_content_sha256": "e63161fdc9c2456822852408f21797856ecde1e2837a4b013af8c1112d03abe6",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "fedccfdddbf5b98d9e1d692428c96eb33f2eacb69606f18b19bf5abcd572ba2d",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "CCC"
+      },
+      {
+        "activation_id": "activation-594cd0a2f72660d7a89be12961501fa6064f06a346e590e869dce6eb71f90b60",
+        "candidate_quality": "a_quality",
+        "candidate_snapshot_at": "2026-07-10T13:35:00+00:00",
+        "micro_runtime_content_sha256": "6b5fdee9b47829ff1f333098005fb5fb6f344a8f4e1f9db902d76de71e1730f7",
+        "runtime_status": "replayed",
+        "scanner_record_content_sha256": "6082282b9f53129d2a622f8ba92bbcc6a7dbc94108488dea4a2c0ffd04bdf50f",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "JZXN"
+      },
+      {
+        "activation_id": "activation-6977d569b5de59cfc6efe6c39e72b8806090b8dd06225980901a7d9e316e793b",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-10T11:01:00+00:00",
+        "micro_runtime_content_sha256": "40ad82279daad49cc4cabd69293f7fac9aceb8416c6dfaadbaaaf78c08e65d5c",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "f8c98d0e14b7530b84c5be2d55b8789ca7afe4391b5b6dcbdc8054cb6e340921",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "VOD"
+      },
+      {
+        "activation_id": "activation-79913ea10a484c494845c085a62ac537fa7052b2eb2e379dba12f8b24f283671",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-10T12:09:00+00:00",
+        "micro_runtime_content_sha256": "a32ba507e15f74733a41a1b47048bb5f622c19b8694b70bb54c9c292c9f68bce",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "6ed4490eb9f5ee30c18a5d016ea98d9c864b0fb9634680f38456e8fe2f04b8d2",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "INTJ"
+      },
+      {
+        "activation_id": "activation-c4677b08d86d34b23a9317d126724d6d4fe6fce572f464f6081f5c814ae035cc",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-10T11:13:00+00:00",
+        "micro_runtime_content_sha256": "34ca71d1f0c321d5d2a1872c5f83abffb53cc6f285d613302e878b6ca0d942fc",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "af3f9311e19e6e09d5ca5d27607d1bc3d9303aed2e98062e37c397e0226e53fb",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "NVVE"
+      },
+      {
+        "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+        "candidate_quality": "a_quality",
+        "candidate_snapshot_at": "2026-07-10T11:00:00+00:00",
+        "micro_runtime_content_sha256": "7db0f425fd71bb9e08e7f531d9238407afba9e6db0d208539948627981b37455",
+        "runtime_status": "replayed",
+        "scanner_record_content_sha256": "dc6142353e86e19d5d0a39deba5e8370e85d4bf6de7abfda4531058b569e456d",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "GMM"
+      },
+      {
+        "activation_id": "activation-d8608ef969de12aeed6e1277a95c404fdaad28aa6bb13ea9c1eca9e630134d31",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-10T13:33:00+00:00",
+        "micro_runtime_content_sha256": "36a3199575bb3d528e6eb0fbe895a52db718c6a5e42d6a7d66e247f1f2a82f91",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "eab0070721c57bcc0ad7f817e4cda3a1567cb5d30d92fe039c4ba6a8cb7f3914",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "DFSC"
+      },
+      {
+        "activation_id": "activation-e35ff82d82029b04ef56d7cd3a136960ea9a0de5f38e2e7a552a58d54f0b32aa",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-10T13:52:00+00:00",
+        "micro_runtime_content_sha256": "471a8700ed0a2eb1afa85492975154669b656b3b2ce265841884ce629a1f6cf5",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "bb9aa5e385dd50cf83d545c22ebe8a3ecdeb2d19fd193a1f1512e1790f71708c",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "LIVE"
+      },
+      {
+        "activation_id": "activation-f10d8c5ca0230c066784cb3a9c2e0343a4ef48f40780d182a60e04575b81b40c",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-10T11:00:00+00:00",
+        "micro_runtime_content_sha256": "111b7d12ee99a61baf0ab1a1b0de1b406faf47eb6e9e39934a509be3358a273b",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "bb599717668e59fd9c3e247c71845c01bcb56194fc356e0a711100cdb49a25be",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "EQPT"
+      },
+      {
+        "activation_id": "activation-f4d106bf0a44a0e76317556e969603c906610bd1f2198ca783df9284ec328bc9",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-10T11:47:00+00:00",
+        "micro_runtime_content_sha256": "754bef0b02b5e4d4859c3e7da5d4554de7df8f7ec0e90b73e5b58886815c7d7d",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "7e067690c93cacf994f8a51262ab4abeb0c1e3715e3751bba1fd90e721b8a716",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "TKLF"
+      },
+      {
+        "activation_id": "activation-fefba6c6b120576e358e5753f942b446bff17d4415f687a35ee35b2da5a9adc3",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-10T13:29:00+00:00",
+        "micro_runtime_content_sha256": "e1856d765d144519f6d08e5fb0c7fa477a2f5931c82fcabf1255440ad517da3e",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "54cb2dd2cc1d3ed778f5d1eff6a00b3482a926077bdf2a1ade7ef7d5a8585e76",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "CDZI"
+      }
+    ],
+    "content_sha256": "0500d3ea79764dfb4bb65aaa6af19909d0a22066acc26250b9cb6dbf947c43ce",
+    "contract_id": "account-chronological-integration-v0.1",
+    "event_order": [
+      "timestamp ascending",
+      "plan emissions before entry attempts at the same timestamp",
+      "same-time entry attempts by paper-account-scarcity-policy-v0.1",
+      "exit fills after entry attempts at the same timestamp",
+      "stable identifier tie-breakers"
+    ],
+    "frozen_parents": {
+      "account_policy_bundle_sha256": "df66cfb6637783f69e86379e63428813ce521bd3b648a7ab0131d1c7250cff51",
+      "account_policy_contract_content_sha256": "78dd5e3aef9485fc77f07632baec0274dceecb44c8cefd68ab8ea03e7727ceff",
+      "campaign_ledger_contract_content_sha256": "f2a80f4350e6283e2638702d70515bf03ee6c930e7d52706d09ef5e1d9f419b6",
+      "general_strategy_profile_fingerprint": "7d15fb979701324bf862b1dc37e5f9b514dcf1ab8cf1e062ae4a60027233d4ff",
+      "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+      "micro_policy_id": "micro-v0.1",
+      "small_strategy_profile_fingerprint": "fb86fc5326903cab16c283a03d8e371f66487f41589fb1b69b79f8912a0a6489"
+    },
+    "integration_events": [
+      {
+        "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+        "at": "2026-07-10T11:03:30+00:00",
+        "event_type": "plan_emission",
+        "plan_id": "plan-838659c30455767a8a6a3accfe2d665ee9199aa379f6006cb39a08b63c60a42d",
+        "symbol": "GMM"
+      },
+      {
+        "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+        "at": "2026-07-10T11:03:40+00:00",
+        "event_type": "plan_emission",
+        "plan_id": "plan-c73a92fb577b69a85a6834d4a823b6aa585d58e889a9c1dcf10f3a5d5e4de82d",
+        "symbol": "GMM"
+      },
+      {
+        "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+        "at": "2026-07-10T11:03:43.796117446+00:00",
+        "event_type": "entry_accepted",
+        "fill_id": "entry-92142e43ae8c950dadd1ef22d9ff8fbbeb875440183541c54c97cb3e5865887e",
+        "fill_price": 3.92,
+        "opportunity_id": "opportunity-2eedbcfb07b146539a42a6e0519416e6e9161013860159317005cf96613d9258",
+        "plan_id": "plan-c73a92fb577b69a85a6834d4a823b6aa585d58e889a9c1dcf10f3a5d5e4de82d",
+        "quantity": 577,
+        "reasons": [],
+        "reference_price": 3.92,
+        "role": "starter",
+        "same_time_entry_ordinal": 1,
+        "stop_price": 3.7901,
+        "symbol": "GMM"
+      },
+      {
+        "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+        "at": "2026-07-10T11:03:50+00:00",
+        "event_type": "plan_emission",
+        "plan_id": "plan-f7b0147154bad54dc95e99de75ebfab3e4ce97d26136d65d4b484bbff5233247",
+        "symbol": "GMM"
+      },
+      {
+        "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+        "at": "2026-07-10T11:03:53.128971211+00:00",
+        "event_type": "entry_not_submitted",
+        "opportunity_id": "opportunity-a2bf82bf95bb0d1e6682eb76dc553c249fe859b1aa7393a3f076abf822eb9908",
+        "plan_id": "plan-f7b0147154bad54dc95e99de75ebfab3e4ce97d26136d65d4b484bbff5233247",
+        "reason": "no_positive_whole_share_capacity",
+        "role": "add",
+        "same_time_entry_ordinal": 1,
+        "symbol": "GMM"
+      },
+      {
+        "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+        "at": "2026-07-10T12:15:50+00:00",
+        "event_type": "plan_emission",
+        "plan_id": "plan-7fd092b0bcbf1a09d8aca971a60d6216771087b9e1d5b9ebf6961ee50de451b1",
+        "symbol": "GMM"
+      },
+      {
+        "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+        "at": "2026-07-10T12:15:59.308783979+00:00",
+        "event_type": "entry_not_submitted",
+        "opportunity_id": "opportunity-397b4c99bbb925bc608a74bf5ad082b396f11f1beed75245ddcbf8a4bf06a3e0",
+        "plan_id": "plan-7fd092b0bcbf1a09d8aca971a60d6216771087b9e1d5b9ebf6961ee50de451b1",
+        "reason": "no_positive_whole_share_capacity",
+        "role": "add",
+        "same_time_entry_ordinal": 1,
+        "symbol": "GMM"
+      },
+      {
+        "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+        "at": "2026-07-10T12:16:00+00:00",
+        "event_type": "plan_emission",
+        "plan_id": "plan-d225641d169a943e199f1b711888a6fcf6a38f0495606f55b25a95f0d79af4a8",
+        "symbol": "GMM"
+      },
+      {
+        "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+        "at": "2026-07-10T12:16:10+00:00",
+        "event_type": "plan_emission",
+        "plan_id": "plan-158ce206fe86417b49c8c884175f91a7a37ba00a3c0e505bae3157424510996f",
+        "symbol": "GMM"
+      },
+      {
+        "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+        "at": "2026-07-10T12:16:20+00:00",
+        "event_type": "plan_emission",
+        "plan_id": "plan-0cf6fdc5d972dbcfec3a0762526525dfe94b66efcf037cf8ffea03b734e00b13",
+        "symbol": "GMM"
+      },
+      {
+        "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+        "at": "2026-07-10T12:16:30+00:00",
+        "event_type": "plan_emission",
+        "plan_id": "plan-c1aa03cb62fc3202e33f06732ffd779108320750d00f93264d1fb2dc42fef14e",
+        "symbol": "GMM"
+      },
+      {
+        "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+        "at": "2026-07-10T12:16:31.915892014+00:00",
+        "event_type": "entry_not_submitted",
+        "opportunity_id": "opportunity-d957945399b42e39160c7602e78b113c075ffcca69bae20d0ea4a349a5362101",
+        "plan_id": "plan-c1aa03cb62fc3202e33f06732ffd779108320750d00f93264d1fb2dc42fef14e",
+        "reason": "no_positive_whole_share_capacity",
+        "role": "add",
+        "same_time_entry_ordinal": 1,
+        "symbol": "GMM"
+      },
+      {
+        "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+        "at": "2026-07-10T12:27:53.271966937+00:00",
+        "entry_fill_id": "entry-abf2402fb2ffa44ac5fc5df082616ff681c60a7ced6ac62755e6d23bd3bde48e",
+        "event_type": "exit_not_applied",
+        "exit_fill_id": "exit-89bf33cb9cedb300e647ca21280bee365c6081947b7e4d725f4590e135b9dc3b",
+        "reason": "corresponding_entry_not_accepted",
+        "symbol": "GMM"
+      },
+      {
+        "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+        "at": "2026-07-10T12:27:53.271966937+00:00",
+        "entry_fill_id": "entry-2835c4111106f4df1c6f1cdc4b3ccf7ec1eae7dd49d948d819cee847d34c3cd4",
+        "event_type": "exit_not_applied",
+        "exit_fill_id": "exit-91da05754611ac61d7df003c05268d7d9c2032f3e9afb0979347abde98929b45",
+        "reason": "corresponding_entry_not_accepted",
+        "symbol": "GMM"
+      }
+    ],
+    "knowledge_policy": {
+      "runtime_market_execution_and_predecision_account_state_only": true,
+      "uses_later_price_outcomes": false,
+      "uses_raw_transcripts": false,
+      "uses_retrospective_labels": false,
+      "uses_ross_actions_or_fills": false,
+      "uses_semantic_ai": false
+    },
+    "ledger_artifact": {
+      "account": {
+        "account_class": "main",
+        "account_id": "synthetic-main-30000-historical-diagnostic",
+        "flatten_required": false,
+        "high_water_pnl": 0.0,
+        "lock_reason": null,
+        "locked": false,
+        "open_campaign_count": 1,
+        "policy_id": "paper-safe-main-account-v0.1",
+        "realized_pnl": 0.0,
+        "remaining_buying_power": 27738.16,
+        "starting_buying_power": 30000.0,
+        "starting_equity": 30000.0,
+        "total_open_notional": 2261.84,
+        "total_open_risk": 74.95230000000008
+      },
+      "artifact_type": "campaign_portfolio_account_state_shadow",
+      "campaigns": [
+        {
+          "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+          "average_entry_price": 3.9200000000000004,
+          "campaign_id": "campaign-730b502e8c9808f6bdcf",
+          "entry_fill_count": 1,
+          "open_notional": 2261.84,
+          "open_risk": 74.95230000000008,
+          "plan_ids": [
+            "plan-838659c30455767a8a6a3accfe2d665ee9199aa379f6006cb39a08b63c60a42d",
+            "plan-c73a92fb577b69a85a6834d4a823b6aa585d58e889a9c1dcf10f3a5d5e4de82d",
+            "plan-f7b0147154bad54dc95e99de75ebfab3e4ce97d26136d65d4b484bbff5233247",
+            "plan-7fd092b0bcbf1a09d8aca971a60d6216771087b9e1d5b9ebf6961ee50de451b1",
+            "plan-d225641d169a943e199f1b711888a6fcf6a38f0495606f55b25a95f0d79af4a8",
+            "plan-158ce206fe86417b49c8c884175f91a7a37ba00a3c0e505bae3157424510996f",
+            "plan-0cf6fdc5d972dbcfec3a0762526525dfe94b66efcf037cf8ffea03b734e00b13",
+            "plan-c1aa03cb62fc3202e33f06732ffd779108320750d00f93264d1fb2dc42fef14e"
+          ],
+          "quantity": 577,
+          "realized_pnl": 0.0,
+          "reentry_count": 0,
+          "status": "open",
+          "symbol": "GMM",
+          "terminal_reason": null
+        }
+      ],
+      "contract_id": "campaign-portfolio-account-state-v0.1",
+      "events": [
+        {
+          "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+          "at": "2026-07-10T11:03:30+00:00",
+          "campaign_id": "campaign-730b502e8c9808f6bdcf",
+          "event_type": "plan_emission",
+          "plan_id": "plan-838659c30455767a8a6a3accfe2d665ee9199aa379f6006cb39a08b63c60a42d",
+          "sequence": 1,
+          "symbol": "GMM"
+        },
+        {
+          "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+          "at": "2026-07-10T11:03:40+00:00",
+          "campaign_id": "campaign-730b502e8c9808f6bdcf",
+          "event_type": "plan_emission",
+          "plan_id": "plan-c73a92fb577b69a85a6834d4a823b6aa585d58e889a9c1dcf10f3a5d5e4de82d",
+          "sequence": 2,
+          "symbol": "GMM"
+        },
+        {
+          "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+          "at": "2026-07-10T11:03:43.796117446+00:00",
+          "campaign_id": "campaign-730b502e8c9808f6bdcf",
+          "event_type": "entry_accepted",
+          "fill_id": "entry-92142e43ae8c950dadd1ef22d9ff8fbbeb875440183541c54c97cb3e5865887e",
+          "fill_price": 3.92,
+          "observed_slippage_bps": 0.0,
+          "plan_id": "plan-c73a92fb577b69a85a6834d4a823b6aa585d58e889a9c1dcf10f3a5d5e4de82d",
+          "quantity": 577,
+          "role": "starter",
+          "sequence": 3,
+          "stop_price": 3.7901,
+          "symbol": "GMM"
+        },
+        {
+          "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+          "at": "2026-07-10T11:03:50+00:00",
+          "campaign_id": "campaign-730b502e8c9808f6bdcf",
+          "event_type": "plan_emission",
+          "plan_id": "plan-f7b0147154bad54dc95e99de75ebfab3e4ce97d26136d65d4b484bbff5233247",
+          "sequence": 4,
+          "symbol": "GMM"
+        },
+        {
+          "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+          "at": "2026-07-10T12:15:50+00:00",
+          "campaign_id": "campaign-730b502e8c9808f6bdcf",
+          "event_type": "plan_emission",
+          "plan_id": "plan-7fd092b0bcbf1a09d8aca971a60d6216771087b9e1d5b9ebf6961ee50de451b1",
+          "sequence": 5,
+          "symbol": "GMM"
+        },
+        {
+          "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+          "at": "2026-07-10T12:16:00+00:00",
+          "campaign_id": "campaign-730b502e8c9808f6bdcf",
+          "event_type": "plan_emission",
+          "plan_id": "plan-d225641d169a943e199f1b711888a6fcf6a38f0495606f55b25a95f0d79af4a8",
+          "sequence": 6,
+          "symbol": "GMM"
+        },
+        {
+          "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+          "at": "2026-07-10T12:16:10+00:00",
+          "campaign_id": "campaign-730b502e8c9808f6bdcf",
+          "event_type": "plan_emission",
+          "plan_id": "plan-158ce206fe86417b49c8c884175f91a7a37ba00a3c0e505bae3157424510996f",
+          "sequence": 7,
+          "symbol": "GMM"
+        },
+        {
+          "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+          "at": "2026-07-10T12:16:20+00:00",
+          "campaign_id": "campaign-730b502e8c9808f6bdcf",
+          "event_type": "plan_emission",
+          "plan_id": "plan-0cf6fdc5d972dbcfec3a0762526525dfe94b66efcf037cf8ffea03b734e00b13",
+          "sequence": 8,
+          "symbol": "GMM"
+        },
+        {
+          "activation_id": "activation-d0e1bf9d76b45a52f4c2c5991d9aa4569ad12c140c9f2a02d2a77981a0d08488",
+          "at": "2026-07-10T12:16:30+00:00",
+          "campaign_id": "campaign-730b502e8c9808f6bdcf",
+          "event_type": "plan_emission",
+          "plan_id": "plan-c1aa03cb62fc3202e33f06732ffd779108320750d00f93264d1fb2dc42fef14e",
+          "sequence": 9,
+          "symbol": "GMM"
+        }
+      ],
+      "halted_symbols": [],
+      "knowledge_policy": "runtime_market_and_order_state_only_no_retrospective_labels",
+      "policy_promotion_eligible": false,
+      "schema_version": 1,
+      "selection_authority": "none",
+      "session_date": "2026-07-10",
+      "simultaneous_opportunity_groups": [],
+      "size_authority": "none",
+      "strategy_authority": "none"
+    },
+    "panel_id": "ross-account-integration-panel-v0.1",
+    "schema_version": 1,
+    "session_date": "2026-07-10",
+    "sizing_rule": "maximum positive whole shares inside remaining buying power, starter, campaign and total notional, and campaign and total open-risk ceilings"
+  },
+  "content_sha256": "9bc43e4a557c4e4835d598d0c72f6b0703d193088ff17e17ab4733dedf5a5ade",
+  "contract_id": "historical-account-diagnostic-v0.1",
+  "coverage": {
+    "complete_account_qualified_activation_set": false,
+    "complete_market_universe": false,
+    "every_frozen_candidate_anchor_evaluated": true,
+    "reason": "Qualification is tested only at the frozen market/Micro anchor; a candidate first becoming account-eligible on a later scanner row is not re-anchored, and the historical universe is not full-walk-forward eligible."
+  },
+  "labels": [
+    "retrospective",
+    "diagnostic-only",
+    "non-promotable",
+    "not-a-full-backtest"
+  ],
+  "schema_version": 1,
+  "session_date": "2026-07-10",
+  "source_binding": {
+    "micro_date_manifest_content_sha256": "242fe4007b738337055d041c50e281592925489c0055f6beb967c98d038586d5",
+    "scanner_snapshot_content_sha256": "58bbb72d17f1929094ca007ebe46a0e81eab748a6f63b0ac0304fabe988a9ef0"
+  },
+  "summary": {
+    "accepted_entry_count": 1,
+    "accepted_exit_count": 0,
+    "eligible_candidate_count": 3,
+    "ending_equity_if_realized_only": 30000.0,
+    "fixed_starting_equity": 30000.0,
+    "not_applied_exit_count": 2,
+    "not_submitted_entry_count": 3,
+    "open_campaign_count": 1,
+    "plan_emission_count": 8,
+    "profile_rejected_candidate_count": 11,
+    "realized_pnl": 0.0,
+    "realized_stop_only_pnl_fraction_of_fixed_starting_equity": 0.0,
+    "rejected_entry_count": 0,
+    "rejected_exit_count": 0,
+    "session_lock_reason": null,
+    "session_locked": false,
+    "source_candidate_count": 14,
+    "unavailable_eligible_candidate_count": 0,
+    "unresolved_open_notional": 2261.84,
+    "unresolved_open_risk": 74.95230000000008
+  }
+}

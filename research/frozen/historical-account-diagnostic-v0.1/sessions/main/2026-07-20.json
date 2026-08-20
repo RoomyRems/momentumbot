@@ -1,0 +1,446 @@
+{
+  "account_class": "main",
+  "artifact_type": "historical_account_diagnostic_session",
+  "authority_boundary": {
+    "cross_session_compounding": false,
+    "historical_broker_balance_claim": false,
+    "independent_fixed_balance_session": true,
+    "policy_promotion_eligible": false,
+    "portfolio_backtest_eligible": false,
+    "unresolved_positions_marked_to_market": false
+  },
+  "composition_engine_output": {
+    "account": {
+      "account_class": "main",
+      "account_id": "synthetic-main-30000-historical-diagnostic",
+      "policy_id": "paper-safe-main-account-v0.1",
+      "snapshot_captured_at": "2026-07-20T06:59:00-04:00",
+      "snapshot_source_content_sha256": "031af48d06f923706ef1957cc94e01e14c12c085f3325fdb34500ddb3e464350",
+      "snapshot_source_id": "registered-synthetic-fixed-balance-v0.1",
+      "starting_buying_power": 30000.0,
+      "starting_equity": 30000.0,
+      "strategy_profile_id": "current-general-2026"
+    },
+    "artifact_type": "account_chronological_integration_shadow",
+    "authority_boundary": {
+      "broker_order_authority": false,
+      "cross_account_dispatch_authority": false,
+      "liquidity_or_locate_verified": false,
+      "policy_promotion_eligible": false,
+      "portfolio_backtest_eligible": false,
+      "research_sizing_only": true,
+      "ross_replication_claim_eligible": false,
+      "unmodeled_open_positions": 0
+    },
+    "candidate_records": [
+      {
+        "activation_id": "activation-137c0d2d0667170067d6da4bce1d78cd5c250f4a3b4830b4c224ffe196b505d9",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-20T11:03:00+00:00",
+        "micro_runtime_content_sha256": "299d54e378765c1473aff5db145b4e0f97c09fb57505854699ed49bd0f78245d",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "5e2b29e5a4d2e030ddb7a5eb08f3efdd3218dc4143682c643a283f528e31b540",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "ARMP"
+      },
+      {
+        "activation_id": "activation-1c83041047f3be68b072d45490b881dc5f1c30b244b3b162a5344369fbb9cff6",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-20T11:00:00+00:00",
+        "micro_runtime_content_sha256": "4a8d56882e05c78cf6c4d6403468b65883db2e56f1a2a801018aa488b7d4d56f",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "fffb39149b9f267de41cac5eff94a2bae24ed583b8513a6f95cad86ed788ce29",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "AMC"
+      },
+      {
+        "activation_id": "activation-2b856630e1a4bcdf012831584d7da47022f5e81df97e591016482daea42ce7e5",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-20T13:44:00+00:00",
+        "micro_runtime_content_sha256": "496fb2de2cbc1f67e8ef50dc39bc8f24163809fb9ae5ef61fb2086e45300e10c",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "40edd716499ddf36a3ac43a3e4aaeceacddba574c022d61413152e5c318ec989",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "XNCR"
+      },
+      {
+        "activation_id": "activation-34f1a520b27e840bc6346d8c8d9e2ee24e62265fb802feecc58dcb351425f2fd",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-20T11:03:00+00:00",
+        "micro_runtime_content_sha256": "e1f03c1a4bc84ce4f6bfe840a86004c9f0e1c0320fea9b94d572ebe8226748db",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "6e9b4d8770ddf53bcf110f617f2fe28271c5b75321b3256ffb738f7dcd61a783",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "NUAI"
+      },
+      {
+        "activation_id": "activation-368eaae3e1551e0dee23044a8b51927b926343dfea9f804b8b707c0262fbe471",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-20T11:00:00+00:00",
+        "micro_runtime_content_sha256": "64e1267149270f947e8f15e55a0423c9cdee8dfb1bfba364e4d2d62f12681450",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "81ac7b5e98646668c01d64bd5ba6996a501980c0898c80621ddba442cb6275d3",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "BXBL"
+      },
+      {
+        "activation_id": "activation-37008d98e4bc86e1f32ef54aa986bc262e333c72cfad54feb621a2a88819e3aa",
+        "candidate_quality": "a_quality",
+        "candidate_snapshot_at": "2026-07-20T11:00:00+00:00",
+        "micro_runtime_content_sha256": "4e13c29b7858b4c2f6799f4f8e4bab60bd7d45fabcd197313083fbe6e3332643",
+        "runtime_status": "replayed",
+        "scanner_record_content_sha256": "35b6687e594db5bb81fa6b1d168009cf4addcd3cb2f0f5bc4c141bd761214c7b",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "ADVB"
+      },
+      {
+        "activation_id": "activation-4067501d094e5510bf7744bade88edbe2af2f60fef5c852b709a1ec229f95827",
+        "candidate_quality": "a_quality",
+        "candidate_snapshot_at": "2026-07-20T11:00:00+00:00",
+        "micro_runtime_content_sha256": "ce1d590d485f14421e019401f04bf110539e2d9e195ec26275bf8ebb4e373d98",
+        "runtime_status": "replayed",
+        "scanner_record_content_sha256": "b2fc0766e72f13162abb026908993ad7b16c87d31fb9692ef2ca1cadee18f106",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "BIYA"
+      },
+      {
+        "activation_id": "activation-66fe76ff31d0f44ab297db1784821321355d6b808d957f36627f1082fb6cfe41",
+        "candidate_quality": "a_quality",
+        "candidate_snapshot_at": "2026-07-20T13:02:00+00:00",
+        "micro_runtime_content_sha256": "c5bf2b07c6372bbacadf628712e9dfc9327fb160d8271ebf94a3ddccd1df5af7",
+        "runtime_status": "replayed",
+        "scanner_record_content_sha256": "5c74bc8e34cb44b900402c912790e74fd52d3b84e6efb5161c57ea55bd86ac8b",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "RMTI"
+      },
+      {
+        "activation_id": "activation-c9525acbbb6c2609ba5f22a3913762ebd0e02edc74d7900e9f6e8fe70a019703",
+        "candidate_quality": "reject",
+        "candidate_snapshot_at": "2026-07-20T13:14:00+00:00",
+        "micro_runtime_content_sha256": "51d0d868bc5e5662c94abfb073f4134d2a9af65fe32efaca64879a9f14d849cb",
+        "runtime_status": "account_profile_rejected",
+        "scanner_record_content_sha256": "49af80fa4640c933c649b2a9bb72033736e65909ff7d7fea51aa00a17cc96f1e",
+        "strategy_profile_id": "current-general-2026",
+        "symbol": "NIKI"
+      }
+    ],
+    "content_sha256": "717c0807c14a81d96cb9736082e81396d7c217b3d07386d92dccad6389fb87ef",
+    "contract_id": "account-chronological-integration-v0.1",
+    "event_order": [
+      "timestamp ascending",
+      "plan emissions before entry attempts at the same timestamp",
+      "same-time entry attempts by paper-account-scarcity-policy-v0.1",
+      "exit fills after entry attempts at the same timestamp",
+      "stable identifier tie-breakers"
+    ],
+    "frozen_parents": {
+      "account_policy_bundle_sha256": "df66cfb6637783f69e86379e63428813ce521bd3b648a7ab0131d1c7250cff51",
+      "account_policy_contract_content_sha256": "78dd5e3aef9485fc77f07632baec0274dceecb44c8cefd68ab8ea03e7727ceff",
+      "campaign_ledger_contract_content_sha256": "f2a80f4350e6283e2638702d70515bf03ee6c930e7d52706d09ef5e1d9f419b6",
+      "general_strategy_profile_fingerprint": "7d15fb979701324bf862b1dc37e5f9b514dcf1ab8cf1e062ae4a60027233d4ff",
+      "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+      "micro_policy_id": "micro-v0.1",
+      "small_strategy_profile_fingerprint": "fb86fc5326903cab16c283a03d8e371f66487f41589fb1b69b79f8912a0a6489"
+    },
+    "integration_events": [
+      {
+        "activation_id": "activation-4067501d094e5510bf7744bade88edbe2af2f60fef5c852b709a1ec229f95827",
+        "at": "2026-07-20T11:43:00+00:00",
+        "event_type": "plan_emission",
+        "plan_id": "plan-fc5bcda696e186382d618266e61ee96d38f91c938fce081207525b3b3a0e0628",
+        "symbol": "BIYA"
+      },
+      {
+        "activation_id": "activation-4067501d094e5510bf7744bade88edbe2af2f60fef5c852b709a1ec229f95827",
+        "at": "2026-07-20T11:43:10+00:00",
+        "event_type": "plan_emission",
+        "plan_id": "plan-e1a6899bf38c269951d5c6c0878754f0fba4629a9776f546ff1ed74e1b7ad46b",
+        "symbol": "BIYA"
+      },
+      {
+        "activation_id": "activation-4067501d094e5510bf7744bade88edbe2af2f60fef5c852b709a1ec229f95827",
+        "at": "2026-07-20T11:43:20+00:00",
+        "event_type": "plan_emission",
+        "plan_id": "plan-3726431891b3abe4e0d0ae3c8f7ec725fb88fdee1a61784c291d82e1838b422a",
+        "symbol": "BIYA"
+      },
+      {
+        "activation_id": "activation-4067501d094e5510bf7744bade88edbe2af2f60fef5c852b709a1ec229f95827",
+        "at": "2026-07-20T11:43:27.414812313+00:00",
+        "event_type": "entry_accepted",
+        "fill_id": "entry-1dd512d74ad08ae2ddcc14c7fabf4d7c03f6a7914a11a80c2db307dd494d5019",
+        "fill_price": 8.2,
+        "opportunity_id": "opportunity-b5b1e402ddf51b3959e71378b2827736820e57947dcb8b410994060297732844",
+        "plan_id": "plan-3726431891b3abe4e0d0ae3c8f7ec725fb88fdee1a61784c291d82e1838b422a",
+        "quantity": 681,
+        "reasons": [],
+        "reference_price": 8.2,
+        "role": "starter",
+        "same_time_entry_ordinal": 1,
+        "stop_price": 8.09,
+        "symbol": "BIYA"
+      },
+      {
+        "activation_id": "activation-4067501d094e5510bf7744bade88edbe2af2f60fef5c852b709a1ec229f95827",
+        "at": "2026-07-20T11:43:30+00:00",
+        "event_type": "plan_emission",
+        "plan_id": "plan-b0d1fb86e6bc4866ed9690bdda69176135b974ca1776deed1405d9ea603d6619",
+        "symbol": "BIYA"
+      },
+      {
+        "activation_id": "activation-4067501d094e5510bf7744bade88edbe2af2f60fef5c852b709a1ec229f95827",
+        "at": "2026-07-20T11:43:30.840638269+00:00",
+        "entry_fill_id": "entry-1dd512d74ad08ae2ddcc14c7fabf4d7c03f6a7914a11a80c2db307dd494d5019",
+        "event_type": "exit_accepted",
+        "exit_fill_id": "exit-13399fff1ffb569a085aef2b3e987cafcc9fc304c5e3f054dafd9bdc8d71f69a",
+        "fill_price": 8.09,
+        "quantity": 681,
+        "realized_pnl": -74.90999999999961,
+        "reasons": [],
+        "symbol": "BIYA"
+      },
+      {
+        "activation_id": "activation-4067501d094e5510bf7744bade88edbe2af2f60fef5c852b709a1ec229f95827",
+        "at": "2026-07-20T11:43:40+00:00",
+        "event_type": "plan_emission",
+        "plan_id": "plan-92f5efc9d69f194269d1d1416d84ef0cb641f6e98242f809e4e23cd977a009b4",
+        "symbol": "BIYA"
+      },
+      {
+        "activation_id": "activation-4067501d094e5510bf7744bade88edbe2af2f60fef5c852b709a1ec229f95827",
+        "at": "2026-07-20T11:43:49.503855906+00:00",
+        "event_type": "entry_accepted",
+        "fill_id": "entry-b688b29d62c0baf44242c7617385e44e7be0804833c81b30e5ce9a466573e633",
+        "fill_price": 8.2,
+        "opportunity_id": "opportunity-a1aa8800b9e835b7c8be837cb8d374a8bec54ddc93483e6aa90e3c16fb729ab9",
+        "plan_id": "plan-92f5efc9d69f194269d1d1416d84ef0cb641f6e98242f809e4e23cd977a009b4",
+        "quantity": 340,
+        "reasons": [],
+        "reference_price": 8.1916,
+        "role": "reentry",
+        "same_time_entry_ordinal": 1,
+        "stop_price": 7.98,
+        "symbol": "BIYA"
+      },
+      {
+        "activation_id": "activation-4067501d094e5510bf7744bade88edbe2af2f60fef5c852b709a1ec229f95827",
+        "at": "2026-07-20T11:45:01.386900308+00:00",
+        "entry_fill_id": "entry-b688b29d62c0baf44242c7617385e44e7be0804833c81b30e5ce9a466573e633",
+        "event_type": "exit_accepted",
+        "exit_fill_id": "exit-c4c2293374a4a5e0dfd703071854567391dae35a8e47a1386d1369c681d138fb",
+        "fill_price": 7.98,
+        "quantity": 340,
+        "realized_pnl": -74.79999999999961,
+        "reasons": [],
+        "symbol": "BIYA"
+      }
+    ],
+    "knowledge_policy": {
+      "runtime_market_execution_and_predecision_account_state_only": true,
+      "uses_later_price_outcomes": false,
+      "uses_raw_transcripts": false,
+      "uses_retrospective_labels": false,
+      "uses_ross_actions_or_fills": false,
+      "uses_semantic_ai": false
+    },
+    "ledger_artifact": {
+      "account": {
+        "account_class": "main",
+        "account_id": "synthetic-main-30000-historical-diagnostic",
+        "flatten_required": false,
+        "high_water_pnl": 0.0,
+        "lock_reason": null,
+        "locked": false,
+        "open_campaign_count": 0,
+        "policy_id": "paper-safe-main-account-v0.1",
+        "realized_pnl": -149.70999999999924,
+        "remaining_buying_power": 29850.29,
+        "starting_buying_power": 30000.0,
+        "starting_equity": 30000.0,
+        "total_open_notional": 0,
+        "total_open_risk": 0
+      },
+      "artifact_type": "campaign_portfolio_account_state_shadow",
+      "campaigns": [
+        {
+          "activation_id": "activation-4067501d094e5510bf7744bade88edbe2af2f60fef5c852b709a1ec229f95827",
+          "average_entry_price": null,
+          "campaign_id": "campaign-8e142c32ec7ef7253fc0",
+          "entry_fill_count": 2,
+          "open_notional": 0,
+          "open_risk": 0,
+          "plan_ids": [
+            "plan-fc5bcda696e186382d618266e61ee96d38f91c938fce081207525b3b3a0e0628",
+            "plan-e1a6899bf38c269951d5c6c0878754f0fba4629a9776f546ff1ed74e1b7ad46b",
+            "plan-3726431891b3abe4e0d0ae3c8f7ec725fb88fdee1a61784c291d82e1838b422a",
+            "plan-b0d1fb86e6bc4866ed9690bdda69176135b974ca1776deed1405d9ea603d6619",
+            "plan-92f5efc9d69f194269d1d1416d84ef0cb641f6e98242f809e4e23cd977a009b4"
+          ],
+          "quantity": 0,
+          "realized_pnl": -149.70999999999924,
+          "reentry_count": 1,
+          "status": "flat",
+          "symbol": "BIYA",
+          "terminal_reason": null
+        }
+      ],
+      "contract_id": "campaign-portfolio-account-state-v0.1",
+      "events": [
+        {
+          "activation_id": "activation-4067501d094e5510bf7744bade88edbe2af2f60fef5c852b709a1ec229f95827",
+          "at": "2026-07-20T11:43:00+00:00",
+          "campaign_id": "campaign-8e142c32ec7ef7253fc0",
+          "event_type": "plan_emission",
+          "plan_id": "plan-fc5bcda696e186382d618266e61ee96d38f91c938fce081207525b3b3a0e0628",
+          "sequence": 1,
+          "symbol": "BIYA"
+        },
+        {
+          "activation_id": "activation-4067501d094e5510bf7744bade88edbe2af2f60fef5c852b709a1ec229f95827",
+          "at": "2026-07-20T11:43:10+00:00",
+          "campaign_id": "campaign-8e142c32ec7ef7253fc0",
+          "event_type": "plan_emission",
+          "plan_id": "plan-e1a6899bf38c269951d5c6c0878754f0fba4629a9776f546ff1ed74e1b7ad46b",
+          "sequence": 2,
+          "symbol": "BIYA"
+        },
+        {
+          "activation_id": "activation-4067501d094e5510bf7744bade88edbe2af2f60fef5c852b709a1ec229f95827",
+          "at": "2026-07-20T11:43:20+00:00",
+          "campaign_id": "campaign-8e142c32ec7ef7253fc0",
+          "event_type": "plan_emission",
+          "plan_id": "plan-3726431891b3abe4e0d0ae3c8f7ec725fb88fdee1a61784c291d82e1838b422a",
+          "sequence": 3,
+          "symbol": "BIYA"
+        },
+        {
+          "activation_id": "activation-4067501d094e5510bf7744bade88edbe2af2f60fef5c852b709a1ec229f95827",
+          "at": "2026-07-20T11:43:27.414812313+00:00",
+          "campaign_id": "campaign-8e142c32ec7ef7253fc0",
+          "event_type": "entry_accepted",
+          "fill_id": "entry-1dd512d74ad08ae2ddcc14c7fabf4d7c03f6a7914a11a80c2db307dd494d5019",
+          "fill_price": 8.2,
+          "observed_slippage_bps": 0.0,
+          "plan_id": "plan-3726431891b3abe4e0d0ae3c8f7ec725fb88fdee1a61784c291d82e1838b422a",
+          "quantity": 681,
+          "role": "starter",
+          "sequence": 4,
+          "stop_price": 8.09,
+          "symbol": "BIYA"
+        },
+        {
+          "activation_id": "activation-4067501d094e5510bf7744bade88edbe2af2f60fef5c852b709a1ec229f95827",
+          "at": "2026-07-20T11:43:30+00:00",
+          "campaign_id": "campaign-8e142c32ec7ef7253fc0",
+          "event_type": "plan_emission",
+          "plan_id": "plan-b0d1fb86e6bc4866ed9690bdda69176135b974ca1776deed1405d9ea603d6619",
+          "sequence": 5,
+          "symbol": "BIYA"
+        },
+        {
+          "activation_id": "activation-4067501d094e5510bf7744bade88edbe2af2f60fef5c852b709a1ec229f95827",
+          "at": "2026-07-20T11:43:30.840638269+00:00",
+          "campaign_id": "campaign-8e142c32ec7ef7253fc0",
+          "event_type": "exit_accepted",
+          "fill_id": "exit-13399fff1ffb569a085aef2b3e987cafcc9fc304c5e3f054dafd9bdc8d71f69a",
+          "fill_price": 8.09,
+          "quantity": 681,
+          "realized_pnl": -74.90999999999961,
+          "sequence": 6,
+          "symbol": "BIYA"
+        },
+        {
+          "activation_id": "activation-4067501d094e5510bf7744bade88edbe2af2f60fef5c852b709a1ec229f95827",
+          "at": "2026-07-20T11:43:40+00:00",
+          "campaign_id": "campaign-8e142c32ec7ef7253fc0",
+          "event_type": "plan_emission",
+          "plan_id": "plan-92f5efc9d69f194269d1d1416d84ef0cb641f6e98242f809e4e23cd977a009b4",
+          "sequence": 7,
+          "symbol": "BIYA"
+        },
+        {
+          "activation_id": "activation-4067501d094e5510bf7744bade88edbe2af2f60fef5c852b709a1ec229f95827",
+          "at": "2026-07-20T11:43:49.503855906+00:00",
+          "campaign_id": "campaign-8e142c32ec7ef7253fc0",
+          "event_type": "entry_accepted",
+          "fill_id": "entry-b688b29d62c0baf44242c7617385e44e7be0804833c81b30e5ce9a466573e633",
+          "fill_price": 8.2,
+          "observed_slippage_bps": 10.25440695346448,
+          "plan_id": "plan-92f5efc9d69f194269d1d1416d84ef0cb641f6e98242f809e4e23cd977a009b4",
+          "quantity": 340,
+          "role": "reentry",
+          "sequence": 8,
+          "stop_price": 7.98,
+          "symbol": "BIYA"
+        },
+        {
+          "activation_id": "activation-4067501d094e5510bf7744bade88edbe2af2f60fef5c852b709a1ec229f95827",
+          "at": "2026-07-20T11:45:01.386900308+00:00",
+          "campaign_id": "campaign-8e142c32ec7ef7253fc0",
+          "event_type": "exit_accepted",
+          "fill_id": "exit-c4c2293374a4a5e0dfd703071854567391dae35a8e47a1386d1369c681d138fb",
+          "fill_price": 7.98,
+          "quantity": 340,
+          "realized_pnl": -74.79999999999961,
+          "sequence": 9,
+          "symbol": "BIYA"
+        }
+      ],
+      "halted_symbols": [],
+      "knowledge_policy": "runtime_market_and_order_state_only_no_retrospective_labels",
+      "policy_promotion_eligible": false,
+      "schema_version": 1,
+      "selection_authority": "none",
+      "session_date": "2026-07-20",
+      "simultaneous_opportunity_groups": [],
+      "size_authority": "none",
+      "strategy_authority": "none"
+    },
+    "panel_id": "ross-account-integration-panel-v0.1",
+    "schema_version": 1,
+    "session_date": "2026-07-20",
+    "sizing_rule": "maximum positive whole shares inside remaining buying power, starter, campaign and total notional, and campaign and total open-risk ceilings"
+  },
+  "content_sha256": "ab68978e3ad8dccd2356042375891cc034d8440fe3efce748c488891846d4cad",
+  "contract_id": "historical-account-diagnostic-v0.1",
+  "coverage": {
+    "complete_account_qualified_activation_set": false,
+    "complete_market_universe": false,
+    "every_frozen_candidate_anchor_evaluated": true,
+    "reason": "Qualification is tested only at the frozen market/Micro anchor; a candidate first becoming account-eligible on a later scanner row is not re-anchored, and the historical universe is not full-walk-forward eligible."
+  },
+  "labels": [
+    "retrospective",
+    "diagnostic-only",
+    "non-promotable",
+    "not-a-full-backtest"
+  ],
+  "schema_version": 1,
+  "session_date": "2026-07-20",
+  "source_binding": {
+    "micro_date_manifest_content_sha256": "11e74997450a85ec1b29dab5b21822a3b6ee1f57f423351e853290a74982ab85",
+    "scanner_snapshot_content_sha256": "6499fbc2550612550526bcb339bda14a4caf8c19cda0fe3647f167895f04ac61"
+  },
+  "summary": {
+    "accepted_entry_count": 2,
+    "accepted_exit_count": 2,
+    "eligible_candidate_count": 3,
+    "ending_equity_if_realized_only": 29850.29,
+    "fixed_starting_equity": 30000.0,
+    "not_applied_exit_count": 0,
+    "not_submitted_entry_count": 0,
+    "open_campaign_count": 0,
+    "plan_emission_count": 5,
+    "profile_rejected_candidate_count": 6,
+    "realized_pnl": -149.70999999999924,
+    "realized_stop_only_pnl_fraction_of_fixed_starting_equity": -0.0049903333333333084,
+    "rejected_entry_count": 0,
+    "rejected_exit_count": 0,
+    "session_lock_reason": null,
+    "session_locked": false,
+    "source_candidate_count": 9,
+    "unavailable_eligible_candidate_count": 0,
+    "unresolved_open_notional": 0.0,
+    "unresolved_open_risk": 0.0
+  }
+}
