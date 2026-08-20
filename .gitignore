@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+.DS_Store
+
+# Raw/source transcript datasets stay outside Git.
+data/raw/
+data/transcripts/
+*.jsonl.txt
+
+# Generated research outputs and market snapshots.
+artifacts/
+reports/generated/
+snapshots/

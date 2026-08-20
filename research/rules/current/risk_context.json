@@ -1,0 +1,74 @@
+[
+  {
+    "rule_id": "MB-RSK-003",
+    "title": "Profit giveback lockout",
+    "category": "risk",
+    "statement": "After building session profit, giving back half of the session high-water profit is a walk-away trigger.",
+    "observation_type": "rule",
+    "decision_role": "deterministic",
+    "confidence": 0.99,
+    "status": "active_current_era",
+    "applies_from": "2025-06-28",
+    "evidence": [{"video_id":"Wsq8zdtCcis","title":"How I Made $500,000 in 7 Days of Day Trading (Full Training)","published_at":"2025-06-28","mode":"normative_teaching","note":"The full training gives the 50% profit-giveback walk-away rule."}]
+  },
+  {
+    "rule_id": "MB-RSK-004",
+    "title": "Daily max-loss calibration",
+    "category": "risk",
+    "statement": "The general teaching calibrates max daily loss around the trader's recent/typical average daily gain rather than an arbitrary fixed dollar number.",
+    "observation_type": "rule",
+    "decision_role": "deterministic",
+    "confidence": 0.95,
+    "status": "research_calibration_required",
+    "applies_from": "2025-06-28",
+    "evidence": [{"video_id":"Wsq8zdtCcis","title":"How I Made $500,000 in 7 Days of Day Trading (Full Training)","published_at":"2025-06-28","mode":"normative_teaching","note":"The full training states max loss is whatever the average daily gain is."}]
+  },
+  {
+    "rule_id": "MB-RSK-005",
+    "title": "Session exit is terminal",
+    "category": "risk",
+    "statement": "After deciding to walk away for the day, stop watching/trading and do not return later because re-entry is associated with FOMO and poor decisions.",
+    "observation_type": "rule",
+    "decision_role": "deterministic",
+    "confidence": 0.99,
+    "status": "active_current_era",
+    "applies_from": "2025-06-28",
+    "evidence": [{"video_id":"Wsq8zdtCcis","title":"How I Made $500,000 in 7 Days of Day Trading (Full Training)","published_at":"2025-06-28","mode":"normative_teaching","note":"The training explicitly says not to come back after leaving."}]
+  },
+  {
+    "rule_id": "MB-CAT-001",
+    "title": "Catalyst substance over keyword stuffing",
+    "category": "catalyst",
+    "statement": "Headline quality depends on substantive economic/news content and context, not merely fashionable keywords; keyword-stuffed releases can look stronger than they are.",
+    "observation_type": "preference",
+    "decision_role": "ai_context",
+    "confidence": 0.94,
+    "status": "shadow_agent_candidate",
+    "applies_from": "2025-01-06",
+    "evidence": [{"video_id":"67gHIa4ii1A","title":"Trading Breaking News","published_at":"2025-01-06","mode":"normative_teaching","note":"The breaking-news lesson explicitly warns about keyword stuffing and distinguishes headline appearance from underlying substance."}]
+  },
+  {
+    "rule_id": "MB-RES-001",
+    "title": "Raw transcripts are offline research only",
+    "category": "research_integrity",
+    "statement": "Historical replay and paper/live decision code must never retrieve raw retrospective transcripts; only versioned distilled strategy knowledge may enter the decision path.",
+    "observation_type": "research_guard",
+    "decision_role": "research_only",
+    "confidence": 1.0,
+    "status": "hard_research_guard",
+    "applies_from": "2026-08-14",
+    "evidence": []
+  },
+  {
+    "rule_id": "MB-RES-002",
+    "title": "Unknown publication dates are quarantined",
+    "category": "research_integrity",
+    "statement": "Any transcript without a resolved publication date is excluded from chronology-sensitive training and walk-forward experiments until its date is established.",
+    "observation_type": "research_guard",
+    "decision_role": "research_only",
+    "confidence": 1.0,
+    "status": "hard_research_guard",
+    "applies_from": "2026-08-14",
+    "evidence": []
+  }
+]

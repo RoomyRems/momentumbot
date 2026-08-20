@@ -1,0 +1,62 @@
+[
+  {
+    "rule_id": "MB-EXT-001",
+    "title": "Do not automatically cap strong winners",
+    "category": "exit",
+    "statement": "The 2R requirement is an entry-quality test, not an unconditional full-position profit cap; strong winners are held until a valid deterioration/exit signal.",
+    "observation_type": "rule",
+    "decision_role": "mixed",
+    "confidence": 0.99,
+    "status": "active_current_era",
+    "applies_from": "2025-12-20",
+    "evidence": [{"video_id":"oKlhUSSHe2Q","title":"How To Start Day Trading in 2026 (full training)","published_at":"2025-12-20","mode":"normative_teaching","note":"The full training says hitting the initial target does not require selling the whole position and explicitly says not to cap winners."}]
+  },
+  {
+    "rule_id": "MB-EXT-002",
+    "title": "Current exit indicators",
+    "category": "exit",
+    "statement": "Exit evidence includes a persistent large seller, hidden/iceberg seller, a burst of red tape, a dramatic false breakout, slowing buying, a topping tail, or a meaningful red candle.",
+    "observation_type": "rule",
+    "decision_role": "mixed",
+    "confidence": 0.98,
+    "status": "active_current_era",
+    "applies_from": "2026-08-05",
+    "evidence": [{"video_id":"xGIa8Vg0PWM","title":"Growing a $2k Account to $65,662.04 in 30 Days (My Day Trading Strategy)","published_at":"2026-08-05","mode":"normative_teaching","note":"The August course enumerates these exit indicators and notes that a merely flashing displayed seller is not enough."}]
+  },
+  {
+    "rule_id": "MB-MIC-001",
+    "title": "Hidden-seller absorption",
+    "category": "microstructure",
+    "statement": "A hidden/iceberg seller is suggested when substantial aggressive buying executes but price fails to advance or displayed ask liquidity repeatedly replenishes.",
+    "observation_type": "rule",
+    "decision_role": "mixed",
+    "confidence": 0.97,
+    "status": "deferred_level2",
+    "applies_from": "2025-11-10",
+    "evidence": [{"video_id":"HB1IbyuJ37s","title":"Level 2 for Day Trading (+$65k in 2hrs After Spotting Hidden Buyers)","published_at":"2025-11-10","mode":"normative_teaching","note":"The dedicated Level-2 lesson explains hidden liquidity through executed volume versus displayed liquidity and price response."}]
+  },
+  {
+    "rule_id": "MB-REG-001",
+    "title": "Four-stage momentum cycle",
+    "category": "market_regime",
+    "statement": "Momentum regimes cycle through cold/no response, a surprise spark, sustained hot momentum, and an exhausted phase with weaker imitation catalysts and sharp reversals before returning cold.",
+    "observation_type": "market_regime_adaptation",
+    "decision_role": "mixed",
+    "confidence": 0.98,
+    "status": "active_current_era",
+    "applies_from": "2025-10-03",
+    "evidence": [{"video_id":"7e52n1veFwE","title":"Four (4) Market Types You NEED To Understand 🍏 Small Account Challenge Day 2 and Day 3","published_at":"2025-10-03","mode":"normative_teaching","note":"The market-cycle lesson explicitly teaches four stages: cold, spark, sustained momentum/hot, and exhausted leading back to cold."}]
+  },
+  {
+    "rule_id": "MB-REG-002",
+    "title": "Throttle aggression by regime",
+    "category": "market_regime",
+    "statement": "Reduce size and expectations in cold/choppy conditions and increase permissible aggression only after the market demonstrates sustained momentum.",
+    "observation_type": "market_regime_adaptation",
+    "decision_role": "deterministic",
+    "confidence": 0.98,
+    "status": "active_current_era",
+    "applies_from": "2025-10-03",
+    "evidence": [{"video_id":"7e52n1veFwE","title":"Four (4) Market Types You NEED To Understand 🍏 Small Account Challenge Day 2 and Day 3","published_at":"2025-10-03","mode":"normative_teaching","note":"The cycle lesson explicitly describes reducing share size in cold markets and becoming more aggressive as the hot cycle is confirmed."}]
+  }
+]
