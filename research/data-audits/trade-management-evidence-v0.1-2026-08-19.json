@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "audit_id": "trade-management-evidence-v0.1",
+  "audit_date": "2026-08-19",
+  "artifact_type": "source_evidence_boundary_audit",
+  "purpose": "Separate current normative trade-management teaching from observed examples and unresolved discretionary inputs before any July 2026 management-path result is calculated.",
+  "source_corpus": {
+    "record_count": 2292,
+    "captioned_record_count": 2278,
+    "files": [
+      {
+        "name": "dataset_daytradewarrior-part-6-1786762403787_2026-08-15_02-56-10-651.jsonl",
+        "sha256": "0d40e3ac5583181cbe266410f565b609f92138df124ae9f304de1381b4b823b4"
+      },
+      {
+        "name": "dataset_daytradewarrior-part-4-1786762403787_2026-08-15_02-55-21-787.jsonl",
+        "sha256": "9441b1abf8005905cb860f9a2dd13c6802fcc17417c2020eaf131f616c7c718a"
+      },
+      {
+        "name": "dataset_daytradewarrior-part-2-1786762403787_2026-08-15_02-54-30-375.jsonl",
+        "sha256": "536022ff78231cf34663728d97b498870e2e1065c2cfcb226b066bbcbf3760fc"
+      },
+      {
+        "name": "dataset_daytradewarrior-part-3-1786762403787_2026-08-15_02-54-56-905.jsonl",
+        "sha256": "1a5694e50977f5f833bab26c9205d8fe0da8226c9b59cbd738371e15d37b5b20"
+      },
+      {
+        "name": "dataset_daytradewarrior-part-5-1786762403787_2026-08-15_02-55-43-874.jsonl",
+        "sha256": "f864193c2a153d30d57e3d283201cf1f69419d93157a3f51cc6fbe35af4bf098"
+      },
+      {
+        "name": "dataset_daytradewarrior-part-1-1786762403787_2026-08-15_02-53-57-508(1).json",
+        "sha256": "c59a8dd67bf4cb2b3bb4539996bbe1b648b1503a73916371b2f98661a4d33db0"
+      },
+      {
+        "name": "dataset_daytradewarrior-part-7-1786762403787_2026-08-15_02-56-38-763.jsonl",
+        "sha256": "605a75bfcbe4addfa514d77e4771acdfd2b78e4c39c858cf037d129104030c29"
+      },
+      {
+        "name": "dataset_daytradewarrior-part-8-1786762403787_2026-08-15_02-56-58-095.jsonl",
+        "sha256": "8338d30844f3104aac82ce5e35dbb39c52ec8fcb1145238775fcc095800a4486"
+      }
+    ]
+  },
+  "normative_evidence": [
+    {
+      "video_id": "oKlhUSSHe2Q",
+      "record_sha256": "3c9e782ed2bb100e177fe7343863c1892d3009f0f014b3683739d7d434295dde",
+      "published": "2025-12-20",
+      "title": "How To Start Day Trading in 2026 (full training)",
+      "evidence_role": "primary_current_full_training",
+      "paraphrase": [
+        "The first goal is a retest of the prior high with at least two units of potential reward for one unit of risk.",
+        "Reaching the target is not an instruction to liquidate the entire position; winners should remain open until a valid exit indicator.",
+        "Taking half at the target is allowed, while the entire remainder should not be sold merely because the target was touched.",
+        "The demonstrated chart is explicitly the one-minute timeframe, and the first candle closing red is taught as a valid chart exit indicator.",
+        "The teaching example also describes scaling out progressively and reacting to a materially large displayed seller."
+      ]
+    },
+    {
+      "video_id": "xGIa8Vg0PWM",
+      "record_sha256": "355fe1581505c8aa8aa44c6de528c351d7dde4c92eddaefa4527d315ce359cb5",
+      "published": "2026-08-05",
+      "title": "Growing a $2k Account to $65,662.04 in 30 Days (My Day Trading Strategy)",
+      "evidence_role": "primary_current_small_account_training",
+      "paraphrase": [
+        "Exit indicators apply regardless of whether the open gain is small or large and must be respected.",
+        "The enumerated indicators are a materially large displayed seller, hidden-seller absorption, a burst of red tape, a dramatic false breakout, slowing buying, and a topping-tail or red candle.",
+        "A displayed order that merely flashes is not by itself equivalent to proven persistent resistance; execution and price response matter."
+      ]
+    },
+    {
+      "video_id": "aqTXoV923OE",
+      "record_sha256": "e4918a083eb3d4a7b25f6a9665c6a2923426499a489f686eb8638cd5c301c3c3",
+      "published": "2025-07-04",
+      "title": "7 Candlestick Patterns I'M ACTUALLY USING Every Day",
+      "evidence_role": "supporting_exit_training",
+      "paraphrase": [
+        "Large displayed sellers, bursts of selling, large topping tails, and high-volume red candles are described as adverse evidence.",
+        "Buying slowdown or a price that stops advancing calls for unwinding or closing under the breakout-or-bailout principle.",
+        "A new low after a sequence of higher candles is treated as deterioration, but the source does not provide a complete machine threshold for every chart state."
+      ]
+    }
+  ],
+  "observed_behavior_examples": [
+    {
+      "video_id": "4rhcLRzQJdg",
+      "record_sha256": "e523acc7f584349b8e1ffd84d613cf086e143b52886474af2e7d8a6468bffaf3",
+      "published": "2025-09-12",
+      "title": "I didn't expect this!",
+      "paraphrase": "Ross describes one campaign with multiple adds, partial profit-taking into strength, re-adds on dips, and a stop on the remainder. This supports campaign state and scaling behavior but does not define a universal numeric schedule."
+    },
+    {
+      "video_id": "FXpltGCWfuY",
+      "record_sha256": "a21dce7ce71a1f6eaa750fa3c319bb1e723e006e9a2f7e0d9df8b967838bc050",
+      "published": "2025-09-24",
+      "title": "When The Going Gets Tough With A Small Account…",
+      "paraphrase": "A half-dollar/whole-dollar trade is closed when tape progress hesitates near the intended break, illustrating that the intended destination and real-time price response jointly control management."
+    },
+    {
+      "video_id": "STtOeOeip7s",
+      "record_sha256": "78e02db91c0a4bf3f88115753004171ba04f549e036f429cec00859895d3ce70",
+      "published": "2025-09-16",
+      "title": "The Hot Streak Continues! Green on 7/7 Trades Today",
+      "paraphrase": "A position entered for a whole-dollar break is sold when a large seller prevents the break; a later independent attempt is treated as a re-entry rather than averaging down."
+    },
+    {
+      "video_id": "n5tWaS3u9Ks",
+      "record_sha256": "a1e22790d1a3d64ec8c77a635b59aa32d44789b7a3f5b189a584c7ab9cd1047e",
+      "published": "2025-09-30",
+      "title": "A shift in the market is happening...",
+      "paraphrase": "Ross reports taking profit after an initial squeeze and identifies repeated failure to hold a whole-dollar level with topping tails as deterioration."
+    },
+    {
+      "video_id": "vvXX2ycveuw",
+      "record_sha256": "69b9b44eb82ca47f96e3f6f2c296c0bf115c31a526aecad1edc4dceb0edb7a01",
+      "published": "2025-09-08",
+      "title": "The Simple MACD Strategy to Spot Big Winners Early (5,712% Example)",
+      "paraphrase": "The source distinguishes the pre-entry 2:1 opportunity test from the realized average win/loss and instructs taking profit at an exit indicator."
+    }
+  ],
+  "machine_translation_boundary": {
+    "safe_to_freeze_now": [
+      "initial stop remains authoritative and can only stay fixed or become less risky",
+      "two-R is a first profit milestone rather than a mandatory full-position cap",
+      "optional half-position realization at the first target",
+      "breakeven stop on the remainder after that first target",
+      "completed red candle as a causal chart-only exit signal",
+      "preserve unresolved runners rather than inventing a session-close fill"
+    ],
+    "requires_equal_sensitivity_cells": [
+      "full runner versus half-at-first-target",
+      "ten-second entry chart versus one-minute management chart"
+    ],
+    "deferred_until_data_or_rule_is_frozen": [
+      "persistent displayed-seller resistance",
+      "hidden or iceberg seller absorption",
+      "aggressor-side red-tape bursts",
+      "buying-rate slowdown",
+      "queue-aware partial fills",
+      "numeric large-topping-tail threshold",
+      "numeric high-volume-red-candle threshold",
+      "second and third scale-out target prices",
+      "cushion-dependent permission to hold through a red candle"
+    ]
+  },
+  "interpretation_rules": {
+    "normative_teaching_is_not_an_observed_fill_label": true,
+    "observed_examples_cannot_create_symbol_exceptions": true,
+    "mistakes_and_self_critique_are_not_silently_promoted_to_policy": true,
+    "no_transcript_text_is_available_to_runtime": true,
+    "no_july_2026_management_path_result_was_calculated_before_this_audit": true
+  }
+}

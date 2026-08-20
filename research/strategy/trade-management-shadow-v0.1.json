@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "contract_id": "trade-management-shadow-v0.1",
+  "artifact_type": "preregistered_retrospective_management_sensitivity",
+  "registration_date": "2026-08-19",
+  "registration_status": "registered_before_management_path_execution",
+  "question": "How do two evidence-backed chart-only translations of Ross Cameron's favorable trade management behave on the frozen July Micro paths without changing selection, entry, sizing, or the prospective account study?",
+  "hypothesis": "A causal management layer will close some positions before the original stop and will preserve favorable runners; selling half at the first two-R milestone and moving the remainder to breakeven will differ materially from holding the full position until the first completed red candle.",
+  "runtime_strategy_effect": "none_shadow_only",
+  "micro_v0_1_modified": false,
+  "prospective_august_panel_modified": false,
+  "portfolio_backtest_eligible": false,
+  "policy_promotion_eligible": false,
+  "profitability_claim_eligible": false,
+  "ross_replication_claim_eligible": false,
+  "frozen_parents": {
+    "micro_policy_id": "micro-v0.1",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "micro_runtime_zip_sha256": "3b59e4b1a69e268158f6ccbead1fe9abae425fc249e72b34f466e53ebba56b20",
+    "historical_account_diagnostic_manifest_content_sha256": "e9dd428d30790dcbf9cd2d171cc2c86ef41a71e4c9a2463d24bfaa34d7048a48",
+    "trade_management_evidence_audit_id": "trade-management-evidence-v0.1"
+  },
+  "registered_source_dates": [
+    "2026-07-10",
+    "2026-07-13",
+    "2026-07-14",
+    "2026-07-15",
+    "2026-07-16",
+    "2026-07-17",
+    "2026-07-20",
+    "2026-07-21",
+    "2026-07-22",
+    "2026-07-23"
+  ],
+  "fixed_entry_cohorts": {
+    "engineering": "every already-frozen Micro-v0.1 filled plan in the source runtime",
+    "account_overlay": "only entries already accepted in each frozen historical-account-diagnostic-v0.1 session artifact",
+    "capital_reuse_recomputed": false,
+    "later_rejected_entries_reconsidered": false,
+    "reason": "Changing exits can change later buying-power availability. Recomputing acceptance would change both management and portfolio chronology, so v0.1 intentionally keeps the entry set fixed."
+  },
+  "registered_cells": [
+    {
+      "cell_id": "full-first-red-10s",
+      "bar_seconds": 10,
+      "first_target_action": "none",
+      "runner_rule": "exit_full_position_on_first_completed_red_candle_or_initial_stop"
+    },
+    {
+      "cell_id": "half-2r-breakeven-first-red-10s",
+      "bar_seconds": 10,
+      "first_target_action": "sell_one_half_at_exact_two_r_target_and_move_remainder_stop_to_actual_entry_fill",
+      "runner_rule": "exit_remainder_on_first_completed_red_candle_or_active_stop"
+    },
+    {
+      "cell_id": "full-first-red-1m",
+      "bar_seconds": 60,
+      "first_target_action": "none",
+      "runner_rule": "exit_full_position_on_first_completed_red_candle_or_initial_stop"
+    },
+    {
+      "cell_id": "half-2r-breakeven-first-red-1m",
+      "bar_seconds": 60,
+      "first_target_action": "sell_one_half_at_exact_two_r_target_and_move_remainder_stop_to_actual_entry_fill",
+      "runner_rule": "exit_remainder_on_first_completed_red_candle_or_active_stop"
+    }
+  ],
+  "event_contract": {
+    "initial_risk_per_share": "actual frozen SIP execution-proxy fill minus original Micro plan stop",
+    "two_r_target": "actual fill plus two times initial risk per share",
+    "completed_red_candle": "bar close strictly below bar open; signal becomes available only at bar_start plus bar_seconds",
+    "red_candle_execution": "first execution-eligible SIP print at or after signal availability",
+    "stop_execution": "first later execution-eligible SIP print at or below the active stop; observed print price is retained",
+    "target_execution": "first later execution-eligible SIP print at or above the target; exact target price is used as the limit-fill proxy",
+    "same_print_priority": [
+      "active stop",
+      "previously available red-candle exit",
+      "two-R target"
+    ],
+    "breakeven_effective_time": "strictly after the target print",
+    "unresolved_behavior": "retain remaining position fraction with no invented mark or session-close exit"
+  },
+  "unchanged_components": [
+    "candidate universe",
+    "scanner thresholds and activation timestamps",
+    "Micro-v0.1 setup and first-new-high trigger",
+    "entry execution proxy and zero-millisecond registered latency",
+    "original stop price",
+    "account profile qualification",
+    "already-accepted account entry quantities",
+    "paper risk and scarcity policies",
+    "retrospective behavior labels"
+  ],
+  "prohibited_runtime_inputs": [
+    "raw transcripts",
+    "Ross entries, exits, fills, profit or recap judgments",
+    "later-session labels used to select a cell",
+    "Level 2 quotes or depth not present in the frozen source",
+    "inferred aggressor side not supplied by the SIP trades",
+    "future bars before their completion timestamp"
+  ],
+  "explicitly_deferred": [
+    "displayed or hidden seller logic",
+    "red-versus-green tape classification",
+    "buying-rate slowdown",
+    "large-topping-tail exit",
+    "high-volume-red-candle exit",
+    "second and third scale-out targets",
+    "cushion-dependent hold-through permission",
+    "fees, spread, latency, queue position, partial fills and market impact"
+  ],
+  "reporting_contract": {
+    "all_cells_reported": true,
+    "best_cell_selection_allowed": false,
+    "required_outputs": [
+      "filled-plan outcome counts and weighted realized R by cell",
+      "fixed-entry main and small account outcome counts and realized P&L by cell",
+      "remaining unresolved fraction and notional",
+      "reason distribution",
+      "source and output hashes"
+    ],
+    "required_labels": [
+      "retrospective",
+      "fixed-entry sensitivity",
+      "diagnostic-only",
+      "non-promotable",
+      "not-a-full-backtest"
+    ]
+  },
+  "decision_gate": "Retain only as shadow evidence. No cell may be selected or promoted from this July result. A future choice requires a separately frozen rule or genuinely prospective paper evidence.",
+  "execution_status": {
+    "management_path_execution": "not_started_at_registration",
+    "runtime_artifact_sha256": null
+  }
+}
