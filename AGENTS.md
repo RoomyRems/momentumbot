@@ -22,6 +22,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 | Historical-data requirements | `docs/DATA_REQUIREMENTS.md` | validators/loaders under `src/momentumbot/` |
 | Level 2/tape feasibility | `docs/research/level2_tape_feasibility_v01.md` | `research/strategy/level2-tape-feasibility-v0.1.json` and `microstructure_contract.py` |
 | Databento metadata/cost gate | `docs/research/databento_metadata_quote_v01.md` | child quote contract, `databento_quote.py` and quote workflow |
+| Databento bounded acquisition | `docs/research/databento_microstructure_smoke_acquisition_v01.md` | hash-bound smoke contract, `databento_smoke.py` and one-shot acquisition workflow |
 | Prospective management/execution | `docs/research/prospective_management_execution_v01.md` | child contract and `execution_realism.py` |
 | New research experiment | `docs/research/experiment_contract.md` | frozen parent policy + runtime artifact |
 | Micro-pullback work | `docs/research/micro_benchmark_suite.md` | `micro_policy.py`, `micro_replay.py`, frozen artifacts |

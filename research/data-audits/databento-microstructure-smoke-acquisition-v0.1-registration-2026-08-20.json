@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "audit_id": "databento-microstructure-smoke-acquisition-v0.1-registration-2026-08-20",
+  "audit_date": "2026-08-20",
+  "artifact_type": "bounded_ephemeral_databento_acquisition_registration_audit",
+  "contract": {
+    "acquisition_contract_id": "databento-microstructure-smoke-acquisition-v0.1",
+    "content_sha256": "d4b38436ef3b5fc08e853b5205c34df930de8abe88ffd36979dcc0e4e166115c",
+    "file_sha256": "97d7288168022958a3b996a1ab38cf5b647c2280a9353f225b93112cd8956320"
+  },
+  "frozen_parents": {
+    "level2_contract_content_sha256": "6d3a41d6bde3844900bc880632d8bc9d6c5f7b787edd5f0c302a709dcb9c1bf1",
+    "quote_contract_content_sha256": "1c9401e49d500c38715dd61c7f180e3eb868d71b9a28926caa4b399d335f45b1",
+    "verified_quote_report_content_sha256": "67ebcec306b8f930c70ba573cf088468aa827264aedff1d0321957d7067ca256",
+    "verified_quote_workflow_run_id": 32418655472,
+    "verified_quote_artifact_id": 9424913731
+  },
+  "authorization_and_budget": {
+    "historical_timeseries_download_authorized": true,
+    "exact_request_count": 20,
+    "authorized_push_parent_sha": "cfe6b00692feea250856afef7a3e1164f178a6e6",
+    "batch_job_authorized": false,
+    "live_subscription_authorized": false,
+    "broad_history_authorized": false,
+    "automatic_retry_authorized": false,
+    "broker_or_order_change_authorized": false,
+    "verified_quote_usd": "0.207468646765",
+    "hard_preflight_cost_ceiling_usd": "0.50",
+    "verified_billable_size_bytes": 379772560,
+    "hard_preflight_billable_size_ceiling_bytes": 500000000
+  },
+  "causal_and_reconstruction_boundary": {
+    "smoke_case_count": 4,
+    "schema_count_per_case": 5,
+    "sample_rule": "last MBP-10 record by receive time in each UTC one-minute bucket",
+    "sample_alignment": "same publisher, instrument, and venue sequence at MBO F_LAST",
+    "independent_replay_count": 2,
+    "mbp10_reference_required": true,
+    "minimum_reference_alignment_ratio": "0.95",
+    "retrospective_labels_or_outcomes_used": false,
+    "threshold_fitting_allowed": false
+  },
+  "storage_and_licensing_boundary": {
+    "raw_dbn_location": "ephemeral runner temporary directory only",
+    "raw_data_committed": false,
+    "raw_data_uploaded": false,
+    "provider_exception_messages_persisted": false,
+    "record_level_prices_sizes_order_ids_or_mappings_persisted": false,
+    "sanitized_output_only": true,
+    "file_hashes_and_non_reconstructable_counts_allowed": true
+  },
+  "bound_files": [
+    {
+      "path": "research/strategy/databento-microstructure-smoke-acquisition-v0.1.json",
+      "file_sha256": "97d7288168022958a3b996a1ab38cf5b647c2280a9353f225b93112cd8956320"
+    },
+    {
+      "path": "research/data-audits/databento-microstructure-metadata-quote-v0.1-run-32418655472-success-2026-08-20.json",
+      "file_sha256": "13ec6248668db98831d8805d342187f2c8e31492c3562bf26e8a70e7f506c22b"
+    },
+    {
+      "path": "src/momentumbot/research/databento_smoke.py",
+      "file_sha256": "b6b660b0b06617464ef4b941470e83d9919ee77ff12f62bce6361517b13db2f1"
+    },
+    {
+      "path": "scripts/run_databento_microstructure_smoke.py",
+      "file_sha256": "1236c76198b94a590450316c78b88bc6a7a3af613865df9ca9805f1181032bac"
+    },
+    {
+      "path": ".github/workflows/databento-microstructure-smoke.yml",
+      "file_sha256": "a6b573a8405be3a0b5f3e0a41e008fd9a5ba0d468c8dca57739799ba8ad9f7f2"
+    },
+    {
+      "path": "tests/test_databento_smoke.py",
+      "file_sha256": "a829759095c6c5818865b180a5ec49129d8e59d613fbc7426f194cb00381204d"
+    },
+    {
+      "path": "docs/research/databento_microstructure_smoke_acquisition_v01.md",
+      "file_sha256": "b4c628f13d2d849ca7d480619cea436333a0c804c7c35974f7f56c2050b21af4"
+    }
+  ],
+  "mechanical_verification": {
+    "focused_smoke_test_count_before_audit_assertion": 10,
+    "focused_level2_quote_and_smoke_test_count": 25,
+    "full_suite_test_count_before_audit_assertion": 580,
+    "all_tests_passed": true,
+    "python_compileall_passed": true,
+    "git_diff_check_passed": true,
+    "preflight_cost_and_size_fail_closed_tested": true,
+    "exact_twenty_request_limit_tested": true,
+    "dual_replay_and_mbp10_exact_match_tested": true,
+    "reference_mismatch_failure_tested": true,
+    "provider_and_parser_failure_cleanup_tested": true,
+    "secret_and_raw_record_sanitization_tested": true,
+    "workflow_rerun_block_tested": true
+  },
+  "execution_status": {
+    "provider_timeseries_request_run": false,
+    "databento_credit_spent": false,
+    "g1_schema_and_integrity_observed": false,
+    "g2_reconstruction_observed": false,
+    "sanitized_result_artifact_id": null
+  },
+  "authority_boundary": {
+    "runtime_feature_authority_created": false,
+    "entry_exit_or_sizing_rule_changed": false,
+    "paper_or_live_order_submitted": false,
+    "broker_or_account_changed": false,
+    "portfolio_backtest_completed": false,
+    "profitability_claim_eligible": false,
+    "ross_replication_claim_eligible": false
+  },
+  "next_gate": "Publish this exact child once. The push-triggered workflow must pass the fresh budget quote, acquire and delete all raw files, and preserve the sanitized G1/G2 result before any Level 2 feature mechanics are implemented.",
+  "content_sha256": "5ed5360a2395d64b6b618a7ff49e888befc61000681f907340e08e2b3add7bee"
+}

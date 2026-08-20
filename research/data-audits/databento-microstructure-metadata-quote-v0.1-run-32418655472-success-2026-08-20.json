@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "audit_id": "databento-microstructure-metadata-quote-v0.1-run-32418655472-success-2026-08-20",
+  "audit_date": "2026-08-20",
+  "artifact_type": "independently_verified_sanitized_databento_quote_run",
+  "contract": {
+    "quote_contract_id": "databento-microstructure-metadata-quote-v0.1",
+    "content_sha256": "1c9401e49d500c38715dd61c7f180e3eb868d71b9a28926caa4b399d335f45b1"
+  },
+  "github_actions": {
+    "workflow_run_id": 32418655472,
+    "workflow_run_attempt": 1,
+    "conclusion": "success",
+    "artifact_id": 9424913731,
+    "artifact_name": "databento-microstructure-metadata-quote-v0.1-32418655472-1",
+    "artifact_zip_sha256": "f84f5b8013c996e4ddc9501ad4ea7123a7f11ffd7402e0ec0a21017da47f3818",
+    "quote_report_content_sha256": "67ebcec306b8f930c70ba573cf088468aa827264aedff1d0321957d7067ca256"
+  },
+  "verified_result": {
+    "g0_quote_passed": true,
+    "request_count": 20,
+    "conservative_total_quoted_cost_usd": "0.207468646765",
+    "total_billable_size_bytes": 379772560,
+    "all_four_symbols_resolved_point_in_time": true,
+    "all_five_schemas_available": true,
+    "timeseries_or_batch_endpoint_called": false,
+    "raw_market_data_persisted": false,
+    "metadata_query_cost_usd": "0"
+  },
+  "cost_by_symbol_usd": {
+    "INTJ": "0.000363683701",
+    "EQPT": "0.006445217133",
+    "AMC": "0.028528261184",
+    "GMM": "0.172131484747"
+  },
+  "cost_by_schema_usd": {
+    "mbo": "0.072135579586",
+    "mbp-10": "0.116153782606",
+    "trades": "0.019148290157",
+    "definition": "0.000021457672",
+    "status": "0.000009536744"
+  },
+  "verification": {
+    "artifact_zip_digest_recomputed": true,
+    "quote_report_content_digest_recomputed": true,
+    "sanitized_report_contract_validation_passed": true,
+    "secret_or_raw_records_observed": false
+  },
+  "authority_boundary": {
+    "market_data_downloaded_by_quote_run": false,
+    "credits_spent_by_quote_run": false,
+    "broker_or_account_changed": false,
+    "trading_policy_changed": false
+  },
+  "content_sha256": "c23bc4766e727ee442952d11c8e944588a2fec242553f722e23ab27aae233bb5"
+}

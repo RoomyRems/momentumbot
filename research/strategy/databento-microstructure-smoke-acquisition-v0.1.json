@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "acquisition_contract_id": "databento-microstructure-smoke-acquisition-v0.1",
+  "artifact_type": "preregistered_bounded_ephemeral_databento_acquisition",
+  "registration_date": "2026-08-20",
+  "registration_status": "frozen_before_any_databento_timeseries_request",
+  "purpose": "Test whether the four mechanically selected Level 2 smoke cases can be acquired, parsed, and reconstructed causally without publishing licensed vendor records or changing any trading policy.",
+  "parent_level2_contract": {
+    "path": "research/strategy/level2-tape-feasibility-v0.1.json",
+    "contract_id": "level2-tape-feasibility-v0.1",
+    "content_sha256": "6d3a41d6bde3844900bc880632d8bc9d6c5f7b787edd5f0c302a709dcb9c1bf1"
+  },
+  "parent_quote_contract": {
+    "path": "research/strategy/databento-microstructure-metadata-quote-v0.1.json",
+    "quote_contract_id": "databento-microstructure-metadata-quote-v0.1",
+    "content_sha256": "1c9401e49d500c38715dd61c7f180e3eb868d71b9a28926caa4b399d335f45b1"
+  },
+  "verified_quote": {
+    "workflow_run_id": 32418655472,
+    "workflow_run_attempt": 1,
+    "artifact_id": 9424913731,
+    "artifact_name": "databento-microstructure-metadata-quote-v0.1-32418655472-1",
+    "artifact_zip_sha256": "f84f5b8013c996e4ddc9501ad4ea7123a7f11ffd7402e0ec0a21017da47f3818",
+    "quote_report_content_sha256": "67ebcec306b8f930c70ba573cf088468aa827264aedff1d0321957d7067ca256",
+    "request_count": 20,
+    "conservative_total_quoted_cost_usd": "0.207468646765",
+    "total_billable_size_bytes": 379772560,
+    "g0_quote_passed": true,
+    "raw_market_data_persisted": false
+  },
+  "authorization": {
+    "source": "User authorization on 2026-08-20 to proceed and use as much of the reported Databento credit as needed for this bounded next step.",
+    "metadata_requote_authorized": true,
+    "historical_timeseries_download_authorized": true,
+    "exact_request_count_authorized": 20,
+    "authorized_push_parent_sha": "cfe6b00692feea250856afef7a3e1164f178a6e6",
+    "batch_job_authorized": false,
+    "live_subscription_authorized": false,
+    "broad_history_download_authorized": false,
+    "automatic_retry_authorized": false,
+    "broker_or_order_change_authorized": false,
+    "reported_new_user_credit_usd": "125",
+    "hard_preflight_cost_ceiling_usd": "0.50",
+    "hard_preflight_billable_size_ceiling_bytes": 500000000,
+    "failure_rule": "Run only on the first GitHub Actions attempt of the direct push whose prior branch head is cfe6b00692feea250856afef7a3e1164f178a6e6. Requote every exact request before downloading. If any metadata call fails, the total quote exceeds 0.50 USD, or the total billable size exceeds 500000000 bytes, make zero timeseries calls. Once downloading begins, stop after the first provider, file, or parser failure and never retry automatically. Integrity comparisons are evaluated after the exact files finish so a diagnostic mismatch cannot hide the remaining schema evidence."
+  },
+  "provider": {
+    "provider_id": "databento",
+    "dataset": "XNAS.ITCH",
+    "venue_scope": "single_venue_nasdaq_not_consolidated_national_depth",
+    "sdk_package": "databento",
+    "sdk_version": "0.83.0",
+    "secret_name": "DATABENTO_API_KEY",
+    "secret_scope": "acquisition workflow step only; never persisted"
+  },
+  "request_surface": {
+    "source": "The exact 20 requests returned by build_quote_requests for the hash-bound parent quote contract.",
+    "smoke_cases": [
+      {"trading_date": "2026-07-10", "symbol": "INTJ"},
+      {"trading_date": "2026-07-10", "symbol": "EQPT"},
+      {"trading_date": "2026-07-20", "symbol": "AMC"},
+      {"trading_date": "2026-07-10", "symbol": "GMM"}
+    ],
+    "schemas": ["mbo", "mbp-10", "trades", "definition", "status"],
+    "allowed_calls": [
+      "historical.metadata.get_billable_size",
+      "historical.metadata.get_cost",
+      "historical.timeseries.get_range"
+    ],
+    "prohibited_calls": [
+      "historical.batch.submit_job",
+      "historical.batch.download",
+      "live.subscribe"
+    ]
+  },
+  "preregistered_hypothesis": "Direct XNAS.ITCH data for the four frozen cases can be acquired and parsed causally; a full-depth MBO replay and an independent order-map replay will agree at deterministic one-minute samples; and their top-ten states will agree with Databento MBP-10 at the same publisher, instrument, and venue sequence.",
+  "integrity_policy": {
+    "sample_rule": "For every publisher and instrument, retain the last MBP-10 record by receive time in each UTC one-minute bucket and compare only at the matching MBO F_LAST venue sequence.",
+    "book_ready_rule": "Do not inspect a reconstructed book until an MBO synthetic snapshot clear has been observed and a later non-snapshot record closes on F_LAST.",
+    "action_semantics": "Trade, Fill, and None do not mutate the book; clear removes all orders; add inserts; cancel subtracts size; modify replaces price and size. F_TOB and UNDEF_PRICE follow Databento's documented special handling.",
+    "sequence_rule": "Repeated sequence numbers within a multi-record event are allowed; unflagged reversals fail. Symbol-filtered forward gaps are counted but are not treated as missing venue data.",
+    "g1_requirements": [
+      "all 20 exact requests complete",
+      "every DBN file is nonempty and hashable",
+      "MBO, MBP-10, trades, and definition contain records for each case",
+      "status may be empty because no status transition is a valid result",
+      "each MBO case contains a synthetic snapshot clear",
+      "no provider or parser error occurs"
+    ],
+    "g2_requirements": [
+      "at least one aligned one-minute comparison exists and at least 95 percent of MBP-10 reference samples align for every case",
+      "incremental and independent order-map top-ten states match at every aligned sample",
+      "MBO-derived and MBP-10 price, size, and count states match at every aligned sample",
+      "no orphan cancel, missing modify, duplicate add, invalid action, invalid side, invalid size, unflagged timestamp inversion, sequence reversal, or crossed sampled book remains"
+    ]
+  },
+  "storage_and_licensing": {
+    "raw_storage": "Temporary runner directory only.",
+    "public_repository_raw_data": false,
+    "github_artifact_raw_data": false,
+    "persisted_output": "Sanitized non-reconstructable counts, pass/fail booleans, cost and byte totals, and SHA-256 hashes of ephemeral DBN files.",
+    "cleanup_rule": "Delete every DBN file before the sanitized report is finalized and fail closed if the temporary raw-data directory is not empty.",
+    "log_rule": "Never print raw records, prices, sizes, order IDs, instrument mappings, provider exception messages, credentials, or temporary paths."
+  },
+  "prohibited_inputs_and_actions": [
+    "Ross action or retrospective label",
+    "recap text or discretionary judgment",
+    "trade P&L or later price outcome",
+    "threshold fitting or case-by-case tuning",
+    "Micro-v0.1 or scanner changes",
+    "paper or live order submission",
+    "publishing licensed Databento records",
+    "claiming single-venue Nasdaq depth is consolidated national Level 2"
+  ],
+  "claim_boundary": [
+    "The four retrospective cases test engineering feasibility only and cannot establish profitability.",
+    "A passing smoke gate creates no runtime, entry, exit, sizing, paper-order, or live-order authority.",
+    "A failed gate is preserved and stops before feature-policy work.",
+    "Actual Databento billing may differ from the preflight estimate; the report labels the amount as quoted rather than billed."
+  ],
+  "content_sha256": "d4b38436ef3b5fc08e853b5205c34df930de8abe88ffd36979dcc0e4e166115c"
+}

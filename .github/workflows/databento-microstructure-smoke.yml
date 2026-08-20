@@ -1,0 +1,63 @@
+name: Databento microstructure smoke acquisition v0.1
+
+on:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - .github/workflows/databento-microstructure-smoke.yml
+      - research/strategy/databento-microstructure-smoke-acquisition-v0.1.json
+
+permissions:
+  contents: read
+
+concurrency:
+  group: databento-microstructure-smoke-acquisition-v0.1
+  cancel-in-progress: false
+
+jobs:
+  acquire-and-reconstruct:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project and pinned Databento client
+        run: |
+          python -m pip install -e .
+          python -m pip install databento==0.83.0
+      - name: Verify the frozen acquisition and sanitization contract
+        run: python -m unittest tests.test_databento_smoke -v
+      - name: Requote, acquire ephemerally, and reconstruct four frozen cases
+        env:
+          DATABENTO_API_KEY: ${{ secrets.DATABENTO_API_KEY }}
+          MOMENTUMBOT_PUSH_BEFORE: ${{ github.event.before }}
+        run: >-
+          python scripts/run_databento_microstructure_smoke.py
+          --output databento-microstructure-smoke-acquisition-v0.1.json
+      - name: Upload sanitized diagnostic only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: databento-microstructure-smoke-acquisition-v0.1-${{ github.run_id }}-${{ github.run_attempt }}
+          path: databento-microstructure-smoke-acquisition-v0.1.json
+          if-no-files-found: error
+          retention-days: 90
+      - name: Enforce G1 and G2 smoke gates
+        run: >-
+          python -c "import json,pathlib;
+          d=json.loads(pathlib.Path('databento-microstructure-smoke-acquisition-v0.1.json').read_text());
+          assert d['preflight']['total_quoted_cost_usd'] is not None;
+          assert float(d['preflight']['total_quoted_cost_usd']) <= 0.50;
+          assert d['timeseries_request_count'] == 20;
+          assert d['raw_market_data_persisted'] is False;
+          assert d['raw_market_data_uploaded'] is False;
+          assert d['raw_temp_directory_empty_before_cleanup'] is True;
+          assert d['raw_temp_directory_removed'] is True;
+          assert d['g1_schema_and_integrity_passed'] is True;
+          assert d['g2_reconstruction_passed'] is True;
+          assert d['runtime_authority_created'] is False"
