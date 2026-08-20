@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "audit_id": "databento-microstructure-metadata-quote-v0.1-registration-2026-08-20",
+  "audit_date": "2026-08-20",
+  "artifact_type": "metadata_only_provider_quote_registration_audit",
+  "contract": {
+    "quote_contract_id": "databento-microstructure-metadata-quote-v0.1",
+    "content_sha256": "1c9401e49d500c38715dd61c7f180e3eb868d71b9a28926caa4b399d335f45b1",
+    "file_sha256": "ed920e52be5ece4862d226bf751ddd3421249ae594186e70f189352c19694c10"
+  },
+  "parent": {
+    "contract_id": "level2-tape-feasibility-v0.1",
+    "content_sha256": "6d3a41d6bde3844900bc880632d8bc9d6c5f7b787edd5f0c302a709dcb9c1bf1"
+  },
+  "authorization_record": {
+    "repository_secret_name_reported_configured": "DATABENTO_API_KEY",
+    "secret_value_observed_or_persisted": false,
+    "reported_new_user_credit_usd": "125",
+    "reported_credit_expiry_months_after_account_creation": 6,
+    "metadata_and_exact_cost_queries_authorized": true,
+    "market_data_download_authorized": false,
+    "future_smoke_download_review_ceiling_usd": "12.50"
+  },
+  "provider_compatibility": {
+    "official_python_package": "databento",
+    "pinned_version": "0.83.0",
+    "official_source_signatures_checked": true,
+    "list_fields_called_without_unsupported_dataset_argument": true,
+    "historical_client_uses_environment_key_when_constructor_key_is_omitted": true,
+    "metadata_get_cost_respects_plan_discounts": true
+  },
+  "bound_files": [
+    {
+      "path": "research/strategy/databento-microstructure-metadata-quote-v0.1.json",
+      "file_sha256": "ed920e52be5ece4862d226bf751ddd3421249ae594186e70f189352c19694c10"
+    },
+    {
+      "path": "src/momentumbot/research/databento_quote.py",
+      "file_sha256": "385bfcd7a85ad5faa862faae8be6bf39606ed76632d1c1fd94dd0ddd9fd0a708"
+    },
+    {
+      "path": "scripts/quote_databento_microstructure.py",
+      "file_sha256": "213553a4ba226ba807a454cc12ff1c82385eeb39a620ac4ce4ae30c1b47006c4"
+    },
+    {
+      "path": ".github/workflows/databento-microstructure-quote.yml",
+      "file_sha256": "5faf48452a21c513cd6ba3034144fff34840af02e09bfbae807ee98b24c4c1c0"
+    },
+    {
+      "path": "tests/test_databento_quote.py",
+      "file_sha256": "120978b6c4fe5b7fa1ace3cadd09a48a2f8a30854d45b263937696dffc1241e6"
+    },
+    {
+      "path": "docs/research/databento_metadata_quote_v01.md",
+      "file_sha256": "2caee1ca6428d6647882e94c825bd6a8b427f0d6776a9d9b5bc83282449195d5"
+    }
+  ],
+  "mechanical_verification": {
+    "focused_test_count_before_audit_assertion": 6,
+    "focused_tests_passed": true,
+    "twenty_exact_ten_minute_aligned_quote_requests": true,
+    "metadata_return_shapes_and_official_v0_83_0_signatures_checked": true,
+    "secret_scoped_to_single_workflow_step": true,
+    "sanitized_failure_artifact_retained": true,
+    "timeseries_batch_and_live_calls_absent": true
+  },
+  "execution_status": {
+    "provider_quote_run": false,
+    "workflow_run_id": null,
+    "sanitized_quote_artifact_content_sha256": null,
+    "g0_quote_passed": false
+  },
+  "authority_boundary": {
+    "market_data_downloaded": false,
+    "credits_spent": false,
+    "download_authorized_by_registration": false,
+    "broker_or_account_changed": false,
+    "level2_feature_authority_created": false,
+    "policy_promotion_eligible": false
+  },
+  "next_gate": "Publish the child, allow its metadata-only workflow to run, independently verify the sanitized exact-cost artifact, and require a separate bounded-download review even if G0 passes.",
+  "content_sha256": "848f3d195fcf5915d2597cfcfec371b5b902804617925016101ef1e5517df546"
+}

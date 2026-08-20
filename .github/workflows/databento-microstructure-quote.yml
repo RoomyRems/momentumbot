@@ -1,0 +1,60 @@
+name: Databento microstructure metadata quote v0.1
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - .github/workflows/databento-microstructure-quote.yml
+      - research/strategy/databento-microstructure-metadata-quote-v0.1.json
+      - src/momentumbot/research/databento_quote.py
+      - scripts/quote_databento_microstructure.py
+      - tests/test_databento_quote.py
+
+permissions:
+  contents: read
+
+concurrency:
+  group: databento-microstructure-metadata-quote-v0.1
+  cancel-in-progress: false
+
+jobs:
+  quote:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project and pinned metadata client
+        run: |
+          python -m pip install -e .
+          python -m pip install databento==0.83.0
+      - name: Verify the metadata-only contract
+        run: python -m unittest tests.test_databento_quote -v
+      - name: Quote four frozen cases without requesting market data
+        env:
+          DATABENTO_API_KEY: ${{ secrets.DATABENTO_API_KEY }}
+        run: >-
+          python scripts/quote_databento_microstructure.py
+          --output databento-microstructure-metadata-quote-v0.1.json
+      - name: Upload sanitized quote or failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: databento-microstructure-metadata-quote-v0.1-${{ github.run_id }}-${{ github.run_attempt }}
+          path: databento-microstructure-metadata-quote-v0.1.json
+          if-no-files-found: error
+          retention-days: 90
+      - name: Enforce G0 quote gate
+        run: >-
+          python -c "import json,pathlib;
+          d=json.loads(pathlib.Path('databento-microstructure-metadata-quote-v0.1.json').read_text());
+          assert d['g0_quote_passed'] is True;
+          assert d['raw_market_data_persisted'] is False;
+          assert d['timeseries_or_batch_endpoint_called'] is False;
+          assert d['download_authorized_by_this_artifact'] is False"

@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "contract_id": "prospective-management-execution-v0.1",
+  "artifact_type": "preregistered_prospective_management_and_execution_child",
+  "registration_date": "2026-08-20",
+  "registration_status": "registered_before_august_24_panel_and_before_databento_download",
+  "purpose": "Freeze one source-based management translation and two deterministic execution-assumption scenarios before the August 24-September 4 account panel, without changing Micro-v0.1 or using retrospective P&L to choose a rule.",
+  "runtime_strategy_effect": "prospective_shadow_only_after_required_inputs_exist",
+  "frozen_parents": {
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "account_integration_content_sha256": "64489aa27fec5eaf8ca12c94f4aeb47344d49a79b14df1bdda706cd23cc9ce73",
+    "trade_management_result_content_sha256": "b06159fee47d1d0f59a8d67aabfc082a1c3af6872a88f18f9a7eb49a3f969434",
+    "level2_feasibility_content_sha256": "6d3a41d6bde3844900bc880632d8bc9d6c5f7b787edd5f0c302a709dcb9c1bf1"
+  },
+  "knowledge_boundary": {
+    "july_management_result_already_observed": true,
+    "july_cell_pnl_or_r_allowed_as_selection_input": false,
+    "ross_fills_actions_recaps_or_later_outcomes_allowed_at_runtime": false,
+    "source_rule_evidence_allowed": true,
+    "prospective_market_and_account_inputs_available_only_by_event_time": true,
+    "no_case_by_case_symbol_or_date_override": true
+  },
+  "management_rule": {
+    "selected_cell_id": "half-2r-breakeven-first-red-1m",
+    "selection_used_july_pnl": false,
+    "bar_seconds": 60,
+    "initial_stop": "unchanged Micro plan stop; never widen",
+    "first_target": "actual confirmed average entry fill plus two times initial per-share risk",
+    "first_target_action": "after a confirmed target fill, realize one half and move only the remainder stop to the actual confirmed average entry fill",
+    "runner_action": "exit the remainder on the first completed one-minute red candle or the active stop, whichever becomes executable first",
+    "unresolved_behavior": "retain explicitly unresolved; do not invent a session-close mark or fill",
+    "selection_basis": [
+      "Current normative training explicitly permits realizing half at the first target while retaining a runner.",
+      "The primary current full-training example explicitly teaches the completed red candle on a one-minute chart.",
+      "The one-minute choice is source-explicit and was fixed despite not being the least-negative July account cell."
+    ],
+    "claim_boundary": "This is one conservative machine translation for prospective testing, not a claim that Ross always uses it or that it is profitable."
+  },
+  "execution_scenarios": [
+    {
+      "policy_id": "l1-conservative-v0.1",
+      "decision_to_arrival_ms": 100,
+      "max_quote_age_ms": 100,
+      "cancel_after_arrival_ms": 250,
+      "cancel_ack_ms": 100,
+      "displayed_size_participation": "0.25",
+      "marketable_limit_offset_ticks": 5,
+      "role": "primary fixed engineering assumption"
+    },
+    {
+      "policy_id": "l1-stress-v0.1",
+      "decision_to_arrival_ms": 250,
+      "max_quote_age_ms": 50,
+      "cancel_after_arrival_ms": 150,
+      "cancel_ack_ms": 150,
+      "displayed_size_participation": "0.10",
+      "marketable_limit_offset_ticks": 2,
+      "role": "harsher fixed sensitivity assumption"
+    }
+  ],
+  "execution_semantics": {
+    "order_type": "marketable limit",
+    "causal_clock": "quote receive timestamp",
+    "arrival": "decision timestamp plus scenario latency",
+    "fresh_quote_required": true,
+    "pre_arrival_quote_max_age_enforced": true,
+    "fill_price": "causal displayed contra top-of-book price when it crosses the order limit",
+    "partial_fill_cap": "floor of displayed contra size times fixed scenario participation fraction",
+    "displayed_state_reuse_allowed": false,
+    "additional_queue_credit_allowed": false,
+    "hidden_liquidity_invented": false,
+    "additional_fill_after_first_eligible_state_allowed": false,
+    "order_can_fill_until": "strictly before cancellation acknowledgement",
+    "halted_state_can_fill": false,
+    "missing_or_stale_quote_behavior": "unavailable_no_fresh_quote",
+    "complete_unfilled_and_partial_outcomes_retained": true,
+    "spread_included": true,
+    "market_impact_modeled": false
+  },
+  "best_scenario_selection_allowed": false,
+  "scenario_reporting": "Report the primary and stress outcomes separately on the same prospective opportunity set; do not choose the better result.",
+  "fee_schedule": {
+    "effective_date": "2026-07-20",
+    "sec_sell_rate_per_dollar": "0.0000206",
+    "taf_sell_rate_per_share": "0.000195",
+    "taf_per_trade_cap_usd": "9.79",
+    "cat_rate_per_executed_equity_share": "0.000003",
+    "direct_api_equity_commission_rate_per_dollar": "0",
+    "aggregation": "sum each fee type by account-day then round each type up to the nearest cent",
+    "taf_cap_application": "apply the cap to each sell trade before account-day aggregation",
+    "source_urls": [
+      "https://files.alpaca.markets/disclosures/library/BrokFeeSched.pdf",
+      "https://www.sec.gov/rules-regulations/fee-rate-advisories/2026-2",
+      "https://www.finra.org/rules-guidance/rule-filings/sr-finra-2024-019/fee-adjustment-schedule"
+    ],
+    "account_plan_caveat": "Zero direct API equity commission is a research assumption for the direct commission-free API arrangement and must be reconciled against the actual account agreement or statement before any economic claim."
+  },
+  "prospective_panel": {
+    "dates": [
+      "2026-08-24",
+      "2026-08-25",
+      "2026-08-26",
+      "2026-08-27",
+      "2026-08-28",
+      "2026-08-31",
+      "2026-09-01",
+      "2026-09-02",
+      "2026-09-03",
+      "2026-09-04"
+    ],
+    "main_and_small_accounts_composed_separately": true,
+    "both_execution_scenarios_use_identical_opportunity_inputs": true,
+    "missing_account_snapshot_behavior": "block only that account-date",
+    "missing_quote_or_halt_state_behavior": "retain unavailable execution; never fall back to the frozen SIP print fill"
+  },
+  "integration_gate": {
+    "simulator_mechanics_may_be_tested_without_market_download": true,
+    "prospective_account_runtime_requires_registered_account_snapshot": true,
+    "prospective_execution_requires_causal_top_of_book_and_halt_states": true,
+    "databento_metadata_quote_must_pass_before_any_download": true,
+    "level2_or_tape_features_require_separate_g1_and_g2_gates": true,
+    "frozen_micro_print_proxy_remains_unchanged": true
+  },
+  "authority_boundary": {
+    "broker_orders_created": false,
+    "paper_orders_submitted": false,
+    "live_orders_submitted": false,
+    "level2_features_authoritative": false,
+    "portfolio_backtest_completed": false,
+    "policy_promotion_eligible": false,
+    "profitability_claim_eligible": false,
+    "ross_replication_claim_eligible": false
+  },
+  "limitations": [
+    "Top-of-book size is not queue position and is haircut only as a fixed engineering assumption.",
+    "The model does not reconstruct venue routing, hidden liquidity, market impact, exchange acknowledgements, or broker-specific smart routing.",
+    "The two latency, participation, and limit-offset scenarios are uncalibrated assumptions and cannot be fitted from July outcomes.",
+    "Nasdaq TotalView is a single-venue depth source and cannot establish consolidated national depth.",
+    "Complete discretionary seller, tape, topping-tail, buying-slowdown, add, re-entry, and cross-account attention logic remains outside this child."
+  ],
+  "next_gate": "Run the metadata-only Databento entitlement and exact-cost quote. If it passes below the fixed ceiling, request separate review before one bounded four-case data download; independently retain the scheduled prospective account snapshots and causal quote inputs.",
+  "content_sha256": "14812b9f25b5ea7230254ed86b1e0eaa30fffe3dc13b1ee141b19770706090f9"
+}

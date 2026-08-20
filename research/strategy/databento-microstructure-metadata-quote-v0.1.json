@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "quote_contract_id": "databento-microstructure-metadata-quote-v0.1",
+  "artifact_type": "preregistered_metadata_only_provider_quote",
+  "registration_date": "2026-08-20",
+  "registration_status": "frozen_before_any_databento_market_data_download",
+  "purpose": "Clear the parent Level 2 G0 availability, entitlement, schema-discovery, symbology, billable-size, and exact-cost gate for four mechanically selected smoke cases without requesting market data.",
+  "parent_level2_contract": {
+    "path": "research/strategy/level2-tape-feasibility-v0.1.json",
+    "contract_id": "level2-tape-feasibility-v0.1",
+    "content_sha256": "6d3a41d6bde3844900bc880632d8bc9d6c5f7b787edd5f0c302a709dcb9c1bf1"
+  },
+  "authorization": {
+    "source": "user authorization on 2026-08-20 to use DATABENTO_API_KEY and conserve the reported new-user credits",
+    "metadata_queries_authorized": true,
+    "metadata_queries_billable": false,
+    "timeseries_download_authorized": false,
+    "batch_job_authorized": false,
+    "broad_history_download_authorized": false,
+    "broker_or_order_change_authorized": false,
+    "reported_new_user_credit_usd": "125",
+    "reported_credit_expiry": "six months after account creation; exact account-creation date not stored",
+    "max_future_smoke_download_quote_usd": "12.50",
+    "budget_rule": "A future smoke acquisition must stop for review when the conservative five-schema quote exceeds 10 percent of the reported credit. This quote artifact never authorizes a download."
+  },
+  "provider": {
+    "provider_id": "databento",
+    "dataset": "XNAS.ITCH",
+    "venue_scope": "single_venue_nasdaq_not_consolidated_national_depth",
+    "sdk_package": "databento",
+    "sdk_version": "0.83.0",
+    "secret_name": "DATABENTO_API_KEY",
+    "secret_scope": "quote workflow step only; never persisted"
+  },
+  "required_schemas": [
+    "mbo",
+    "mbp-10",
+    "trades",
+    "definition",
+    "status"
+  ],
+  "smoke_cases": [
+    {
+      "trading_date": "2026-07-10",
+      "symbol": "INTJ"
+    },
+    {
+      "trading_date": "2026-07-10",
+      "symbol": "EQPT"
+    },
+    {
+      "trading_date": "2026-07-20",
+      "symbol": "AMC"
+    },
+    {
+      "trading_date": "2026-07-10",
+      "symbol": "GMM"
+    }
+  ],
+  "quote_windows": {
+    "mbo": "00:00 UTC through 10:10 America/New_York",
+    "mbp-10": "06:50 through 10:10 America/New_York",
+    "trades": "06:50 through 10:10 America/New_York",
+    "definition": "full UTC trading-date day",
+    "status": "full UTC trading-date day",
+    "alignment": "all starts and ends are exact ten-minute boundaries",
+    "reason": "The MBO quote includes the provider day start needed to investigate complete initial state. The other strategy-window schemas cover and pad the registered 06:55-10:05 New York interval."
+  },
+  "allowed_calls": [
+    "historical.metadata.list_datasets",
+    "historical.metadata.list_schemas",
+    "historical.metadata.list_fields",
+    "historical.metadata.list_unit_prices",
+    "historical.metadata.get_dataset_range",
+    "historical.metadata.get_dataset_condition",
+    "historical.metadata.get_billable_size",
+    "historical.metadata.get_cost",
+    "historical.symbology.resolve"
+  ],
+  "prohibited_calls": [
+    "historical.timeseries.get_range",
+    "historical.batch.submit_job",
+    "historical.batch.download",
+    "live.subscribe"
+  ],
+  "pass_condition": "All four point-in-time symbols resolve; XNAS.ITCH exposes all five schemas and metadata; all 20 exact quote rows complete; their conservative sum is at most 12.50 USD; and no market-data endpoint is called.",
+  "failure_action": "Persist only the sanitized metadata failure, spend no credit, request no market data, and do not advance to schema integrity or reconstruction.",
+  "claim_boundary": [
+    "A successful quote proves only bounded availability and price, not data integrity or strategy value.",
+    "XNAS.ITCH remains single-venue Nasdaq depth rather than consolidated national Level 2.",
+    "The four retrospective smoke cases cannot fit a threshold or support a profitability claim.",
+    "No Databento record, raw response containing credentials, paper order, or live order may be persisted by this contract."
+  ],
+  "content_sha256": "1c9401e49d500c38715dd61c7f180e3eb868d71b9a28926caa4b399d335f45b1"
+}

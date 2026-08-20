@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "audit_id": "prospective-management-execution-v0.1-registration-2026-08-20",
+  "audit_date": "2026-08-20",
+  "artifact_type": "prospective_management_and_execution_registration_audit",
+  "contract": {
+    "contract_id": "prospective-management-execution-v0.1",
+    "content_sha256": "14812b9f25b5ea7230254ed86b1e0eaa30fffe3dc13b1ee141b19770706090f9",
+    "file_sha256": "3760a73d4cc5d209098b75d555fb1f1a4ebcd7c0ecc428b1a16c39c2055008f8"
+  },
+  "source_boundary": {
+    "july_management_result_observed_before_registration": true,
+    "july_pnl_or_r_used_for_selection": false,
+    "selected_cell": "half-2r-breakeven-first-red-1m",
+    "selected_cell_was_least_negative_july_main_cell": false,
+    "selection_basis": "source-explicit half-at-target permission and one-minute completed-red-candle teaching",
+    "micro_v0_1_modified": false,
+    "retrospective_labels_available_to_runtime": false
+  },
+  "execution_boundary": {
+    "scenario_count": 2,
+    "best_scenario_selection_allowed": false,
+    "causal_receive_time_required": true,
+    "fresh_top_of_book_required": true,
+    "displayed_state_used_at_most_once": true,
+    "queue_credit_or_hidden_liquidity_invented": false,
+    "missing_quote_fallback_to_sip_print": false,
+    "fees_aggregated_by_account_day": true
+  },
+  "bound_files": [
+    {
+      "path": "research/strategy/prospective-management-execution-v0.1.json",
+      "file_sha256": "3760a73d4cc5d209098b75d555fb1f1a4ebcd7c0ecc428b1a16c39c2055008f8"
+    },
+    {
+      "path": "src/momentumbot/research/execution_realism.py",
+      "file_sha256": "446509405e3f44e3924c852569c5b06a096f61330552ede850a55c3da5794177"
+    },
+    {
+      "path": "tests/test_execution_realism.py",
+      "file_sha256": "1ed106abee75feca82cf8f7d666114994ce84f80135e3e4f2fbc774426aab58a"
+    },
+    {
+      "path": "docs/research/prospective_management_execution_v01.md",
+      "file_sha256": "c3d4b79c3909066b105511b08565dd986cf414648a4644097fe0dfdedb2c08e2"
+    }
+  ],
+  "mechanical_verification": {
+    "focused_test_count_before_audit_assertion": 11,
+    "focused_tests_passed": true,
+    "buy_and_sell_marketable_limit_direction_tested": true,
+    "spread_latency_quote_age_partial_cancel_ack_and_halt_tested": true,
+    "stale_data_fails_unavailable": true,
+    "first_displayed_state_not_reused": true,
+    "sec_taf_cat_daily_rounding_and_taf_trade_cap_tested": true,
+    "python_compileall_passed": true
+  },
+  "authority_boundary": {
+    "market_runtime_created": false,
+    "account_runtime_created": false,
+    "databento_download_performed": false,
+    "broker_order_submitted": false,
+    "paper_or_live_authority_created": false,
+    "portfolio_backtest_completed": false,
+    "profitability_claim_eligible": false,
+    "ross_replication_claim_eligible": false
+  },
+  "next_gate": "Clear the Databento metadata/cost gate and retain the prospective account and causal quote inputs before integrating either fixed execution scenario into account chronology.",
+  "content_sha256": "ebb1fcb86bc777481bf5caba376f3519e147d283a3f6cee179b296de88ac515e"
+}
