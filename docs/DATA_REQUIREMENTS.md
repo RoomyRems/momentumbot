@@ -45,9 +45,15 @@ Conditional snapshots must declare `universe_complete=false`, `universe_complete
 
 For a single trading-day snapshot, `news.csv` should contain only events considered eligible for that active momentum session; the backtester never searches old news on its own. The frozen `causal-alpaca-news-v0.1` research contract uses the previous regular-session close at 16:00 ET through 10:01 ET on the target session, with the prior session derived from SPY daily bars rather than calendar-day arithmetic. Alpaca/Benzinga stories become available conservatively at the provider's `updated_at` timestamp, falling back to `created_at` only when no update timestamp exists. Pagination must be exhausted. A successful zero-row response means no story in this provider only; provider errors remain unknown and fail closed. This deterministic layer records provider association and timing but does not classify headline quality.
 
-## Not required yet
+## Separate Level 2 and tape gate
 
-Layer 1 does not require historical Level 2/order-book depth, tick-by-tick trades, or quotes. Those become necessary for hidden-seller absorption, tape velocity, spread dynamics and detailed halt-resumption execution.
+Layer 1 does not require historical Level 2/order-book depth, tick-by-tick trades, or quotes. Those inputs are nevertheless necessary before MomentumBot can make honest claims about hidden-seller absorption, tape velocity, displayed-liquidity changes, queue-aware execution, or detailed halt-resumption behavior.
+
+The separate `level2-tape-feasibility-v0.1` registration defines that next data gate without changing the Layer-1 runtime. Its first bounded candidate is Nasdaq TotalView-ITCH through Databento. That dataset is one venue's depth, not a consolidated national book. The four-case engineering smoke cohort may test availability, cost, normalization, reconstruction, and causal feature mechanics only; it cannot fit a threshold or support a profitability claim.
+
+Historical market data and brokerage are separate responsibilities. The existing Alpaca paper accounts remain the account/order fixtures; a licensed depth provider can feed research without moving either account. Any future adapter must retain provider-native files, point-in-time instrument definitions, venue identity, exchange and receive timestamps, sequence/action/side/price/size fields, complete initial book state, data-quality flags, and hash-bound normalized output. Missing or incomplete depth fails closed rather than falling back to SIP Level 1 under a Level 2 label.
+
+The exact requirements, smoke cohort, feature hypotheses, and stop/go gates are in `research/strategy/level2-tape-feasibility-v0.1.json` and `docs/research/level2_tape_feasibility_v01.md`. No data purchase or provider download is currently authorized.
 
 ## Existing credential names
 
@@ -60,6 +66,8 @@ The repository is designed to eventually consume the already-configured secret n
 - `MARKETAUX_API_KEY`
 - `MASSIVE_API_KEY` (preferred for the historical ticker-census probe)
 - `POLYGON_API_KEY` (legacy-compatible fallback for the same provider)
+- `DATABENTO_API_KEY` (planned only for the separately authorized Level 2/tape
+  feasibility gate; not currently configured or required by Layer 1)
 - `SEC_USER_AGENT` (declared application identity plus monitored contact email,
   for example `RoomyRems MomentumBot contact@example.com`; required by SEC
   fair-access policy and never written into an artifact)

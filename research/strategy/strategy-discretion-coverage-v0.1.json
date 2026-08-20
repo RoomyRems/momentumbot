@@ -1,0 +1,375 @@
+{
+  "schema_version": 1,
+  "matrix_id": "strategy-discretion-coverage-v0.1",
+  "artifact_type": "non_authoritative_strategy_and_discretion_inventory",
+  "registration_date": "2026-08-19",
+  "purpose": "State exactly which Ross Cameron-derived strategy and discretion components are implemented, partial, unrun, data-blocked, or missing before additional strategy or Level 2 work.",
+  "runtime_strategy_effect": "none",
+  "policy_promotion_eligible": false,
+  "profitability_claim_eligible": false,
+  "exact_ross_replication_claim_eligible": false,
+  "retrospective_labels_allowed_in_runtime": false,
+  "source_bindings": {
+    "rulebook_files": [
+      {
+        "path": "research/rules/current_rules.json",
+        "file_sha256": "d5b9025f1bd00c71f218f23f595863050bd331cac0f30c4a9f693d390af2eca7"
+      },
+      {
+        "path": "research/rules/current/selection.json",
+        "file_sha256": "4ffb127f9af613ee2a434ec8af4dd3da32c82d27ffd4631624c7441a4c3e9eff"
+      },
+      {
+        "path": "research/rules/current/entries.json",
+        "file_sha256": "d71aa4ab752d9786f85e0eccbae614ef9a52e426ab0197d1734a798c401bbabb"
+      },
+      {
+        "path": "research/rules/current/exits_regime.json",
+        "file_sha256": "4788f207aae5881930565d3d9e0fb3b7d27bcea3d05ec3d2de427b719d75501c"
+      },
+      {
+        "path": "research/rules/current/risk_context.json",
+        "file_sha256": "6f01bd2b9e4d78a299c918f86269ca422f42bb1a0117cbc8f67eda5a89307b30"
+      }
+    ],
+    "frozen_parent_claims": {
+      "micro_v0_1_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+      "context_semantic_shadow_manifest_content_sha256": "9b3be7a17f29e638b0e1da14b4d050762503bab17c74c3f97e62b99489f25cd4",
+      "trade_management_shadow_result_content_sha256": "b06159fee47d1d0f59a8d67aabfc082a1c3af6872a88f18f9a7eb49a3f969434",
+      "account_chronological_integration_content_sha256": "64489aa27fec5eaf8ca12c94f4aeb47344d49a79b14df1bdda706cd23cc9ce73"
+    }
+  },
+  "status_definitions": {
+    "implemented_frozen": "Deterministic implementation and a frozen reproducible runtime exist; this does not imply behavioral or economic validity.",
+    "implemented_unrun": "Code or a registered contract exists, but the genuinely prospective runtime required for interpretation has not run.",
+    "partial_deterministic": "Some machine rules exist, but material evidence, data, or realism needed for the full behavior is absent.",
+    "partial_shadow": "Evidence or a descriptive shadow exists without production selection, order, or risk authority.",
+    "data_blocked": "The component is evidenced but cannot be honestly implemented with the currently frozen data.",
+    "missing": "No adequate versioned implementation or complete evidence inventory exists.",
+    "research_guard": "A fail-closed integrity boundary is implemented and is not a trading signal."
+  },
+  "domains": [
+    {
+      "domain_id": "selection.general-five-pillars",
+      "display_name": "General five-pillars candidate selection and morning window",
+      "coverage_status": "partial_deterministic",
+      "implementation_owner": "mixed",
+      "current_authority": "runtime_deterministic",
+      "evidence_rule_ids": ["MB-SEL-001", "MB-SEL-002", "MB-SEL-003", "MB-SEL-004", "MB-SEL-005", "MB-SEL-006", "MB-TIM-001"],
+      "implemented_artifacts": ["src/momentumbot/scanner.py", "src/momentumbot/causal_scanner_snapshot.py"],
+      "missing_capabilities": ["fully proven point-in-time universe completeness", "semantic catalyst quality in the deterministic eligibility path"],
+      "next_gate": "Preserve the existing scanner and evaluate it only in the registered prospective account runtime.",
+      "claim_boundary": "The scanner translates documented pillars but does not reproduce Ross's complete watchlist judgment."
+    },
+    {
+      "domain_id": "selection.small-account-profile",
+      "display_name": "Named small-account selection profile",
+      "coverage_status": "partial_deterministic",
+      "implementation_owner": "deterministic",
+      "current_authority": "runtime_deterministic",
+      "evidence_rule_ids": ["MB-SEL-007"],
+      "implemented_artifacts": ["src/momentumbot/models.py", "research/strategy/paper-account-scarcity-policy-v0.1.json"],
+      "missing_capabilities": ["complete source coverage for the lower price band", "prospective account runtime"],
+      "next_gate": "Run the separately registered $2,000 paper-account profile without borrowing results from the $30,000 account.",
+      "claim_boundary": "A named threshold profile is not a reconstruction of challenge-account aggression or attention."
+    },
+    {
+      "domain_id": "selection.attention-leader",
+      "display_name": "Obvious leader and attention handoff",
+      "coverage_status": "partial_shadow",
+      "implementation_owner": "mixed",
+      "current_authority": "shadow_only",
+      "evidence_rule_ids": ["MB-SEL-008"],
+      "implemented_artifacts": ["research/strategy/attention-leadership-shadow-v0.1.json", "src/momentumbot/research/theme_regime_context.py"],
+      "missing_capabilities": ["cross-account divided attention", "validated leadership-transition threshold", "live multi-symbol attention state"],
+      "next_gate": "Evaluate deterministic rank and leadership transitions prospectively before any selection authority is considered.",
+      "claim_boundary": "Cross-sectional rank is observable; the trader's subjective focus and divided attention are not reconstructed."
+    },
+    {
+      "domain_id": "state.indicator-and-frontside",
+      "display_name": "MACD and front-side/back-side momentum state",
+      "coverage_status": "partial_deterministic",
+      "implementation_owner": "deterministic",
+      "current_authority": "runtime_deterministic",
+      "evidence_rule_ids": ["MB-IND-001", "MB-PHZ-001"],
+      "implemented_artifacts": ["src/momentumbot/indicators.py", "src/momentumbot/micro_policy.py"],
+      "missing_capabilities": ["validated reclaim-state setup", "complete back-side transition policy"],
+      "next_gate": "Keep the state descriptive outside the frozen Micro rule until a separate setup family is evidenced and registered.",
+      "claim_boundary": "State classification does not establish a tradable reclaim or reversal strategy."
+    },
+    {
+      "domain_id": "setup.first-pullback",
+      "display_name": "First and early pullback confirmation",
+      "coverage_status": "partial_deterministic",
+      "implementation_owner": "deterministic",
+      "current_authority": "runtime_deterministic",
+      "evidence_rule_ids": ["MB-ENT-001", "MB-ENT-002", "MB-ENT-003", "MB-ENT-004", "MB-ENT-006"],
+      "implemented_artifacts": ["src/momentumbot/setup.py", "src/momentumbot/micro_setup.py"],
+      "missing_capabilities": ["unique evidence-backed impulse-base translation", "validated visual cleanliness thresholds", "Level 2 confirmation"],
+      "next_gate": "Do not retune the frozen translation; compare separately registered alternatives only out of sample.",
+      "claim_boundary": "The current machine geometry is a research translation, not a verbatim Ross algorithm."
+    },
+    {
+      "domain_id": "setup.micro-pullback",
+      "display_name": "Fast-chart micro pullback and confirmation trigger",
+      "coverage_status": "implemented_frozen",
+      "implementation_owner": "deterministic",
+      "current_authority": "runtime_deterministic",
+      "evidence_rule_ids": ["MB-ENT-005", "MB-ENT-007", "MB-ENT-008", "MB-ENT-011"],
+      "implemented_artifacts": ["src/momentumbot/micro_policy.py", "src/momentumbot/micro_replay.py", "research/data-audits/discretion-heldout-micro-runtime-v0.1-2026-08-17.json"],
+      "missing_capabilities": ["positive out-of-sample portfolio expectancy", "complete setup-family coverage", "depth-aware entry quality"],
+      "next_gate": "Keep Micro-v0.1 frozen while downstream context, execution, and account layers are tested.",
+      "claim_boundary": "A reproducible technical runtime exists, but its current account diagnostics are not profitable proof."
+    },
+    {
+      "domain_id": "setup.hidden-buyer-anticipation",
+      "display_name": "Hidden-buyer anticipation exception",
+      "coverage_status": "data_blocked",
+      "implementation_owner": "mixed",
+      "current_authority": "none",
+      "evidence_rule_ids": ["MB-ENT-009"],
+      "implemented_artifacts": ["research/rules/current/entries.json"],
+      "missing_capabilities": ["order-book depth", "executed-volume versus displayed-liquidity reconstruction", "causal anticipation threshold"],
+      "next_gate": "Keep the exception out of runtime until a registered Level 2 experiment establishes measurable inputs.",
+      "claim_boundary": "The corpus supports an exception concept, not a machine entry rule."
+    },
+    {
+      "domain_id": "setup.psychological-levels",
+      "display_name": "Half-dollar and whole-dollar context",
+      "coverage_status": "partial_shadow",
+      "implementation_owner": "mixed",
+      "current_authority": "shadow_only",
+      "evidence_rule_ids": ["MB-ENT-010"],
+      "implemented_artifacts": ["research/rules/current/entries.json", "research/data-audits/trade-management-evidence-v0.1-2026-08-19.json"],
+      "missing_capabilities": ["dedicated level-break setup state", "tape confirmation", "failed-break execution rule"],
+      "next_gate": "Inventory the behavior separately from Micro before proposing a deterministic trigger.",
+      "claim_boundary": "Psychological levels are contextual evidence and are not currently an independent strategy family."
+    },
+    {
+      "domain_id": "setup.family-inventory",
+      "display_name": "Complete Ross setup-family inventory",
+      "coverage_status": "missing",
+      "implementation_owner": "research_only",
+      "current_authority": "none",
+      "evidence_rule_ids": [],
+      "implemented_artifacts": ["docs/strategy/current_rulebook.md"],
+      "missing_capabilities": ["corpus-wide evidence promotion for every named setup family", "version boundaries between current teaching and legacy examples", "separate implementations and validation cohorts"],
+      "next_gate": "Promote setup families from normative evidence one at a time; keyword hits or observed trades alone cannot create rules.",
+      "claim_boundary": "Only first-pullback and micro-pullback families are currently rule-backed; the project cannot claim all Ross strategies."
+    },
+    {
+      "domain_id": "position.starter-and-cushion",
+      "display_name": "Starter size and profit-cushion aggression",
+      "coverage_status": "partial_deterministic",
+      "implementation_owner": "deterministic",
+      "current_authority": "runtime_deterministic",
+      "evidence_rule_ids": ["MB-POS-001"],
+      "implemented_artifacts": ["src/momentumbot/research/campaign_portfolio.py", "research/strategy/paper-account-scarcity-policy-v0.1.json"],
+      "missing_capabilities": ["evidence-backed numerical starter fraction", "prospective cushion-dependent add policy", "liquidity-aware size"],
+      "next_gate": "Retain conservative paper sizing and test any aggression schedule as a separately named policy.",
+      "claim_boundary": "Current risk caps are project safety rules, not Ross position sizing."
+    },
+    {
+      "domain_id": "position.no-averaging-down",
+      "display_name": "No averaging down",
+      "coverage_status": "implemented_unrun",
+      "implementation_owner": "deterministic",
+      "current_authority": "runtime_deterministic",
+      "evidence_rule_ids": ["MB-POS-002"],
+      "implemented_artifacts": ["src/momentumbot/research/campaign_portfolio.py", "research/strategy/campaign-portfolio-account-state-v0.1.json"],
+      "missing_capabilities": ["genuinely prospective campaign runtime"],
+      "next_gate": "Verify the invariant in the August 24-September 4 account runtime.",
+      "claim_boundary": "The mechanical invariant exists, but its integration has not yet run prospectively."
+    },
+    {
+      "domain_id": "execution.fill-quality-recheck",
+      "display_name": "Actual-fill reward/risk revalidation",
+      "coverage_status": "partial_deterministic",
+      "implementation_owner": "deterministic",
+      "current_authority": "runtime_deterministic",
+      "evidence_rule_ids": ["MB-EXE-001"],
+      "implemented_artifacts": ["src/momentumbot/micro_execution.py"],
+      "missing_capabilities": ["spread", "network and broker latency", "queue position", "partial fills", "cancel and replace behavior", "market impact"],
+      "next_gate": "Add a separately registered execution model after the Level 2 capability gate.",
+      "claim_boundary": "The present SIP-print proxy is not broker fill realism."
+    },
+    {
+      "domain_id": "management.chart-and-tape-exits",
+      "display_name": "Chart deterioration, scaling, and tape exits",
+      "coverage_status": "partial_shadow",
+      "implementation_owner": "mixed",
+      "current_authority": "shadow_only",
+      "evidence_rule_ids": ["MB-EXT-001", "MB-EXT-002"],
+      "implemented_artifacts": ["src/momentumbot/research/trade_management_shadow.py", "research/frozen/trade-management-shadow-v0.1/manifest.json"],
+      "missing_capabilities": ["preselected management policy", "chronological capital recomposition", "displayed seller and tape exits", "later scale targets"],
+      "next_gate": "Preselect a management interpretation before prospective results and integrate it into account chronology.",
+      "claim_boundary": "Four fixed-entry sensitivities were measured; none was selected or promoted."
+    },
+    {
+      "domain_id": "microstructure.hidden-seller",
+      "display_name": "Hidden-seller absorption and resistance",
+      "coverage_status": "data_blocked",
+      "implementation_owner": "mixed",
+      "current_authority": "none",
+      "evidence_rule_ids": ["MB-MIC-001"],
+      "implemented_artifacts": ["research/data-audits/trade-management-evidence-v0.1-2026-08-19.json"],
+      "missing_capabilities": ["historical full-depth order events", "venue-aware displayed size", "aggressor-side executions", "replenishment and price-impact thresholds"],
+      "next_gate": "Run the provider-neutral Level 2/tape feasibility contract before defining any threshold.",
+      "claim_boundary": "Absorption is evidenced conceptually but is absent from the current runtime."
+    },
+    {
+      "domain_id": "regime.market-cycle",
+      "display_name": "Cold, spark, hot/sustained, and exhausted regime",
+      "coverage_status": "partial_shadow",
+      "implementation_owner": "mixed",
+      "current_authority": "shadow_only",
+      "evidence_rule_ids": ["MB-REG-001", "MB-REG-002"],
+      "implemented_artifacts": ["src/momentumbot/research/theme_regime_context.py", "research/strategy/theme-regime-context-shadow-v0.1.json"],
+      "missing_capabilities": ["frozen regime taxonomy", "validated aggression mapping", "multi-session prospective evaluation"],
+      "next_gate": "Keep raw regime evidence separate from risk until an out-of-sample mapping is registered.",
+      "claim_boundary": "The shadow exposes evidence but does not decide that a market is hot or increase risk."
+    },
+    {
+      "domain_id": "risk.session-governor",
+      "display_name": "Daily loss, giveback, and terminal session lock",
+      "coverage_status": "implemented_unrun",
+      "implementation_owner": "deterministic",
+      "current_authority": "runtime_deterministic",
+      "evidence_rule_ids": ["MB-RSK-003", "MB-RSK-004", "MB-RSK-005"],
+      "implemented_artifacts": ["src/momentumbot/risk.py", "src/momentumbot/research/campaign_portfolio.py", "research/strategy/paper-account-scarcity-policy-v0.1.json"],
+      "missing_capabilities": ["prospective account-runtime evidence", "Ross-equivalent numerical risk calibration"],
+      "next_gate": "Use the conservative paper-safe policy in the registered accounts; do not infer Ross sizing from it.",
+      "claim_boundary": "Risk enforcement is implemented, but the numerical envelope is a safety policy rather than a replication claim."
+    },
+    {
+      "domain_id": "context.catalyst-substance",
+      "display_name": "Catalyst substance, specificity, and credibility",
+      "coverage_status": "partial_shadow",
+      "implementation_owner": "ai_shadow",
+      "current_authority": "shadow_only",
+      "evidence_rule_ids": ["MB-CAT-001"],
+      "implemented_artifacts": ["src/momentumbot/research/context_semantic_shadow.py", "research/frozen/context-semantic-shadow-runtime-v0.1/manifest.json"],
+      "missing_capabilities": ["filing corroboration", "issuer promotion history", "theme-fit evidence", "validated incremental contribution"],
+      "next_gate": "Evaluate evidence-cited semantic output out of sample; missing evidence must remain an abstention.",
+      "claim_boundary": "The compiled semantic shadow has no selection, order, size, or risk authority."
+    },
+    {
+      "domain_id": "research.causal-boundary",
+      "display_name": "Transcript and publication-time research guards",
+      "coverage_status": "research_guard",
+      "implementation_owner": "research_only",
+      "current_authority": "research_only",
+      "evidence_rule_ids": ["MB-RES-001", "MB-RES-002"],
+      "implemented_artifacts": ["src/momentumbot/research/corpus.py", "docs/research/experiment_contract.md"],
+      "missing_capabilities": [],
+      "next_gate": "Continue enforcing market data to label-blind replay to frozen artifact to retrospective comparison.",
+      "claim_boundary": "These controls protect validity and are not strategy edge."
+    },
+    {
+      "domain_id": "context.daily-chart",
+      "display_name": "Daily-chart levels, history, and overhead resistance",
+      "coverage_status": "partial_shadow",
+      "implementation_owner": "mixed",
+      "current_authority": "shadow_only",
+      "evidence_rule_ids": [],
+      "implemented_artifacts": ["src/momentumbot/research/daily_chart_context.py", "research/strategy/daily-chart-context-shadow-v0.1.json"],
+      "missing_capabilities": ["200-session continuity", "frozen failed-pop threshold", "validated room score"],
+      "next_gate": "Extend point-in-time identity history and test declared translations without changing Micro-v0.1.",
+      "claim_boundary": "Raw chart evidence exists; no daily-chart score or veto has been promoted."
+    },
+    {
+      "domain_id": "context.theme-and-leadership",
+      "display_name": "Theme participation, leadership, and saturation",
+      "coverage_status": "partial_shadow",
+      "implementation_owner": "mixed",
+      "current_authority": "shadow_only",
+      "evidence_rule_ids": [],
+      "implemented_artifacts": ["src/momentumbot/research/theme_regime_context.py", "research/strategy/theme-regime-context-shadow-v0.1.json"],
+      "missing_capabilities": ["semantic theme taxonomy", "theme-fit corroboration", "validated saturation rule"],
+      "next_gate": "Preserve deterministic cohort facts and require AI abstention when semantic links are absent.",
+      "claim_boundary": "Co-movement and headline association do not prove a causal theme."
+    },
+    {
+      "domain_id": "account.campaign-and-scarcity",
+      "display_name": "Campaign, account, and same-account scarcity state",
+      "coverage_status": "implemented_unrun",
+      "implementation_owner": "deterministic",
+      "current_authority": "runtime_deterministic",
+      "evidence_rule_ids": [],
+      "implemented_artifacts": ["src/momentumbot/research/campaign_portfolio.py", "src/momentumbot/research/account_chronological_integration.py", "research/strategy/account-chronological-integration-v0.1.json"],
+      "missing_capabilities": ["registered August 24-September 4 runtime", "cross-account attention priority", "integrated favorable management"],
+      "next_gate": "Capture both causal account snapshots and run main and small account chronologies separately.",
+      "claim_boundary": "Synthetic integration coverage is not a portfolio backtest or broker order authority."
+    },
+    {
+      "domain_id": "execution.realistic-broker",
+      "display_name": "Realistic broker and exchange execution",
+      "coverage_status": "missing",
+      "implementation_owner": "deterministic",
+      "current_authority": "none",
+      "evidence_rule_ids": [],
+      "implemented_artifacts": ["src/momentumbot/micro_execution.py"],
+      "missing_capabilities": ["marketable-limit semantics", "venue routing", "latency", "queue position", "partial fills", "cancel acknowledgement", "halt-resumption handling", "fees and market impact"],
+      "next_gate": "Build the execution simulator only after depth and tape completeness are measured.",
+      "claim_boundary": "Existing execution proxies cannot support net profitability or live-fill claims."
+    },
+    {
+      "domain_id": "data.level2-and-tape",
+      "display_name": "Historical and live Level 2/time-and-sales",
+      "coverage_status": "data_blocked",
+      "implementation_owner": "deterministic",
+      "current_authority": "none",
+      "evidence_rule_ids": [],
+      "implemented_artifacts": ["docs/architecture.md", "docs/DATA_REQUIREMENTS.md"],
+      "missing_capabilities": ["licensed historical depth source", "venue-scope declaration", "canonical event adapter", "book reconstruction", "live capture and reconnect recovery"],
+      "next_gate": "Register and run the bounded provider-neutral Level 2/tape feasibility audit without purchasing broad history first.",
+      "claim_boundary": "SIP trades and NBBO quotes are not a full multi-venue Level 2 book."
+    },
+    {
+      "domain_id": "attention.cross-account",
+      "display_name": "Cross-account and simultaneous-opportunity attention",
+      "coverage_status": "missing",
+      "implementation_owner": "mixed",
+      "current_authority": "none",
+      "evidence_rule_ids": [],
+      "implemented_artifacts": ["research/strategy/paper-account-scarcity-policy-v0.1.json"],
+      "missing_capabilities": ["evidence-backed cross-account priority", "operator attention capacity", "simultaneous campaign allocation"],
+      "next_gate": "Fail closed across accounts until a separate causal priority policy is registered.",
+      "claim_boundary": "Same-account deterministic ranking does not reconstruct Ross's attention allocation between accounts."
+    },
+    {
+      "domain_id": "validation.portfolio-and-promotion",
+      "display_name": "Prospective portfolio validation and promotion",
+      "coverage_status": "implemented_unrun",
+      "implementation_owner": "research_only",
+      "current_authority": "research_only",
+      "evidence_rule_ids": [],
+      "implemented_artifacts": ["research/strategy/account-chronological-integration-v0.1.json", "research/strategy/account-session-snapshot-capture-v0.1.json"],
+      "missing_capabilities": ["ten-session prospective runtime", "larger representative walk-forward", "live shadow latency and stability", "paper advisory and authority evidence"],
+      "next_gate": "Progress only through historical shadow, live shadow, paper advisory, and paper authority; live money needs a later explicit decision.",
+      "claim_boundary": "No existing artifact proves positive expectancy, exact imitation, or live readiness."
+    }
+  ],
+  "coverage_summary": {
+    "domain_count": 25,
+    "promoted_rule_count": 36,
+    "status_counts": {
+      "data_blocked": 3,
+      "implemented_frozen": 1,
+      "implemented_unrun": 4,
+      "missing": 3,
+      "partial_deterministic": 6,
+      "partial_shadow": 7,
+      "research_guard": 1
+    }
+  },
+  "next_priority_order": [
+    "setup.family-inventory",
+    "data.level2-and-tape",
+    "execution.realistic-broker",
+    "management.chart-and-tape-exits",
+    "validation.portfolio-and-promotion"
+  ],
+  "decision": "Use this matrix as an anti-overclaim and routing artifact. It changes no strategy. Close the Level 2/tape feasibility gate before implementing depth-dependent rules, and promote additional setup families one evidence-backed experiment at a time.",
+  "content_sha256": "3507642f70bbb8f4551238bc09242dd8c31474b463bf9a4e88f03a7894d97fe3"
+}

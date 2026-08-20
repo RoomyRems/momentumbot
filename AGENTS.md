@@ -18,7 +18,9 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 | Current checkpoint / next gate | `docs/project/current_state.md` | linked frozen manifests and audits |
 | Runtime and hybrid architecture | `docs/architecture.md` | executable code under `src/momentumbot/` |
 | Current Ross-derived policy | `docs/strategy/current_rulebook.md` | `research/rules/current_rules.json` and policy code |
+| Strategy/discretion coverage | `docs/research/strategy_discretion_coverage_v01.md` | `research/strategy/strategy-discretion-coverage-v0.1.json` and `strategy_coverage.py` |
 | Historical-data requirements | `docs/DATA_REQUIREMENTS.md` | validators/loaders under `src/momentumbot/` |
+| Level 2/tape feasibility | `docs/research/level2_tape_feasibility_v01.md` | `research/strategy/level2-tape-feasibility-v0.1.json` and `microstructure_contract.py` |
 | New research experiment | `docs/research/experiment_contract.md` | frozen parent policy + runtime artifact |
 | Micro-pullback work | `docs/research/micro_benchmark_suite.md` | `micro_policy.py`, `micro_replay.py`, frozen artifacts |
 | Held-out discretionary panel | `docs/research/discretion_heldout_panel_v01.md` | registered panel JSON and runtime manifest |

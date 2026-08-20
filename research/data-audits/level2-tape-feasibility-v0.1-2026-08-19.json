@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "audit_id": "level2-tape-feasibility-v0.1-2026-08-19",
+  "artifact_type": "preregistered_provider_neutral_microstructure_capability_audit",
+  "audit_date": "2026-08-19",
+  "decision": {
+    "capability_contract_registered": true,
+    "source_cohort_verified": true,
+    "provider_adapter_implemented": false,
+    "book_reconstruction_completed": false,
+    "data_purchase_authorized": false,
+    "provider_download_started": false,
+    "broker_change_authorized": false,
+    "runtime_strategy_changed": false
+  },
+  "registration": {
+    "path": "research/strategy/level2-tape-feasibility-v0.1.json",
+    "file_sha256": "6d269a65f14556df1b0c69a97151c4f8d4d75ab0c11be4741cd931499645bf47",
+    "content_sha256": "6d3a41d6bde3844900bc880632d8bc9d6c5f7b787edd5f0c302a709dcb9c1bf1"
+  },
+  "frozen_parent": {
+    "micro_policy_id": "micro-v0.1",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "runtime_zip_sha256": "3b59e4b1a69e268158f6ccbead1fe9abae425fc249e72b34f466e53ebba56b20",
+    "retrospective_labels_loaded": false
+  },
+  "source_cohort_result": {
+    "selection_rule": "every_symbol_date_with_filled_count_greater_than_zero_in_the_frozen_label_blind_micro_runtime",
+    "symbol_date_count": 36,
+    "unique_symbol_count": 35,
+    "smoke_selection_rule": "sort by causal SIP trade-row count, trading date, and symbol; select floor-spaced ranks 0, 11, 23, and 35",
+    "smoke_symbol_dates": [
+      {
+        "trading_date": "2026-07-10",
+        "symbol": "INTJ",
+        "trade_row_count": 217,
+        "activity_rank_zero_based": 0
+      },
+      {
+        "trading_date": "2026-07-10",
+        "symbol": "EQPT",
+        "trade_row_count": 10037,
+        "activity_rank_zero_based": 11
+      },
+      {
+        "trading_date": "2026-07-20",
+        "symbol": "AMC",
+        "trade_row_count": 134878,
+        "activity_rank_zero_based": 23
+      },
+      {
+        "trading_date": "2026-07-10",
+        "symbol": "GMM",
+        "trade_row_count": 795823,
+        "activity_rank_zero_based": 35
+      }
+    ],
+    "selection_used_ross_action_recap_pnl_or_later_price": false,
+    "allowed_use": "data access, normalization, reconstruction, storage, and threshold-free feature mechanics only"
+  },
+  "preserved_attempts": [
+    {
+      "attempt": 1,
+      "result": "failed_before_artifact",
+      "reason": "The first local cohort inspector required a retrospective-label flag on every runtime-replay object; the explicitly unavailable LIVE record has no fill and no such field.",
+      "repair": "Skip null or zero-fill records before asserting that every retained filled runtime is label-blind. Preserve LIVE as unavailable rather than a zero-plan or eligible cohort case.",
+      "strategy_or_selection_changed": false
+    },
+    {
+      "attempt": 2,
+      "result": "succeeded",
+      "source_zip_hash_recomputed": true,
+      "all_filled_symbol_dates_retained": true,
+      "smoke_cohort_recomputed": true
+    }
+  ],
+  "provider_research": {
+    "accessed_on": "2026-08-19",
+    "primary_candidate": "Databento Nasdaq TotalView-ITCH as single-venue historical depth",
+    "existing_broker": "Alpaca paper accounts remain separate and unchanged",
+    "deferred_candidate": "IBKR may be evaluated later for live depth or execution, not as the first historical backbone",
+    "official_sources": [
+      "https://databento.com/equities",
+      "https://databento.com/docs/schemas-and-data-formats/mbo",
+      "https://databento.com/docs/standards-and-conventions/mbo-snapshot",
+      "https://databento.com/pricing",
+      "https://docs.alpaca.markets/us/docs/real-time-stock-pricing-data",
+      "https://docs.alpaca.markets/us/docs/about-market-data-api",
+      "https://ibkrcampus.com/docs/tws-api/doc/market-data-live/market-depth-l-2/request-market-depth",
+      "https://ibkrcampus.com/docs/tws-api/ref/error-codes"
+    ]
+  },
+  "bound_files": [
+    {
+      "path": "research/strategy/level2-tape-feasibility-v0.1.json",
+      "file_sha256": "6d269a65f14556df1b0c69a97151c4f8d4d75ab0c11be4741cd931499645bf47"
+    },
+    {
+      "path": "src/momentumbot/research/microstructure_contract.py",
+      "file_sha256": "567f2edc337a2ee0d8065684e21471f5aa7aa4e3d0c49f0df47d0d295e11cfad"
+    },
+    {
+      "path": "scripts/audit_microstructure_source_cohort.py",
+      "file_sha256": "d5f082b04b2255f837679e182881f86e6ca41f2da306918908fb42459eee81d7"
+    },
+    {
+      "path": "docs/research/level2_tape_feasibility_v01.md",
+      "file_sha256": "37a680e87df50be51ccdd85844f4e1edcbc8e60d11ae0a6e390e28828d0b5800"
+    }
+  ],
+  "validation": {
+    "registration_content_hash_recomputed": true,
+    "source_zip_hash_recomputed": true,
+    "canonical_depth_snapshot_guards_tested": true,
+    "canonical_tape_unknown_aggressor_state_tested": true,
+    "outcome_based_smoke_selection_rejected": true,
+    "focused_test_count": 8,
+    "full_test_count": 550,
+    "focused_tests_passed": true,
+    "full_test_suite_passed": true
+  },
+  "external_state": {
+    "databento_account_or_api_key_configured": false,
+    "exact_cost_quote_obtained": false,
+    "provider_data_downloaded": false,
+    "money_spent": false,
+    "alpaca_accounts_or_secrets_changed": false,
+    "orders_created_or_submitted": false
+  },
+  "claim_boundary": [
+    "Nasdaq TotalView-ITCH is one venue's depth, not consolidated national Level 2.",
+    "Displayed replenishment and price-impact mismatch are hidden-liquidity proxies, not proof of a hidden order.",
+    "Cancellation pressure cannot establish trader intent or spoofing.",
+    "The four engineering cases cannot fit thresholds or support performance claims.",
+    "Level 2 features have no runtime, order, size, risk, or promotion authority."
+  ],
+  "next_gate": "Obtain metadata-only availability and an exact cost estimate for the four registered smoke symbol-dates; require user authorization before any purchase or broad download.",
+  "content_sha256": "a6d9fdf46616c7848bbbb8fcb9006ec1b9ec7e0d8d5a08c34b20eb202e5fc8bb"
+}

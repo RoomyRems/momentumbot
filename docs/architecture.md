@@ -64,6 +64,28 @@ live feeds -> deterministic event state -> causal structured snapshot
 
 Live-money authority requires a later explicit safety and promotion decision. It is not implied by historical or paper success.
 
+## Strategy coverage and anti-overclaim boundary
+
+`strategy-discretion-coverage-v0.1` is the machine-checked inventory of what the system actually covers. It maps all 36 promoted rules exactly once and separately records components that are partial, shadow-only, data-blocked, or missing. At this checkpoint, the frozen technical replay covers the Micro-v0.1 first/early-pullback path; it is not a complete implementation of every Cameron setup or discretionary decision.
+
+New setup families require their own corpus-wide evidence inventory, causal translation, registration, tests, and held-out evaluation. A keyword mention, one observed trade, or a favorable retrospective result cannot create a strategy rule. The matrix has no runtime authority and exists to keep architecture and claims synchronized.
+
+## Market data and broker separation
+
+The data plane and execution plane use independent adapters:
+
+```text
+licensed market feeds -> provider-neutral events -> deterministic state/features
+                                                        |
+Alpaca paper accounts <- broker adapter <- risk/order gate
+```
+
+The first historical-depth candidate is Databento's Nasdaq TotalView-ITCH dataset. It is explicitly single-venue depth, not a consolidated U.S. order book. Alpaca remains the paper broker and Layer-1 trade/quote source; no broker migration is required to test historical depth.
+
+`level2-tape-feasibility-v0.1` defines canonical depth/tape records and fail-closed stream checks before any provider adapter or trading threshold exists. Book mutations require a clear or complete snapshot, live updates cannot cross an unfinished snapshot, channel sequence cannot reverse, timestamp anomalies stay explicit, and point-in-time instrument/venue identity remains bound. Provider-native inputs and normalized outputs must be retained and hashed. Missing depth never becomes synthetic depth.
+
+The eventual critical path is deterministic event processing, book reconstruction, rolling feature summaries, risk, and order state. AI may later interpret an expiring structured summary in shadow or veto-only research; it does not process each event, infer hidden liquidity as fact, submit orders, or loosen risk.
+
 ## Named profiles, not config sprawl
 
 The first two strategy profiles are:

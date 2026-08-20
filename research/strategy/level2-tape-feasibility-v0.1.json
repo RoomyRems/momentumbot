@@ -1,0 +1,286 @@
+{
+  "schema_version": 1,
+  "contract_id": "level2-tape-feasibility-v0.1",
+  "artifact_type": "preregistered_provider_neutral_microstructure_capability",
+  "registration_date": "2026-08-19",
+  "registration_status": "registered_before_provider_download_or_feature_result",
+  "question": "Can a bounded, licensed historical depth and time-and-sales source be normalized, reconstructed, and replayed reproducibly for MomentumBot's small-cap decision windows before any Level 2-dependent trading rule is defined?",
+  "hypothesis": "At least one provider can supply timestamped depth, order or price-level changes, trades, definitions, and market status for a mechanically selected small-cap sample with enough integrity to derive deterministic liquidity, replenishment, velocity, and price-impact summaries.",
+  "runtime_strategy_effect": "none_shadow_only",
+  "policy_promotion_eligible": false,
+  "profitability_claim_eligible": false,
+  "exact_ross_replication_claim_eligible": false,
+  "broker_change_authorized": false,
+  "data_purchase_authorized": false,
+  "provider_download_started": false,
+  "frozen_parents": {
+    "micro_policy_id": "micro-v0.1",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "micro_runtime_zip_sha256": "3b59e4b1a69e268158f6ccbead1fe9abae425fc249e72b34f466e53ebba56b20",
+    "strategy_coverage_matrix_id": "strategy-discretion-coverage-v0.1",
+    "strategy_coverage_content_sha256": "3507642f70bbb8f4551238bc09242dd8c31474b463bf9a4e88f03a7894d97fe3",
+    "retrospective_labels_used_for_cohort_selection": false,
+    "source_selection_basis": "Every symbol-date whose already-frozen label-blind Micro-v0.1 replay recorded filled_count greater than zero; no Ross action, recap, outcome, later price, or P&L was used."
+  },
+  "canonical_event_contract": {
+    "depth_schema_id": "canonical-depth-event-v0.1",
+    "tape_schema_id": "canonical-tape-event-v0.1",
+    "required_depth_fields": [
+      "provider",
+      "dataset",
+      "venue",
+      "symbol",
+      "point-in-time instrument ID",
+      "publisher and channel IDs",
+      "exchange event timestamp in nanoseconds",
+      "provider receive timestamp in nanoseconds",
+      "sequence",
+      "action",
+      "side",
+      "price",
+      "size",
+      "order ID when the schema supplies order events",
+      "snapshot, last-record, and timestamp-quality flags"
+    ],
+    "required_tape_fields": [
+      "provider",
+      "dataset",
+      "venue",
+      "symbol",
+      "point-in-time instrument ID",
+      "event and receive timestamps",
+      "sequence",
+      "price",
+      "size",
+      "aggressor side or explicit unknown",
+      "correction or cancellation status"
+    ],
+    "book_state_requirements": [
+      "clear or complete snapshot must precede book mutation",
+      "snapshot must reach an explicit last record before live updates",
+      "unflagged receive-time inversion is invalid",
+      "sequence must increase within each non-snapshot publisher channel; gaps are recorded rather than assumed absent because symbol filtering can skip venue-global messages",
+      "point-in-time symbol definitions and venue identity remain bound to every stream"
+    ],
+    "missing_or_incomplete_behavior": "fail_closed_unavailable",
+    "provider_native_files_retained": true,
+    "normalized_files_hash_bound": true,
+    "replay_must_be_byte_reproducible": true,
+    "retrospective_transcript_text_allowed": false
+  },
+  "engineering_cohort": {
+    "role": "mechanical_schema_reconstruction_and_feature_engineering_only_not_performance_evaluation",
+    "selection_rule": "every_frozen_label_blind_micro_symbol_date_with_filled_count_greater_than_zero",
+    "symbol_date_count": 36,
+    "unique_symbol_count": 35,
+    "filled_symbol_dates": [
+      {"trading_date": "2026-07-10", "symbol": "CDZI", "trade_row_count": 7079, "plan_count": 7, "filled_count": 4},
+      {"trading_date": "2026-07-10", "symbol": "EQPT", "trade_row_count": 10037, "plan_count": 2, "filled_count": 1},
+      {"trading_date": "2026-07-10", "symbol": "GMM", "trade_row_count": 795823, "plan_count": 8, "filled_count": 4},
+      {"trading_date": "2026-07-10", "symbol": "INTJ", "trade_row_count": 217, "plan_count": 1, "filled_count": 1},
+      {"trading_date": "2026-07-10", "symbol": "JLHL", "trade_row_count": 77000, "plan_count": 1, "filled_count": 1},
+      {"trading_date": "2026-07-13", "symbol": "AGEN", "trade_row_count": 494258, "plan_count": 26, "filled_count": 6},
+      {"trading_date": "2026-07-13", "symbol": "BRAI", "trade_row_count": 20343, "plan_count": 7, "filled_count": 1},
+      {"trading_date": "2026-07-13", "symbol": "PLSM", "trade_row_count": 329685, "plan_count": 3, "filled_count": 2},
+      {"trading_date": "2026-07-13", "symbol": "VEEE", "trade_row_count": 375131, "plan_count": 10, "filled_count": 5},
+      {"trading_date": "2026-07-13", "symbol": "VRRM", "trade_row_count": 4817, "plan_count": 8, "filled_count": 1},
+      {"trading_date": "2026-07-14", "symbol": "CLSK", "trade_row_count": 119740, "plan_count": 20, "filled_count": 5},
+      {"trading_date": "2026-07-14", "symbol": "NXTC", "trade_row_count": 648907, "plan_count": 9, "filled_count": 5},
+      {"trading_date": "2026-07-14", "symbol": "SHPH", "trade_row_count": 368348, "plan_count": 4, "filled_count": 2},
+      {"trading_date": "2026-07-15", "symbol": "ELVA", "trade_row_count": 208584, "plan_count": 8, "filled_count": 3},
+      {"trading_date": "2026-07-15", "symbol": "ERNA", "trade_row_count": 379715, "plan_count": 4, "filled_count": 3},
+      {"trading_date": "2026-07-15", "symbol": "LCID", "trade_row_count": 17667, "plan_count": 2, "filled_count": 1},
+      {"trading_date": "2026-07-16", "symbol": "EAF", "trade_row_count": 898, "plan_count": 4, "filled_count": 2},
+      {"trading_date": "2026-07-20", "symbol": "AMC", "trade_row_count": 134878, "plan_count": 5, "filled_count": 1},
+      {"trading_date": "2026-07-20", "symbol": "ARMP", "trade_row_count": 737, "plan_count": 4, "filled_count": 1},
+      {"trading_date": "2026-07-20", "symbol": "BIYA", "trade_row_count": 376831, "plan_count": 5, "filled_count": 2},
+      {"trading_date": "2026-07-20", "symbol": "NUAI", "trade_row_count": 15835, "plan_count": 6, "filled_count": 2},
+      {"trading_date": "2026-07-20", "symbol": "XNCR", "trade_row_count": 2543, "plan_count": 8, "filled_count": 4},
+      {"trading_date": "2026-07-21", "symbol": "GREE", "trade_row_count": 8368, "plan_count": 7, "filled_count": 2},
+      {"trading_date": "2026-07-21", "symbol": "RPT", "trade_row_count": 1313, "plan_count": 7, "filled_count": 1},
+      {"trading_date": "2026-07-21", "symbol": "UTZ", "trade_row_count": 43396, "plan_count": 13, "filled_count": 1},
+      {"trading_date": "2026-07-21", "symbol": "VIVK", "trade_row_count": 592486, "plan_count": 8, "filled_count": 4},
+      {"trading_date": "2026-07-22", "symbol": "OTLY", "trade_row_count": 2958, "plan_count": 1, "filled_count": 1},
+      {"trading_date": "2026-07-22", "symbol": "ZCMD", "trade_row_count": 113220, "plan_count": 6, "filled_count": 3},
+      {"trading_date": "2026-07-23", "symbol": "AMBP", "trade_row_count": 7356, "plan_count": 3, "filled_count": 1},
+      {"trading_date": "2026-07-23", "symbol": "CLF", "trade_row_count": 46487, "plan_count": 8, "filled_count": 1},
+      {"trading_date": "2026-07-23", "symbol": "DOMO", "trade_row_count": 93064, "plan_count": 5, "filled_count": 1},
+      {"trading_date": "2026-07-23", "symbol": "EHGO", "trade_row_count": 348719, "plan_count": 16, "filled_count": 5},
+      {"trading_date": "2026-07-23", "symbol": "GREE", "trade_row_count": 1687, "plan_count": 1, "filled_count": 1},
+      {"trading_date": "2026-07-23", "symbol": "JEM", "trade_row_count": 228321, "plan_count": 2, "filled_count": 2},
+      {"trading_date": "2026-07-23", "symbol": "NEUP", "trade_row_count": 16312, "plan_count": 1, "filled_count": 1},
+      {"trading_date": "2026-07-23", "symbol": "NVCR", "trade_row_count": 14912, "plan_count": 16, "filled_count": 6}
+    ],
+    "smoke_selection_rule": "Sort all 36 by causal SIP trade-row count, trading date, and symbol; select floor-spaced activity ranks 0, 11, 23, and 35.",
+    "smoke_symbol_dates": [
+      {"trading_date": "2026-07-10", "symbol": "INTJ", "trade_row_count": 217, "plan_count": 1, "filled_count": 1, "activity_rank_zero_based": 0},
+      {"trading_date": "2026-07-10", "symbol": "EQPT", "trade_row_count": 10037, "plan_count": 2, "filled_count": 1, "activity_rank_zero_based": 11},
+      {"trading_date": "2026-07-20", "symbol": "AMC", "trade_row_count": 134878, "plan_count": 5, "filled_count": 1, "activity_rank_zero_based": 23},
+      {"trading_date": "2026-07-10", "symbol": "GMM", "trade_row_count": 795823, "plan_count": 8, "filled_count": 4, "activity_rank_zero_based": 35}
+    ],
+    "selection_inputs": ["trading date", "symbol", "causal SIP trade row count", "frozen plan count", "frozen fill count"],
+    "prohibited_selection_inputs": ["Ross action or label", "recap text", "trade P&L", "later price outcome", "best observed management cell"],
+    "result_use": "The four smoke cases may establish data access, parsing, reconstruction, storage, and deterministic feature mechanics only. They cannot select thresholds or support performance claims."
+  },
+  "prospective_evaluation_cohort": {
+    "dates": ["2026-08-24", "2026-08-25", "2026-08-26", "2026-08-27", "2026-08-28", "2026-08-31", "2026-09-01", "2026-09-02", "2026-09-03", "2026-09-04"],
+    "symbol_selection_rule": "every_symbol_date_with_at_least_one_frozen_micro_v0_1_fill",
+    "symbols_known_at_registration": false,
+    "results_opened_before_feature_policy_freeze": false,
+    "retrospective_transcript_labels_available_to_feature_runtime": false,
+    "purpose": "Only a later separately frozen feature policy may be evaluated behaviorally and economically on this prospective calendar."
+  },
+  "provider_capability_candidates": [
+    {
+      "provider_id": "databento",
+      "role": "first_bounded_historical_depth_candidate",
+      "first_depth_dataset": "XNAS.ITCH",
+      "schemas_to_quote_before_download": ["mbp-10", "mbo", "trades", "definition", "status or equivalent"],
+      "venue_scope": "single_venue_not_consolidated_national_depth",
+      "historical_and_live_api_parity_claim": "provider_documents_common_normalized_schemas_and_replay_but_repository_adapter_is_not_yet_implemented",
+      "historical_mbo_start_requirement": "include the provider's start-of-day clear or snapshot needed for a complete book; do not begin from a convenient strategy timestamp unless the provider supplies a complete snapshot",
+      "official_sources": [
+        "https://databento.com/equities",
+        "https://databento.com/docs/schemas-and-data-formats/mbo",
+        "https://databento.com/docs/standards-and-conventions/mbo-snapshot",
+        "https://databento.com/pricing"
+      ],
+      "access_state": "not_configured",
+      "planned_secret_name": "DATABENTO_API_KEY",
+      "license_and_cost_state": "exact_smoke_quote_required_before_user_purchase_authorization"
+    },
+    {
+      "provider_id": "alpaca",
+      "role": "existing_broker_and_consolidated_or_iex_l1_tape_source_not_depth_source",
+      "documented_equities_streams": ["trades", "quotes", "bars", "statuses", "LULD and corrections where entitled"],
+      "venue_scope": "IEX_or_consolidated_SIP_L1_not_full_depth",
+      "paper_accounts_unchanged": ["main_$30000", "small_$2000"],
+      "official_sources": [
+        "https://docs.alpaca.markets/us/docs/real-time-stock-pricing-data",
+        "https://docs.alpaca.markets/us/docs/about-market-data-api"
+      ],
+      "broker_replacement_required_for_feasibility": false
+    },
+    {
+      "provider_id": "ibkr",
+      "role": "future_broker_or_live_depth_candidate_not_historical_research_backbone",
+      "documented_depth_method": "reqMktDepth or reqMarketDepth with market-data subscriptions",
+      "documented_retail_api_constraint": "TWS currently reports a maximum of three distinct market-depth requests",
+      "official_sources": [
+        "https://ibkrcampus.com/docs/tws-api/doc/market-data-live/market-depth-l-2/request-market-depth",
+        "https://ibkrcampus.com/docs/tws-api/ref/error-codes"
+      ],
+      "broker_change_decision": "deferred_until_execution_requirements_and_live_shadow_measurements"
+    }
+  ],
+  "acquisition_windows": {
+    "depth_mbo": "For each smoke symbol-date, request enough history to include the provider's complete initial state and continue through 10:05 America/New_York; do not infer a book from 07:00-only deltas.",
+    "depth_mbp_10_and_tape": "06:55 through 10:05 America/New_York for strategy-window mechanics, with earlier records retained when required for state integrity.",
+    "definitions_and_status": "Full relevant provider day, including halts, resumptions, symbol mappings, corrections, and data-quality flags.",
+    "time_standard": "Store UTC nanoseconds and derive America/New_York session labels separately."
+  },
+  "registered_feature_hypotheses": [
+    {
+      "feature_id": "book.top-spread-and-depth",
+      "description": "Best spread and displayed bid/ask quantity at declared depth levels.",
+      "threshold": null,
+      "runtime_authority": "none"
+    },
+    {
+      "feature_id": "book.depth-imbalance",
+      "description": "Venue-scoped displayed bid-versus-ask depth imbalance with the covered levels and venue named explicitly.",
+      "threshold": null,
+      "runtime_authority": "none"
+    },
+    {
+      "feature_id": "book.ask-replenishment",
+      "description": "Repeated displayed ask-size restoration after executions or removals at the same price.",
+      "threshold": null,
+      "runtime_authority": "none"
+    },
+    {
+      "feature_id": "tape.signed-trade-velocity",
+      "description": "Buy, sell, and unknown aggressor volume and event rates over fixed causal windows; unknown is never silently classified.",
+      "threshold": null,
+      "runtime_authority": "none"
+    },
+    {
+      "feature_id": "tape.level-sweep-velocity",
+      "description": "Number and notional of distinct price levels consumed over fixed causal windows.",
+      "threshold": null,
+      "runtime_authority": "none"
+    },
+    {
+      "feature_id": "book.execution-price-impact-mismatch",
+      "description": "Executed volume and repeated replenishment relative to price progress as a hidden-liquidity proxy, never proof of a specific hidden order.",
+      "threshold": null,
+      "runtime_authority": "none"
+    },
+    {
+      "feature_id": "book.cancellation-pressure",
+      "description": "Venue-scoped add, cancel, and modify rates without labeling intent or spoofing.",
+      "threshold": null,
+      "runtime_authority": "none"
+    },
+    {
+      "feature_id": "breakout.progress-failure",
+      "description": "Aggressive buying and volume without sustained price progress through the declared breakout level.",
+      "threshold": null,
+      "runtime_authority": "none"
+    },
+    {
+      "feature_id": "execution.depth-constrained-slippage",
+      "description": "Displayed-depth walk and conservative fill bounds for a declared order size, with queue position and hidden liquidity left unresolved until modeled.",
+      "threshold": null,
+      "runtime_authority": "none"
+    }
+  ],
+  "gates": [
+    {
+      "gate_id": "G0-cost-and-entitlement",
+      "pass_condition": "Provider metadata confirms every smoke symbol-date and produces an exact schema/date/symbol cost estimate inside a user-approved budget.",
+      "failure_action": "Preserve the quote or entitlement failure and do not download broad history."
+    },
+    {
+      "gate_id": "G1-schema-and-integrity",
+      "pass_condition": "All four smoke cases expose the required fields, explicit venue scope, point-in-time definitions, usable timestamps, and complete initial depth state.",
+      "failure_action": "Reject the dataset or narrow the claim; never substitute SIP L1 for missing depth."
+    },
+    {
+      "gate_id": "G2-reconstruction",
+      "pass_condition": "Two independent normalizations and replays are byte-identical, all provider event counts reconcile, snapshot boundaries close, and no unflagged timestamp or sequence violation remains.",
+      "failure_action": "Stop before feature or execution modeling and preserve the diagnostic artifact."
+    },
+    {
+      "gate_id": "G3-feature-mechanics",
+      "pass_condition": "Every registered feature can be calculated causally with explicit unavailable states and no fitted threshold or transcript input.",
+      "failure_action": "Remove unsupported features from the future feature-policy registration; do not impute them."
+    },
+    {
+      "gate_id": "G4-prospective-feature-policy",
+      "pass_condition": "A separate feature policy is frozen before the August 24-September 4 results and later demonstrates incremental behavioral or execution value out of sample.",
+      "failure_action": "Do not promote Level 2-dependent entry, exit, or sizing authority."
+    }
+  ],
+  "explicitly_not_in_scope": [
+    "buying data without an exact quote and user authorization",
+    "switching the two Alpaca paper accounts",
+    "claiming Nasdaq depth is consolidated national depth",
+    "using the four smoke cases for P&L or best-threshold selection",
+    "placing an LLM in the per-event critical path",
+    "assigning intent such as spoofing from cancellation rates",
+    "submitting paper or live orders",
+    "changing Micro-v0.1, scanner thresholds, or the prospective account panel"
+  ],
+  "execution_status": {
+    "source_cohort_verified": true,
+    "provider_account_configured": false,
+    "exact_cost_quote_obtained": false,
+    "historical_depth_downloaded": false,
+    "canonical_adapter_implemented": false,
+    "book_reconstruction_run": false,
+    "feature_result_generated": false,
+    "next_gate": "Obtain metadata-only availability and exact cost estimates for the four registered smoke symbol-dates without authorizing a purchase."
+  },
+  "content_sha256": "6d3a41d6bde3844900bc880632d8bc9d6c5f7b787edd5f0c302a709dcb9c1bf1"
+}

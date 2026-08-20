@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "audit_id": "strategy-discretion-coverage-v0.1-2026-08-19",
+  "artifact_type": "non_authoritative_strategy_and_discretion_inventory_audit",
+  "audit_date": "2026-08-19",
+  "decision": {
+    "coverage_inventory_registered": true,
+    "runtime_strategy_changed": false,
+    "new_strategy_family_promoted": false,
+    "full_ross_replication_claim_allowed": false,
+    "profitability_claim_allowed": false
+  },
+  "matrix": {
+    "path": "research/strategy/strategy-discretion-coverage-v0.1.json",
+    "file_sha256": "c1f7072f77aa07af6fdc10b1512bcabfd0e674e94cabcedb40d784f045e53a97",
+    "content_sha256": "3507642f70bbb8f4551238bc09242dd8c31474b463bf9a4e88f03a7894d97fe3"
+  },
+  "source_rulebook": {
+    "machine_path": "research/rules/current_rules.json",
+    "machine_file_sha256": "d5b9025f1bd00c71f218f23f595863050bd331cac0f30c4a9f693d390af2eca7",
+    "documentation_path": "docs/strategy/current_rulebook.md",
+    "documentation_file_sha256": "29485e251b4c613aa5e057057058152424c1cd731aa86109788ba1924c0c57ff",
+    "promoted_rule_count": 36
+  },
+  "mechanical_result": {
+    "domain_count": 25,
+    "every_promoted_rule_mapped_exactly_once": true,
+    "unknown_rule_ids": [],
+    "status_counts": {
+      "data_blocked": 3,
+      "implemented_frozen": 1,
+      "implemented_unrun": 4,
+      "missing": 3,
+      "partial_deterministic": 6,
+      "partial_shadow": 7,
+      "research_guard": 1
+    },
+    "next_priority_order": [
+      "setup.family-inventory",
+      "data.level2-and-tape",
+      "execution.realistic-broker",
+      "management.chart-and-tape-exits",
+      "validation.portfolio-and-promotion"
+    ]
+  },
+  "bound_files": [
+    {
+      "path": "research/strategy/strategy-discretion-coverage-v0.1.json",
+      "file_sha256": "c1f7072f77aa07af6fdc10b1512bcabfd0e674e94cabcedb40d784f045e53a97"
+    },
+    {
+      "path": "src/momentumbot/research/strategy_coverage.py",
+      "file_sha256": "9ff51ef08f7dd91c8a3b6b5504a903dca65f52fdf761bc84b772bf89f850e5ee"
+    },
+    {
+      "path": "docs/research/strategy_discretion_coverage_v01.md",
+      "file_sha256": "c66608b15499fec840593916cee179cf88558f3672c4b45329204e63bb3eb98c"
+    }
+  ],
+  "validation": {
+    "matrix_content_hash_recomputed": true,
+    "rulebook_source_hashes_recomputed": true,
+    "implemented_artifact_paths_resolved": true,
+    "raw_transcript_runtime_artifacts_rejected": true,
+    "focused_test_count": 4,
+    "full_test_count": 550,
+    "focused_tests_passed": true,
+    "full_test_suite_passed": true
+  },
+  "knowledge_boundary": {
+    "raw_transcripts_opened_for_this_inventory": false,
+    "ross_actions_or_trade_outcomes_used_to_set_coverage": false,
+    "retrospective_labels_available_to_runtime": false,
+    "matrix_runtime_authority": "none"
+  },
+  "claim_boundary": [
+    "Micro-v0.1 is a frozen technical replay, not proof of profitability.",
+    "The first-pullback and micro-pullback path cannot be described as all Cameron strategies.",
+    "Shadow context cannot be described as production discretion.",
+    "Data-blocked and missing domains must remain explicit until separately implemented and validated."
+  ],
+  "next_gate": "Advance the highest-leverage gaps through separate causal registrations; do not convert the inventory into a score or use it to promote policy.",
+  "content_sha256": "e008d45ef7e41d8e6938d555ad0fa2038209ce3410845341ebb8af337f660eca"
+}
