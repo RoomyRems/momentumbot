@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "audit_id": "trade-management-shadow-v0.1-result",
+  "audit_date": "2026-08-19",
+  "artifact_type": "retrospective_fixed_entry_management_sensitivity_audit",
+  "contract": {
+    "contract_id": "trade-management-shadow-v0.1",
+    "content_sha256": "0bc4d98d75815c316f61cb6a06d1ac7deb4b0948672fcae58dfbc250b2e59d25",
+    "registered_before_management_path_execution": true,
+    "all_registered_cells_reported": true,
+    "best_cell_selected": false
+  },
+  "evidence": {
+    "audit_id": "trade-management-evidence-v0.1",
+    "content_sha256": "d9f4927d136a80735efc2875b972b47a88a0e060ba9049b58f783cbff4add0f0",
+    "normative_and_observed_behavior_separated": true,
+    "raw_transcripts_available_to_runtime": false
+  },
+  "source_artifacts": {
+    "micro_runtime": {
+      "artifact_name": "discretion-heldout-micro-runtime-v0.1",
+      "artifact_id": 9310627233,
+      "workflow_run_id": 32096497787,
+      "zip_sha256": "3b59e4b1a69e268158f6ccbead1fe9abae425fc249e72b34f466e53ebba56b20",
+      "manifest_content_sha256": "feb2283acf1f180fd82b0e3c25acde1ebb9ebc036c47533e1d61fc9e8883e190"
+    },
+    "historical_account_diagnostic": {
+      "manifest_content_sha256": "e9dd428d30790dcbf9cd2d171cc2c86ef41a71e4c9a2463d24bfaa34d7048a48",
+      "accepted_main_entries": 10,
+      "accepted_small_entries": 2
+    }
+  },
+  "build_attempts": [
+    {
+      "attempt": 1,
+      "code_commit": "ceeebd6c69f9c598df5ffdbbe1c7e63e2162320c",
+      "status": "failed_before_outcome_artifact",
+      "reason": "Frozen one-minute CSVs use the explicit column name index while the first reader accepted only timestamp.",
+      "strategy_or_cell_changed": false
+    },
+    {
+      "attempt": 2,
+      "code_commit": "b4f18191020846492b4cc00b568d553236950275",
+      "status": "failed_before_outcome_artifact",
+      "reason": "The known provider-unavailable LIVE record intentionally has no steps array and required an explicit unavailable-record branch.",
+      "strategy_or_cell_changed": false
+    },
+    {
+      "attempt": 3,
+      "code_commit": "47743d0974f185766678ed87841dbaefa616b6e4",
+      "status": "completed",
+      "strategy_or_cell_changed": false
+    },
+    {
+      "attempt": 4,
+      "code_commit": "47743d0974f185766678ed87841dbaefa616b6e4",
+      "status": "completed_byte_identical_reproduction",
+      "strategy_or_cell_changed": false
+    }
+  ],
+  "result_artifact": {
+    "path": "research/frozen/trade-management-shadow-v0.1/manifest.json",
+    "content_sha256": "b06159fee47d1d0f59a8d67aabfc082a1c3af6872a88f18f9a7eb49a3f969434",
+    "file_sha256": "400623d1022daed8c21548d063212258de6e794f733a0847b0f494077f76782b",
+    "independent_builds_byte_identical": true,
+    "filled_plan_count": 87,
+    "all_plan_outcomes_closed_in_every_cell": true,
+    "account_fixed_entry_result_count": 48
+  },
+  "engineering_results": {
+    "full-first-red-10s": {
+      "target_touched_count": 19,
+      "sum_weighted_realized_r_without_open_mark": -23.2915902400776,
+      "initial_stop_count": 32,
+      "first_red_candle_count": 55
+    },
+    "half-2r-breakeven-first-red-10s": {
+      "target_touched_count": 19,
+      "sum_weighted_realized_r_without_open_mark": -14.083268105145681,
+      "initial_stop_count": 29,
+      "first_target_count": 19,
+      "breakeven_stop_count": 8,
+      "first_red_candle_count": 50
+    },
+    "full-first-red-1m": {
+      "target_touched_count": 22,
+      "sum_weighted_realized_r_without_open_mark": -21.498131828568123,
+      "initial_stop_count": 56,
+      "first_red_candle_count": 31
+    },
+    "half-2r-breakeven-first-red-1m": {
+      "target_touched_count": 22,
+      "sum_weighted_realized_r_without_open_mark": -26.55400349680093,
+      "initial_stop_count": 50,
+      "first_target_count": 22,
+      "breakeven_stop_count": 13,
+      "first_red_candle_count": 24
+    }
+  },
+  "fixed_entry_account_results": {
+    "main": {
+      "fixed_entry_count": 10,
+      "full-first-red-10s_realized_pnl": -200.7024999999996,
+      "half-2r-breakeven-first-red-10s_realized_pnl": -172.88520000000005,
+      "full-first-red-1m_realized_pnl": -441.2000000000004,
+      "half-2r-breakeven-first-red-1m_realized_pnl": -276.8927000000005,
+      "negative_in_every_cell": true
+    },
+    "small": {
+      "fixed_entry_count": 2,
+      "full-first-red-10s_realized_pnl": 7.1999000000000075,
+      "half-2r-breakeven-first-red-10s_realized_pnl": 7.386100000000012,
+      "full-first-red-1m_realized_pnl": 5.930000000000006,
+      "half-2r-breakeven-first-red-1m_realized_pnl": 6.876200000000012,
+      "sample_is_too_small_for_performance_inference": true
+    }
+  },
+  "mechanical_validation": {
+    "source_zip_hash_recomputed": true,
+    "source_and_account_embedded_content_hashes_recomputed": true,
+    "every_frozen_fill_matched_to_exact_execution_path": true,
+    "every_accepted_account_entry_matched_to_exact_source_plan": true,
+    "red_signals_use_completed_bars_only": true,
+    "stop_never_widened": true,
+    "unavailable_live_record_preserved_not_zero_filled": true,
+    "two_complete_builds_byte_identical": true
+  },
+  "limitations": [
+    "The 87 plan outcomes overlap and are not a chronological strategy trade sequence.",
+    "The account overlay keeps the old accepted-entry set fixed and does not recycle capital after earlier exits.",
+    "The historical candidate universe and small-account overlap are incomplete.",
+    "SIP prints do not model spread, latency, queue position, available size, cancellation, partial fill or market impact.",
+    "Displayed and hidden sellers, aggressor-side tape, buying slowdown, topping-tail thresholds and later scale targets remain unmodeled.",
+    "No retrospective cell may be selected for promotion from this result."
+  ],
+  "disposition": {
+    "retain_as_shadow_evidence": true,
+    "select_best_cell": false,
+    "policy_promotion_eligible": false,
+    "profitability_claim_eligible": false,
+    "ross_replication_claim_eligible": false,
+    "full_backtest": false,
+    "prospective_august_panel_modified": false
+  }
+}

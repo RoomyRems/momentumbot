@@ -18,6 +18,10 @@ REGISTRATION = ROOT / "research" / "strategy" / "trade-management-shadow-v0.1.js
 EVIDENCE = (
     ROOT / "research" / "data-audits" / "trade-management-evidence-v0.1-2026-08-19.json"
 )
+RESULT = ROOT / "research" / "frozen" / "trade-management-shadow-v0.1" / "manifest.json"
+RESULT_CONTENT_SHA256 = (
+    "b06159fee47d1d0f59a8d67aabfc082a1c3af6872a88f18f9a7eb49a3f969434"
+)
 
 
 class TradeManagementSensitivityContractTests(unittest.TestCase):
@@ -44,6 +48,19 @@ class TradeManagementSensitivityContractTests(unittest.TestCase):
         changed["execution_status"]["management_path_execution"] = "completed"
         with self.assertRaisesRegex(ValueError, "registration content"):
             validate_trade_management_registration(changed, self.evidence)
+
+    def test_frozen_result_is_complete_and_non_promotable(self):
+        result = json.loads(RESULT.read_text(encoding="utf-8"))
+        embedded = result.pop("content_sha256")
+        self.assertEqual(embedded, RESULT_CONTENT_SHA256)
+        self.assertEqual(canonical_fingerprint(result), RESULT_CONTENT_SHA256)
+        self.assertEqual(len(result["filled_plan_results"]), 87)
+        self.assertEqual(len(result["account_fixed_entry_results"]), 48)
+        self.assertFalse(result["interpretation"]["best_cell_selected"])
+        self.assertFalse(result["interpretation"]["portfolio_backtest"])
+        self.assertFalse(result["interpretation"]["policy_promotion_allowed"])
+        for summary in result["engineering_summary"].values():
+            self.assertEqual(summary["status_counts"], {"closed": 87})
 
 
 if __name__ == "__main__":

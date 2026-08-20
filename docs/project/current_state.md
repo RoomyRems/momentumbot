@@ -32,6 +32,7 @@ This file is a routing checkpoint, not a second policy specification. Follow its
 - The next account-local composition is preregistered as `account-chronological-integration-v0.1`, contract content SHA-256 `64489aa27fec5eaf8ca12c94f4aeb47344d49a79b14df1bdda706cd23cc9ce73`. Its calendar was frozen on August 19 as the ten sessions from Monday, August 24 through Friday, September 4, while every session was still future and without source inventory, symbols, actions or results; August 20–21 are reserved to finish and authorize the account-input capture path. Each main/small account is composed separately and requires a same-session hash-bound balance snapshot captured by the 7:00 a.m. New York strategy start; no historical balance is invented. The engine retains unavailable records, orders plans/entries/exits causally, reuses activation-time scarcity rank only for exact-time account collisions, prevents same-time exit capital recycling, and sizes only maximum whole shares inside every remaining paper-safe ceiling. This sizing is a project research envelope, not Ross behavior or a liquidity claim. Open Micro outcomes remain unresolved. The engine has synthetic composition coverage only; registered market, Micro and account runtimes have not started and no portfolio result exists. The permanent audit is `research/data-audits/account-chronological-integration-v0.1-2026-08-19.json`.
 - The child account-input path is preregistered as `account-session-snapshot-capture-v0.1`, contract content SHA-256 `5e967dbbbe2ee53187940f2ea720bd1937a4391710c97043ec03cc80c9b257b7`. The supplied setup is a separately credentialed $30,000 main and $2,000 small Alpaca paper account. Push mode validates distinct active USD accounts, exact fixture equity, positive buying power and zero positions/orders without creating a session input. Registered capture is scheduled for 5:15 a.m. New York time and fails closed unless both account requests finish on the exact registered date by 7:00 a.m. Raw provider IDs are stored only as SHA-256 pseudonyms; account numbers, credentials and nonrequired fields are omitted. The default-branch scheduler checks out `phase-3-historical-snapshot` and records scheduler/runtime SHAs separately. The implementation has synthetic coverage only; provider credential validation and all registered captures remain unrun.
 - The separate immediate overlay is frozen as `historical-account-diagnostic-v0.1`; its exact result hash is bound in the permanent audit. It reuses the exact July 10–23 scanner/Micro artifacts and unchanged account engine with independent synthetic $30,000 main and $2,000 small sessions. Main retained 27 profile-eligible same-anchor activations, accepted 10 entries, closed 9 at their modeled stops for -$680.57 and left one GMM position unresolved. Small retained 6 eligible same-anchor candidates within the incomplete general-source overlap, accepted 2 entries, closed 1 at its stop for -$5.33 and left one GMM position unresolved. These are stop-risk figures, not returns: candidates first becoming account-eligible after the frozen market/Micro anchor are not re-anchored, the small source can omit $1.50–$1.99 candidates, the source Micro replay registered no profit target or favorable management exit, balances do not compound and open outcomes are not marked to market. The result is retrospective, diagnostic-only, non-promotable and does not modify the prospective August 24–September 4 study.
+- The separately preregistered chart-management sensitivity is frozen as `trade-management-shadow-v0.1`, result content SHA-256 `b06159fee47d1d0f59a8d67aabfc082a1c3af6872a88f18f9a7eb49a3f969434`. It evaluates four equal cells crossing full-runner versus half-at-2R/breakeven and completed-red-candle exits on 10-second versus one-minute bars. All 87 overlapping filled-plan paths and the fixed 10 main/2 small accepted entries were evaluated without changing selection, entry, sizing, capital reuse or Micro-v0.1. Main remained negative in every cell (-$172.89 to -$441.20); small was slightly positive in every cell (+$5.93 to +$7.39) on only two entries and was driven by the GMM winner. No cell was selected. These are fixed-entry diagnostics, not returns, expectancy or promotion evidence; Level 2, tape direction, realistic broker execution and chronological recomposition remain absent.
 
 Exact provenance lives in:
 
@@ -52,6 +53,8 @@ Exact provenance lives in:
 - `research/data-audits/account-chronological-integration-v0.1-2026-08-19.json`
 - `research/data-audits/account-session-snapshot-capture-v0.1-2026-08-19.json`
 - `research/data-audits/historical-account-diagnostic-v0.1-2026-08-19.json`
+- `research/data-audits/trade-management-evidence-v0.1-2026-08-19.json`
+- `research/data-audits/trade-management-shadow-v0.1-2026-08-19.json`
 - `research/strategy/discretion-heldout-panel-v0.1.json`
 - `research/strategy/discretion-context-assessment-shadow-v0.1.json`
 - `research/strategy/context-heldout-panel-v0.1.json`
@@ -62,6 +65,7 @@ Exact provenance lives in:
 - `research/strategy/paper-account-scarcity-policy-v0.1.json`
 - `research/strategy/account-chronological-integration-v0.1.json`
 - `research/strategy/account-session-snapshot-capture-v0.1.json`
+- `research/strategy/trade-management-shadow-v0.1.json`
 - `research/frozen/context-semantic-shadow-runtime-v0.1/manifest.json`
 - `docs/research/discretion_heldout_panel_v01.md`
 - `docs/research/discretion_heldout_labels_v01.md`
@@ -78,17 +82,18 @@ Exact provenance lives in:
 - `docs/research/account_chronological_integration_v01.md`
 - `docs/research/account_session_snapshot_capture_v01.md`
 - `docs/research/historical_account_diagnostic_v01.md`
+- `docs/research/trade_management_shadow_v01.md`
 
 ## Active gate
 
 The preregistered context sequence is complete and frozen through comparison. The standalone campaign ledger is frozen at `f2a80f4350e6283e2638702d70515bf03ee6c930e7d52706d09ef5e1d9f419b6`, its paper account/scarcity policy at `78dd5e3aef9485fc77f07632baec0274dceecb44c8cefd68ab8ea03e7727ceff`, the account-integration registration/engine at `64489aa27fec5eaf8ca12c94f4aeb47344d49a79b14df1bdda706cd23cc9ce73`, and its unrun capture child at `5e967dbbbe2ee53187940f2ea720bd1937a4391710c97043ec03cc80c9b257b7`. Preserve artifact `9376599434`, semantic manifest `9b3be7a17f29e638b0e1da14b4d050762503bab17c74c3f97e62b99489f25cd4`, labels `3ff85b371de31ea5dc1d2e4afc4e334c6f6f5051bfe5c7340fb51007527b7cd1`, comparison `d93d61ed0ebd5657bbed135beb7fe2d7b0f337d1e3f76720c0f1dcff7908ff54`, ledger, account-policy and integration contracts as immutable parents. Publish the capture child to the research branch and install its thin scheduler on `main`, validate both supplied paper accounts, then continue without changing Micro-v0.1 by acquiring the ten hash-bound pre-decision snapshots and building the registered August 24–September 4 union market, Micro and account runtime. Candidate acquisition, context, Micro setup, execution and portfolio feasibility remain separate gates with no aggregate score.
 
-The completed ten-session context result and historical account overlay are component diagnostics, not portfolio backtests. The historical overlay now validates synthetic chronological account composition, but no registered August 24–September 4 runtime exists yet. Cross-account attention, Level 2, tape-based management, favorable exits and complete execution/exit reconstruction remain absent.
+The completed ten-session context result, historical account overlay and chart-management sensitivity are component diagnostics, not portfolio backtests. The historical overlay validates synthetic chronological account composition, while the management artifact proves that one narrow favorable-exit layer can be replayed causally on a fixed entry set. No registered August 24–September 4 runtime exists yet. Cross-account attention, integrated prospective management, Level 2/tape discretion and complete broker execution remain absent.
 
 ## Next gates
 
 1. Publish the capture implementation and default-branch scheduler, validate the two supplied paper accounts, then retain hash-bound pre-decision main/small snapshots on all ten dates and build the registered union market, Micro-v0.1 and separate account runtimes without opening retrospective evidence.
-2. Add realistic execution and latency, then Level 2/time-and-sales capture and deterministic summaries where historical or live data permits.
+2. Preselect or separately register the management interpretation before results, integrate it into chronological account state, and add realistic spread, latency, partial-fill and cancellation behavior; then add Level 2/time-and-sales capture and deterministic summaries where data permits.
 3. Validate any AI contribution out of sample and in live shadow before it can affect paper decisions.
 4. Run a larger preregistered walk-forward panel before considering policy promotion or interpreting P&L.
 
