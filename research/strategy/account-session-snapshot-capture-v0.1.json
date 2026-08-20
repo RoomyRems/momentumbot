@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "contract_id": "account-session-snapshot-capture-v0.1",
+  "artifact_type": "paper_account_pre_session_capture_contract",
+  "status": "preregistered_unrun",
+  "runtime_strategy_effect": "account_input_only_after_valid_registered_capture",
+  "portfolio_backtest_eligible": false,
+  "policy_promotion_eligible": false,
+  "frozen_parent": {
+    "integration_contract_id": "account-chronological-integration-v0.1",
+    "integration_contract_content_sha256": "64489aa27fec5eaf8ca12c94f4aeb47344d49a79b14df1bdda706cd23cc9ce73",
+    "panel_id": "ross-account-integration-panel-v0.1"
+  },
+  "registered_account_setup": [
+    {
+      "account_class": "main",
+      "provider": "alpaca_paper",
+      "expected_initial_equity": "30000",
+      "api_key_secret": "ALPACA_MAIN_API_KEY",
+      "api_secret_secret": "ALPACA_MAIN_API_SECRET"
+    },
+    {
+      "account_class": "small",
+      "provider": "alpaca_paper",
+      "expected_initial_equity": "2000",
+      "api_key_secret": "ALPACA_SMALL_API_KEY",
+      "api_secret_secret": "ALPACA_SMALL_API_SECRET"
+    }
+  ],
+  "provider_contract": {
+    "endpoint": "https://paper-api.alpaca.markets",
+    "read_endpoints": [
+      "/v2/account",
+      "/v2/positions",
+      "/v2/orders?status=open&limit=500&direction=desc"
+    ],
+    "write_endpoints_allowed": false,
+    "broker_orders_submitted": false,
+    "main_and_small_credentials_must_resolve_to_distinct_accounts": true,
+    "account_status_required": "ACTIVE",
+    "currency_required": "USD",
+    "blocked_flags_required": false,
+    "open_positions_required": 0,
+    "open_orders_required": 0,
+    "equity_tolerance_dollars": "0.01",
+    "positive_buying_power_required": true
+  },
+  "capture_schedule": {
+    "registered_dates": [
+      "2026-08-24",
+      "2026-08-25",
+      "2026-08-26",
+      "2026-08-27",
+      "2026-08-28",
+      "2026-08-31",
+      "2026-09-01",
+      "2026-09-02",
+      "2026-09-03",
+      "2026-09-04"
+    ],
+    "timezone": "America/New_York",
+    "scheduled_capture_time": "05:15:00",
+    "strategy_start_deadline": "07:00:00",
+    "scheduled_cron_utc": [
+      "15 9 24-28,31 8 *",
+      "15 9 1-4 9 *"
+    ],
+    "manual_capture_fallback": true,
+    "manual_capture_must_equal_current_new_york_date": true,
+    "capture_start_and_completion_must_precede_deadline": true,
+    "missing_or_late_capture_behavior": "fail_closed_no_account_runtime",
+    "dates_may_be_replaced": false
+  },
+  "source_projection": {
+    "retained_fields": [
+      "provider account ID as SHA-256 pseudonym",
+      "status",
+      "currency",
+      "equity",
+      "buying power",
+      "cash",
+      "account blocked",
+      "trading blocked",
+      "transfers blocked",
+      "open position count",
+      "open order count",
+      "capture start timestamp",
+      "capture completion timestamp"
+    ],
+    "raw_provider_account_id_stored": false,
+    "account_number_stored": false,
+    "api_credentials_stored": false,
+    "nonrequired_provider_fields_stored": false,
+    "source_projection_is_hash_bound": true,
+    "snapshot_is_hash_bound": true,
+    "bundle_manifest_is_hash_bound": true
+  },
+  "workflow_contract": {
+    "workflow": ".github/workflows/account-session-snapshot.yml",
+    "push_behavior": "validation_only_not_session_eligible",
+    "scheduled_behavior": "capture_only_on_exact_registered_2026_date",
+    "default_branch_scheduler_checks_out": "phase-3-historical-snapshot",
+    "scheduler_and_runtime_head_shas_recorded_separately": true,
+    "workflow_dispatch_modes": [
+      "validate",
+      "capture"
+    ],
+    "validation_artifact_is_session_eligible": false,
+    "capture_artifact_retention_days": 90,
+    "repository_permission": "contents_read_only",
+    "credentials_scoped_to_capture_step_only": true
+  },
+  "knowledge_policy": {
+    "runtime_inputs_available_by_capture_time": true,
+    "raw_transcripts_allowed": false,
+    "retrospective_actions_or_labels_allowed": false,
+    "later_prices_or_outcomes_allowed": false,
+    "semantic_ai_used": false,
+    "scanner_or_micro_policy_changed": false,
+    "risk_policy_changed": false
+  },
+  "execution_status": {
+    "credential_validation": "not_run",
+    "registered_capture_count": 0,
+    "registered_capture_artifacts": []
+  },
+  "next_gate": "Publish this contract and capture path, validate both account credentials and clean balances on the push-triggered workflow, then retain one hash-bound main and small snapshot before 7:00 a.m. New York time on every registered session."
+}

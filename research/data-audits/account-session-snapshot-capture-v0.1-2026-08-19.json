@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "audit_id": "account-session-snapshot-capture-v0.1-registration-2026-08-19",
+  "audit_type": "pre_execution_mechanical_capture_registration",
+  "created_date": "2026-08-19",
+  "parent_git_commit": "ae752ec45ec4e7c64e91a25ea42e5b65b6b06093",
+  "contract_id": "account-session-snapshot-capture-v0.1",
+  "contract_content_sha256": "5e967dbbbe2ee53187940f2ea720bd1937a4391710c97043ec03cc80c9b257b7",
+  "parent_integration_contract_content_sha256": "64489aa27fec5eaf8ca12c94f4aeb47344d49a79b14df1bdda706cd23cc9ce73",
+  "registered_account_setup": {
+    "main": {
+      "provider": "alpaca_paper",
+      "expected_equity": "30000",
+      "credential_source": "github_actions_secrets",
+      "provider_account_id_recorded_in_audit": false
+    },
+    "small": {
+      "provider": "alpaca_paper",
+      "expected_equity": "2000",
+      "credential_source": "github_actions_secrets",
+      "provider_account_id_recorded_in_audit": false
+    }
+  },
+  "files": {
+    "contract": {
+      "path": "research/strategy/account-session-snapshot-capture-v0.1.json",
+      "file_sha256": "a3f1bbb69958ab96c06da6235126abbd00fdcd009ace8be3c9892fae479dff51"
+    },
+    "implementation": {
+      "path": "src/momentumbot/research/account_snapshot_capture.py",
+      "file_sha256": "f6f6205a220953c420a52269d0485cee992ef27cb56fe92f532c4a0da55d4738"
+    },
+    "entrypoint": {
+      "path": "scripts/capture_account_session_snapshots.py",
+      "file_sha256": "312713da9dd49e06bc1ed8c4734259864e563947b6ce747fe0bf94d4833ef816"
+    },
+    "workflow": {
+      "path": ".github/workflows/account-session-snapshot.yml",
+      "file_sha256": "309d9df97eb4e71441e4f8027374dbab4b70840f7ab777d3ff67b442ab2cb59c"
+    },
+    "tests": {
+      "path": "tests/test_account_snapshot_capture.py",
+      "file_sha256": "a56ed19d4c7fd3bf98962f939ef5b913f589dd794886b06c84f690527143e840"
+    },
+    "documentation": {
+      "path": "docs/research/account_session_snapshot_capture_v01.md",
+      "file_sha256": "42d3969e464cd6a84b00c7edfd3620dfe36cfc4ae79f3faf9b1ef9556d9bb284"
+    }
+  },
+  "mechanical_verification": {
+    "focused_tests_passed": 11,
+    "full_tests_passed": 519,
+    "ruff_check": "passed",
+    "ruff_format_check": "passed",
+    "actionlint": "passed",
+    "compileall": "passed"
+  },
+  "security_boundary": {
+    "official_paper_endpoint_only": true,
+    "provider_write_endpoints_present": false,
+    "broker_order_method_present": false,
+    "credentials_in_artifacts": false,
+    "raw_provider_account_ids_in_artifacts": false,
+    "account_numbers_in_artifacts": false,
+    "credentials_scoped_to_capture_workflow_step": true,
+    "repository_permission": "contents_read_only"
+  },
+  "causal_boundary": {
+    "registered_dates_unchanged": true,
+    "scheduled_capture_time_new_york": "05:15:00",
+    "hard_deadline_new_york": "07:00:00",
+    "late_or_missing_capture_fails_closed": true,
+    "validation_mode_is_session_eligible": false,
+    "uses_raw_transcripts": false,
+    "uses_retrospective_actions_or_labels": false,
+    "uses_later_prices_or_outcomes": false,
+    "changes_scanner_or_micro_v0_1": false,
+    "changes_execution_or_risk_policy": false
+  },
+  "deployment_boundary": {
+    "research_branch_target": "phase-3-historical-snapshot",
+    "default_branch": "main",
+    "default_branch_scheduler_required": true,
+    "default_branch_scheduler_checks_out": "phase-3-historical-snapshot",
+    "scheduler_and_runtime_shas_recorded_separately": true,
+    "publication_requires_explicit_authorization": true
+  },
+  "execution_status": {
+    "provider_credential_validation": "not_run",
+    "registered_capture_count": 0,
+    "runtime_artifact_sha256": null
+  },
+  "portfolio_backtest_eligible": false,
+  "policy_promotion_eligible": false,
+  "next_gate": "Publish the implementation to phase-3-historical-snapshot, install the workflow-only scheduler on main, verify the push-triggered account validation artifact, and retain one valid main and small snapshot before 7:00 a.m. New York time on every registered session.",
+  "content_sha256": "c31f74c5b8f4fb30a300ae5858b4a8632228ac7ac1c65584895f66aed1e5b341"
+}

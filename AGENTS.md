@@ -33,6 +33,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 | Campaign/portfolio/account state | `docs/research/campaign_portfolio_account_state_v01.md` | registered contract and `campaign_portfolio.py` standalone ledger |
 | Paper account/scarcity policy | `docs/research/paper_account_scarcity_policy_v01.md` | registered policy contract and `account_priority_policy.py` |
 | Account chronological integration | `docs/research/account_chronological_integration_v01.md` | registered panel/contract and `account_chronological_integration.py` |
+| Account pre-session capture | `docs/research/account_session_snapshot_capture_v01.md` | registered capture contract, `account_snapshot_capture.py` and scheduled workflow |
 
 ## Component route
 
