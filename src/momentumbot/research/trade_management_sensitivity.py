@@ -122,6 +122,12 @@ def build_trade_management_sensitivity(
             runtime = _read_frozen_archive_json(archive, runtime_name)
             steps = runtime.get("steps")
             if not isinstance(steps, list):
+                if (
+                    runtime.get("artifact_type")
+                    == "micro_candidate_runtime_replay_unavailable"
+                    and runtime.get("filled_count") is None
+                ):
+                    continue
                 raise ValueError(f"{runtime_name} steps must be an array")
             filled_steps = [
                 step
