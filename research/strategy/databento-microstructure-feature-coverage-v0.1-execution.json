@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "execution_authorization_id": "databento-microstructure-feature-coverage-v0.1-execution",
+  "artifact_type": "explicit_one_shot_databento_three_case_feature_coverage_authorization",
+  "coverage_contract_id": "databento-microstructure-feature-coverage-v0.1",
+  "coverage_contract_content_sha256": "0b098ea45120a1dd310dcf316c6ff31079ec1a5ca778bf078ca7698c03d6e18a",
+  "authorized_push_parent_sha": "449329797db0390d0f183292df5de3844835b44c",
+  "explicit_user_authorization": "User replied \"Let’s take the next step\" on 2026-08-21 to the immediately preceding statement that the next step is the separate explicitly authorized one-shot EQPT, AMC, and GMM diagnostic capped at $0.08 and 80 MB; this authorizes exactly three requests on the first GitHub Actions attempt with no retries.",
+  "provider_purchase_authorized": true,
+  "exact_request_count_authorized": 3,
+  "hard_preflight_cost_ceiling_usd": "0.08",
+  "hard_preflight_billable_size_ceiling_bytes": 80000000,
+  "first_github_actions_attempt_only": true,
+  "automatic_retry_authorized": false,
+  "batch_or_live_endpoint_authorized": false,
+  "mbp10_redownload_authorized": false,
+  "raw_market_data_publication_authorized": false,
+  "broker_or_order_change_authorized": false,
+  "strategy_or_threshold_change_authorized": false,
+  "content_sha256": "75bbb884147e975b19277411936265d33dde3f21fa1d83281f13cb9a27369231"
+}
