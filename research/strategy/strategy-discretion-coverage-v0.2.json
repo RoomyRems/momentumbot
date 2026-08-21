@@ -1,0 +1,145 @@
+{
+  "schema_version": 1,
+  "matrix_id": "strategy-discretion-coverage-v0.2",
+  "artifact_type": "non_authoritative_strategy_and_discretion_inventory_delta",
+  "registration_date": "2026-08-21",
+  "purpose": "Update only the five domains materially changed by verified Databento reconstruction, threshold-free feature mechanics, and the registered prospective execution simulator while preserving the complete v0.1 rule mapping and all anti-overclaim boundaries.",
+  "runtime_strategy_effect": "none",
+  "policy_promotion_eligible": false,
+  "profitability_claim_eligible": false,
+  "exact_ross_replication_claim_eligible": false,
+  "retrospective_labels_allowed_in_runtime": false,
+  "frozen_parent": {
+    "path": "research/strategy/strategy-discretion-coverage-v0.1.json",
+    "matrix_id": "strategy-discretion-coverage-v0.1",
+    "content_sha256": "3507642f70bbb8f4551238bc09242dd8c31474b463bf9a4e88f03a7894d97fe3",
+    "file_sha256": "c1f7072f77aa07af6fdc10b1512bcabfd0e674e94cabcedb40d784f045e53a97",
+    "change_allowed": false
+  },
+  "evidence_boundary": {
+    "verified_mbo_mbp10_reconstruction_audit": "research/data-audits/databento-microstructure-replication-v0.3-run-32437696613-success-2026-08-20.json",
+    "verified_intj_feature_audit": "research/data-audits/databento-microstructure-feature-diagnostic-v0.3-run-32483408413-success-2026-08-21.json",
+    "threshold_free_feature_contract": "research/strategy/microstructure-feature-mechanics-v0.1.json",
+    "prospective_execution_contract": "research/strategy/prospective-management-execution-v0.1.json",
+    "remaining_three_case_feature_bundle": "research/strategy/databento-microstructure-feature-coverage-v0.1.json",
+    "remaining_three_case_feature_bundle_unarmed": true,
+    "feature_threshold_or_policy_selected": false,
+    "runtime_authority_created": false
+  },
+  "domain_updates": [
+    {
+      "domain_id": "setup.hidden-buyer-anticipation",
+      "coverage_status": "partial_deterministic",
+      "implementation_owner": "mixed",
+      "current_authority": "research_only",
+      "implemented_artifacts": [
+        "research/rules/current/entries.json",
+        "src/momentumbot/research/microstructure_features.py",
+        "research/data-audits/databento-microstructure-feature-diagnostic-v0.3-run-32483408413-success-2026-08-21.json"
+      ],
+      "missing_capabilities": [
+        "causal anticipation threshold",
+        "representative multi-case feature coverage",
+        "consolidated multi-venue depth",
+        "prospective behavioral validation"
+      ],
+      "next_gate": "Complete the unarmed EQPT, AMC, and GMM feature diagnostic only after separate bounded authorization, then register any threshold hypothesis before outcomes are inspected.",
+      "claim_boundary": "Displayed-liquidity and executed-flow mechanics now exist in research, but no hidden-buyer classifier, entry exception, or runtime authority exists."
+    },
+    {
+      "domain_id": "management.chart-and-tape-exits",
+      "coverage_status": "partial_shadow",
+      "implementation_owner": "mixed",
+      "current_authority": "shadow_only",
+      "implemented_artifacts": [
+        "src/momentumbot/research/trade_management_shadow.py",
+        "research/frozen/trade-management-shadow-v0.1/manifest.json",
+        "research/strategy/prospective-management-execution-v0.1.json",
+        "src/momentumbot/research/execution_realism.py",
+        "src/momentumbot/research/microstructure_features.py"
+      ],
+      "missing_capabilities": [
+        "prospective causal quote and halt inputs",
+        "displayed-seller exit threshold",
+        "tape-slowdown exit threshold",
+        "chronological account integration of the frozen management policy"
+      ],
+      "next_gate": "Run the frozen management rule under both fixed execution scenarios only on registered account days with causal quote inputs; keep seller and tape exits descriptive until separately preregistered.",
+      "claim_boundary": "A management rule and execution simulator are registered, but displayed-seller and tape exits remain unselected shadow concepts."
+    },
+    {
+      "domain_id": "microstructure.hidden-seller",
+      "coverage_status": "partial_deterministic",
+      "implementation_owner": "mixed",
+      "current_authority": "research_only",
+      "implemented_artifacts": [
+        "research/data-audits/trade-management-evidence-v0.1-2026-08-19.json",
+        "src/momentumbot/research/microstructure_features.py",
+        "research/data-audits/databento-microstructure-feature-diagnostic-v0.3-run-32483408413-success-2026-08-21.json"
+      ],
+      "missing_capabilities": [
+        "registered absorption or replenishment threshold",
+        "representative multi-case feature coverage",
+        "consolidated multi-venue depth",
+        "prospective seller-response validation"
+      ],
+      "next_gate": "Finish the fixed remaining-case feature diagnostic, then preregister a threshold-free comparison or threshold hypothesis without changing the frozen feature mechanics.",
+      "claim_boundary": "Causal replenishment, signed-tape, and price-progress measurements exist in research, but hidden selling is not classified and has no exit authority."
+    },
+    {
+      "domain_id": "execution.realistic-broker",
+      "coverage_status": "partial_deterministic",
+      "implementation_owner": "deterministic",
+      "current_authority": "research_only",
+      "implemented_artifacts": [
+        "src/momentumbot/micro_execution.py",
+        "src/momentumbot/research/execution_realism.py",
+        "research/strategy/prospective-management-execution-v0.1.json"
+      ],
+      "missing_capabilities": [
+        "calibrated network and broker latency",
+        "venue routing and queue position",
+        "consolidated multi-venue liquidity",
+        "market impact calibration",
+        "prospective causal top-of-book and halt inputs"
+      ],
+      "next_gate": "Evaluate the frozen primary and stress execution scenarios on identical registered opportunities; neither scenario may be selected because it looks better.",
+      "claim_boundary": "Marketable-limit, latency, partial-fill, cancellation, halt, and fee mechanics exist as an uncalibrated research simulator and cannot support live-fill or net-profit claims."
+    },
+    {
+      "domain_id": "data.level2-and-tape",
+      "coverage_status": "partial_deterministic",
+      "implementation_owner": "deterministic",
+      "current_authority": "research_only",
+      "implemented_artifacts": [
+        "src/momentumbot/research/microstructure_contract.py",
+        "src/momentumbot/research/databento_smoke_v02.py",
+        "src/momentumbot/research/databento_feature_diagnostic_v03.py",
+        "src/momentumbot/research/microstructure_features.py",
+        "research/data-audits/databento-microstructure-replication-v0.3-run-32437696613-success-2026-08-20.json",
+        "research/data-audits/databento-microstructure-feature-diagnostic-v0.3-run-32483408413-success-2026-08-21.json"
+      ],
+      "missing_capabilities": [
+        "consolidated multi-venue depth",
+        "live capture and reconnect recovery",
+        "representative historical coverage beyond the engineering cohort",
+        "prospective feature and execution validation"
+      ],
+      "next_gate": "Complete the fixed remaining-three-case feature diagnostic, then design representative historical and live-shadow coverage without granting the features strategy authority.",
+      "claim_boundary": "Single-venue Nasdaq MBO reconstruction and one real-data threshold-free feature replay are verified; this is not consolidated Level 2, predictive validation, or a tradable signal."
+    }
+  ],
+  "next_priority_order": [
+    "validation.portfolio-and-promotion",
+    "data.level2-and-tape",
+    "setup.family-inventory",
+    "execution.realistic-broker",
+    "management.chart-and-tape-exits"
+  ],
+  "claim_boundary": [
+    "The v0.1 matrix and its validator remain immutable and reproducible.",
+    "Engineering feasibility can move a domain from data-blocked or missing to partial deterministic without promoting a strategy or asserting edge.",
+    "No current artifact supports exact Ross replication, positive expectancy, live readiness, or live-money trading."
+  ],
+  "content_sha256": "e03c5130d36a075a274c0be9a504ca891307c271bf13b826f2af64fb0e217189"
+}

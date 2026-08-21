@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "audit_id": "strategy-discretion-coverage-v0.2-2026-08-21",
+  "artifact_type": "non_authoritative_strategy_and_discretion_inventory_delta_audit",
+  "audit_date": "2026-08-21",
+  "decision": {
+    "coverage_delta_registered": true,
+    "runtime_strategy_changed": false,
+    "feature_threshold_or_policy_promoted": false,
+    "new_strategy_family_promoted": false,
+    "full_ross_replication_claim_allowed": false,
+    "profitability_claim_allowed": false
+  },
+  "frozen_parent": {
+    "path": "research/strategy/strategy-discretion-coverage-v0.1.json",
+    "matrix_id": "strategy-discretion-coverage-v0.1",
+    "file_sha256": "c1f7072f77aa07af6fdc10b1512bcabfd0e674e94cabcedb40d784f045e53a97",
+    "content_sha256": "3507642f70bbb8f4551238bc09242dd8c31474b463bf9a4e88f03a7894d97fe3",
+    "domain_count": 25,
+    "promoted_rule_count": 36,
+    "modified": false
+  },
+  "delta": {
+    "path": "research/strategy/strategy-discretion-coverage-v0.2.json",
+    "matrix_id": "strategy-discretion-coverage-v0.2",
+    "file_sha256": "4962fa3d52bc96598e590855d18cf6d4abc4f8e6f45952f8b36c90551404c601",
+    "content_sha256": "e03c5130d36a075a274c0be9a504ca891307c271bf13b826f2af64fb0e217189",
+    "updated_domain_count": 5
+  },
+  "resolved_matrix": {
+    "content_sha256": "38051dfd5c25938f311cb307962eb8d00a32b2398992aa0f6ba923268cecd525",
+    "domain_count": 25,
+    "promoted_rule_count": 36,
+    "every_promoted_rule_mapped_exactly_once": true,
+    "status_counts": {
+      "implemented_frozen": 1,
+      "implemented_unrun": 4,
+      "missing": 2,
+      "partial_deterministic": 10,
+      "partial_shadow": 7,
+      "research_guard": 1
+    }
+  },
+  "updated_domains": [
+    {
+      "domain_id": "setup.hidden-buyer-anticipation",
+      "prior_status": "data_blocked",
+      "new_status": "partial_deterministic",
+      "new_authority": "research_only"
+    },
+    {
+      "domain_id": "management.chart-and-tape-exits",
+      "prior_status": "partial_shadow",
+      "new_status": "partial_shadow",
+      "new_authority": "shadow_only"
+    },
+    {
+      "domain_id": "microstructure.hidden-seller",
+      "prior_status": "data_blocked",
+      "new_status": "partial_deterministic",
+      "new_authority": "research_only"
+    },
+    {
+      "domain_id": "execution.realistic-broker",
+      "prior_status": "missing",
+      "new_status": "partial_deterministic",
+      "new_authority": "research_only"
+    },
+    {
+      "domain_id": "data.level2-and-tape",
+      "prior_status": "data_blocked",
+      "new_status": "partial_deterministic",
+      "new_authority": "research_only"
+    }
+  ],
+  "evidence_interpretation": {
+    "verified_single_venue_reconstruction": true,
+    "verified_engineering_sample_count": 612,
+    "verified_engineering_exact_sample_count": 612,
+    "verified_real_data_threshold_free_feature_cases": 1,
+    "remaining_fixed_feature_cases": 3,
+    "remaining_feature_bundle_unarmed": true,
+    "prospective_execution_simulator_registered": true,
+    "consolidated_multi_venue_depth_complete": false,
+    "live_capture_and_reconnect_complete": false,
+    "representative_feature_validation_complete": false,
+    "predictive_value_established": false,
+    "profitability_established": false
+  },
+  "bound_files": [
+    {
+      "path": "research/strategy/strategy-discretion-coverage-v0.1.json",
+      "file_sha256": "c1f7072f77aa07af6fdc10b1512bcabfd0e674e94cabcedb40d784f045e53a97"
+    },
+    {
+      "path": "research/strategy/strategy-discretion-coverage-v0.2.json",
+      "file_sha256": "4962fa3d52bc96598e590855d18cf6d4abc4f8e6f45952f8b36c90551404c601"
+    },
+    {
+      "path": "src/momentumbot/research/strategy_coverage_v02.py",
+      "file_sha256": "2404d9331b9cf3f1f7e03f206b4cc6a5bbf48f019fef2e1f5660642f833b0cc1"
+    },
+    {
+      "path": "docs/research/strategy_discretion_coverage_v02.md",
+      "file_sha256": "fd8db257c35d6990126d57180d2466a6f74ccd52220c6ca57ac7625e831de199"
+    },
+    {
+      "path": "research/data-audits/databento-microstructure-replication-v0.3-run-32437696613-success-2026-08-20.json",
+      "file_sha256": "08646f82044bd4056472c9378be5860d872b6d7af12392ef60e891f234058e0d"
+    },
+    {
+      "path": "research/data-audits/databento-microstructure-feature-diagnostic-v0.3-run-32483408413-success-2026-08-21.json",
+      "file_sha256": "013c7b67b68a90cd048f21b44a47c70533d765aff470dd0fe7dbaa3cc70c2015"
+    },
+    {
+      "path": "research/strategy/microstructure-feature-mechanics-v0.1.json",
+      "file_sha256": "1ab3359154b896e3cbaaac9f0f0485d681530077bfd582c8b7d4c696cb23ec60"
+    },
+    {
+      "path": "research/strategy/prospective-management-execution-v0.1.json",
+      "file_sha256": "3760a73d4cc5d209098b75d555fb1f1a4ebcd7c0ecc428b1a16c39c2055008f8"
+    },
+    {
+      "path": "research/strategy/databento-microstructure-feature-coverage-v0.1.json",
+      "file_sha256": "7fb5c1aa53e75420726d84b586b83f304b9ad5b3ea4e62a9c09cf0e39565776d"
+    }
+  ],
+  "verification": {
+    "parent_file_and_content_hashes_recomputed": true,
+    "delta_content_hash_recomputed": true,
+    "resolved_matrix_hash_recomputed": true,
+    "only_registered_domains_changed": true,
+    "every_promoted_rule_mapped_exactly_once": true,
+    "implemented_artifact_paths_resolved": true,
+    "research_only_authority_enforced_for_new_deterministic_components": true,
+    "full_repository_suite_required_before_publication": true
+  },
+  "claim_boundary": [
+    "Moving a domain from data-blocked or missing to partial deterministic records engineering progress only.",
+    "No hidden-liquidity classifier, trading threshold, runtime feature authority, or broker calibration is promoted.",
+    "The project still cannot claim exact Ross replication, positive expectancy, live readiness, or live-money safety."
+  ],
+  "content_sha256": "7c9b123bf533cd1ca37531e51845217b64e85ed2621b2403a215b52c74fd522a"
+}

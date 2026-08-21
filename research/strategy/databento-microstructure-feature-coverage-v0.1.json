@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "coverage_contract_id": "databento-microstructure-feature-coverage-v0.1",
+  "artifact_type": "preregistered_unarmed_databento_three_case_feature_coverage",
+  "registration_date": "2026-08-21",
+  "registration_status": "frozen_after_verified_intj_success_before_any_remaining_case_feature_request",
+  "purpose": "Apply the verified per-instrument F_LAST repair and unchanged threshold-free feature engine to the three remaining mechanically selected engineering cases without selecting a feature, window, threshold, strategy rule, or broker action.",
+  "runtime_strategy_effect": "none",
+  "policy_promotion_eligible": false,
+  "profitability_claim_eligible": false,
+  "provider_purchase_authorized": false,
+  "execution_authorization_file_present": false,
+  "frozen_parent_success": {
+    "path": "research/data-audits/databento-microstructure-feature-diagnostic-v0.3-run-32483408413-success-2026-08-21.json",
+    "audit_id": "databento-microstructure-feature-diagnostic-v0.3-run-32483408413-success-2026-08-21",
+    "content_sha256": "093f65e4d62b125e370d972a5bd9ee3880b5439d72072dd3fd533e4774d18ebb",
+    "workflow_run_id": 32483408413,
+    "workflow_run_attempt": 1,
+    "sanitized_report_content_sha256": "94f23dac0fa73f8d0554f84dfdb0f6a64b3c5914d39accb725ca09d87690c0b5",
+    "verified_case": {
+      "trading_date": "2026-07-10",
+      "symbol": "INTJ",
+      "feature_replay_succeeded": true,
+      "independent_feature_replay_exact": true,
+      "sampled_snapshot_count": 238,
+      "feature_threshold_selected": false,
+      "feature_horizon_selected": false,
+      "runtime_authority_created": false
+    }
+  },
+  "frozen_mechanics": {
+    "v0_3_repair_source_path": "src/momentumbot/research/databento_feature_diagnostic_v03.py",
+    "v0_3_repair_source_file_sha256": "0a5e704c6a77483cbe051ce56fee77b273dbb9894bde3a4e299a510de6249340",
+    "feature_engine_source_path": "src/momentumbot/research/microstructure_features.py",
+    "feature_engine_source_file_sha256": "07e2db045c9187e4bab46e7d25c546668c2c7b8d01f78c58ec36e88e48f1628e",
+    "feature_set_content_sha256": "b048e26fabd163d66297fa57faf011fbb50d9b69377101dbd04337a1cc1eab6a",
+    "feature_mechanics_changed": false,
+    "feature_windows_or_thresholds_changed": false,
+    "strategy_or_broker_behavior_changed": false
+  },
+  "request_surface": {
+    "case_order_reason": "Remove only INTJ because its identical MBO feature path already has an independently verified success audit; retain the original preregistered order for EQPT, AMC, and GMM. No Ross action, transcript label, P&L, later price, or feature output selected the cases or order.",
+    "cases": [
+      {
+        "trading_date": "2026-07-10",
+        "symbol": "EQPT"
+      },
+      {
+        "trading_date": "2026-07-20",
+        "symbol": "AMC"
+      },
+      {
+        "trading_date": "2026-07-10",
+        "symbol": "GMM"
+      }
+    ],
+    "requests": [
+      {
+        "trading_date": "2026-07-10",
+        "symbol": "EQPT",
+        "dataset": "XNAS.ITCH",
+        "schema": "mbo",
+        "start": "2026-07-10T00:00:00Z",
+        "end": "2026-07-10T14:10:00Z",
+        "stype_in": "raw_symbol"
+      },
+      {
+        "trading_date": "2026-07-20",
+        "symbol": "AMC",
+        "dataset": "XNAS.ITCH",
+        "schema": "mbo",
+        "start": "2026-07-20T00:00:00Z",
+        "end": "2026-07-20T14:10:00Z",
+        "stype_in": "raw_symbol"
+      },
+      {
+        "trading_date": "2026-07-10",
+        "symbol": "GMM",
+        "dataset": "XNAS.ITCH",
+        "schema": "mbo",
+        "start": "2026-07-10T00:00:00Z",
+        "end": "2026-07-10T14:10:00Z",
+        "stype_in": "raw_symbol"
+      }
+    ],
+    "exact_request_count": 3,
+    "allowed_calls_after_separate_execution_authorization": [
+      "historical.metadata.get_billable_size",
+      "historical.metadata.get_cost",
+      "historical.timeseries.get_range"
+    ],
+    "prohibited_calls": [
+      "historical.batch.submit_job",
+      "historical.batch.download",
+      "live.subscribe"
+    ]
+  },
+  "preregistered_hypothesis": "Each remaining case will produce at least one complete causal feature snapshot under the unchanged v0.3 instrument-event grouping repair, and a second independent feature engine will reproduce the identical full snapshot-sequence digest.",
+  "success_requirements": [
+    "all three exact metadata quotes pass the fixed aggregate ceilings before any time-series request",
+    "all three exact MBO requests complete on the first GitHub Actions attempt",
+    "every downloaded file is nonempty and matches the registered dataset and schema",
+    "every case yields at least one complete feature snapshot",
+    "each case has an exact independent feature replay",
+    "no feature value, threshold, label, raw record, credential, or temporary path is persisted",
+    "every raw DBN file is deleted before the sanitized aggregate report is finalized"
+  ],
+  "failure_rule": "If metadata preflight fails or exceeds either aggregate ceiling, make zero time-series requests. After downloading begins, stop after the first provider, file, parser, replay, or cleanup failure; record only a fixed safe phase and code; make no retry.",
+  "future_execution_gate": {
+    "new_explicit_user_authorization_required": true,
+    "future_authorization_must_bind_published_parent_sha": true,
+    "authorization_only_direct_child_required": true,
+    "first_github_actions_attempt_only": true,
+    "exact_request_count_authorized": 0,
+    "hard_preflight_cost_ceiling_usd": "0.08",
+    "hard_preflight_billable_size_ceiling_bytes": 80000000,
+    "automatic_retry_authorized": false,
+    "batch_or_live_endpoint_authorized": false,
+    "mbp10_redownload_authorized": false,
+    "raw_market_data_publication_authorized": false,
+    "broker_or_order_change_authorized": false,
+    "strategy_or_threshold_change_authorized": false
+  },
+  "storage_and_licensing": {
+    "raw_storage": "Temporary GitHub runner directory only after separate execution authorization.",
+    "public_repository_raw_data": false,
+    "github_artifact_raw_data": false,
+    "persisted_output": "Sanitized non-reconstructable counts, availability totals, exact-replay booleans, aggregate quote and byte totals, and ephemeral file and snapshot-sequence hashes.",
+    "feature_snapshot_values_persisted": false,
+    "cleanup_rule": "Delete each DBN file before finalizing the sanitized report and fail closed if the temporary directory is not empty."
+  },
+  "prohibited_inputs_and_actions": [
+    "Ross action or retrospective label",
+    "recap text or discretionary judgment",
+    "trade P&L or later price outcome",
+    "threshold fitting, horizon selection, or case suppression",
+    "modifying the verified v0.3 repair or threshold-free feature engine",
+    "Micro-v0.1 or scanner changes",
+    "paper or live order submission",
+    "publishing licensed Databento records",
+    "automatic provider retry",
+    "claiming single-venue Nasdaq depth is consolidated national Level 2"
+  ],
+  "claim_boundary": [
+    "This bundle is unarmed and cannot call Databento or spend credit.",
+    "A future three-case pass would establish engineering coverage of the frozen feature mechanics across four mechanically selected cases including INTJ; it would not establish predictive value, a profitable threshold, Ross-equivalent discretion, consolidated Level 2 coverage, execution quality, or profitability.",
+    "A future failure remains evidence and cannot be hidden by selecting a different case or feature."
+  ],
+  "content_sha256": "0b098ea45120a1dd310dcf316c6ff31079ec1a5ca778bf078ca7698c03d6e18a"
+}

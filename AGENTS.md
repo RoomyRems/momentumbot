@@ -15,10 +15,10 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 
 | Task | Open first | Source of truth |
 |---|---|---|
-| Current checkpoint / next gate | `docs/project/current_state_2026-08-20.md` | immutable parent checkpoint plus linked frozen manifests and audits |
+| Current checkpoint / next gate | `docs/project/current_state_2026-08-21.md` | immutable parent checkpoints plus linked frozen manifests and audits |
 | Runtime and hybrid architecture | `docs/architecture.md` | executable code under `src/momentumbot/` |
 | Current Ross-derived policy | `docs/strategy/current_rulebook.md` | `research/rules/current_rules.json` and policy code |
-| Strategy/discretion coverage | `docs/research/strategy_discretion_coverage_v01.md` | `research/strategy/strategy-discretion-coverage-v0.1.json` and `strategy_coverage.py` |
+| Strategy/discretion coverage | `docs/research/strategy_discretion_coverage_v02.md` | immutable v0.1 parent, versioned v0.2 delta and `strategy_coverage_v02.py` |
 | Historical-data requirements | `docs/DATA_REQUIREMENTS.md` | validators/loaders under `src/momentumbot/` |
 | Level 2/tape feasibility | `docs/research/level2_tape_feasibility_v01.md` | `research/strategy/level2-tape-feasibility-v0.1.json` and `microstructure_contract.py` |
 | Databento metadata/cost gate | `docs/research/databento_metadata_quote_v01.md` | child quote contract, `databento_quote.py` and quote workflow |
@@ -26,7 +26,8 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 | Databento MBO reset repair | `docs/research/databento_microstructure_smoke_acquisition_v02.md` | frozen v0.1 failure, v0.2 child contract, `databento_smoke_v02.py` and one-shot repair workflow |
 | Databento reset replication | `docs/research/databento_microstructure_replication_v03.md` | verified v0.2 success, unchanged reset engine, three-case child contract and one-shot replication workflow |
 | Microstructure feature mechanics | `docs/research/microstructure_feature_mechanics_v01.md` | v0.3 success audit, threshold-free feature registration and `microstructure_features.py` |
-| Databento feature diagnostic | `docs/research/databento_microstructure_feature_diagnostic_v03.md` | frozen v0.2 classified failure, unarmed per-instrument `F_LAST` repair, sequence-scoped XNAS execution adapter and future one-request authorization gate |
+| Databento feature diagnostic | `docs/research/databento_microstructure_feature_diagnostic_v03_success.md` | frozen v0.3 registration plus permanent verified INTJ success audit |
+| Databento remaining-case feature coverage | `docs/research/databento_microstructure_feature_coverage_v01.md` | verified INTJ feature parent, unarmed EQPT/AMC/GMM contract and authorization-only workflow |
 | Prospective management/execution | `docs/research/prospective_management_execution_v01.md` | child contract and `execution_realism.py` |
 | New research experiment | `docs/research/experiment_contract.md` | frozen parent policy + runtime artifact |
 | Micro-pullback work | `docs/research/micro_benchmark_suite.md` | `micro_policy.py`, `micro_replay.py`, frozen artifacts |
