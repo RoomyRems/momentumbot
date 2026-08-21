@@ -35,12 +35,20 @@ historical account diagnostic audit.
 - Corrective child `databento-microstructure-smoke-acquisition-v0.2`, content
   SHA-256
   `61b9ab6a0894a5a6871feda0236cdb9605f14b7ce13633c36dd1cffc4aa4de2a`,
-  tests only the preregistered session-boundary clear interpretation on EQPT.
-  It requotes exactly two requests, downloads nothing above $0.02 or 15,000,000
-  bytes, blocks reruns, retains the snapshot-clear path, resets both books on
-  every later clear, uploads only a sanitized diagnostic, and creates no
-  runtime authority. It is implemented and locally tested but has not issued
-  a v0.2 provider time-series request.
+  ran successfully in workflow `32435988929`, attempt 1, at commit
+  `a89f0470e4387d016600cdf7beebd09ae25b3146`. Its independently verified
+  sanitized report quoted $0.005820024014 and 10,810,592 billable bytes, then
+  exactly matched all 153 aligned EQPT samples across both independent MBO
+  replays and every MBP-10 price, size, and order-count level. The run preserved
+  the snapshot-clear path, deleted both raw files, uploaded no licensed record,
+  changed no strategy or broker path, and created no runtime authority.
+- Replication child `databento-microstructure-replication-v0.3`, content SHA-256
+  `d6aca7030155bbf9483e1b2c014481e31eaca5954b42155bbb8366b7501c7b07`,
+  freezes the verified v0.2 source hash and registers INTJ, AMC, and GMM in
+  mechanical order. It requires six complete quotes below $0.20 and
+  380,000,000 bytes before any download, blocks reruns and retries, deletes raw
+  DBN files, and retains only a sanitized diagnostic. The bundle is locally
+  implemented and tested but has not made a v0.3 provider request.
 - Prospective child `prospective-management-execution-v0.1`, content SHA-256
   `14812b9f25b5ea7230254ed86b1e0eaa30fffe3dc13b1ee141b19770706090f9`,
   freezes `half-2r-breakeven-first-red-1m` from source-explicit teaching, not
@@ -62,39 +70,44 @@ historical account diagnostic audit.
 - `research/data-audits/databento-microstructure-smoke-acquisition-v0.1-registration-2026-08-20.json`
 - `research/data-audits/databento-microstructure-smoke-acquisition-v0.1-run-32427326070-failure-2026-08-20.json`
 - `research/data-audits/databento-microstructure-smoke-acquisition-v0.2-registration-2026-08-20.json`
+- `research/data-audits/databento-microstructure-smoke-acquisition-v0.2-run-32435988929-success-2026-08-20.json`
+- `research/data-audits/databento-microstructure-replication-v0.3-registration-2026-08-20.json`
 - `research/data-audits/prospective-management-execution-v0.1-2026-08-20.json`
 - `research/strategy/databento-microstructure-metadata-quote-v0.1.json`
 - `research/strategy/databento-microstructure-smoke-acquisition-v0.1.json`
 - `research/strategy/databento-microstructure-smoke-acquisition-v0.2.json`
+- `research/strategy/databento-microstructure-replication-v0.3.json`
 - `research/strategy/prospective-management-execution-v0.1.json`
 - `docs/research/databento_metadata_quote_v01.md`
 - `docs/research/databento_microstructure_smoke_acquisition_v01.md`
 - `docs/research/databento_microstructure_smoke_acquisition_v02.md`
+- `docs/research/databento_microstructure_replication_v03.md`
 - `docs/research/prospective_management_execution_v01.md`
 
 ## Active gates
 
-1. Publish the one-shot v0.2 reset-repair child. Its push-triggered workflow
-   must repeat the two free quotes below both hard ceilings before it downloads
-   the EQPT MBO/MBP-10 pair, reconstructs, sanitizes, deletes the raw files, and
-   uploads the G1/G2 diagnostic. A GitHub Actions rerun is explicitly blocked.
+1. Publish the one-shot v0.3 three-case replication child. Its push-triggered
+   workflow must quote all six exact requests below both hard ceilings before
+   it downloads INTJ, AMC, and GMM, applies the unchanged verified reset engine,
+   sanitizes the diagnostic, and deletes the raw files. A GitHub Actions rerun
+   is explicitly blocked.
 2. Retain both hash-bound pre-session account snapshots on every registered
    August 24–September 4 date. The credential prerequisite is complete.
 3. Integrate the frozen management rule and both fixed execution scenarios only
    when the registered account snapshot and causal top-of-book/halt inputs
    exist. Missing quotes remain unavailable; there is no SIP-print fallback.
-4. If v0.2 passes, inspect and permanently bind its sanitized artifact before
-   deciding whether the preregistered four-case replication is justified. A
-   v0.2 failure remains the result and stops without a retry.
+4. Inspect and permanently bind the v0.3 sanitized artifact whether it passes
+   or fails. Only an all-three-case pass may justify a separately registered
+   causal feature-mechanics experiment; it does not promote a trading policy.
 5. Run the larger preregistered walk-forward and prospective paper sequence
    before any policy promotion or profitability interpretation.
 
 ## Still not ready
 
 - No full portfolio backtest is complete.
-- The v0.1 Databento time-series run failed before any real MBO-to-MBP-10
-  comparison. The v0.2 reset interpretation remains unobserved against real
-  data until its one-shot EQPT workflow completes.
+- The v0.2 Databento reset interpretation has one exact real-data success on
+  EQPT, but the preregistered three-case replication has not run. This is an
+  engineering result, not profitability evidence.
 - No exact Ross Cameron imitation or comparable-profitability claim is valid.
 - No complete strategy-family, discretionary seller/tape, cross-account
   attention, consolidated Level 2, market-impact, or calibrated broker model
@@ -106,7 +119,8 @@ historical account diagnostic audit.
 The previously published checkpoint passed its focused 31/31 tests and full
 570/570 suite. The Level 2 parent, quote, and v0.1 acquisition verification
 passes 26/26 focused tests. The v0.2 reset-repair bundle passes 11/11 focused
-tests. The complete repository passes 592/592 tests, including both reset
-modes, later-clear recovery, deterministic budget, cleanup, dual replay,
-MBP-10 mismatch, provider/parser failure, sanitization, and one-shot workflow
-checks.
+tests. The v0.3 replication bundle passes 9/9 focused tests. The complete
+repository passes 601/601 tests, including both reset modes, later-clear
+recovery, deterministic budgets, all-three-case replay, cohort-preserving
+mismatch, cleanup, dual replay, MBP-10 mismatch, provider/parser failure,
+sanitization, and one-shot workflow checks.

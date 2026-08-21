@@ -1,0 +1,69 @@
+name: Databento three-case MBO reset replication v0.3
+
+on:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - .github/workflows/databento-microstructure-replication-v03.yml
+      - research/strategy/databento-microstructure-replication-v0.3.json
+
+permissions:
+  contents: read
+
+concurrency:
+  group: databento-microstructure-replication-v0.3
+  cancel-in-progress: false
+
+jobs:
+  replicate-reset-repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project and pinned Databento client
+        run: |
+          python -m pip install -e .
+          python -m pip install databento==0.83.0
+      - name: Verify the frozen engine and three-case sanitization contract
+        run: python -m unittest tests.test_databento_replication_v03 -v
+      - name: Requote all six requests then acquire the frozen three cases
+        env:
+          DATABENTO_API_KEY: ${{ secrets.DATABENTO_API_KEY }}
+          MOMENTUMBOT_PUSH_BEFORE: ${{ github.event.before }}
+        run: >-
+          python scripts/run_databento_microstructure_replication_v03.py
+          --output databento-microstructure-replication-v0.3.json
+      - name: Upload sanitized diagnostic only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: databento-microstructure-replication-v0.3-${{ github.run_id }}-${{ github.run_attempt }}
+          path: databento-microstructure-replication-v0.3.json
+          if-no-files-found: error
+          retention-days: 90
+      - name: Enforce all three reset-repair replication gates
+        run: >-
+          python -c "import json,pathlib;
+          d=json.loads(pathlib.Path('databento-microstructure-replication-v0.3.json').read_text());
+          assert d['preflight']['request_count_quoted'] == 6;
+          assert d['preflight']['total_quoted_cost_usd'] is not None;
+          assert float(d['preflight']['total_quoted_cost_usd']) <= 0.20;
+          assert d['preflight']['total_billable_size_bytes'] <= 380000000;
+          assert d['timeseries_request_count'] == 6;
+          assert len(d['cases']) == 3;
+          assert all(c['g1_schema_and_integrity_passed'] is True for c in d['cases']);
+          assert all(c['g2_reconstruction_passed'] is True for c in d['cases']);
+          assert d['raw_market_data_persisted'] is False;
+          assert d['raw_market_data_uploaded'] is False;
+          assert d['raw_temp_directory_empty_before_cleanup'] is True;
+          assert d['raw_temp_directory_removed'] is True;
+          assert d['g1_schema_and_integrity_passed'] is True;
+          assert d['g2_reconstruction_passed'] is True;
+          assert d['replication_passed'] is True;
+          assert d['runtime_authority_created'] is False"

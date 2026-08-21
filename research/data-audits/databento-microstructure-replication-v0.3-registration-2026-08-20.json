@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "audit_id": "databento-microstructure-replication-v0.3-registration-2026-08-20",
+  "audit_date": "2026-08-20",
+  "artifact_type": "preregistered_bounded_databento_three_case_replication_bundle",
+  "contract": {
+    "replication_contract_id": "databento-microstructure-replication-v0.3",
+    "content_sha256": "d6aca7030155bbf9483e1b2c014481e31eaca5954b42155bbb8366b7501c7b07",
+    "authorized_push_parent_sha": "a89f0470e4387d016600cdf7beebd09ae25b3146",
+    "exact_case_count": 3,
+    "exact_request_count": 6,
+    "hard_preflight_cost_ceiling_usd": "0.20",
+    "hard_preflight_billable_size_ceiling_bytes": 380000000
+  },
+  "parent_success": {
+    "audit_id": "databento-microstructure-smoke-acquisition-v0.2-run-32435988929-success-2026-08-20",
+    "content_sha256": "1ad29da41493c65f17ce906969415bb6246d745909dbc47beffa7ae86bb1d29b",
+    "sanitized_report_content_sha256": "15bd478f44f0953fa877cd9eed30d20e131b0dd988fbc774e7f56f943ee6e71c",
+    "verified_case": "2026-07-10 EQPT",
+    "verified_alignment": "153 of 153 exact MBP-10 samples"
+  },
+  "frozen_reset_engine": {
+    "path": "src/momentumbot/research/databento_smoke_v02.py",
+    "file_sha256": "c04229c2750d780bde14276171a14e0ce62bd527f6e09bb1ef0331a3020c99e9",
+    "mutation_authorized": false
+  },
+  "registered_replication": {
+    "cases_in_mechanical_order": [
+      "2026-07-10 INTJ",
+      "2026-07-20 AMC",
+      "2026-07-10 GMM"
+    ],
+    "schemas_per_case": ["mbp-10", "mbo"],
+    "observed_prior_exact_six_request_quote_usd": "0.182469338178",
+    "observed_prior_exact_six_request_billable_size_bytes": 365533168,
+    "all_six_quotes_required_before_first_download": true,
+    "completed_gate_mismatch_suppresses_later_cases": false,
+    "provider_or_parser_failure_halts_without_retry": true,
+    "strategy_or_threshold_change": false,
+    "case_selected_from_profitability": false
+  },
+  "bound_files": [
+    {
+      "path": "research/data-audits/databento-microstructure-smoke-acquisition-v0.2-run-32435988929-success-2026-08-20.json",
+      "file_sha256": "3e051f1ad23fdaa4e95159bf5d44bca5a13903359d60244b329509833346bd55"
+    },
+    {
+      "path": "research/strategy/databento-microstructure-replication-v0.3.json",
+      "file_sha256": "18ed1c9234a103951f6569772762292996af9e20074c95af6e2ffa0af9abb85f"
+    },
+    {
+      "path": "src/momentumbot/research/databento_smoke_v02.py",
+      "file_sha256": "c04229c2750d780bde14276171a14e0ce62bd527f6e09bb1ef0331a3020c99e9"
+    },
+    {
+      "path": "src/momentumbot/research/databento_replication_v03.py",
+      "file_sha256": "5ccb00b19d3d2c81a52798e0de9c2a65fccefdd91fbe7670ba30f86e2128f189"
+    },
+    {
+      "path": "scripts/run_databento_microstructure_replication_v03.py",
+      "file_sha256": "835355274048ff9a2e3609f0aa98db05e672517dcaef3d465e5e989b1baa609d"
+    },
+    {
+      "path": ".github/workflows/databento-microstructure-replication-v03.yml",
+      "file_sha256": "ea5b8cbd878effebdc16bf25fe55f4cf635b2f8122b8163e39f37a62893cdcb7"
+    },
+    {
+      "path": "tests/test_databento_replication_v03.py",
+      "file_sha256": "d05c89cd4e9e98a1ccfba8697d53757a44caa365593f897b2c6432d6a23d709a"
+    },
+    {
+      "path": "docs/research/databento_microstructure_replication_v03.md",
+      "file_sha256": "476f8a11bc3d4d226072cbec4f9ec98e836670a748d52f5c3d2743932a7723b1"
+    }
+  ],
+  "verification_contract": {
+    "focused_expected": "9 tests passing",
+    "full_expected": "601 tests passing",
+    "parent_success_hash_binding_required": true,
+    "frozen_engine_file_hash_required": true,
+    "all_three_synthetic_cases_pass_required": true,
+    "completed_mismatch_cohort_completion_required": true,
+    "budget_fail_closed_required": true,
+    "provider_and_parser_fail_closed_required": true,
+    "cleanup_and_sanitization_required": true,
+    "workflow_rerun_block_required": true
+  },
+  "execution_status": {
+    "provider_metadata_requote_run": false,
+    "provider_timeseries_request_run": false,
+    "github_workflow_run_id": null,
+    "sanitized_report_content_sha256": null,
+    "actual_billing_known": false
+  },
+  "authority_boundary": {
+    "automatic_retry_authorized": false,
+    "batch_or_live_endpoint_authorized": false,
+    "broad_history_download_authorized": false,
+    "raw_market_data_publication_authorized": false,
+    "runtime_feature_authority_created": false,
+    "strategy_or_threshold_authority_created": false,
+    "paper_or_live_order_submitted": false,
+    "broker_or_account_change_made": false
+  },
+  "content_sha256": "55eab65173a322269959be766847521beaffb845db9261f080d1a88808755594"
+}

@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "audit_id": "databento-microstructure-smoke-acquisition-v0.2-run-32435988929-success-2026-08-20",
+  "audit_date": "2026-08-20",
+  "artifact_type": "independently_verified_sanitized_databento_reset_repair_success",
+  "contract": {
+    "acquisition_contract_id": "databento-microstructure-smoke-acquisition-v0.2",
+    "content_sha256": "61b9ab6a0894a5a6871feda0236cdb9605f14b7ce13633c36dd1cffc4aa4de2a"
+  },
+  "github_actions": {
+    "workflow_run_id": 32435988929,
+    "workflow_run_attempt": 1,
+    "workflow_conclusion": "success",
+    "workflow_head_sha": "a89f0470e4387d016600cdf7beebd09ae25b3146",
+    "workflow_head_tree_sha": "279738361432a9834fe24768f4f3c8d0d4fe1479",
+    "workflow_parent_sha": "2754a33d2a7deecac6aca7aa7c8cd1ba7c854b98",
+    "job_id": 96637190406,
+    "artifact_id": 9430778073,
+    "artifact_name": "databento-microstructure-smoke-acquisition-v0.2-32435988929-1",
+    "artifact_zip_sha256": "211b662aa314afdda7e534a65e978b7684e075fc7f5b7eaa5a1f5c6f1d22df76",
+    "sanitized_report_file_sha256": "354e58e544654f9c111ee27d318df812e2b1a95b821467e59091ba039ec73deb",
+    "sanitized_report_content_sha256": "15bd478f44f0953fa877cd9eed30d20e131b0dd988fbc774e7f56f943ee6e71c"
+  },
+  "verified_acquisition": {
+    "trading_date": "2026-07-10",
+    "symbol": "EQPT",
+    "preflight_passed": true,
+    "request_count_quoted": 2,
+    "timeseries_request_count": 2,
+    "download_schemas": ["mbp-10", "mbo"],
+    "total_quoted_cost_usd": "0.005820024014",
+    "total_billable_size_bytes": 10810592,
+    "actual_billing_known": false,
+    "provider_or_parser_error_count": 0,
+    "g1_schema_and_integrity_passed": true,
+    "g2_reconstruction_passed": true,
+    "smoke_acquisition_passed": true
+  },
+  "verified_reset_and_alignment_evidence": {
+    "mbo_record_count": 42968,
+    "book_count": 1,
+    "clear_action_count": 1,
+    "first_record_clear_count": 1,
+    "snapshot_initialization_clear_count": 0,
+    "session_initialization_clear_count": 1,
+    "ready_book_count": 1,
+    "invalid_clear_field_count": 0,
+    "preinitialization_mutating_record_count": 0,
+    "mbp10_reference_sample_count": 153,
+    "aligned_sample_count": 153,
+    "reference_alignment_ratio": "1",
+    "independent_replay_exact_match_count": 153,
+    "mbp10_exact_match_count": 153,
+    "mbp10_price_match_count": 153,
+    "mbp10_size_match_count": 153,
+    "mbp10_order_count_match_count": 153,
+    "crossed_reconstructed_sample_count": 0,
+    "common_replay_digest_sha256": "f069033f8448491ebd6ea816e21df06a22a1e0dd84bf38c3ccb0611cfaacf71a"
+  },
+  "ephemeral_file_evidence": [
+    {
+      "schema": "mbp-10",
+      "compressed_file_size_bytes": 766161,
+      "ephemeral_file_sha256": "c6aaa2f524f883a537f756b12f5a455b6a8576d703d553fea7b2cd6a465feb83"
+    },
+    {
+      "schema": "mbo",
+      "compressed_file_size_bytes": 793284,
+      "ephemeral_file_sha256": "ce0233348d0ea4ee25dd647daa5095ad546a848002075beead0bbd67d429ff75"
+    }
+  ],
+  "safety_verification": {
+    "artifact_zip_digest_recomputed": true,
+    "sanitized_report_file_digest_recomputed": true,
+    "sanitized_report_content_digest_recomputed": true,
+    "sanitized_report_contract_validation_passed": true,
+    "artifact_contains_only_one_sanitized_json_file": true,
+    "automatic_retry_attempted": false,
+    "batch_or_live_endpoint_called": false,
+    "provider_credential_persisted": false,
+    "raw_market_data_persisted": false,
+    "raw_market_data_uploaded": false,
+    "raw_temp_directory_empty_before_cleanup": true,
+    "raw_temp_directory_removed": true,
+    "runtime_authority_created": false,
+    "broker_or_order_change_made": false,
+    "strategy_or_threshold_change_made": false
+  },
+  "claim_boundary": {
+    "single_case_engineering_success_only": true,
+    "profitability_claim_supported": false,
+    "policy_promotion_allowed": false,
+    "consolidated_national_level2_claim_supported": false,
+    "three_case_replication_required_before_feature_mechanics": true
+  },
+  "content_sha256": "1ad29da41493c65f17ce906969415bb6246d745909dbc47beffa7ae86bb1d29b"
+}

@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "replication_contract_id": "databento-microstructure-replication-v0.3",
+  "artifact_type": "preregistered_bounded_ephemeral_databento_three_case_replication",
+  "registration_date": "2026-08-20",
+  "registration_status": "frozen_after_verified_v0.2_success_before_v0.3_provider_request",
+  "purpose": "Replicate the unchanged v0.2 MBO reset and exact MBP-10 comparison mechanics on the three remaining mechanically selected Level 2 engineering cases before any feature-policy work.",
+  "frozen_parent_success": {
+    "path": "research/data-audits/databento-microstructure-smoke-acquisition-v0.2-run-32435988929-success-2026-08-20.json",
+    "audit_id": "databento-microstructure-smoke-acquisition-v0.2-run-32435988929-success-2026-08-20",
+    "content_sha256": "1ad29da41493c65f17ce906969415bb6246d745909dbc47beffa7ae86bb1d29b",
+    "workflow_run_id": 32435988929,
+    "workflow_run_attempt": 1,
+    "sanitized_report_content_sha256": "15bd478f44f0953fa877cd9eed30d20e131b0dd988fbc774e7f56f943ee6e71c",
+    "verified_result": "EQPT aligned and exactly matched 153 of 153 deterministic MBP-10 reference samples with no replay disagreement, cleanup failure, or runtime authority."
+  },
+  "frozen_reset_engine": {
+    "path": "src/momentumbot/research/databento_smoke_v02.py",
+    "file_sha256": "c04229c2750d780bde14276171a14e0ce62bd527f6e09bb1ef0331a3020c99e9",
+    "change_allowed_in_replication": false,
+    "registered_semantics": "A valid first cleaR action initializes either a provider snapshot or an empty session book; readiness requires a qualifying non-snapshot F_LAST, and every later clear resets both independent books before comparison resumes."
+  },
+  "authorization": {
+    "source": "User replied Please continue with that on 2026-08-20 to the recommended permanent v0.2 success audit and approximately 0.20 USD three-case replication.",
+    "metadata_requote_authorized": true,
+    "historical_timeseries_download_authorized": true,
+    "exact_request_count_authorized": 6,
+    "authorized_push_parent_sha": "a89f0470e4387d016600cdf7beebd09ae25b3146",
+    "batch_job_authorized": false,
+    "live_subscription_authorized": false,
+    "broad_history_download_authorized": false,
+    "automatic_retry_authorized": false,
+    "broker_or_order_change_authorized": false,
+    "reported_new_user_credit_usd": "125",
+    "observed_v0_1_three_case_quote_usd": "0.182469338178",
+    "hard_preflight_cost_ceiling_usd": "0.20",
+    "observed_v0_1_three_case_billable_size_bytes": 365533168,
+    "hard_preflight_billable_size_ceiling_bytes": 380000000,
+    "failure_rule": "Run only on the first GitHub Actions attempt of the direct push whose prior branch head is a89f0470e4387d016600cdf7beebd09ae25b3146. Requote all six exact requests before downloading. If any metadata call fails, total quote exceeds 0.20 USD, or total billable size exceeds 380000000 bytes, make zero timeseries calls. Once downloading begins, stop after the first provider, file, or parser failure and never retry automatically. A reconstruction mismatch is recorded after the remaining exact requests finish and cannot select or suppress another case."
+  },
+  "provider": {
+    "provider_id": "databento",
+    "dataset": "XNAS.ITCH",
+    "venue_scope": "single_venue_nasdaq_not_consolidated_national_depth",
+    "sdk_package": "databento",
+    "sdk_version": "0.83.0",
+    "secret_name": "DATABENTO_API_KEY",
+    "secret_scope": "v0.3 replication workflow step only; never persisted"
+  },
+  "request_surface": {
+    "case_order_reason": "The three remaining cases retain the mechanically selected Level 2 cohort order, with the least expensive case first; no Ross action, P&L, or later price selected a case.",
+    "cases": [
+      {"trading_date": "2026-07-10", "symbol": "INTJ"},
+      {"trading_date": "2026-07-20", "symbol": "AMC"},
+      {"trading_date": "2026-07-10", "symbol": "GMM"}
+    ],
+    "requests": [
+      {"trading_date": "2026-07-10", "symbol": "INTJ", "dataset": "XNAS.ITCH", "schema": "mbp-10", "start": "2026-07-10T10:50:00Z", "end": "2026-07-10T14:10:00Z", "stype_in": "raw_symbol"},
+      {"trading_date": "2026-07-10", "symbol": "INTJ", "dataset": "XNAS.ITCH", "schema": "mbo", "start": "2026-07-10T00:00:00Z", "end": "2026-07-10T14:10:00Z", "stype_in": "raw_symbol"},
+      {"trading_date": "2026-07-20", "symbol": "AMC", "dataset": "XNAS.ITCH", "schema": "mbp-10", "start": "2026-07-20T10:50:00Z", "end": "2026-07-20T14:10:00Z", "stype_in": "raw_symbol"},
+      {"trading_date": "2026-07-20", "symbol": "AMC", "dataset": "XNAS.ITCH", "schema": "mbo", "start": "2026-07-20T00:00:00Z", "end": "2026-07-20T14:10:00Z", "stype_in": "raw_symbol"},
+      {"trading_date": "2026-07-10", "symbol": "GMM", "dataset": "XNAS.ITCH", "schema": "mbp-10", "start": "2026-07-10T10:50:00Z", "end": "2026-07-10T14:10:00Z", "stype_in": "raw_symbol"},
+      {"trading_date": "2026-07-10", "symbol": "GMM", "dataset": "XNAS.ITCH", "schema": "mbo", "start": "2026-07-10T00:00:00Z", "end": "2026-07-10T14:10:00Z", "stype_in": "raw_symbol"}
+    ],
+    "allowed_calls": [
+      "historical.metadata.get_billable_size",
+      "historical.metadata.get_cost",
+      "historical.timeseries.get_range"
+    ],
+    "prohibited_calls": [
+      "historical.batch.submit_job",
+      "historical.batch.download",
+      "live.subscribe"
+    ]
+  },
+  "preregistered_hypothesis": "Without changing the v0.2 engine, each remaining case will begin with a valid session-boundary cleaR, become ready, align at least 95 percent of deterministic MBP-10 samples, and produce exact agreement between the incremental replay, independent order-map replay, and MBP-10 price, size, and order-count states at every aligned sample.",
+  "integrity_policy": {
+    "engine_rule": "Verify the frozen v0.2 source-file SHA-256 before any metadata or time-series request and import its reset, replay, sampling, alignment, and case-gate implementation unchanged.",
+    "sample_rule": "Retain the last MBP-10 record by receive time in each UTC one-minute bucket and compare only at the matching MBO F_LAST publisher, instrument, and venue sequence.",
+    "case_completion_rule": "After preflight passes, finish both exact files for every case unless a provider, file, or parser error occurs. A G1/G2 mismatch is evidence and does not hide a later case.",
+    "g1_requirements": [
+      "all six exact requests complete and produce nonempty hashable DBN files",
+      "dataset and schema metadata match every request",
+      "required MBO and MBP-10 fields are observed",
+      "the first MBO action for every observed book is a valid cleaR",
+      "no book-mutating record occurs before its initialization clear",
+      "every observed book becomes ready under the unchanged v0.2 rule",
+      "no provider or parser error occurs and every raw file is deleted"
+    ],
+    "g2_requirements": [
+      "every case has at least one aligned comparison and at least 95 percent of its MBP-10 references align",
+      "incremental and independent order-map top-ten states match at every aligned sample",
+      "MBO-derived and MBP-10 price, size, and count states match at every aligned sample",
+      "no orphan cancel, missing modify, duplicate add, invalid action, invalid side, invalid size, timestamp inversion, sequence reversal, reference collision, or crossed sampled book remains"
+    ]
+  },
+  "storage_and_licensing": {
+    "raw_storage": "Temporary runner directory only.",
+    "public_repository_raw_data": false,
+    "github_artifact_raw_data": false,
+    "persisted_output": "Sanitized non-reconstructable counts, pass/fail booleans, quoted cost and byte totals, and SHA-256 hashes of the six ephemeral DBN files.",
+    "cleanup_rule": "Delete each DBN file before finalizing the sanitized report and fail closed if the temporary directory is not empty.",
+    "log_rule": "Never print raw records, prices, sizes, order IDs, instrument mappings, provider exception messages, credentials, or temporary paths."
+  },
+  "prohibited_inputs_and_actions": [
+    "Ross action or retrospective label",
+    "recap text or discretionary judgment",
+    "trade P&L or later price outcome",
+    "threshold fitting or case-by-case strategy tuning",
+    "changing the frozen v0.2 reset engine",
+    "Micro-v0.1 or scanner changes",
+    "paper or live order submission",
+    "publishing licensed Databento records",
+    "claiming single-venue Nasdaq depth is consolidated national Level 2"
+  ],
+  "claim_boundary": [
+    "The four-case cohort, including the frozen EQPT parent, tests engineering feasibility only and cannot establish profitability.",
+    "A pass allows only a separately registered causal feature-mechanics gate; it does not promote a trading rule.",
+    "A failure remains useful evidence and stops before feature-policy work.",
+    "Actual Databento billing may differ from the quote and is not inferred from the preflight estimate."
+  ],
+  "content_sha256": "d6aca7030155bbf9483e1b2c014481e31eaca5954b42155bbb8366b7501c7b07"
+}

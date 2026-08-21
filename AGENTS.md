@@ -24,6 +24,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 | Databento metadata/cost gate | `docs/research/databento_metadata_quote_v01.md` | child quote contract, `databento_quote.py` and quote workflow |
 | Databento bounded acquisition | `docs/research/databento_microstructure_smoke_acquisition_v01.md` | hash-bound smoke contract, `databento_smoke.py` and one-shot acquisition workflow |
 | Databento MBO reset repair | `docs/research/databento_microstructure_smoke_acquisition_v02.md` | frozen v0.1 failure, v0.2 child contract, `databento_smoke_v02.py` and one-shot repair workflow |
+| Databento reset replication | `docs/research/databento_microstructure_replication_v03.md` | verified v0.2 success, unchanged reset engine, three-case child contract and one-shot replication workflow |
 | Prospective management/execution | `docs/research/prospective_management_execution_v01.md` | child contract and `execution_realism.py` |
 | New research experiment | `docs/research/experiment_contract.md` | frozen parent policy + runtime artifact |
 | Micro-pullback work | `docs/research/micro_benchmark_suite.md` | `micro_policy.py`, `micro_replay.py`, frozen artifacts |
