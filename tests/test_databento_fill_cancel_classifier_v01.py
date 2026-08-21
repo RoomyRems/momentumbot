@@ -1,12 +1,27 @@
 from __future__ import annotations
 
+import builtins
 import copy
 import json
 import unittest
+from datetime import UTC, datetime
 from pathlib import Path
 from types import SimpleNamespace
+from unittest.mock import patch
 
+from scripts import run_databento_fill_cancel_classifier_v01 as runner
+
+from momentumbot.research import (
+    databento_fill_cancel_classifier_execution_v01 as execution,
+)
+from momentumbot.research.databento_fill_cancel_classifier_execution_v01 import (
+    EXECUTION_AUTHORIZATION_ID,
+    run_fill_cancel_classifier_diagnostic,
+    validate_classifier_report,
+    validate_execution_authorization,
+)
 from momentumbot.research.databento_fill_cancel_classifier_v01 import (
+    CLASSIFIER_CONTRACT_ID,
     CONTRACT_CONTENT_SHA256,
     PARENT_FAILURE_CONTENT_SHA256,
     REQUEST,
@@ -14,7 +29,9 @@ from momentumbot.research.databento_fill_cancel_classifier_v01 import (
     load_classifier_contract,
     load_parent_failure_audit,
 )
+from momentumbot.research.databento_quote import SDK_VERSION
 from momentumbot.research.databento_smoke import RuntimeConstants
+from momentumbot.research.microstructure_contract import canonical_fingerprint
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -44,6 +61,21 @@ SOURCE = (
     / "research"
     / "databento_fill_cancel_classifier_v01.py"
 )
+EXECUTION_SOURCE = (
+    ROOT
+    / "src"
+    / "momentumbot"
+    / "research"
+    / "databento_fill_cancel_classifier_execution_v01.py"
+)
+WORKFLOW = (
+    ROOT
+    / ".github"
+    / "workflows"
+    / "databento-fill-cancel-classifier-v01.yml"
+)
+SCRIPT = ROOT / "scripts" / "run_databento_fill_cancel_classifier_v01.py"
+GENERATED_AT = datetime(2026, 8, 21, 18, tzinfo=UTC)
 RUNTIME = RuntimeConstants(
     f_last=128,
     f_tob=64,
@@ -89,6 +121,83 @@ def _event() -> list[SimpleNamespace]:
     ]
 
 
+def _authorization() -> dict[str, object]:
+    payload: dict[str, object] = {
+        "schema_version": 1,
+        "execution_authorization_id": EXECUTION_AUTHORIZATION_ID,
+        "artifact_type": (
+            "explicit_one_shot_databento_fill_cancel_classifier_authorization"
+        ),
+        "classifier_contract_id": CLASSIFIER_CONTRACT_ID,
+        "classifier_contract_content_sha256": CONTRACT_CONTENT_SHA256,
+        "authorized_push_parent_sha": "a" * 40,
+        "explicit_user_authorization": (
+            "Synthetic deterministic unit-test authorization; no provider call."
+        ),
+        "provider_purchase_authorized": True,
+        "exact_request_count_authorized": 1,
+        "hard_preflight_cost_ceiling_usd": "0.003",
+        "hard_preflight_billable_size_ceiling_bytes": 3_000_000,
+        "first_github_actions_attempt_only": True,
+        "automatic_retry_authorized": False,
+        "batch_or_live_endpoint_authorized": False,
+        "raw_market_data_publication_authorized": False,
+        "broker_or_order_change_authorized": False,
+        "strategy_or_threshold_change_authorized": False,
+    }
+    payload["content_sha256"] = canonical_fingerprint(payload)
+    return payload
+
+
+class FakeStore:
+    def __init__(self, records: list[SimpleNamespace]) -> None:
+        self.metadata = SimpleNamespace(dataset="XNAS.ITCH", schema="mbo")
+        self.records = records
+
+    def __iter__(self):
+        return iter(self.records)
+
+
+class FakeMetadata:
+    def __init__(self, *, cost: float = 0.0027, size: int = 2_406_208) -> None:
+        self.cost = cost
+        self.size = size
+        self.calls: list[tuple[str, dict[str, object]]] = []
+
+    def get_billable_size(self, **kwargs: object) -> int:
+        self.calls.append(("get_billable_size", kwargs))
+        return self.size
+
+    def get_cost(self, **kwargs: object) -> float:
+        self.calls.append(("get_cost", kwargs))
+        return self.cost
+
+
+class FakeTimeseries:
+    def __init__(self, *, fail: bool = False) -> None:
+        self.fail = fail
+        self.calls: list[dict[str, object]] = []
+
+    def get_range(self, **kwargs: object) -> FakeStore:
+        self.calls.append(kwargs)
+        if self.fail:
+            raise RuntimeError("licensed provider detail must not persist")
+        Path(str(kwargs["path"])).write_bytes(b"synthetic DBN placeholder")
+        return FakeStore(_event())
+
+
+class FakeClient:
+    def __init__(
+        self,
+        *,
+        cost: float = 0.0027,
+        size: int = 2_406_208,
+        fail: bool = False,
+    ) -> None:
+        self.metadata = FakeMetadata(cost=cost, size=size)
+        self.timeseries = FakeTimeseries(fail=fail)
+
+
 class DatabentoFillCancelClassifierV01Tests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
@@ -97,6 +206,8 @@ class DatabentoFillCancelClassifierV01Tests(unittest.TestCase):
             CONTRACT,
             parent_failure_audit=cls.parent_failure,
         )
+        cls.authorization = _authorization()
+        validate_execution_authorization(cls.authorization)
 
     def classify(self, records: list[SimpleNamespace]) -> dict[str, object]:
         return classify_fill_cancel_structure(
@@ -117,7 +228,14 @@ class DatabentoFillCancelClassifierV01Tests(unittest.TestCase):
             self.contract["future_execution_gate"]["exact_request_count_authorized"],
             0,
         )
-        self.assertFalse(FUTURE_AUTHORIZATION.exists())
+        if FUTURE_AUTHORIZATION.exists():
+            future_authorization = execution.load_execution_authorization(
+                FUTURE_AUTHORIZATION
+            )
+            self.assertTrue(future_authorization["provider_purchase_authorized"])
+            self.assertEqual(future_authorization["exact_request_count_authorized"], 1)
+        else:
+            self.assertFalse(FUTURE_AUTHORIZATION.exists())
 
     def test_exact_fill_cancel_pair_matches_all_projections(self):
         result = self.classify(_event())
@@ -204,6 +322,125 @@ class DatabentoFillCancelClassifierV01Tests(unittest.TestCase):
         self.assertNotIn("from databento", source)
         self.assertNotIn("\nimport databento", source)
         self.assertNotIn("get_range(", source)
+
+    def run_gate(self, client: FakeClient) -> dict[str, object]:
+        return run_fill_cancel_classifier_diagnostic(
+            self.contract,
+            self.parent_failure,
+            self.authorization,
+            client,
+            generated_at=GENERATED_AT,
+            sdk_version=SDK_VERSION,
+            runtime=RUNTIME,
+        )
+
+    def test_one_shot_gate_requotes_downloads_once_and_sanitizes(self):
+        client = FakeClient()
+        report = self.run_gate(client)
+        validate_classifier_report(report)
+        self.assertEqual(len(client.metadata.calls), 2)
+        self.assertEqual(len(client.timeseries.calls), 1)
+        self.assertEqual(report["timeseries_request_count"], 1)
+        self.assertTrue(report["diagnostic_observation_complete"])
+        self.assertTrue(report["classifier_succeeded"])
+        self.assertFalse(report["safe_failure_classified"])
+        self.assertEqual(
+            report["classification_metrics"]["projection_overlap_counts"]["exact"],
+            1,
+        )
+        rendered = json.dumps(report, sort_keys=True)
+        self.assertNotIn("900000001", rendered)
+        self.assertNotIn("123456789000", rendered)
+        self.assertNotIn("licensed provider detail", rendered)
+        self.assertNotIn(".dbn", rendered)
+
+    def test_budget_rejection_makes_zero_timeseries_calls(self):
+        client = FakeClient(cost=0.0031)
+        report = self.run_gate(client)
+        validate_classifier_report(report)
+        self.assertEqual(len(client.metadata.calls), 2)
+        self.assertEqual(client.timeseries.calls, [])
+        self.assertEqual(report["timeseries_request_count"], 0)
+        self.assertFalse(report["preflight"]["preflight_passed"])
+        self.assertEqual(
+            report["errors"][0]["safe_error_code"],
+            "preflight_budget_rejected",
+        )
+
+    def test_provider_failure_is_classified_without_retry_or_message(self):
+        client = FakeClient(fail=True)
+        report = self.run_gate(client)
+        validate_classifier_report(report)
+        self.assertEqual(len(client.timeseries.calls), 1)
+        self.assertEqual(report["timeseries_request_count"], 1)
+        self.assertFalse(report["classifier_succeeded"])
+        self.assertTrue(report["safe_failure_classified"])
+        self.assertEqual(
+            report["errors"][0]["safe_error_code"],
+            "provider_download_failed",
+        )
+        self.assertNotIn("licensed provider detail", json.dumps(report))
+        self.assertFalse(report["automatic_retry_attempted"])
+
+    def test_authorization_overclaim_and_bad_parent_fail_closed(self):
+        overclaim = copy.deepcopy(self.authorization)
+        overclaim["exact_request_count_authorized"] = 2
+        overclaim["content_sha256"] = canonical_fingerprint(
+            {key: value for key, value in overclaim.items() if key != "content_sha256"}
+        )
+        with self.assertRaisesRegex(ValueError, "request_count"):
+            validate_execution_authorization(overclaim)
+
+        bad_parent = copy.deepcopy(self.authorization)
+        bad_parent["authorized_push_parent_sha"] = "not-a-sha"
+        bad_parent["content_sha256"] = canonical_fingerprint(
+            {key: value for key, value in bad_parent.items() if key != "content_sha256"}
+        )
+        with self.assertRaisesRegex(ValueError, "parent SHA"):
+            validate_execution_authorization(bad_parent)
+
+    def test_runner_rejects_absent_authorization_before_sdk_import(self):
+        imported = []
+        original_import = builtins.__import__
+
+        def guarded_import(name, *args, **kwargs):
+            imported.append(name)
+            if name == "databento" or name.startswith("databento."):
+                raise AssertionError("provider SDK imported before authorization")
+            return original_import(name, *args, **kwargs)
+
+        with patch.object(builtins, "__import__", side_effect=guarded_import):
+            with self.assertRaisesRegex(ValueError, "authorization file is required"):
+                runner.main(
+                    [
+                        "--authorization",
+                        str(ROOT / "missing-fill-cancel-authorization.json"),
+                        "--output",
+                        str(ROOT / "unused-fill-cancel-report.json"),
+                    ]
+                )
+        self.assertFalse(any(name == "databento" for name in imported))
+
+    def test_workflow_is_unarmed_and_parent_bound(self):
+        workflow = WORKFLOW.read_text(encoding="utf-8")
+        script = SCRIPT.read_text(encoding="utf-8")
+        trigger = workflow.split("permissions:", 1)[0]
+        self.assertIn(
+            "databento-microstructure-fill-cancel-classifier-v0.1-execution.json",
+            trigger,
+        )
+        self.assertNotIn(
+            "databento-microstructure-fill-cancel-classifier-v0.1.json",
+            trigger,
+        )
+        self.assertNotIn("workflow_dispatch", workflow)
+        self.assertNotIn("*.dbn", workflow)
+        self.assertNotIn("batch.submit_job", workflow)
+        self.assertNotIn("live.subscribe", workflow)
+        self.assertIn("databento==0.83.0", workflow)
+        self.assertIn('run_attempt = os.getenv("GITHUB_RUN_ATTEMPT")', script)
+        self.assertIn('authorization["authorized_push_parent_sha"]', script)
+        self.assertTrue(EXECUTION_SOURCE.is_file())
 
 
 if __name__ == "__main__":
