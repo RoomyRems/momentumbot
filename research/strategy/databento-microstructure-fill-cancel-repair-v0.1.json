@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "repair_contract_id": "databento-microstructure-fill-cancel-repair-v0.1",
+  "artifact_type": "preregistered_unarmed_databento_fill_cancel_identity_repair",
+  "registration_date": "2026-08-21",
+  "registration_status": "frozen_after_verified_aggregate_classifier_before_any_repaired_replay",
+  "purpose": "Replace the rejected five-field Fill-to-Cancel identity with an event-local deterministic multiset match that is supported by the verified aggregate EQPT classifier.",
+  "runtime_strategy_effect": "none",
+  "policy_promotion_eligible": false,
+  "profitability_claim_eligible": false,
+  "provider_purchase_authorized": false,
+  "execution_authorization_file_present": false,
+  "frozen_parent_success": {
+    "path": "research/data-audits/databento-microstructure-fill-cancel-classifier-v0.1-run-32512602607-success-2026-08-21.json",
+    "audit_id": "databento-microstructure-fill-cancel-classifier-v0.1-run-32512602607-success-2026-08-21",
+    "content_sha256": "a1a4b72301f78b6c06811d810a15ecd830559d5db52dc9187ae00d8973fc983f",
+    "workflow_run_id": 32512602607,
+    "workflow_run_attempt": 1,
+    "sanitized_report_content_sha256": "ef79553321d9746ed6393ae77501dbacd71fcff1d5416842dab7da598d93b7b6",
+    "exact_match_fill_record_count": 1331,
+    "coarse_only_match_fill_record_count": 15,
+    "exact_full_match_event_count": 1007,
+    "coarse_only_full_match_event_count": 13
+  },
+  "frozen_mechanics": {
+    "v0_3_instrument_event_source_file_sha256": "0a5e704c6a77483cbe051ce56fee77b273dbb9894bde3a4e299a510de6249340",
+    "classifier_source_file_sha256": "0b8e3d258a7bc5ca90efbd7ef1e1011a5e281678c974b6dde43ca25fd405e14d",
+    "classifier_contract_content_sha256": "88a7373d70bacbad2418d900abc0fcce45e3f927d54a88275091bed05c9e44c0",
+    "event_grouping_changed": false,
+    "feature_mechanics_changed": false,
+    "feature_windows_or_thresholds_changed": false,
+    "strategy_or_broker_behavior_changed": false
+  },
+  "registered_repair": {
+    "event_scope": ["publisher_id", "instrument_id"],
+    "event_boundary": "F_LAST",
+    "fill_cancel_match_fields": ["order_id", "side"],
+    "exact_five_field_match_preferred": true,
+    "multiset_counts_preserved": true,
+    "deterministic_cancel_selection": "stable_record_order_after_maximizing_exact_five_field_matches",
+    "fill_marker_book_effect": "none",
+    "matched_cancel_canonical_action": "fill",
+    "canonical_removal_payload_source": "matched_cancel_record",
+    "extra_cancel_canonical_action": "cancel",
+    "unmatched_fill_policy": "fail_closed",
+    "raw_mismatch_values_persisted": false,
+    "feature_values_persisted": false,
+    "runtime_authority_created": false
+  },
+  "future_execution_gate": {
+    "new_explicit_user_authorization_required": true,
+    "future_authorization_must_bind_published_parent_sha": true,
+    "authorization_only_direct_child_required": true,
+    "first_github_actions_attempt_only": true,
+    "exact_request_count_authorized": 0,
+    "automatic_retry_authorized": false,
+    "batch_or_live_endpoint_authorized": false,
+    "raw_market_data_publication_authorized": false,
+    "broker_or_order_change_authorized": false,
+    "strategy_or_threshold_change_authorized": false
+  },
+  "prohibited_outputs_and_actions": [
+    "raw records or record values",
+    "order_id or instrument_id values",
+    "prices, sizes, or feature snapshots",
+    "provider error messages or credentials",
+    "Ross actions, outcomes, P&L, or later prices",
+    "case-specific thresholds or policy promotion",
+    "automatic provider retry",
+    "claiming single-venue Nasdaq depth is consolidated national Level 2"
+  ],
+  "claim_boundary": [
+    "The verified aggregate projection lattice supports the event-local match fields but does not reveal the raw price differences or their venue-native cause.",
+    "This registration changes parser identity mechanics only; it does not authorize a provider request, a strategy threshold, an order, or runtime authority.",
+    "A future repaired EQPT replay is a separate provider purchase and requires a new exact authorization after this unarmed parent is published."
+  ],
+  "content_sha256": "a5e8e0381e893610b641ce9a41d31138c1bde2134614efe7ebce725383b6abf0"
+}
