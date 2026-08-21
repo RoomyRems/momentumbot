@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "audit_id": "databento-microstructure-feature-diagnostic-v0.1-execution-authorization-2026-08-20",
+  "artifact_type": "hash_bound_one_shot_databento_feature_diagnostic_execution_authorization_audit",
+  "recorded_at": "2026-08-21T03:29:55Z",
+  "published_parent": {
+    "repository": "RoomyRems/momentumbot",
+    "branch": "phase-3-historical-snapshot",
+    "commit_sha": "c20f20213c75766fd72d60a3b18f75eb51242250",
+    "tree_sha": "99fcffc96e6bc23780b447f7ddb3c850774705ea",
+    "commit_message": "Register unarmed Databento feature diagnostic"
+  },
+  "frozen_registration": {
+    "path": "research/data-audits/databento-microstructure-feature-diagnostic-v0.1-registration-2026-08-20.json",
+    "content_sha256": "1ef32200d60c744420743c831c5af66a0bafbdfff2e6a269ee5ad5dd209eeae7",
+    "diagnostic_contract_content_sha256": "996e987f04cd14a87eb8ad56b5dfce9c84fcfbef1bc3af7b44919be0ec00e180",
+    "feature_engine_source_file_sha256": "07e2db045c9187e4bab46e7d25c546668c2c7b8d01f78c58ec36e88e48f1628e",
+    "mutation_allowed": false
+  },
+  "execution_authorization": {
+    "path": "research/strategy/databento-microstructure-feature-diagnostic-v0.1-execution.json",
+    "content_sha256": "448a8f55624763c9c0a2790f8ad7fc27f794d7a11d500e2726226f982acbdf01",
+    "file_sha256": "e65e7e64194c6349c5a46443d5741d25f74b9c99d561a71aa00ec50e04ea8918",
+    "authorized_push_parent_sha": "c20f20213c75766fd72d60a3b18f75eb51242250",
+    "provider_purchase_authorized": true,
+    "exact_request_count_authorized": 4,
+    "first_github_actions_attempt_only": true,
+    "automatic_retry_authorized": false
+  },
+  "hard_gates": {
+    "preflight_cost_ceiling_usd": "0.08",
+    "preflight_billable_size_ceiling_bytes": 80000000,
+    "mbp10_redownload_authorized": false,
+    "batch_or_live_endpoint_authorized": false,
+    "raw_market_data_publication_authorized": false,
+    "broker_or_order_change_authorized": false,
+    "strategy_or_threshold_change_authorized": false,
+    "retrospective_label_access_authorized": false
+  },
+  "prepublication_status": {
+    "authorization_child_created_locally": true,
+    "authorization_child_staged": false,
+    "authorization_child_committed": false,
+    "authorization_child_pushed": false,
+    "workflow_triggered": false,
+    "provider_call_run": false,
+    "databento_credit_used": false
+  },
+  "content_sha256": "4334fec71a71fa3dc48dffaeff2285ce443e891e1ce2e6310fde913166c1ace4"
+}

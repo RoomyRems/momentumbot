@@ -23,6 +23,7 @@ from momentumbot.research.databento_feature_diagnostic_v01 import (
     extract_case_feature_diagnostic,
     iter_atomic_mbo_groups,
     load_diagnostic_contract,
+    load_execution_authorization,
     run_feature_diagnostic,
     translate_xnas_atomic_group,
     validate_execution_authorization,
@@ -51,6 +52,12 @@ FUTURE_AUTHORIZATION = (
     / "strategy"
     / "databento-microstructure-feature-diagnostic-v0.1-execution.json"
 )
+EXECUTION_AUTHORIZATION_AUDIT = (
+    ROOT
+    / "research"
+    / "data-audits"
+    / "databento-microstructure-feature-diagnostic-v0.1-execution-authorization-2026-08-20.json"
+)
 FEATURE_ENGINE = ROOT / "src" / "momentumbot" / "research" / "microstructure_features.py"
 REGISTRATION_AUDIT = (
     ROOT
@@ -65,6 +72,14 @@ WORKFLOW = (
     / "databento-microstructure-features-v01.yml"
 )
 SCRIPT = ROOT / "scripts" / "run_databento_microstructure_features_v01.py"
+PUBLISHED_AUTHORIZATION_PARENT_SHA = "c20f20213c75766fd72d60a3b18f75eb51242250"
+PUBLISHED_AUTHORIZATION_PARENT_TREE = "99fcffc96e6bc23780b447f7ddb3c850774705ea"
+UNARMED_REGISTRATION_CONTENT_SHA256 = (
+    "1ef32200d60c744420743c831c5af66a0bafbdfff2e6a269ee5ad5dd209eeae7"
+)
+UNARMED_TEST_FILE_SHA256 = (
+    "58100c19ab6e1126d89ac9d16143d21f13d6f43cd350544b1e734b9174e1b802"
+)
 RUNTIME = RuntimeConstants(
     f_last=128,
     f_tob=64,
@@ -316,7 +331,46 @@ class DatabentoFeatureDiagnosticV01Tests(unittest.TestCase):
         gate = self.contract["execution_authorization_gate"]
         self.assertFalse(gate["provider_purchase_authorized"])
         self.assertFalse(gate["execution_authorization_file_present"])
-        self.assertFalse(FUTURE_AUTHORIZATION.exists())
+        self.assertTrue(FUTURE_AUTHORIZATION.exists())
+
+    def test_separate_execution_child_is_hash_bound_to_published_parent(self):
+        authorization = load_execution_authorization(FUTURE_AUTHORIZATION)
+        self.assertEqual(
+            authorization["authorized_push_parent_sha"],
+            PUBLISHED_AUTHORIZATION_PARENT_SHA,
+        )
+        self.assertTrue(authorization["provider_purchase_authorized"])
+        self.assertEqual(authorization["exact_request_count_authorized"], 4)
+        self.assertEqual(authorization["hard_preflight_cost_ceiling_usd"], "0.08")
+        self.assertEqual(
+            authorization["hard_preflight_billable_size_ceiling_bytes"],
+            80_000_000,
+        )
+
+        audit = json.loads(
+            EXECUTION_AUTHORIZATION_AUDIT.read_text(encoding="utf-8")
+        )
+        claimed = audit["content_sha256"]
+        unsigned = {key: value for key, value in audit.items() if key != "content_sha256"}
+        self.assertEqual(canonical_fingerprint(unsigned), claimed)
+        self.assertEqual(
+            audit["published_parent"]["commit_sha"],
+            PUBLISHED_AUTHORIZATION_PARENT_SHA,
+        )
+        self.assertEqual(
+            audit["published_parent"]["tree_sha"],
+            PUBLISHED_AUTHORIZATION_PARENT_TREE,
+        )
+        self.assertEqual(
+            audit["frozen_registration"]["content_sha256"],
+            UNARMED_REGISTRATION_CONTENT_SHA256,
+        )
+        self.assertEqual(
+            hashlib.sha256(FUTURE_AUTHORIZATION.read_bytes()).hexdigest(),
+            audit["execution_authorization"]["file_sha256"],
+        )
+        self.assertFalse(audit["prepublication_status"]["provider_call_run"])
+        self.assertFalse(audit["prepublication_status"]["databento_credit_used"])
 
     def test_exact_four_mbo_requests_and_ceilings_are_frozen(self):
         self.assertEqual(len(REQUESTS), 4)
@@ -488,6 +542,9 @@ class DatabentoFeatureDiagnosticV01Tests(unittest.TestCase):
         self.assertEqual(canonical_fingerprint(unsigned), claimed)
         self.assertEqual(audit["contract"]["content_sha256"], CONTRACT_CONTENT_SHA256)
         for row in audit["bound_files"]:
+            if row["path"] == "tests/test_databento_feature_diagnostic_v01.py":
+                self.assertEqual(row["file_sha256"], UNARMED_TEST_FILE_SHA256)
+                continue
             self.assertEqual(
                 hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest(),
                 row["file_sha256"],
@@ -496,7 +553,7 @@ class DatabentoFeatureDiagnosticV01Tests(unittest.TestCase):
         self.assertFalse(audit["execution_status"]["provider_call_run"])
         self.assertFalse(audit["authority_boundary"]["runtime_feature_authority_created"])
 
-    def test_workflow_is_inert_until_a_separate_exact_authorization(self):
+    def test_workflow_is_one_shot_after_separate_exact_authorization(self):
         workflow = WORKFLOW.read_text(encoding="utf-8")
         script = SCRIPT.read_text(encoding="utf-8")
         self.assertIn(
@@ -521,7 +578,7 @@ class DatabentoFeatureDiagnosticV01Tests(unittest.TestCase):
         self.assertIn('authorization["authorized_push_parent_sha"]', script)
         self.assertIn("github_actions_rerun_blocked", script)
         self.assertIn("unauthorized_push_parent", script)
-        self.assertFalse(FUTURE_AUTHORIZATION.exists())
+        self.assertTrue(FUTURE_AUTHORIZATION.exists())
 
 
 if __name__ == "__main__":

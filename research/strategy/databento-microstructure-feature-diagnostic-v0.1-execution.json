@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "execution_authorization_id": "databento-microstructure-feature-diagnostic-v0.1-execution",
+  "artifact_type": "explicit_one_shot_databento_feature_diagnostic_authorization",
+  "diagnostic_contract_id": "databento-microstructure-feature-diagnostic-v0.1",
+  "diagnostic_contract_content_sha256": "996e987f04cd14a87eb8ad56b5dfce9c84fcfbef1bc3af7b44919be0ec00e180",
+  "authorized_push_parent_sha": "c20f20213c75766fd72d60a3b18f75eb51242250",
+  "explicit_user_authorization": "User replied \"Okay take the next step\" on 2026-08-20 to the immediately preceding proposal for a separately authorized one-shot four-case acquisition bound to published commit c20f20213c75766fd72d60a3b18f75eb51242250, capped at $0.08 and 80 MB.",
+  "provider_purchase_authorized": true,
+  "exact_request_count_authorized": 4,
+  "hard_preflight_cost_ceiling_usd": "0.08",
+  "hard_preflight_billable_size_ceiling_bytes": 80000000,
+  "first_github_actions_attempt_only": true,
+  "automatic_retry_authorized": false,
+  "batch_or_live_endpoint_authorized": false,
+  "mbp10_redownload_authorized": false,
+  "raw_market_data_publication_authorized": false,
+  "broker_or_order_change_authorized": false,
+  "strategy_or_threshold_change_authorized": false,
+  "content_sha256": "448a8f55624763c9c0a2790f8ad7fc27f794d7a11d500e2726226f982acbdf01"
+}
