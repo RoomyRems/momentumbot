@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "audit_id": "databento-microstructure-feature-diagnostic-v0.2-registration-2026-08-20",
+  "artifact_type": "unarmed_databento_safe_failure_classifier_registration_audit",
+  "recorded_at": "2026-08-20T00:00:00Z",
+  "development_base": {
+    "repository": "RoomyRems/momentumbot",
+    "branch": "phase-3-historical-snapshot",
+    "published_parent_commit": "3efee47b6daf8e27e1ea033da4393caecf237543",
+    "published_parent_tree": "61f25367ba5b12dff29e8a40ad8e029d4d4cce0a"
+  },
+  "contract": {
+    "diagnostic_contract_id": "databento-microstructure-feature-diagnostic-v0.2",
+    "path": "research/strategy/databento-microstructure-feature-diagnostic-v0.2.json",
+    "content_sha256": "14b2a0500b7d2626a71f0a598eb876837f7d4f36754d44e3ecffee1fb3d9a648",
+    "provider_purchase_authorized": false,
+    "execution_authorization_file_present": false
+  },
+  "frozen_parent_failure": {
+    "audit_id": "databento-microstructure-feature-diagnostic-v0.1-run-32444174639-failure-2026-08-20",
+    "content_sha256": "004d5c37136674a91056371043fd389cd42e87fb10fbba90bea431220b2d57c7",
+    "workflow_run_id": 32444174639,
+    "workflow_run_attempt": 1,
+    "workflow_head_sha": "3efee47b6daf8e27e1ea033da4393caecf237543",
+    "sanitized_report_content_sha256": "17899a4e833ce96d16311619a789be963848984ad2eff40dc05c12ab725d2b78",
+    "observed_error_kind": "ValueError",
+    "exact_failing_guard_identified": false
+  },
+  "frozen_mechanics": {
+    "parent_diagnostic_contract_content_sha256": "996e987f04cd14a87eb8ad56b5dfce9c84fcfbef1bc3af7b44919be0ec00e180",
+    "parent_adapter_file_sha256": "3c0c5ac0d18ffc3d72c1a18da9758ac33a269e3c074bac35fefb1528a99e1919",
+    "feature_set_content_sha256": "b048e26fabd163d66297fa57faf011fbb50d9b69377101dbd04337a1cc1eab6a",
+    "feature_engine_file_sha256": "07e2db045c9187e4bab46e7d25c546668c2c7b8d01f78c58ec36e88e48f1628e",
+    "adapter_semantics_changed": false,
+    "feature_mechanics_changed": false,
+    "feature_window_or_threshold_changed": false
+  },
+  "bound_files": [
+    {
+      "path": "research/data-audits/databento-microstructure-feature-diagnostic-v0.1-run-32444174639-failure-2026-08-20.json",
+      "file_sha256": "03d07d9eafd545b2cea0c86c9a65d8be8f3435d80bee161ddd4af2c22346d882"
+    },
+    {
+      "path": "research/strategy/databento-microstructure-feature-diagnostic-v0.2.json",
+      "file_sha256": "f4509cee007b64bca9473ef9fa0d5cc87375cb746fdef01f70a42662289f59ca"
+    },
+    {
+      "path": "src/momentumbot/research/databento_feature_diagnostic_v02.py",
+      "file_sha256": "25b8153a0dfe6dc6ccd62ba947516827ef1e399a2af03b1aabf7dada53327d09"
+    },
+    {
+      "path": "scripts/run_databento_microstructure_features_v02.py",
+      "file_sha256": "c0dd34c6c0fce02d0573c150966fe506916f4b10212c6df1ebd50c7fb921aac4"
+    },
+    {
+      "path": ".github/workflows/databento-microstructure-features-v02.yml",
+      "file_sha256": "e6c1c0af9c5adba71e87b96f55142241ad48f5343c3e4d5a1942a2006fba13f7"
+    },
+    {
+      "path": "tests/test_databento_feature_diagnostic_v02.py",
+      "file_sha256": "b73862909a95eb72e889971e7ccbc4e2a5399b2509da7d5ced5c63896e170346"
+    },
+    {
+      "path": "docs/research/databento_microstructure_feature_diagnostic_v02.md",
+      "file_sha256": "89f59cc70af1a9925e0d9e9fae5345b0a7100f1bc0caea64877aa82f03d8642f"
+    },
+    {
+      "path": "src/momentumbot/research/databento_feature_diagnostic_v01.py",
+      "file_sha256": "3c0c5ac0d18ffc3d72c1a18da9758ac33a269e3c074bac35fefb1528a99e1919"
+    },
+    {
+      "path": "src/momentumbot/research/microstructure_features.py",
+      "file_sha256": "07e2db045c9187e4bab46e7d25c546668c2c7b8d01f78c58ec36e88e48f1628e"
+    }
+  ],
+  "safe_output_boundary": {
+    "allowlisted_phase_and_code_only": true,
+    "normalized_exception_class_allowlist_only": true,
+    "exception_text_retained": false,
+    "traceback_retained": false,
+    "temporary_path_retained": false,
+    "raw_record_value_retained": false,
+    "exception_message_hash_retained": false,
+    "unknown_failure_fails_closed": true
+  },
+  "verification_contract": {
+    "focused_expected": "13 tests passing",
+    "full_repository_suite_required_before_publication": true,
+    "frozen_v0_1_suite_required": true,
+    "success_metrics_must_equal_frozen_v0_1": true,
+    "authorization_sdk_and_client_early_gates_required": true,
+    "exact_one_request_no_retry_required": true,
+    "all_failure_boundaries_sanitized_required": true,
+    "cleanup_required": true,
+    "workflow_trigger_disjoint_from_code_only_bundle": true
+  },
+  "execution_status": {
+    "execution_authorization_present": false,
+    "provider_metadata_requote_run": false,
+    "provider_call_run": false,
+    "databento_credit_used": false,
+    "workflow_triggered_by_registration_bundle": false,
+    "raw_market_data_downloaded": false,
+    "raw_market_data_persisted": false,
+    "actual_billing_known": false
+  },
+  "future_gate": {
+    "authorization_path": "research/strategy/databento-microstructure-feature-diagnostic-v0.2-execution.json",
+    "new_explicit_user_authorization_required": true,
+    "published_parent_sha_binding_required": true,
+    "authorization_only_direct_child_required": true,
+    "first_github_actions_attempt_only": true,
+    "exact_mbo_request_count": 1,
+    "hard_preflight_cost_ceiling_usd": "0.001",
+    "hard_preflight_billable_size_ceiling_bytes": 1000000,
+    "automatic_retry_allowed": false,
+    "mbp10_redownload_allowed": false
+  },
+  "authority_boundary": {
+    "ross_or_retrospective_label_loaded": false,
+    "feature_window_or_threshold_selected": false,
+    "strategy_policy_changed": false,
+    "runtime_feature_authority_created": false,
+    "paper_or_live_order_submitted": false,
+    "broker_or_account_change_made": false,
+    "profitability_claim_supported": false
+  },
+  "content_sha256": "c7b2f631e467117e6fbec61064d8a5b6cb8a7fdb142f74d32d7e1f17c768e6dc"
+}

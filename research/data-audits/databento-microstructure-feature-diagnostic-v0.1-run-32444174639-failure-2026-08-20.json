@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "audit_id": "databento-microstructure-feature-diagnostic-v0.1-run-32444174639-failure-2026-08-20",
+  "audit_date": "2026-08-20",
+  "artifact_type": "independently_verified_sanitized_databento_feature_diagnostic_failure",
+  "contract": {
+    "diagnostic_contract_id": "databento-microstructure-feature-diagnostic-v0.1",
+    "content_sha256": "996e987f04cd14a87eb8ad56b5dfce9c84fcfbef1bc3af7b44919be0ec00e180",
+    "execution_authorization_content_sha256": "448a8f55624763c9c0a2790f8ad7fc27f794d7a11d500e2726226f982acbdf01"
+  },
+  "github_actions": {
+    "workflow_run_id": 32444174639,
+    "workflow_run_attempt": 1,
+    "workflow_conclusion": "failure",
+    "workflow_head_sha": "3efee47b6daf8e27e1ea033da4393caecf237543",
+    "workflow_head_tree_sha": "61f25367ba5b12dff29e8a40ad8e029d4d4cce0a",
+    "workflow_parent_sha": "c20f20213c75766fd72d60a3b18f75eb51242250",
+    "job_id": 96660549690,
+    "artifact_id": 9433488265,
+    "artifact_name": "databento-microstructure-feature-diagnostic-v0.1-32444174639-1",
+    "artifact_zip_size_bytes": 1651,
+    "artifact_zip_sha256": "6852f5e78f749125c8d1612b2d2e035165efbbe59c4bd78018cd3b3bd7afa747",
+    "sanitized_report_file_sha256": "64c2ad18796ce865408657c90f5b93694f579aff57721a05d54d2c392937ffdf",
+    "sanitized_report_content_sha256": "17899a4e833ce96d16311619a789be963848984ad2eff40dc05c12ab725d2b78"
+  },
+  "verified_preflight_and_attempt": {
+    "preflight_passed": true,
+    "request_count_quoted": 4,
+    "total_quoted_cost_usd": "0.072135579586",
+    "total_billable_size_bytes": 64545824,
+    "hard_cost_ceiling_usd": "0.08",
+    "hard_billable_size_ceiling_bytes": 80000000,
+    "timeseries_request_count": 1,
+    "successful_download_summary_count": 0,
+    "actual_billing_known": false,
+    "automatic_retry_attempted": false,
+    "first_attempt_only_observed": true
+  },
+  "first_request": {
+    "trading_date": "2026-07-10",
+    "symbol": "INTJ",
+    "dataset": "XNAS.ITCH",
+    "schema": "mbo",
+    "start": "2026-07-10T00:00:00Z",
+    "end": "2026-07-10T14:10:00Z",
+    "quoted_cost_usd": "0.000130802393",
+    "billable_size_bytes": 117040,
+    "reported_failure_stage": "download_or_extract:2026-07-10:INTJ:mbo",
+    "reported_error_kind": "ValueError"
+  },
+  "failure_interpretation": {
+    "direct_observation": "The four-request preflight passed, the first INTJ MBO time-series request began, and the combined download-or-extract stage returned a sanitized ValueError before any successful download summary was retained.",
+    "exact_exception_message_retained": false,
+    "exact_failing_guard_identified": false,
+    "provider_download_failure_distinguishable_from_metadata_adapter_or_feature_replay_failure": false,
+    "prior_same_stream_engineering_evidence": "The earlier v0.3 replication downloaded the same INTJ MBO request and produced 59 of 59 exact MBO-to-MBP-10 matches, so the new failure does not invalidate the frozen reconstruction result.",
+    "corrective_hypothesis": "An instrumentation-only child can preserve the frozen adapter and feature engine while emitting only a stable allowlisted failure phase, code, and normalized exception class, without exposing exception text, paths, raw values, tracebacks, or licensed records.",
+    "strategy_or_threshold_failure_observed": false,
+    "policy_promotion_allowed": false
+  },
+  "safety_verification": {
+    "artifact_contains_exactly_one_sanitized_json_file": true,
+    "artifact_zip_digest_recomputed": true,
+    "sanitized_report_file_digest_recomputed": true,
+    "sanitized_report_content_digest_recomputed": true,
+    "sanitized_report_validator_passed": true,
+    "batch_or_live_endpoint_called": false,
+    "provider_credential_persisted": false,
+    "raw_market_data_persisted": false,
+    "raw_market_data_uploaded": false,
+    "raw_temp_directory_empty_before_cleanup": true,
+    "raw_temp_directory_removed": true,
+    "retrospective_labels_loaded": false,
+    "feature_snapshot_values_persisted": false,
+    "runtime_authority_created": false,
+    "broker_or_order_change_made": false,
+    "strategy_or_threshold_change_made": false
+  },
+  "content_sha256": "004d5c37136674a91056371043fd389cd42e87fb10fbba90bea431220b2d57c7"
+}

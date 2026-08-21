@@ -26,7 +26,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 | Databento MBO reset repair | `docs/research/databento_microstructure_smoke_acquisition_v02.md` | frozen v0.1 failure, v0.2 child contract, `databento_smoke_v02.py` and one-shot repair workflow |
 | Databento reset replication | `docs/research/databento_microstructure_replication_v03.md` | verified v0.2 success, unchanged reset engine, three-case child contract and one-shot replication workflow |
 | Microstructure feature mechanics | `docs/research/microstructure_feature_mechanics_v01.md` | v0.3 success audit, threshold-free feature registration and `microstructure_features.py` |
-| Databento feature diagnostic | `docs/research/databento_microstructure_feature_diagnostic_v01.md` | unarmed four-case contract, XNAS MBO adapter, future authorization gate and sanitized diagnostic workflow |
+| Databento feature diagnostic | `docs/research/databento_microstructure_feature_diagnostic_v02.md` | frozen v0.1 failure, unarmed safe-classifier child, unchanged XNAS MBO adapter and future one-request authorization gate |
 | Prospective management/execution | `docs/research/prospective_management_execution_v01.md` | child contract and `execution_realism.py` |
 | New research experiment | `docs/research/experiment_contract.md` | frozen parent policy + runtime artifact |
 | Micro-pullback work | `docs/research/micro_benchmark_suite.md` | `micro_policy.py`, `micro_replay.py`, frozen artifacts |

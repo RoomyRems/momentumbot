@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "diagnostic_contract_id": "databento-microstructure-feature-diagnostic-v0.2",
+  "artifact_type": "preregistered_unarmed_databento_safe_failure_classifier",
+  "registration_date": "2026-08-20",
+  "registration_status": "frozen_after_v0.1_failure_before_any_v0.2_provider_request",
+  "purpose": "Classify the previously combined INTJ download-or-extract failure without changing the frozen XNAS adapter, feature engine, strategy, thresholds, or broker path.",
+  "frozen_parent_failure": {
+    "path": "research/data-audits/databento-microstructure-feature-diagnostic-v0.1-run-32444174639-failure-2026-08-20.json",
+    "audit_id": "databento-microstructure-feature-diagnostic-v0.1-run-32444174639-failure-2026-08-20",
+    "content_sha256": "004d5c37136674a91056371043fd389cd42e87fb10fbba90bea431220b2d57c7",
+    "workflow_run_id": 32444174639,
+    "workflow_run_attempt": 1,
+    "sanitized_report_content_sha256": "17899a4e833ce96d16311619a789be963848984ad2eff40dc05c12ab725d2b78",
+    "observed_failure_stage": "download_or_extract:2026-07-10:INTJ:mbo",
+    "observed_error_kind": "ValueError",
+    "exact_failing_guard_identified": false
+  },
+  "frozen_mechanics": {
+    "parent_diagnostic_contract_id": "databento-microstructure-feature-diagnostic-v0.1",
+    "parent_diagnostic_content_sha256": "996e987f04cd14a87eb8ad56b5dfce9c84fcfbef1bc3af7b44919be0ec00e180",
+    "parent_adapter_file_sha256": "3c0c5ac0d18ffc3d72c1a18da9758ac33a269e3c074bac35fefb1528a99e1919",
+    "feature_set_content_sha256": "b048e26fabd163d66297fa57faf011fbb50d9b69377101dbd04337a1cc1eab6a",
+    "feature_engine_file_sha256": "07e2db045c9187e4bab46e7d25c546668c2c7b8d01f78c58ec36e88e48f1628e",
+    "adapter_semantics_changed": false,
+    "feature_mechanics_changed": false,
+    "feature_windows_or_thresholds_changed": false
+  },
+  "preregistered_hypothesis": "A stage-separated wrapper around the unchanged v0.1 INTJ extraction can distinguish provider download, file, metadata, MBO grouping, canonical translation, feature replay, and snapshot failures using an allowlisted safe phase, code, and normalized exception class. Exception text, paths, raw values, tracebacks, and message hashes are never retained.",
+  "request_surface": {
+    "selection_reason": "INTJ was the first and cheapest request in the frozen v0.1 order and is the only stream on which the combined stage failed; it was selected from failure provenance, not profitability.",
+    "exact_request_count": 1,
+    "requests": [
+      {
+        "trading_date": "2026-07-10",
+        "symbol": "INTJ",
+        "dataset": "XNAS.ITCH",
+        "schema": "mbo",
+        "start": "2026-07-10T00:00:00Z",
+        "end": "2026-07-10T14:10:00Z",
+        "stype_in": "raw_symbol"
+      }
+    ],
+    "observed_v0_1_quote_usd": "0.000130802393",
+    "observed_v0_1_billable_size_bytes": 117040,
+    "proposed_hard_preflight_cost_ceiling_usd": "0.001",
+    "proposed_hard_preflight_billable_size_ceiling_bytes": 1000000
+  },
+  "safe_diagnostic_policy": {
+    "provider_exception_message_retained": false,
+    "adapter_exception_message_retained": false,
+    "exception_message_hash_retained": false,
+    "raw_values_in_error_code_allowed": false,
+    "unknown_value_error_fails_closed": true,
+    "unknown_exception_fails_closed": true,
+    "automatic_retry_allowed": false,
+    "stage_order": [
+      "preflight",
+      "provider_download",
+      "downloaded_file",
+      "metadata",
+      "record",
+      "atomic_group",
+      "normalize",
+      "book_replay",
+      "feature_snapshot",
+      "completion"
+    ],
+    "allowlisted_code_families": [
+      "authorization",
+      "credential",
+      "sdk",
+      "preflight",
+      "provider_download",
+      "downloaded_file",
+      "metadata",
+      "mbo_record",
+      "mbo_atomic_group",
+      "mbo_translation",
+      "canonical_event",
+      "feature_replay",
+      "feature_snapshot",
+      "unclassified_fail_closed"
+    ]
+  },
+  "future_execution_gate": {
+    "provider_purchase_authorized": false,
+    "execution_authorization_file_present": false,
+    "new_explicit_user_authorization_required": true,
+    "future_authorization_must_bind_published_parent_sha": true,
+    "first_github_actions_attempt_only": true,
+    "exact_request_count_authorized": 0,
+    "hard_preflight_cost_ceiling_usd": "0.001",
+    "hard_preflight_billable_size_ceiling_bytes": 1000000,
+    "automatic_retry_authorized": false,
+    "batch_or_live_endpoint_authorized": false,
+    "mbp10_redownload_authorized": false,
+    "raw_market_data_publication_authorized": false,
+    "broker_or_order_change_authorized": false,
+    "strategy_or_threshold_change_authorized": false
+  },
+  "storage_and_licensing": {
+    "raw_storage": "Temporary runner directory only after a future separate authorization.",
+    "public_repository_raw_data": false,
+    "github_artifact_raw_data": false,
+    "persisted_output": "Sanitized allowlisted phase, safe error code, normalized exception class, non-reconstructable counts, quote totals, cleanup booleans, and a file hash only after successful extraction.",
+    "cleanup_rule": "Delete the one temporary DBN file before finalizing the report and fail closed if the temporary directory is not empty.",
+    "log_rule": "Never print raw records, prices, sizes, order IDs, instrument mappings, provider exception messages, adapter exception messages, credentials, or temporary paths."
+  },
+  "prohibited_inputs_and_actions": [
+    "Ross action or retrospective label",
+    "recap text or discretionary judgment",
+    "trade P&L or later price outcome",
+    "threshold fitting or horizon selection",
+    "modifying the frozen v0.1 adapter or feature engine",
+    "Micro-v0.1 or scanner changes",
+    "paper or live order submission",
+    "publishing licensed Databento records",
+    "automatic provider retry",
+    "claiming single-venue Nasdaq depth is consolidated national Level 2"
+  ],
+  "claim_boundary": [
+    "This child improves failure observability only; it does not fix an unidentified adapter guard.",
+    "A future classified failure identifies the next code-only repair target but cannot promote a feature or strategy.",
+    "A future successful INTJ replay would show that the v0.1 failure was not reproduced, not that the feature is predictive or profitable.",
+    "No provider call is authorized by this registration."
+  ],
+  "content_sha256": "14b2a0500b7d2626a71f0a598eb876837f7d4f36754d44e3ecffee1fb3d9a648"
+}

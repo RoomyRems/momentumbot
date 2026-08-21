@@ -67,11 +67,23 @@ historical account diagnostic audit.
   `Trade → Fill → Cancel` adapter around that engine. Its immutable published
   parent remains the unarmed commit
   `c20f20213c75766fd72d60a3b18f75eb51242250`, tree
-  `99fcffc96e6bc23780b447f7ddb3c850774705ea`. A separate execution child now
-  binds exactly that parent and the user's 2026-08-20 instruction to take the
-  proposed next step. Only the first direct-push attempt is eligible, below
-  $0.08 and 80,000,000 billable bytes; no retry, MBP-10 redownload, raw-data
-  retention, threshold selection, strategy change, or broker action is allowed.
+  `99fcffc96e6bc23780b447f7ddb3c850774705ea`. Its separately authorized first
+  attempt ran as workflow `32444174639` at commit
+  `3efee47b6daf8e27e1ea033da4393caecf237543`. The four-request preflight passed
+  at `$0.072135579586` and `64,545,824` billable bytes, but the first INTJ MBO
+  request ended in the combined `download_or_extract` boundary with a sanitized
+  `ValueError`. Exactly one request was attempted, no retry ran, raw data was
+  deleted, and actual billing remains unknown. Because v0.1 intentionally
+  discarded exception text, the exact failing guard is unresolved.
+- Observability child `databento-microstructure-feature-diagnostic-v0.2`,
+  content SHA-256
+  `14b2a0500b7d2626a71f0a598eb876837f7d4f36754d44e3ecffee1fb3d9a648`,
+  freezes that failed artifact and separates provider, file, metadata, record,
+  atomic-group, normalization, book-replay, feature-snapshot, and completion
+  failures. It retains only fixed safe phases/codes and normalized exception
+  classes—never messages, paths, raw values, tracebacks, or message hashes. The
+  child is unarmed: its future parent-bound execution file is absent, so this
+  code-only registration authorizes and spends nothing.
 - Prospective child `prospective-management-execution-v0.1`, content SHA-256
   `14812b9f25b5ea7230254ed86b1e0eaa30fffe3dc13b1ee141b19770706090f9`,
   freezes `half-2r-breakeven-first-red-1m` from source-explicit teaching, not
@@ -99,6 +111,8 @@ historical account diagnostic audit.
 - `research/data-audits/microstructure-feature-mechanics-v0.1-2026-08-20.json`
 - `research/data-audits/databento-microstructure-feature-diagnostic-v0.1-registration-2026-08-20.json`
 - `research/data-audits/databento-microstructure-feature-diagnostic-v0.1-execution-authorization-2026-08-20.json`
+- `research/data-audits/databento-microstructure-feature-diagnostic-v0.1-run-32444174639-failure-2026-08-20.json`
+- `research/data-audits/databento-microstructure-feature-diagnostic-v0.2-registration-2026-08-20.json`
 - `research/data-audits/prospective-management-execution-v0.1-2026-08-20.json`
 - `research/strategy/databento-microstructure-metadata-quote-v0.1.json`
 - `research/strategy/databento-microstructure-smoke-acquisition-v0.1.json`
@@ -107,6 +121,7 @@ historical account diagnostic audit.
 - `research/strategy/microstructure-feature-mechanics-v0.1.json`
 - `research/strategy/databento-microstructure-feature-diagnostic-v0.1.json`
 - `research/strategy/databento-microstructure-feature-diagnostic-v0.1-execution.json`
+- `research/strategy/databento-microstructure-feature-diagnostic-v0.2.json`
 - `research/strategy/prospective-management-execution-v0.1.json`
 - `docs/research/databento_metadata_quote_v01.md`
 - `docs/research/databento_microstructure_smoke_acquisition_v01.md`
@@ -114,6 +129,7 @@ historical account diagnostic audit.
 - `docs/research/databento_microstructure_replication_v03.md`
 - `docs/research/microstructure_feature_mechanics_v01.md`
 - `docs/research/databento_microstructure_feature_diagnostic_v01.md`
+- `docs/research/databento_microstructure_feature_diagnostic_v02.md`
 - `docs/research/prospective_management_execution_v01.md`
 
 ## Active gates
@@ -123,20 +139,23 @@ historical account diagnostic audit.
 2. Integrate the frozen management rule and both fixed execution scenarios only
    when the registered account snapshot and causal top-of-book/halt inputs
    exist. Missing quotes remain unavailable; there is no SIP-print fallback.
-3. Publish the parent-bound execution child only as a direct fast-forward from
-   `c20f20213c75766fd72d60a3b18f75eb51242250`, then permanently audit its first
-   and only workflow attempt before continuing. It may re-acquire only the four
-   exact MBO streams below $0.08 and 80,000,000 billable bytes and must not
-   redownload MBP-10, retry, retain raw data, or select a window/threshold.
+3. Publish the unarmed v0.2 classifier and its permanent v0.1 failure audit.
+   Only after that publication may a separate user-authorized child bind the
+   exact published parent and permit one first-attempt INTJ MBO request below
+   `$0.001` and `1,000,000` billable bytes. It must not redownload MBP-10,
+   retry, retain raw data, select a window/threshold, or change strategy or
+   broker behavior.
 4. Run the larger preregistered walk-forward and prospective paper sequence
    before any policy promotion or profitability interpretation.
 
 ## Still not ready
 
 - No full portfolio backtest is complete.
-- The four Databento engineering cases reconstruct exactly, but no real-data
-  feature snapshot, feature threshold, behavioral comparison, or economic
-  result exists. This remains engineering evidence, not profitability evidence.
+- The four Databento engineering cases reconstruct exactly, but the first
+  real-data feature diagnostic failed before retaining a feature result. No
+  real-data feature snapshot, feature threshold, behavioral comparison, or
+  economic result exists. This remains engineering evidence, not profitability
+  evidence.
 - No exact Ross Cameron imitation or comparable-profitability claim is valid.
 - No complete strategy-family, discretionary seller/tape, cross-account
   attention, consolidated Level 2, market-impact, or calibrated broker model
@@ -150,7 +169,8 @@ The previously published checkpoint passed its focused 31/31 tests and full
 passes 26/26 focused tests. The v0.2 reset-repair bundle passes 11/11 focused
 tests. The v0.3 replication bundle passes 9/9 focused tests. The feature
 mechanics bundle passes 9/9 focused tests. The parent-bound four-case feature
-diagnostic activation passes 12/12 focused tests. The complete repository passes 622/622
+diagnostic activation passes 12/12 focused tests. The unarmed safe-classifier
+child passes 13/13 focused tests, and the complete repository passes 635/635
 tests, including both reset modes, later-clear
 recovery, deterministic budgets, all-three-case replay, cohort-preserving
 mismatch, cleanup, dual replay, MBP-10 mismatch, provider/parser failure,
