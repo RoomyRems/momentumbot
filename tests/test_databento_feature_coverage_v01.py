@@ -77,6 +77,13 @@ REGISTRATION_AUDIT = (
     / "data-audits"
     / "databento-microstructure-feature-coverage-v0.1-registration-2026-08-21.json"
 )
+ACTIVATION_READINESS_AUDIT = (
+    ROOT
+    / "research"
+    / "data-audits"
+    / "databento-microstructure-feature-coverage-v0.1-activation-readiness-"
+    "2026-08-21.json"
+)
 GENERATED_AT = datetime(2026, 8, 21, 15, tzinfo=UTC)
 
 
@@ -186,7 +193,17 @@ class DatabentoFeatureCoverageV01Tests(unittest.TestCase):
         )
         self.assertFalse(self.contract["provider_purchase_authorized"])
         self.assertFalse(self.contract["execution_authorization_file_present"])
-        self.assertFalse(FUTURE_AUTHORIZATION.exists())
+        if FUTURE_AUTHORIZATION.exists():
+            future_authorization = coverage.load_execution_authorization(
+                FUTURE_AUTHORIZATION
+            )
+            self.assertTrue(future_authorization["provider_purchase_authorized"])
+            self.assertEqual(
+                future_authorization["exact_request_count_authorized"],
+                3,
+            )
+        else:
+            self.assertFalse(FUTURE_AUTHORIZATION.exists())
 
     def test_fixed_remaining_case_order_excludes_only_verified_intj(self):
         self.assertEqual(
@@ -344,6 +361,31 @@ class DatabentoFeatureCoverageV01Tests(unittest.TestCase):
         self.assertFalse(audit["execution_status"]["execution_authorization_present"])
         self.assertFalse(audit["execution_status"]["provider_call_run"])
         self.assertFalse(audit["execution_status"]["databento_credit_used"])
+
+    def test_activation_readiness_audit_binds_corrected_test_harness(self):
+        audit = json.loads(
+            ACTIVATION_READINESS_AUDIT.read_text(encoding="utf-8")
+        )
+        claimed = audit["content_sha256"]
+        unsigned = {
+            key: value for key, value in audit.items() if key != "content_sha256"
+        }
+        self.assertEqual(canonical_fingerprint(unsigned), claimed)
+        self.assertEqual(
+            audit["published_parent"]["commit_sha"],
+            "4017d02284e87729856633071115ae61ae1f27a5",
+        )
+        self.assertFalse(
+            audit["corrective_scope"]["future_authorization_file_present"]
+        )
+        self.assertFalse(audit["corrective_scope"]["provider_call_run"])
+        self.assertFalse(audit["corrective_scope"]["databento_credit_used"])
+        for row in audit["bound_files"]:
+            path = ROOT / row["path"]
+            self.assertEqual(
+                hashlib.sha256(path.read_bytes()).hexdigest(),
+                row["file_sha256"],
+            )
 
 
 if __name__ == "__main__":
