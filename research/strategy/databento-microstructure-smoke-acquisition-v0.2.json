@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "acquisition_contract_id": "databento-microstructure-smoke-acquisition-v0.2",
+  "artifact_type": "preregistered_bounded_ephemeral_databento_reset_repair",
+  "registration_date": "2026-08-20",
+  "registration_status": "frozen_after_v0.1_failure_before_v0.2_timeseries_request",
+  "purpose": "Test one corrective hypothesis from the frozen v0.1 failure: whether an unflagged first cleaR action at the UTC session boundary can safely initialize an XNAS.ITCH MBO replay that then agrees with MBP-10.",
+  "frozen_parent_failure": {
+    "path": "research/data-audits/databento-microstructure-smoke-acquisition-v0.1-run-32427326070-failure-2026-08-20.json",
+    "audit_id": "databento-microstructure-smoke-acquisition-v0.1-run-32427326070-failure-2026-08-20",
+    "content_sha256": "b2c0b03fd4f43985a81f8d0321978c8dc180c5e6953cbe95ff871fb34aba088c",
+    "workflow_run_id": 32427326070,
+    "workflow_run_attempt": 1,
+    "sanitized_report_content_sha256": "fdd4a903bb80e6f3d32081217a858de6f728678012030815b56c541e3dba3b49",
+    "observed_failure": "All four files had one cleaR action but zero F_SNAPSHOT clears, so the v0.1 predicate left every book unready and aligned zero samples. No MBO-to-MBP-10 disagreement was observed."
+  },
+  "authorization": {
+    "source": "User replied Go ahead on 2026-08-20 to the proposed v0.2 EQPT-only repair verification and its approximate 0.00582 USD quote.",
+    "metadata_requote_authorized": true,
+    "historical_timeseries_download_authorized": true,
+    "exact_request_count_authorized": 2,
+    "authorized_push_parent_sha": "2754a33d2a7deecac6aca7aa7c8cd1ba7c854b98",
+    "batch_job_authorized": false,
+    "live_subscription_authorized": false,
+    "broad_history_download_authorized": false,
+    "automatic_retry_authorized": false,
+    "broker_or_order_change_authorized": false,
+    "reported_new_user_credit_usd": "125",
+    "observed_v0_1_eqpt_quote_usd": "0.005820024014",
+    "hard_preflight_cost_ceiling_usd": "0.02",
+    "observed_v0_1_eqpt_billable_size_bytes": 10810592,
+    "hard_preflight_billable_size_ceiling_bytes": 15000000,
+    "failure_rule": "Run only on the first GitHub Actions attempt of the direct push whose prior branch head is 2754a33d2a7deecac6aca7aa7c8cd1ba7c854b98. Requote both exact requests before downloading. If either metadata call fails, total quote exceeds 0.02 USD, or total billable size exceeds 15000000 bytes, make zero timeseries calls. Once downloading begins, stop after the first provider, file, or parser failure and never retry automatically."
+  },
+  "provider": {
+    "provider_id": "databento",
+    "dataset": "XNAS.ITCH",
+    "venue_scope": "single_venue_nasdaq_not_consolidated_national_depth",
+    "sdk_package": "databento",
+    "sdk_version": "0.83.0",
+    "secret_name": "DATABENTO_API_KEY",
+    "secret_scope": "v0.2 acquisition workflow step only; never persisted"
+  },
+  "request_surface": {
+    "trading_date": "2026-07-10",
+    "symbol": "EQPT",
+    "selection_reason": "Cheapest informative v0.1 case with 153 deterministic MBP-10 reference samples; selected before the v0.2 acquisition, not from a profitability outcome.",
+    "requests": [
+      {
+        "dataset": "XNAS.ITCH",
+        "schema": "mbp-10",
+        "start": "2026-07-10T10:50:00Z",
+        "end": "2026-07-10T14:10:00Z",
+        "symbol": "EQPT",
+        "stype_in": "raw_symbol"
+      },
+      {
+        "dataset": "XNAS.ITCH",
+        "schema": "mbo",
+        "start": "2026-07-10T00:00:00Z",
+        "end": "2026-07-10T14:10:00Z",
+        "symbol": "EQPT",
+        "stype_in": "raw_symbol"
+      }
+    ],
+    "allowed_calls": [
+      "historical.metadata.get_billable_size",
+      "historical.metadata.get_cost",
+      "historical.timeseries.get_range"
+    ],
+    "prohibited_calls": [
+      "historical.batch.submit_job",
+      "historical.batch.download",
+      "live.subscribe"
+    ]
+  },
+  "preregistered_hypothesis": "The first MBO record for EQPT is a valid cleaR action at the UTC session boundary even when F_SNAPSHOT is absent. After that clear event or the next non-snapshot event closes on F_LAST, two independent MBO replays will agree with one another and with Databento MBP-10 at at least 95 percent of deterministic one-minute reference samples.",
+  "integrity_policy": {
+    "sample_rule": "Retain the last MBP-10 record by receive time in each UTC one-minute bucket and compare only at the matching MBO F_LAST publisher, instrument, and venue sequence.",
+    "initialization_rule": "The first observed MBO action for each publisher and instrument must be cleaR. A cleaR with F_SNAPSHOT starts a synthetic snapshot and becomes ready only after a later non-snapshot F_LAST. A cleaR without F_SNAPSHOT starts an empty session book and becomes ready when that clear event or a later non-snapshot event closes on F_LAST.",
+    "recovery_rule": "Every later cleaR action clears both independent books, removes readiness, and must cross a new qualifying F_LAST before comparisons resume.",
+    "action_semantics": "Trade, Fill, and None do not mutate the book; clear removes all orders; add inserts; cancel subtracts size; modify replaces price and size. F_TOB and UNDEF_PRICE retain the frozen v0.1 handling.",
+    "sequence_rule": "Repeated sequence numbers within a multi-record event are allowed; unflagged reversals fail. Symbol-filtered forward gaps remain diagnostic only because the venue sequence is channel-wide.",
+    "g1_requirements": [
+      "both exact requests complete and produce nonempty hashable DBN files",
+      "dataset and schema metadata match both requests",
+      "required MBO and MBP-10 fields are observed",
+      "the first MBO action for every observed book is cleaR",
+      "no book-mutating record occurs before its initialization clear",
+      "at least one book becomes ready after the registered reset rule",
+      "no provider or parser error occurs and every raw file is deleted"
+    ],
+    "g2_requirements": [
+      "at least one aligned comparison exists and at least 95 percent of MBP-10 reference samples align",
+      "incremental and independent order-map top-ten states match at every aligned sample",
+      "MBO-derived and MBP-10 price, size, and count states match at every aligned sample",
+      "no orphan cancel, missing modify, duplicate add, invalid action, invalid side, invalid size, timestamp inversion, sequence reversal, reference collision, or crossed sampled book remains"
+    ]
+  },
+  "storage_and_licensing": {
+    "raw_storage": "Temporary runner directory only.",
+    "public_repository_raw_data": false,
+    "github_artifact_raw_data": false,
+    "persisted_output": "Sanitized non-reconstructable counts, pass/fail booleans, quoted cost and byte totals, and SHA-256 hashes of the two ephemeral DBN files.",
+    "cleanup_rule": "Delete each DBN file before finalizing the sanitized report and fail closed if the temporary directory is not empty.",
+    "log_rule": "Never print raw records, prices, sizes, order IDs, instrument mappings, provider exception messages, credentials, or temporary paths."
+  },
+  "prohibited_inputs_and_actions": [
+    "Ross action or retrospective label",
+    "recap text or discretionary judgment",
+    "trade P&L or later price outcome",
+    "threshold fitting or case-by-case strategy tuning",
+    "Micro-v0.1 or scanner changes",
+    "paper or live order submission",
+    "publishing licensed Databento records",
+    "claiming single-venue Nasdaq depth is consolidated national Level 2"
+  ],
+  "claim_boundary": [
+    "This repairs and tests data plumbing only; it does not promote a Level 2 feature.",
+    "A pass proves only that the reset semantics can support exact reconstruction for one EQPT session.",
+    "A fail remains useful evidence and stops before any four-case expansion.",
+    "Actual Databento billing may differ from the quote and is not inferred from the preflight estimate."
+  ],
+  "content_sha256": "61b9ab6a0894a5a6871feda0236cdb9605f14b7ce13633c36dd1cffc4aa4de2a"
+}

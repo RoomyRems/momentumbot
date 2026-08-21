@@ -25,14 +25,22 @@ historical account diagnostic audit.
 - Databento acquisition child `databento-microstructure-smoke-acquisition-v0.1`,
   content SHA-256
   `d4b38436ef3b5fc08e853b5205c34df930de8abe88ffd36979dcc0e4e166115c`,
-  freezes the authorized four-case acquisition. It requotes before spending,
-  downloads nothing above $0.50 or 500,000,000 bytes, blocks workflow reruns,
-  accepts only a direct push from published parent `cfe6b006`,
-  makes no batch or live request, processes DBN only in an ephemeral directory,
-  uploads only a sanitized diagnostic, and creates no runtime authority. Two
-  independent MBO replays must agree with the provider's MBP-10 top ten at
-  deterministic one-minute samples. The child is locally implemented and
-  tested but has not yet issued a Databento time-series request.
+  ran once in workflow `32427326070`. It requoted and downloaded all 20 exact
+  files for $0.207468646765 and 379,772,560 billable bytes, then deleted every
+  raw file and uploaded only the sanitized diagnostic. G1 and G2 failed because
+  all four cases had one valid clear and zero `F_SNAPSHOT` clears; the v0.1
+  predicate therefore left every book unready and aligned zero samples. No
+  actual MBO-to-MBP-10 disagreement was observed, no retry ran, and actual
+  billing remains unknown. The failure is permanently hash-bound.
+- Corrective child `databento-microstructure-smoke-acquisition-v0.2`, content
+  SHA-256
+  `61b9ab6a0894a5a6871feda0236cdb9605f14b7ce13633c36dd1cffc4aa4de2a`,
+  tests only the preregistered session-boundary clear interpretation on EQPT.
+  It requotes exactly two requests, downloads nothing above $0.02 or 15,000,000
+  bytes, blocks reruns, retains the snapshot-clear path, resets both books on
+  every later clear, uploads only a sanitized diagnostic, and creates no
+  runtime authority. It is implemented and locally tested but has not issued
+  a v0.2 provider time-series request.
 - Prospective child `prospective-management-execution-v0.1`, content SHA-256
   `14812b9f25b5ea7230254ed86b1e0eaa30fffe3dc13b1ee141b19770706090f9`,
   freezes `half-2r-breakeven-first-red-1m` from source-explicit teaching, not
@@ -52,36 +60,41 @@ historical account diagnostic audit.
 - `research/data-audits/databento-microstructure-metadata-quote-v0.1-2026-08-20.json`
 - `research/data-audits/databento-microstructure-metadata-quote-v0.1-run-32418655472-success-2026-08-20.json`
 - `research/data-audits/databento-microstructure-smoke-acquisition-v0.1-registration-2026-08-20.json`
+- `research/data-audits/databento-microstructure-smoke-acquisition-v0.1-run-32427326070-failure-2026-08-20.json`
+- `research/data-audits/databento-microstructure-smoke-acquisition-v0.2-registration-2026-08-20.json`
 - `research/data-audits/prospective-management-execution-v0.1-2026-08-20.json`
 - `research/strategy/databento-microstructure-metadata-quote-v0.1.json`
 - `research/strategy/databento-microstructure-smoke-acquisition-v0.1.json`
+- `research/strategy/databento-microstructure-smoke-acquisition-v0.2.json`
 - `research/strategy/prospective-management-execution-v0.1.json`
 - `docs/research/databento_metadata_quote_v01.md`
 - `docs/research/databento_microstructure_smoke_acquisition_v01.md`
+- `docs/research/databento_microstructure_smoke_acquisition_v02.md`
 - `docs/research/prospective_management_execution_v01.md`
 
 ## Active gates
 
-1. Publish the one-shot Databento smoke-acquisition child. Its push-triggered
-   workflow must repeat the 20 free quotes below both hard ceilings before it
-   downloads, reconstructs, sanitizes, deletes the raw files, and uploads the
-   G1/G2 diagnostic. A GitHub Actions rerun is explicitly blocked.
+1. Publish the one-shot v0.2 reset-repair child. Its push-triggered workflow
+   must repeat the two free quotes below both hard ceilings before it downloads
+   the EQPT MBO/MBP-10 pair, reconstructs, sanitizes, deletes the raw files, and
+   uploads the G1/G2 diagnostic. A GitHub Actions rerun is explicitly blocked.
 2. Retain both hash-bound pre-session account snapshots on every registered
    August 24–September 4 date. The credential prerequisite is complete.
 3. Integrate the frozen management rule and both fixed execution scenarios only
    when the registered account snapshot and causal top-of-book/halt inputs
    exist. Missing quotes remain unavailable; there is no SIP-print fallback.
-4. If the bounded acquisition passes, inspect and permanently bind its
-   sanitized artifact before implementing the separately gated G3 causal
-   feature mechanics. A failed acquisition remains the result and stops there.
+4. If v0.2 passes, inspect and permanently bind its sanitized artifact before
+   deciding whether the preregistered four-case replication is justified. A
+   v0.2 failure remains the result and stops without a retry.
 5. Run the larger preregistered walk-forward and prospective paper sequence
    before any policy promotion or profitability interpretation.
 
 ## Still not ready
 
 - No full portfolio backtest is complete.
-- No Databento historical time-series request has run yet; G1 schema integrity
-  and G2 book reconstruction therefore remain unobserved against real data.
+- The v0.1 Databento time-series run failed before any real MBO-to-MBP-10
+  comparison. The v0.2 reset interpretation remains unobserved against real
+  data until its one-shot EQPT workflow completes.
 - No exact Ross Cameron imitation or comparable-profitability claim is valid.
 - No complete strategy-family, discretionary seller/tape, cross-account
   attention, consolidated Level 2, market-impact, or calibrated broker model
@@ -91,7 +104,9 @@ historical account diagnostic audit.
 ## Verification
 
 The previously published checkpoint passed its focused 31/31 tests and full
-570/570 suite. The new Level 2 parent, quote, and acquisition verification
-passes 26/26 focused tests. The complete repository passes 581/581 tests,
-including deterministic budget, cleanup, dual replay, MBP-10 mismatch,
-provider/parser failure, sanitization, and one-shot workflow checks.
+570/570 suite. The Level 2 parent, quote, and v0.1 acquisition verification
+passes 26/26 focused tests. The v0.2 reset-repair bundle passes 11/11 focused
+tests. The complete repository passes 592/592 tests, including both reset
+modes, later-clear recovery, deterministic budget, cleanup, dual replay,
+MBP-10 mismatch, provider/parser failure, sanitization, and one-shot workflow
+checks.

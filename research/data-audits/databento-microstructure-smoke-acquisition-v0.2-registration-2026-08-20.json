@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "audit_id": "databento-microstructure-smoke-acquisition-v0.2-registration-2026-08-20",
+  "audit_date": "2026-08-20",
+  "artifact_type": "preregistered_databento_reset_repair_bundle",
+  "contract": {
+    "acquisition_contract_id": "databento-microstructure-smoke-acquisition-v0.2",
+    "content_sha256": "61b9ab6a0894a5a6871feda0236cdb9605f14b7ce13633c36dd1cffc4aa4de2a",
+    "authorized_push_parent_sha": "2754a33d2a7deecac6aca7aa7c8cd1ba7c854b98",
+    "exact_request_count": 2,
+    "hard_preflight_cost_ceiling_usd": "0.02",
+    "hard_preflight_billable_size_ceiling_bytes": 15000000
+  },
+  "parent_failure": {
+    "audit_id": "databento-microstructure-smoke-acquisition-v0.1-run-32427326070-failure-2026-08-20",
+    "content_sha256": "b2c0b03fd4f43985a81f8d0321978c8dc180c5e6953cbe95ff871fb34aba088c",
+    "sanitized_report_content_sha256": "fdd4a903bb80e6f3d32081217a858de6f728678012030815b56c541e3dba3b49",
+    "observed_mbo_mbp10_disagreement": false
+  },
+  "registered_change": {
+    "single_corrective_hypothesis": "A valid first cleaR action at the UTC session boundary may initialize an empty MBO book without F_SNAPSHOT; readiness begins on that event or a later non-snapshot F_LAST.",
+    "snapshot_clear_path_preserved": true,
+    "later_clear_resets_both_books": true,
+    "strategy_or_threshold_change": false,
+    "case_selected_from_profitability": false,
+    "case_selection_reason": "EQPT was the cheapest informative v0.1 case and retained 153 deterministic MBP-10 references."
+  },
+  "bound_files": [
+    {
+      "path": "research/data-audits/databento-microstructure-smoke-acquisition-v0.1-run-32427326070-failure-2026-08-20.json",
+      "file_sha256": "fe00621acc6378460a13c49510b6959cb8270b9cbc042a7ccba1293b11b252e2"
+    },
+    {
+      "path": "research/strategy/databento-microstructure-smoke-acquisition-v0.2.json",
+      "file_sha256": "b2c9a70615ba9c12f76d1fea5d7f84a54521a162355b161573da739c3cddad56"
+    },
+    {
+      "path": "src/momentumbot/research/databento_smoke_v02.py",
+      "file_sha256": "c04229c2750d780bde14276171a14e0ce62bd527f6e09bb1ef0331a3020c99e9"
+    },
+    {
+      "path": "scripts/run_databento_microstructure_smoke_v02.py",
+      "file_sha256": "63e95b65c65d06797dca9c5460fbdcb04649e854270c6d261be6f8500c495b40"
+    },
+    {
+      "path": ".github/workflows/databento-microstructure-smoke-v02.yml",
+      "file_sha256": "14a40ac334d64df7358eabd811c49c700099dac91cf3eb1821374a0a83f92d5c"
+    },
+    {
+      "path": "tests/test_databento_smoke_v02.py",
+      "file_sha256": "4e63c6ed0f4ffa3a4f6136be9a277ef8861356cc615faeeef648ed5e29fff076"
+    },
+    {
+      "path": "docs/research/databento_microstructure_smoke_acquisition_v02.md",
+      "file_sha256": "2735b7b655165f47a1070b374e088659943e9b6c2103f9820f18c5e464f3cb52"
+    }
+  ],
+  "verification_contract": {
+    "focused_expected": "11 tests passing",
+    "full_expected": "592 tests passing",
+    "synthetic_session_clear_pass_required": true,
+    "synthetic_snapshot_clear_pass_required": true,
+    "synthetic_recovery_clear_pass_required": true,
+    "malformed_first_clear_failure_required": true,
+    "mbo_mbp10_mismatch_failure_required": true,
+    "budget_fail_closed_required": true,
+    "cleanup_and_sanitization_required": true,
+    "workflow_rerun_block_required": true
+  },
+  "execution_status": {
+    "provider_metadata_requote_run": false,
+    "provider_timeseries_request_run": false,
+    "github_workflow_run_id": null,
+    "sanitized_report_content_sha256": null,
+    "actual_billing_known": false
+  },
+  "authority_boundary": {
+    "automatic_retry_authorized": false,
+    "batch_or_live_endpoint_authorized": false,
+    "broad_history_download_authorized": false,
+    "raw_market_data_publication_authorized": false,
+    "runtime_feature_authority_created": false,
+    "strategy_or_threshold_authority_created": false,
+    "paper_or_live_order_submitted": false,
+    "broker_or_account_change_made": false
+  },
+  "content_sha256": "02c46d109ec45acdb99fb7e11cf6ec0f9617f6e0070dd57448443d12ccb5a33d"
+}

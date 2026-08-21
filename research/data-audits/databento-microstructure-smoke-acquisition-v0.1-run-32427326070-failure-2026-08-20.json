@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "audit_id": "databento-microstructure-smoke-acquisition-v0.1-run-32427326070-failure-2026-08-20",
+  "audit_date": "2026-08-20",
+  "artifact_type": "independently_verified_sanitized_databento_acquisition_failure",
+  "contract": {
+    "acquisition_contract_id": "databento-microstructure-smoke-acquisition-v0.1",
+    "content_sha256": "d4b38436ef3b5fc08e853b5205c34df930de8abe88ffd36979dcc0e4e166115c"
+  },
+  "github_actions": {
+    "workflow_run_id": 32427326070,
+    "workflow_run_attempt": 1,
+    "workflow_conclusion": "failure",
+    "workflow_head_sha": "2754a33d2a7deecac6aca7aa7c8cd1ba7c854b98",
+    "workflow_head_tree_sha": "a014ab84643b8a09be80b286a8c5c240d6617089",
+    "workflow_parent_sha": "cfe6b00692feea250856afef7a3e1164f178a6e6",
+    "artifact_id": 9427972977,
+    "artifact_name": "databento-microstructure-smoke-acquisition-v0.1-32427326070-1",
+    "artifact_zip_sha256": "3d493c0657260afeb7e5bd39e3ddcc3c214c0a85d9edbb83f54a063a56f031c1",
+    "sanitized_report_content_sha256": "fdd4a903bb80e6f3d32081217a858de6f728678012030815b56c541e3dba3b49"
+  },
+  "verified_acquisition": {
+    "preflight_passed": true,
+    "request_count_quoted": 20,
+    "timeseries_request_count": 20,
+    "total_quoted_cost_usd": "0.207468646765",
+    "total_billable_size_bytes": 379772560,
+    "actual_billing_known": false,
+    "all_four_cases_downloaded": true,
+    "all_five_schemas_downloaded_per_case": true,
+    "provider_or_parser_error_count": 0,
+    "g1_schema_and_integrity_passed": false,
+    "g2_reconstruction_passed": false,
+    "smoke_acquisition_passed": false
+  },
+  "observed_reset_and_alignment_evidence": [
+    {
+      "trading_date": "2026-07-10",
+      "symbol": "INTJ",
+      "mbo_record_count": 2090,
+      "clear_action_count": 1,
+      "synthetic_snapshot_clear_count": 0,
+      "ready_book_count": 0,
+      "mbp10_reference_sample_count": 59,
+      "aligned_sample_count": 0
+    },
+    {
+      "trading_date": "2026-07-10",
+      "symbol": "EQPT",
+      "mbo_record_count": 42968,
+      "clear_action_count": 1,
+      "synthetic_snapshot_clear_count": 0,
+      "ready_book_count": 0,
+      "mbp10_reference_sample_count": 153,
+      "aligned_sample_count": 0
+    },
+    {
+      "trading_date": "2026-07-20",
+      "symbol": "AMC",
+      "mbo_record_count": 159440,
+      "clear_action_count": 1,
+      "synthetic_snapshot_clear_count": 0,
+      "ready_book_count": 0,
+      "mbp10_reference_sample_count": 200,
+      "aligned_sample_count": 0
+    },
+    {
+      "trading_date": "2026-07-10",
+      "symbol": "GMM",
+      "mbo_record_count": 948106,
+      "clear_action_count": 1,
+      "synthetic_snapshot_clear_count": 0,
+      "ready_book_count": 0,
+      "mbp10_reference_sample_count": 200,
+      "aligned_sample_count": 0
+    }
+  ],
+  "failure_interpretation": {
+    "registered_predicate_that_failed": "The v0.1 book-ready rule accepted only a cleaR action carrying F_SNAPSHOT and then a later non-snapshot F_LAST.",
+    "direct_observation": "Every case contained exactly one cleaR action, but none was counted as F_SNAPSHOT; consequently no book became ready and no MBO-to-MBP-10 comparison was attempted.",
+    "mbo_mbp10_disagreement_observed": false,
+    "strategy_or_threshold_failure_observed": false,
+    "corrective_hypothesis": "For a historical request beginning at the UTC session boundary, a first cleaR action without F_SNAPSHOT can initialize an empty book; readiness begins when that clear event or a later non-snapshot event closes on F_LAST.",
+    "policy_promotion_allowed": false
+  },
+  "safety_verification": {
+    "sanitized_report_contract_validation_passed": true,
+    "artifact_zip_digest_recomputed": true,
+    "sanitized_report_content_digest_recomputed": true,
+    "automatic_retry_attempted": false,
+    "batch_or_live_endpoint_called": false,
+    "provider_credential_persisted": false,
+    "raw_market_data_persisted": false,
+    "raw_market_data_uploaded": false,
+    "raw_temp_directory_empty_before_cleanup": true,
+    "raw_temp_directory_removed": true,
+    "runtime_authority_created": false,
+    "broker_or_order_change_made": false,
+    "strategy_or_threshold_change_made": false
+  },
+  "content_sha256": "b2c0b03fd4f43985a81f8d0321978c8dc180c5e6953cbe95ff871fb34aba088c"
+}
