@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "execution_authorization_id": "databento-microstructure-fill-cancel-classifier-v0.1-execution",
+  "artifact_type": "explicit_one_shot_databento_fill_cancel_classifier_authorization",
+  "classifier_contract_id": "databento-microstructure-fill-cancel-classifier-v0.1",
+  "classifier_contract_content_sha256": "88a7373d70bacbad2418d900abc0fcce45e3f927d54a88275091bed05c9e44c0",
+  "authorized_push_parent_sha": "8ac472cdae517011fe367f70eba38087e085dbd8",
+  "explicit_user_authorization": "User explicitly authorized creating and publishing the sole parent-bound Fill/Cancel classifier execution file as a direct child of commit 8ac472cdae517011fe367f70eba38087e085dbd8 on 2026-08-21 and authorized the resulting first-attempt Databento EQPT diagnostic, capped at $0.003 and 3 MB, with one request and no retries.",
+  "provider_purchase_authorized": true,
+  "exact_request_count_authorized": 1,
+  "hard_preflight_cost_ceiling_usd": "0.003",
+  "hard_preflight_billable_size_ceiling_bytes": 3000000,
+  "first_github_actions_attempt_only": true,
+  "automatic_retry_authorized": false,
+  "batch_or_live_endpoint_authorized": false,
+  "raw_market_data_publication_authorized": false,
+  "broker_or_order_change_authorized": false,
+  "strategy_or_threshold_change_authorized": false,
+  "content_sha256": "5ad5dbf2c506aec2a9655de546e84c610ec4729057bdc189a06317a9ef744689"
+}
