@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "audit_id": "databento-microstructure-feature-coverage-v0.2-registration-2026-08-21",
+  "artifact_type": "unarmed_databento_amc_gmm_repaired_feature_coverage_registration_audit",
+  "recorded_at": "2026-08-21T21:00:00Z",
+  "published_checkpoint": {
+    "repository": "RoomyRems/momentumbot",
+    "branch": "phase-3-historical-snapshot",
+    "commit_sha": "a8e683465ac680ea233414455f8da568e0e6656c",
+    "tree_sha": "91119666d04f39663442a0cb133bc28238a6229a"
+  },
+  "contract": {
+    "coverage_contract_id": "databento-microstructure-feature-coverage-v0.2",
+    "path": "research/strategy/databento-microstructure-feature-coverage-v0.2.json",
+    "content_sha256": "1218c98f80cbf7c535636ddd67842ed6ebc0a39628eaababfc44a7a0b822e213",
+    "provider_purchase_authorized": false,
+    "execution_authorization_file_present": false
+  },
+  "frozen_verified_parents": [
+    {
+      "case": "INTJ",
+      "audit_id": "databento-microstructure-feature-diagnostic-v0.3-run-32483408413-success-2026-08-21",
+      "content_sha256": "093f65e4d62b125e370d972a5bd9ee3880b5439d72072dd3fd533e4774d18ebb",
+      "workflow_run_id": 32483408413,
+      "independent_feature_replay_exact": true,
+      "sampled_snapshot_count": 238,
+      "threshold_or_horizon_selected": false,
+      "runtime_authority_created": false
+    },
+    {
+      "case": "EQPT",
+      "audit_id": "databento-microstructure-fill-cancel-repaired-feature-v0.1-run-32520311940-success-2026-08-21",
+      "content_sha256": "d87addf40a080d132799cb14daf8f6096b661d97369e7ebd9f8e216609cfffbb",
+      "workflow_run_id": 32520311940,
+      "independent_feature_replay_exact": true,
+      "matched_executed_removal_count": 1346,
+      "sampled_snapshot_count": 2289,
+      "threshold_or_horizon_selected": false,
+      "runtime_authority_created": false
+    }
+  ],
+  "registered_remaining_cohort": {
+    "case_order": [
+      "2026-07-20:AMC",
+      "2026-07-10:GMM"
+    ],
+    "case_count": 2,
+    "request_count": 2,
+    "schema": "mbo",
+    "dataset": "XNAS.ITCH",
+    "selection_changed_from_original_four_case_registration": false,
+    "only_verified_intj_and_eqpt_parents_removed": true
+  },
+  "prior_quote_evidence": {
+    "source_three_case_quoted_cost_usd": "0.072004777193",
+    "source_three_case_billable_size_bytes": 64428784,
+    "verified_eqpt_quoted_cost_usd": "0.002689146996",
+    "verified_eqpt_billable_size_bytes": 2406208,
+    "derived_amc_gmm_quoted_cost_usd": "0.069315630197",
+    "derived_amc_gmm_billable_size_bytes": 62022576,
+    "fresh_preflight_still_required": true,
+    "provider_authority_created": false
+  },
+  "bound_files": [
+    {
+      "path": "research/strategy/databento-microstructure-feature-coverage-v0.2.json",
+      "file_sha256": "491b6850883838085f3220d287a7e168bd5fbd786f103739796e5a3c8aad4107"
+    },
+    {
+      "path": "src/momentumbot/research/databento_feature_coverage_v02.py",
+      "file_sha256": "59ad1ca4b76b3a5a82ba01923464ee8a4f04cd59695497bd8f65988b18b19460"
+    },
+    {
+      "path": "scripts/run_databento_microstructure_feature_coverage_v02.py",
+      "file_sha256": "bca236d44604ed45fd0871ba47acdca3b03df60490f80754253340c102d02574"
+    },
+    {
+      "path": ".github/workflows/databento-microstructure-feature-coverage-v02.yml",
+      "file_sha256": "8b1cfc186a8f598c5d30c82119e2be434a715364b1fc11763a84fbc82a990a54"
+    },
+    {
+      "path": "docs/research/databento_microstructure_feature_coverage_v02.md",
+      "file_sha256": "96892151718d1f64c1c284a4b26812f0ba4eb6ecf0f38667836c118a64eb2701"
+    },
+    {
+      "path": "research/data-audits/databento-microstructure-feature-diagnostic-v0.3-run-32483408413-success-2026-08-21.json",
+      "file_sha256": "013c7b67b68a90cd048f21b44a47c70533d765aff470dd0fe7dbaa3cc70c2015"
+    },
+    {
+      "path": "research/data-audits/databento-microstructure-fill-cancel-repaired-feature-v0.1-run-32520311940-success-2026-08-21.json",
+      "file_sha256": "257673ce7fd4a4c321aeb7face80c3adb7d82985f0dbd70dabce5b1f0191b527"
+    },
+    {
+      "path": "research/strategy/databento-microstructure-fill-cancel-repair-v0.1.json",
+      "file_sha256": "cbb717027ee8b6b3bd3d2e551e10e08977b0d392639672d873fd66adddbdd794"
+    },
+    {
+      "path": "src/momentumbot/research/databento_fill_cancel_repair_v01.py",
+      "file_sha256": "8ec8c10a489c46840ca980f71cc3f55f0367a5c3673600773ae1b12812f19a83"
+    },
+    {
+      "path": "src/momentumbot/research/microstructure_features.py",
+      "file_sha256": "07e2db045c9187e4bab46e7d25c546668c2c7b8d01f78c58ec36e88e48f1628e"
+    }
+  ],
+  "verification_contract": {
+    "both_verified_parent_hashes_required": true,
+    "published_fill_cancel_repair_hash_required": true,
+    "frozen_feature_engine_hash_required": true,
+    "exact_amc_then_gmm_order_required": true,
+    "all_metadata_quotes_before_any_download_required": true,
+    "aggregate_budget_rejection_zero_downloads_required": true,
+    "first_safe_failure_stops_without_retry": true,
+    "independent_feature_replay_required_per_successful_case": true,
+    "raw_and_feature_value_sanitization_required": true,
+    "authorization_sdk_and_client_early_gates_required": true,
+    "workflow_trigger_disjoint_from_unarmed_bundle": true,
+    "full_repository_suite_required_before_publication": true
+  },
+  "execution_status": {
+    "execution_authorization_present": false,
+    "provider_metadata_requote_run": false,
+    "provider_timeseries_call_run": false,
+    "provider_call_run": false,
+    "databento_credit_used": false,
+    "workflow_triggered_by_registration_bundle": false,
+    "raw_market_data_downloaded": false,
+    "actual_billing_known": false
+  },
+  "future_gate": {
+    "authorization_path": "research/strategy/databento-microstructure-feature-coverage-v0.2-execution.json",
+    "new_explicit_user_authorization_required": true,
+    "published_parent_sha_binding_required": true,
+    "authorization_only_direct_child_required": true,
+    "first_github_actions_attempt_only": true,
+    "exact_mbo_request_count": 2,
+    "hard_preflight_cost_ceiling_usd": "0.07",
+    "hard_preflight_billable_size_ceiling_bytes": 65000000,
+    "automatic_retry_allowed": false,
+    "mbp10_redownload_allowed": false
+  },
+  "authority_boundary": {
+    "ross_or_retrospective_label_loaded": false,
+    "feature_window_or_threshold_selected": false,
+    "strategy_policy_changed": false,
+    "runtime_feature_authority_created": false,
+    "paper_or_live_order_submitted": false,
+    "broker_or_account_change_made": false,
+    "profitability_claim_supported": false
+  },
+  "content_sha256": "5807c40820a46fd09c4919f384ab8dfce1ee297a99cb0ffb3efef6a305821017"
+}

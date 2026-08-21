@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "coverage_contract_id": "databento-microstructure-feature-coverage-v0.2",
+  "artifact_type": "preregistered_unarmed_databento_amc_gmm_repaired_feature_coverage",
+  "registration_date": "2026-08-21",
+  "registration_status": "frozen_after_verified_intj_and_eqpt_exact_replays_before_any_amc_or_gmm_feature_request",
+  "purpose": "Apply the published event-local Fill/Cancel identity repair and unchanged threshold-free feature engine to the two remaining mechanically selected engineering cases, AMC then GMM, without selecting a feature, window, threshold, strategy rule, or broker action.",
+  "runtime_strategy_effect": "none",
+  "policy_promotion_eligible": false,
+  "profitability_claim_eligible": false,
+  "provider_purchase_authorized": false,
+  "execution_authorization_file_present": false,
+  "published_checkpoint": {
+    "repository": "RoomyRems/momentumbot",
+    "branch": "phase-3-historical-snapshot",
+    "commit_sha": "a8e683465ac680ea233414455f8da568e0e6656c",
+    "tree_sha": "91119666d04f39663442a0cb133bc28238a6229a",
+    "message": "Record verified Databento EQPT repaired-feature success"
+  },
+  "frozen_verified_parents": {
+    "intj": {
+      "path": "research/data-audits/databento-microstructure-feature-diagnostic-v0.3-run-32483408413-success-2026-08-21.json",
+      "audit_id": "databento-microstructure-feature-diagnostic-v0.3-run-32483408413-success-2026-08-21",
+      "content_sha256": "093f65e4d62b125e370d972a5bd9ee3880b5439d72072dd3fd533e4774d18ebb",
+      "file_sha256": "013c7b67b68a90cd048f21b44a47c70533d765aff470dd0fe7dbaa3cc70c2015",
+      "workflow_run_id": 32483408413,
+      "case": {
+        "trading_date": "2026-07-10",
+        "symbol": "INTJ",
+        "feature_replay_succeeded": true,
+        "independent_feature_replay_exact": true,
+        "sampled_snapshot_count": 238
+      }
+    },
+    "eqpt": {
+      "path": "research/data-audits/databento-microstructure-fill-cancel-repaired-feature-v0.1-run-32520311940-success-2026-08-21.json",
+      "audit_id": "databento-microstructure-fill-cancel-repaired-feature-v0.1-run-32520311940-success-2026-08-21",
+      "content_sha256": "d87addf40a080d132799cb14daf8f6096b661d97369e7ebd9f8e216609cfffbb",
+      "file_sha256": "257673ce7fd4a4c321aeb7face80c3adb7d82985f0dbd70dabce5b1f0191b527",
+      "workflow_run_id": 32520311940,
+      "case": {
+        "trading_date": "2026-07-10",
+        "symbol": "EQPT",
+        "repaired_feature_replay_succeeded": true,
+        "independent_feature_replay_exact": true,
+        "matched_executed_removal_count": 1346,
+        "sampled_snapshot_count": 2289
+      }
+    }
+  },
+  "frozen_mechanics": {
+    "repair_contract_path": "research/strategy/databento-microstructure-fill-cancel-repair-v0.1.json",
+    "repair_contract_content_sha256": "a5e8e0381e893610b641ce9a41d31138c1bde2134614efe7ebce725383b6abf0",
+    "repair_contract_file_sha256": "cbb717027ee8b6b3bd3d2e551e10e08977b0d392639672d873fd66adddbdd794",
+    "repair_source_path": "src/momentumbot/research/databento_fill_cancel_repair_v01.py",
+    "repair_source_file_sha256": "8ec8c10a489c46840ca980f71cc3f55f0367a5c3673600773ae1b12812f19a83",
+    "event_scope": [
+      "publisher_id",
+      "instrument_id"
+    ],
+    "event_boundary": "F_LAST",
+    "exact_fill_cancel_identity": [
+      "sequence",
+      "order_id",
+      "side",
+      "price",
+      "size"
+    ],
+    "remaining_fill_cancel_identity": [
+      "order_id",
+      "side"
+    ],
+    "matched_cancel_payload_is_canonical_removal": true,
+    "unmatched_fill_fails_closed": true,
+    "feature_engine_source_path": "src/momentumbot/research/microstructure_features.py",
+    "feature_engine_source_file_sha256": "07e2db045c9187e4bab46e7d25c546668c2c7b8d01f78c58ec36e88e48f1628e",
+    "feature_set_content_sha256": "b048e26fabd163d66297fa57faf011fbb50d9b69377101dbd04337a1cc1eab6a",
+    "feature_mechanics_changed": false,
+    "feature_windows_or_thresholds_changed": false,
+    "strategy_or_broker_behavior_changed": false
+  },
+  "request_surface": {
+    "case_order_reason": "Remove INTJ and EQPT only because their exact-replay success audits are independently verified. Retain AMC then GMM from the original preregistered remaining-case order. No Ross action, transcript label, P&L, later price, or feature output selected the cases or order.",
+    "cases": [
+      {
+        "trading_date": "2026-07-20",
+        "symbol": "AMC"
+      },
+      {
+        "trading_date": "2026-07-10",
+        "symbol": "GMM"
+      }
+    ],
+    "requests": [
+      {
+        "trading_date": "2026-07-20",
+        "symbol": "AMC",
+        "dataset": "XNAS.ITCH",
+        "schema": "mbo",
+        "start": "2026-07-20T00:00:00Z",
+        "end": "2026-07-20T14:10:00Z",
+        "stype_in": "raw_symbol"
+      },
+      {
+        "trading_date": "2026-07-10",
+        "symbol": "GMM",
+        "dataset": "XNAS.ITCH",
+        "schema": "mbo",
+        "start": "2026-07-10T00:00:00Z",
+        "end": "2026-07-10T14:10:00Z",
+        "stype_in": "raw_symbol"
+      }
+    ],
+    "exact_request_count": 2,
+    "allowed_calls_after_separate_execution_authorization": [
+      "historical.metadata.get_billable_size",
+      "historical.metadata.get_cost",
+      "historical.timeseries.get_range"
+    ],
+    "prohibited_calls": [
+      "historical.batch.submit_job",
+      "historical.batch.download",
+      "live.subscribe"
+    ]
+  },
+  "prior_preflight_evidence": {
+    "source_run_id": 32501827997,
+    "source_contract_id": "databento-microstructure-feature-coverage-v0.1",
+    "source_three_case_quoted_cost_usd": "0.072004777193",
+    "source_three_case_billable_size_bytes": 64428784,
+    "verified_eqpt_quoted_cost_usd": "0.002689146996",
+    "verified_eqpt_billable_size_bytes": 2406208,
+    "derived_amc_gmm_quoted_cost_usd": "0.069315630197",
+    "derived_amc_gmm_billable_size_bytes": 62022576,
+    "interpretation": "These historical quote differences justify conservative registration ceilings only. A future authorized attempt must requote both exact requests and make zero time-series calls if either aggregate ceiling is exceeded."
+  },
+  "preregistered_hypothesis": "AMC and GMM will each normalize under the published event-local Fill/Cancel identity repair, produce at least one complete causal feature snapshot under the unchanged threshold-free feature engine, and reproduce identical full snapshot-sequence digests in a second independent feature engine.",
+  "success_requirements": [
+    "both exact metadata quotes pass the fixed aggregate ceilings before any time-series request",
+    "both exact MBO requests complete in AMC then GMM order on the first GitHub Actions attempt",
+    "every downloaded file is nonempty and matches the registered dataset and schema",
+    "the repaired translator uses the Cancel record payload for every matched Fill removal",
+    "each case yields at least one complete feature snapshot",
+    "each case has an exact independent feature replay",
+    "no feature value, threshold, label, raw record, credential, or temporary path is persisted",
+    "every raw DBN file is deleted before the sanitized aggregate report is finalized"
+  ],
+  "failure_rule": "If metadata preflight fails or exceeds either aggregate ceiling, make zero time-series requests. After downloads begin, stop after the first provider, file, parser, replay, or cleanup failure in AMC then GMM order; record only a fixed safe phase and code; make no retry.",
+  "future_execution_gate": {
+    "new_explicit_user_authorization_required": true,
+    "future_authorization_must_bind_published_parent_sha": true,
+    "authorization_only_direct_child_required": true,
+    "first_github_actions_attempt_only": true,
+    "exact_request_count_authorized": 0,
+    "hard_preflight_cost_ceiling_usd": "0.07",
+    "hard_preflight_billable_size_ceiling_bytes": 65000000,
+    "automatic_retry_authorized": false,
+    "batch_or_live_endpoint_authorized": false,
+    "mbp10_redownload_authorized": false,
+    "raw_market_data_publication_authorized": false,
+    "broker_or_order_change_authorized": false,
+    "strategy_or_threshold_change_authorized": false
+  },
+  "storage_and_licensing": {
+    "raw_storage": "Temporary GitHub runner directory only after separate execution authorization.",
+    "public_repository_raw_data": false,
+    "github_artifact_raw_data": false,
+    "persisted_output": "Sanitized non-reconstructable counts, availability totals, exact-replay booleans, aggregate quote and byte totals, and ephemeral file and snapshot-sequence hashes.",
+    "feature_snapshot_values_persisted": false,
+    "cleanup_rule": "Delete each DBN file before finalizing the sanitized report and fail closed if the temporary directory is not empty."
+  },
+  "prohibited_inputs_and_actions": [
+    "Ross action or retrospective label",
+    "recap text or discretionary judgment",
+    "trade P&L or later price outcome",
+    "threshold fitting, horizon selection, or case suppression",
+    "modifying the published Fill/Cancel repair or threshold-free feature engine",
+    "Micro-v0.1 or scanner changes",
+    "paper or live order submission",
+    "publishing licensed Databento records",
+    "automatic provider retry",
+    "claiming single-venue Nasdaq depth is consolidated national Level 2"
+  ],
+  "claim_boundary": [
+    "This bundle is unarmed and cannot call Databento or spend credit.",
+    "A future two-case pass, combined with the frozen INTJ and EQPT success audits, would establish engineering coverage of the mechanics across the four mechanically selected cases only.",
+    "No result from this diagnostic can establish predictive value, a profitable threshold, Ross-equivalent discretion, consolidated Level 2 coverage, execution quality, or profitability.",
+    "A future failure remains evidence and cannot be hidden by changing the repair, case, feature, order, window, or threshold."
+  ],
+  "content_sha256": "1218c98f80cbf7c535636ddd67842ed6ebc0a39628eaababfc44a7a0b822e213"
+}

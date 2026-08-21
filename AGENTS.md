@@ -27,7 +27,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 | Databento reset replication | `docs/research/databento_microstructure_replication_v03.md` | verified v0.2 success, unchanged reset engine, three-case child contract and one-shot replication workflow |
 | Microstructure feature mechanics | `docs/research/microstructure_feature_mechanics_v01.md` | v0.3 success audit, threshold-free feature registration and `microstructure_features.py` |
 | Databento feature diagnostic | `docs/research/databento_microstructure_feature_diagnostic_v03_success.md` | frozen v0.3 registration plus permanent verified INTJ success audit |
-| Databento remaining-case feature coverage | `docs/research/databento_microstructure_feature_coverage_v01.md` | verified INTJ feature parent, unarmed EQPT/AMC/GMM contract and authorization-only workflow |
+| Databento remaining-case feature coverage | `docs/research/databento_microstructure_feature_coverage_v02.md` | verified INTJ/EQPT parents, unarmed repaired AMC/GMM contract and authorization-only workflow |
 | Databento Fill/Cancel identity repair | `docs/research/databento_microstructure_fill_cancel_repair_v01.md` | verified aggregate EQPT classifier audit, unarmed repair contract and deterministic pairing mechanics |
 | Databento EQPT repaired feature replay | `docs/research/databento_microstructure_fill_cancel_repaired_feature_v01.md` | verified one-shot EQPT success audit, frozen repair and exact-replay evidence |
 | Prospective management/execution | `docs/research/prospective_management_execution_v01.md` | child contract and `execution_realism.py` |

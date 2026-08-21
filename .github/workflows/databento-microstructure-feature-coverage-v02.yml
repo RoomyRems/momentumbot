@@ -1,0 +1,119 @@
+name: Databento one-shot AMC GMM repaired feature coverage v0.2
+
+on:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - research/strategy/databento-microstructure-feature-coverage-v0.2-execution.json
+
+permissions:
+  contents: read
+
+concurrency:
+  group: databento-microstructure-feature-coverage-v0.2
+  cancel-in-progress: false
+
+jobs:
+  replay-amc-gmm-under-published-fill-cancel-repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 2
+      - name: Verify the authorization is the only direct-child change
+        env:
+          MOMENTUMBOT_PUSH_BEFORE: ${{ github.event.before }}
+          MOMENTUMBOT_PUSH_SHA: ${{ github.sha }}
+        run: |
+          python - <<'PY'
+          import os
+          import subprocess
+
+          before = os.environ["MOMENTUMBOT_PUSH_BEFORE"]
+          head = os.environ["MOMENTUMBOT_PUSH_SHA"]
+          expected = (
+              "research/strategy/databento-microstructure-feature-"
+              "coverage-v0.2-execution.json"
+          )
+          parent = subprocess.check_output(
+              ["git", "rev-parse", f"{head}^"], text=True
+          ).strip()
+          changed = subprocess.check_output(
+              ["git", "diff", "--name-only", before, head], text=True
+          ).splitlines()
+          assert parent == before
+          assert changed == [expected]
+          PY
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project and pinned Databento client
+        run: |
+          python -m pip install -e .
+          python -m pip install databento==0.83.0
+      - name: Verify frozen parents repair requests budgets and sanitization
+        run: >-
+          python -m unittest
+          tests.test_databento_feature_coverage_v02 -v
+      - name: Requote then make the separately authorized AMC and GMM requests
+        env:
+          DATABENTO_API_KEY: ${{ secrets.DATABENTO_API_KEY }}
+          GITHUB_RUN_ATTEMPT: ${{ github.run_attempt }}
+          MOMENTUMBOT_PUSH_BEFORE: ${{ github.event.before }}
+        run: >-
+          python scripts/run_databento_microstructure_feature_coverage_v02.py
+          --output databento-microstructure-feature-coverage-v0.2.json
+      - name: Upload sanitized repaired feature coverage report only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: databento-microstructure-feature-coverage-v0.2-${{ github.run_id }}-${{ github.run_attempt }}
+          path: databento-microstructure-feature-coverage-v0.2.json
+          if-no-files-found: error
+          retention-days: 90
+      - name: Enforce request budget cleanup and authority gates
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          report = json.loads(
+              Path(
+                  "databento-microstructure-feature-coverage-v0.2.json"
+              ).read_text(encoding="utf-8")
+          )
+          preflight = report["preflight"]
+          assert preflight["request_count_expected"] == 2
+          assert preflight["request_count_quoted"] == 2
+          assert float(preflight["total_quoted_cost_usd"]) <= 0.07
+          assert preflight["total_billable_size_bytes"] <= 65000000
+          assert preflight["preflight_passed"] is True
+          assert 1 <= report["timeseries_request_count"] <= 2
+          assert report["diagnostic_observation_complete"] is True
+          if report["all_cases_succeeded"]:
+              assert len(report["downloads"]) == 2
+              assert report["errors"] == []
+          else:
+              assert len(report["downloads"]) in (0, 1)
+              assert report["safe_failure_classified"] is True
+              assert len(report["errors"]) == 1
+          assert report["registered_fill_cancel_repair_applied"] is True
+          assert report["raw_market_data_persisted"] is False
+          assert report["raw_market_data_uploaded"] is False
+          assert report["feature_snapshot_values_persisted"] is False
+          assert report["provider_credential_persisted"] is False
+          assert report["raw_temp_directory_empty_before_cleanup"] is True
+          assert report["raw_temp_directory_removed"] is True
+          assert report["automatic_retry_attempted"] is False
+          assert report["batch_or_live_endpoint_called"] is False
+          assert report["mbp10_redownloaded"] is False
+          assert report["retrospective_labels_loaded"] is False
+          assert report["feature_mechanics_changed"] is False
+          assert report["strategy_or_threshold_change_made"] is False
+          assert report["broker_or_order_change_made"] is False
+          assert report["runtime_authority_created"] is False
+          assert report["policy_promotion_eligible"] is False
+          PY

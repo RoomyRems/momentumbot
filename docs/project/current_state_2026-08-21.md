@@ -56,11 +56,15 @@ The Fill marker remains book-neutral. A matched Cancel becomes the canonical Fil
 
 `databento-microstructure-fill-cancel-repaired-feature-v0.1`, content SHA-256 `b6b85967d420fca8262a399fc929c7308e79563db68a46acd17fd39186ad2e28`, binds the exact EQPT request to published repair commit `5db47089adc62a5df46fa85e41f3cc3eb26495c2` and the unchanged feature engine. Its workflow is inert because the future execution file is absent. A later separately authorized run would be limited to one first attempt, one request, no retry, and preflight ceilings of `$0.003` and `3,000,000` bytes.
 
+`databento-microstructure-feature-coverage-v0.2`, content SHA-256 `1218c98f80cbf7c535636ddd67842ed6ebc0a39628eaababfc44a7a0b822e213`, freezes the remaining AMC and GMM continuation against the verified INTJ and EQPT exact-replay audits. It retains the original case order, published Fill/Cancel repair, and unchanged threshold-free feature engine. Its future workflow is inert because the parent-bound execution file is absent.
+
+Historical quote evidence implies `$0.069315630197` and `62,022,576` billable bytes for the two remaining requests. That evidence does not authorize a call. Any later first-attempt execution must freshly quote both requests, stay within `$0.07` and `65,000,000` bytes, make zero downloads if either ceiling is exceeded, and stop after the first safe failure without retry.
+
 ## Active gates, in order
 
-1. Preserve the verified EQPT repaired-feature audit without rerunning the one-shot workflow.
-2. Register the smallest label-blind AMC and GMM continuation against the verified INTJ and EQPT parents, with fixed cases, requests, budgets, failure order, and no thresholds.
-3. Publish that continuation unarmed; each later provider request requires a separate parent-bound authorization.
+1. Preserve the verified INTJ and EQPT audits without rerunning either one-shot workflow.
+2. Publish the frozen AMC/GMM continuation unarmed; the registration bundle makes no provider call.
+3. If the owner later chooses to run it, publish a separate authorization-only direct child bound to the exact parent. Permit one first attempt, two requests, and no retry under the fixed aggregate ceilings.
 4. Let the registered account snapshot workflow capture both accounts on every August 24–September 4 date. Confirm each scheduled run succeeds and preserve the artifacts.
 5. If all four engineering cases eventually replay exactly, preregister a behavioral comparison or threshold hypothesis before inspecting outcomes. Do not tune by case.
 6. Complete the larger representative walk-forward and prospective paper sequence before any policy-promotion or profitability interpretation.
@@ -77,11 +81,12 @@ The Fill marker remains book-neutral. A matched Cancel becomes the canonical Fil
 
 ## What is needed from the owner
 
-Nothing is needed to preserve the completed EQPT result or to let the scheduled account snapshots run, beyond keeping both paper accounts flat and unreset. Any AMC/GMM provider request requires a new frozen contract, an unarmed published parent, and a separate explicit authorization.
+Nothing is needed to preserve the completed INTJ and EQPT results or to let the scheduled account snapshots run, beyond keeping both paper accounts flat and unreset. Publishing the current AMC/GMM bundle requires an explicit commit/push decision. Any later AMC/GMM provider request requires a separate parent-bound authorization-only commit.
 
 ## Verification
 
 - Unarmed Fill/Cancel repair: 8/8 focused tests pass.
 - Unarmed EQPT repaired-feature harness: 11/11 focused tests pass.
+- Unarmed AMC/GMM repaired-feature coverage: 13/13 focused tests pass.
 - EQPT repaired-feature workflow: one authorized first-attempt request completed; no retry occurred.
-- Complete repository suite: 706/706 tests pass.
+- Complete repository suite: 719/719 tests pass.
