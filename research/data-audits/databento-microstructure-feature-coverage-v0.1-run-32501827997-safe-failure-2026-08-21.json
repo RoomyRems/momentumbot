@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "audit_id": "databento-microstructure-feature-coverage-v0.1-run-32501827997-safe-failure-2026-08-21",
+  "audit_date": "2026-08-21",
+  "artifact_type": "independently_verified_sanitized_databento_feature_coverage_safe_failure",
+  "contract": {
+    "coverage_contract_id": "databento-microstructure-feature-coverage-v0.1",
+    "content_sha256": "0b098ea45120a1dd310dcf316c6ff31079ec1a5ca778bf078ca7698c03d6e18a",
+    "execution_authorization_content_sha256": "75bbb884147e975b19277411936265d33dde3f21fa1d83281f13cb9a27369231"
+  },
+  "github_actions": {
+    "workflow_run_id": 32501827997,
+    "workflow_run_attempt": 1,
+    "workflow_conclusion": "success",
+    "workflow_head_sha": "53aef4f3858f182529bd22b361c23d1d7f059d26",
+    "workflow_head_tree_sha": "82422f8a95693a31875a1983310c2d0aa7ed5510",
+    "workflow_parent_sha": "449329797db0390d0f183292df5de3844835b44c",
+    "job_id": 96833044490,
+    "artifact_id": 9453800579,
+    "artifact_name": "databento-microstructure-feature-coverage-v0.1-32501827997-1",
+    "artifact_zip_size_bytes": 1561,
+    "artifact_zip_sha256": "7ec1cec57e7fc5f3cb067890b5bc977e9cbb1cf66863847de2a1acda709ab010",
+    "sanitized_report_file_sha256": "9d91aa51264da4be9fba9ded32000fcdd6dc14dbdf44e8c4161ab19004b36b0a",
+    "sanitized_report_content_sha256": "1322a2707549f6133dc2dc973abd8ca329f4aa42babe7168020e96efe483ce10"
+  },
+  "verified_preflight_and_attempt": {
+    "preflight_passed": true,
+    "request_count_expected": 3,
+    "request_count_quoted": 3,
+    "total_quoted_cost_usd": "0.072004777193",
+    "total_billable_size_bytes": 64428784,
+    "hard_cost_ceiling_usd": "0.08",
+    "hard_billable_size_ceiling_bytes": 80000000,
+    "timeseries_request_count": 1,
+    "successful_download_summary_count": 0,
+    "actual_billing_known": false,
+    "automatic_retry_attempted": false,
+    "first_attempt_only_observed": true
+  },
+  "classified_failure": {
+    "diagnostic_observation_complete": true,
+    "safe_failure_classified": true,
+    "all_cases_succeeded": false,
+    "failure_case": {
+      "trading_date": "2026-07-10",
+      "symbol": "EQPT"
+    },
+    "failure_phase": "normalize",
+    "safe_error_code": "fill_cancel_unmatched",
+    "exact_failing_guard_identified": true,
+    "frozen_guard": "Every Fill marker in one completed publisher/instrument event had to match a Cancel on sequence, order_id, side, price, and size.",
+    "direct_observation": "The first EQPT request completed download but left at least one Fill marker unmatched under that five-field identity, so replay stopped before feature snapshots were retained."
+  },
+  "corrective_interpretation": {
+    "official_f_last_semantics": "F_LAST marks the last normalized record in a single event for a given instrument_id.",
+    "official_xnas_execution_semantics": "Nasdaq TotalView Order Executed messages normalize to Trade, Fill, and Cancel records; normalized records from one native message share sequence.",
+    "what_is_proven": "The frozen five-field Fill-to-Cancel identity is not sufficient for the observed EQPT stream as implemented.",
+    "what_is_not_proven": "The sanitized artifact intentionally contains no raw field values, so it does not identify whether sequence, order_id, side, price, size, multiplicity, or event composition caused the mismatch.",
+    "single_next_diagnostic": "Before changing replay, count aggregate multiset overlap between Fill and Cancel records under frozen identity projections that omit one or more fields. Persist counts only, never identifiers or market values.",
+    "strategy_or_threshold_failure_observed": false,
+    "policy_promotion_allowed": false
+  },
+  "safety_verification": {
+    "artifact_contains_exactly_one_sanitized_json_file": true,
+    "artifact_zip_digest_recomputed": true,
+    "sanitized_report_file_digest_recomputed": true,
+    "sanitized_report_content_digest_recomputed": true,
+    "sanitized_report_validator_passed": true,
+    "batch_or_live_endpoint_called": false,
+    "provider_credential_persisted": false,
+    "raw_market_data_persisted": false,
+    "raw_market_data_uploaded": false,
+    "raw_temp_directory_empty_before_cleanup": true,
+    "raw_temp_directory_removed": true,
+    "retrospective_labels_loaded": false,
+    "feature_snapshot_values_persisted": false,
+    "runtime_authority_created": false,
+    "broker_or_order_change_made": false,
+    "strategy_or_threshold_change_made": false
+  },
+  "content_sha256": "10b8d05287947a3d334b7a0dda26f89549501287bb58fd7d4a06f6db3ebb5bad"
+}

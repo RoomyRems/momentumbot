@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "classifier_contract_id": "databento-microstructure-fill-cancel-classifier-v0.1",
+  "artifact_type": "preregistered_unarmed_databento_fill_cancel_structure_classifier",
+  "registration_date": "2026-08-21",
+  "registration_status": "frozen_after_feature_coverage_safe_failure_before_any_classifier_provider_request",
+  "purpose": "Identify which registered Fill-to-Cancel identity dimensions explain the EQPT normalization failure without persisting raw records, identifiers, prices, sizes, or feature values.",
+  "runtime_strategy_effect": "none",
+  "policy_promotion_eligible": false,
+  "profitability_claim_eligible": false,
+  "provider_purchase_authorized": false,
+  "execution_authorization_file_present": false,
+  "frozen_parent_failure": {
+    "path": "research/data-audits/databento-microstructure-feature-coverage-v0.1-run-32501827997-safe-failure-2026-08-21.json",
+    "audit_id": "databento-microstructure-feature-coverage-v0.1-run-32501827997-safe-failure-2026-08-21",
+    "content_sha256": "10b8d05287947a3d334b7a0dda26f89549501287bb58fd7d4a06f6db3ebb5bad",
+    "workflow_run_id": 32501827997,
+    "workflow_run_attempt": 1,
+    "sanitized_report_content_sha256": "1322a2707549f6133dc2dc973abd8ca329f4aa42babe7168020e96efe483ce10",
+    "failure_phase": "normalize",
+    "safe_error_code": "fill_cancel_unmatched"
+  },
+  "frozen_request": {
+    "trading_date": "2026-07-10",
+    "symbol": "EQPT",
+    "dataset": "XNAS.ITCH",
+    "schema": "mbo",
+    "start": "2026-07-10T00:00:00Z",
+    "end": "2026-07-10T14:10:00Z",
+    "stype_in": "raw_symbol",
+    "observed_quote_usd": "0.002689146996",
+    "observed_billable_size_bytes": 2406208
+  },
+  "registered_identity_projections": [
+    ["sequence", "order_id", "side", "price", "size"],
+    ["order_id", "side", "price", "size"],
+    ["sequence", "order_id", "side", "price"],
+    ["order_id", "side", "price"],
+    ["order_id", "side"],
+    ["order_id"]
+  ],
+  "registered_aggregate_outputs": [
+    "instrument_event_count",
+    "fill_bearing_event_count",
+    "fill_record_count",
+    "cancel_record_count_in_fill_bearing_events",
+    "fill_last_record_count",
+    "fill_event_without_cancel_count",
+    "multi_sequence_fill_event_count",
+    "projection_overlap_counts",
+    "projection_full_match_event_counts"
+  ],
+  "future_execution_gate": {
+    "new_explicit_user_authorization_required": true,
+    "future_authorization_must_bind_published_parent_sha": true,
+    "authorization_only_direct_child_required": true,
+    "first_github_actions_attempt_only": true,
+    "exact_request_count_authorized": 0,
+    "hard_preflight_cost_ceiling_usd": "0.003",
+    "hard_preflight_billable_size_ceiling_bytes": 3000000,
+    "automatic_retry_authorized": false,
+    "batch_or_live_endpoint_authorized": false,
+    "raw_market_data_publication_authorized": false,
+    "broker_or_order_change_authorized": false,
+    "strategy_or_threshold_change_authorized": false
+  },
+  "prohibited_outputs_and_actions": [
+    "raw records or record values",
+    "order_id or instrument_id values",
+    "prices, sizes, or feature snapshots",
+    "provider error messages or credentials",
+    "Ross actions, outcomes, P&L, or later prices",
+    "changing feature mechanics, thresholds, strategy, broker, or runtime authority",
+    "automatic provider retry",
+    "claiming single-venue Nasdaq depth is consolidated national Level 2"
+  ],
+  "claim_boundary": [
+    "Aggregate overlap counts can identify a parser invariant but cannot select a trading threshold or prove predictive value.",
+    "A future classifier run is a separate provider purchase and requires a new exact authorization.",
+    "No Databento call or spend is authorized by this registration."
+  ],
+  "content_sha256": "88a7373d70bacbad2418d900abc0fcce45e3f927d54a88275091bed05c9e44c0"
+}
