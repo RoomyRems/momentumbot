@@ -93,6 +93,16 @@ REGISTRATION_AUDIT = (
     / "data-audits"
     / "databento-microstructure-feature-diagnostic-v0.3-registration-2026-08-21.json"
 )
+ACTIVATION_READINESS_AUDIT = (
+    ROOT
+    / "research"
+    / "data-audits"
+    / "databento-microstructure-feature-diagnostic-v0.3-activation-readiness-"
+    "2026-08-21.json"
+)
+ORIGINAL_UNARMED_TEST_FILE_SHA256 = (
+    "aa737cf9e2016d0ae0ed2d1c870eef7fcefa67aab36214ddbadd87c41ac14931"
+)
 GENERATED_AT = datetime(2026, 8, 21, 13, tzinfo=UTC)
 SENSITIVE_PROVIDER_DETAIL = "licensed provider detail 998877"
 
@@ -269,7 +279,6 @@ class DatabentoFeatureDiagnosticV03Tests(unittest.TestCase):
                 "execution_authorization_file_present"
             ]
         )
-        self.assertFalse(FUTURE_AUTHORIZATION.exists())
 
     def test_frozen_parent_sources_and_feature_engine_are_unchanged(self):
         self.assertEqual(
@@ -492,12 +501,19 @@ class DatabentoFeatureDiagnosticV03Tests(unittest.TestCase):
         self.assertEqual(contract["content_sha256"], CONTRACT_CONTENT_SHA256)
 
     def test_runner_requires_future_authorization_before_provider_import(self):
+        missing_authorization = (
+            ROOT
+            / "tests"
+            / "fixtures"
+            / "intentionally-missing-v0.3-execution-authorization.json"
+        )
+        self.assertFalse(missing_authorization.exists())
         with patch("builtins.__import__", wraps=builtins.__import__) as imported:
             with self.assertRaisesRegex(ValueError, "v0.3 execution authorization"):
                 runner.main(
                     [
                         "--authorization",
-                        str(FUTURE_AUTHORIZATION),
+                        str(missing_authorization),
                         "--output",
                         str(ROOT / "unused-v0.3-report.json"),
                     ]
@@ -533,7 +549,10 @@ class DatabentoFeatureDiagnosticV03Tests(unittest.TestCase):
         self.assertIn("databento==0.83.0", workflow)
         self.assertIn('run_attempt = os.getenv("GITHUB_RUN_ATTEMPT")', script)
         self.assertIn('authorization["authorized_push_parent_sha"]', script)
-        self.assertFalse(FUTURE_AUTHORIZATION.exists())
+        self.assertEqual(
+            FUTURE_AUTHORIZATION.name,
+            "databento-microstructure-feature-diagnostic-v0.3-execution.json",
+        )
 
     def test_registration_audit_binds_the_unarmed_repair_bundle(self):
         audit = json.loads(REGISTRATION_AUDIT.read_text(encoding="utf-8"))
@@ -548,6 +567,12 @@ class DatabentoFeatureDiagnosticV03Tests(unittest.TestCase):
         )
         for row in audit["bound_files"]:
             path = ROOT / row["path"]
+            if row["path"] == "tests/test_databento_feature_diagnostic_v03.py":
+                self.assertEqual(
+                    row["file_sha256"],
+                    ORIGINAL_UNARMED_TEST_FILE_SHA256,
+                )
+                continue
             self.assertEqual(
                 hashlib.sha256(path.read_bytes()).hexdigest(),
                 row["file_sha256"],
@@ -557,6 +582,31 @@ class DatabentoFeatureDiagnosticV03Tests(unittest.TestCase):
         )
         self.assertFalse(audit["execution_status"]["provider_call_run"])
         self.assertFalse(audit["execution_status"]["databento_credit_used"])
+
+    def test_activation_readiness_audit_binds_corrected_test_harness(self):
+        audit = json.loads(
+            ACTIVATION_READINESS_AUDIT.read_text(encoding="utf-8")
+        )
+        claimed = audit["content_sha256"]
+        unsigned = {
+            key: value for key, value in audit.items() if key != "content_sha256"
+        }
+        self.assertEqual(canonical_fingerprint(unsigned), claimed)
+        self.assertEqual(
+            audit["published_parent"]["commit_sha"],
+            "03d0bad9453944d51a6c924836a542f78474803f",
+        )
+        self.assertFalse(
+            audit["corrective_scope"]["future_authorization_file_present"]
+        )
+        self.assertFalse(audit["corrective_scope"]["provider_call_run"])
+        self.assertFalse(audit["corrective_scope"]["databento_credit_used"])
+        for row in audit["bound_files"]:
+            path = ROOT / row["path"]
+            self.assertEqual(
+                hashlib.sha256(path.read_bytes()).hexdigest(),
+                row["file_sha256"],
+            )
 
 
 if __name__ == "__main__":
