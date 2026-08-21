@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "audit_id": "databento-microstructure-feature-diagnostic-v0.2-run-32478204001-failure-2026-08-21",
+  "audit_date": "2026-08-21",
+  "artifact_type": "independently_verified_sanitized_databento_safe_failure_classification",
+  "contract": {
+    "diagnostic_contract_id": "databento-microstructure-feature-diagnostic-v0.2",
+    "content_sha256": "14b2a0500b7d2626a71f0a598eb876837f7d4f36754d44e3ecffee1fb3d9a648",
+    "execution_authorization_content_sha256": "2f8821daf16218b8b11e5e930b26f3714b840b360c9d3863de3779cdb929c20d"
+  },
+  "github_actions": {
+    "workflow_run_id": 32478204001,
+    "workflow_run_attempt": 1,
+    "workflow_conclusion": "success",
+    "workflow_head_sha": "b5f6db2ebbfdf3dd73a78fe9db978819e97f62c8",
+    "workflow_head_tree_sha": "27b7d77837238929783dc366f92001ced377a0b4",
+    "workflow_parent_sha": "7c982d7633e80c495a23970610e5cbaa85e75c78",
+    "job_id": 96758842977,
+    "artifact_id": 9445082857,
+    "artifact_name": "databento-microstructure-feature-diagnostic-v0.2-32478204001-1",
+    "artifact_zip_size_bytes": 1510,
+    "artifact_zip_sha256": "c828cb5518f9f647c832f211869d18cc7589b7f0246cb260460d728a5ec69878",
+    "sanitized_report_file_sha256": "00eadf4076a74a66954538f8bfcca7f91f7f53dd8673f3a9fbf9571a4673068d",
+    "sanitized_report_content_sha256": "d26ff22373d368fa8c6beaeddf98f79f9e493f57ecacd1de645904860fabdfbb"
+  },
+  "verified_preflight_and_attempt": {
+    "preflight_passed": true,
+    "request_count_quoted": 1,
+    "total_quoted_cost_usd": "0.000130802393",
+    "total_billable_size_bytes": 117040,
+    "hard_cost_ceiling_usd": "0.001",
+    "hard_billable_size_ceiling_bytes": 1000000,
+    "timeseries_request_count": 1,
+    "successful_download_summary_count": 0,
+    "actual_billing_known": false,
+    "automatic_retry_attempted": false,
+    "first_attempt_only_observed": true
+  },
+  "classified_failure": {
+    "diagnostic_observation_complete": true,
+    "safe_failure_classified": true,
+    "feature_replay_succeeded": false,
+    "failure_phase": "atomic_group",
+    "safe_error_code": "atomic_key_change_before_last",
+    "exception_kind_retained": false,
+    "exact_failing_guard_identified": true,
+    "frozen_guard": "The v0.1 adapter required publisher_id, instrument_id, and venue sequence to remain identical from the first pending record through F_LAST.",
+    "direct_observation": "The INTJ stream changed that three-field key before an F_LAST record, so the stage-separated classifier rejected the stream before normalization or feature replay."
+  },
+  "corrective_interpretation": {
+    "official_f_last_semantics": "F_LAST marks the last normalized record in an event for a given instrument_id.",
+    "official_xnas_sequence_semantics": "Normalized records from the same Nasdaq TotalView message share the venue sequence number.",
+    "what_is_proven": "The frozen global publisher/instrument/sequence grouping invariant is incompatible with the observed INTJ record order.",
+    "what_is_not_proven": "The sanitized artifact does not reveal raw records and therefore does not prove whether the key transition was a synthetic session-boundary transition, instrument interleaving, or another valid normalization boundary.",
+    "single_corrective_hypothesis": "Buffer pending records independently by publisher and instrument until that scope reaches F_LAST, retain sequence on every canonical event, and restrict Fill-to-Cancel matching to the same venue sequence.",
+    "strategy_or_threshold_failure_observed": false,
+    "policy_promotion_allowed": false
+  },
+  "safety_verification": {
+    "artifact_contains_exactly_one_sanitized_json_file": true,
+    "artifact_zip_digest_recomputed": true,
+    "sanitized_report_file_digest_recomputed": true,
+    "sanitized_report_content_digest_recomputed": true,
+    "sanitized_report_validator_passed": true,
+    "batch_or_live_endpoint_called": false,
+    "provider_credential_persisted": false,
+    "raw_market_data_persisted": false,
+    "raw_market_data_uploaded": false,
+    "raw_temp_directory_empty_before_cleanup": true,
+    "raw_temp_directory_removed": true,
+    "retrospective_labels_loaded": false,
+    "feature_snapshot_values_persisted": false,
+    "runtime_authority_created": false,
+    "broker_or_order_change_made": false,
+    "strategy_or_threshold_change_made": false
+  },
+  "content_sha256": "2f04264b6b4b68fb24f4920adcf9f09ca3f181186f945a4a3d06e39022516ac3"
+}

@@ -1,0 +1,140 @@
+name: Databento one-shot instrument-event repair diagnostic v0.3
+
+on:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - research/strategy/databento-microstructure-feature-diagnostic-v0.3-execution.json
+
+permissions:
+  contents: read
+
+concurrency:
+  group: databento-microstructure-feature-diagnostic-v0.3
+  cancel-in-progress: false
+
+jobs:
+  replay-intj-with-instrument-event-repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 2
+      - name: Verify the authorization is the only direct-child change
+        env:
+          MOMENTUMBOT_PUSH_BEFORE: ${{ github.event.before }}
+          MOMENTUMBOT_PUSH_SHA: ${{ github.sha }}
+        run: |
+          python - <<'PY'
+          import os
+          import subprocess
+
+          before = os.environ["MOMENTUMBOT_PUSH_BEFORE"]
+          head = os.environ["MOMENTUMBOT_PUSH_SHA"]
+          expected = (
+              "research/strategy/databento-microstructure-feature-"
+              "diagnostic-v0.3-execution.json"
+          )
+          parent = subprocess.check_output(
+              ["git", "rev-parse", f"{head}^"], text=True
+          ).strip()
+          changed = subprocess.check_output(
+              ["git", "diff", "--name-only", before, head], text=True
+          ).splitlines()
+          assert parent == before
+          assert changed == [expected]
+          PY
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project and pinned Databento client
+        run: |
+          python -m pip install -e .
+          python -m pip install databento==0.83.0
+      - name: Verify repair mechanics, parent bindings, and sanitization
+        run: python -m unittest tests.test_databento_feature_diagnostic_v03 -v
+      - name: Requote then make the separately authorized one-shot INTJ request
+        env:
+          DATABENTO_API_KEY: ${{ secrets.DATABENTO_API_KEY }}
+          GITHUB_RUN_ATTEMPT: ${{ github.run_attempt }}
+          MOMENTUMBOT_PUSH_BEFORE: ${{ github.event.before }}
+        run: >-
+          python scripts/run_databento_microstructure_features_v03.py
+          --output databento-microstructure-feature-diagnostic-v0.3.json
+      - name: Upload sanitized repair report only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: databento-microstructure-feature-diagnostic-v0.3-${{ github.run_id }}-${{ github.run_attempt }}
+          path: databento-microstructure-feature-diagnostic-v0.3.json
+          if-no-files-found: error
+          retention-days: 90
+      - name: Enforce one request, no retry, and cleanup gates
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          report = json.loads(
+              Path(
+                  "databento-microstructure-feature-diagnostic-v0.3.json"
+              ).read_text(encoding="utf-8")
+          )
+          preflight = report["preflight"]
+          assert preflight["request_count_expected"] == 1
+          assert preflight["request_count_quoted"] == 1
+          assert preflight["total_quoted_cost_usd"] is not None
+          assert float(preflight["total_quoted_cost_usd"]) <= 0.001
+          assert preflight["total_billable_size_bytes"] <= 1_000_000
+          assert preflight["preflight_passed"] is True
+          assert report["timeseries_request_count"] == 1
+          assert report["diagnostic_observation_complete"] is True
+
+          downloads = report["downloads"]
+          errors = report["errors"]
+          success = (
+              report["feature_replay_succeeded"] is True
+              and report["safe_failure_classified"] is False
+              and len(downloads) == 1
+              and errors == []
+          )
+          classified_failure = (
+              report["feature_replay_succeeded"] is False
+              and report["safe_failure_classified"] is True
+              and downloads == []
+              and len(errors) == 1
+          )
+          assert success or classified_failure
+          if success:
+              metrics = downloads[0]["metrics"]
+              assert metrics["event_scope_count"] >= 1
+              assert metrics["instrument_event_count"] >= 1
+              assert metrics["independent_feature_replay_exact"] is True
+              assert metrics["feature_threshold_selected"] is False
+              assert metrics["feature_horizon_selected"] is False
+              assert metrics["runtime_authority_created"] is False
+          else:
+              assert set(errors[0]) <= {
+                  "failure_phase", "safe_error_code", "exception_kind"
+              }
+
+          assert report["raw_market_data_persisted"] is False
+          assert report["raw_market_data_uploaded"] is False
+          assert report["feature_snapshot_values_persisted"] is False
+          assert report["provider_credential_persisted"] is False
+          assert report["raw_temp_directory_empty_before_cleanup"] is True
+          assert report["raw_temp_directory_removed"] is True
+          assert report["automatic_retry_attempted"] is False
+          assert report["batch_or_live_endpoint_called"] is False
+          assert report["mbp10_redownloaded"] is False
+          assert report["retrospective_labels_loaded"] is False
+          assert report["registered_adapter_repair_applied"] is True
+          assert report["feature_mechanics_changed"] is False
+          assert report["strategy_or_threshold_change_made"] is False
+          assert report["broker_or_order_change_made"] is False
+          assert report["runtime_authority_created"] is False
+          assert report["policy_promotion_eligible"] is False
+          PY

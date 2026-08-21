@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "diagnostic_contract_id": "databento-microstructure-feature-diagnostic-v0.3",
+  "artifact_type": "preregistered_unarmed_databento_instrument_event_repair",
+  "registration_date": "2026-08-21",
+  "registration_status": "frozen_after_v0.2_classification_before_any_v0.3_provider_request",
+  "purpose": "Repair only the classified MBO event-grouping invariant while preserving the frozen threshold-free feature engine, request, strategy, and broker boundaries.",
+  "frozen_parent_failure": {
+    "path": "research/data-audits/databento-microstructure-feature-diagnostic-v0.2-run-32478204001-failure-2026-08-21.json",
+    "audit_id": "databento-microstructure-feature-diagnostic-v0.2-run-32478204001-failure-2026-08-21",
+    "content_sha256": "2f04264b6b4b68fb24f4920adcf9f09ca3f181186f945a4a3d06e39022516ac3",
+    "workflow_run_id": 32478204001,
+    "workflow_run_attempt": 1,
+    "sanitized_report_content_sha256": "d26ff22373d368fa8c6beaeddf98f79f9e493f57ecacd1de645904860fabdfbb",
+    "failure_phase": "atomic_group",
+    "safe_error_code": "atomic_key_change_before_last",
+    "exact_failing_guard_identified": true
+  },
+  "frozen_mechanics": {
+    "v0_1_diagnostic_content_sha256": "996e987f04cd14a87eb8ad56b5dfce9c84fcfbef1bc3af7b44919be0ec00e180",
+    "v0_1_adapter_file_sha256": "3c0c5ac0d18ffc3d72c1a18da9758ac33a269e3c074bac35fefb1528a99e1919",
+    "v0_2_classifier_content_sha256": "14b2a0500b7d2626a71f0a598eb876837f7d4f36754d44e3ecffee1fb3d9a648",
+    "v0_2_classifier_file_sha256": "25b8153a0dfe6dc6ccd62ba947516827ef1e399a2af03b1aabf7dada53327d09",
+    "feature_set_content_sha256": "b048e26fabd163d66297fa57faf011fbb50d9b69377101dbd04337a1cc1eab6a",
+    "feature_engine_file_sha256": "07e2db045c9187e4bab46e7d25c546668c2c7b8d01f78c58ec36e88e48f1628e",
+    "feature_mechanics_changed": false,
+    "feature_windows_or_thresholds_changed": false,
+    "strategy_or_broker_behavior_changed": false
+  },
+  "official_semantics": {
+    "f_last": "F_LAST marks the last record in a single event for a given instrument_id.",
+    "xnas_sequence": "Normalized records from the same Nasdaq TotalView message share the venue sequence number.",
+    "book_observation": "A book may be examined only after that instrument reaches F_LAST."
+  },
+  "preregistered_hypothesis": "The INTJ stream can be replayed causally when pending records are buffered independently by publisher and instrument until that scope reaches F_LAST, while venue sequence remains immutable provenance and Fill-to-Cancel conversion is restricted to identical sequence and order identity.",
+  "registered_repair": {
+    "event_scope": [
+      "publisher_id",
+      "instrument_id"
+    ],
+    "event_close_condition": "record flags include F_LAST for that event scope",
+    "pending_buffer_per_scope": true,
+    "cross_scope_record_mixing_allowed": false,
+    "record_order_within_scope_preserved": true,
+    "sequence_equality_required_across_entire_f_last_event": false,
+    "sequence_retained_on_every_canonical_event": true,
+    "fill_cancel_match_fields": [
+      "sequence",
+      "order_id",
+      "side",
+      "price",
+      "size"
+    ],
+    "independent_feature_engine_per_scope": true,
+    "receive_time_reversal_policy_unchanged": true,
+    "incomplete_scope_at_end_of_stream": "fail_closed",
+    "unknown_action_or_side": "fail_closed"
+  },
+  "request_surface": {
+    "selection_reason": "INTJ is the exact classified stream; it is selected from immutable failure provenance, not outcomes or profitability.",
+    "exact_request_count": 1,
+    "requests": [
+      {
+        "trading_date": "2026-07-10",
+        "symbol": "INTJ",
+        "dataset": "XNAS.ITCH",
+        "schema": "mbo",
+        "start": "2026-07-10T00:00:00Z",
+        "end": "2026-07-10T14:10:00Z",
+        "stype_in": "raw_symbol"
+      }
+    ],
+    "observed_v0_2_quote_usd": "0.000130802393",
+    "observed_v0_2_billable_size_bytes": 117040,
+    "proposed_hard_preflight_cost_ceiling_usd": "0.001",
+    "proposed_hard_preflight_billable_size_ceiling_bytes": 1000000
+  },
+  "verification_requirements": [
+    "mixed sequence values before one F_LAST are accepted within one publisher/instrument scope",
+    "interleaved publisher/instrument scopes close independently",
+    "Fill and Cancel records never match across venue sequence values",
+    "incomplete per-scope buffers fail closed",
+    "frozen single-sequence fixtures retain identical feature metrics",
+    "independent replay remains exact",
+    "feature thresholds and runtime authority remain absent",
+    "no provider SDK client is constructed by the unarmed bundle"
+  ],
+  "future_execution_gate": {
+    "provider_purchase_authorized": false,
+    "execution_authorization_file_present": false,
+    "new_explicit_user_authorization_required": true,
+    "future_authorization_must_bind_published_parent_sha": true,
+    "first_github_actions_attempt_only": true,
+    "exact_request_count_authorized": 0,
+    "hard_preflight_cost_ceiling_usd": "0.001",
+    "hard_preflight_billable_size_ceiling_bytes": 1000000,
+    "automatic_retry_authorized": false,
+    "batch_or_live_endpoint_authorized": false,
+    "mbp10_redownload_authorized": false,
+    "raw_market_data_publication_authorized": false,
+    "broker_or_order_change_authorized": false,
+    "strategy_or_threshold_change_authorized": false
+  },
+  "prohibited_inputs_and_actions": [
+    "Ross action or retrospective label",
+    "recap text or discretionary judgment",
+    "trade P&L or later price outcome",
+    "threshold fitting or horizon selection",
+    "modifying the frozen v0.1 or v0.2 sources",
+    "modifying the frozen feature engine",
+    "Micro-v0.1 or scanner changes",
+    "paper or live order submission",
+    "publishing licensed Databento records",
+    "automatic provider retry",
+    "claiming single-venue Nasdaq depth is consolidated national Level 2"
+  ],
+  "claim_boundary": [
+    "This repair addresses one classified parser invariant only.",
+    "Synthetic success cannot prove that the real INTJ stream will replay.",
+    "A future successful INTJ replay would be engineering evidence, not predictive, discretionary, execution-quality, or profitability evidence.",
+    "No provider call or Databento spend is authorized by this registration."
+  ],
+  "content_sha256": "51733fcf3f060e80f928017eb82e410a828a4e31550bb27dcc18bead151fe62c"
+}
