@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "execution_authorization_id": "databento-microstructure-feature-diagnostic-v0.3-execution",
+  "artifact_type": "explicit_one_shot_databento_instrument_event_repair_authorization",
+  "diagnostic_contract_id": "databento-microstructure-feature-diagnostic-v0.3",
+  "diagnostic_contract_content_sha256": "51733fcf3f060e80f928017eb82e410a828a4e31550bb27dcc18bead151fe62c",
+  "authorized_push_parent_sha": "a6cae15a32fb19627b941141e6fa65b847a22982",
+  "explicit_user_authorization": "User replied \"Go ahead\" on 2026-08-21 to the immediately preceding statement that the next v0.3 execution authorization must bind published parent a6cae15a32fb19627b941141e6fa65b847a22982; this continues the user's prior explicit authorization for the sole parent-bound execution file and resulting first-attempt Databento run capped at $0.001 and 1 MB, with one request and no retries.",
+  "provider_purchase_authorized": true,
+  "exact_request_count_authorized": 1,
+  "hard_preflight_cost_ceiling_usd": "0.001",
+  "hard_preflight_billable_size_ceiling_bytes": 1000000,
+  "first_github_actions_attempt_only": true,
+  "automatic_retry_authorized": false,
+  "batch_or_live_endpoint_authorized": false,
+  "mbp10_redownload_authorized": false,
+  "raw_market_data_publication_authorized": false,
+  "broker_or_order_change_authorized": false,
+  "strategy_or_threshold_change_authorized": false,
+  "content_sha256": "5fabe0b643132b5b87c4664f2717e80d4797bd3f0e426b2a5f8d1a0d998bb2f1"
+}
