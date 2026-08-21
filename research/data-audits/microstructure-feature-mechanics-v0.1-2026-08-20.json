@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "audit_id": "microstructure-feature-mechanics-v0.1-2026-08-20",
+  "audit_date": "2026-08-20",
+  "artifact_type": "preregistered_threshold_free_microstructure_feature_mechanics_bundle",
+  "frozen_parent_result": {
+    "audit_id": "databento-microstructure-replication-v0.3-run-32437696613-success-2026-08-20",
+    "content_sha256": "66e16d7481afceaf38dacdf78c0f1974532cdb31f24cf50252ad3c914c8338a3",
+    "four_case_exact_samples": 612,
+    "four_case_total_samples": 612,
+    "eligible_use": "schema_reconstruction_and_feature_mechanics_only"
+  },
+  "registration": {
+    "feature_set_id": "microstructure-feature-mechanics-v0.1",
+    "content_sha256": "b048e26fabd163d66297fa57faf011fbb50d9b69377101dbd04337a1cc1eab6a",
+    "registered_before_real_data_feature_output": true,
+    "registered_receive_time_windows_ns": [
+      1000000000,
+      5000000000,
+      10000000000
+    ],
+    "threshold_count": 0,
+    "runtime_authority": "none_shadow_only"
+  },
+  "source_boundary": {
+    "normative_or_method_video_ids": [
+      "HB1IbyuJ37s",
+      "xGIa8Vg0PWM",
+      "6P25hNn_H00"
+    ],
+    "transcript_text_available_to_runtime": false,
+    "ross_actions_or_fills_available_to_runtime": false,
+    "later_prices_or_pnl_available_to_runtime": false,
+    "four_engineering_cases_used_to_select_windows_or_thresholds": false
+  },
+  "implemented_mechanics": {
+    "feature_family_count": 9,
+    "top_depth_level_limit_per_side": 10,
+    "integer_or_rational_output_only": true,
+    "same_price_same_side_fifo_replenishment": true,
+    "fill_and_nonexecution_replenishment_split": true,
+    "unknown_aggressor_preserved": true,
+    "correction_or_cancel_fails_tape_closed": true,
+    "snapshot_adds_excluded_from_live_flow": true,
+    "clear_resets_rolling_history": true,
+    "scope_and_receive_time_order_enforced": true,
+    "history_bounded_to_longest_registered_window": true,
+    "intent_or_spoofing_classified": false,
+    "hidden_liquidity_claimed_as_proven": false,
+    "queue_position_or_hidden_depth_assumed": false
+  },
+  "verification_contract": {
+    "focused_expected": "9 tests passing",
+    "full_expected": "610 tests passing",
+    "hash_binding_required": true,
+    "exact_depth_and_slippage_fixture_required": true,
+    "replenishment_fifo_fixture_required": true,
+    "unknown_aggressor_fixture_required": true,
+    "correction_fail_closed_fixture_required": true,
+    "reset_and_incomplete_book_fixture_required": true,
+    "scope_clock_and_window_boundary_fixture_required": true,
+    "reproducible_snapshot_fingerprint_required": true
+  },
+  "bound_files": [
+    {
+      "path": "research/data-audits/databento-microstructure-replication-v0.3-run-32437696613-success-2026-08-20.json",
+      "file_sha256": "08646f82044bd4056472c9378be5860d872b6d7af12392ef60e891f234058e0d"
+    },
+    {
+      "path": "research/strategy/microstructure-feature-mechanics-v0.1.json",
+      "file_sha256": "1ab3359154b896e3cbaaac9f0f0485d681530077bfd582c8b7d4c696cb23ec60"
+    },
+    {
+      "path": "src/momentumbot/research/microstructure_features.py",
+      "file_sha256": "07e2db045c9187e4bab46e7d25c546668c2c7b8d01f78c58ec36e88e48f1628e"
+    },
+    {
+      "path": "docs/research/microstructure_feature_mechanics_v01.md",
+      "file_sha256": "e38e5c311888bc398b6fc7ce8de603e3fc980d941ba21d6c4d2e0f6bbe64dd8e"
+    }
+  ],
+  "real_data_execution_status": {
+    "databento_metadata_call_made": false,
+    "databento_timeseries_call_made": false,
+    "databento_credit_spent_by_this_child_usd": "0",
+    "real_data_feature_output_generated": false,
+    "g3_synthetic_mechanics_passed": true,
+    "g3_real_data_mechanics_passed": false,
+    "next_gate": "Obtain separate authorization for the exact four-MBO one-shot feature-mechanics run below its frozen hard ceilings."
+  },
+  "authority_boundary": {
+    "provider_purchase_authorized": false,
+    "automatic_retry_authorized": false,
+    "batch_or_live_endpoint_authorized": false,
+    "raw_market_data_publication_authorized": false,
+    "feature_threshold_or_policy_authorized": false,
+    "paper_or_live_order_authorized": false,
+    "broker_or_account_change_authorized": false
+  },
+  "content_sha256": "7fefbc5b909bf063da0d08a7dcc1e508cd0fb5739bdbbb2ee2433f1d6c5f7835"
+}

@@ -1,0 +1,184 @@
+{
+  "schema_version": 1,
+  "feature_set_id": "microstructure-feature-mechanics-v0.1",
+  "artifact_type": "preregistered_threshold_free_causal_microstructure_feature_mechanics",
+  "registration_date": "2026-08-20",
+  "registration_status": "registered_before_real_data_feature_output",
+  "question": "Can the already-verified canonical single-venue depth and tape streams produce deterministic causal measurements for the Level 2 and tape concepts Ross teaches, without fitting a threshold or creating trading authority?",
+  "runtime_strategy_effect": "none_shadow_only",
+  "policy_promotion_eligible": false,
+  "profitability_claim_eligible": false,
+  "exact_ross_replication_claim_eligible": false,
+  "real_data_feature_run_started": false,
+  "provider_purchase_authorized": false,
+  "frozen_parents": {
+    "level2_feasibility_contract_id": "level2-tape-feasibility-v0.1",
+    "level2_feasibility_content_sha256": "6d3a41d6bde3844900bc880632d8bc9d6c5f7b787edd5f0c302a709dcb9c1bf1",
+    "databento_replication_audit_id": "databento-microstructure-replication-v0.3-run-32437696613-success-2026-08-20",
+    "databento_replication_audit_content_sha256": "66e16d7481afceaf38dacdf78c0f1974532cdb31f24cf50252ad3c914c8338a3",
+    "verified_engineering_samples": 612,
+    "verified_engineering_sample_matches": 612,
+    "retrospective_labels_used_for_mechanics": false,
+    "four_case_results_used_to_select_windows_or_thresholds": false
+  },
+  "source_evidence": [
+    {
+      "video_id": "HB1IbyuJ37s",
+      "title": "Level 2 for Day Trading (+$65k in 2hrs After Spotting Hidden Buyers)",
+      "published_at": "2025-11-10",
+      "mode": "normative_teaching",
+      "supported_concepts": [
+        "displayed bid and ask depth",
+        "executed volume relative to displayed liquidity",
+        "price failing to advance despite aggressive buying",
+        "price failing to decline despite aggressive selling",
+        "hidden buyer or seller is inferred from observable conflict rather than directly observed"
+      ]
+    },
+    {
+      "video_id": "xGIa8Vg0PWM",
+      "title": "Growing a $2k Account to $65,662.04 in 30 Days (My Day Trading Strategy)",
+      "published_at": "2026-08-05",
+      "mode": "normative_teaching",
+      "supported_concepts": [
+        "persistent large seller",
+        "hidden or iceberg seller",
+        "red tape burst",
+        "false breakout",
+        "slowing buying"
+      ]
+    },
+    {
+      "video_id": "6P25hNn_H00",
+      "title": "The Micro Pullback Trading Strategy (Small Account Challenge)",
+      "published_at": "2026-04-22",
+      "mode": "normative_teaching_and_observed_example",
+      "supported_concepts": [
+        "ten-second entry-chart context",
+        "first-candle-new-high remains the chart baseline",
+        "stacked bid and green prints are discretionary support context rather than a lower chart trigger"
+      ]
+    }
+  ],
+  "engineering_horizons": {
+    "receive_time_windows_ns": [
+      1000000000,
+      5000000000,
+      10000000000
+    ],
+    "window_rule": "start_exclusive_end_inclusive",
+    "selection_basis": "Symmetric one-, five-, and ten-second engineering coverage ending at the causal snapshot time. All horizons are emitted together; none is selected as best.",
+    "threshold_or_model_selection_permitted": false
+  },
+  "feature_mechanics": [
+    {
+      "feature_id": "book.top-spread-and-depth",
+      "mechanic": "Emit the best bid, best ask, spread, and up to ten venue-scoped displayed price levels with exact size and order count.",
+      "threshold": null,
+      "unavailable_when": "the initial book state is incomplete"
+    },
+    {
+      "feature_id": "book.depth-imbalance",
+      "mechanic": "Emit bid minus ask displayed depth as an integer numerator and bid plus ask depth as its denominator over the covered levels.",
+      "threshold": null,
+      "unavailable_when": "the book is incomplete or one-sided"
+    },
+    {
+      "feature_id": "book.ask-replenishment",
+      "mechanic": "Match later same-price same-side displayed additions against earlier in-window depletions in FIFO order and split shares replenished after fills from shares replenished after non-execution removals. Emit the symmetric bid measurement as engineering context.",
+      "threshold": null,
+      "unavailable_when": "the book is incomplete"
+    },
+    {
+      "feature_id": "tape.signed-trade-velocity",
+      "mechanic": "Emit event, share, and price-notional numerators by buy, sell, and unknown aggressor side for every registered window. Preserve unknown explicitly and fail the affected tape family closed when a correction or cancellation is present.",
+      "threshold": null,
+      "unavailable_when": "a correction or cancellation occurs in the window"
+    },
+    {
+      "feature_id": "tape.level-sweep-velocity",
+      "mechanic": "Emit distinct observed aggressive trade prices and their price span. Do not claim that every intervening displayed book level was consumed.",
+      "threshold": null,
+      "unavailable_when": "a correction or cancellation occurs in the window"
+    },
+    {
+      "feature_id": "book.execution-price-impact-mismatch",
+      "mechanic": "Emit executed shares, first-to-last price progress, and same-window displayed replenishment separately. Ratios remain integer numerator and denominator components. Hidden liquidity is a possible proxy interpretation, never proof.",
+      "threshold": null,
+      "unavailable_when": "there are no eligible tape events or a correction/cancellation occurs"
+    },
+    {
+      "feature_id": "book.cancellation-pressure",
+      "mechanic": "Emit add, cancel, fill, and modify event and share counts by book side without assigning intent or labeling spoofing.",
+      "threshold": null,
+      "unavailable_when": "the book is incomplete"
+    },
+    {
+      "feature_id": "breakout.progress-failure",
+      "mechanic": "When a causal breakout level is supplied by the chart setup, emit buy events and shares at or above it, maximum and last progress, and post-cross selling below it. Do not emit a pass/fail decision.",
+      "threshold": null,
+      "unavailable_when": "the breakout level is absent, tape is empty, or a correction/cancellation occurs"
+    },
+    {
+      "feature_id": "execution.depth-constrained-slippage",
+      "mechanic": "For each explicitly supplied hypothetical order size, walk no more than ten displayed levels and report filled, unfilled, worst-price, notional, and rational average-price components. Do not assume queue priority or hidden liquidity.",
+      "threshold": null,
+      "unavailable_when": "the book is incomplete"
+    }
+  ],
+  "causal_and_safety_contract": {
+    "event_clock": "provider_receive_timestamp_nanoseconds",
+    "book_initialization_required": true,
+    "clear_resets_book_flow_and_tape_history": true,
+    "snapshot_depth_additions_count_as_live_flow": false,
+    "merged_depth_and_tape_receive_order_required": true,
+    "venue_scope": "single_venue_nasdaq_not_consolidated_national_depth",
+    "retrospective_transcript_text_allowed_at_runtime": false,
+    "ross_action_or_fill_allowed_at_runtime": false,
+    "later_price_allowed_at_runtime": false,
+    "feature_thresholds_allowed": false,
+    "intent_or_spoofing_classification_allowed": false,
+    "llm_in_per_event_path_allowed": false,
+    "broker_order_or_risk_authority_created": false
+  },
+  "g3_acceptance": {
+    "synthetic_exact_output_required": true,
+    "byte_reproducible_snapshot_fingerprint_required": true,
+    "reset_and_incomplete_book_unavailable_state_required": true,
+    "unknown_aggressor_preservation_required": true,
+    "correction_fail_closed_required": true,
+    "scope_and_receive_time_order_enforcement_required": true,
+    "zero_threshold_and_zero_runtime_authority_required": true,
+    "real_data_output_required_for_g3_pass": true,
+    "current_gate_status": "synthetic_mechanics_pending_then_bounded_real_data_run"
+  },
+  "next_bounded_real_data_candidate": {
+    "authorized": false,
+    "provider": "databento",
+    "dataset": "XNAS.ITCH",
+    "schema": "mbo",
+    "cases_in_mechanical_order": [
+      "2026-07-10 INTJ",
+      "2026-07-10 EQPT",
+      "2026-07-20 AMC",
+      "2026-07-10 GMM"
+    ],
+    "exact_request_count": 4,
+    "observed_prior_exact_four_case_mbo_quote_usd": "0.072135579586",
+    "candidate_hard_cost_ceiling_usd": "0.08",
+    "candidate_hard_billable_size_ceiling_bytes": 80000000,
+    "mbp10_redownload_required": false,
+    "broad_history_or_retry_allowed": false,
+    "raw_data_publication_allowed": false,
+    "new_explicit_user_authorization_required": true
+  },
+  "explicitly_not_in_scope": [
+    "using the four engineering cases to choose a feature window or threshold",
+    "calling a hidden buyer, hidden seller, iceberg, or spoofing event proven",
+    "claiming Nasdaq venue depth is consolidated national Level 2",
+    "changing Micro-v0.1 entry, exit, sizing, or account policy",
+    "submitting paper or live orders",
+    "spending Databento credit before a separately authorized one-shot contract"
+  ],
+  "content_sha256": "b048e26fabd163d66297fa57faf011fbb50d9b69377101dbd04337a1cc1eab6a"
+}
