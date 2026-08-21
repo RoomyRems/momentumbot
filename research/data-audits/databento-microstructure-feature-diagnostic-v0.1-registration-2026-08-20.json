@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "audit_id": "databento-microstructure-feature-diagnostic-v0.1-registration-2026-08-20",
+  "artifact_type": "unarmed_databento_threshold_free_feature_diagnostic_registration_audit",
+  "recorded_at": "2026-08-20T00:00:00Z",
+  "development_base": {
+    "repository": "RoomyRems/momentumbot",
+    "branch": "phase-3-historical-snapshot",
+    "published_parent_commit": "d6db6bafeaebf9d42ab8e4e4f511969519139d79",
+    "published_parent_tree": "21fd224276bab973fd42430708db1b512c12a564"
+  },
+  "contract": {
+    "diagnostic_contract_id": "databento-microstructure-feature-diagnostic-v0.1",
+    "path": "research/strategy/databento-microstructure-feature-diagnostic-v0.1.json",
+    "content_sha256": "996e987f04cd14a87eb8ad56b5dfce9c84fcfbef1bc3af7b44919be0ec00e180",
+    "provider_purchase_authorized": false,
+    "execution_authorization_file_present": false
+  },
+  "frozen_parents": {
+    "feature_set_content_sha256": "b048e26fabd163d66297fa57faf011fbb50d9b69377101dbd04337a1cc1eab6a",
+    "feature_engine_file_sha256": "07e2db045c9187e4bab46e7d25c546668c2c7b8d01f78c58ec36e88e48f1628e",
+    "replication_audit_content_sha256": "66e16d7481afceaf38dacdf78c0f1974532cdb31f24cf50252ad3c914c8338a3",
+    "verified_mbo_to_mbp10_samples": 612,
+    "verified_mbo_to_mbp10_exact_matches": 612
+  },
+  "bound_files": [
+    {
+      "path": "research/strategy/databento-microstructure-feature-diagnostic-v0.1.json",
+      "file_sha256": "d2e29b8ad521c8a619aaeb7422fd3855acb4fc4aaec0232a3e83b434edce333c"
+    },
+    {
+      "path": "src/momentumbot/research/databento_feature_diagnostic_v01.py",
+      "file_sha256": "3c0c5ac0d18ffc3d72c1a18da9758ac33a269e3c074bac35fefb1528a99e1919"
+    },
+    {
+      "path": "scripts/run_databento_microstructure_features_v01.py",
+      "file_sha256": "7b6627aa0ea3be8199423329843dd6720c82d9f48531b4e5e6e80604c0da164a"
+    },
+    {
+      "path": ".github/workflows/databento-microstructure-features-v01.yml",
+      "file_sha256": "1676a37b384991b4060d1f0604315f57a280bc52502d955930c3ae535ef7fef3"
+    },
+    {
+      "path": "tests/test_databento_feature_diagnostic_v01.py",
+      "file_sha256": "58100c19ab6e1126d89ac9d16143d21f13d6f43cd350544b1e734b9174e1b802"
+    },
+    {
+      "path": "docs/research/databento_microstructure_feature_diagnostic_v01.md",
+      "file_sha256": "5c0d873241efeb7c3a443d1da29112577f32cdc0ecb11dc8211c4ddd8c05a358"
+    },
+    {
+      "path": "src/momentumbot/research/microstructure_features.py",
+      "file_sha256": "07e2db045c9187e4bab46e7d25c546668c2c7b8d01f78c58ec36e88e48f1628e"
+    }
+  ],
+  "execution_status": {
+    "execution_authorization_present": false,
+    "metadata_quote_run": false,
+    "provider_call_run": false,
+    "databento_credit_used": false,
+    "workflow_triggered_by_registration_bundle": false,
+    "raw_market_data_downloaded": false,
+    "raw_market_data_persisted": false
+  },
+  "future_gate": {
+    "authorization_path": "research/strategy/databento-microstructure-feature-diagnostic-v0.1-execution.json",
+    "new_explicit_user_authorization_required": true,
+    "published_parent_sha_binding_required": true,
+    "first_github_actions_attempt_only": true,
+    "exact_mbo_request_count": 4,
+    "hard_preflight_cost_ceiling_usd": "0.08",
+    "hard_preflight_billable_size_ceiling_bytes": 80000000,
+    "automatic_retry_allowed": false,
+    "mbp10_redownload_allowed": false
+  },
+  "authority_boundary": {
+    "ross_or_retrospective_label_loaded": false,
+    "feature_window_or_threshold_selected": false,
+    "strategy_policy_changed": false,
+    "runtime_feature_authority_created": false,
+    "paper_or_live_order_submitted": false,
+    "profitability_claim_supported": false
+  },
+  "content_sha256": "1ef32200d60c744420743c831c5af66a0bafbdfff2e6a269ee5ad5dd209eeae7"
+}

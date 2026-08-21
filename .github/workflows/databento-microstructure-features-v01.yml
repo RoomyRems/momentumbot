@@ -1,0 +1,70 @@
+name: Databento threshold-free microstructure feature diagnostic v0.1
+
+on:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - research/strategy/databento-microstructure-feature-diagnostic-v0.1-execution.json
+
+permissions:
+  contents: read
+
+concurrency:
+  group: databento-microstructure-feature-diagnostic-v0.1
+  cancel-in-progress: false
+
+jobs:
+  run-feature-diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project and pinned Databento client
+        run: |
+          python -m pip install -e .
+          python -m pip install databento==0.83.0
+      - name: Verify the frozen adapter, engine binding, and sanitization gate
+        run: python -m unittest tests.test_databento_feature_diagnostic_v01 -v
+      - name: Requote then acquire only the four authorized MBO streams
+        env:
+          DATABENTO_API_KEY: ${{ secrets.DATABENTO_API_KEY }}
+          MOMENTUMBOT_PUSH_BEFORE: ${{ github.event.before }}
+        run: >-
+          python scripts/run_databento_microstructure_features_v01.py
+          --output databento-microstructure-feature-diagnostic-v0.1.json
+      - name: Upload sanitized diagnostic only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: databento-microstructure-feature-diagnostic-v0.1-${{ github.run_id }}-${{ github.run_attempt }}
+          path: databento-microstructure-feature-diagnostic-v0.1.json
+          if-no-files-found: error
+          retention-days: 90
+      - name: Enforce the four-case feature and cleanup gates
+        run: >-
+          python -c "import json,pathlib;
+          d=json.loads(pathlib.Path('databento-microstructure-feature-diagnostic-v0.1.json').read_text());
+          assert d['preflight']['request_count_quoted'] == 4;
+          assert d['preflight']['total_quoted_cost_usd'] is not None;
+          assert float(d['preflight']['total_quoted_cost_usd']) <= 0.08;
+          assert d['preflight']['total_billable_size_bytes'] <= 80000000;
+          assert d['timeseries_request_count'] == 4;
+          assert len(d['downloads']) == 4;
+          assert all(x['metrics']['sampled_snapshot_count'] > 0 for x in d['downloads']);
+          assert all(x['metrics']['independent_feature_replay_exact'] is True for x in d['downloads']);
+          assert all(x['metrics']['feature_threshold_selected'] is False for x in d['downloads']);
+          assert all(x['metrics']['feature_horizon_selected'] is False for x in d['downloads']);
+          assert d['raw_market_data_persisted'] is False;
+          assert d['raw_market_data_uploaded'] is False;
+          assert d['feature_snapshot_values_persisted'] is False;
+          assert d['raw_temp_directory_empty_before_cleanup'] is True;
+          assert d['raw_temp_directory_removed'] is True;
+          assert d['g3_feature_diagnostic_passed'] is True;
+          assert d['runtime_authority_created'] is False;
+          assert d['policy_promotion_eligible'] is False"

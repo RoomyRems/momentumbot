@@ -60,6 +60,15 @@ historical account diagnostic audit.
   state is preserved, corrections fail closed, incomplete books are
   unavailable, and every snapshot is deterministic and hash-fingerprinted.
   The four engineering cases selected no window or threshold.
+- Feature-diagnostic child `databento-microstructure-feature-diagnostic-v0.1`,
+  content SHA-256
+  `996e987f04cd14a87eb8ad56b5dfce9c84fcfbef1bc3af7b44919be0ec00e180`,
+  freezes the exact four MBO-only requests and a deterministic XNAS
+  `Trade → Fill → Cancel` adapter around that engine. The bundle is unarmed:
+  its execution-authorization file is absent, its workflow listens only for a
+  later exact authorization child, and no Databento call or credit use occurred.
+  A future one-shot remains capped at $0.08 and 80,000,000 billable bytes and
+  may retain only sanitized counts, availability totals, and digests.
 - Prospective child `prospective-management-execution-v0.1`, content SHA-256
   `14812b9f25b5ea7230254ed86b1e0eaa30fffe3dc13b1ee141b19770706090f9`,
   freezes `half-2r-breakeven-first-red-1m` from source-explicit teaching, not
@@ -85,18 +94,21 @@ historical account diagnostic audit.
 - `research/data-audits/databento-microstructure-replication-v0.3-registration-2026-08-20.json`
 - `research/data-audits/databento-microstructure-replication-v0.3-run-32437696613-success-2026-08-20.json`
 - `research/data-audits/microstructure-feature-mechanics-v0.1-2026-08-20.json`
+- `research/data-audits/databento-microstructure-feature-diagnostic-v0.1-registration-2026-08-20.json`
 - `research/data-audits/prospective-management-execution-v0.1-2026-08-20.json`
 - `research/strategy/databento-microstructure-metadata-quote-v0.1.json`
 - `research/strategy/databento-microstructure-smoke-acquisition-v0.1.json`
 - `research/strategy/databento-microstructure-smoke-acquisition-v0.2.json`
 - `research/strategy/databento-microstructure-replication-v0.3.json`
 - `research/strategy/microstructure-feature-mechanics-v0.1.json`
+- `research/strategy/databento-microstructure-feature-diagnostic-v0.1.json`
 - `research/strategy/prospective-management-execution-v0.1.json`
 - `docs/research/databento_metadata_quote_v01.md`
 - `docs/research/databento_microstructure_smoke_acquisition_v01.md`
 - `docs/research/databento_microstructure_smoke_acquisition_v02.md`
 - `docs/research/databento_microstructure_replication_v03.md`
 - `docs/research/microstructure_feature_mechanics_v01.md`
+- `docs/research/databento_microstructure_feature_diagnostic_v01.md`
 - `docs/research/prospective_management_execution_v01.md`
 
 ## Active gates
@@ -106,10 +118,11 @@ historical account diagnostic audit.
 2. Integrate the frozen management rule and both fixed execution scenarios only
    when the registered account snapshot and causal top-of-book/halt inputs
    exist. Missing quotes remain unavailable; there is no SIP-print fallback.
-3. Publish the threshold-free feature-mechanics child without running a data
-   workflow. A later separately authorized one-shot may re-acquire only the four
-   exact MBO streams below $0.08 and 80,000,000 billable bytes. It must not
-   redownload MBP-10, retry, retain raw data, or select a best window/threshold.
+3. Publish the unarmed four-case feature-diagnostic bundle without its absent
+   execution-authorization child. A later separately authorized one-shot may
+   re-acquire only the four exact MBO streams below $0.08 and 80,000,000
+   billable bytes. It must not redownload MBP-10, retry, retain raw data, or
+   select a best window/threshold.
 4. Run the larger preregistered walk-forward and prospective paper sequence
    before any policy promotion or profitability interpretation.
 
@@ -131,9 +144,12 @@ The previously published checkpoint passed its focused 31/31 tests and full
 570/570 suite. The Level 2 parent, quote, and v0.1 acquisition verification
 passes 26/26 focused tests. The v0.2 reset-repair bundle passes 11/11 focused
 tests. The v0.3 replication bundle passes 9/9 focused tests. The feature
-mechanics bundle passes 9/9 focused tests. The complete repository passes
-610/610 tests, including both reset modes, later-clear
+mechanics bundle passes 9/9 focused tests. The unarmed four-case feature
+diagnostic passes 11/11 focused tests. The complete repository passes 621/621
+tests, including both reset modes, later-clear
 recovery, deterministic budgets, all-three-case replay, cohort-preserving
 mismatch, cleanup, dual replay, MBP-10 mismatch, provider/parser failure,
 sanitization, one-shot workflow checks, exact rational features, bounded rolling
-windows, replenishment matching, correction handling, and unavailable states.
+windows, replenishment matching, correction handling, atomic XNAS
+`Trade → Fill → Cancel` ordering, inert execution authorization, and unavailable
+states.

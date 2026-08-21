@@ -1,0 +1,151 @@
+{
+  "schema_version": 1,
+  "diagnostic_contract_id": "databento-microstructure-feature-diagnostic-v0.1",
+  "artifact_type": "preregistered_unarmed_bounded_ephemeral_databento_threshold_free_feature_diagnostic",
+  "registration_date": "2026-08-20",
+  "registration_status": "registered_after_feature_mechanics_before_execution_authorization_or_real_data_feature_output",
+  "question": "Can the frozen threshold-free feature engine consume the four already-verified XNAS.ITCH MBO cases through a deterministic provider adapter and emit reproducible sanitized feature diagnostics without selecting a horizon, threshold, trade decision, or policy?",
+  "frozen_parents": {
+    "feature_set_id": "microstructure-feature-mechanics-v0.1",
+    "feature_set_content_sha256": "b048e26fabd163d66297fa57faf011fbb50d9b69377101dbd04337a1cc1eab6a",
+    "feature_set_path": "research/strategy/microstructure-feature-mechanics-v0.1.json",
+    "feature_engine_path": "src/momentumbot/research/microstructure_features.py",
+    "feature_engine_file_sha256": "07e2db045c9187e4bab46e7d25c546668c2c7b8d01f78c58ec36e88e48f1628e",
+    "replication_audit_id": "databento-microstructure-replication-v0.3-run-32437696613-success-2026-08-20",
+    "replication_audit_content_sha256": "66e16d7481afceaf38dacdf78c0f1974532cdb31f24cf50252ad3c914c8338a3",
+    "verified_mbo_to_mbp10_samples": 612,
+    "verified_mbo_to_mbp10_exact_matches": 612,
+    "feature_engine_mutation_allowed": false,
+    "four_case_results_may_select_horizon_or_threshold": false
+  },
+  "provider": {
+    "provider_id": "databento",
+    "dataset": "XNAS.ITCH",
+    "schema": "mbo",
+    "venue": "XNAS",
+    "venue_scope": "single_venue_nasdaq_not_consolidated_national_depth",
+    "sdk_package": "databento",
+    "sdk_version": "0.83.0",
+    "secret_name": "DATABENTO_API_KEY"
+  },
+  "provider_normalization": {
+    "official_mbo_schema_url": "https://databento.com/docs/schemas-and-data-formats/mbo",
+    "official_xnas_normalization_url": "https://databento.com/docs/venues-and-datasets/xnas-itch",
+    "official_side_semantics_url": "https://databento.com/docs/standards-and-conventions/common-fields-enums-types",
+    "xnas_executed_order_sequence": [
+      "Trade",
+      "Fill",
+      "Cancel"
+    ],
+    "same_native_message_records_share_sequence": true,
+    "trade_side_is_aggressor_side": true,
+    "fill_side_is_resting_side": true,
+    "fill_record_alone_mutates_book": false,
+    "matching_cancel_is_classified_as_executed_removal": true,
+    "non_displayed_trade_side_is_unknown": true,
+    "broken_or_corrected_trade_output_available_in_xnas_mbo": false,
+    "f_last_defines_atomic_instrument_event_boundary": true
+  },
+  "request_surface": {
+    "case_order_reason": "Reuse the mechanically selected four-case engineering cohort in the already frozen order. No Ross action, transcript label, P&L, later price, or feature result selected a case.",
+    "cases": [
+      {"trading_date": "2026-07-10", "symbol": "INTJ"},
+      {"trading_date": "2026-07-10", "symbol": "EQPT"},
+      {"trading_date": "2026-07-20", "symbol": "AMC"},
+      {"trading_date": "2026-07-10", "symbol": "GMM"}
+    ],
+    "requests": [
+      {"trading_date": "2026-07-10", "symbol": "INTJ", "dataset": "XNAS.ITCH", "schema": "mbo", "start": "2026-07-10T00:00:00Z", "end": "2026-07-10T14:10:00Z", "stype_in": "raw_symbol"},
+      {"trading_date": "2026-07-10", "symbol": "EQPT", "dataset": "XNAS.ITCH", "schema": "mbo", "start": "2026-07-10T00:00:00Z", "end": "2026-07-10T14:10:00Z", "stype_in": "raw_symbol"},
+      {"trading_date": "2026-07-20", "symbol": "AMC", "dataset": "XNAS.ITCH", "schema": "mbo", "start": "2026-07-20T00:00:00Z", "end": "2026-07-20T14:10:00Z", "stype_in": "raw_symbol"},
+      {"trading_date": "2026-07-10", "symbol": "GMM", "dataset": "XNAS.ITCH", "schema": "mbo", "start": "2026-07-10T00:00:00Z", "end": "2026-07-10T14:10:00Z", "stype_in": "raw_symbol"}
+    ],
+    "exact_request_count": 4,
+    "allowed_calls_after_separate_execution_authorization": [
+      "historical.metadata.get_billable_size",
+      "historical.metadata.get_cost",
+      "historical.timeseries.get_range"
+    ],
+    "prohibited_calls": [
+      "historical.batch.submit_job",
+      "historical.batch.download",
+      "live.subscribe"
+    ]
+  },
+  "sampling_and_feature_policy": {
+    "event_clock": "provider_receive_timestamp_nanoseconds",
+    "atomic_group_rule": "buffer one publisher/instrument/sequence group through F_LAST before translating XNAS execution removals",
+    "sample_rule": "emit the last complete F_LAST state in each receive-time one-second bucket and the final complete state",
+    "sample_interval_ns": 1000000000,
+    "feature_windows_ns": [
+      1000000000,
+      5000000000,
+      10000000000
+    ],
+    "all_registered_windows_emitted_together": true,
+    "fixed_hypothetical_order_sizes": [
+      100,
+      500,
+      1000
+    ],
+    "causal_breakout_level_supplied": false,
+    "feature_thresholds": [],
+    "threshold_or_horizon_selection_allowed": false,
+    "intent_or_spoofing_classification_allowed": false,
+    "retrospective_label_access_allowed": false,
+    "ross_action_or_fill_access_allowed": false,
+    "later_price_access_allowed": false
+  },
+  "execution_authorization_gate": {
+    "provider_purchase_authorized": false,
+    "execution_authorization_file_present": false,
+    "future_execution_authorization_path": "research/strategy/databento-microstructure-feature-diagnostic-v0.1-execution.json",
+    "new_explicit_user_authorization_required": true,
+    "future_authorization_must_bind_published_parent_sha": true,
+    "first_github_actions_attempt_only": true,
+    "automatic_retry_allowed": false,
+    "observed_prior_exact_four_case_mbo_quote_usd": "0.072135579586",
+    "hard_preflight_cost_ceiling_usd": "0.08",
+    "hard_preflight_billable_size_ceiling_bytes": 80000000,
+    "mbp10_redownload_allowed": false,
+    "broad_history_download_allowed": false,
+    "broker_or_order_change_allowed": false
+  },
+  "sanitized_output": {
+    "retained_fields": [
+      "preflight quote totals and per-request quotes",
+      "ephemeral file hashes",
+      "record, atomic-group, canonical-event, and sampled-snapshot counts",
+      "feature-family availability counts",
+      "deterministic full-snapshot digest",
+      "independent replay equality",
+      "pass, failure, cleanup, and authority booleans"
+    ],
+    "raw_provider_records_retained": false,
+    "feature_snapshot_values_retained": false,
+    "prices_sizes_order_ids_or_instrument_ids_retained": false,
+    "public_repository_raw_data_allowed": false,
+    "github_artifact_raw_data_allowed": false,
+    "temporary_files_deleted_before_report_finalization": true
+  },
+  "g3_acceptance": {
+    "all_four_exact_mbo_requests_complete": true,
+    "every_atomic_group_ends_with_f_last": true,
+    "xnas_trade_fill_cancel_groups_translate_without_orphan_fill_markers": true,
+    "every_case_produces_at_least_one_complete_feature_snapshot": true,
+    "two_independent_feature_replays_match_exactly": true,
+    "all_feature_outputs_remain_threshold_free": true,
+    "all_persisted_output_is_sanitized_and_non_reconstructable": true,
+    "raw_cleanup_passes": true,
+    "runtime_or_order_authority_created": false,
+    "profitability_or_policy_promotion_supported": false
+  },
+  "claim_boundary": [
+    "A pass establishes only that the frozen feature mechanics execute reproducibly on the four verified engineering streams.",
+    "The four cases cannot select a best feature window, threshold, hidden-liquidity label, trade decision, or policy.",
+    "Single-venue XNAS depth is not consolidated national Level 2 and cannot establish Ross-equivalent visibility.",
+    "No profitability, behavioral imitation, execution-quality, or portfolio claim is supported.",
+    "No Databento call is authorized by registering or publishing this unarmed bundle."
+  ],
+  "content_sha256": "996e987f04cd14a87eb8ad56b5dfce9c84fcfbef1bc3af7b44919be0ec00e180"
+}
