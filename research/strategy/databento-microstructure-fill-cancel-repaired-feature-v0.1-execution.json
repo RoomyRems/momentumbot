@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "execution_authorization_id": "databento-microstructure-fill-cancel-repaired-feature-v0.1-execution",
+  "artifact_type": "explicit_one_shot_databento_eqpt_repaired_feature_authorization",
+  "diagnostic_contract_id": "databento-microstructure-fill-cancel-repaired-feature-v0.1",
+  "diagnostic_contract_content_sha256": "b6b85967d420fca8262a399fc929c7308e79563db68a46acd17fd39186ad2e28",
+  "authorized_push_parent_sha": "bba7d9dfe8b1d52df73d2369b4dc6d1f3b8cf783",
+  "explicit_user_authorization": "User replied \"Please proceed with next step\" on 2026-08-21 to the immediately preceding statement that the next step was the separately authorized, parent-bound execution file for one EQPT replay under the frozen $0.003, 3 MB, one-request, no-retry limits. Pre-push testing exposed and corrected an activation-only test blocker without making a provider call; this sole execution file is bound to that corrected published parent.",
+  "provider_purchase_authorized": true,
+  "exact_request_count_authorized": 1,
+  "hard_preflight_cost_ceiling_usd": "0.003",
+  "hard_preflight_billable_size_ceiling_bytes": 3000000,
+  "first_github_actions_attempt_only": true,
+  "automatic_retry_authorized": false,
+  "batch_or_live_endpoint_authorized": false,
+  "mbp10_redownload_authorized": false,
+  "raw_market_data_publication_authorized": false,
+  "broker_or_order_change_authorized": false,
+  "strategy_or_threshold_change_authorized": false,
+  "content_sha256": "84ef6907f4320725830efdf0284f466a68ac7ff11e5372800e220dfa2307d25b"
+}
