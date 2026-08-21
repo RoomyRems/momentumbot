@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "execution_authorization_id": "databento-microstructure-feature-diagnostic-v0.2-execution",
+  "artifact_type": "explicit_one_shot_databento_safe_failure_classifier_authorization",
+  "diagnostic_contract_id": "databento-microstructure-feature-diagnostic-v0.2",
+  "diagnostic_contract_content_sha256": "14b2a0500b7d2626a71f0a598eb876837f7d4f36754d44e3ecffee1fb3d9a648",
+  "authorized_push_parent_sha": "7c982d7633e80c495a23970610e5cbaa85e75c78",
+  "explicit_user_authorization": "User explicitly authorized on 2026-08-21 creating, testing, staging, committing, and pushing the sole parent-bound v0.2 execution-authorization file to RoomyRems/momentumbot branch phase-3-historical-snapshot, and authorized the resulting first-attempt Databento run capped at $0.001 and 1 MB, with one request and no retries.",
+  "provider_purchase_authorized": true,
+  "exact_request_count_authorized": 1,
+  "hard_preflight_cost_ceiling_usd": "0.001",
+  "hard_preflight_billable_size_ceiling_bytes": 1000000,
+  "first_github_actions_attempt_only": true,
+  "automatic_retry_authorized": false,
+  "batch_or_live_endpoint_authorized": false,
+  "mbp10_redownload_authorized": false,
+  "raw_market_data_publication_authorized": false,
+  "broker_or_order_change_authorized": false,
+  "strategy_or_threshold_change_authorized": false,
+  "content_sha256": "2f8821daf16218b8b11e5e930b26f3714b840b360c9d3863de3779cdb929c20d"
+}
