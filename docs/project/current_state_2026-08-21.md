@@ -6,7 +6,7 @@ This checkpoint extends `docs/project/current_state_2026-08-20.md`. The August 1
 
 The project has verified that the repaired Nasdaq order-event parser can turn one real Databento INTJ MBO case into deterministic, threshold-free microstructure feature snapshots. The first EQPT feature attempt then stopped safely because the frozen five-field Fill/Cancel identity was too strict. A separately bounded, aggregate-only EQPT classifier has now isolated and quantified that parser issue without persisting raw values: all 1,346 Fill records match Cancels by order ID and side, while 15 Fill records across 13 events do not match when price remains part of the identity.
 
-This is engineering evidence, not evidence that the trading idea is profitable or unprofitable. The smallest supported repair is now implemented and unarmed: exact five-field matches are preserved, remaining Fill markers are paired to Cancels by order ID and side within the completed per-instrument event, and the Cancel record's own payload supplies the canonical book removal. The repaired EQPT feature replay has not yet been run.
+This is engineering evidence, not evidence that the trading idea is profitable or unprofitable. The smallest supported repair is now implemented and published: exact five-field matches are preserved, remaining Fill markers are paired to Cancels by order ID and side within the completed per-instrument event, and the Cancel record's own payload supplies the canonical book removal. A separately hash-bound EQPT repaired-feature harness is implemented and unarmed; the repaired real-data replay has not yet been run.
 
 No feature threshold, runtime trading authority, consolidated national Level 2 claim, Ross Cameron imitation claim, or realistic broker-fill claim exists.
 
@@ -45,11 +45,13 @@ The two Alpaca paper accounts remain separately validated. The registered pre-se
 
 The Fill marker remains book-neutral. A matched Cancel becomes the canonical Fill removal using the Cancel record's own payload. Extra Cancels remain Cancels, while a Fill without an order-ID-and-side match stops safely. This adds no feature threshold, case-specific value, provider call, runtime authority, strategy behavior, broker behavior, or execution authorization.
 
+`databento-microstructure-fill-cancel-repaired-feature-v0.1`, content SHA-256 `b6b85967d420fca8262a399fc929c7308e79563db68a46acd17fd39186ad2e28`, binds the exact EQPT request to published repair commit `5db47089adc62a5df46fa85e41f3cc3eb26495c2` and the unchanged feature engine. Its workflow is inert because the future execution file is absent. A later separately authorized run would be limited to one first attempt, one request, no retry, and preflight ceilings of `$0.003` and `3,000,000` bytes.
+
 ## Active gates, in order
 
-1. Publish the tested classifier-success audit and unarmed Fill/Cancel repair without an execution authorization file.
-2. After that exact parent is published, register and separately authorize one bounded, aggregate-only EQPT repaired feature replay.
-3. Attempt AMC and GMM only after EQPT normalizes and replays deterministically under the repair.
+1. Publish the tested unarmed EQPT repaired-feature harness without its execution authorization file.
+2. After that exact parent is published, decide whether to authorize its sole parent-bound execution file and one EQPT request under the fixed `$0.003` and `3 MB` ceilings.
+3. Attempt AMC and GMM only after EQPT normalizes and replays deterministically under the repair; each later provider step requires a separate frozen contract and authorization.
 4. Let the registered account snapshot workflow capture both accounts on every August 24–September 4 date. Confirm each scheduled run succeeds and preserve the artifacts.
 5. If all four engineering cases eventually replay exactly, preregister a behavioral comparison or threshold hypothesis before inspecting outcomes. Do not tune by case.
 6. Complete the larger representative walk-forward and prospective paper sequence before any policy-promotion or profitability interpretation.
@@ -66,10 +68,11 @@ The Fill marker remains book-neutral. A matched Cancel becomes the canonical Fil
 
 ## What is needed from the owner
 
-Nothing is needed to test the unarmed code or to let the scheduled account snapshots run, beyond keeping both paper accounts flat and unreset. Publishing this audit and unarmed repair requires explicit authorization. Any future Databento attempt requires a second, separate authorization after the unarmed parent is published.
+Nothing is needed to test the unarmed code or to let the scheduled account snapshots run, beyond keeping both paper accounts flat and unreset. Publishing the unarmed repaired-feature harness requires explicit authorization. Its future Databento attempt requires a second, separate authorization after the exact unarmed parent is published.
 
 ## Verification
 
 - Unarmed Fill/Cancel repair: 8/8 focused tests pass.
+- Unarmed EQPT repaired-feature harness: 11/11 focused tests pass.
 - No Databento request was made while preparing this repair.
-- Complete repository suite: 694/694 tests pass.
+- Complete repository suite: 705/705 tests pass.

@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "audit_id": "databento-microstructure-fill-cancel-repaired-feature-v0.1-registration-2026-08-21",
+  "artifact_type": "independently_checked_unarmed_databento_eqpt_repaired_feature_registration",
+  "registration_date": "2026-08-21",
+  "published_parent": {
+    "commit_sha": "5db47089adc62a5df46fa85e41f3cc3eb26495c2",
+    "tree_sha": "c453a91fe6ce6bb17fa90072a5f7c7822d2dc40e",
+    "commit_message": "Register unarmed Databento Fill-Cancel identity repair"
+  },
+  "contract": {
+    "diagnostic_contract_id": "databento-microstructure-fill-cancel-repaired-feature-v0.1",
+    "content_sha256": "b6b85967d420fca8262a399fc929c7308e79563db68a46acd17fd39186ad2e28",
+    "exact_request_count": 1,
+    "case": {
+      "trading_date": "2026-07-10",
+      "symbol": "EQPT"
+    },
+    "hard_preflight_cost_ceiling_usd": "0.003",
+    "hard_preflight_billable_size_ceiling_bytes": 3000000,
+    "first_github_actions_attempt_only": true,
+    "automatic_retry_authorized": false
+  },
+  "causal_boundary": {
+    "published_fill_cancel_repair_frozen": true,
+    "threshold_free_feature_engine_frozen": true,
+    "retrospective_labels_loaded": false,
+    "feature_threshold_selected": false,
+    "feature_horizon_selected": false,
+    "strategy_or_broker_change_made": false,
+    "runtime_authority_created": false,
+    "policy_promotion_eligible": false
+  },
+  "execution_status": {
+    "execution_authorization_path": "research/strategy/databento-microstructure-fill-cancel-repaired-feature-v0.1-execution.json",
+    "execution_authorization_present": false,
+    "provider_call_run": false,
+    "databento_credit_used": false,
+    "workflow_triggered_by_registration": false
+  },
+  "bound_files": [
+    {
+      "path": "research/strategy/databento-microstructure-fill-cancel-repaired-feature-v0.1.json",
+      "file_sha256": "a40e3cf8cc601b4230c59be97ab7ff3d68f43b3fa88336de3b35095c3e9aae5b"
+    },
+    {
+      "path": "src/momentumbot/research/databento_fill_cancel_repaired_feature_v01.py",
+      "file_sha256": "e49c8b884ece338a53b2e53133d6b55e62ef408c4072e5a13755a2800cc334e5"
+    },
+    {
+      "path": "scripts/run_databento_fill_cancel_repaired_feature_v01.py",
+      "file_sha256": "5783d115698d86f92235a08304741b143c9747a59c81070b08472a1bd458b397"
+    },
+    {
+      "path": ".github/workflows/databento-fill-cancel-repaired-feature-v01.yml",
+      "file_sha256": "163b2d4d319ccbe08b629b1a00483c8e8393cebd82294040c56e83232d9d6894"
+    },
+    {
+      "path": "tests/test_databento_fill_cancel_repaired_feature_v01.py",
+      "file_sha256": "ef25680a92e4e6d333b0a0bc35e9b1fc65b068088ea8fb24237cb8d4a44af7a4"
+    },
+    {
+      "path": "docs/research/databento_microstructure_fill_cancel_repaired_feature_v01.md",
+      "file_sha256": "1cc8834f63474d2b179886922aa6b53e895d4fbe71d10831482bd8efaaa9e9f4"
+    }
+  ],
+  "verification": {
+    "focused_test_count": 11,
+    "focused_tests_passed": true,
+    "complete_repository_test_count": 705,
+    "complete_repository_tests_passed": true,
+    "diff_check_passed": true
+  },
+  "content_sha256": "f3b05df7405051ce5b7cb9794a658e61da4b8c17e6180703cc3a739379838055"
+}

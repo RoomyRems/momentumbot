@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "diagnostic_contract_id": "databento-microstructure-fill-cancel-repaired-feature-v0.1",
+  "artifact_type": "preregistered_unarmed_databento_eqpt_repaired_feature_replay",
+  "registration_date": "2026-08-21",
+  "registration_status": "frozen_after_published_fill_cancel_identity_repair_before_any_repaired_feature_provider_request",
+  "purpose": "Re-run the exact previously attempted EQPT MBO feature diagnostic with the published Fill/Cancel identity repair and unchanged threshold-free feature engine, without selecting a feature, window, threshold, strategy rule, or broker action.",
+  "runtime_strategy_effect": "none",
+  "policy_promotion_eligible": false,
+  "profitability_claim_eligible": false,
+  "provider_purchase_authorized": false,
+  "execution_authorization_file_present": false,
+  "frozen_parent_repair": {
+    "published_commit_sha": "5db47089adc62a5df46fa85e41f3cc3eb26495c2",
+    "published_tree_sha": "c453a91fe6ce6bb17fa90072a5f7c7822d2dc40e",
+    "repair_contract_path": "research/strategy/databento-microstructure-fill-cancel-repair-v0.1.json",
+    "repair_contract_id": "databento-microstructure-fill-cancel-repair-v0.1",
+    "repair_contract_content_sha256": "a5e8e0381e893610b641ce9a41d31138c1bde2134614efe7ebce725383b6abf0",
+    "repair_contract_file_sha256": "cbb717027ee8b6b3bd3d2e551e10e08977b0d392639672d873fd66adddbdd794",
+    "repair_source_path": "src/momentumbot/research/databento_fill_cancel_repair_v01.py",
+    "repair_source_file_sha256": "8ec8c10a489c46840ca980f71cc3f55f0367a5c3673600773ae1b12812f19a83",
+    "classifier_success_audit_path": "research/data-audits/databento-microstructure-fill-cancel-classifier-v0.1-run-32512602607-success-2026-08-21.json",
+    "classifier_success_audit_content_sha256": "a1a4b72301f78b6c06811d810a15ecd830559d5db52dc9187ae00d8973fc983f",
+    "classifier_success_audit_file_sha256": "3b24274af946da00467d4bdc40c3f08b8418e5133a12dc69a397db601e529022"
+  },
+  "frozen_mechanics": {
+    "event_scope": [
+      "publisher_id",
+      "instrument_id"
+    ],
+    "event_boundary": "F_LAST",
+    "exact_fill_cancel_identity": [
+      "sequence",
+      "order_id",
+      "side",
+      "price",
+      "size"
+    ],
+    "remaining_fill_cancel_identity": [
+      "order_id",
+      "side"
+    ],
+    "matched_cancel_payload_is_canonical_removal": true,
+    "unmatched_fill_fails_closed": true,
+    "feature_engine_source_path": "src/momentumbot/research/microstructure_features.py",
+    "feature_engine_source_file_sha256": "07e2db045c9187e4bab46e7d25c546668c2c7b8d01f78c58ec36e88e48f1628e",
+    "feature_set_content_sha256": "b048e26fabd163d66297fa57faf011fbb50d9b69377101dbd04337a1cc1eab6a",
+    "feature_mechanics_changed": false,
+    "feature_windows_or_thresholds_changed": false,
+    "strategy_or_broker_behavior_changed": false
+  },
+  "request_surface": {
+    "case_selection_reason": "EQPT is the exact first case that stopped safely under the old five-field identity and the only case supported by the published aggregate classifier. No Ross action, transcript label, P&L, later price, or feature output selected the case.",
+    "case": {
+      "trading_date": "2026-07-10",
+      "symbol": "EQPT"
+    },
+    "request": {
+      "trading_date": "2026-07-10",
+      "symbol": "EQPT",
+      "dataset": "XNAS.ITCH",
+      "schema": "mbo",
+      "start": "2026-07-10T00:00:00Z",
+      "end": "2026-07-10T14:10:00Z",
+      "stype_in": "raw_symbol"
+    },
+    "exact_request_count": 1,
+    "allowed_calls_after_separate_execution_authorization": [
+      "historical.metadata.get_billable_size",
+      "historical.metadata.get_cost",
+      "historical.timeseries.get_range"
+    ],
+    "prohibited_calls": [
+      "historical.batch.submit_job",
+      "historical.batch.download",
+      "live.subscribe"
+    ]
+  },
+  "preregistered_hypothesis": "The exact EQPT request will normalize without an unmatched Fill, produce at least one complete causal feature snapshot under the published identity repair, and a second independent feature engine will reproduce the identical full snapshot-sequence digest.",
+  "success_requirements": [
+    "the exact metadata quote passes both fixed ceilings before the time-series request",
+    "the sole exact MBO request completes on the first GitHub Actions attempt",
+    "the downloaded file is nonempty and matches the registered dataset and schema",
+    "the repaired translator uses the Cancel record payload for every matched Fill removal",
+    "the case yields at least one complete feature snapshot",
+    "the independent feature replay is exact",
+    "no feature value, threshold, label, raw record, credential, or temporary path is persisted",
+    "the raw DBN file is deleted before the sanitized aggregate report is finalized"
+  ],
+  "failure_rule": "If metadata preflight fails or exceeds either ceiling, make zero time-series requests. After the sole download begins, classify the first provider, file, parser, replay, or cleanup failure without retrying or changing the repair.",
+  "future_execution_gate": {
+    "new_explicit_user_authorization_required": true,
+    "future_authorization_must_bind_published_parent_sha": true,
+    "authorization_only_direct_child_required": true,
+    "first_github_actions_attempt_only": true,
+    "exact_request_count_authorized": 0,
+    "hard_preflight_cost_ceiling_usd": "0.003",
+    "hard_preflight_billable_size_ceiling_bytes": 3000000,
+    "automatic_retry_authorized": false,
+    "batch_or_live_endpoint_authorized": false,
+    "mbp10_redownload_authorized": false,
+    "raw_market_data_publication_authorized": false,
+    "broker_or_order_change_authorized": false,
+    "strategy_or_threshold_change_authorized": false
+  },
+  "storage_and_licensing": {
+    "raw_storage": "Temporary GitHub runner directory only after separate execution authorization.",
+    "public_repository_raw_data": false,
+    "github_artifact_raw_data": false,
+    "persisted_output": "Sanitized non-reconstructable counts, availability totals, exact-replay booleans, quote totals, and cryptographic digests.",
+    "feature_snapshot_values_persisted": false,
+    "cleanup_rule": "Delete the DBN file before finalizing the sanitized report and fail closed if the temporary directory is not empty."
+  },
+  "prohibited_inputs_and_actions": [
+    "Ross action or retrospective label",
+    "recap text or discretionary judgment",
+    "trade P&L or later price outcome",
+    "threshold fitting, horizon selection, or case suppression",
+    "modifying the published Fill/Cancel repair or threshold-free feature engine",
+    "Micro-v0.1 or scanner changes",
+    "paper or live order submission",
+    "publishing licensed Databento records",
+    "automatic provider retry",
+    "claiming single-venue Nasdaq depth is consolidated national Level 2"
+  ],
+  "claim_boundary": [
+    "This bundle is unarmed and cannot call Databento or spend credit.",
+    "A future EQPT pass would validate the repaired parser and frozen feature mechanics on this engineering case only; it would not establish predictive value, a profitable threshold, Ross-equivalent discretion, consolidated Level 2 coverage, execution quality, or profitability.",
+    "A future failure remains evidence and cannot be hidden by changing the identity, case, feature, or threshold."
+  ],
+  "content_sha256": "b6b85967d420fca8262a399fc929c7308e79563db68a46acd17fd39186ad2e28"
+}

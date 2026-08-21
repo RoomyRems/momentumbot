@@ -1,0 +1,119 @@
+name: Databento one-shot EQPT repaired feature replay v0.1
+
+on:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - research/strategy/databento-microstructure-fill-cancel-repaired-feature-v0.1-execution.json
+
+permissions:
+  contents: read
+
+concurrency:
+  group: databento-fill-cancel-repaired-feature-v0.1
+  cancel-in-progress: false
+
+jobs:
+  replay-eqpt-under-published-fill-cancel-repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 2
+      - name: Verify the authorization is the only direct-child change
+        env:
+          MOMENTUMBOT_PUSH_BEFORE: ${{ github.event.before }}
+          MOMENTUMBOT_PUSH_SHA: ${{ github.sha }}
+        run: |
+          python - <<'PY'
+          import os
+          import subprocess
+
+          before = os.environ["MOMENTUMBOT_PUSH_BEFORE"]
+          head = os.environ["MOMENTUMBOT_PUSH_SHA"]
+          expected = (
+              "research/strategy/databento-microstructure-fill-cancel-"
+              "repaired-feature-v0.1-execution.json"
+          )
+          parent = subprocess.check_output(
+              ["git", "rev-parse", f"{head}^"], text=True
+          ).strip()
+          changed = subprocess.check_output(
+              ["git", "diff", "--name-only", before, head], text=True
+          ).splitlines()
+          assert parent == before
+          assert changed == [expected]
+          PY
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project and pinned Databento client
+        run: |
+          python -m pip install -e .
+          python -m pip install databento==0.83.0
+      - name: Verify frozen repair, request, budgets, and sanitization
+        run: >-
+          python -m unittest
+          tests.test_databento_fill_cancel_repaired_feature_v01 -v
+      - name: Requote then make the separately authorized EQPT request
+        env:
+          DATABENTO_API_KEY: ${{ secrets.DATABENTO_API_KEY }}
+          GITHUB_RUN_ATTEMPT: ${{ github.run_attempt }}
+          MOMENTUMBOT_PUSH_BEFORE: ${{ github.event.before }}
+        run: >-
+          python scripts/run_databento_fill_cancel_repaired_feature_v01.py
+          --output databento-fill-cancel-repaired-feature-v0.1.json
+      - name: Upload sanitized repaired feature report only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: databento-fill-cancel-repaired-feature-v0.1-${{ github.run_id }}-${{ github.run_attempt }}
+          path: databento-fill-cancel-repaired-feature-v0.1.json
+          if-no-files-found: error
+          retention-days: 90
+      - name: Enforce request, budget, cleanup, and authority gates
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          report = json.loads(
+              Path(
+                  "databento-fill-cancel-repaired-feature-v0.1.json"
+              ).read_text(encoding="utf-8")
+          )
+          preflight = report["preflight"]
+          assert preflight["request_count_expected"] == 1
+          assert preflight["request_count_quoted"] == 1
+          assert float(preflight["quote"]["quoted_cost_usd"]) <= 0.003
+          assert preflight["quote"]["billable_size_bytes"] <= 3000000
+          assert preflight["preflight_passed"] is True
+          assert report["timeseries_request_count"] == 1
+          assert report["diagnostic_observation_complete"] is True
+          if report["repaired_feature_replay_succeeded"]:
+              assert report["download"] is not None
+              assert report["errors"] == []
+          else:
+              assert report["download"] is None
+              assert report["safe_failure_classified"] is True
+              assert len(report["errors"]) == 1
+          assert report["registered_fill_cancel_repair_applied"] is True
+          assert report["raw_market_data_persisted"] is False
+          assert report["raw_market_data_uploaded"] is False
+          assert report["feature_snapshot_values_persisted"] is False
+          assert report["provider_credential_persisted"] is False
+          assert report["raw_temp_directory_empty_before_cleanup"] is True
+          assert report["raw_temp_directory_removed"] is True
+          assert report["automatic_retry_attempted"] is False
+          assert report["batch_or_live_endpoint_called"] is False
+          assert report["mbp10_redownloaded"] is False
+          assert report["retrospective_labels_loaded"] is False
+          assert report["feature_mechanics_changed"] is False
+          assert report["strategy_or_threshold_change_made"] is False
+          assert report["broker_or_order_change_made"] is False
+          assert report["runtime_authority_created"] is False
+          assert report["policy_promotion_eligible"] is False
+          PY
