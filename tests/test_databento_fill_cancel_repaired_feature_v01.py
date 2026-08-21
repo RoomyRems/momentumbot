@@ -85,6 +85,13 @@ REGISTRATION_AUDIT = (
     / "databento-microstructure-fill-cancel-repaired-feature-v0.1-"
     "registration-2026-08-21.json"
 )
+SUCCESS_AUDIT = (
+    ROOT
+    / "research"
+    / "data-audits"
+    / "databento-microstructure-fill-cancel-repaired-feature-v0.1-"
+    "run-32520311940-success-2026-08-21.json"
+)
 GENERATED_AT = datetime(2026, 8, 21, 19, tzinfo=UTC)
 
 
@@ -403,11 +410,17 @@ class DatabentoFillCancelRepairedFeatureV01Tests(unittest.TestCase):
             audit["contract"]["content_sha256"],
             CONTRACT_CONTENT_SHA256,
         )
+        evolved_registration_files = {
+            "tests/test_databento_fill_cancel_repaired_feature_v01.py":
+                "ef25680a92e4e6d333b0a0bc35e9b1fc65b068088ea8fb24237cb8d4a44af7a4",
+            "docs/research/databento_microstructure_fill_cancel_repaired_feature_v01.md":
+                "1cc8834f63474d2b179886922aa6b53e895d4fbe71d10831482bd8efaaa9e9f4",
+        }
         for row in audit["bound_files"]:
-            if row["path"] == "tests/test_databento_fill_cancel_repaired_feature_v01.py":
+            if row["path"] in evolved_registration_files:
                 self.assertEqual(
                     row["file_sha256"],
-                    "ef25680a92e4e6d333b0a0bc35e9b1fc65b068088ea8fb24237cb8d4a44af7a4",
+                    evolved_registration_files[row["path"]],
                 )
                 continue
             self.assertEqual(
@@ -418,6 +431,39 @@ class DatabentoFillCancelRepairedFeatureV01Tests(unittest.TestCase):
         self.assertFalse(status["execution_authorization_present"])
         self.assertFalse(status["provider_call_run"])
         self.assertFalse(status["databento_credit_used"])
+
+    def test_success_audit_is_sanitized_hash_bound_and_non_promotional(self):
+        audit = json.loads(SUCCESS_AUDIT.read_text(encoding="utf-8"))
+        claimed = audit["content_sha256"]
+        unsigned = {
+            key: value for key, value in audit.items() if key != "content_sha256"
+        }
+        self.assertEqual(canonical_fingerprint(unsigned), claimed)
+        self.assertEqual(
+            claimed,
+            "d87addf40a080d132799cb14daf8f6096b661d97369e7ebd9f8e216609cfffbb",
+        )
+        self.assertEqual(audit["github_actions"]["workflow_run_attempt"], 1)
+        self.assertEqual(
+            audit["github_actions"]["workflow_parent_sha"],
+            "bba7d9dfe8b1d52df73d2369b4dc6d1f3b8cf783",
+        )
+        preflight = audit["verified_preflight_and_attempt"]
+        self.assertEqual(preflight["timeseries_request_count"], 1)
+        self.assertLessEqual(float(preflight["total_quoted_cost_usd"]), 0.003)
+        self.assertLessEqual(preflight["total_billable_size_bytes"], 3_000_000)
+        result = audit["verified_repaired_feature_result"]
+        self.assertTrue(result["repaired_feature_replay_succeeded"])
+        self.assertEqual(result["matched_executed_removal_count"], 1_346)
+        self.assertEqual(result["sampled_snapshot_count"], 2_289)
+        self.assertTrue(result["independent_feature_replay_exact"])
+        self.assertFalse(result["feature_threshold_selected"])
+        self.assertFalse(result["runtime_authority_created"])
+        safety = audit["safety_verification"]
+        self.assertFalse(safety["raw_market_data_persisted"])
+        self.assertFalse(safety["feature_snapshot_values_persisted"])
+        self.assertFalse(safety["strategy_or_threshold_change_made"])
+        self.assertFalse(audit["repair_interpretation"]["policy_promotion_allowed"])
 
 
 if __name__ == "__main__":

@@ -29,7 +29,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 | Databento feature diagnostic | `docs/research/databento_microstructure_feature_diagnostic_v03_success.md` | frozen v0.3 registration plus permanent verified INTJ success audit |
 | Databento remaining-case feature coverage | `docs/research/databento_microstructure_feature_coverage_v01.md` | verified INTJ feature parent, unarmed EQPT/AMC/GMM contract and authorization-only workflow |
 | Databento Fill/Cancel identity repair | `docs/research/databento_microstructure_fill_cancel_repair_v01.md` | verified aggregate EQPT classifier audit, unarmed repair contract and deterministic pairing mechanics |
-| Databento EQPT repaired feature replay | `docs/research/databento_microstructure_fill_cancel_repaired_feature_v01.md` | published identity-repair parent, unarmed one-case contract and authorization-only workflow |
+| Databento EQPT repaired feature replay | `docs/research/databento_microstructure_fill_cancel_repaired_feature_v01.md` | verified one-shot EQPT success audit, frozen repair and exact-replay evidence |
 | Prospective management/execution | `docs/research/prospective_management_execution_v01.md` | child contract and `execution_realism.py` |
 | New research experiment | `docs/research/experiment_contract.md` | frozen parent policy + runtime artifact |
 | Micro-pullback work | `docs/research/micro_benchmark_suite.md` | `micro_policy.py`, `micro_replay.py`, frozen artifacts |

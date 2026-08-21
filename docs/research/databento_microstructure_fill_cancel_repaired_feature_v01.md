@@ -12,11 +12,19 @@ The exact EQPT request will normalize under the published repair, yield at least
 
 The test changes no feature, window, threshold, case, strategy, risk rule, broker behavior, or runtime authority. The prior aggregate classifier selected the repair before this replay was registered. Ross actions, recaps, labels, P&L, and later prices are prohibited inputs.
 
+## Verified result
+
+GitHub Actions run `32520311940`, attempt 1, made the sole authorized EQPT MBO request and completed successfully. The request requoted at `$0.002689146996` and `2,406,208` billable bytes, below the fixed `$0.003` and `3,000,000` byte ceilings.
+
+The repaired parser normalized 42,968 records into 29,159 per-instrument events, matched all 1,346 Fill markers to canonical Cancel removals, and produced 2,289 sampled causal feature snapshots. A second independent feature engine reproduced the identical full snapshot-sequence digest. No retry, threshold, feature value, raw record, credential, retrospective label, strategy change, broker action, or runtime authority was persisted.
+
+The independently verified audit is `research/data-audits/databento-microstructure-fill-cancel-repaired-feature-v0.1-run-32520311940-success-2026-08-21.json`, content SHA-256 `d87addf40a080d132799cb14daf8f6096b661d97369e7ebd9f8e216609cfffbb`.
+
 ## Proposed future execution boundary
 
-The current bundle is unarmed. The execution file `research/strategy/databento-microstructure-fill-cancel-repaired-feature-v0.1-execution.json` is absent, and the workflow listens only for a future direct-child push containing that sole file.
+The registered execution completed once on the first GitHub Actions attempt. Its parent-bound execution file remains permanent provenance and cannot authorize a rerun because the runner requires `GITHUB_RUN_ATTEMPT=1` and the exact published push parent.
 
-A later owner authorization must bind the exact published unarmed parent and permit only:
+The completed authorization permitted only:
 
 - one first-attempt EQPT MBO request;
 - one metadata cost quote and one billable-size quote before download;
@@ -32,7 +40,7 @@ The raw DBN file may exist only in an ephemeral GitHub runner directory after se
 
 ## Success and failure meaning
 
-A pass would verify that the registered Fill/Cancel repair resolves the specific EQPT normalization blocker and that the unchanged feature mechanics replay deterministically on that case. A classified failure remains permanent engineering evidence; it does not authorize changing the repair or selecting a different case.
+The pass verifies that the registered Fill/Cancel repair resolves the specific EQPT normalization blocker and that the unchanged feature mechanics replay deterministically on that case.
 
 Neither outcome establishes predictive value, a profitable threshold, Ross Cameron-equivalent discretion, consolidated national Level 2, realistic fills, or profitability. AI remains shadow-only, and no paper or live order authority is created.
 
