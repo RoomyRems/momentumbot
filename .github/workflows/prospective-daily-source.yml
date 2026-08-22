@@ -175,8 +175,11 @@ jobs:
       - name: Capture pre-session membership and CIK references
         shell: bash
         env:
-          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
-          ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+          # The default-branch scheduler uses the already validated main paper
+          # fixture solely for read-only asset and market-data requests. The
+          # frozen research workflow remains unchanged and order-free.
+          ALPACA_API_KEY: ${{ secrets.ALPACA_MAIN_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_MAIN_API_SECRET }}
           ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT || 'https://paper-api.alpaca.markets' }}
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
           TRADING_DATE: ${{ needs.resolve.outputs.trading_date }}
@@ -302,8 +305,10 @@ jobs:
       - name: Produce label-blind scanner and Micro trigger source
         shell: bash
         env:
-          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
-          ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+          # Keep post-scan provider reads on the same validated paper identity
+          # that supplied the pre-session membership census.
+          ALPACA_API_KEY: ${{ secrets.ALPACA_MAIN_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_MAIN_API_SECRET }}
           ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT || 'https://paper-api.alpaca.markets' }}
           SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
           TRADING_DATE: ${{ needs.resolve.outputs.trading_date }}
