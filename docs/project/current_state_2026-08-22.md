@@ -60,19 +60,31 @@ account inputs. The bridge carries aggregate direction and unavailable counts,
 not per-opportunity feature values. It cannot score, rank, select, download,
 trade, or create runtime authority, and it authorizes zero Databento credit.
 
+`prospective-market-input-capture-v0.1` now freezes the missing provider-neutral
+capture mechanics before the prospective panel opens. After a registered
+date's label-blind opportunities are frozen, it derives exactly one `mbp-1`
+and one `status` request per symbol-date from fixed receive-time windows. It
+preserves explicit halt and unknown states, reconciles every acquired record
+to its frozen request, and refuses the SIP print proxy as a substitute.
+
+The capture registration makes no provider call and authorizes zero Databento
+credit. `XNAS.ITCH` remains explicitly single-venue Nasdaq evidence rather than
+a consolidated NBBO or broker-fill claim.
+
 ## Active gates, in order
 
 1. Preserve the completed cohort and all earlier real-data audits without
    rerunning their one-shot workflows.
-2. Carry only the frozen cohort identity, aggregate direction counts, exact
-   digests, and unavailable states into a threshold-free shadow bridge to the
-   already registered prospective management and execution scenarios.
-3. Do not select the better horizon, feature, execution scenario, opportunity,
-   or result. Any mapping must report every registered horizon and both fixed
-   execution scenarios together.
-4. Let the account snapshot workflow capture both paper accounts on each
+2. Let the account snapshot workflow capture both paper accounts on each
    registered August 24–September 4 date. Keep both accounts flat and unreset.
-5. Complete the prospective panel and a larger representative walk-forward
+3. Freeze each date's label-blind opportunity manifest before deriving or
+   quoting its exact `mbp-1` and `status` request pair per symbol-date.
+4. Require separate parent-bound authority for metadata quotes and later for
+   any download. Preserve missing or unknown quote and status inputs as
+   unavailable without SIP-print substitution.
+5. Populate all three horizons and both fixed execution scenarios together on
+   identical opportunity inputs without scoring, ranking, or selecting a cell.
+6. Complete the prospective panel and a larger representative walk-forward
    before any policy-promotion or profitability interpretation.
 
 ## Still not ready
@@ -91,4 +103,6 @@ trade, or create runtime authority, and it authorizes zero Databento credit.
 - Behavioral cohort v0.2 success-audit tests: deterministic and provider-free.
 - Behavioral cohort v0.2 execution tests remain provider-free after the
   consumed run.
+- Prospective market-input capture registration tests are deterministic,
+  provider-free, and require zero credentials.
 - Complete repository suite is required before this checkpoint is published.

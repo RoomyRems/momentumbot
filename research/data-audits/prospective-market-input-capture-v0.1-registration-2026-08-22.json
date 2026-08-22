@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "audit_id": "prospective-market-input-capture-v0.1-registration-2026-08-22",
+  "audit_date": "2026-08-22",
+  "artifact_type": "unarmed_prospective_l1_status_capture_registration",
+  "contract": {
+    "contract_id": "prospective-market-input-capture-v0.1",
+    "content_sha256": "0435f7d857a3efd12f0e325953b242572ffceb17aa07d421b1e89b7dd95ca774",
+    "file_sha256": "b3bb179b0bc1032405be4db3ff7fe9499d42870d60d5cb372ba1f56aba8f711c",
+    "registration_status": "registered_before_panel_market_inputs_and_opportunities"
+  },
+  "frozen_parents": {
+    "behavioral_execution_bridge_checkpoint_sha": "392fb0d1fff322bc6ff38d5e416ff9e2b8926fab",
+    "behavioral_execution_bridge_checkpoint_tree_sha": "454e5c83e4fa4461c667223ac6c8e37f8ce347db",
+    "behavioral_execution_bridge_content_sha256": "fcafc556b20267a966ed228658a5da8daef2ed58955cf7d981c053acf8491411",
+    "prospective_execution_contract_content_sha256": "14812b9f25b5ea7230254ed86b1e0eaa30fffe3dc13b1ee141b19770706090f9",
+    "account_capture_contract_content_sha256": "5e967dbbbe2ee53187940f2ea720bd1937a4391710c97043ec03cc80c9b257b7",
+    "account_panel_id": "ross-account-integration-panel-v0.1",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa"
+  },
+  "registered_scope": {
+    "provider": "Databento Historical API",
+    "dataset": "XNAS.ITCH",
+    "schemas": [
+      "mbp-1",
+      "status"
+    ],
+    "venue_scope": "nasdaq_totalview_single_venue_not_consolidated_nbbo",
+    "causal_clock": "ts_recv",
+    "registered_date_count": 10,
+    "request_pair_unit": "one_symbol_date",
+    "mbp1_pre_decision_ns": 100000000,
+    "post_decision_capture_ns": 550000000,
+    "status_starts_at_midnight_utc": true,
+    "exact_request_manifest_requires_frozen_opportunity_manifest": true,
+    "main_and_small_accounts_share_identical_market_inputs": true
+  },
+  "mechanical_verification": {
+    "contract_content_fingerprint_recomputed": true,
+    "frozen_parent_bindings_validated": true,
+    "offline_request_derivation_implemented": true,
+    "receive_time_order_validation_implemented": true,
+    "request_record_count_reconciliation_implemented": true,
+    "explicit_halt_state_preserved": true,
+    "missing_or_unknown_status_fails_closed": true,
+    "prior_session_status_isolation_implemented": true,
+    "equal_receive_time_cross_schema_ambiguity_fails_closed": true,
+    "locked_crossed_or_one_sided_quote_rejected": true,
+    "top_of_book_event_adapter_implemented": true,
+    "retrospective_key_rejection_implemented": true,
+    "complete_repository_suite_required_before_publication": true
+  },
+  "authority_boundary": {
+    "provider_call_run": false,
+    "provider_quote_run": false,
+    "provider_download_run": false,
+    "databento_credit_used_usd": "0",
+    "provider_credential_loaded": false,
+    "raw_market_data_loaded": false,
+    "raw_market_data_persisted": false,
+    "retrospective_labels_loaded": false,
+    "later_prices_or_pnl_loaded": false,
+    "behavioral_result_used_to_select_request": false,
+    "threshold_or_scenario_selected": false,
+    "sip_print_proxy_substituted": false,
+    "broker_order_submitted": false,
+    "paper_order_submitted": false,
+    "live_order_submitted": false,
+    "runtime_authority_created": false,
+    "policy_promotion_eligible": false,
+    "profitability_claim_eligible": false
+  },
+  "bound_files": [
+    {
+      "path": "research/strategy/prospective-market-input-capture-v0.1.json",
+      "file_sha256": "b3bb179b0bc1032405be4db3ff7fe9499d42870d60d5cb372ba1f56aba8f711c"
+    },
+    {
+      "path": "src/momentumbot/research/prospective_market_input_capture.py",
+      "file_sha256": "7b736e329a9d12eb2dfdeb09473fd04fc1caa0416eb1cb84ff2db7f4819ae9ee"
+    },
+    {
+      "path": "docs/research/prospective_market_input_capture_v01.md",
+      "file_sha256": "1393e1b456eef8e2914d39aa4824104a0913e1d851fb14b4f41294894923e097"
+    },
+    {
+      "path": "tests/test_prospective_market_input_capture.py",
+      "file_sha256": "887cb844af4eaca8c4c28d5eb318e53d0fbe11743acc5e5812990316b6a1972b"
+    }
+  ],
+  "next_gate": "After a registered date's label-blind opportunity manifest is frozen, derive and freeze the exact request manifest, then obtain metadata-only availability and cost quotes under separate parent-bound zero-download authority.",
+  "content_sha256": "5072966740fd16a15bbe9fa793da381979b7386141315f805989c5efa3808e8c"
+}

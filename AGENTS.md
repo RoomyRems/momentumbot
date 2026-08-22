@@ -32,6 +32,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 | Databento EQPT repaired feature replay | `docs/research/databento_microstructure_fill_cancel_repaired_feature_v01.md` | verified one-shot EQPT success audit, frozen repair and exact-replay evidence |
 | Databento behavioral cohort v0.2 | `docs/research/databento_microstructure_behavioral_cohort_v02_success.md` | immutable v0.1 safe failure, consumed v0.2 success audit and repaired authorization-only harness |
 | Behavioral/execution shadow bridge | `docs/research/microstructure_behavioral_execution_bridge_v01.md` | consumed cohort success audit, frozen prospective execution assumptions and threshold-free readiness matrix |
+| Prospective market-input capture | `docs/research/prospective_market_input_capture_v01.md` | frozen label-blind opportunity identity, exact unarmed `XNAS.ITCH` `mbp-1`/`status` request derivation and fail-closed capture mechanics |
 | Prospective management/execution | `docs/research/prospective_management_execution_v01.md` | child contract and `execution_realism.py` |
 | New research experiment | `docs/research/experiment_contract.md` | frozen parent policy + runtime artifact |
 | Micro-pullback work | `docs/research/micro_benchmark_suite.md` | `micro_policy.py`, `micro_replay.py`, frozen artifacts |
