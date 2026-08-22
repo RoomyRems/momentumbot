@@ -1,0 +1,330 @@
+name: Prospective market-input acquisition v0.1
+
+on:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - .github/workflows/prospective-market-input-acquisition.yml
+      - research/strategy/prospective-market-input-acquisition-v0.1.json
+      - research/strategy/prospective-market-input-acquisition-*-authorization.json
+      - research/data-audits/prospective-market-input-acquisition-*.json
+      - src/momentumbot/research/prospective_market_input_acquisition.py
+      - scripts/acquire_prospective_market_inputs.py
+      - docs/research/prospective_market_input_acquisition_v01.md
+      - tests/test_prospective_market_input_acquisition.py
+  workflow_dispatch:
+    inputs:
+      freeze_run_id:
+        description: Exact successful opportunity-freeze workflow run ID
+        required: true
+        type: string
+      freeze_run_attempt:
+        description: Exact opportunity-freeze workflow run attempt
+        required: true
+        type: number
+      freeze_artifact_name:
+        description: Exact immutable opportunity-freeze artifact name
+        required: true
+        type: string
+      quote_run_id:
+        description: Exact successful metadata-quote workflow run ID
+        required: true
+        type: string
+      quote_run_attempt:
+        description: Exact metadata-quote workflow run attempt
+        required: true
+        type: number
+      quote_artifact_name:
+        description: Exact immutable successful metadata-quote artifact name
+        required: true
+        type: string
+      trading_date:
+        description: Registered prospective trading date (YYYY-MM-DD)
+        required: true
+        type: string
+      authorization_commit_sha:
+        description: Full research-branch commit containing the exact authorization
+        required: true
+        type: string
+      authorization_path:
+        description: Exact repository-relative acquisition authorization JSON path
+        required: true
+        type: string
+      quote_authorization_path:
+        description: Exact repository-relative metadata-quote authorization JSON path
+        required: true
+        type: string
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: prospective-market-input-acquisition-v0.1
+  cancel-in-progress: false
+
+jobs:
+  verify-unarmed-harness:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project without provider SDK or credential
+        run: python -m pip install -e .
+      - name: Verify provider-free authorization acquisition and sanitization mechanics
+        run: >-
+          python -m unittest
+          tests.test_prospective_market_input_acquisition -v
+      - name: Compile provider-free acquisition harness
+        run: >-
+          python -m py_compile
+          src/momentumbot/research/prospective_market_input_acquisition.py
+          scripts/acquire_prospective_market_inputs.py
+
+  acquire-exact-quoted-bundle:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.authorization_commit_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Verify exact authorization commit paths branch and first attempt
+        env:
+          AUTHORIZATION_COMMIT_SHA: ${{ inputs.authorization_commit_sha }}
+          AUTHORIZATION_PATH: ${{ inputs.authorization_path }}
+          QUOTE_AUTHORIZATION_PATH: ${{ inputs.quote_authorization_path }}
+          WORKFLOW_RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          python - <<'PY'
+          import os
+          import re
+          from pathlib import Path, PurePosixPath
+
+          commit = os.environ["AUTHORIZATION_COMMIT_SHA"]
+          assert re.fullmatch(r"[0-9a-f]{40}", commit)
+          assert os.environ["WORKFLOW_RUN_ATTEMPT"] == "1"
+          for variable, prefix in (
+              ("AUTHORIZATION_PATH", "prospective-market-input-acquisition-"),
+              (
+                  "QUOTE_AUTHORIZATION_PATH",
+                  "prospective-market-input-metadata-quote-",
+              ),
+          ):
+              path_text = os.environ[variable]
+              path = PurePosixPath(path_text)
+              assert not path.is_absolute()
+              assert ".." not in path.parts
+              assert path.parts[:2] == ("research", "strategy")
+              assert path.name.startswith(prefix)
+              assert path.name.endswith("-authorization.json")
+              assert Path(path_text).is_file()
+          PY
+          test "$(git rev-parse HEAD)" = "$AUTHORIZATION_COMMIT_SHA"
+          git merge-base --is-ancestor HEAD origin/phase-3-historical-snapshot
+      - name: Verify named freeze and quote runs completed successfully
+        env:
+          EXPECTED_FREEZE_RUN_ATTEMPT: ${{ inputs.freeze_run_attempt }}
+          EXPECTED_QUOTE_RUN_ATTEMPT: ${{ inputs.quote_run_attempt }}
+          FREEZE_RUN_ID: ${{ inputs.freeze_run_id }}
+          GH_TOKEN: ${{ github.token }}
+          QUOTE_RUN_ID: ${{ inputs.quote_run_id }}
+        run: |
+          freeze_attempt="$(gh api \
+            "repos/${GITHUB_REPOSITORY}/actions/runs/${FREEZE_RUN_ID}" \
+            --jq '.run_attempt')"
+          freeze_conclusion="$(gh api \
+            "repos/${GITHUB_REPOSITORY}/actions/runs/${FREEZE_RUN_ID}" \
+            --jq '.conclusion')"
+          freeze_path="$(gh api \
+            "repos/${GITHUB_REPOSITORY}/actions/runs/${FREEZE_RUN_ID}" \
+            --jq '.path')"
+          quote_attempt="$(gh api \
+            "repos/${GITHUB_REPOSITORY}/actions/runs/${QUOTE_RUN_ID}" \
+            --jq '.run_attempt')"
+          quote_conclusion="$(gh api \
+            "repos/${GITHUB_REPOSITORY}/actions/runs/${QUOTE_RUN_ID}" \
+            --jq '.conclusion')"
+          quote_path="$(gh api \
+            "repos/${GITHUB_REPOSITORY}/actions/runs/${QUOTE_RUN_ID}" \
+            --jq '.path')"
+          test "$freeze_attempt" = "$EXPECTED_FREEZE_RUN_ATTEMPT"
+          test "$freeze_conclusion" = "success"
+          test "$freeze_path" = ".github/workflows/prospective-opportunity-freeze.yml"
+          test "$quote_attempt" = "$EXPECTED_QUOTE_RUN_ATTEMPT"
+          test "$quote_conclusion" = "success"
+          test "$quote_path" = ".github/workflows/prospective-market-input-quote.yml"
+      - name: Download exact immutable opportunity-freeze bundle
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.freeze_artifact_name }}
+          path: prospective-opportunity-freeze
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.freeze_run_id }}
+      - name: Download exact immutable successful metadata quote
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.quote_artifact_name }}
+          path: prospective-market-input-quote
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.quote_run_id }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project and pinned historical client
+        run: |
+          python -m pip install -e .
+          python -m pip install databento==0.83.0
+      - name: Reverify exact authorization and acquisition gates without provider access
+        run: >-
+          python -m unittest
+          tests.test_prospective_market_input_acquisition -v
+      - name: Rebuild exact authorization and prepare one-shot consumption marker
+        env:
+          AUTHORIZATION_PATH: ${{ inputs.authorization_path }}
+          EXPECTED_REPOSITORY: ${{ github.repository }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          QUOTE_ARTIFACT_NAME: ${{ inputs.quote_artifact_name }}
+          QUOTE_AUTHORIZATION_PATH: ${{ inputs.quote_authorization_path }}
+        run: |
+          python scripts/acquire_prospective_market_inputs.py authorize \
+            --bundle-dir prospective-opportunity-freeze \
+            --quote-authorization "$QUOTE_AUTHORIZATION_PATH" \
+            --quote-report prospective-market-input-quote/prospective-market-input-metadata-quote.json \
+            --repository "$EXPECTED_REPOSITORY" \
+            --quote-artifact-name "$QUOTE_ARTIFACT_NAME" \
+            --output /tmp/rebuilt-prospective-market-input-acquisition-authorization.json
+          cmp "$AUTHORIZATION_PATH" /tmp/rebuilt-prospective-market-input-acquisition-authorization.json
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          authorization = json.loads(
+              Path(os.environ["AUTHORIZATION_PATH"]).read_text(encoding="utf-8")
+          )
+          authorization_id = authorization["authorization_id"]
+          marker = {
+              "schema_version": 1,
+              "artifact_type": "prospective_market_input_acquisition_consumption",
+              "authorization_id": authorization_id,
+              "authorization_content_sha256": authorization["content_sha256"],
+              "workflow_run_id": os.environ["GITHUB_RUN_ID"],
+              "provider_call_made_before_marker": False,
+              "authorization_consumed": True,
+          }
+          Path("prospective-market-input-acquisition-consumption.json").write_text(
+              json.dumps(marker, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          with Path(os.environ["GITHUB_ENV"]).open("a", encoding="utf-8") as output:
+              output.write(f"ACQUISITION_AUTHORIZATION_ID={authorization_id}\n")
+              output.write(
+                  "ACQUISITION_AUTHORIZATION_SHA256="
+                  f"{authorization['content_sha256']}\n"
+              )
+          PY
+      - name: Refuse an acquisition authorization already consumed by another run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          artifact_name="prospective-market-input-acquisition-consumed-${ACQUISITION_AUTHORIZATION_SHA256}"
+          prior_count="$(gh api \
+            "repos/${GITHUB_REPOSITORY}/actions/artifacts?name=${artifact_name}&per_page=100" \
+            --jq '.total_count')"
+          test "$prior_count" = "0"
+      - name: Consume authorization before provider access
+        uses: actions/upload-artifact@v4
+        with:
+          name: prospective-market-input-acquisition-consumed-${{ env.ACQUISITION_AUTHORIZATION_SHA256 }}
+          path: prospective-market-input-acquisition-consumption.json
+          if-no-files-found: error
+          retention-days: 90
+      - name: Requote then acquire each unchanged exact request once
+        env:
+          AUTHORIZATION_PATH: ${{ inputs.authorization_path }}
+          DATABENTO_API_KEY: ${{ secrets.DATABENTO_API_KEY }}
+          EXPECTED_REPOSITORY: ${{ github.repository }}
+          FREEZE_ARTIFACT_NAME: ${{ inputs.freeze_artifact_name }}
+          FREEZE_RUN_ATTEMPT: ${{ inputs.freeze_run_attempt }}
+          FREEZE_RUN_ID: ${{ inputs.freeze_run_id }}
+          GITHUB_RUN_ATTEMPT: ${{ github.run_attempt }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          QUOTE_ARTIFACT_NAME: ${{ inputs.quote_artifact_name }}
+          QUOTE_AUTHORIZATION_PATH: ${{ inputs.quote_authorization_path }}
+          QUOTE_RUN_ATTEMPT: ${{ inputs.quote_run_attempt }}
+          QUOTE_RUN_ID: ${{ inputs.quote_run_id }}
+          TRADING_DATE: ${{ inputs.trading_date }}
+        run: |
+          test "$FREEZE_ARTIFACT_NAME" = "prospective-opportunity-freeze-${TRADING_DATE}"
+          test "$QUOTE_ARTIFACT_NAME" = "prospective-market-input-metadata-quote-${TRADING_DATE}-${QUOTE_RUN_ID}-${QUOTE_RUN_ATTEMPT}"
+          mkdir prospective-market-input-acquisition
+          python scripts/acquire_prospective_market_inputs.py acquire \
+            --bundle-dir prospective-opportunity-freeze \
+            --quote-authorization "$QUOTE_AUTHORIZATION_PATH" \
+            --quote-report prospective-market-input-quote/prospective-market-input-metadata-quote.json \
+            --authorization "$AUTHORIZATION_PATH" \
+            --repository "$EXPECTED_REPOSITORY" \
+            --freeze-run-id "$FREEZE_RUN_ID" \
+            --freeze-run-attempt "$FREEZE_RUN_ATTEMPT" \
+            --freeze-artifact-name "$FREEZE_ARTIFACT_NAME" \
+            --quote-run-id "$QUOTE_RUN_ID" \
+            --quote-run-attempt "$QUOTE_RUN_ATTEMPT" \
+            --quote-artifact-name "$QUOTE_ARTIFACT_NAME" \
+            --workflow-run-id "$GITHUB_RUN_ID" \
+            --workflow-run-attempt "$GITHUB_RUN_ATTEMPT" \
+            --report-output prospective-market-input-acquisition/acquisition-report.json \
+            --capture-output prospective-market-input-acquisition/market-input-capture.json
+      - name: Upload sanitized report and minimal normalized capture only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: prospective-market-input-acquisition-${{ inputs.trading_date }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: prospective-market-input-acquisition
+          if-no-files-found: error
+          retention-days: 90
+      - name: Enforce complete normalized capture gate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          root = Path("prospective-market-input-acquisition")
+          report = json.loads(
+              (root / "acquisition-report.json").read_text(encoding="utf-8")
+          )
+          capture = json.loads(
+              (root / "market-input-capture.json").read_text(encoding="utf-8")
+          )
+          assert report["acquisition_gate_passed"] is True
+          assert report["acquisition_status"] in {
+              "complete",
+              "not_applicable_zero_requests",
+          }
+          assert report["market_input_capture_complete"] is True
+          assert report["market_input_capture_content_sha256"] == capture["content_sha256"]
+          assert report["metadata_call_count"] <= report["maximum_authorized_metadata_call_count"]
+          assert report["timeseries_request_count"] <= report["maximum_authorized_timeseries_call_count"]
+          assert report["provider_credential_persisted"] is False
+          assert report["provider_error_messages_persisted"] is False
+          assert report["raw_dbn_persisted"] is False
+          assert report["raw_dbn_uploaded"] is False
+          assert report["batch_or_live_endpoint_called"] is False
+          assert report["request_substitution_attempted"] is False
+          assert report["automatic_retry_attempted"] is False
+          assert report["broker_order_submitted"] is False
+          assert report["runtime_authority_created"] is False
+          assert not any(root.rglob("*.dbn"))
+          assert not any(root.rglob("*.dbn.zst"))
+          PY
