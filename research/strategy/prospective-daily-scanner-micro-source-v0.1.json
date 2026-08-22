@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "contract_id": "prospective-daily-scanner-micro-source-v0.1",
+  "artifact_type": "preregistered_read_only_prospective_daily_source_producer",
+  "registration_date": "2026-08-22",
+  "registration_status": "registered_before_first_prospective_session",
+  "purpose": "Produce one hash-bound, account-neutral, label-blind scanner and Micro-v0.1 trigger ledger for every registered prospective date, then emit the exact daily decision source accepted by the frozen opportunity materializer.",
+  "runtime_strategy_effect": "none_reconstruction_and_materialization_only",
+  "frozen_parents": {
+    "parent_checkpoint_sha": "8f8faf3ab551e6774ad677a842cea87ccb183238",
+    "parent_checkpoint_tree_sha": "e70f3adfc628cb053af14a1355035325b03ccf8b",
+    "opportunity_freeze_contract_id": "prospective-opportunity-freeze-v0.1",
+    "opportunity_freeze_contract_content_sha256": "13e4458b20b64c81dc24508d2515b20cce8b61f565816e0a3ba0eea4dcee66e1",
+    "account_panel_id": "ross-account-integration-panel-v0.1",
+    "account_integration_contract_content_sha256": "64489aa27fec5eaf8ca12c94f4aeb47344d49a79b14df1bdda706cd23cc9ce73",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "general_strategy_profile_fingerprint": "7d15fb979701324bf862b1dc37e5f9b514dcf1ab8cf1e062ae4a60027233d4ff",
+    "small_strategy_profile_fingerprint": "fb86fc5326903cab16c283a03d8e371f66487f41589fb1b69b79f8912a0a6489"
+  },
+  "registered_dates": [
+    "2026-08-24",
+    "2026-08-25",
+    "2026-08-26",
+    "2026-08-27",
+    "2026-08-28",
+    "2026-08-31",
+    "2026-09-01",
+    "2026-09-02",
+    "2026-09-03",
+    "2026-09-04"
+  ],
+  "pre_session_prerequisite": {
+    "timezone": "America/New_York",
+    "capture_time": "05:30:00",
+    "strategy_start_deadline": "07:00:00",
+    "sources": [
+      "Alpaca current US-equity asset census",
+      "SEC current company ticker/CIK/exchange crosswalk"
+    ],
+    "membership_rule": "status active, tradable true, supported primary exchange, valid provider symbol",
+    "capture_must_complete_before_strategy_start": true,
+    "asset_and_cik_references_are_current_not_historical": true,
+    "daily_capture_required": true,
+    "post_session_selection_rule": "latest unexpired same-date artifact whose manifest proves completion by the deadline",
+    "runtime_head_rule": "post-session producer checks out the exact full Git SHA frozen by the selected pre-session artifact",
+    "missing_prerequisite_behavior": "fail_closed_no_source_artifact"
+  },
+  "union_scanner_contract": {
+    "union_acquisition_profile_id": "prospective-union-acquisition-v0.1",
+    "union_acquisition_profile_fingerprint": "e9719501fee858b8d1a5245dd848d6e9fe0cf77ef2b22c26c2585025b967fbd3",
+    "price_range": [
+      "1.50",
+      "20.00"
+    ],
+    "minimum_percent_gain": "10.0",
+    "minimum_same_time_relative_volume": "5.0",
+    "float_limit_shares_exclusive": 10000000,
+    "scan_window_new_york": "07:00:00 through before 10:00:00",
+    "general_profile_id": "current-general-2026",
+    "small_profile_id": "current-small-account-2026",
+    "first_qualifying_minute_retained_per_profile": true,
+    "different_profile_activation_minutes_retained_separately": true,
+    "same_profile_activation_minute_unioned_once": true,
+    "account_state_may_select_scanner_rows": false,
+    "full_day_high_used_only_as_download_superset_filter": true,
+    "future_session_extrema_used_by_strategy": false,
+    "rank_basis": "latest completed one-minute close across the complete frozen active membership with split-adjusted previous close",
+    "float_basis": "SEC evidence available by the broad candidate activation with conservative fail-closed unknowns",
+    "news_basis": "Alpaca/Benzinga provider-relative event tape projected published_at less_than_or_equal_to each decision"
+  },
+  "micro_trigger_contract": {
+    "policy": "unchanged Micro-v0.1",
+    "bar_interval_seconds": 10,
+    "support_availability": "completed one-minute VWAP and EMA only",
+    "decision_semantics": "first chart-price-eligible SIP crossing inside each causal armed plan window",
+    "decision_clock": "UTC normalized SIP trade event timestamp",
+    "runtime_prefix_hash_includes": [
+      "account-neutral activation",
+      "frozen Micro policy fingerprint",
+      "exact plan",
+      "completed micro bars through plan creation",
+      "completed support values through plan creation",
+      "chart-price-eligible SIP trades only through the trigger"
+    ],
+    "fill_simulation_allowed": false,
+    "exit_simulation_allowed": false,
+    "later_outcome_selection_allowed": false,
+    "one_trigger_eligible_for_both_profiles_emitted_once": true
+  },
+  "provider_authority": {
+    "alpaca_read_endpoints": [
+      "/v2/assets",
+      "/v2/stocks/bars",
+      "/v2/stocks/{symbol}/trades",
+      "/v1beta1/news"
+    ],
+    "sec_read_endpoints": [
+      "/files/company_tickers_exchange.json",
+      "/submissions/CIK##########.json",
+      "/api/xbrl/companyfacts/CIK##########.json"
+    ],
+    "provider_reads_authorized": true,
+    "provider_writes_authorized": false,
+    "existing_subscription_only": true,
+    "incremental_purchase_authorized_usd": "0",
+    "databento_metadata_quote_authorized": false,
+    "databento_request_authorized": false,
+    "databento_credit_authorized_usd": "0",
+    "broker_read_or_write_authority_created": false,
+    "paper_order_authorized": false,
+    "live_order_authorized": false
+  },
+  "output_contract": {
+    "files": [
+      "scanner-runtime.json",
+      "micro-trigger-runtime.json",
+      "prospective-daily-micro-decision-source.json",
+      "producer-manifest.json"
+    ],
+    "write_once_output_directory": true,
+    "source_artifact_type": "frozen_label_blind_prospective_micro_decisions",
+    "source_profile_union_required": true,
+    "source_zero_decision_date_retained": true,
+    "source_account_snapshot_loaded": false,
+    "source_account_scarcity_applied": false,
+    "source_execution_scenario_applied": false,
+    "source_retrospective_labels_loaded": false,
+    "source_provider_quote_made": false,
+    "artifact_retention_days": 90
+  },
+  "workflow_contract": {
+    "workflow": ".github/workflows/prospective-daily-source.yml",
+    "research_branch": "phase-3-historical-snapshot",
+    "pre_session_cron_utc": [
+      "30 9 24-28,31 8 *",
+      "30 9 1-4 9 *"
+    ],
+    "post_session_cron_utc": [
+      "20 14 24-28,31 8 *",
+      "20 14 1-4 9 *"
+    ],
+    "default_branch_contains_scheduler_only": true,
+    "push_behavior": "provider_free_validation_only",
+    "manual_fallback_requires_current_registered_new_york_date": true,
+    "successful_source_dispatches_workflow": ".github/workflows/prospective-opportunity-freeze.yml",
+    "dispatch_ref": "phase-3-historical-snapshot",
+    "repository_permissions": [
+      "contents read",
+      "actions write only to retrieve the prerequisite and dispatch the frozen materializer"
+    ]
+  },
+  "knowledge_boundary": {
+    "raw_transcripts_allowed": false,
+    "Ross_actions_recaps_or_labels_allowed": false,
+    "later_prices_or_pnl_allowed_for_selection": false,
+    "account_snapshots_or_balances_allowed": false,
+    "account_scarcity_allowed": false,
+    "execution_scenario_selection_allowed": false,
+    "threshold_tuning_allowed": false,
+    "same_session_provider_responses_may_be_reconstructed_post_session": true,
+    "every_scanner_and_micro_decision_uses_only_its_causal_prefix": true,
+    "post_decision_records_are_excluded_from_each_runtime_prefix_hash": true
+  },
+  "explicitly_prohibited": [
+    "using a post-session asset census as though it were known before the strategy start",
+    "silently converting a missing prerequisite, provider failure, or missing eligible-symbol SIP tape into a zero-opportunity date",
+    "dropping a candidate or Micro trigger because of either paper account balance, scarcity ordering, quantity, execution scenario, fill, exit, later price, P&L, Ross action, recap, label, or transcript text",
+    "using the full-day high or any later outcome as a scanner feature or Micro trigger input",
+    "simulating a fill or exit inside the source producer",
+    "making a Databento quote or download",
+    "submitting a paper or live broker order",
+    "changing either registered strategy profile or Micro-v0.1"
+  ],
+  "execution_status": {
+    "producer_registered": true,
+    "pre_session_runtime_count": 0,
+    "daily_source_runtime_count": 0,
+    "opportunity_freeze_runtime_count": 0,
+    "provider_data_read_performed_at_registration": false,
+    "databento_quote_or_download_performed": false,
+    "broker_order_performed": false
+  },
+  "policy_promotion_eligible": false,
+  "profitability_claim_eligible": false,
+  "next_gate": "Install the scheduler on the default branch, validate the provider-free push run, then preserve each registered pre-session prerequisite, daily decision source, and dispatched opportunity freeze. A separate parent-bound authority remains required before any Databento metadata quote or download.",
+  "content_sha256": "99ba9f54ac50a913e64d78bb727351b67f8182818c54519f7d8be428651d6f38"
+}

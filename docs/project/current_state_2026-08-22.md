@@ -80,10 +80,25 @@ or retrospective inputs can select a row.
 
 The provider-free workflow accepts an exact source artifact from a named
 same-repository Actions run and retains the opportunity, request, and binding
-manifests for 90 days. It is manual/reusable rather than scheduled because the
-causal prospective scanner/Micro producer is not yet registered. An explicit
-zero-opportunity date is valid; a missing source is not silently converted to
-one.
+manifests for 90 days. An explicit zero-opportunity date is valid; a missing
+source is not silently converted to one.
+
+`prospective-daily-scanner-micro-source-v0.1` now registers and implements the
+missing upstream producer. Its 05:30 New York phase freezes a same-date current
+Alpaca asset census and SEC ticker/CIK crosswalk before the 07:00 strategy
+start. Its 10:20 phase checks out that artifact's exact code SHA, reconstructs
+the complete union acquisition superset, retains the first qualifying minute
+for each registered profile, and emits only unchanged Micro-v0.1 chart
+triggers. Every decision is prefix-causal even though same-session provider
+responses are reacquired after the scan window.
+
+The producer fails closed on a missing prerequisite, provider failure,
+rejected frozen membership symbol, incomplete scanner evidence, or missing SIP
+tape for an eligible candidate. A genuinely complete zero-candidate or
+zero-trigger date remains explicit. Successful source runs dispatch the frozen
+opportunity materializer automatically. Registration made no provider read,
+Databento quote/download, account read, or broker order; all runtime counts
+remain zero before August 24.
 
 ## Active gates, in order
 
@@ -91,10 +106,10 @@ one.
    rerunning their one-shot workflows.
 2. Let the account snapshot workflow capture both paper accounts on each
    registered August 24–September 4 date. Keep both accounts flat and unreset.
-3. Register and implement the causal daily scanner/Micro decision-source
-   producer. It must retain the union of both strategy profiles before account
-   scarcity and emit no fill, exit, later-price, or retrospective fields.
-4. For each successful source date, invoke the frozen opportunity materializer
+3. Preserve each same-date pre-session membership/CIK prerequisite, exact-SHA
+   daily scanner/Micro source, and automatically dispatched opportunity freeze.
+   Treat a missing artifact or provider failure as a failed date, not a zero.
+4. For each successful source date, verify the frozen opportunity materializer
    before deriving or quoting the exact `mbp-1` and `status` request pair per
    symbol-date.
 5. Require separate parent-bound authority for metadata quotes and later for
@@ -125,4 +140,7 @@ one.
   provider-free, and require zero credentials.
 - Prospective opportunity-freeze tests are deterministic, provider-free,
   preserve zero-opportunity dates, and reject account/outcome leakage.
+- Prospective daily source tests are deterministic and provider-free; they
+  enforce the two-phase timestamp/code binding, profile-union activation,
+  trigger-only Micro boundary, write-once artifacts, and scheduled handoff.
 - Complete repository suite is required before this checkpoint is published.

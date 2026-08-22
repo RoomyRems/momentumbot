@@ -4,12 +4,15 @@ import gzip
 import json
 import os
 import re
+import urllib.parse
 import urllib.request
 from dataclasses import dataclass, replace
 from datetime import date, datetime, time, timedelta, timezone
 from typing import Any, Iterable, TypeVar
 
 SEC_DATA_BASE = "https://data.sec.gov"
+SEC_TICKER_EXCHANGE_URL = "https://www.sec.gov/files/company_tickers_exchange.json"
+_ALLOWED_SEC_HOSTS = {"data.sec.gov", "www.sec.gov"}
 _CONTACT_EMAIL_RE = re.compile(
     r"(?<![A-Z0-9._%+-])[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}(?![A-Z0-9._%+-])",
     re.IGNORECASE,
@@ -65,6 +68,45 @@ def normalize_cik(cik: str | int) -> str:
     if not digits.isdigit():
         raise ValueError(f"CIK must be numeric: {cik!r}")
     return digits.zfill(10)
+
+
+def normalize_company_tickers_exchange(
+    payload: dict[str, Any],
+) -> tuple[dict[str, str], ...]:
+    """Normalize the SEC's current ticker/CIK/exchange crosswalk.
+
+    The crosswalk is a current reference file, not a historical membership
+    source.  Prospective callers must therefore retain their capture time and
+    content hash rather than applying it retrospectively.
+    """
+
+    fields = payload.get("fields")
+    rows = payload.get("data")
+    if not isinstance(fields, list) or not isinstance(rows, list):
+        raise ValueError("SEC ticker exchange payload is malformed")
+    names = [str(value).strip().lower() for value in fields]
+    required = {"cik", "name", "ticker", "exchange"}
+    if not required.issubset(names) or len(names) != len(set(names)):
+        raise ValueError("SEC ticker exchange fields are incomplete")
+    positions = {name: names.index(name) for name in required}
+    normalized: dict[str, dict[str, str]] = {}
+    for raw in rows:
+        if not isinstance(raw, list) or len(raw) != len(names):
+            raise ValueError("SEC ticker exchange row is malformed")
+        ticker = str(raw[positions["ticker"]] or "").strip().upper()
+        if not ticker:
+            continue
+        row = {
+            "ticker": ticker,
+            "cik": normalize_cik(raw[positions["cik"]]),
+            "name": str(raw[positions["name"]] or "").strip(),
+            "exchange": str(raw[positions["exchange"]] or "").strip().upper(),
+        }
+        prior = normalized.get(ticker)
+        if prior is not None and prior != row:
+            raise ValueError(f"SEC ticker exchange crosswalk repeats {ticker}")
+        normalized[ticker] = row
+    return tuple(normalized[ticker] for ticker in sorted(normalized))
 
 
 def _parse_sec_datetime(value: str) -> datetime:
@@ -293,12 +335,15 @@ class SecEdgarClient:
         return cls(user_agent, timeout_seconds=timeout_seconds)
 
     def _json(self, url: str) -> dict[str, Any]:
+        parsed = urllib.parse.urlparse(url)
+        if parsed.scheme != "https" or parsed.hostname not in _ALLOWED_SEC_HOSTS:
+            raise ValueError("SEC client URL must use an approved official host")
         request = urllib.request.Request(
             url,
             headers={
                 "User-Agent": self.user_agent,
                 "Accept-Encoding": "gzip, deflate",
-                "Host": "data.sec.gov",
+                "Host": str(parsed.hostname),
             },
             method="GET",
         )
@@ -316,6 +361,13 @@ class SecEdgarClient:
 
     def submissions(self, cik: str | int) -> dict[str, Any]:
         return self._json(f"{SEC_DATA_BASE}/submissions/CIK{normalize_cik(cik)}.json")
+
+    def company_tickers_exchange(self) -> tuple[dict[str, str], ...]:
+        """Return the current SEC ticker/CIK/exchange crosswalk."""
+
+        return normalize_company_tickers_exchange(
+            self._json(SEC_TICKER_EXCHANGE_URL)
+        )
 
     def parsed_companyfacts(self, cik: str | int) -> ParsedCompanyFacts:
         submissions = self.submissions(cik)

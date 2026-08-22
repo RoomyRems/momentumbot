@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "audit_id": "prospective-daily-scanner-micro-source-v0.1-registration-2026-08-22",
+  "audit_date": "2026-08-22",
+  "artifact_type": "unrun_read_only_prospective_daily_source_registration",
+  "contract": {
+    "contract_id": "prospective-daily-scanner-micro-source-v0.1",
+    "content_sha256": "99ba9f54ac50a913e64d78bb727351b67f8182818c54519f7d8be428651d6f38",
+    "file_sha256": "6e11b5dd5a71b4dc74f565dd75ccd9a30b6b40fb49b9cd1ebe44331660003adc",
+    "registration_status": "registered_before_first_prospective_session"
+  },
+  "frozen_parents": {
+    "parent_checkpoint_sha": "8f8faf3ab551e6774ad677a842cea87ccb183238",
+    "parent_checkpoint_tree_sha": "e70f3adfc628cb053af14a1355035325b03ccf8b",
+    "opportunity_freeze_contract_id": "prospective-opportunity-freeze-v0.1",
+    "opportunity_freeze_contract_content_sha256": "13e4458b20b64c81dc24508d2515b20cce8b61f565816e0a3ba0eea4dcee66e1",
+    "account_panel_id": "ross-account-integration-panel-v0.1",
+    "account_integration_contract_content_sha256": "64489aa27fec5eaf8ca12c94f4aeb47344d49a79b14df1bdda706cd23cc9ce73",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "general_strategy_profile_fingerprint": "7d15fb979701324bf862b1dc37e5f9b514dcf1ab8cf1e062ae4a60027233d4ff",
+    "small_strategy_profile_fingerprint": "fb86fc5326903cab16c283a03d8e371f66487f41589fb1b69b79f8912a0a6489"
+  },
+  "registered_scope": {
+    "registered_date_count": 10,
+    "first_registered_date": "2026-08-24",
+    "last_registered_date": "2026-09-04",
+    "pre_session_capture_time_new_york": "05:30:00",
+    "pre_session_deadline_new_york_exclusive": "07:00:00",
+    "post_session_production_time_new_york": "10:20:00",
+    "union_acquisition_profile_fingerprint": "e9719501fee858b8d1a5245dd848d6e9fe0cf77ef2b22c26c2585025b967fbd3",
+    "profile_activation_rule": "first_qualifying_minute_per_registered_profile_with_exact_minute_union",
+    "micro_decision_rule": "first_chart_price_eligible_sip_crossing_in_each_causal_armed_plan_window",
+    "source_artifact_type": "frozen_label_blind_prospective_micro_decisions",
+    "zero_decision_date_retained": true,
+    "successful_source_dispatches_opportunity_freeze": true,
+    "artifact_retention_days": 90
+  },
+  "mechanical_verification": {
+    "contract_content_fingerprint_recomputed": true,
+    "frozen_parent_bindings_validated": true,
+    "current_pre_session_asset_and_cik_capture_implemented": true,
+    "capture_deadline_checked_before_provider_read": true,
+    "post_session_exact_pre_session_code_sha_binding_implemented": true,
+    "complete_membership_acquisition_audit_required": true,
+    "provider_rejected_members_fail_closed": true,
+    "profile_union_and_later_profile_activation_implemented": true,
+    "unchanged_micro_policy_fingerprint_required": true,
+    "causal_micro_prefix_hash_implemented": true,
+    "fill_and_exit_simulation_absent": true,
+    "account_and_scarcity_inputs_absent": true,
+    "explicit_complete_zero_date_supported": true,
+    "write_once_prerequisite_and_source_directories_enforced": true,
+    "provider_free_push_validation_registered": true,
+    "two_phase_exact_date_schedule_registered": true,
+    "prerequisite_survives_exact_sha_checkout_in_runner_temp": true,
+    "automatic_frozen_materializer_dispatch_registered": true,
+    "complete_repository_suite_required_before_publication": true
+  },
+  "execution_status": {
+    "pre_session_runtime_count": 0,
+    "daily_source_runtime_count": 0,
+    "opportunity_freeze_runtime_count_from_this_producer": 0,
+    "provider_free_github_validation_run_complete": false,
+    "default_branch_scheduler_installed": false,
+    "source_artifact_created": false,
+    "opportunity_artifact_created": false
+  },
+  "authority_boundary": {
+    "provider_data_read_performed": false,
+    "provider_credential_loaded": false,
+    "alpaca_existing_subscription_reads_registered": true,
+    "sec_public_reads_registered": true,
+    "provider_write_authorized": false,
+    "incremental_purchase_authorized_usd": "0",
+    "databento_quote_or_download_performed": false,
+    "databento_credit_authorized_usd": "0",
+    "account_snapshot_loaded": false,
+    "account_scarcity_applied": false,
+    "execution_scenario_applied": false,
+    "retrospective_labels_loaded": false,
+    "later_prices_or_pnl_used_for_selection": false,
+    "broker_order_performed": false,
+    "paper_order_authorized": false,
+    "live_order_authorized": false,
+    "runtime_authority_created": false,
+    "policy_promotion_eligible": false,
+    "profitability_claim_eligible": false
+  },
+  "bound_files": [
+    {
+      "path": "research/strategy/prospective-daily-scanner-micro-source-v0.1.json",
+      "file_sha256": "6e11b5dd5a71b4dc74f565dd75ccd9a30b6b40fb49b9cd1ebe44331660003adc"
+    },
+    {
+      "path": "src/momentumbot/providers/sec_edgar.py",
+      "file_sha256": "721668ecb9ee1abca5e3052de3a07cf2cae62d8f9bc9ec0d295e22dea274a753"
+    },
+    {
+      "path": "src/momentumbot/research/prospective_daily_source.py",
+      "file_sha256": "b8fdc7c0048e1008e74dd13f210c9e82b3004896a604473c5fbfc0bea3bf4e8f"
+    },
+    {
+      "path": "scripts/build_prospective_daily_source.py",
+      "file_sha256": "1287c6256ba26d64e480839f39a7919aef6e0c97c8407a30cc81d9b7d7f1c137"
+    },
+    {
+      "path": ".github/workflows/prospective-daily-source.yml",
+      "file_sha256": "6523e8764d407734a73d5d65da6612cd1c0a03ccf3311f511a01c22e570c8f75"
+    },
+    {
+      "path": "docs/research/prospective_daily_scanner_micro_source_v01.md",
+      "file_sha256": "6045b371caa60ecc1bb10b36f063ee168394aad104a903feffa5d28a75cfe015"
+    },
+    {
+      "path": "tests/test_prospective_daily_source.py",
+      "file_sha256": "a5cab6fed56d1231ecb6db3575e7e1e236e449045ad5fe934952f863f257cd7d"
+    }
+  ],
+  "next_gate": "Install the scheduler and dispatched workflow entry on the default branch, validate the provider-free Actions run, then preserve every registered pre-session prerequisite, exact-SHA source, and dispatched opportunity freeze. Databento quote or acquisition work still requires separate parent-bound authority.",
+  "content_sha256": "cdf48f2a1c237d9edfdb64d1c03b62710b5a4785b2b6025ad7a13f3205e07e1b"
+}
