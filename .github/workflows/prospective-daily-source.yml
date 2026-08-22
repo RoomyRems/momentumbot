@@ -1,0 +1,349 @@
+name: Prospective daily scanner Micro source
+
+on:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - .github/workflows/prospective-daily-source.yml
+      - research/strategy/prospective-daily-scanner-micro-source-v0.1.json
+      - src/momentumbot/providers/sec_edgar.py
+      - src/momentumbot/research/prospective_daily_source.py
+      - scripts/build_prospective_daily_source.py
+      - tests/test_prospective_daily_source.py
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Validate, capture today's pre-session inputs, or produce today's source
+        required: true
+        default: validate
+        type: choice
+        options:
+          - validate
+          - capture-prerequisites
+          - produce
+      trading_date:
+        description: Optional guard; capture/produce must equal today's New York date
+        required: false
+        type: string
+  schedule:
+    # All registered dates are on EDT (UTC-4). GitHub cron has no year,
+    # so the resolver also requires the exact frozen 2026 New York date.
+    - cron: "30 9 24-28,31 8 *"
+    - cron: "30 9 1-4 9 *"
+    - cron: "20 14 24-28,31 8 *"
+    - cron: "20 14 1-4 9 *"
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: prospective-daily-source-${{ github.event_name }}-${{ inputs.mode || github.event.schedule || 'validate' }}
+  cancel-in-progress: false
+
+jobs:
+  resolve:
+    runs-on: ubuntu-latest
+    outputs:
+      should_run: ${{ steps.resolve.outputs.should_run }}
+      mode: ${{ steps.resolve.outputs.mode }}
+      trading_date: ${{ steps.resolve.outputs.trading_date }}
+      prerequisite_artifact_name: ${{ steps.resolve.outputs.prerequisite_artifact_name }}
+      source_artifact_name: ${{ steps.resolve.outputs.source_artifact_name }}
+    steps:
+      - name: Resolve the registered phase
+        id: resolve
+        shell: bash
+        env:
+          REQUESTED_MODE: ${{ inputs.mode || 'validate' }}
+          REQUESTED_TRADING_DATE: ${{ inputs.trading_date || '' }}
+          SCHEDULE_EXPRESSION: ${{ github.event.schedule || '' }}
+        run: |
+          set -euo pipefail
+          current_et="$(TZ=America/New_York date +%F)"
+          current_time_et="$(TZ=America/New_York date +%H:%M:%S)"
+          registered="false"
+          case "$current_et" in
+            2026-08-24|2026-08-25|2026-08-26|2026-08-27|2026-08-28|2026-08-31|2026-09-01|2026-09-02|2026-09-03|2026-09-04)
+              registered="true"
+              ;;
+          esac
+
+          if [[ "${{ github.event_name }}" == "schedule" ]]; then
+            if [[ "$registered" != "true" ]]; then
+              echo "Scheduled wake-up is outside the frozen 2026 panel."
+              echo "should_run=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            case "$SCHEDULE_EXPRESSION" in
+              "30 9 24-28,31 8 *"|"30 9 1-4 9 *")
+                mode="capture-prerequisites"
+                ;;
+              "20 14 24-28,31 8 *"|"20 14 1-4 9 *")
+                mode="produce"
+                ;;
+              *)
+                echo "Unregistered schedule expression." >&2
+                exit 1
+                ;;
+            esac
+            trading_date="$current_et"
+          elif [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            mode="$REQUESTED_MODE"
+            trading_date="$REQUESTED_TRADING_DATE"
+          else
+            mode="validate"
+            trading_date=""
+          fi
+
+          if [[ "$mode" == "capture-prerequisites" || "$mode" == "produce" ]]; then
+            if [[ "$registered" != "true" ]]; then
+              echo "Runtime modes are allowed only on a registered 2026 date." >&2
+              exit 1
+            fi
+            if [[ -n "$trading_date" && "$trading_date" != "$current_et" ]]; then
+              echo "Requested trading date differs from today's New York date." >&2
+              exit 1
+            fi
+            trading_date="$current_et"
+          elif [[ "$mode" != "validate" ]]; then
+            echo "Unsupported mode." >&2
+            exit 1
+          elif [[ -n "$trading_date" ]]; then
+            echo "Validation mode cannot claim a trading date." >&2
+            exit 1
+          fi
+
+          if [[ "$mode" == "capture-prerequisites" && "$current_time_et" > "06:59:59" ]]; then
+            echo "Pre-session capture did not start before the 07:00 strategy deadline." >&2
+            exit 1
+          fi
+          if [[ "$mode" == "produce" && "$current_time_et" < "10:01:00" ]]; then
+            echo "Source production started before the 10:01 causal cutoff." >&2
+            exit 1
+          fi
+
+          echo "should_run=true" >> "$GITHUB_OUTPUT"
+          echo "mode=$mode" >> "$GITHUB_OUTPUT"
+          echo "trading_date=$trading_date" >> "$GITHUB_OUTPUT"
+          echo "prerequisite_artifact_name=prospective-scanner-prerequisites-${trading_date}-${{ github.run_id }}-${{ github.run_attempt }}" >> "$GITHUB_OUTPUT"
+          echo "source_artifact_name=prospective-daily-micro-decision-source-${trading_date}-${{ github.run_id }}-${{ github.run_attempt }}" >> "$GITHUB_OUTPUT"
+
+  validate:
+    needs: resolve
+    if: needs.resolve.outputs.should_run == 'true' && needs.resolve.outputs.mode == 'validate'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Verify prospective source contracts
+        run: >-
+          python -m unittest
+          tests.test_sec_edgar
+          tests.test_prospective_daily_source
+          tests.test_prospective_opportunity_freeze
+          -v
+      - name: Compile producer
+        run: >-
+          python -m py_compile
+          src/momentumbot/providers/sec_edgar.py
+          src/momentumbot/research/prospective_daily_source.py
+          scripts/build_prospective_daily_source.py
+
+  capture-prerequisites:
+    needs: resolve
+    if: needs.resolve.outputs.should_run == 'true' && needs.resolve.outputs.mode == 'capture-prerequisites'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: phase-3-historical-snapshot
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Capture pre-session membership and CIK references
+        shell: bash
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+          ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT || 'https://paper-api.alpaca.markets' }}
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+          TRADING_DATE: ${{ needs.resolve.outputs.trading_date }}
+        run: |
+          set -euo pipefail
+          runtime_head_sha="$(git rev-parse HEAD)"
+          python scripts/build_prospective_daily_source.py capture-prerequisites \
+            --trading-date "$TRADING_DATE" \
+            --runtime-head-sha "$runtime_head_sha" \
+            --output prospective-scanner-prerequisites \
+            --workflow-run-id "${{ github.run_id }}" \
+            --workflow-run-attempt "${{ github.run_attempt }}" \
+            --workflow-event-name "${{ github.event_name }}" \
+            --workflow-source-sha "${{ github.sha }}"
+      - name: Upload write-once prerequisite
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ needs.resolve.outputs.prerequisite_artifact_name }}
+          path: prospective-scanner-prerequisites/
+          if-no-files-found: error
+          retention-days: 90
+
+  produce:
+    needs: resolve
+    if: needs.resolve.outputs.should_run == 'true' && needs.resolve.outputs.mode == 'produce'
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    steps:
+      - name: Resolve latest pre-session artifact for the exact date
+        id: prerequisite
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TRADING_DATE: ${{ needs.resolve.outputs.trading_date }}
+        run: |
+          set -euo pipefail
+          gh api --paginate --slurp \
+            "repos/${GITHUB_REPOSITORY}/actions/artifacts?per_page=100" \
+            > artifact-pages.json
+          python - <<'PY'
+          import json
+          import os
+          from datetime import datetime
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+
+          pages = json.loads(Path("artifact-pages.json").read_text())
+          target = os.environ["TRADING_DATE"]
+          prefix = f"prospective-scanner-prerequisites-{target}-"
+          rows = []
+          for page in pages:
+              for row in page.get("artifacts", []):
+                  created = datetime.fromisoformat(row["created_at"].replace("Z", "+00:00"))
+                  if (
+                      row.get("expired") is False
+                      and str(row.get("name", "")).startswith(prefix)
+                      and created.astimezone(ZoneInfo("America/New_York")).date().isoformat() == target
+                  ):
+                      rows.append(row)
+          if not rows:
+              raise RuntimeError("no pre-session prerequisite artifact exists for the registered date")
+          selected = max(rows, key=lambda row: (row["created_at"], int(row["id"])))
+          run = selected.get("workflow_run") or {}
+          run_id = run.get("id")
+          if not isinstance(run_id, int):
+              raise RuntimeError("selected prerequisite artifact lacks a source run")
+          output = Path(os.environ["GITHUB_OUTPUT"])
+          with output.open("a", encoding="utf-8") as handle:
+              handle.write(f"artifact_name={selected['name']}\n")
+              handle.write(f"run_id={run_id}\n")
+          PY
+      - name: Download the selected pre-session artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ steps.prerequisite.outputs.artifact_name }}
+          path: ${{ runner.temp }}/prospective-prerequisite
+          github-token: ${{ github.token }}
+          run-id: ${{ steps.prerequisite.outputs.run_id }}
+      - name: Resolve the exact pre-session runtime head
+        id: runtime
+        shell: bash
+        env:
+          TRADING_DATE: ${{ needs.resolve.outputs.trading_date }}
+          PREREQUISITE_FILE: ${{ runner.temp }}/prospective-prerequisite/pre-session-prerequisites.json
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          import re
+          from pathlib import Path
+
+          path = Path(os.environ["PREREQUISITE_FILE"])
+          payload = json.loads(path.read_text())
+          unsigned = {key: value for key, value in payload.items() if key != "content_sha256"}
+          encoded = json.dumps(unsigned, ensure_ascii=True, separators=(",", ":"), sort_keys=True).encode()
+          if payload.get("content_sha256") != hashlib.sha256(encoded).hexdigest():
+              raise RuntimeError("pre-session prerequisite content hash mismatch")
+          if payload.get("trading_date") != os.environ["TRADING_DATE"]:
+              raise RuntimeError("pre-session prerequisite trading date mismatch")
+          head = str(payload.get("runtime_head_sha", ""))
+          if re.fullmatch(r"[0-9a-f]{40}", head) is None:
+              raise RuntimeError("pre-session prerequisite runtime head is invalid")
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as handle:
+              handle.write(f"head_sha={head}\n")
+          PY
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: ${{ steps.runtime.outputs.head_sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install package
+        run: python -m pip install -e .
+      - name: Verify exact source and freeze mechanics
+        run: >-
+          python -m unittest
+          tests.test_prospective_daily_source
+          tests.test_prospective_opportunity_freeze
+          -v
+      - name: Produce label-blind scanner and Micro trigger source
+        shell: bash
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+          ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT || 'https://paper-api.alpaca.markets' }}
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+          TRADING_DATE: ${{ needs.resolve.outputs.trading_date }}
+          RUNTIME_HEAD_SHA: ${{ steps.runtime.outputs.head_sha }}
+          PREREQUISITE_FILE: ${{ runner.temp }}/prospective-prerequisite/pre-session-prerequisites.json
+        run: |
+          set -euo pipefail
+          python scripts/build_prospective_daily_source.py produce \
+            --trading-date "$TRADING_DATE" \
+            --runtime-head-sha "$RUNTIME_HEAD_SHA" \
+            --prerequisite "$PREREQUISITE_FILE" \
+            --output prospective-daily-source \
+            --asset-batch-size 250 \
+            --news-batch-size 50 \
+            --minimum-sec-request-interval 0.2 \
+            --workflow-run-id "${{ github.run_id }}" \
+            --workflow-run-attempt "${{ github.run_attempt }}" \
+            --workflow-event-name "${{ github.event_name }}" \
+            --workflow-source-sha "${{ github.sha }}"
+      - name: Upload hash-bound daily source
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ needs.resolve.outputs.source_artifact_name }}
+          path: prospective-daily-source/
+          if-no-files-found: error
+          retention-days: 90
+      - name: Dispatch the frozen opportunity materializer on the research branch
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TRADING_DATE: ${{ needs.resolve.outputs.trading_date }}
+          SOURCE_ARTIFACT_NAME: ${{ needs.resolve.outputs.source_artifact_name }}
+        run: |
+          set -euo pipefail
+          jq -n \
+            --arg ref "phase-3-historical-snapshot" \
+            --arg run_id "${GITHUB_RUN_ID}" \
+            --arg artifact "$SOURCE_ARTIFACT_NAME" \
+            --arg trading_date "$TRADING_DATE" \
+            '{ref: $ref, inputs: {source_run_id: $run_id, source_artifact_name: $artifact, trading_date: $trading_date}}' \
+            | gh api --method POST \
+                "repos/${GITHUB_REPOSITORY}/actions/workflows/prospective-opportunity-freeze.yml/dispatches" \
+                --input -
