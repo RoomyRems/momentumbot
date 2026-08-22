@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "contract_id": "microstructure-behavioral-execution-bridge-v0.1",
+  "artifact_type": "preregistered_unarmed_threshold_free_behavioral_execution_bridge",
+  "registration_date": "2026-08-22",
+  "registration_status": "registered_after_behavioral_cohort_success_before_prospective_panel",
+  "purpose": "Carry only the sanitized behavioral-cohort aggregate into both already frozen prospective execution scenarios as a complete readiness matrix, without selecting a feature, horizon, scenario, threshold, opportunity, or action.",
+  "runtime_strategy_effect": "none_shadow_only",
+  "frozen_parents": {
+    "behavioral_success_audit": "research/data-audits/databento-microstructure-behavioral-cohort-v0.2-run-32575593240-success-2026-08-22.json",
+    "behavioral_success_audit_content_sha256": "f1544b5a0d83e28d5b013b5dba64a9c806fefe7ab81dc614be67223dea908b22",
+    "behavioral_success_workflow_run_id": 32575593240,
+    "behavioral_success_workflow_attempt": 1,
+    "behavioral_success_head_sha": "0687093a778bd6ac0973889e788886df8cd48cbf",
+    "published_success_checkpoint_sha": "1b67dae2ff39b7942ec8f968dd50dff3ed81aa51",
+    "prospective_execution_contract": "research/strategy/prospective-management-execution-v0.1.json",
+    "prospective_execution_contract_id": "prospective-management-execution-v0.1",
+    "prospective_execution_contract_content_sha256": "14812b9f25b5ea7230254ed86b1e0eaa30fffe3dc13b1ee141b19770706090f9"
+  },
+  "knowledge_boundary": {
+    "sanitized_cohort_aggregate_allowed": true,
+    "aggregate_direction_counts_and_unavailable_states_only": true,
+    "per_opportunity_feature_values_allowed": false,
+    "raw_market_data_allowed": false,
+    "ross_actions_labels_or_recaps_allowed": false,
+    "later_prices_or_pnl_allowed": false,
+    "prospective_execution_outcomes_available_at_registration": false,
+    "behavioral_values_may_select_execution_assumptions": false
+  },
+  "readiness_matrix": {
+    "horizons_ns": [
+      1000000000,
+      5000000000,
+      10000000000
+    ],
+    "execution_scenario_ids": [
+      "l1-conservative-v0.1",
+      "l1-stress-v0.1"
+    ],
+    "complete_cartesian_product_required": true,
+    "expected_cell_count": 6,
+    "all_horizons_reported_together": true,
+    "both_execution_scenarios_reported_together": true,
+    "best_horizon_selection_allowed": false,
+    "best_execution_scenario_selection_allowed": false,
+    "score_or_rank_allowed": false,
+    "pending_execution_status": "pending_causal_top_of_book_and_halt_states"
+  },
+  "future_input_gate": {
+    "registered_account_snapshot_required": true,
+    "causal_top_of_book_required": true,
+    "halt_states_required": true,
+    "sip_print_proxy_fallback_allowed": false,
+    "missing_input_behavior": "retain_pending_or_unavailable_without_substitution",
+    "same_opportunity_inputs_required_for_both_scenarios": true,
+    "retrospective_fill_reconstruction_allowed": false
+  },
+  "authority_boundary": {
+    "provider_request_authorized": false,
+    "provider_purchase_authorized": false,
+    "databento_credit_authorized_usd": "0",
+    "broker_order_authorized": false,
+    "paper_order_authorized": false,
+    "live_order_authorized": false,
+    "runtime_authority_created": false,
+    "feature_threshold_selection_authorized": false,
+    "execution_scenario_selection_authorized": false,
+    "policy_promotion_eligible": false,
+    "profitability_claim_eligible": false
+  },
+  "explicitly_prohibited": [
+    "recovering or inferring per-opportunity feature values from the aggregate",
+    "selecting a horizon, metric, direction, execution scenario, or opportunity from the observed cohort",
+    "turning an increase, decrease, unchanged, or unavailable count into a trade confirmation or veto",
+    "using Ross actions, labels, recaps, later prices, P&L, or outcomes in the bridge",
+    "making a provider request or spending provider credit",
+    "submitting a paper or live order",
+    "creating runtime authority or promoting a policy"
+  ],
+  "next_gate": "Populate prospective execution outcomes only after the registered account snapshot and causal top-of-book and halt-state inputs exist; retain all six cells and all unavailable states without ranking or selecting a result.",
+  "content_sha256": "fcafc556b20267a966ed228658a5da8daef2ed58955cf7d981c053acf8491411"
+}

@@ -47,6 +47,19 @@ to obtain more data. The raw DBN files were deleted by the workflow; the only
 retained provider-derived artifact is the sanitized aggregate bound by the
 permanent audit.
 
+## New unarmed development
+
+`microstructure-behavioral-execution-bridge-v0.1` freezes the threshold-free
+handoff from the sanitized cohort aggregate to the already registered
+prospective execution assumptions. It creates the complete six-cell readiness
+matrix: all one-, five-, and ten-second horizons crossed with both the fixed
+conservative and stress scenarios.
+
+Every cell is pending the same causal top-of-book, halt-state, and registered
+account inputs. The bridge carries aggregate direction and unavailable counts,
+not per-opportunity feature values. It cannot score, rank, select, download,
+trade, or create runtime authority, and it authorizes zero Databento credit.
+
 ## Active gates, in order
 
 1. Preserve the completed cohort and all earlier real-data audits without
