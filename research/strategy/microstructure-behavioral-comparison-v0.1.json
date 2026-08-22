@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "protocol_id": "microstructure-behavioral-comparison-v0.1",
+  "artifact_type": "preregistered_unarmed_label_blind_microstructure_behavioral_comparison",
+  "registration_date": "2026-08-21",
+  "registration_status": "registered_before_feature_values_or_outcomes",
+  "question": "On identical causal Micro-v0.1 first-candle-new-high opportunities, how do fixed post-trigger single-venue depth and tape measurements differ from the immediately preceding equal-length intervals, without selecting a feature, horizon, threshold, exception, or trade action from observed results?",
+  "runtime_strategy_effect": "none_shadow_only",
+  "provider_request_authorized": false,
+  "provider_purchase_authorized": false,
+  "execution_file_present": false,
+  "policy_promotion_eligible": false,
+  "profitability_claim_eligible": false,
+  "exact_ross_replication_claim_eligible": false,
+  "feature_threshold_selection_permitted": false,
+  "horizon_selection_permitted": false,
+  "retrospective_labels_allowed_in_runtime": false,
+  "frozen_parents": {
+    "feature_set_id": "microstructure-feature-mechanics-v0.1",
+    "feature_set_content_sha256": "b048e26fabd163d66297fa57faf011fbb50d9b69377101dbd04337a1cc1eab6a",
+    "four_case_success_audit": "research/data-audits/databento-microstructure-feature-coverage-v0.2-run-32544425875-success-2026-08-21.json",
+    "four_case_success_audit_content_sha256": "592a02b54fbaeb3182772905eb96fe50caba5c406e5aa79ee33218d8cb3c9ec5",
+    "verified_engineering_cases": [
+      "INTJ",
+      "EQPT",
+      "AMC",
+      "GMM"
+    ],
+    "engineering_feature_values_used_to_select_protocol": false,
+    "retrospective_outcomes_used_to_select_protocol": false
+  },
+  "causal_anchor": {
+    "source": "frozen Micro-v0.1 first-candle-new-high opportunity",
+    "clock": "provider_receive_timestamp_nanoseconds",
+    "anchor_definition": "the earliest receive-time instant at which the frozen chart trigger is causally available",
+    "breakout_level_source": "the same frozen Micro-v0.1 plan; the comparator never derives or changes it",
+    "opportunity_selection_may_use_microstructure": false,
+    "opportunity_selection_may_use_outcomes": false
+  },
+  "paired_windows": {
+    "horizons_ns": [
+      1000000000,
+      5000000000,
+      10000000000
+    ],
+    "pre_interval": "anchor_minus_horizon_exclusive_to_anchor_inclusive",
+    "post_interval": "anchor_exclusive_to_anchor_plus_horizon_inclusive",
+    "overlap_allowed": false,
+    "all_horizons_reported_together": true,
+    "best_horizon_selection_allowed": false
+  },
+  "registered_estimands": [
+    {
+      "metric_id": "book.depth-imbalance",
+      "value_type": "rational",
+      "source": "book.depth_imbalance_numerator / book.depth_imbalance_denominator",
+      "interpretation": "displayed venue-scoped depth balance only"
+    },
+    {
+      "metric_id": "book.spread-bps",
+      "value_type": "rational",
+      "source": "book.spread_bps_numerator / book.spread_bps_denominator",
+      "interpretation": "displayed venue-scoped spread only"
+    },
+    {
+      "metric_id": "tape.net-buy-minus-sell-shares",
+      "value_type": "integer",
+      "source": "window.signed_trade_velocity.net_buy_minus_sell_shares",
+      "interpretation": "signed executed-share balance with unknown aggressor retained separately"
+    },
+    {
+      "metric_id": "tape.buy-executed-shares",
+      "value_type": "integer",
+      "source": "window.execution_price_impact.buy_executed_shares",
+      "interpretation": "buy-executed volume without a speed threshold"
+    },
+    {
+      "metric_id": "tape.sell-executed-shares",
+      "value_type": "integer",
+      "source": "window.execution_price_impact.sell_executed_shares",
+      "interpretation": "sell-executed volume without a speed threshold"
+    },
+    {
+      "metric_id": "tape.buy-positive-progress-nanos",
+      "value_type": "integer",
+      "source": "window.execution_price_impact.buy_positive_progress_nanos",
+      "interpretation": "buy-side price progress reported separately from executed volume"
+    },
+    {
+      "metric_id": "book.ask-replenished-after-fill-shares",
+      "value_type": "integer",
+      "source": "window.displayed_replenishment.ask.replenished_after_fill_shares",
+      "interpretation": "same-price ask replenishment after execution; hidden selling is not proven"
+    },
+    {
+      "metric_id": "book.bid-replenished-after-fill-shares",
+      "value_type": "integer",
+      "source": "window.displayed_replenishment.bid.replenished_after_fill_shares",
+      "interpretation": "same-price bid replenishment after execution; hidden buying is not proven"
+    },
+    {
+      "metric_id": "book.ask-canceled-shares",
+      "value_type": "integer",
+      "source": "window.book_flow.ask.canceled_shares",
+      "interpretation": "ask cancellation flow without intent or spoofing classification"
+    },
+    {
+      "metric_id": "book.bid-canceled-shares",
+      "value_type": "integer",
+      "source": "window.book_flow.bid.canceled_shares",
+      "interpretation": "bid cancellation flow without intent or spoofing classification"
+    },
+    {
+      "metric_id": "breakout.buy-shares-at-or-above",
+      "value_type": "integer",
+      "source": "window.breakout_progress_context.buy_shares_at_or_above",
+      "interpretation": "causal breakout-level buy flow without a pass/fail label"
+    },
+    {
+      "metric_id": "breakout.post-cross-sell-shares-below",
+      "value_type": "integer",
+      "source": "window.breakout_progress_context.post_cross_sell_shares_below_breakout",
+      "interpretation": "post-cross selling below the causal breakout without a false-breakout label"
+    }
+  ],
+  "depth_walk_estimand": {
+    "source": "depth_constrained_slippage",
+    "quantities": "must be supplied by the frozen prospective execution plan before the opportunity; the comparator cannot invent or optimize quantity",
+    "directions": [
+      "buy",
+      "sell"
+    ],
+    "reported_fields": [
+      "displayed_filled_quantity",
+      "displayed_unfilled_quantity",
+      "worst_price_nanos",
+      "notional_price_nanos_shares"
+    ],
+    "queue_position_assumed": false,
+    "hidden_liquidity_assumed": false
+  },
+  "comparison_output": {
+    "integer_transform": "post_minus_pre",
+    "rational_transform": "exact_fraction_post_minus_pre",
+    "direction_labels": [
+      "increase",
+      "decrease",
+      "unchanged",
+      "unavailable"
+    ],
+    "direction_zero_is_a_mathematical_identity_not_a_fitted_threshold": true,
+    "confirmation_or_adverse_classification_emitted": false,
+    "hidden_buyer_or_seller_classification_emitted": false,
+    "feature_values_persisted_by_registration": false
+  },
+  "future_cohort_gate": {
+    "status": "not_selected",
+    "required_before_provider_request": true,
+    "must_be_representative_and_mechanically_selected": true,
+    "must_bind_exact_opportunities_and_order_quantities": true,
+    "must_freeze_provider_requests_and_cost_caps": true,
+    "must_be_label_blind": true,
+    "must_use_identical_opportunities_for_primary_and_stress_execution_scenarios": true,
+    "databento_request_count": 0,
+    "databento_cost_authorized_usd": "0",
+    "databento_bytes_authorized": 0
+  },
+  "explicitly_prohibited": [
+    "opening the four engineering-case feature values to choose a metric, sign, horizon, or threshold",
+    "using Ross actions, recap language, P&L, later prices, or retrospective outcomes in the comparison runtime",
+    "calling an increase or decrease a trade confirmation, veto, hidden order, iceberg, or spoofing decision",
+    "selecting only the most favorable horizon, metric, case, execution scenario, or exception",
+    "changing Micro-v0.1 entry, management, sizing, account, broker, or risk behavior",
+    "making a provider request or spending provider credit from this registration",
+    "submitting paper or live orders"
+  ],
+  "content_sha256": "7409973d369876d29a020785cc2f48bc945129d705648f793d693667dcdd3802"
+}

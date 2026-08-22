@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "audit_id": "microstructure-behavioral-comparison-v0.1-registration-2026-08-21",
+  "artifact_type": "mechanically_verified_unarmed_label_blind_behavioral_comparison_registration",
+  "registered_parent_commit": "6a1222d92d9e7fd6d0b74e72b3b8ee8e0d45deeb",
+  "protocol_id": "microstructure-behavioral-comparison-v0.1",
+  "protocol_content_sha256": "7409973d369876d29a020785cc2f48bc945129d705648f793d693667dcdd3802",
+  "four_case_success_audit_content_sha256": "592a02b54fbaeb3182772905eb96fe50caba5c406e5aa79ee33218d8cb3c9ec5",
+  "registration_timing": {
+    "feature_values_opened_before_registration": false,
+    "retrospective_outcomes_opened_before_registration": false,
+    "representative_cohort_selected": false,
+    "threshold_or_horizon_selected": false
+  },
+  "mechanical_verification": {
+    "all_three_horizons_retained": true,
+    "pre_post_windows_disjoint": true,
+    "integer_deltas_exact": true,
+    "rational_deltas_exact": true,
+    "unavailable_families_fail_closed": true,
+    "snapshot_hash_scope_anchor_and_breakout_binding_enforced": true,
+    "depth_walk_quantities_and_directions_frozen": true,
+    "synthetic_focused_tests_passed": 7
+  },
+  "provider_request_made": false,
+  "databento_credit_used": false,
+  "feature_values_persisted": false,
+  "retrospective_labels_loaded": false,
+  "runtime_authority_created": false,
+  "broker_order_created": false,
+  "policy_promotion_created": false,
+  "bound_files": [
+    {
+      "path": "research/strategy/microstructure-behavioral-comparison-v0.1.json",
+      "file_sha256": "d8e9bea2e6482dd885735bce2694026cedd38f7068ad58132d5e61eb2aa3c872"
+    },
+    {
+      "path": "src/momentumbot/research/microstructure_behavioral_comparison.py",
+      "file_sha256": "595889e2eb778b3006b80929728d3b7ec9c887b85e661ea46a38089b7edcb4df"
+    },
+    {
+      "path": "docs/research/microstructure_behavioral_comparison_v01.md",
+      "file_sha256": "6a736aa63ad3f110f403594779bb053804a2cc4ec643f9ba552812bf25758624"
+    },
+    {
+      "path": "tests/test_microstructure_behavioral_comparison.py",
+      "file_sha256": "4fd438c713daf730973b9993632c0a41d30622905fb48241fb596e40c5e996d9"
+    }
+  ],
+  "claim_boundary": {
+    "engineering_mechanics_supported": true,
+    "representative_behavioral_result_supported": false,
+    "predictive_value_supported": false,
+    "profitable_threshold_supported": false,
+    "realistic_fill_supported": false,
+    "live_money_readiness_supported": false,
+    "next_gate": "Mechanically select and freeze a representative label-blind Micro-v0.1 opportunity cohort, exact provider requests, prospective quantities, cost caps, and no-retry behavior before any provider call."
+  },
+  "content_sha256": "0bd3748369f5717792dba74a1427cd373cb7bc4045a222392b8d44a92587c554"
+}

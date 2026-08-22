@@ -10,6 +10,8 @@ This is engineering evidence, not evidence that the trading idea is profitable o
 
 No feature threshold, runtime trading authority, consolidated national Level 2 claim, Ross Cameron imitation claim, or realistic broker-fill claim exists.
 
+The next major phase is now preregistered before any feature values or outcomes are opened. It compares every frozen one-, five-, and ten-second post-trigger window with the immediately preceding equal-length window on the same causal Micro-v0.1 opportunity. The comparator reports exact arithmetic only and cannot select a horizon, threshold, hidden-order label, trade confirmation, or action.
+
 The two Alpaca paper accounts remain separately validated. The registered pre-session snapshot scheduler is scheduled for the ten registered market dates from August 24 through September 4 at 09:15 UTC (05:15 ET). The accounts should remain flat and their balances should not be reset during the study.
 
 ## Verified real-data results
@@ -67,11 +69,13 @@ The Fill marker remains book-neutral. A matched Cancel becomes the canonical Fil
 
 `databento-microstructure-feature-coverage-v0.2`, content SHA-256 `1218c98f80cbf7c535636ddd67842ed6ebc0a39628eaababfc44a7a0b822e213`, froze the AMC and GMM continuation against the verified INTJ and EQPT exact-replay audits. Its separately authorized first attempt completed under the published Fill/Cancel repair and unchanged threshold-free feature engine. The resulting engineering coverage is now frozen; neither this workflow nor the earlier one-shot workflows may be rerun.
 
+`microstructure-behavioral-comparison-v0.1`, content SHA-256 `7409973d369876d29a020785cc2f48bc945129d705648f793d693667dcdd3802`, freezes the first label-blind behavioral comparison. It binds the verified four-case audit, retains all registered metrics and horizons, enforces disjoint pre/post receive-time windows, propagates unavailable families, and keeps prospective depth-walk quantities fixed. It is unarmed: no representative cohort is selected, no provider request or spend is authorized, no feature value is persisted, and no runtime authority exists.
+
 ## Active gates, in order
 
 1. Preserve the verified INTJ, EQPT, AMC, and GMM audits without rerunning any one-shot workflow.
-2. Preregister one label-blind behavioral comparison or threshold hypothesis before opening any feature outcome values. Do not select a feature, horizon, threshold, or exception from these four cases.
-3. Keep any future provider request behind a new frozen contract, exact cost gate, parent-bound authorization, and no-retry rule.
+2. Mechanically select and freeze a representative, label-blind Micro-v0.1 opportunity cohort and the prospective order quantities used by its depth walks. Do not use microstructure values or outcomes for selection.
+3. Bind exact provider requests, aggregate cost and byte ceilings, and no-retry behavior in a separate unarmed cohort contract before considering any execution authorization.
 4. Let the registered account snapshot workflow capture both accounts on every August 24–September 4 date. Confirm each scheduled run succeeds and preserve the artifacts.
 5. Use any later frozen behavioral artifact only as shadow evidence and integrate it with the existing prospective execution scenarios on identical opportunities.
 6. Complete the larger representative walk-forward and prospective paper sequence before any policy-promotion or profitability interpretation.
@@ -95,5 +99,6 @@ Nothing is needed to preserve the four completed engineering results or to let t
 - Unarmed Fill/Cancel repair: 8/8 focused tests pass.
 - Unarmed EQPT repaired-feature harness: 11/11 focused tests pass.
 - AMC/GMM repaired-feature coverage and permanent success audit: 14/14 focused tests pass.
+- Unarmed microstructure behavioral comparison: 7/7 focused tests pass.
 - EQPT and AMC/GMM repaired-feature workflows each completed on their authorized first attempt; no retry occurred.
-- Complete repository suite: 720/720 tests pass.
+- Complete repository suite: 727/727 tests pass.
