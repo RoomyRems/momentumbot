@@ -86,11 +86,13 @@ The Fill marker remains book-neutral. A matched Cancel becomes the canonical Fil
 
 The `databento_behavioral_cohort_execution_v01` harness implements that frozen gate. Its consumed first attempt exposed a DBN DataFrame conversion incompatibility before feature replay. The unarmed compatibility correction now maps embedded symbology with Databento 0.83's `price_type="fixed"`, preserves per-instrument `F_LAST` event boundaries, applies the frozen Fill/Cancel repair, rejects any checkpoint inside an incomplete atomic event, and compares two independently exact replays at every frozen anchor and horizon. Any future artifact remains limited to cohort aggregates and cryptographic digests; raw records, feature snapshots, per-opportunity values, labels, thresholds, broker actions, and runtime authority remain prohibited. The existing first-attempt authorization cannot be reused, and the repair alone does not trigger the workflow.
 
+`databento-microstructure-behavioral-cohort-v0.2`, content SHA-256 `885d8395839d45b772905a56f9261385a26127ed787f419074073f496d364a2a`, now freezes the next execution namespace against the immutable v0.1 safe-failure audit and the published DataFrame repair checkpoint. Its wrapper delegates to the unchanged v0.1 causal replay only after independently validating the contract, safe-failure provenance, exact repaired source hash, and a future v0.2 parent-bound authorization. The v0.2 authorization file is absent, its workflow path is disjoint from v0.1, and this registration authorizes zero requests, zero bytes, zero spend, no retry, and no partial substitution.
+
 ## Active gates, in order
 
 1. Preserve the verified INTJ, EQPT, AMC, and GMM audits without rerunning any one-shot workflow.
 2. Preserve the accepted-panel cohort, its fixed quantities, the consumed first-attempt safe failure, and its exact five-request preflight contract without opening feature values or retrospective labels.
-3. Keep the DataFrame compatibility repair unarmed. Any later cohort attempt must use a new versioned execution contract and a new sole direct-child authorization; it must not retry workflow `32550318387` or reuse its consumed authorization.
+3. Keep the registered v0.2 DataFrame-repair execution bundle unarmed. Any later cohort attempt must add the sole v0.2 authorization as the only direct-child change; it must not retry workflow `32550318387` or reuse its consumed v0.1 authorization.
 4. Let the registered account snapshot workflow capture both accounts on every August 24–September 4 date. Confirm each scheduled run succeeds and preserve the artifacts.
 5. Use any later frozen behavioral artifact only as shadow evidence and integrate it with the existing prospective execution scenarios on identical opportunities.
 6. Complete the larger representative walk-forward and prospective paper sequence before any policy-promotion or profitability interpretation.
@@ -117,5 +119,6 @@ Nothing is needed to preserve the four completed engineering results or to let t
 - Unarmed microstructure behavioral comparison: 7/7 focused tests pass.
 - Unarmed accepted-panel behavioral cohort: 7/7 focused tests pass.
 - Behavioral-cohort execution repair and immutable safe-failure audit: 17/17 focused tests pass without a provider request.
+- Unarmed behavioral-cohort v0.2 execution registration: 9/9 focused tests pass without a provider request.
 - EQPT and AMC/GMM repaired-feature workflows each completed on their authorized first attempt; no retry occurred.
-- Complete repository suite: 744/744 tests pass.
+- Complete repository suite: 753/753 tests pass.

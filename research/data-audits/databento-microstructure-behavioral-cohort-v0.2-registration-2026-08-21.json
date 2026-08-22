@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "audit_id": "databento-microstructure-behavioral-cohort-v0.2-registration-2026-08-21",
+  "audit_date": "2026-08-21",
+  "artifact_type": "unarmed_databento_behavioral_cohort_dataframe_repair_execution_registration",
+  "execution_contract_id": "databento-microstructure-behavioral-cohort-v0.2",
+  "execution_contract_content_sha256": "885d8395839d45b772905a56f9261385a26127ed787f419074073f496d364a2a",
+  "registration_status": "frozen_unarmed_before_any_v0.2_provider_call",
+  "published_repair_checkpoint": {
+    "repository": "RoomyRems/momentumbot",
+    "branch": "phase-3-historical-snapshot",
+    "commit_sha": "3f5ec5d85b32029e35c4cad371ca5c5a886b9e76",
+    "tree_sha": "1bd96b0cea82693d3700feec76dd3ece8d9e0e24"
+  },
+  "frozen_parent_failure": {
+    "workflow_run_id": 32550318387,
+    "workflow_run_attempt": 1,
+    "timeseries_request_count": 1,
+    "safe_error_code": "record_payload_invalid",
+    "content_sha256": "724a081a2e282f3e5e988dd971ec18fb00b42139feacb150e55bbb91324cc860",
+    "authorization_consumed": true,
+    "automatic_retry_attempted": false
+  },
+  "registered_repair": {
+    "sdk_version": "0.83.0",
+    "conversion_method": "DBNStore.to_df",
+    "keyword_arguments": {
+      "map_symbols": true,
+      "pretty_ts": false,
+      "price_type": "fixed"
+    },
+    "prohibited_removed_keyword": "pretty_px",
+    "request_surface_changed": false,
+    "feature_or_comparison_mechanics_changed": false
+  },
+  "execution_gate": {
+    "future_authorization_path": "research/strategy/microstructure-behavioral-cohort-v0.2-execution.json",
+    "execution_authorization_file_present": false,
+    "provider_purchase_authorized": false,
+    "exact_request_count_authorized_now": 0,
+    "provider_cost_authorized_now_usd": "0",
+    "provider_bytes_authorized_now": 0,
+    "future_exact_request_count": 5,
+    "future_hard_preflight_cost_ceiling_usd": "0.25",
+    "future_hard_preflight_billable_size_ceiling_bytes": 225000000,
+    "future_first_github_actions_attempt_only": true,
+    "future_automatic_retry_authorized": false,
+    "future_partial_cohort_substitution_authorized": false,
+    "v0_1_authorization_reuse_authorized": false
+  },
+  "provider_quote_made": false,
+  "provider_request_made": false,
+  "execution_authorization_file_present": false,
+  "databento_credit_consumed_by_registration": false,
+  "raw_market_data_loaded": false,
+  "feature_snapshot_values_loaded": false,
+  "retrospective_labels_loaded": false,
+  "threshold_selected": false,
+  "strategy_or_broker_change_made": false,
+  "runtime_authority_created": false,
+  "bound_files": [
+    {
+      "path": "research/strategy/databento-microstructure-behavioral-cohort-v0.2.json",
+      "file_sha256": "16084adf76ef7a59510a4872c6f13e4e8c3cf29ebb9fcbe526205f9f9c679ae1"
+    },
+    {
+      "path": "src/momentumbot/research/databento_behavioral_cohort_execution_v02.py",
+      "file_sha256": "4794ce8d68a68fe1718e145df2c3a0630fdd80c5dcf4f9be198d417d748cc0e7"
+    },
+    {
+      "path": "scripts/run_databento_microstructure_behavioral_cohort_v02.py",
+      "file_sha256": "aff2b0d922d2573c155a0c25c049e30e08be1c4b821925770d8f303dd654808c"
+    },
+    {
+      "path": ".github/workflows/databento-microstructure-behavioral-cohort-v02.yml",
+      "file_sha256": "73fdc5017ac10f7cc3d7edd545f38805cdd89fdc7640ab76c57b4d3d4ec95b1b"
+    },
+    {
+      "path": "docs/research/databento_microstructure_behavioral_cohort_execution_v02.md",
+      "file_sha256": "7993b59243cb70dbbc229bc15e597858a13bf7bed7d18b2d2791da1748945acb"
+    },
+    {
+      "path": "tests/test_databento_behavioral_cohort_execution_v02.py",
+      "file_sha256": "1e8c48a3fd3c2d78a492742b914e17c3f5b7559b2a3516cf6e0cb3a8fae39645"
+    },
+    {
+      "path": "research/data-audits/databento-microstructure-behavioral-cohort-v0.1-run-32550318387-safe-failure-2026-08-21.json",
+      "file_sha256": "11a36aa744134e61e0618276e87c287844dccbf81b225ea21fe07f6cfd7c6b81"
+    },
+    {
+      "path": "src/momentumbot/research/databento_behavioral_cohort_execution_v01.py",
+      "file_sha256": "d77e44f60a171b10d2a0a556a891a753876b7b85bf7bc5f7a2b6fda95c8c4fe4"
+    }
+  ],
+  "claim_boundary": [
+    "Registration alone cannot contact Databento or consume credit.",
+    "A later successful result would be deterministic accepted-panel engineering evidence only.",
+    "No predictive, profitability, threshold, consolidated Level 2, broker-fill, or policy-promotion claim is authorized."
+  ],
+  "content_sha256": "6ca8e1d83f82f1f9b5d4b3030908c748b9480051e9bb35e1d1e0b520afc203b6"
+}

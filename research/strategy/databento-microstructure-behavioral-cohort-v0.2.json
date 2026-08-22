@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "execution_contract_id": "databento-microstructure-behavioral-cohort-v0.2",
+  "artifact_type": "preregistered_unarmed_databento_behavioral_cohort_dataframe_repair_execution",
+  "registration_date": "2026-08-21",
+  "registration_status": "frozen_after_v0.1_safe_failure_and_dataframe_api_repair_before_any_v0.2_provider_call",
+  "purpose": "Repeat the exact frozen label-blind behavioral cohort only under the registered Databento 0.83 DataFrame conversion repair, without changing an opportunity, request, feature, horizon, threshold, strategy rule, or broker action.",
+  "runtime_strategy_effect": "none_shadow_only",
+  "policy_promotion_eligible": false,
+  "profitability_claim_eligible": false,
+  "provider_purchase_authorized": false,
+  "execution_authorization_file_present": false,
+  "published_repair_checkpoint": {
+    "repository": "RoomyRems/momentumbot",
+    "branch": "phase-3-historical-snapshot",
+    "commit_sha": "3f5ec5d85b32029e35c4cad371ca5c5a886b9e76",
+    "tree_sha": "1bd96b0cea82693d3700feec76dd3ece8d9e0e24",
+    "message": "Register unarmed Databento cohort DataFrame repair"
+  },
+  "frozen_parent_failure": {
+    "path": "research/data-audits/databento-microstructure-behavioral-cohort-v0.1-run-32550318387-safe-failure-2026-08-21.json",
+    "audit_id": "databento-microstructure-behavioral-cohort-v0.1-run-32550318387-safe-failure-2026-08-21",
+    "file_sha256": "11a36aa744134e61e0618276e87c287844dccbf81b225ea21fe07f6cfd7c6b81",
+    "content_sha256": "724a081a2e282f3e5e988dd971ec18fb00b42139feacb150e55bbb91324cc860",
+    "workflow_run_id": 32550318387,
+    "workflow_run_attempt": 1,
+    "workflow_head_sha": "761ffe3e99b54884b89e543290d88c9e32a0f689",
+    "failure_request_id": "2026-07-10-GMM",
+    "failure_phase": "record",
+    "safe_error_code": "record_payload_invalid",
+    "timeseries_request_count": 1,
+    "automatic_retry_attempted": false,
+    "v0_1_authorization_consumed": true,
+    "v0_1_workflow_retry_permitted": false
+  },
+  "frozen_inputs": {
+    "cohort_path": "research/strategy/microstructure-behavioral-cohort-v0.1.json",
+    "cohort_file_sha256": "7889f16956225c8ec2e8a021b36527cf10403c87b9d4b3a02f318c6b28ae21e6",
+    "cohort_content_sha256": "2f97f8f2916113cf3e29fe398da7f38d72c1db0b79704cadb0b635ea062a939e",
+    "behavioral_protocol_path": "research/strategy/microstructure-behavioral-comparison-v0.1.json",
+    "behavioral_protocol_file_sha256": "d8e9bea2e6482dd885735bce2694026cedd38f7068ad58132d5e61eb2aa3c872",
+    "behavioral_protocol_content_sha256": "7409973d369876d29a020785cc2f48bc945129d705648f793d693667dcdd3802",
+    "comparison_source_path": "src/momentumbot/research/microstructure_behavioral_comparison.py",
+    "comparison_source_file_sha256": "595889e2eb778b3006b80929728d3b7ec9c887b85e661ea46a38089b7edcb4df",
+    "feature_engine_source_path": "src/momentumbot/research/microstructure_features.py",
+    "feature_engine_source_file_sha256": "07e2db045c9187e4bab46e7d25c546668c2c7b8d01f78c58ec36e88e48f1628e",
+    "fill_cancel_repair_source_path": "src/momentumbot/research/databento_fill_cancel_repair_v01.py",
+    "fill_cancel_repair_source_file_sha256": "8ec8c10a489c46840ca980f71cc3f55f0367a5c3673600773ae1b12812f19a83",
+    "cohort_execution_source_path": "src/momentumbot/research/databento_behavioral_cohort_execution_v01.py",
+    "cohort_execution_source_file_sha256": "d77e44f60a171b10d2a0a556a891a753876b7b85bf7bc5f7a2b6fda95c8c4fe4"
+  },
+  "registered_dataframe_repair": {
+    "sdk_version": "0.83.0",
+    "conversion_method": "DBNStore.to_df",
+    "keyword_arguments": {
+      "map_symbols": true,
+      "pretty_ts": false,
+      "price_type": "fixed"
+    },
+    "prohibited_removed_keyword": "pretty_px",
+    "price_representation": "integer_nanounits",
+    "request_surface_changed": false,
+    "feature_mechanics_changed": false,
+    "comparison_mechanics_changed": false,
+    "fill_cancel_repair_changed": false,
+    "strategy_or_broker_behavior_changed": false
+  },
+  "request_surface": {
+    "inherited_exactly_from_cohort_content_sha256": "2f97f8f2916113cf3e29fe398da7f38d72c1db0b79704cadb0b635ea062a939e",
+    "dataset": "XNAS.ITCH",
+    "schema": "mbo",
+    "stype_in": "raw_symbol",
+    "exact_request_count": 5,
+    "opportunity_count": 10,
+    "trading_date_count": 5,
+    "symbol_date_count": 7,
+    "prospective_quantity_shares": 5558,
+    "request_order_changed": false,
+    "allowed_calls_after_separate_execution_authorization": [
+      "historical.metadata.get_billable_size",
+      "historical.metadata.get_cost",
+      "historical.timeseries.get_range"
+    ],
+    "prohibited_calls": [
+      "historical.batch.submit_job",
+      "historical.batch.download",
+      "live.subscribe"
+    ]
+  },
+  "prior_preflight_evidence": {
+    "source_run_id": 32550318387,
+    "request_count_quoted": 5,
+    "total_quoted_cost_usd": "0.078219142556",
+    "total_billable_size_bytes": 69989304,
+    "interpretation": "The prior quotes confirm the frozen requests were below the registered ceilings only for that attempt. Any later separately authorized attempt must freshly quote all five requests before the first download."
+  },
+  "preregistered_hypothesis": "Under the sole DataFrame conversion correction, all five exact requests will normalize under the unchanged event-local Fill/Cancel repair and produce ten complete label-blind behavioral comparisons whose independent feature replays are exact.",
+  "success_requirements": [
+    "all five exact metadata quotes pass both aggregate ceilings before the first time-series request",
+    "all five exact MBO requests execute in the frozen order on the first GitHub Actions attempt",
+    "DBN rows convert with only map_symbols=true, pretty_ts=false, and price_type=fixed",
+    "every downloaded file is nonempty and matches the registered dataset and schema",
+    "all ten frozen opportunities yield complete pre and one-, five-, and ten-second snapshots",
+    "the complete snapshot sequence reproduces exactly in a second independent feature engine",
+    "no feature value, threshold, label, raw record, credential, provider message, or temporary path is persisted",
+    "every raw DBN file is deleted before the sanitized aggregate report is finalized"
+  ],
+  "failure_rule": "If metadata preflight fails or exceeds either aggregate ceiling, make zero time-series requests. After downloads begin, stop at the first fixed provider, file, conversion, parser, replay, checkpoint, comparison, or cleanup failure; record only the fixed safe phase and code; make no retry or partial substitution.",
+  "future_execution_gate": {
+    "authorization_path": "research/strategy/microstructure-behavioral-cohort-v0.2-execution.json",
+    "new_explicit_user_authorization_required": true,
+    "future_authorization_must_bind_published_parent_sha": true,
+    "authorization_only_direct_child_required": true,
+    "first_github_actions_attempt_only": true,
+    "exact_request_count_authorized_now": 0,
+    "provider_cost_authorized_now_usd": "0",
+    "provider_bytes_authorized_now": 0,
+    "hard_preflight_cost_ceiling_usd": "0.25",
+    "hard_preflight_billable_size_ceiling_bytes": 225000000,
+    "all_requests_quoted_before_first_download": true,
+    "automatic_retry_authorized": false,
+    "partial_cohort_substitution_authorized": false,
+    "batch_or_live_endpoint_authorized": false,
+    "raw_market_data_publication_authorized": false,
+    "feature_value_publication_authorized": false,
+    "broker_or_order_change_authorized": false,
+    "strategy_or_threshold_change_authorized": false,
+    "v0_1_authorization_reuse_authorized": false
+  },
+  "storage_and_licensing": {
+    "raw_storage": "Temporary GitHub runner directory only after a separate v0.2 execution authorization.",
+    "public_repository_raw_data": false,
+    "github_artifact_raw_data": false,
+    "persisted_output": "Sanitized cohort aggregates, non-reconstructable counts, aggregate quote and byte totals, safe error codes, and cryptographic digests only.",
+    "feature_snapshot_values_persisted": false,
+    "cleanup_rule": "Delete every DBN file before finalizing the sanitized report and fail closed if the temporary directory is not empty."
+  },
+  "prohibited_inputs_and_actions": [
+    "Ross action or retrospective label",
+    "recap text or discretionary judgment",
+    "trade P&L or later price outcome",
+    "threshold fitting, horizon selection, opportunity suppression, or request reordering",
+    "modifying the frozen Fill/Cancel repair, feature engine, comparison protocol, cohort, or request surface",
+    "Micro-v0.1 or scanner changes",
+    "paper or live order submission",
+    "publishing licensed Databento records",
+    "automatic provider retry or partial cohort substitution",
+    "claiming single-venue Nasdaq depth is consolidated national Level 2"
+  ],
+  "claim_boundary": [
+    "This v0.2 bundle is unarmed and cannot call Databento or spend credit.",
+    "A future pass would establish only that the frozen comparison mechanics executed deterministically on this registered accepted-panel slice.",
+    "No result can establish predictive value, a profitable threshold, Ross-equivalent discretion, consolidated Level 2 coverage, execution quality, generalization, or profitability.",
+    "A future failure remains evidence and cannot be hidden by changing a request, case, feature, window, threshold, repair, or exception."
+  ],
+  "content_sha256": "885d8395839d45b772905a56f9261385a26127ed787f419074073f496d364a2a"
+}

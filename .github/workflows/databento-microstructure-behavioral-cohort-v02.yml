@@ -1,0 +1,131 @@
+name: Databento one-shot microstructure behavioral cohort v0.2
+
+on:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - research/strategy/microstructure-behavioral-cohort-v0.2-execution.json
+
+permissions:
+  contents: read
+
+concurrency:
+  group: databento-microstructure-behavioral-cohort-v0.2
+  cancel-in-progress: false
+
+jobs:
+  replay-frozen-label-blind-behavioral-cohort-v02:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          fetch-depth: 2
+      - name: Verify v0.2 authorization is the only direct-child change
+        env:
+          MOMENTUMBOT_PUSH_BEFORE: ${{ github.event.before }}
+          MOMENTUMBOT_PUSH_SHA: ${{ github.sha }}
+        run: |
+          python - <<'PY'
+          import os
+          import subprocess
+
+          before = os.environ["MOMENTUMBOT_PUSH_BEFORE"]
+          head = os.environ["MOMENTUMBOT_PUSH_SHA"]
+          expected = (
+              "research/strategy/"
+              "microstructure-behavioral-cohort-v0.2-execution.json"
+          )
+          parent = subprocess.check_output(
+              ["git", "rev-parse", f"{head}^"], text=True
+          ).strip()
+          changed = subprocess.check_output(
+              ["git", "diff", "--name-only", before, head], text=True
+          ).splitlines()
+          assert parent == before
+          assert changed == [expected]
+          PY
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project and pinned Databento client
+        run: |
+          python -m pip install -e .
+          python -m pip install databento==0.83.0
+      - name: Verify v0.2 contract repaired conversion budgets replay and sanitization
+        run: >-
+          python -m unittest
+          tests.test_databento_behavioral_cohort_execution_v02 -v
+      - name: Quote all requests then run the v0.2 one-shot cohort diagnostic
+        env:
+          DATABENTO_API_KEY: ${{ secrets.DATABENTO_API_KEY }}
+          GITHUB_RUN_ATTEMPT: ${{ github.run_attempt }}
+          MOMENTUMBOT_PUSH_BEFORE: ${{ github.event.before }}
+        run: >-
+          python scripts/run_databento_microstructure_behavioral_cohort_v02.py
+          --output databento-microstructure-behavioral-cohort-v0.2.json
+      - name: Upload sanitized v0.2 cohort aggregate report only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: databento-microstructure-behavioral-cohort-v0.2-${{ github.run_id }}-${{ github.run_attempt }}
+          path: databento-microstructure-behavioral-cohort-v0.2.json
+          if-no-files-found: error
+          retention-days: 90
+      - name: Enforce v0.2 budgets cleanup causality and authority gates
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          report = json.loads(
+              Path(
+                  "databento-microstructure-behavioral-cohort-v0.2.json"
+              ).read_text(encoding="utf-8")
+          )
+          assert report["execution_contract_id"] == (
+              "databento-microstructure-behavioral-cohort-v0.2"
+          )
+          preflight = report["preflight"]
+          assert preflight["request_count_expected"] == 5
+          assert preflight["request_count_quoted"] == 5
+          assert float(preflight["total_quoted_cost_usd"]) <= 0.25
+          assert preflight["total_billable_size_bytes"] <= 225000000
+          assert preflight["preflight_passed"] is True
+          assert 1 <= report["timeseries_request_count"] <= 5
+          assert report["diagnostic_observation_complete"] is True
+          if report["all_requests_succeeded"]:
+              assert len(report["downloads"]) == 5
+              assert report["cohort_aggregate"]["opportunity_count"] == 10
+              assert report["cohort_aggregate"]["independent_feature_replay_exact"] is True
+              assert report["errors"] == []
+          else:
+              assert len(report["downloads"]) < 5
+              assert report["safe_failure_classified"] is True
+              assert len(report["errors"]) == 1
+          for field in (
+              "provider_credential_persisted",
+              "raw_market_data_persisted",
+              "raw_market_data_uploaded",
+              "feature_snapshot_values_persisted",
+              "per_opportunity_feature_values_persisted",
+              "derived_behavioral_values_persisted",
+              "automatic_retry_attempted",
+              "partial_cohort_substitution_attempted",
+              "batch_or_live_endpoint_called",
+              "retrospective_labels_loaded",
+              "ross_actions_or_labels_loaded",
+              "pnl_or_later_prices_loaded",
+              "feature_threshold_selected",
+              "feature_horizon_selected",
+              "strategy_or_threshold_change_made",
+              "broker_or_order_change_made",
+              "runtime_authority_created",
+              "policy_promotion_eligible",
+          ):
+              assert report[field] is False
+          assert report["raw_temp_directory_empty_before_cleanup"] is True
+          assert report["raw_temp_directory_removed"] is True
+          PY
