@@ -1,0 +1,234 @@
+name: Prospective daily account runtime v0.1
+
+on:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - .github/workflows/prospective-daily-account-runtime.yml
+      - research/strategy/prospective-daily-account-runtime-v0.1.json
+      - research/data-audits/prospective-daily-account-runtime-v0.1-registration-2026-08-22.json
+      - src/momentumbot/research/prospective_daily_account_runtime.py
+      - scripts/build_prospective_daily_account_runtime.py
+      - docs/research/prospective_daily_account_runtime_v01.md
+      - tests/test_prospective_daily_account_runtime.py
+  workflow_dispatch:
+    inputs:
+      runtime_commit_sha:
+        description: Exact research-branch commit containing the registered composer
+        required: true
+        type: string
+      trading_date:
+        description: Registered prospective trading date (YYYY-MM-DD)
+        required: true
+        type: string
+      source_run_id:
+        description: Exact successful prospective daily-source run ID
+        required: true
+        type: string
+      source_run_attempt:
+        description: Exact daily-source run attempt
+        required: true
+        type: number
+      source_artifact_name:
+        description: Exact immutable daily-source artifact name
+        required: true
+        type: string
+      account_run_id:
+        description: Exact successful pre-session account-snapshot run ID
+        required: true
+        type: string
+      account_run_attempt:
+        description: Exact account-snapshot run attempt
+        required: true
+        type: number
+      account_artifact_name:
+        description: Exact immutable account-snapshot artifact name
+        required: true
+        type: string
+      freeze_run_id:
+        description: Exact successful opportunity-freeze run ID
+        required: true
+        type: string
+      freeze_run_attempt:
+        description: Exact opportunity-freeze run attempt
+        required: true
+        type: number
+      freeze_artifact_name:
+        description: Exact immutable opportunity-freeze artifact name
+        required: true
+        type: string
+      market_input_run_id:
+        description: Exact successful market-input acquisition run ID
+        required: true
+        type: string
+      market_input_run_attempt:
+        description: Exact market-input acquisition run attempt
+        required: true
+        type: number
+      market_input_artifact_name:
+        description: Exact immutable normalized market-input artifact name
+        required: true
+        type: string
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: prospective-daily-account-runtime-v0.1-${{ inputs.trading_date || 'validation' }}
+  cancel-in-progress: false
+
+jobs:
+  verify-provider-free-composer:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project without provider SDK or credential
+        run: python -m pip install -e .
+      - name: Rehearse the complete provider-free daily chain
+        run: python -m unittest tests.test_prospective_daily_account_runtime -v
+      - name: Compile composer and CLI
+        run: >-
+          python -m py_compile
+          src/momentumbot/research/prospective_daily_account_runtime.py
+          scripts/build_prospective_daily_account_runtime.py
+
+  compose-exact-frozen-day:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.runtime_commit_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Verify exact runtime commit branch date artifacts and first attempt
+        env:
+          ACCOUNT_ARTIFACT_NAME: ${{ inputs.account_artifact_name }}
+          FREEZE_ARTIFACT_NAME: ${{ inputs.freeze_artifact_name }}
+          MARKET_INPUT_ARTIFACT_NAME: ${{ inputs.market_input_artifact_name }}
+          RUNTIME_COMMIT_SHA: ${{ inputs.runtime_commit_sha }}
+          SOURCE_ARTIFACT_NAME: ${{ inputs.source_artifact_name }}
+          TRADING_DATE: ${{ inputs.trading_date }}
+          WORKFLOW_RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          python - <<'PY'
+          import os
+          import re
+
+          commit = os.environ["RUNTIME_COMMIT_SHA"]
+          date = os.environ["TRADING_DATE"]
+          assert re.fullmatch(r"[0-9a-f]{40}", commit)
+          assert date in {
+              "2026-08-24", "2026-08-25", "2026-08-26", "2026-08-27",
+              "2026-08-28", "2026-08-31", "2026-09-01", "2026-09-02",
+              "2026-09-03", "2026-09-04",
+          }
+          assert os.environ["WORKFLOW_RUN_ATTEMPT"] == "1"
+          expected_prefixes = {
+              "SOURCE_ARTIFACT_NAME": f"prospective-daily-micro-decision-source-{date}-",
+              "ACCOUNT_ARTIFACT_NAME": f"account-pre-session-snapshot-v0.1-{date}-",
+              "FREEZE_ARTIFACT_NAME": f"prospective-opportunity-freeze-{date}",
+              "MARKET_INPUT_ARTIFACT_NAME": f"prospective-market-input-acquisition-{date}-",
+          }
+          for field, prefix in expected_prefixes.items():
+              value = os.environ[field]
+              assert re.fullmatch(r"[A-Za-z0-9_.-]+", value)
+              assert value.startswith(prefix)
+          assert os.environ["FREEZE_ARTIFACT_NAME"] == expected_prefixes["FREEZE_ARTIFACT_NAME"]
+          PY
+          test "$(git rev-parse HEAD)" = "$RUNTIME_COMMIT_SHA"
+          git merge-base --is-ancestor HEAD origin/phase-3-historical-snapshot
+      - name: Verify every named parent run and attempt
+        env:
+          ACCOUNT_RUN_ATTEMPT: ${{ inputs.account_run_attempt }}
+          ACCOUNT_RUN_ID: ${{ inputs.account_run_id }}
+          FREEZE_RUN_ATTEMPT: ${{ inputs.freeze_run_attempt }}
+          FREEZE_RUN_ID: ${{ inputs.freeze_run_id }}
+          GH_TOKEN: ${{ github.token }}
+          MARKET_INPUT_RUN_ATTEMPT: ${{ inputs.market_input_run_attempt }}
+          MARKET_INPUT_RUN_ID: ${{ inputs.market_input_run_id }}
+          SOURCE_RUN_ATTEMPT: ${{ inputs.source_run_attempt }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+        run: |
+          verify_run() {
+            run_id="$1"
+            expected_attempt="$2"
+            expected_path="$3"
+            actual_attempt="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.run_attempt')"
+            conclusion="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.conclusion')"
+            path="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.path')"
+            test "$actual_attempt" = "$expected_attempt"
+            test "$conclusion" = "success"
+            test "$path" = "$expected_path"
+          }
+          verify_run "$SOURCE_RUN_ID" "$SOURCE_RUN_ATTEMPT" ".github/workflows/prospective-daily-source.yml"
+          verify_run "$ACCOUNT_RUN_ID" "$ACCOUNT_RUN_ATTEMPT" ".github/workflows/account-session-snapshot.yml"
+          verify_run "$FREEZE_RUN_ID" "$FREEZE_RUN_ATTEMPT" ".github/workflows/prospective-opportunity-freeze.yml"
+          verify_run "$MARKET_INPUT_RUN_ID" "$MARKET_INPUT_RUN_ATTEMPT" ".github/workflows/prospective-market-input-acquisition.yml"
+      - name: Download exact immutable daily source
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.source_artifact_name }}
+          path: prospective-daily-source
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.source_run_id }}
+      - name: Download exact immutable account snapshots
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.account_artifact_name }}
+          path: account-session-snapshot
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.account_run_id }}
+      - name: Download exact immutable opportunity freeze
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.freeze_artifact_name }}
+          path: prospective-opportunity-freeze
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.freeze_run_id }}
+      - name: Download exact immutable normalized market inputs
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.market_input_artifact_name }}
+          path: prospective-market-input-acquisition
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.market_input_run_id }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project without provider SDK or credential
+        run: python -m pip install -e .
+      - name: Reverify provider-free mechanics before composition
+        run: python -m unittest tests.test_prospective_daily_account_runtime -v
+      - name: Compose and hash-freeze all twelve daily account cells
+        env:
+          TRADING_DATE: ${{ inputs.trading_date }}
+        run: |
+          python scripts/build_prospective_daily_account_runtime.py \
+            --source-dir prospective-daily-source \
+            --freeze-dir prospective-opportunity-freeze \
+            --market-input-dir prospective-market-input-acquisition \
+            --account-dir account-session-snapshot \
+            --expected-trading-date "$TRADING_DATE" \
+            --output-dir prospective-daily-account-runtime
+      - name: Upload immutable label-blind daily runtime
+        uses: actions/upload-artifact@v4
+        with:
+          name: prospective-daily-account-runtime-${{ inputs.trading_date }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: prospective-daily-account-runtime/
+          if-no-files-found: error
+          retention-days: 90
