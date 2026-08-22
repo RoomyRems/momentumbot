@@ -12,6 +12,8 @@ No feature threshold, runtime trading authority, consolidated national Level 2 c
 
 The next major phase is now preregistered before any feature values or outcomes are opened. It compares every frozen one-, five-, and ten-second post-trigger window with the immediately preceding equal-length window on the same causal Micro-v0.1 opportunity. The comparator reports exact arithmetic only and cannot select a horizon, threshold, hidden-order label, trade confirmation, or action.
 
+Its first cohort is also frozen without opening microstructure values or retrospective behavior labels. The cohort contains every accepted opportunity in the ten-session main-account panel: 10 opportunities across 7 symbols and 5 trading dates, with 5,558 shares of fixed prospective quantity. This is representative of that registered accepted-panel slice, not of the full market or every rejected candidate. It remains unarmed and has made no Databento request or quote.
+
 The two Alpaca paper accounts remain separately validated. The registered pre-session snapshot scheduler is scheduled for the ten registered market dates from August 24 through September 4 at 09:15 UTC (05:15 ET). The accounts should remain flat and their balances should not be reset during the study.
 
 ## Verified real-data results
@@ -71,11 +73,13 @@ The Fill marker remains book-neutral. A matched Cancel becomes the canonical Fil
 
 `microstructure-behavioral-comparison-v0.1`, content SHA-256 `7409973d369876d29a020785cc2f48bc945129d705648f793d693667dcdd3802`, freezes the first label-blind behavioral comparison. It binds the verified four-case audit, retains all registered metrics and horizons, enforces disjoint pre/post receive-time windows, propagates unavailable families, and keeps prospective depth-walk quantities fixed. It is unarmed: no representative cohort is selected, no provider request or spend is authorized, no feature value is persisted, and no runtime authority exists.
 
+`microstructure-behavioral-cohort-v0.1`, content SHA-256 `2f97f8f2916113cf3e29fe398da7f38d72c1db0b79704cadb0b635ea062a939e`, mechanically freezes all 10 accepted main-account opportunities, their causal anchors, plans, and 5,558-share prospective quantities. It binds five exact date-grouped `XNAS.ITCH` MBO requests covering seven symbol-dates and minimizes each request end to the latest same-date anchor plus ten seconds and one nanosecond. A future execution gate would have to quote all five requests before any download, stop if aggregate quoted cost exceeds `$0.25` or aggregate billable size exceeds `225,000,000` bytes, and allow no retry or partial substitution. This registration itself authorizes zero requests, zero bytes, and zero spend.
+
 ## Active gates, in order
 
 1. Preserve the verified INTJ, EQPT, AMC, and GMM audits without rerunning any one-shot workflow.
-2. Mechanically select and freeze a representative, label-blind Micro-v0.1 opportunity cohort and the prospective order quantities used by its depth walks. Do not use microstructure values or outcomes for selection.
-3. Bind exact provider requests, aggregate cost and byte ceilings, and no-retry behavior in a separate unarmed cohort contract before considering any execution authorization.
+2. Preserve the unarmed accepted-panel cohort, its fixed quantities, and its exact five-request preflight contract without opening feature values or retrospective labels.
+3. If the cohort run is desired, publish a sole direct-child execution authorization that preserves all five requests, quotes every request before the first download, enforces the aggregate `$0.25` and `225,000,000`-byte ceilings, and permits no retry or partial substitution.
 4. Let the registered account snapshot workflow capture both accounts on every August 24–September 4 date. Confirm each scheduled run succeeds and preserve the artifacts.
 5. Use any later frozen behavioral artifact only as shadow evidence and integrate it with the existing prospective execution scenarios on identical opportunities.
 6. Complete the larger representative walk-forward and prospective paper sequence before any policy-promotion or profitability interpretation.
@@ -83,7 +87,7 @@ The Fill marker remains book-neutral. A matched Cancel becomes the canonical Fil
 ## Still not ready
 
 - No full portfolio backtest is complete.
-- Four real-data engineering cases have completed under independently exact feature replay; representative behavioral validation remains unrun.
+- Four real-data engineering cases have completed under independently exact feature replay; the representative accepted-panel cohort is frozen, but its behavioral validation remains unrun.
 - No hidden-buyer, hidden-seller, tape-exit, or Level 2 entry threshold is selected.
 - No representative multi-regime feature validation, consolidated multi-venue book, live capture/reconnect path, calibrated queue/impact model, or full broker integration exists.
 - The complete Ross setup-family inventory remains unfinished.
@@ -100,5 +104,6 @@ Nothing is needed to preserve the four completed engineering results or to let t
 - Unarmed EQPT repaired-feature harness: 11/11 focused tests pass.
 - AMC/GMM repaired-feature coverage and permanent success audit: 14/14 focused tests pass.
 - Unarmed microstructure behavioral comparison: 7/7 focused tests pass.
+- Unarmed accepted-panel behavioral cohort: 7/7 focused tests pass.
 - EQPT and AMC/GMM repaired-feature workflows each completed on their authorized first attempt; no retry occurred.
-- Complete repository suite: 727/727 tests pass.
+- Complete repository suite: 734/734 tests pass.

@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "audit_id": "microstructure-behavioral-cohort-v0.1-registration-2026-08-21",
+  "artifact_type": "mechanically_verified_unarmed_label_blind_behavioral_cohort_registration",
+  "registered_parent_commit": "f79669f1ffa907ddd2834a37516fd68a82e00eae",
+  "cohort_id": "microstructure-behavioral-cohort-v0.1",
+  "cohort_content_sha256": "2f97f8f2916113cf3e29fe398da7f38d72c1db0b79704cadb0b635ea062a939e",
+  "source_verification": {
+    "historical_account_manifest_content_sha256": "e9dd428d30790dcbf9cd2d171cc2c86ef41a71e4c9a2463d24bfaa34d7048a48",
+    "micro_runtime_workflow_run_id": 32096497787,
+    "micro_runtime_artifact_id": 9310627233,
+    "micro_runtime_artifact_downloaded_for_registration": true,
+    "micro_runtime_artifact_zip_sha256_expected": "3b59e4b1a69e268158f6ccbead1fe9abae425fc249e72b34f466e53ebba56b20",
+    "micro_runtime_artifact_zip_sha256_observed": "3b59e4b1a69e268158f6ccbead1fe9abae425fc249e72b34f466e53ebba56b20",
+    "micro_runtime_artifact_zip_hash_exact": true,
+    "retrospective_behavior_labels_opened": false,
+    "cohort_microstructure_feature_values_opened": false
+  },
+  "mechanical_verification": {
+    "selection_rule": "all entry_accepted events from all ten frozen main-account sessions",
+    "opportunity_count": 10,
+    "starter_count": 7,
+    "reentry_count": 3,
+    "trading_date_count": 5,
+    "symbol_count": 7,
+    "prospective_quantity_total": 5558,
+    "opportunity_ids_unique": true,
+    "plan_ids_unique": true,
+    "causal_order_exact": true,
+    "anchors_match_frozen_trigger_times": true,
+    "breakout_levels_match_frozen_plans": true,
+    "quantities_match_predecision_main_account_acceptances": true,
+    "exact_date_grouped_request_count": 5,
+    "exact_symbol_date_count": 7,
+    "request_ends_minimized_to_latest_anchor_plus_ten_seconds_plus_one_nanosecond": true,
+    "synthetic_focused_tests_registered": 7
+  },
+  "future_preflight_ceiling": {
+    "cost_usd": "0.25",
+    "billable_size_bytes": 225000000,
+    "all_requests_quoted_before_any_timeseries_call": true,
+    "zero_timeseries_calls_if_either_ceiling_exceeded": true,
+    "automatic_retry_authorized": false
+  },
+  "provider_request_made": false,
+  "provider_metadata_quote_made": false,
+  "databento_credit_used": false,
+  "feature_values_persisted": false,
+  "retrospective_labels_loaded": false,
+  "runtime_authority_created": false,
+  "broker_order_created": false,
+  "policy_promotion_created": false,
+  "bound_files": [
+    {
+      "path": "research/strategy/microstructure-behavioral-cohort-v0.1.json",
+      "file_sha256": "7889f16956225c8ec2e8a021b36527cf10403c87b9d4b3a02f318c6b28ae21e6"
+    },
+    {
+      "path": "src/momentumbot/research/microstructure_behavioral_cohort.py",
+      "file_sha256": "80aa40ebf6dc08e4735433953c125874e8df9a1956c8bc3990397c4dfcb40c9a"
+    },
+    {
+      "path": "docs/research/microstructure_behavioral_cohort_v01.md",
+      "file_sha256": "45d150a8871d80cccf44ff5b55bdf8bb2a1a31721ef0b3743f8497b05e9d20bc"
+    },
+    {
+      "path": "tests/test_microstructure_behavioral_cohort.py",
+      "file_sha256": "203b27f0de98d282690295e68d7ae997a101608f2e14ad7b3772c8dfa0559270"
+    }
+  ],
+  "claim_boundary": {
+    "representative_within_registered_accepted_panel_slice": true,
+    "representative_of_full_market": false,
+    "behavioral_result_supported": false,
+    "predictive_value_supported": false,
+    "profitable_threshold_supported": false,
+    "realistic_fill_supported": false,
+    "live_money_readiness_supported": false,
+    "next_gate": "Publish a sole direct-child execution authorization only if an exact first-attempt cohort run is desired; that later gate must preserve all five requests, the aggregate $0.25 and 225,000,000-byte preflight ceilings, zero downloads on a failed preflight, and no retries."
+  },
+  "content_sha256": "14851043d798b55914e73f5484973df979b65901c598759206a390174b437ed6"
+}
