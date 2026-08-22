@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "contract_id": "prospective-opportunity-freeze-v0.1",
+  "artifact_type": "preregistered_unarmed_prospective_opportunity_freeze",
+  "registration_date": "2026-08-22",
+  "registration_status": "registered_before_prospective_panel_runtime",
+  "purpose": "Freeze every causal Micro-v0.1 entry decision from the union of the two registered strategy profiles before account scarcity, execution simulation, market-input quote derivation, retrospective labels, or later outcomes can select an opportunity.",
+  "runtime_strategy_effect": "none_materialization_only",
+  "frozen_parents": {
+    "parent_checkpoint_sha": "fa786a79103375d3c67b01240663873e2b5478df",
+    "parent_checkpoint_tree_sha": "03ea9336c25c058ec96cc26f353a3be5a4f7102c",
+    "market_input_capture_contract_id": "prospective-market-input-capture-v0.1",
+    "market_input_capture_contract_content_sha256": "0435f7d857a3efd12f0e325953b242572ffceb17aa07d421b1e89b7dd95ca774",
+    "account_integration_contract_content_sha256": "64489aa27fec5eaf8ca12c94f4aeb47344d49a79b14df1bdda706cd23cc9ce73",
+    "account_panel_id": "ross-account-integration-panel-v0.1",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "general_strategy_profile_fingerprint": "7d15fb979701324bf862b1dc37e5f9b514dcf1ab8cf1e062ae4a60027233d4ff",
+    "small_strategy_profile_fingerprint": "fb86fc5326903cab16c283a03d8e371f66487f41589fb1b69b79f8912a0a6489"
+  },
+  "source_contract": {
+    "artifact_type": "frozen_label_blind_prospective_micro_decisions",
+    "registered_dates": [
+      "2026-08-24",
+      "2026-08-25",
+      "2026-08-26",
+      "2026-08-27",
+      "2026-08-28",
+      "2026-08-31",
+      "2026-09-01",
+      "2026-09-02",
+      "2026-09-03",
+      "2026-09-04"
+    ],
+    "decision_clock": "utc_unix_epoch_nanoseconds",
+    "decision_semantics": "causal_micro_trigger_at_order_decision_before_execution_simulation",
+    "eligible_strategy_profile_ids": [
+      "current-general-2026",
+      "current-small-account-2026"
+    ],
+    "profile_union_required": true,
+    "every_causal_micro_decision_retained": true,
+    "zero_decision_date_retained": true,
+    "account_snapshot_may_select_source_decisions": false,
+    "account_scarcity_may_select_source_decisions": false,
+    "execution_scenario_may_select_source_decisions": false
+  },
+  "identity_contract": {
+    "activation_identity": "account-neutral scanner activation identity",
+    "plan_identity": "frozen Micro-v0.1 plan identity",
+    "opportunity_identity_fields": [
+      "account_panel_id",
+      "trading_date",
+      "activation_id",
+      "plan_id",
+      "symbol",
+      "decision_ts_ns",
+      "micro_runtime_content_sha256"
+    ],
+    "eligible_profile_ids_are_identity_fields": false,
+    "account_id_is_identity_field": false,
+    "execution_scenario_is_identity_field": false,
+    "same_decision_for_both_profiles_emitted_once": true
+  },
+  "knowledge_boundary": {
+    "allowed_source_decision_fields": [
+      "opportunity_id",
+      "activation_id",
+      "plan_id",
+      "symbol",
+      "candidate_qualified_ts_ns",
+      "decision_ts_ns",
+      "micro_runtime_content_sha256",
+      "eligible_strategy_profile_ids"
+    ],
+    "account_snapshot_loaded": false,
+    "account_scarcity_applied": false,
+    "execution_scenario_applied": false,
+    "provider_quote_made": false,
+    "retrospective_labels_loaded": false,
+    "later_prices_or_pnl_loaded": false,
+    "full_micro_outcome_or_exit_runtime_allowed": false
+  },
+  "output_contract": {
+    "opportunity_artifact_type": "frozen_label_blind_prospective_opportunities",
+    "opportunity_fields": [
+      "opportunity_id",
+      "trading_date",
+      "symbol",
+      "decision_ts_ns",
+      "runtime_content_sha256"
+    ],
+    "request_derivation_contract_id": "prospective-market-input-capture-v0.1",
+    "request_derivation_is_offline": true,
+    "provider_quote_made": false,
+    "provider_download_made": false,
+    "broker_order_made": false
+  },
+  "workflow_contract": {
+    "source_artifact_member": "prospective-daily-micro-decision-source.json",
+    "source_must_preexist_in_same_repository_actions_run": true,
+    "manual_or_reusable_materialization_only": true,
+    "scheduled_without_source_producer": false,
+    "output_directory_must_be_empty": true,
+    "provider_credentials_loaded": false,
+    "broker_credentials_loaded": false,
+    "artifact_retention_days": 90
+  },
+  "authority_boundary": {
+    "provider_metadata_quote_authorized": false,
+    "provider_request_authorized": false,
+    "provider_purchase_authorized": false,
+    "databento_credit_authorized_usd": "0",
+    "broker_order_authorized": false,
+    "paper_order_authorized": false,
+    "live_order_authorized": false,
+    "account_selection_authorized": false,
+    "execution_scenario_selection_authorized": false,
+    "retrospective_labels_allowed": false,
+    "later_prices_or_pnl_allowed": false,
+    "runtime_authority_created": false,
+    "policy_promotion_eligible": false,
+    "profitability_claim_eligible": false
+  },
+  "explicitly_prohibited": [
+    "dropping a causal Micro decision because neither account can currently afford it or because another opportunity wins scarcity ordering",
+    "duplicating one market decision merely because both registered strategy profiles are eligible",
+    "loading account snapshots, balances, quantities, execution scenarios, fills, exits, P&L, later prices, retrospective Ross actions, labels, recaps, or transcript text into the source decision artifact",
+    "deriving the opportunity timestamp from a simulated quote arrival, fill, exit, or later outcome instead of the causal Micro trigger at the order-decision boundary",
+    "making a Databento metadata quote or time-series request from this freeze",
+    "submitting a broker, paper, or live order",
+    "scheduling the materializer before a separately registered causal scanner/Micro source producer exists"
+  ],
+  "next_gate": "Register and implement the causal daily scanner/Micro decision-source producer for the same ten dates. Its completed source artifact may invoke this provider-free materializer; only after the opportunity and request manifests are frozen may a separately authorized metadata-only quote run.",
+  "content_sha256": "13e4458b20b64c81dc24508d2515b20cce8b61f565816e0a3ba0eea4dcee66e1"
+}

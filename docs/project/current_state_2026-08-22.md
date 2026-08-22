@@ -71,20 +71,38 @@ The capture registration makes no provider call and authorizes zero Databento
 credit. `XNAS.ITCH` remains explicitly single-venue Nasdaq evidence rather than
 a consolidated NBBO or broker-fill claim.
 
+`prospective-opportunity-freeze-v0.1` now freezes the daily materialization
+boundary that precedes that capture. It accepts only a hash-bound ledger of
+causal Micro-v0.1 trigger decisions from the union of the registered general
+and small-account strategy profiles. It emits every decision once before
+account snapshots, scarcity, execution scenarios, fills, exits, later prices,
+or retrospective inputs can select a row.
+
+The provider-free workflow accepts an exact source artifact from a named
+same-repository Actions run and retains the opportunity, request, and binding
+manifests for 90 days. It is manual/reusable rather than scheduled because the
+causal prospective scanner/Micro producer is not yet registered. An explicit
+zero-opportunity date is valid; a missing source is not silently converted to
+one.
+
 ## Active gates, in order
 
 1. Preserve the completed cohort and all earlier real-data audits without
    rerunning their one-shot workflows.
 2. Let the account snapshot workflow capture both paper accounts on each
    registered August 24–September 4 date. Keep both accounts flat and unreset.
-3. Freeze each date's label-blind opportunity manifest before deriving or
-   quoting its exact `mbp-1` and `status` request pair per symbol-date.
-4. Require separate parent-bound authority for metadata quotes and later for
+3. Register and implement the causal daily scanner/Micro decision-source
+   producer. It must retain the union of both strategy profiles before account
+   scarcity and emit no fill, exit, later-price, or retrospective fields.
+4. For each successful source date, invoke the frozen opportunity materializer
+   before deriving or quoting the exact `mbp-1` and `status` request pair per
+   symbol-date.
+5. Require separate parent-bound authority for metadata quotes and later for
    any download. Preserve missing or unknown quote and status inputs as
    unavailable without SIP-print substitution.
-5. Populate all three horizons and both fixed execution scenarios together on
+6. Populate all three horizons and both fixed execution scenarios together on
    identical opportunity inputs without scoring, ranking, or selecting a cell.
-6. Complete the prospective panel and a larger representative walk-forward
+7. Complete the prospective panel and a larger representative walk-forward
    before any policy-promotion or profitability interpretation.
 
 ## Still not ready
@@ -105,4 +123,6 @@ a consolidated NBBO or broker-fill claim.
   consumed run.
 - Prospective market-input capture registration tests are deterministic,
   provider-free, and require zero credentials.
+- Prospective opportunity-freeze tests are deterministic, provider-free,
+  preserve zero-opportunity dates, and reject account/outcome leakage.
 - Complete repository suite is required before this checkpoint is published.

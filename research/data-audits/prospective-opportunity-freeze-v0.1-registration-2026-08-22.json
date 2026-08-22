@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "audit_id": "prospective-opportunity-freeze-v0.1-registration-2026-08-22",
+  "audit_date": "2026-08-22",
+  "artifact_type": "unarmed_prospective_opportunity_freeze_registration",
+  "contract": {
+    "contract_id": "prospective-opportunity-freeze-v0.1",
+    "content_sha256": "13e4458b20b64c81dc24508d2515b20cce8b61f565816e0a3ba0eea4dcee66e1",
+    "file_sha256": "168d62c5c3840185f163737a49e6d2b53d5260cb2208e79fc6a7d030bf5bf2ed",
+    "registration_status": "registered_before_prospective_panel_runtime"
+  },
+  "frozen_parents": {
+    "parent_checkpoint_sha": "fa786a79103375d3c67b01240663873e2b5478df",
+    "parent_checkpoint_tree_sha": "03ea9336c25c058ec96cc26f353a3be5a4f7102c",
+    "market_input_capture_contract_content_sha256": "0435f7d857a3efd12f0e325953b242572ffceb17aa07d421b1e89b7dd95ca774",
+    "account_integration_contract_content_sha256": "64489aa27fec5eaf8ca12c94f4aeb47344d49a79b14df1bdda706cd23cc9ce73",
+    "account_panel_id": "ross-account-integration-panel-v0.1",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "general_strategy_profile_fingerprint": "7d15fb979701324bf862b1dc37e5f9b514dcf1ab8cf1e062ae4a60027233d4ff",
+    "small_strategy_profile_fingerprint": "fb86fc5326903cab16c283a03d8e371f66487f41589fb1b69b79f8912a0a6489"
+  },
+  "registered_scope": {
+    "registered_date_count": 10,
+    "source_artifact_type": "frozen_label_blind_prospective_micro_decisions",
+    "source_decision_semantics": "causal_micro_trigger_at_order_decision_before_execution_simulation",
+    "profile_union_required": true,
+    "same_decision_for_both_profiles_emitted_once": true,
+    "zero_opportunity_date_retained": true,
+    "opportunity_artifact_type": "frozen_label_blind_prospective_opportunities",
+    "request_derivation_contract_id": "prospective-market-input-capture-v0.1",
+    "materialization_workflow_mode": "manual_or_reusable_only_until_source_producer_is_registered",
+    "workflow_artifact_retention_days": 90
+  },
+  "mechanical_verification": {
+    "contract_content_fingerprint_recomputed": true,
+    "frozen_parent_bindings_validated": true,
+    "deterministic_source_builder_implemented": true,
+    "source_content_fingerprint_validated": true,
+    "stable_opportunity_identity_implemented": true,
+    "profile_union_deduplication_implemented": true,
+    "chronological_order_and_uniqueness_validated": true,
+    "registered_local_date_validation_implemented": true,
+    "account_scarcity_and_execution_selection_rejected": true,
+    "fill_exit_outcome_and_retrospective_keys_rejected": true,
+    "zero_opportunity_date_retained": true,
+    "exact_offline_request_handoff_implemented": true,
+    "request_manifest_rederived_during_validation": true,
+    "provider_free_cli_implemented": true,
+    "same_repository_source_artifact_workflow_registered": true,
+    "premature_schedule_absent": true,
+    "write_once_output_directory_enforced": true,
+    "complete_repository_suite_required_before_publication": true
+  },
+  "execution_status": {
+    "daily_source_producer_registered": false,
+    "daily_source_artifact_created": false,
+    "opportunity_freeze_workflow_run": false,
+    "opportunity_manifest_created": false,
+    "request_manifest_created": false,
+    "metadata_quote_run": false,
+    "provider_download_run": false
+  },
+  "authority_boundary": {
+    "provider_call_run": false,
+    "provider_quote_run": false,
+    "provider_download_run": false,
+    "databento_credit_used_usd": "0",
+    "provider_credential_loaded": false,
+    "broker_credential_loaded": false,
+    "account_snapshot_loaded": false,
+    "account_scarcity_applied": false,
+    "execution_scenario_applied": false,
+    "retrospective_labels_loaded": false,
+    "later_prices_or_pnl_loaded": false,
+    "broker_order_submitted": false,
+    "paper_order_submitted": false,
+    "live_order_submitted": false,
+    "runtime_authority_created": false,
+    "policy_promotion_eligible": false,
+    "profitability_claim_eligible": false
+  },
+  "bound_files": [
+    {
+      "path": "research/strategy/prospective-opportunity-freeze-v0.1.json",
+      "file_sha256": "168d62c5c3840185f163737a49e6d2b53d5260cb2208e79fc6a7d030bf5bf2ed"
+    },
+    {
+      "path": "src/momentumbot/research/prospective_opportunity_freeze.py",
+      "file_sha256": "bea6c3cfe41571a0c928d852029d6c7d3837cd361fa50386259c21f45654974b"
+    },
+    {
+      "path": "scripts/freeze_prospective_opportunities.py",
+      "file_sha256": "f2c831bc03158cd407c606c5de6f5d01a521e2f4a26c49ba63da43f9027a0c4c"
+    },
+    {
+      "path": ".github/workflows/prospective-opportunity-freeze.yml",
+      "file_sha256": "ef61125eb13cb8f5618428a97bfb1bda0c18ede2fe94e4fbacca6ad202ce2014"
+    },
+    {
+      "path": "docs/research/prospective_opportunity_freeze_v01.md",
+      "file_sha256": "77685e11cb493568eb7bcbdd2b7094409c8d4c60bfba4ffb7450e936981e0499"
+    },
+    {
+      "path": "tests/test_prospective_opportunity_freeze.py",
+      "file_sha256": "8a57c37f9acf9ff6a19dd9766be1108fbe4ec3adf0188f854b663e113270079d"
+    }
+  ],
+  "next_gate": "Register and implement the causal daily scanner/Micro decision-source producer for the same ten dates. Only a successful hash-bound source run may invoke the opportunity materializer; only a frozen opportunity/request pair may later receive separately authorized metadata-only quotes.",
+  "content_sha256": "98c1e72151a8efac0022f6596a1a7a163cc2312fc3cf5856cf822576067ad553"
+}
