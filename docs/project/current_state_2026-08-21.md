@@ -75,11 +75,13 @@ The Fill marker remains book-neutral. A matched Cancel becomes the canonical Fil
 
 `microstructure-behavioral-cohort-v0.1`, content SHA-256 `2f97f8f2916113cf3e29fe398da7f38d72c1db0b79704cadb0b635ea062a939e`, mechanically freezes all 10 accepted main-account opportunities, their causal anchors, plans, and 5,558-share prospective quantities. It binds five exact date-grouped `XNAS.ITCH` MBO requests covering seven symbol-dates and minimizes each request end to the latest same-date anchor plus ten seconds and one nanosecond. A future execution gate would have to quote all five requests before any download, stop if aggregate quoted cost exceeds `$0.25` or aggregate billable size exceeds `225,000,000` bytes, and allow no retry or partial substitution. This registration itself authorizes zero requests, zero bytes, and zero spend.
 
+The unarmed `databento_behavioral_cohort_execution_v01` harness now implements that frozen gate without making a provider call. It maps each date-grouped DBN stream with the store's embedded symbology, preserves per-instrument `F_LAST` event boundaries, applies the frozen Fill/Cancel repair, rejects any checkpoint inside an incomplete atomic event, and compares two independently exact replays at every frozen anchor and horizon. Its future artifact is limited to cohort aggregates and cryptographic digests; raw records, feature snapshots, per-opportunity values, labels, thresholds, broker actions, and runtime authority remain prohibited. The workflow is inert until a sole parent-bound execution authorization is published as its direct child.
+
 ## Active gates, in order
 
 1. Preserve the verified INTJ, EQPT, AMC, and GMM audits without rerunning any one-shot workflow.
 2. Preserve the unarmed accepted-panel cohort, its fixed quantities, and its exact five-request preflight contract without opening feature values or retrospective labels.
-3. If the cohort run is desired, publish a sole direct-child execution authorization that preserves all five requests, quotes every request before the first download, enforces the aggregate `$0.25` and `225,000,000`-byte ceilings, and permits no retry or partial substitution.
+3. Publish the sole direct-child cohort execution authorization only against the verified unarmed harness checkpoint. It must preserve all five requests, quote every request before the first download, enforce the aggregate `$0.25` and `225,000,000`-byte ceilings, and permit no retry or partial substitution.
 4. Let the registered account snapshot workflow capture both accounts on every August 24–September 4 date. Confirm each scheduled run succeeds and preserve the artifacts.
 5. Use any later frozen behavioral artifact only as shadow evidence and integrate it with the existing prospective execution scenarios on identical opportunities.
 6. Complete the larger representative walk-forward and prospective paper sequence before any policy-promotion or profitability interpretation.

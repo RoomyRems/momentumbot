@@ -4,6 +4,9 @@ import json
 import unittest
 from pathlib import Path
 
+from momentumbot.research.databento_behavioral_cohort_execution_v01 import (
+    load_execution_authorization,
+)
 from momentumbot.research.microstructure_behavioral_cohort import (
     COHORT_CONTENT_SHA256,
     EXPECTED_OPPORTUNITY_COUNT,
@@ -25,6 +28,13 @@ AUDIT = (
     / "research"
     / "data-audits"
     / "microstructure-behavioral-cohort-v0.1-registration-2026-08-21.json"
+)
+EXECUTION_AUTHORIZATION = (
+    ROOT / "research/strategy/microstructure-behavioral-cohort-v0.1-execution.json"
+)
+EXECUTION_WORKFLOW = (
+    ROOT
+    / ".github/workflows/databento-microstructure-behavioral-cohort-v01.yml"
 )
 
 
@@ -116,10 +126,12 @@ class MicrostructureBehavioralCohortTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 validate_behavioral_cohort(mutation)
 
-    def test_no_execution_or_workflow_file_exists(self):
-        self.assertFalse(
-            (ROOT / "research/strategy/microstructure-behavioral-cohort-v0.1-execution.json").exists()
-        )
+    def test_execution_gate_is_absent_or_exactly_valid(self):
+        if EXECUTION_AUTHORIZATION.exists():
+            load_execution_authorization(EXECUTION_AUTHORIZATION)
+            self.assertTrue(EXECUTION_WORKFLOW.is_file())
+        else:
+            self.assertFalse(EXECUTION_AUTHORIZATION.exists())
         self.assertFalse(
             (ROOT / ".github/workflows/microstructure-behavioral-cohort-v0.1.yml").exists()
         )

@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "audit_id": "databento-microstructure-behavioral-cohort-v0.1-harness-registration-2026-08-21",
+  "artifact_type": "unarmed_parent_bound_databento_behavioral_cohort_execution_harness_registration",
+  "registration_date": "2026-08-21",
+  "published_cohort_commit_sha": "0b16e07a7f9ee5938e654c29ad07486c1473c856",
+  "published_cohort_tree_sha": "4ae2852bffd75f06ee86cd9275b71eb2b54a924b",
+  "cohort_id": "microstructure-behavioral-cohort-v0.1",
+  "cohort_content_sha256": "2f97f8f2916113cf3e29fe398da7f38d72c1db0b79704cadb0b635ea062a939e",
+  "behavioral_protocol_content_sha256": "7409973d369876d29a020785cc2f48bc945129d705648f793d693667dcdd3802",
+  "request_count": 5,
+  "opportunity_count": 10,
+  "hard_preflight_cost_ceiling_usd": "0.25",
+  "hard_preflight_billable_size_ceiling_bytes": 225000000,
+  "all_requests_quoted_before_first_download": true,
+  "first_attempt_only": true,
+  "automatic_retry_authorized": false,
+  "partial_cohort_substitution_authorized": false,
+  "provider_request_made": false,
+  "provider_quote_made": false,
+  "databento_credit_used": false,
+  "execution_authorization_file_present": false,
+  "raw_market_data_persisted": false,
+  "feature_values_persisted": false,
+  "retrospective_labels_loaded": false,
+  "runtime_authority_created": false,
+  "broker_or_order_authority_created": false,
+  "bound_files": [
+    {
+      "path": ".github/workflows/databento-microstructure-behavioral-cohort-v01.yml",
+      "file_sha256": "f6d1bddb6397406e4b9e5555040a2f64a579d5d9f68ea2b5494a02b7351ff996"
+    },
+    {
+      "path": "docs/research/databento_microstructure_behavioral_cohort_execution_v01.md",
+      "file_sha256": "6b832c1992ff0a7087d54cb3f5b6afd74756a77b38ffeb316ed160303267e1a3"
+    },
+    {
+      "path": "scripts/run_databento_microstructure_behavioral_cohort_v01.py",
+      "file_sha256": "2e31d1b1729183de0fc9dac01cc1744c10b07e38383da94d2c9d6379bfc0258d"
+    },
+    {
+      "path": "src/momentumbot/research/databento_behavioral_cohort_execution_v01.py",
+      "file_sha256": "1d0d111c6644e2bdc06686833879c70e7438215034b721dc592b078714b0aef3"
+    },
+    {
+      "path": "tests/test_databento_behavioral_cohort_execution_v01.py",
+      "file_sha256": "f2deae43affb116acad2424b0f01c72df33e9d0ab464d22e7c22990c3e204e91"
+    },
+    {
+      "path": "tests/test_microstructure_behavioral_cohort.py",
+      "file_sha256": "40ab6b32b5f97eca00f6388312dbbea9db079f63720fe29297e9a788f5a62969"
+    },
+    {
+      "path": "research/data-audits/microstructure-behavioral-cohort-v0.1-registration-2026-08-21.json",
+      "file_sha256": "780aedec3788440bd8d1d468087c7d838ed3262a830038841665d9e4b7c4f0dc"
+    }
+  ],
+  "content_sha256": "e063da20a76015f74557475a75e795cc334ce9da066c31ef8d5fb83cdae75873"
+}
