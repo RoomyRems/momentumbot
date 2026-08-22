@@ -100,6 +100,26 @@ opportunity materializer automatically. Registration made no provider read,
 Databento quote/download, account read, or broker order; all runtime counts
 remain zero before August 24.
 
+`prospective-market-input-metadata-quote-v0.1` now registers the next unarmed
+child. It validates the exact three-file opportunity-freeze bundle, recomputes
+all content hashes, and re-derives every `mbp-1` and `status` request before a
+future provider call can be authorized. A later authorization must bind the
+daily source, opportunity, request, and freeze hashes plus the exact successful
+same-repository Actions run and artifact.
+
+The quote surface contains only Databento metadata `get_billable_size` and
+`get_cost`, at most two calls per exact request. Push verification is
+provider-free; an exact future authorization and manual workflow dispatch are
+both required before the credential-bearing step exists at runtime. Reports
+discard credentials and provider messages, refuse substitute requests, null
+partial totals, treat zero billable size as unavailable, and grant no download
+or broker authority. An explicit zero-opportunity date makes zero provider
+calls and remains a successful not-applicable result.
+
+This registration created no per-date authorization, loaded no Databento
+credential, and ran no metadata quote. Its dynamic execution path remains
+unarmed until a real prospective freeze is independently verified.
+
 ## Active gates, in order
 
 1. Preserve the completed cohort and all earlier real-data audits without
@@ -110,11 +130,12 @@ remain zero before August 24.
    daily scanner/Micro source, and automatically dispatched opportunity freeze.
    Treat a missing artifact or provider failure as a failed date, not a zero.
 4. For each successful source date, verify the frozen opportunity materializer
-   before deriving or quoting the exact `mbp-1` and `status` request pair per
-   symbol-date.
-5. Require separate parent-bound authority for metadata quotes and later for
-   any download. Preserve missing or unknown quote and status inputs as
-   unavailable without SIP-print substitution.
+   and its three-file hash chain before creating the deterministic metadata
+   authorization for every exact `mbp-1` and `status` request pair.
+5. Publish that per-date authorization as a separate child and run at most the
+   first manual metadata-quote workflow attempt. Require another parent-bound
+   child for any download. Preserve missing or unknown quote and status inputs
+   as unavailable without SIP-print substitution.
 6. Populate all three horizons and both fixed execution scenarios together on
    identical opportunity inputs without scoring, ranking, or selecting a cell.
 7. Complete the prospective panel and a larger representative walk-forward
@@ -138,6 +159,10 @@ remain zero before August 24.
   consumed run.
 - Prospective market-input capture registration tests are deterministic,
   provider-free, and require zero credentials.
+- Prospective market-input metadata-quote registration tests are deterministic
+  and provider-free; they cover exact-bundle re-derivation, zero dates,
+  first-attempt authorization, sanitized partial failures, and the two-call
+  ceiling without executing a provider quote.
 - Prospective opportunity-freeze tests are deterministic, provider-free,
   preserve zero-opportunity dates, and reject account/outcome leakage.
 - Prospective daily source tests are deterministic and provider-free; they

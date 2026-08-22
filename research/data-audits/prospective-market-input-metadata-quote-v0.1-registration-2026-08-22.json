@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "audit_id": "prospective-market-input-metadata-quote-v0.1-registration-2026-08-22",
+  "audit_date": "2026-08-22",
+  "artifact_type": "unarmed_dynamic_prospective_metadata_quote_registration",
+  "contract": {
+    "contract_id": "prospective-market-input-metadata-quote-v0.1",
+    "content_sha256": "6e637a1ba675eb29bacc7d0effffc4836e5d67225c1835dc36cc4f43d5ba0b79",
+    "file_sha256": "091ee49a00088c98ea989320e542d31ff1b3e5b205d2f0f1db905a172b310b19",
+    "registration_status": "registered_before_first_prospective_request_manifest_and_quote"
+  },
+  "frozen_parents": {
+    "opportunity_freeze_contract_id": "prospective-opportunity-freeze-v0.1",
+    "opportunity_freeze_contract_content_sha256": "13e4458b20b64c81dc24508d2515b20cce8b61f565816e0a3ba0eea4dcee66e1",
+    "opportunity_freeze_checkpoint_sha": "8f8faf3ab551e6774ad677a842cea87ccb183238",
+    "market_input_capture_contract_id": "prospective-market-input-capture-v0.1",
+    "market_input_capture_contract_content_sha256": "0435f7d857a3efd12f0e325953b242572ffceb17aa07d421b1e89b7dd95ca774",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "account_panel_id": "ross-account-integration-panel-v0.1"
+  },
+  "registered_scope": {
+    "provider": "Databento Historical API",
+    "dataset": "XNAS.ITCH",
+    "schemas": [
+      "mbp-1",
+      "status"
+    ],
+    "sdk_version": "0.83.0",
+    "permitted_metadata_methods": [
+      "historical.metadata.get_billable_size",
+      "historical.metadata.get_cost"
+    ],
+    "metadata_query_cost_usd": "0",
+    "dynamic_authorization_required": true,
+    "maximum_call_rule": "two_calls_per_exact_request",
+    "first_quote_workflow_attempt_only": true,
+    "zero_request_date_provider_call_count": 0,
+    "manual_dispatch_only": true,
+    "sanitized_artifact_retention_days": 90
+  },
+  "mechanical_verification": {
+    "contract_content_fingerprint_recomputed": true,
+    "frozen_parent_bindings_validated": true,
+    "three_file_parent_bundle_validator_implemented": true,
+    "all_parent_content_fingerprints_recomputed": true,
+    "request_manifest_rederived_from_frozen_opportunities": true,
+    "registered_date_and_zero_date_semantics_validated": true,
+    "retrospective_and_outcome_fields_rejected": true,
+    "deterministic_exact_bundle_authorization_builder_implemented": true,
+    "same_repository_freeze_run_and_artifact_binding_implemented": true,
+    "first_quote_workflow_attempt_gate_implemented": true,
+    "two_metadata_methods_only_client_surface_implemented": true,
+    "nanosecond_request_boundaries_preserved": true,
+    "one_sanitized_row_per_exact_request_implemented": true,
+    "provider_messages_and_credentials_excluded": true,
+    "partial_totals_fail_closed": true,
+    "zero_billable_size_substitution_rejected": true,
+    "push_verification_is_provider_free": true,
+    "manual_dispatch_workflow_registered": true,
+    "complete_repository_suite_required_before_publication": true
+  },
+  "execution_status": {
+    "prospective_freeze_bundle_available": false,
+    "exact_bundle_authorization_created": false,
+    "authorization_commit_published": false,
+    "metadata_quote_workflow_dispatched": false,
+    "metadata_quote_run": false,
+    "sanitized_quote_report_created": false,
+    "provider_download_run": false
+  },
+  "authority_boundary": {
+    "provider_call_run": false,
+    "provider_quote_run": false,
+    "provider_download_run": false,
+    "databento_credit_used_usd": "0",
+    "provider_credential_loaded": false,
+    "raw_market_data_persisted": false,
+    "provider_error_message_persisted": false,
+    "request_substitution_authorized": false,
+    "automatic_retry_authorized": false,
+    "broker_credential_loaded": false,
+    "account_snapshot_loaded": false,
+    "account_scarcity_applied": false,
+    "execution_scenario_applied": false,
+    "retrospective_labels_loaded": false,
+    "later_prices_or_pnl_loaded": false,
+    "broker_order_submitted": false,
+    "paper_order_submitted": false,
+    "live_order_submitted": false,
+    "runtime_authority_created": false,
+    "policy_promotion_eligible": false,
+    "profitability_claim_eligible": false
+  },
+  "bound_files": [
+    {
+      "path": "research/strategy/prospective-market-input-metadata-quote-v0.1.json",
+      "file_sha256": "091ee49a00088c98ea989320e542d31ff1b3e5b205d2f0f1db905a172b310b19"
+    },
+    {
+      "path": "src/momentumbot/research/prospective_market_input_quote.py",
+      "file_sha256": "79d6bdf6d9948f28246455dd936d7726b703b26e4bd3e9e240a8e359283d1596"
+    },
+    {
+      "path": "scripts/quote_prospective_market_inputs.py",
+      "file_sha256": "f71aae2d78f8053e03f0ef64f9b9dd4355e664e9172bfd4a6c4a46081d87c53f"
+    },
+    {
+      "path": ".github/workflows/prospective-market-input-quote.yml",
+      "file_sha256": "97135cabfe98058e47f2f8a437d5148e7ef91aa92af4ed3c85115d0e3b121f0a"
+    },
+    {
+      "path": "docs/research/prospective_market_input_metadata_quote_v01.md",
+      "file_sha256": "5fb1657f9f1e2aab90473e582fb62dd67ca16d24c0862447644383dc68a60f63"
+    },
+    {
+      "path": "tests/test_prospective_market_input_quote.py",
+      "file_sha256": "51eefc93688476a6d0fc33edfaa8422e858ff5753bf963a80977ac4ffe21da02"
+    }
+  ],
+  "next_gate": "After the first successful prospective opportunity-freeze run, independently verify its exact three-file bundle, create one deterministic parent-bound authorization in a separate child commit, and run at most the first manual metadata-quote workflow attempt. A quote grants no time-series download authority.",
+  "content_sha256": "f1d12a68817661359b3c382090c71d68b1e195f36aa6996e6befb0e39768bff8"
+}

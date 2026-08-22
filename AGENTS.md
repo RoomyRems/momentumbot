@@ -35,6 +35,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 | Prospective daily scanner/Micro source | `docs/research/prospective_daily_scanner_micro_source_v01.md` | two-phase current membership prerequisite, profile-union scanner, causal Micro trigger source and scheduled handoff |
 | Prospective opportunity freeze | `docs/research/prospective_opportunity_freeze_v01.md` | causal Micro decision-source boundary, profile-union identity, provider-free daily materializer and exact request handoff |
 | Prospective market-input capture | `docs/research/prospective_market_input_capture_v01.md` | frozen label-blind opportunity identity, exact unarmed `XNAS.ITCH` `mbp-1`/`status` request derivation and fail-closed capture mechanics |
+| Prospective market-input metadata quote | `docs/research/prospective_market_input_metadata_quote_v01.md` | unarmed exact-bundle validator, dynamic parent-bound authorization, two-method metadata quote and sanitized report workflow |
 | Prospective management/execution | `docs/research/prospective_management_execution_v01.md` | child contract and `execution_realism.py` |
 | New research experiment | `docs/research/experiment_contract.md` | frozen parent policy + runtime artifact |
 | Micro-pullback work | `docs/research/micro_benchmark_suite.md` | `micro_policy.py`, `micro_replay.py`, frozen artifacts |

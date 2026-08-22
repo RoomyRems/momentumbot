@@ -1,0 +1,198 @@
+name: Prospective market-input metadata quote v0.1
+
+on:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - .github/workflows/prospective-market-input-quote.yml
+      - research/strategy/prospective-market-input-metadata-quote-v0.1.json
+      - research/strategy/prospective-market-input-metadata-quote-*-authorization.json
+      - research/data-audits/prospective-market-input-metadata-quote-*.json
+      - src/momentumbot/research/prospective_market_input_quote.py
+      - scripts/quote_prospective_market_inputs.py
+      - docs/research/prospective_market_input_metadata_quote_v01.md
+      - tests/test_prospective_market_input_quote.py
+  workflow_dispatch:
+    inputs:
+      freeze_run_id:
+        description: Exact successful opportunity-freeze workflow run ID
+        required: true
+        type: string
+      freeze_run_attempt:
+        description: Exact opportunity-freeze workflow run attempt
+        required: true
+        type: number
+      freeze_artifact_name:
+        description: Exact immutable opportunity-freeze artifact name
+        required: true
+        type: string
+      trading_date:
+        description: Registered prospective trading date (YYYY-MM-DD)
+        required: true
+        type: string
+      authorization_commit_sha:
+        description: Full research-branch commit containing the exact authorization
+        required: true
+        type: string
+      authorization_path:
+        description: Exact repository-relative authorization JSON path
+        required: true
+        type: string
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: prospective-market-input-metadata-quote-v0.1
+  cancel-in-progress: false
+
+jobs:
+  verify-unarmed-harness:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project without provider SDK or credential
+        run: python -m pip install -e .
+      - name: Verify provider-free registration authorization and sanitization mechanics
+        run: >-
+          python -m unittest
+          tests.test_prospective_market_input_quote -v
+      - name: Compile provider-free quote harness
+        run: >-
+          python -m py_compile
+          src/momentumbot/research/prospective_market_input_quote.py
+          scripts/quote_prospective_market_inputs.py
+
+  quote-exact-freeze-bundle:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.authorization_commit_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Verify exact authorization commit path branch and first attempt
+        env:
+          AUTHORIZATION_COMMIT_SHA: ${{ inputs.authorization_commit_sha }}
+          AUTHORIZATION_PATH: ${{ inputs.authorization_path }}
+          WORKFLOW_RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          python - <<'PY'
+          import os
+          import re
+          from pathlib import Path, PurePosixPath
+
+          commit = os.environ["AUTHORIZATION_COMMIT_SHA"]
+          path_text = os.environ["AUTHORIZATION_PATH"]
+          path = PurePosixPath(path_text)
+          assert re.fullmatch(r"[0-9a-f]{40}", commit)
+          assert os.environ["WORKFLOW_RUN_ATTEMPT"] == "1"
+          assert not path.is_absolute()
+          assert ".." not in path.parts
+          assert path.parts[:2] == ("research", "strategy")
+          assert path.name.startswith("prospective-market-input-metadata-quote-")
+          assert path.name.endswith("-authorization.json")
+          assert Path(path_text).is_file()
+          PY
+          test "$(git rev-parse HEAD)" = "$AUTHORIZATION_COMMIT_SHA"
+          git merge-base --is-ancestor HEAD origin/phase-3-historical-snapshot
+      - name: Verify the named freeze run attempt completed successfully
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_FREEZE_RUN_ATTEMPT: ${{ inputs.freeze_run_attempt }}
+          FREEZE_RUN_ID: ${{ inputs.freeze_run_id }}
+        run: |
+          observed_attempt="$(gh api \
+            "repos/${GITHUB_REPOSITORY}/actions/runs/${FREEZE_RUN_ID}" \
+            --jq '.run_attempt')"
+          conclusion="$(gh api \
+            "repos/${GITHUB_REPOSITORY}/actions/runs/${FREEZE_RUN_ID}" \
+            --jq '.conclusion')"
+          test "$observed_attempt" = "$EXPECTED_FREEZE_RUN_ATTEMPT"
+          test "$conclusion" = "success"
+      - name: Download the exact immutable opportunity-freeze bundle
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.freeze_artifact_name }}
+          path: prospective-opportunity-freeze
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.freeze_run_id }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project and pinned metadata client
+        run: |
+          python -m pip install -e .
+          python -m pip install databento==0.83.0
+      - name: Reverify deterministic parent and quote gates without provider access
+        run: >-
+          python -m unittest
+          tests.test_prospective_market_input_quote -v
+      - name: Run exactly two metadata calls per frozen request
+        env:
+          AUTHORIZATION_PATH: ${{ inputs.authorization_path }}
+          DATABENTO_API_KEY: ${{ secrets.DATABENTO_API_KEY }}
+          EXPECTED_REPOSITORY: ${{ github.repository }}
+          FREEZE_ARTIFACT_NAME: ${{ inputs.freeze_artifact_name }}
+          FREEZE_RUN_ATTEMPT: ${{ inputs.freeze_run_attempt }}
+          FREEZE_RUN_ID: ${{ inputs.freeze_run_id }}
+          GITHUB_RUN_ATTEMPT: ${{ github.run_attempt }}
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          TRADING_DATE: ${{ inputs.trading_date }}
+        run: |
+          test "$FREEZE_ARTIFACT_NAME" = "prospective-opportunity-freeze-${TRADING_DATE}"
+          python scripts/quote_prospective_market_inputs.py quote \
+            --bundle-dir prospective-opportunity-freeze \
+            --repository "$EXPECTED_REPOSITORY" \
+            --freeze-run-id "$FREEZE_RUN_ID" \
+            --freeze-run-attempt "$FREEZE_RUN_ATTEMPT" \
+            --freeze-artifact-name "$FREEZE_ARTIFACT_NAME" \
+            --authorization "$AUTHORIZATION_PATH" \
+            --workflow-run-id "$GITHUB_RUN_ID" \
+            --workflow-run-attempt "$GITHUB_RUN_ATTEMPT" \
+            --output prospective-market-input-metadata-quote.json
+      - name: Upload sanitized metadata quote or safe provider failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: prospective-market-input-metadata-quote-${{ inputs.trading_date }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: prospective-market-input-metadata-quote.json
+          if-no-files-found: error
+          retention-days: 90
+      - name: Enforce exact-request metadata gate and zero download authority
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          report = json.loads(
+              Path("prospective-market-input-metadata-quote.json").read_text(
+                  encoding="utf-8"
+              )
+          )
+          assert report["metadata_quote_gate_passed"] is True
+          assert report["metadata_call_count"] <= (
+              report["maximum_authorized_metadata_call_count"]
+          )
+          assert report["provider_credential_persisted"] is False
+          assert report["provider_error_messages_persisted"] is False
+          assert report["raw_market_data_persisted"] is False
+          assert report["timeseries_batch_or_live_endpoint_called"] is False
+          assert report["request_substitution_attempted"] is False
+          assert report["automatic_retry_attempted"] is False
+          assert report["download_authorized_by_this_artifact"] is False
+          assert report["broker_order_submitted"] is False
+          assert report["runtime_authority_created"] is False
+          PY
