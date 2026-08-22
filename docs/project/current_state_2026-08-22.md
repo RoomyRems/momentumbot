@@ -120,6 +120,27 @@ This registration created no per-date authorization, loaded no Databento
 credential, and ran no metadata quote. Its dynamic execution path remains
 unarmed until a real prospective freeze is independently verified.
 
+`prospective-market-input-acquisition-v0.1` now registers the separately
+authorized child required after a successful exact metadata quote. Its dynamic
+authorization binds the complete source/freeze/quote chain and sets hard cost
+and byte ceilings equal to the successful quote totals. Registration itself
+created no per-date authorization and made no provider call.
+
+On a future first manual attempt, every exact request must be re-quoted before
+the first download. Any provider error, incomplete or zero-size request, or
+increase beyond either ceiling stops the run with zero time-series calls. After
+a passing preflight, each unchanged request may be downloaded once in manifest
+order; the first failure stops all later requests and no partial capture is
+retained.
+
+Temporary DBN files are deleted before reporting and can never enter the
+Actions artifact. Only the minimal normalized receive-time L1/status capture
+may persist after its dataset, schema, symbol, request-window, record-coverage,
+and parent-hash checks all pass. Provider messages and credentials are removed,
+and the result creates no account, scenario, broker, strategy, or runtime
+authority. A valid zero-opportunity date makes zero provider calls and emits an
+explicit empty capture.
+
 `prospective-account-evaluation-v0.1` now preregisters the final panel
 comparison before the first August 24 session. It binds the unchanged
 Micro-v0.1 fingerprint, account integration contract, prospective management
@@ -155,16 +176,21 @@ order was loaded by this registration.
    and its three-file hash chain before creating the deterministic metadata
    authorization for every exact `mbp-1` and `status` request pair.
 5. Publish that per-date authorization as a separate child and run at most the
-   first manual metadata-quote workflow attempt. Require another parent-bound
-   child for any download. Preserve missing or unknown quote and status inputs
-   as unavailable without SIP-print substitution.
-6. Populate all three horizons and both fixed execution scenarios together on
+   first manual metadata-quote workflow attempt. Preserve a successful quote or
+   the sanitized unavailable result without treating the quote as download
+   authority.
+6. Only after a successful exact quote, publish one separately parent-bound
+   acquisition authorization. Run at most its first manual attempt, require all
+   exact re-quotes to remain within the quote-bound ceilings before downloading,
+   and retain only a complete normalized capture. Preserve missing or unknown
+   quote and status inputs as unavailable without SIP-print substitution.
+7. Populate all three horizons and both fixed execution scenarios together on
    identical opportunity inputs without scoring, ranking, or selecting a cell.
-7. After all ten sessions, freeze the complete runtime and account-cell hash
+8. After all ten sessions, freeze the complete runtime and account-cell hash
    chain before opening structured retrospective labels. Run the preregistered
    component comparison and release portfolio fields only for complete, flat,
    fully available account-cells.
-8. Complete a larger representative walk-forward before any policy-promotion,
+9. Complete a larger representative walk-forward before any policy-promotion,
    Ross-replication, or profitability interpretation.
 
 ## Still not ready
@@ -191,6 +217,11 @@ order was loaded by this registration.
   and provider-free; they cover exact-bundle re-derivation, zero dates,
   first-attempt authorization, sanitized partial failures, and the two-call
   ceiling without executing a provider quote.
+- Prospective market-input acquisition registration tests are deterministic
+  and provider-free; they cover successful-quote binding, hard re-quote
+  ceilings, exact one-pass requests, first-failure termination, raw cleanup,
+  sanitized failures, zero dates, and normalized capture reconciliation without
+  executing a provider request.
 - Prospective opportunity-freeze tests are deterministic, provider-free,
   preserve zero-opportunity dates, and reject account/outcome leakage.
 - Prospective daily source tests are deterministic and provider-free; they
@@ -201,4 +232,4 @@ order was loaded by this registration.
   runtime-before-label timestamps, full pairwise entry/exit references,
   recomputed component aggregates, write-once output, and null-only financial
   interpretation for incomplete, unavailable, or open account-cells.
-- Complete provider-free repository suite: 832 tests passed on August 22, 2026.
+- Complete provider-free repository suite: 845 tests passed on August 22, 2026.

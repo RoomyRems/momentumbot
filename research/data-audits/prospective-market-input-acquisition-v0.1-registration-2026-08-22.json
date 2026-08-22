@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "audit_id": "prospective-market-input-acquisition-v0.1-registration-2026-08-22",
+  "audit_date": "2026-08-22",
+  "artifact_type": "unarmed_dynamic_exact_prospective_market_input_acquisition_registration",
+  "contract": {
+    "contract_id": "prospective-market-input-acquisition-v0.1",
+    "content_sha256": "7e783f4222b09c72342289bafbf9f3c2505b953ec9cb101e894ba4f30d4682d3",
+    "file_sha256": "f73a9b35f343478127e2e26b69d4dcf1f33c623c7b9b73974fcdd657120c4079",
+    "registration_status": "registered_before_first_prospective_request_quote_or_download"
+  },
+  "frozen_parents": {
+    "opportunity_freeze_contract_id": "prospective-opportunity-freeze-v0.1",
+    "opportunity_freeze_contract_content_sha256": "13e4458b20b64c81dc24508d2515b20cce8b61f565816e0a3ba0eea4dcee66e1",
+    "market_input_capture_contract_id": "prospective-market-input-capture-v0.1",
+    "market_input_capture_contract_content_sha256": "0435f7d857a3efd12f0e325953b242572ffceb17aa07d421b1e89b7dd95ca774",
+    "metadata_quote_contract_id": "prospective-market-input-metadata-quote-v0.1",
+    "metadata_quote_contract_content_sha256": "6e637a1ba675eb29bacc7d0effffc4836e5d67225c1835dc36cc4f43d5ba0b79",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "account_panel_id": "ross-account-integration-panel-v0.1"
+  },
+  "registered_scope": {
+    "provider": "Databento Historical API",
+    "dataset": "XNAS.ITCH",
+    "schemas": [
+      "mbp-1",
+      "status"
+    ],
+    "sdk_version": "0.83.0",
+    "permitted_methods": [
+      "historical.metadata.get_billable_size",
+      "historical.metadata.get_cost",
+      "historical.timeseries.get_range"
+    ],
+    "successful_exact_metadata_quote_required": true,
+    "hard_cost_ceiling_rule": "exact_successful_quote_total",
+    "hard_billable_size_ceiling_rule": "exact_successful_quote_total",
+    "metadata_call_rule": "two_requote_calls_per_exact_request_before_download",
+    "timeseries_call_rule": "at_most_one_download_per_exact_request",
+    "first_acquisition_workflow_attempt_only": true,
+    "one_shot_consumption_marker_before_provider_access": true,
+    "zero_request_date_provider_call_count": 0,
+    "manual_dispatch_only": true,
+    "sanitized_artifact_retention_days": 90
+  },
+  "mechanical_verification": {
+    "contract_content_fingerprint_recomputed": true,
+    "frozen_parent_bindings_validated": true,
+    "successful_quote_gate_recomputed": true,
+    "all_source_freeze_quote_and_request_hashes_recomputed": true,
+    "registered_date_and_zero_date_semantics_validated": true,
+    "retrospective_and_outcome_fields_rejected": true,
+    "deterministic_quote_bound_authorization_builder_implemented": true,
+    "exact_quote_cost_and_byte_ceilings_implemented": true,
+    "same_repository_freeze_and_quote_run_binding_implemented": true,
+    "first_workflow_attempt_and_consumption_gates_implemented": true,
+    "all_request_requote_before_first_download_implemented": true,
+    "zero_downloads_on_failed_preflight_implemented": true,
+    "one_timeseries_call_per_exact_request_implemented": true,
+    "first_request_failure_stops_later_downloads": true,
+    "dataset_schema_symbol_stype_and_window_metadata_validated": true,
+    "every_record_reconciled_to_one_exact_request": true,
+    "raw_dbn_deleted_and_excluded_from_artifacts": true,
+    "minimal_normalized_capture_only": true,
+    "provider_messages_and_credentials_excluded": true,
+    "partial_capture_persistence_rejected": true,
+    "push_verification_is_provider_free": true,
+    "manual_dispatch_workflow_registered": true,
+    "complete_repository_suite_required_before_publication": true
+  },
+  "execution_status": {
+    "prospective_freeze_bundle_available": false,
+    "successful_exact_metadata_quote_available": false,
+    "exact_acquisition_authorization_created": false,
+    "authorization_commit_published": false,
+    "acquisition_workflow_dispatched": false,
+    "provider_preflight_run": false,
+    "provider_timeseries_run": false,
+    "normalized_capture_created": false
+  },
+  "authority_boundary": {
+    "provider_call_run": false,
+    "provider_quote_run": false,
+    "provider_download_run": false,
+    "databento_credit_used_usd": "0",
+    "provider_credential_loaded": false,
+    "raw_market_data_persisted": false,
+    "raw_market_data_uploaded": false,
+    "provider_error_message_persisted": false,
+    "request_substitution_authorized": false,
+    "automatic_retry_authorized": false,
+    "broker_credential_loaded": false,
+    "account_snapshot_loaded": false,
+    "account_scarcity_applied": false,
+    "execution_scenario_applied": false,
+    "retrospective_labels_loaded": false,
+    "later_prices_or_pnl_loaded": false,
+    "broker_order_submitted": false,
+    "paper_order_submitted": false,
+    "live_order_submitted": false,
+    "runtime_authority_created": false,
+    "policy_promotion_eligible": false,
+    "profitability_claim_eligible": false
+  },
+  "bound_files": [
+    {
+      "path": "research/strategy/prospective-market-input-acquisition-v0.1.json",
+      "file_sha256": "f73a9b35f343478127e2e26b69d4dcf1f33c623c7b9b73974fcdd657120c4079"
+    },
+    {
+      "path": "src/momentumbot/research/prospective_market_input_acquisition.py",
+      "file_sha256": "5f1e354ae74512c03f78413b9e19b753ecc210083f41460468f124d1a23fcfae"
+    },
+    {
+      "path": "scripts/acquire_prospective_market_inputs.py",
+      "file_sha256": "c5e00c83a75a5cb3839fa91620898c7baa489d534cf25171c261dfcf7b73a55f"
+    },
+    {
+      "path": ".github/workflows/prospective-market-input-acquisition.yml",
+      "file_sha256": "8f8402eb884adbc066b13e64e624f1c36916eb11a1e3273c1aa0f4dd5cf0ab64"
+    },
+    {
+      "path": "docs/research/prospective_market_input_acquisition_v01.md",
+      "file_sha256": "33a3f43a12a9b94f80ebfef7624a2a40bb9843364d1769b571c73df6a058486d"
+    },
+    {
+      "path": "tests/test_prospective_market_input_acquisition.py",
+      "file_sha256": "3c7070afd899c73845cc19fc63bd2dbb9a21961e1e15f40d4a83c094937406d2"
+    }
+  ],
+  "next_gate": "After a real registered date has a verified successful exact metadata quote, create and publish one deterministic quote-bound acquisition authorization in a separate child commit, then run at most its first manual workflow attempt. Retain only a complete minimal normalized capture or a sanitized fail-closed report.",
+  "content_sha256": "9cc2603157bf7206ff92cc64ec33d68cbe30f5d8709814d9001d718f24b555ec"
+}

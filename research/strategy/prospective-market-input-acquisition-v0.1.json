@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "contract_id": "prospective-market-input-acquisition-v0.1",
+  "artifact_type": "preregistered_unarmed_exact_prospective_market_input_acquisition",
+  "registration_date": "2026-08-22",
+  "registration_status": "registered_before_first_prospective_request_quote_or_download",
+  "purpose": "Prepare a separately authorized fail-closed path that requotes and downloads only the exact frozen XNAS.ITCH mbp-1 and status requests, emits the minimal normalized causal capture, and creates no broker or policy authority.",
+  "frozen_parents": {
+    "opportunity_freeze_contract_id": "prospective-opportunity-freeze-v0.1",
+    "opportunity_freeze_contract_content_sha256": "13e4458b20b64c81dc24508d2515b20cce8b61f565816e0a3ba0eea4dcee66e1",
+    "market_input_capture_contract_id": "prospective-market-input-capture-v0.1",
+    "market_input_capture_contract_content_sha256": "0435f7d857a3efd12f0e325953b242572ffceb17aa07d421b1e89b7dd95ca774",
+    "metadata_quote_contract_id": "prospective-market-input-metadata-quote-v0.1",
+    "metadata_quote_contract_content_sha256": "6e637a1ba675eb29bacc7d0effffc4836e5d67225c1835dc36cc4f43d5ba0b79",
+    "account_panel_id": "ross-account-integration-panel-v0.1"
+  },
+  "provider_scope": {
+    "provider": "Databento Historical API",
+    "dataset": "XNAS.ITCH",
+    "schemas": [
+      "mbp-1",
+      "status"
+    ],
+    "stype_in": "raw_symbol",
+    "sdk_package": "databento",
+    "sdk_version": "0.83.0",
+    "permitted_methods": [
+      "historical.metadata.get_billable_size",
+      "historical.metadata.get_cost",
+      "historical.timeseries.get_range"
+    ],
+    "batch_or_live_methods_permitted": false,
+    "venue_scope": "nasdaq_totalview_single_venue_not_consolidated_nbbo"
+  },
+  "required_parent_chain": {
+    "exact_three_file_opportunity_freeze_required": true,
+    "successful_complete_metadata_quote_required": true,
+    "every_exact_request_must_be_available": true,
+    "quote_report_must_bind_exact_freeze_and_quote_authorization": true,
+    "all_parent_content_hashes_recomputed": true,
+    "registered_trading_date_required": true,
+    "zero_opportunity_date_retained": true,
+    "retrospective_fields_rejected": true
+  },
+  "dynamic_authorization": {
+    "separate_exact_quote_bound_authorization_required": true,
+    "authorization_created_only_after_successful_quote": true,
+    "authorization_must_bind_freeze_quote_and_all_content_hashes": true,
+    "hard_cost_ceiling_rule": "exact_successful_quote_total",
+    "hard_billable_size_ceiling_rule": "exact_successful_quote_total",
+    "maximum_metadata_call_count_rule": "two_requote_calls_per_exact_request",
+    "maximum_timeseries_call_count_rule": "one_download_per_exact_request",
+    "single_workflow_attempt_authorized": true,
+    "authorization_reuse_authorized": false,
+    "automatic_retry_authorized": false,
+    "request_selection_or_substitution_authorized": false
+  },
+  "preflight_gate": {
+    "all_exact_requests_requoted_before_first_download": true,
+    "requote_must_be_complete_and_available": true,
+    "total_cost_must_not_exceed_authorized_quote_total": true,
+    "total_billable_size_must_not_exceed_authorized_quote_total": true,
+    "preflight_failure_timeseries_call_count": 0,
+    "zero_request_date_provider_call_count": 0
+  },
+  "acquisition_semantics": {
+    "request_order": "exact_request_manifest_order",
+    "one_timeseries_call_per_exact_request": true,
+    "first_request_failure_stops_later_downloads": true,
+    "partial_capture_persisted": false,
+    "request_metadata_must_match": true,
+    "every_downloaded_record_reconciled_to_one_exact_request": true,
+    "minimal_normalized_capture_builder": "prospective-market-input-capture-v0.1",
+    "both_execution_scenarios_receive_identical_capture": true,
+    "sip_print_proxy_fallback_allowed": false,
+    "another_symbol_venue_schema_or_window_substitution_allowed": false
+  },
+  "storage_and_cleanup": {
+    "temporary_raw_dbn_files_allowed_during_authorized_attempt": true,
+    "temporary_raw_dbn_files_deleted_before_report": true,
+    "raw_dbn_repository_persistence_allowed": false,
+    "raw_dbn_actions_artifact_allowed": false,
+    "minimal_normalized_capture_artifact_allowed": true,
+    "provider_credentials_or_error_messages_persisted": false,
+    "ephemeral_file_hashes_may_be_retained": true
+  },
+  "workflow_boundary": {
+    "expected_repository": "RoomyRems/momentumbot",
+    "provider_free_verification_on_push": true,
+    "acquisition_event": "manual_workflow_dispatch_only",
+    "exact_authorization_commit_sha_and_path_required": true,
+    "named_successful_freeze_and_quote_runs_required": true,
+    "first_acquisition_workflow_attempt_only": true,
+    "provider_credential_loaded_only_in_acquisition_step": true,
+    "safe_failure_report_uploaded": true,
+    "raw_dbn_never_uploaded": true
+  },
+  "authority_boundary": {
+    "provider_metadata_requote_authorized_at_registration": false,
+    "provider_timeseries_request_authorized_at_registration": false,
+    "provider_purchase_authorized_at_registration": false,
+    "databento_credit_authorized_usd": "0",
+    "provider_call_run_count": 0,
+    "broker_order_authorized": false,
+    "paper_order_authorized": false,
+    "live_order_authorized": false,
+    "retrospective_labels_allowed": false,
+    "later_prices_or_pnl_allowed": false,
+    "threshold_horizon_or_scenario_selection_authorized": false,
+    "runtime_authority_created": false,
+    "policy_promotion_eligible": false,
+    "profitability_claim_eligible": false
+  },
+  "explicitly_prohibited": [
+    "creating an acquisition authorization before an exact successful metadata quote exists",
+    "downloading a request that is absent from or differs from the frozen request manifest",
+    "continuing downloads after the first failed exact request",
+    "persisting or uploading raw DBN files",
+    "using Ross actions, recaps, labels, later prices, P&L, account outcomes, or behavioral values to select or alter a request",
+    "substituting SIP prints, another venue, another symbol, another schema, or a broader time window for unavailable data",
+    "selecting a behavioral horizon, execution scenario, feature threshold, strategy rule, or promotion decision",
+    "submitting a paper or live broker order"
+  ],
+  "next_gate": "After a real registered date has a verified successful quote, create and publish one exact parent-bound acquisition authorization, run at most its first manual workflow attempt, preserve the minimal normalized capture or safe failure, and feed only complete captures into the still-separate account runtime.",
+  "content_sha256": "7e783f4222b09c72342289bafbf9f3c2505b953ec9cb101e894ba4f30d4682d3"
+}
