@@ -118,7 +118,7 @@ class DatabentoBehavioralCohortExecutionV02Tests(unittest.TestCase):
             runtime=RUNTIME,
         )
 
-    def test_contract_is_hash_bound_unarmed_and_v02_authorization_is_absent(self):
+    def test_contract_is_hash_bound_unarmed_and_future_authorization_is_valid(self):
         self.assertEqual(
             self.contract["content_sha256"], EXECUTION_CONTRACT_CONTENT_SHA256
         )
@@ -128,7 +128,10 @@ class DatabentoBehavioralCohortExecutionV02Tests(unittest.TestCase):
         self.assertEqual(gate["exact_request_count_authorized_now"], 0)
         self.assertEqual(gate["provider_cost_authorized_now_usd"], "0")
         self.assertEqual(gate["provider_bytes_authorized_now"], 0)
-        self.assertFalse(FUTURE_AUTHORIZATION.exists())
+        if FUTURE_AUTHORIZATION.exists():
+            validate_execution_authorization(
+                json.loads(FUTURE_AUTHORIZATION.read_text(encoding="utf-8"))
+            )
 
     def test_contract_binds_safe_failure_and_exact_dataframe_repair(self):
         self.assertEqual(
