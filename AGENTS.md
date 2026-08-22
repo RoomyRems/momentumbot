@@ -37,6 +37,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 | Prospective market-input capture | `docs/research/prospective_market_input_capture_v01.md` | frozen label-blind opportunity identity, exact unarmed `XNAS.ITCH` `mbp-1`/`status` request derivation and fail-closed capture mechanics |
 | Prospective market-input metadata quote | `docs/research/prospective_market_input_metadata_quote_v01.md` | unarmed exact-bundle validator, dynamic parent-bound authorization, two-method metadata quote and sanitized report workflow |
 | Prospective management/execution | `docs/research/prospective_management_execution_v01.md` | child contract and `execution_realism.py` |
+| Prospective account evaluation | `docs/research/prospective_account_evaluation_v01.md` | preregistered six-cell component metrics, runtime-before-label join and flat-complete conditional portfolio gate |
 | New research experiment | `docs/research/experiment_contract.md` | frozen parent policy + runtime artifact |
 | Micro-pullback work | `docs/research/micro_benchmark_suite.md` | `micro_policy.py`, `micro_replay.py`, frozen artifacts |
 | Held-out discretionary panel | `docs/research/discretion_heldout_panel_v01.md` | registered panel JSON and runtime manifest |

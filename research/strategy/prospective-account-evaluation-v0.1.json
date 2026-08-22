@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "contract_id": "prospective-account-evaluation-v0.1",
+  "artifact_type": "preregistered_prospective_account_evaluation",
+  "registration_date": "2026-08-22",
+  "registration_status": "registered_before_panel_open",
+  "purpose": "Freeze the component and conditional portfolio evaluation for the August 24-September 4 prospective account panel before any panel runtime, Ross labels, later outcomes, or P&L are opened.",
+  "hypothesis": "Separate, preregistered acquisition, participation, entry, exit, activity, and conditional portfolio metrics will permit an outcome-blind assessment of where the frozen strategy agrees or disagrees with documented behavior without metric shopping or a weighted imitation score.",
+  "frozen_parents": {
+    "panel_id": "ross-account-integration-panel-v0.1",
+    "registered_dates": [
+      "2026-08-24",
+      "2026-08-25",
+      "2026-08-26",
+      "2026-08-27",
+      "2026-08-28",
+      "2026-08-31",
+      "2026-09-01",
+      "2026-09-02",
+      "2026-09-03",
+      "2026-09-04"
+    ],
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "account_integration_content_sha256": "64489aa27fec5eaf8ca12c94f4aeb47344d49a79b14df1bdda706cd23cc9ce73",
+    "prospective_execution_content_sha256": "14812b9f25b5ea7230254ed86b1e0eaa30fffe3dc13b1ee141b19770706090f9"
+  },
+  "equal_report_cells": [
+    {
+      "cell_id": "h1s::l1-conservative-v0.1",
+      "behavioral_horizon_seconds": 1,
+      "execution_scenario_id": "l1-conservative-v0.1"
+    },
+    {
+      "cell_id": "h1s::l1-stress-v0.1",
+      "behavioral_horizon_seconds": 1,
+      "execution_scenario_id": "l1-stress-v0.1"
+    },
+    {
+      "cell_id": "h5s::l1-conservative-v0.1",
+      "behavioral_horizon_seconds": 5,
+      "execution_scenario_id": "l1-conservative-v0.1"
+    },
+    {
+      "cell_id": "h5s::l1-stress-v0.1",
+      "behavioral_horizon_seconds": 5,
+      "execution_scenario_id": "l1-stress-v0.1"
+    },
+    {
+      "cell_id": "h10s::l1-conservative-v0.1",
+      "behavioral_horizon_seconds": 10,
+      "execution_scenario_id": "l1-conservative-v0.1"
+    },
+    {
+      "cell_id": "h10s::l1-stress-v0.1",
+      "behavioral_horizon_seconds": 10,
+      "execution_scenario_id": "l1-stress-v0.1"
+    }
+  ],
+  "metric_registry": {
+    "candidate_acquisition": [
+      "observed_completed_trade_count",
+      "acquisition_evaluable_completed_trade_count",
+      "acquired_completed_trade_count",
+      "descriptive_acquisition_fraction"
+    ],
+    "account_participation": [
+      "account_qualified_human_trade_count",
+      "fill_evaluable_acquired_human_trade_count",
+      "bot_fill_on_human_trade_count",
+      "bot_fill_on_explicit_skip_count",
+      "descriptive_trade_skip_agreement_fraction"
+    ],
+    "entry_alignment": [
+      "all_reported_reference_time_deltas_seconds",
+      "all_reported_reference_price_differences",
+      "pullback_ordinal_match_when_both_known"
+    ],
+    "exit_alignment": [
+      "all_reported_reference_time_deltas_seconds",
+      "all_reported_reference_price_differences",
+      "exact_reason_match_when_both_known"
+    ],
+    "activity": [
+      "runtime_candidate_count",
+      "candidate_with_plan_count",
+      "plan_emission_count",
+      "filled_candidate_count",
+      "closed_candidate_count",
+      "unresolved_or_unavailable_count"
+    ],
+    "portfolio_if_complete": [
+      "net_pnl_after_registered_fees",
+      "net_return_fraction",
+      "closed_campaign_win_rate",
+      "gross_expectancy_per_closed_campaign",
+      "gross_profit_factor",
+      "gross_max_realized_drawdown"
+    ],
+    "aggregation_limits": {
+      "unknown_actions_excluded_from_trade_skip_agreement": true,
+      "unmentioned_candidates_are_not_skips": true,
+      "incomplete_runtime_sessions_are_not_negative_decisions": true,
+      "entry_and_exit_references_are_never_nearest_match_selected": true,
+      "cells_reported_separately": true,
+      "accounts_reported_separately": true,
+      "best_cell_selection_allowed": false,
+      "weighted_overall_imitation_score_allowed": false
+    }
+  },
+  "label_policy": {
+    "labels_opened_only_after_runtime_hash_freeze": true,
+    "account_scoped": true,
+    "completed_trade_required_for_participation": true,
+    "unmentioned_candidate_is_not_a_skip": true,
+    "attempted_order_without_fill_is_not_participation": true,
+    "unknown_and_unavailable_excluded_from_trade_skip_agreement": true,
+    "raw_transcript_text_persisted": false
+  },
+  "portfolio_policy": {
+    "scope": "each_account_and_cell_reported_separately",
+    "required_dates": [
+      "2026-08-24",
+      "2026-08-25",
+      "2026-08-26",
+      "2026-08-27",
+      "2026-08-28",
+      "2026-08-31",
+      "2026-09-01",
+      "2026-09-02",
+      "2026-09-03",
+      "2026-09-04"
+    ],
+    "every_session_runtime_complete_required": true,
+    "zero_open_positions_required": true,
+    "zero_unavailable_inputs_required": true,
+    "ineligible_financial_fields": "null",
+    "cross_cell_portfolio_aggregation_allowed": false,
+    "best_cell_selection_allowed": false
+  },
+  "prohibited_inputs_and_actions": [
+    "Ross actions, fills, skips, recaps, transcript text, or other retrospective labels in runtime",
+    "later prices or P&L used to change runtime decisions or choose a metric",
+    "case-by-case symbol, date, account, horizon, or execution-scenario overrides",
+    "nearest-reference selection when multiple human entry or exit references exist",
+    "silent conversion of unmentioned candidates into explicit skips",
+    "best-cell selection, weighted imitation scoring, policy promotion, or broker orders"
+  ],
+  "authority_boundary": {
+    "runtime_strategy_effect": "none",
+    "metric_or_threshold_selection_authorized": false,
+    "best_cell_selection_authorized": false,
+    "policy_promotion_eligible": false,
+    "profitability_claim_eligible": false,
+    "ross_replication_claim_eligible": false,
+    "paper_order_authorized": false,
+    "live_order_authorized": false,
+    "provider_call_authorized": false
+  },
+  "next_gate": "Collect all registered label-blind runtime and account sessions, freeze and hash the complete runtime before opening retrospective labels, then produce every account-by-cell component and conditional portfolio report without selecting a winner.",
+  "content_sha256": "537287a04f35d81d8104f67a02cdcd352ee880cc8703fd8b8a61c68d971d5d5c"
+}

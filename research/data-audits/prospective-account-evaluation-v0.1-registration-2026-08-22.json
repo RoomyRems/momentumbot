@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "audit_id": "prospective-account-evaluation-v0.1-registration-2026-08-22",
+  "audit_date": "2026-08-22",
+  "artifact_type": "unrun_outcome_blind_prospective_account_evaluation_registration",
+  "contract": {
+    "contract_id": "prospective-account-evaluation-v0.1",
+    "content_sha256": "537287a04f35d81d8104f67a02cdcd352ee880cc8703fd8b8a61c68d971d5d5c",
+    "file_sha256": "8bc83777d4b4ac7b41b3cb4e93d0fece18385f6efc716eabcd478fd72ace6835",
+    "registration_status": "registered_before_panel_open"
+  },
+  "frozen_parents": {
+    "panel_id": "ross-account-integration-panel-v0.1",
+    "registered_dates": [
+      "2026-08-24",
+      "2026-08-25",
+      "2026-08-26",
+      "2026-08-27",
+      "2026-08-28",
+      "2026-08-31",
+      "2026-09-01",
+      "2026-09-02",
+      "2026-09-03",
+      "2026-09-04"
+    ],
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "account_integration_content_sha256": "64489aa27fec5eaf8ca12c94f4aeb47344d49a79b14df1bdda706cd23cc9ce73",
+    "prospective_execution_content_sha256": "14812b9f25b5ea7230254ed86b1e0eaa30fffe3dc13b1ee141b19770706090f9"
+  },
+  "registered_scope": {
+    "account_ids": [
+      "main_account",
+      "small_account"
+    ],
+    "behavioral_horizons_seconds": [
+      1,
+      5,
+      10
+    ],
+    "execution_scenario_ids": [
+      "l1-conservative-v0.1",
+      "l1-stress-v0.1"
+    ],
+    "equal_report_cell_count": 6,
+    "required_session_record_count": 120,
+    "runtime_candidate_identity_equal_across_cells": true,
+    "accounts_reported_separately": true,
+    "cells_reported_separately": true,
+    "best_cell_selection_allowed": false,
+    "weighted_imitation_score_allowed": false
+  },
+  "mechanical_verification": {
+    "contract_content_fingerprint_recomputed": true,
+    "frozen_parent_bindings_validated": true,
+    "complete_six_cell_cartesian_product_required": true,
+    "identical_candidate_identity_required_across_cells": true,
+    "exact_120_session_coverage_required": true,
+    "decision_to_account_session_hash_binding_required": true,
+    "retrospective_runtime_keys_rejected_after_rehash": true,
+    "runtime_hash_freeze_timestamp_precedes_label_open_timestamp": true,
+    "labels_bind_exact_runtime_content_hash_and_timestamp": true,
+    "account_scoped_human_states_validated": true,
+    "unmentioned_candidates_not_converted_to_skips": true,
+    "attempted_no_fill_not_converted_to_participation": true,
+    "incomplete_sessions_excluded_from_negative_decision_denominators": true,
+    "all_reported_entry_and_exit_references_retained": true,
+    "nearest_reference_selection_prohibited": true,
+    "component_aggregates_recomputed_by_validator": true,
+    "portfolio_metrics_require_complete_flat_available_account_cell": true,
+    "ineligible_financial_fields_forced_to_null": true,
+    "report_best_cell_and_overall_score_fields_rejected": true,
+    "write_once_cli_implemented": true,
+    "provider_and_credential_free_verification": true,
+    "complete_repository_suite_required_before_publication": true
+  },
+  "execution_status": {
+    "prospective_panel_started": false,
+    "runtime_bundle_created": false,
+    "runtime_bundle_frozen": false,
+    "retrospective_label_bundle_created": false,
+    "evaluation_report_created": false,
+    "portfolio_metrics_released": false,
+    "best_cell_selected": false,
+    "policy_promoted": false
+  },
+  "authority_boundary": {
+    "provider_call_run": false,
+    "provider_credential_loaded": false,
+    "broker_credential_loaded": false,
+    "account_snapshot_loaded": false,
+    "retrospective_labels_loaded": false,
+    "later_prices_or_pnl_loaded": false,
+    "raw_transcript_text_loaded": false,
+    "broker_order_submitted": false,
+    "paper_order_submitted": false,
+    "live_order_submitted": false,
+    "runtime_strategy_changed": false,
+    "runtime_authority_created": false,
+    "metric_or_threshold_selected": false,
+    "policy_promotion_eligible": false,
+    "profitability_claim_eligible": false,
+    "ross_replication_claim_eligible": false
+  },
+  "bound_files": [
+    {
+      "path": "research/strategy/prospective-account-evaluation-v0.1.json",
+      "file_sha256": "8bc83777d4b4ac7b41b3cb4e93d0fece18385f6efc716eabcd478fd72ace6835"
+    },
+    {
+      "path": "src/momentumbot/research/prospective_account_evaluation.py",
+      "file_sha256": "56ccebf7725ef04a797e4b5dead0ecd091ef9e9866290bf6e67b90283a9dd3bd"
+    },
+    {
+      "path": "scripts/evaluate_prospective_account_panel.py",
+      "file_sha256": "3a292b4ee60d4b5f257b3345eeec5597b18a528d279a638ff491fef6ceca6207"
+    },
+    {
+      "path": "docs/research/prospective_account_evaluation_v01.md",
+      "file_sha256": "91952d23b281e7ac2e62d1ea4325ab65a7ac76530fe9471f80bba1314357067c"
+    },
+    {
+      "path": "tests/test_prospective_account_evaluation.py",
+      "file_sha256": "f2980edd340a60d699f3e17b32c9b1e3175731151a93fce5a4574ebb31c99bd5"
+    }
+  ],
+  "next_gate": "Preserve all ten label-blind daily source, account, opportunity, and causal market-input chains; populate all six cells on identical candidates; freeze and hash the complete runtime before opening any retrospective label; then run this evaluator without selecting a cell.",
+  "content_sha256": "a0d0cc1202607cda4d5acd8c42e771fbce54d6a431f2449d8083dac924a85b1b"
+}

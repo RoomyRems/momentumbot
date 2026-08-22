@@ -120,6 +120,28 @@ This registration created no per-date authorization, loaded no Databento
 credential, and ran no metadata quote. Its dynamic execution path remains
 unarmed until a real prospective freeze is independently verified.
 
+`prospective-account-evaluation-v0.1` now preregisters the final panel
+comparison before the first August 24 session. It binds the unchanged
+Micro-v0.1 fingerprint, account integration contract, prospective management
+and execution contract, ten fixed dates, two accounts, three behavioral
+horizons, and both execution scenarios.
+
+The evaluator reports all six account/cell results separately. Candidate
+acquisition, account qualification and fill, explicit trade/skip agreement,
+entry alignment, exit alignment, and activity remain separate components. If
+the human evidence provides multiple entry or exit references, every
+comparison is retained; the nearest reference is never selected. Unmentioned,
+unclear, and unavailable actions are not converted into skips or trades, and
+there is no best-cell field or weighted imitation score.
+
+Portfolio statistics remain conditional. An account/cell receives financial
+outputs only if all ten sessions exist, every runtime is complete, every
+session is flat, and no required input is unavailable. Otherwise all financial
+fields for that account/cell are null. The label-blind runtime must be frozen
+and hashed before the separate retrospective label bundle can be opened. No
+panel runtime, label, later outcome, P&L, provider call, credential, or broker
+order was loaded by this registration.
+
 ## Active gates, in order
 
 1. Preserve the completed cohort and all earlier real-data audits without
@@ -138,12 +160,18 @@ unarmed until a real prospective freeze is independently verified.
    as unavailable without SIP-print substitution.
 6. Populate all three horizons and both fixed execution scenarios together on
    identical opportunity inputs without scoring, ranking, or selecting a cell.
-7. Complete the prospective panel and a larger representative walk-forward
-   before any policy-promotion or profitability interpretation.
+7. After all ten sessions, freeze the complete runtime and account-cell hash
+   chain before opening structured retrospective labels. Run the preregistered
+   component comparison and release portfolio fields only for complete, flat,
+   fully available account-cells.
+8. Complete a larger representative walk-forward before any policy-promotion,
+   Ross-replication, or profitability interpretation.
 
 ## Still not ready
 
 - No full portfolio backtest is complete.
+- No prospective account-evaluation result exists; only its outcome-blind
+  metric and completeness contract is registered.
 - No feature horizon or threshold is selected.
 - The behavioral result is a 10-opportunity accepted-panel aggregate, not a
   representative multi-regime validation or a profitability result.
@@ -168,4 +196,9 @@ unarmed until a real prospective freeze is independently verified.
 - Prospective daily source tests are deterministic and provider-free; they
   enforce the two-phase timestamp/code binding, profile-union activation,
   trigger-only Micro boundary, write-once artifacts, and scheduled handoff.
-- Complete repository suite is required before this checkpoint is published.
+- Prospective account-evaluation tests are deterministic and provider-free;
+  they enforce exact six-cell candidate identity, account-scoped labels,
+  runtime-before-label timestamps, full pairwise entry/exit references,
+  recomputed component aggregates, write-once output, and null-only financial
+  interpretation for incomplete, unavailable, or open account-cells.
+- Complete provider-free repository suite: 832 tests passed on August 22, 2026.
