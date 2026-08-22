@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "audit_id": "databento-microstructure-behavioral-cohort-v0.2-run-32575593240-success-2026-08-22",
+  "audit_date": "2026-08-22",
+  "artifact_type": "independently_verified_sanitized_databento_behavioral_cohort_v0.2_success",
+  "contract": {
+    "execution_contract_id": "databento-microstructure-behavioral-cohort-v0.2",
+    "execution_contract_content_sha256": "885d8395839d45b772905a56f9261385a26127ed787f419074073f496d364a2a",
+    "execution_authorization_id": "microstructure-behavioral-cohort-v0.2-execution",
+    "execution_authorization_content_sha256": "c95fdaa6766b1429e7a0312027dd81ace10e8bbea7d5626fd802d732dc624299",
+    "cohort_id": "microstructure-behavioral-cohort-v0.1",
+    "cohort_content_sha256": "2f97f8f2916113cf3e29fe398da7f38d72c1db0b79704cadb0b635ea062a939e",
+    "behavioral_protocol_content_sha256": "7409973d369876d29a020785cc2f48bc945129d705648f793d693667dcdd3802",
+    "parent_safe_failure_content_sha256": "724a081a2e282f3e5e988dd971ec18fb00b42139feacb150e55bbb91324cc860",
+    "authorized_push_parent_sha": "fed2b11c9a55ad45e340d80a4dbee8326ae193a3"
+  },
+  "github_actions": {
+    "workflow_run_id": 32575593240,
+    "workflow_run_attempt": 1,
+    "workflow_conclusion": "success",
+    "workflow_head_sha": "0687093a778bd6ac0973889e788886df8cd48cbf",
+    "workflow_head_tree_sha": "4eaf6aa63fe327ea31e4e9cb53c28c3619ef36e9",
+    "workflow_parent_sha": "fed2b11c9a55ad45e340d80a4dbee8326ae193a3",
+    "job_id": 97037367901,
+    "job_conclusion": "success",
+    "every_job_step_succeeded": true,
+    "artifact_id": 9476480259,
+    "artifact_name": "databento-microstructure-behavioral-cohort-v0.2-32575593240-1",
+    "artifact_zip_size_bytes": 3614,
+    "artifact_zip_sha256": "968c3d5691b919b9b6e01f76d63c60eec5a3e2035b4eda53a6958dbe22de0f57",
+    "sanitized_report_file_size_bytes": 27264,
+    "sanitized_report_file_sha256": "04f3092708a86de3905b2f936a42f15b08fe9fc3016d4f84d5b7584cc1e86842",
+    "sanitized_report_content_sha256": "edb62161b3c21b91d9ac59aa4aa7aede1da14e57d655dadd22265745f2e023b7"
+  },
+  "verified_preflight_and_attempt": {
+    "preflight_passed": true,
+    "request_count_expected": 5,
+    "request_count_quoted": 5,
+    "timeseries_request_count": 5,
+    "successful_download_summary_count": 5,
+    "total_quoted_cost_usd": "0.078219142556",
+    "total_billable_size_bytes": 69989304,
+    "hard_cost_ceiling_usd": "0.25",
+    "hard_billable_size_ceiling_bytes": 225000000,
+    "actual_billing_known": false,
+    "automatic_retry_attempted": false,
+    "partial_cohort_substitution_attempted": false,
+    "first_attempt_only_observed": true,
+    "provider": "Databento",
+    "sdk_version": "0.83.0",
+    "dataset": "XNAS.ITCH",
+    "schema": "mbo",
+    "quote_rows": [
+      {
+        "request_id": "2026-07-10-GMM",
+        "symbols": ["GMM"],
+        "quoted_cost_usd": "0.012163558602",
+        "billable_size_bytes": 10883768
+      },
+      {
+        "request_id": "2026-07-13-PLSM-VEEE",
+        "symbols": ["PLSM", "VEEE"],
+        "quoted_cost_usd": "0.032263693213",
+        "billable_size_bytes": 28869064
+      },
+      {
+        "request_id": "2026-07-14-NXTC-SHPH",
+        "symbols": ["NXTC", "SHPH"],
+        "quoted_cost_usd": "0.018088781834",
+        "billable_size_bytes": 16185568
+      },
+      {
+        "request_id": "2026-07-20-BIYA",
+        "symbols": ["BIYA"],
+        "quoted_cost_usd": "0.013192641735",
+        "billable_size_bytes": 11804576
+      },
+      {
+        "request_id": "2026-07-23-NEUP",
+        "symbols": ["NEUP"],
+        "quoted_cost_usd": "0.002510467172",
+        "billable_size_bytes": 2246328
+      }
+    ]
+  },
+  "verified_downloads": [
+    {
+      "request_id": "2026-07-10-GMM",
+      "record_count": 139501,
+      "atomic_instrument_event_count": 113569,
+      "translated_canonical_event_count": 142342,
+      "opportunity_count": 1,
+      "independent_feature_replay_exact": true
+    },
+    {
+      "request_id": "2026-07-13-PLSM-VEEE",
+      "record_count": 475993,
+      "atomic_instrument_event_count": 380383,
+      "translated_canonical_event_count": 502133,
+      "opportunity_count": 3,
+      "independent_feature_replay_exact": true
+    },
+    {
+      "request_id": "2026-07-14-NXTC-SHPH",
+      "record_count": 245914,
+      "atomic_instrument_event_count": 190250,
+      "translated_canonical_event_count": 258885,
+      "opportunity_count": 3,
+      "independent_feature_replay_exact": true
+    },
+    {
+      "request_id": "2026-07-20-BIYA",
+      "record_count": 196289,
+      "atomic_instrument_event_count": 149665,
+      "translated_canonical_event_count": 208348,
+      "opportunity_count": 2,
+      "independent_feature_replay_exact": true
+    },
+    {
+      "request_id": "2026-07-23-NEUP",
+      "record_count": 38809,
+      "atomic_instrument_event_count": 30900,
+      "translated_canonical_event_count": 41059,
+      "opportunity_count": 1,
+      "independent_feature_replay_exact": true
+    }
+  ],
+  "verified_cohort_aggregate": {
+    "opportunity_count": 10,
+    "horizon_count": 3,
+    "all_horizons_reported_together": true,
+    "independent_feature_replay_exact": true,
+    "comparison_sequence_digest_sha256": "1b6c228496669c780813e51c08510ec900ed7d0c9068b22bbe007368e12ee5d4",
+    "metric_direction_totals_by_horizon": [
+      {
+        "horizon_ns": 1000000000,
+        "row_count": 12,
+        "available_count": 119,
+        "increase_count": 51,
+        "decrease_count": 47,
+        "unchanged_count": 21,
+        "unavailable_count": 1
+      },
+      {
+        "horizon_ns": 5000000000,
+        "row_count": 12,
+        "available_count": 120,
+        "increase_count": 73,
+        "decrease_count": 37,
+        "unchanged_count": 10,
+        "unavailable_count": 0
+      },
+      {
+        "horizon_ns": 10000000000,
+        "row_count": 12,
+        "available_count": 120,
+        "increase_count": 76,
+        "decrease_count": 37,
+        "unchanged_count": 7,
+        "unavailable_count": 0
+      }
+    ],
+    "depth_walk_direction_totals_by_horizon": [
+      {
+        "horizon_ns": 1000000000,
+        "row_count": 8,
+        "available_count": 80,
+        "increase_count": 23,
+        "decrease_count": 15,
+        "unchanged_count": 42,
+        "unavailable_count": 0
+      },
+      {
+        "horizon_ns": 5000000000,
+        "row_count": 8,
+        "available_count": 80,
+        "increase_count": 15,
+        "decrease_count": 26,
+        "unchanged_count": 39,
+        "unavailable_count": 0
+      },
+      {
+        "horizon_ns": 10000000000,
+        "row_count": 8,
+        "available_count": 80,
+        "increase_count": 20,
+        "decrease_count": 20,
+        "unchanged_count": 40,
+        "unavailable_count": 0
+      }
+    ],
+    "confirmation_or_adverse_classification_emitted": false,
+    "hidden_buyer_or_seller_classification_emitted": false,
+    "feature_horizon_selected": false,
+    "feature_threshold_selected": false,
+    "policy_promotion_eligible": false
+  },
+  "interpretation": {
+    "what_is_proven": "The frozen label-blind comparison completed on all 10 accepted-panel opportunities across all one-, five-, and ten-second windows. All five date-grouped downloads succeeded, and an independent feature engine reproduced the complete comparison sequence exactly.",
+    "what_is_not_proven": "Direction counts are descriptive engineering evidence. They do not establish predictive value, a preferred horizon, a profitable threshold, hidden buyer or seller presence, Ross-equivalent discretion, realistic fills, generalization, or profitability.",
+    "next_gate": "Preserve this result without rerunning the consumed workflow. Carry only the frozen cohort identity, aggregate evidence, and unavailable states into the separately registered prospective management and execution scenarios; do not select a better horizon, metric, scenario, or policy.",
+    "policy_promotion_allowed": false
+  },
+  "safety_verification": {
+    "artifact_contains_exactly_one_sanitized_json_file": true,
+    "artifact_zip_digest_recomputed": true,
+    "sanitized_report_file_digest_recomputed": true,
+    "sanitized_report_content_digest_recomputed": true,
+    "sanitized_report_validator_passed": true,
+    "batch_or_live_endpoint_called": false,
+    "provider_credential_persisted": false,
+    "raw_market_data_persisted": false,
+    "raw_market_data_uploaded": false,
+    "raw_temp_directory_empty_before_cleanup": true,
+    "raw_temp_directory_removed": true,
+    "retrospective_labels_loaded": false,
+    "ross_actions_or_labels_loaded": false,
+    "pnl_or_later_prices_loaded": false,
+    "feature_snapshot_values_persisted": false,
+    "per_opportunity_feature_values_persisted": false,
+    "derived_behavioral_values_persisted": false,
+    "feature_horizon_selected": false,
+    "feature_threshold_selected": false,
+    "runtime_authority_created": false,
+    "broker_or_order_change_made": false,
+    "strategy_or_threshold_change_made": false
+  },
+  "bound_files": [
+    {
+      "path": ".github/workflows/databento-microstructure-behavioral-cohort-v02.yml",
+      "file_sha256": "73fdc5017ac10f7cc3d7edd545f38805cdd89fdc7640ab76c57b4d3d4ec95b1b"
+    },
+    {
+      "path": "research/strategy/microstructure-behavioral-cohort-v0.2-execution.json",
+      "file_sha256": "5249b5b93a4a86d3de265f3247e1c5a4e224457bdc5a35048666a598c3b2ce16"
+    },
+    {
+      "path": "scripts/run_databento_microstructure_behavioral_cohort_v02.py",
+      "file_sha256": "aff2b0d922d2573c155a0c25c049e30e08be1c4b821925770d8f303dd654808c"
+    },
+    {
+      "path": "src/momentumbot/research/databento_behavioral_cohort_execution_v02.py",
+      "file_sha256": "4794ce8d68a68fe1718e145df2c3a0630fdd80c5dcf4f9be198d417d748cc0e7"
+    },
+    {
+      "path": "tests/test_databento_behavioral_cohort_execution_v02.py",
+      "file_sha256": "f4f0952e20db1f68c24475e83690dda1b3f0695d4a8a8863eac9d0ff7a82322c"
+    }
+  ],
+  "content_sha256": "f1544b5a0d83e28d5b013b5dba64a9c806fefe7ab81dc614be67223dea908b22"
+}

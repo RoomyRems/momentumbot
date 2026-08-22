@@ -15,7 +15,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 
 | Task | Open first | Source of truth |
 |---|---|---|
-| Current checkpoint / next gate | `docs/project/current_state_2026-08-21.md` | immutable parent checkpoints plus linked frozen manifests and audits |
+| Current checkpoint / next gate | `docs/project/current_state_2026-08-22.md` | immutable parent checkpoints plus linked frozen manifests and audits |
 | Runtime and hybrid architecture | `docs/architecture.md` | executable code under `src/momentumbot/` |
 | Current Ross-derived policy | `docs/strategy/current_rulebook.md` | `research/rules/current_rules.json` and policy code |
 | Strategy/discretion coverage | `docs/research/strategy_discretion_coverage_v02.md` | immutable v0.1 parent, versioned v0.2 delta and `strategy_coverage_v02.py` |
@@ -30,7 +30,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 | Databento remaining-case feature coverage | `docs/research/databento_microstructure_feature_coverage_v02.md` | verified INTJ/EQPT parents, unarmed repaired AMC/GMM contract and authorization-only workflow |
 | Databento Fill/Cancel identity repair | `docs/research/databento_microstructure_fill_cancel_repair_v01.md` | verified aggregate EQPT classifier audit, unarmed repair contract and deterministic pairing mechanics |
 | Databento EQPT repaired feature replay | `docs/research/databento_microstructure_fill_cancel_repaired_feature_v01.md` | verified one-shot EQPT success audit, frozen repair and exact-replay evidence |
-| Databento behavioral cohort v0.2 | `docs/research/databento_microstructure_behavioral_cohort_execution_v02.md` | immutable v0.1 safe failure, unarmed v0.2 contract and repaired authorization-only harness |
+| Databento behavioral cohort v0.2 | `docs/research/databento_microstructure_behavioral_cohort_v02_success.md` | immutable v0.1 safe failure, consumed v0.2 success audit and repaired authorization-only harness |
 | Prospective management/execution | `docs/research/prospective_management_execution_v01.md` | child contract and `execution_realism.py` |
 | New research experiment | `docs/research/experiment_contract.md` | frozen parent policy + runtime artifact |
 | Micro-pullback work | `docs/research/micro_benchmark_suite.md` | `micro_policy.py`, `micro_replay.py`, frozen artifacts |
