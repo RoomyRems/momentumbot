@@ -508,7 +508,7 @@ def _mapped_records(store: object) -> Iterable[object]:
         frame = store.to_df(
             map_symbols=True,
             pretty_ts=False,
-            pretty_px=False,
+            price_type="fixed",
         )
         if "ts_recv" not in frame.columns:
             frame = frame.reset_index()

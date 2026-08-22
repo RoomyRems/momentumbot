@@ -44,6 +44,12 @@ REGISTRATION_AUDIT = (
     "databento-microstructure-behavioral-cohort-v0.1-"
     "harness-registration-2026-08-21.json"
 )
+SAFE_FAILURE_AUDIT = (
+    ROOT
+    / "research/data-audits/"
+    "databento-microstructure-behavioral-cohort-v0.1-"
+    "run-32550318387-safe-failure-2026-08-21.json"
+)
 GENERATED_AT = datetime(2026, 8, 21, 23, tzinfo=UTC)
 RUNTIME = RuntimeConstants(
     f_last=128,
@@ -155,8 +161,20 @@ class FakeStore:
         self.metadata = SimpleNamespace(dataset="XNAS.ITCH", schema="mbo")
         self.to_df_calls: list[dict[str, object]] = []
 
-    def to_df(self, **kwargs: object) -> FakeFrame:
-        self.to_df_calls.append(kwargs)
+    def to_df(
+        self,
+        *,
+        map_symbols: bool,
+        pretty_ts: bool,
+        price_type: str,
+    ) -> FakeFrame:
+        self.to_df_calls.append(
+            {
+                "map_symbols": map_symbols,
+                "pretty_ts": pretty_ts,
+                "price_type": price_type,
+            }
+        )
         return FakeFrame(self.rows)
 
 
@@ -234,6 +252,7 @@ class FakeTimeseries:
         self.opportunities = opportunities
         self.fail_at = fail_at
         self.calls: list[dict[str, object]] = []
+        self.stores: list[FakeStore] = []
 
     def get_range(self, **kwargs: object) -> FakeStore:
         index = len(self.calls)
@@ -249,7 +268,9 @@ class FakeTimeseries:
             for row in self.opportunities
             if row["trading_date"] == date and row["symbol"] in symbols
         ]
-        return FakeStore(_rows_for_request(opportunities, symbols))
+        store = FakeStore(_rows_for_request(opportunities, symbols))
+        self.stores.append(store)
+        return store
 
 
 class FakeClient:
@@ -318,6 +339,16 @@ class DatabentoBehavioralCohortExecutionV01Tests(unittest.TestCase):
         validate_behavioral_cohort_report(report)
         self.assertEqual(len(client.metadata.calls), REQUEST_COUNT * 2)
         self.assertEqual(len(client.timeseries.calls), REQUEST_COUNT)
+        self.assertEqual(len(client.timeseries.stores), REQUEST_COUNT)
+        for store in client.timeseries.stores:
+            self.assertEqual(
+                store.to_df_calls,
+                [{
+                    "map_symbols": True,
+                    "pretty_ts": False,
+                    "price_type": "fixed",
+                }],
+            )
         self.assertTrue(report["all_requests_succeeded"])
         self.assertEqual(report["cohort_aggregate"]["opportunity_count"], 10)
         self.assertTrue(
@@ -418,6 +449,22 @@ class DatabentoBehavioralCohortExecutionV01Tests(unittest.TestCase):
         self.assertFalse(audit["provider_request_made"])
         self.assertFalse(audit["provider_quote_made"])
         self.assertFalse(audit["execution_authorization_file_present"])
+        for bound in audit["bound_files"]:
+            self.assertEqual(file_sha256(ROOT / bound["path"]), bound["file_sha256"])
+        unsigned = {
+            key: value for key, value in audit.items() if key != "content_sha256"
+        }
+        self.assertEqual(canonical_fingerprint(unsigned), audit["content_sha256"])
+
+    def test_safe_failure_audit_is_hash_bound_and_records_no_retry(self):
+        audit = json.loads(SAFE_FAILURE_AUDIT.read_text(encoding="utf-8"))
+        attempt = audit["verified_preflight_and_attempt"]
+        failure = audit["classified_failure"]
+        self.assertEqual(attempt["timeseries_request_count"], 1)
+        self.assertFalse(attempt["automatic_retry_attempted"])
+        self.assertFalse(failure["all_requests_succeeded"])
+        self.assertEqual(failure["safe_error_code"], "record_payload_invalid")
+        self.assertFalse(audit["corrective_interpretation"]["provider_rerun_authorized"])
         for bound in audit["bound_files"]:
             self.assertEqual(file_sha256(ROOT / bound["path"]), bound["file_sha256"])
         unsigned = {

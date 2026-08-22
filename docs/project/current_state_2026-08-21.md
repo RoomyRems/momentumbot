@@ -12,7 +12,7 @@ No feature threshold, runtime trading authority, consolidated national Level 2 c
 
 The next major phase is now preregistered before any feature values or outcomes are opened. It compares every frozen one-, five-, and ten-second post-trigger window with the immediately preceding equal-length window on the same causal Micro-v0.1 opportunity. The comparator reports exact arithmetic only and cannot select a horizon, threshold, hidden-order label, trade confirmation, or action.
 
-Its first cohort is also frozen without opening microstructure values or retrospective behavior labels. The cohort contains every accepted opportunity in the ten-session main-account panel: 10 opportunities across 7 symbols and 5 trading dates, with 5,558 shares of fixed prospective quantity. This is representative of that registered accepted-panel slice, not of the full market or every rejected candidate. It remains unarmed and has made no Databento request or quote.
+Its first cohort is frozen without opening microstructure values or retrospective behavior labels. The cohort contains every accepted opportunity in the ten-session main-account panel: 10 opportunities across 7 symbols and 5 trading dates, with 5,558 shares of fixed prospective quantity. This is representative of that registered accepted-panel slice, not of the full market or every rejected candidate. Its separately authorized first attempt quoted all five requests below the aggregate cap and then stopped safely during the first request's DBN-to-DataFrame conversion. No behavioral values or cohort aggregate were produced.
 
 The two Alpaca paper accounts remain separately validated. The registered pre-session snapshot scheduler is scheduled for the ten registered market dates from August 24 through September 4 at 09:15 UTC (05:15 ET). The accounts should remain flat and their balances should not be reset during the study.
 
@@ -61,6 +61,15 @@ The two Alpaca paper accounts remain separately validated. The registered pre-se
 - Both cases reproduced their complete snapshot sequences exactly in independent feature engines. No retry occurred, and no raw records, feature values, credentials, retrospective labels, thresholds, broker changes, or runtime authority were persisted.
 - The permanent success audit is `research/data-audits/databento-microstructure-feature-coverage-v0.2-run-32544425875-success-2026-08-21.json`, content SHA-256 `592a02b54fbaeb3182772905eb96fe50caba5c406e5aa79ee33218d8cb3c9ec5`.
 
+### Behavioral cohort first-attempt safe failure
+
+- Databento behavioral-cohort workflow `32550318387`, attempt 1, completed with a green workflow conclusion because it classified and sanitized the failure correctly; that green status is not a successful behavioral result.
+- Preflight quoted all five frozen requests at `$0.078219142556` and `69,989,304` total billable bytes, below the authorized `$0.25` and `225,000,000`-byte ceilings.
+- Exactly one timeseries request was made. The first GMM request reached DBN record conversion, then stopped with `record_payload_invalid`. No retry occurred, no partial cohort was substituted, and the remaining four requests were not downloaded.
+- The sanitized artifact contains no raw market data, feature snapshots, per-opportunity values, retrospective labels, thresholds, strategy changes, broker actions, or runtime authority. Actual billing remains unknown.
+- The pinned SDK compatibility review found that Databento 0.83 uses `price_type="fixed"` for integer nanounit prices and does not accept the harness's removed `pretty_px` keyword. The registered correction changes only that conversion call and adds an exact-signature regression test; it makes no provider request and authorizes no rerun.
+- The permanent safe-failure audit is `research/data-audits/databento-microstructure-behavioral-cohort-v0.1-run-32550318387-safe-failure-2026-08-21.json`, content SHA-256 `724a081a2e282f3e5e988dd971ec18fb00b42139feacb150e55bbb91324cc860`.
+
 ## New unarmed development
 
 `databento-microstructure-fill-cancel-repair-v0.1`, content SHA-256 `a5e8e0381e893610b641ce9a41d31138c1bde2134614efe7ebce725383b6abf0`, freezes the parser repair supported by the classifier result. It matches within the existing `(publisher_id, instrument_id)` / `F_LAST` event boundary, maximizes already-valid exact five-field matches, and then pairs remaining Fill markers and Cancels as a multiset by `(order_id, side)`.
@@ -73,15 +82,15 @@ The Fill marker remains book-neutral. A matched Cancel becomes the canonical Fil
 
 `microstructure-behavioral-comparison-v0.1`, content SHA-256 `7409973d369876d29a020785cc2f48bc945129d705648f793d693667dcdd3802`, freezes the first label-blind behavioral comparison. It binds the verified four-case audit, retains all registered metrics and horizons, enforces disjoint pre/post receive-time windows, propagates unavailable families, and keeps prospective depth-walk quantities fixed. It is unarmed: no representative cohort is selected, no provider request or spend is authorized, no feature value is persisted, and no runtime authority exists.
 
-`microstructure-behavioral-cohort-v0.1`, content SHA-256 `2f97f8f2916113cf3e29fe398da7f38d72c1db0b79704cadb0b635ea062a939e`, mechanically freezes all 10 accepted main-account opportunities, their causal anchors, plans, and 5,558-share prospective quantities. It binds five exact date-grouped `XNAS.ITCH` MBO requests covering seven symbol-dates and minimizes each request end to the latest same-date anchor plus ten seconds and one nanosecond. A future execution gate would have to quote all five requests before any download, stop if aggregate quoted cost exceeds `$0.25` or aggregate billable size exceeds `225,000,000` bytes, and allow no retry or partial substitution. This registration itself authorizes zero requests, zero bytes, and zero spend.
+`microstructure-behavioral-cohort-v0.1`, content SHA-256 `2f97f8f2916113cf3e29fe398da7f38d72c1db0b79704cadb0b635ea062a939e`, mechanically freezes all 10 accepted main-account opportunities, their causal anchors, plans, and 5,558-share prospective quantities. It binds five exact date-grouped `XNAS.ITCH` MBO requests covering seven symbol-dates and minimizes each request end to the latest same-date anchor plus ten seconds and one nanosecond. Its execution gate quoted all five requests before the first download, stayed below the aggregate `$0.25` and `225,000,000`-byte ceilings, and allowed no retry or partial substitution. The cohort registration itself originally authorized zero requests, zero bytes, and zero spend; the separate first-attempt authorization is now consumed.
 
-The unarmed `databento_behavioral_cohort_execution_v01` harness now implements that frozen gate without making a provider call. It maps each date-grouped DBN stream with the store's embedded symbology, preserves per-instrument `F_LAST` event boundaries, applies the frozen Fill/Cancel repair, rejects any checkpoint inside an incomplete atomic event, and compares two independently exact replays at every frozen anchor and horizon. Its future artifact is limited to cohort aggregates and cryptographic digests; raw records, feature snapshots, per-opportunity values, labels, thresholds, broker actions, and runtime authority remain prohibited. The workflow is inert until a sole parent-bound execution authorization is published as its direct child.
+The `databento_behavioral_cohort_execution_v01` harness implements that frozen gate. Its consumed first attempt exposed a DBN DataFrame conversion incompatibility before feature replay. The unarmed compatibility correction now maps embedded symbology with Databento 0.83's `price_type="fixed"`, preserves per-instrument `F_LAST` event boundaries, applies the frozen Fill/Cancel repair, rejects any checkpoint inside an incomplete atomic event, and compares two independently exact replays at every frozen anchor and horizon. Any future artifact remains limited to cohort aggregates and cryptographic digests; raw records, feature snapshots, per-opportunity values, labels, thresholds, broker actions, and runtime authority remain prohibited. The existing first-attempt authorization cannot be reused, and the repair alone does not trigger the workflow.
 
 ## Active gates, in order
 
 1. Preserve the verified INTJ, EQPT, AMC, and GMM audits without rerunning any one-shot workflow.
-2. Preserve the unarmed accepted-panel cohort, its fixed quantities, and its exact five-request preflight contract without opening feature values or retrospective labels.
-3. Publish the sole direct-child cohort execution authorization only against the verified unarmed harness checkpoint. It must preserve all five requests, quote every request before the first download, enforce the aggregate `$0.25` and `225,000,000`-byte ceilings, and permit no retry or partial substitution.
+2. Preserve the accepted-panel cohort, its fixed quantities, the consumed first-attempt safe failure, and its exact five-request preflight contract without opening feature values or retrospective labels.
+3. Keep the DataFrame compatibility repair unarmed. Any later cohort attempt must use a new versioned execution contract and a new sole direct-child authorization; it must not retry workflow `32550318387` or reuse its consumed authorization.
 4. Let the registered account snapshot workflow capture both accounts on every August 24–September 4 date. Confirm each scheduled run succeeds and preserve the artifacts.
 5. Use any later frozen behavioral artifact only as shadow evidence and integrate it with the existing prospective execution scenarios on identical opportunities.
 6. Complete the larger representative walk-forward and prospective paper sequence before any policy-promotion or profitability interpretation.
@@ -89,7 +98,7 @@ The unarmed `databento_behavioral_cohort_execution_v01` harness now implements t
 ## Still not ready
 
 - No full portfolio backtest is complete.
-- Four real-data engineering cases have completed under independently exact feature replay; the representative accepted-panel cohort is frozen, but its behavioral validation remains unrun.
+- Four real-data engineering cases have completed under independently exact feature replay; the representative accepted-panel cohort is frozen, but its first behavioral attempt stopped before producing a result.
 - No hidden-buyer, hidden-seller, tape-exit, or Level 2 entry threshold is selected.
 - No representative multi-regime feature validation, consolidated multi-venue book, live capture/reconnect path, calibrated queue/impact model, or full broker integration exists.
 - The complete Ross setup-family inventory remains unfinished.
@@ -107,5 +116,6 @@ Nothing is needed to preserve the four completed engineering results or to let t
 - AMC/GMM repaired-feature coverage and permanent success audit: 14/14 focused tests pass.
 - Unarmed microstructure behavioral comparison: 7/7 focused tests pass.
 - Unarmed accepted-panel behavioral cohort: 7/7 focused tests pass.
+- Behavioral-cohort execution repair and immutable safe-failure audit: 17/17 focused tests pass without a provider request.
 - EQPT and AMC/GMM repaired-feature workflows each completed on their authorized first attempt; no retry occurred.
-- Complete repository suite: 734/734 tests pass.
+- Complete repository suite: 744/744 tests pass.

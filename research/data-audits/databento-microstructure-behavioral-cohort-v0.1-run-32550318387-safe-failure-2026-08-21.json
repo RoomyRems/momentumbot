@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "audit_id": "databento-microstructure-behavioral-cohort-v0.1-run-32550318387-safe-failure-2026-08-21",
+  "audit_date": "2026-08-21",
+  "artifact_type": "independently_verified_sanitized_databento_behavioral_cohort_safe_failure",
+  "contract": {
+    "cohort_id": "microstructure-behavioral-cohort-v0.1",
+    "cohort_content_sha256": "2f97f8f2916113cf3e29fe398da7f38d72c1db0b79704cadb0b635ea062a939e",
+    "behavioral_protocol_content_sha256": "7409973d369876d29a020785cc2f48bc945129d705648f793d693667dcdd3802",
+    "execution_authorization_id": "microstructure-behavioral-cohort-v0.1-execution",
+    "execution_authorization_content_sha256": "d9d61c61ca05884fadd465eed6a89a27ed93756dfc1eda147a392ccbdbfa0f47"
+  },
+  "github_actions": {
+    "workflow_run_id": 32550318387,
+    "workflow_run_attempt": 1,
+    "workflow_conclusion": "success",
+    "workflow_head_sha": "761ffe3e99b54884b89e543290d88c9e32a0f689",
+    "workflow_head_tree_sha": "86068a06cb51524a0ca812d6d930bb3d7ab2c425",
+    "workflow_parent_sha": "17194f9066849c4d85842fa7156aa2bfb49b850a",
+    "job_id": 96975877938,
+    "job_conclusion": "success",
+    "every_job_step_succeeded": true,
+    "artifact_id": 9469841333,
+    "artifact_name": "databento-microstructure-behavioral-cohort-v0.1-32550318387-1",
+    "artifact_zip_size_bytes": 1895,
+    "artifact_zip_sha256": "87e62056c213795a8c483844735b68ee0e3af2f2ff700573b526bc0bea72f0d1",
+    "sanitized_report_file_size_bytes": 5029,
+    "sanitized_report_file_sha256": "d6234e82ba56abce2a161f8df5055b42cf5e7926e7a21433c9e3dae34a047306",
+    "sanitized_report_content_sha256": "7b1caaab90294a46bfc870a801b48516c71b0a74eac7588d2ffa2d520aa9412a"
+  },
+  "verified_preflight_and_attempt": {
+    "preflight_passed": true,
+    "request_count_expected": 5,
+    "request_count_quoted": 5,
+    "quote_rows": [
+      {
+        "request_id": "2026-07-10-GMM",
+        "symbols": [
+          "GMM"
+        ],
+        "quoted_cost_usd": "0.012163558602",
+        "billable_size_bytes": 10883768
+      },
+      {
+        "request_id": "2026-07-13-PLSM-VEEE",
+        "symbols": [
+          "PLSM",
+          "VEEE"
+        ],
+        "quoted_cost_usd": "0.032263693213",
+        "billable_size_bytes": 28869064
+      },
+      {
+        "request_id": "2026-07-14-NXTC-SHPH",
+        "symbols": [
+          "NXTC",
+          "SHPH"
+        ],
+        "quoted_cost_usd": "0.018088781834",
+        "billable_size_bytes": 16185568
+      },
+      {
+        "request_id": "2026-07-20-BIYA",
+        "symbols": [
+          "BIYA"
+        ],
+        "quoted_cost_usd": "0.013192641735",
+        "billable_size_bytes": 11804576
+      },
+      {
+        "request_id": "2026-07-23-NEUP",
+        "symbols": [
+          "NEUP"
+        ],
+        "quoted_cost_usd": "0.002510467172",
+        "billable_size_bytes": 2246328
+      }
+    ],
+    "total_quoted_cost_usd": "0.078219142556",
+    "total_billable_size_bytes": 69989304,
+    "hard_cost_ceiling_usd": "0.25",
+    "hard_billable_size_ceiling_bytes": 225000000,
+    "timeseries_request_count": 1,
+    "successful_download_summary_count": 0,
+    "actual_billing_known": false,
+    "automatic_retry_attempted": false,
+    "partial_cohort_substitution_attempted": false,
+    "first_attempt_only_observed": true,
+    "provider": "Databento",
+    "sdk_version": "0.83.0",
+    "dataset": "XNAS.ITCH",
+    "schema": "mbo"
+  },
+  "classified_failure": {
+    "diagnostic_observation_complete": true,
+    "safe_failure_classified": true,
+    "all_requests_succeeded": false,
+    "failure_request_id": "2026-07-10-GMM",
+    "failure_phase": "record",
+    "safe_error_code": "record_payload_invalid",
+    "direct_observation": "The first GMM request reached DBN record conversion and stopped safely before any feature comparison or behavioral aggregate was retained.",
+    "workflow_success_interpretation": "The green workflow conclusion means the failure was classified and the sanitized artifact was preserved; it is not a successful behavioral result."
+  },
+  "corrective_interpretation": {
+    "compatibility_diagnosis": "The pinned Databento 0.83 DBNStore.to_df interface accepts price_type rather than pretty_px. The harness supplied the removed pretty_px keyword, which is consistent with the sanitized record_payload_invalid failure.",
+    "registered_correction": "Convert DBN rows with map_symbols=true, pretty_ts=false, and price_type=fixed so prices remain integer nanounits without using the removed pretty_px argument.",
+    "diagnosis_is_inference_from_sanitized_failure_and_pinned_api": true,
+    "provider_rerun_authorized": false,
+    "automatic_retry_allowed": false,
+    "new_execution_authorization_required_for_any_later_attempt": true,
+    "strategy_or_threshold_failure_observed": false,
+    "policy_promotion_allowed": false
+  },
+  "safety_verification": {
+    "artifact_contains_exactly_one_sanitized_json_file": true,
+    "artifact_zip_digest_recomputed": true,
+    "sanitized_report_file_digest_recomputed": true,
+    "sanitized_report_content_digest_recomputed": true,
+    "batch_or_live_endpoint_called": false,
+    "provider_credential_persisted": false,
+    "raw_market_data_persisted": false,
+    "raw_market_data_uploaded": false,
+    "raw_temp_directory_empty_before_cleanup": true,
+    "raw_temp_directory_removed": true,
+    "retrospective_labels_loaded": false,
+    "feature_snapshot_values_persisted": false,
+    "derived_behavioral_values_persisted": false,
+    "runtime_authority_created": false,
+    "broker_or_order_change_made": false,
+    "strategy_or_threshold_change_made": false
+  },
+  "bound_files": [
+    {
+      "path": ".github/workflows/databento-microstructure-behavioral-cohort-v01.yml",
+      "file_sha256": "f6d1bddb6397406e4b9e5555040a2f64a579d5d9f68ea2b5494a02b7351ff996"
+    },
+    {
+      "path": "research/strategy/microstructure-behavioral-cohort-v0.1-execution.json",
+      "file_sha256": "29a07ba8c6b157cfb396ce045779662ddcc981ae1ad068c59aafb7c5fd2fc5ef"
+    },
+    {
+      "path": "scripts/run_databento_microstructure_behavioral_cohort_v01.py",
+      "file_sha256": "2e31d1b1729183de0fc9dac01cc1744c10b07e38383da94d2c9d6379bfc0258d"
+    },
+    {
+      "path": "src/momentumbot/research/databento_behavioral_cohort_execution_v01.py",
+      "file_sha256": "d77e44f60a171b10d2a0a556a891a753876b7b85bf7bc5f7a2b6fda95c8c4fe4"
+    },
+    {
+      "path": "tests/test_databento_behavioral_cohort_execution_v01.py",
+      "file_sha256": "2da45fb2cabf09b88b58ba3cdb32bb14080134d17b72d931da6522d302e8599f"
+    }
+  ],
+  "content_sha256": "724a081a2e282f3e5e988dd971ec18fb00b42139feacb150e55bbb91324cc860"
+}
