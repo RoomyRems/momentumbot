@@ -163,6 +163,31 @@ and hashed before the separate retrospective label bundle can be opened. No
 panel runtime, label, later outcome, P&L, provider call, credential, or broker
 order was loaded by this registration.
 
+`prospective-daily-account-runtime-v0.1` now implements the provider-free
+four-parent composer between daily acquisition and that evaluator. It
+reconstructs and validates the complete scanner/Micro source, opportunity and
+request freeze, normalized receive-time L1/status capture, and both causal
+pre-session account snapshots before emitting anything.
+
+Every registered date produces exactly 12 independently hashed sessions: two
+accounts across the three behavioral horizons and two execution scenarios. The
+candidate identity is identical across every cell, account-profile differences
+remain explicit, and zero-opportunity dates still produce all 12 session rows.
+The synthetic rehearsal exercises the actual frozen builders, account ledger,
+marketable-limit simulator, partial-fill mechanics, fee schedule, and evaluation
+projection without a provider, credential, broker, or retrospective input.
+
+Entry quantity uses the causal decision-time marketable limit as a conservative
+sizing price inside the unchanged paper-safe account constraints. Account-local
+scarcity and one in-flight entry attempt are deterministic. Missing status or a
+missing causal quote remains unavailable without SIP substitution.
+
+The existing capture ends 550 ms after the decision, so it cannot support the
+registered one-minute management rule. Accepted fills therefore remain
+explicitly open with no invented exit or P&L. This intentionally makes those
+account/cells ineligible for conditional portfolio metrics and identifies the
+longer management-window capture as the next data dependency.
+
 ## Active gates, in order
 
 1. Preserve the completed cohort and all earlier real-data audits without
@@ -184,13 +209,17 @@ order was loaded by this registration.
    exact re-quotes to remain within the quote-bound ceilings before downloading,
    and retain only a complete normalized capture. Preserve missing or unknown
    quote and status inputs as unavailable without SIP-print substitution.
-7. Populate all three horizons and both fixed execution scenarios together on
-   identical opportunity inputs without scoring, ranking, or selecting a cell.
-8. After all ten sessions, freeze the complete runtime and account-cell hash
+7. Run the provider-free daily account composer on each exact source, account,
+   freeze, and normalized market-input artifact. Preserve all 12 account/cell
+   sessions, unavailable inputs, modeled entries, and unresolved positions.
+8. Preregister and implement a causal management-window capture sufficient for
+   the selected one-minute exit rule; never infer exits from the current 550 ms
+   entry window.
+9. After all ten sessions, assemble and freeze the complete 120-session runtime and account-cell hash
    chain before opening structured retrospective labels. Run the preregistered
    component comparison and release portfolio fields only for complete, flat,
    fully available account-cells.
-9. Complete a larger representative walk-forward before any policy-promotion,
+10. Complete a larger representative walk-forward before any policy-promotion,
    Ross-replication, or profitability interpretation.
 
 ## Still not ready
@@ -198,6 +227,10 @@ order was loaded by this registration.
 - No full portfolio backtest is complete.
 - No prospective account-evaluation result exists; only its outcome-blind
   metric and completeness contract is registered.
+- No real daily account runtime exists yet; the complete composer has passed a
+  provider-free synthetic rehearsal only.
+- The current 550 ms capture cannot model the selected one-minute exit rule, so
+  accepted prospective entries remain open until a management capture exists.
 - No feature horizon or threshold is selected.
 - The behavioral result is a 10-opportunity accepted-panel aggregate, not a
   representative multi-regime validation or a profitability result.
@@ -232,4 +265,8 @@ order was loaded by this registration.
   runtime-before-label timestamps, full pairwise entry/exit references,
   recomputed component aggregates, write-once output, and null-only financial
   interpretation for incomplete, unavailable, or open account-cells.
-- Complete provider-free repository suite: 845 tests passed on August 22, 2026.
+- Prospective daily account-runtime tests are deterministic and provider-free;
+  they exercise the complete synthetic parent chain, all 12 sessions, account
+  qualification, scenario separation, unavailable inputs, zero opportunities,
+  hash binding, write-once output, and retrospective-key rejection.
+- Complete provider-free repository suite: 856 tests passed on August 22, 2026.

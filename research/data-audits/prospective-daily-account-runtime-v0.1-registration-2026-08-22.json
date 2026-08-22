@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "audit_id": "prospective-daily-account-runtime-v0.1-registration-2026-08-22",
+  "audit_date": "2026-08-22",
+  "artifact_type": "unrun_label_blind_daily_account_runtime_registration",
+  "contract": {
+    "contract_id": "prospective-daily-account-runtime-v0.1",
+    "content_sha256": "dea1d60a804626ca623512d8f4828b40eca7fa57da85b12525926fc04c3d0531",
+    "file_sha256": "1bc282adda2c989c32db0214e0282341ace87fbc9392241ae0a98fc61cbdc777",
+    "registration_status": "registered_before_first_prospective_session"
+  },
+  "frozen_parents": {
+    "panel_id": "ross-account-integration-panel-v0.1",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "daily_source_contract_content_sha256": "99ba9f54ac50a913e64d78bb727351b67f8182818c54519f7d8be428651d6f38",
+    "opportunity_freeze_contract_content_sha256": "13e4458b20b64c81dc24508d2515b20cce8b61f565816e0a3ba0eea4dcee66e1",
+    "market_input_capture_contract_content_sha256": "0435f7d857a3efd12f0e325953b242572ffceb17aa07d421b1e89b7dd95ca774",
+    "account_snapshot_capture_contract_content_sha256": "5e967dbbbe2ee53187940f2ea720bd1937a4391710c97043ec03cc80c9b257b7",
+    "account_integration_contract_content_sha256": "64489aa27fec5eaf8ca12c94f4aeb47344d49a79b14df1bdda706cd23cc9ce73",
+    "prospective_execution_contract_content_sha256": "14812b9f25b5ea7230254ed86b1e0eaa30fffe3dc13b1ee141b19770706090f9",
+    "prospective_account_evaluation_contract_content_sha256": "537287a04f35d81d8104f67a02cdcd352ee880cc8703fd8b8a61c68d971d5d5c"
+  },
+  "registered_scope": {
+    "account_ids": [
+      "main_account",
+      "small_account"
+    ],
+    "behavioral_horizons_seconds": [
+      1,
+      5,
+      10
+    ],
+    "execution_scenario_ids": [
+      "l1-conservative-v0.1",
+      "l1-stress-v0.1"
+    ],
+    "daily_session_record_count": 12,
+    "ten_date_session_record_count": 120,
+    "candidate_identity_equal_across_cells": true,
+    "best_cell_selection_allowed": false,
+    "one_inflight_entry_attempt_per_account": true,
+    "entry_sizing_price": "causal_marketable_limit",
+    "management_input_window_sufficient": false,
+    "accepted_entries_remain_open": true
+  },
+  "mechanical_verification": {
+    "contract_content_fingerprint_recomputed": true,
+    "all_parent_content_hashes_recomputed": true,
+    "all_parent_cross_bindings_recomputed": true,
+    "synthetic_full_chain_rehearsed": true,
+    "actual_source_builder_used": true,
+    "actual_opportunity_freeze_builder_used": true,
+    "actual_market_capture_builder_used": true,
+    "actual_account_capture_builder_used": true,
+    "actual_execution_simulator_used": true,
+    "actual_campaign_ledger_used": true,
+    "actual_fee_schedule_used": true,
+    "actual_evaluation_types_used": true,
+    "exact_twelve_daily_sessions_required": true,
+    "account_profile_difference_retained": true,
+    "execution_scenarios_reported_separately": true,
+    "behavioral_horizons_not_selected": true,
+    "partial_fill_mechanics_retained": true,
+    "unavailable_status_fails_closed": true,
+    "zero_opportunity_date_retained": true,
+    "unresolved_management_positions_remain_open": true,
+    "decision_to_session_hash_binding_required": true,
+    "retrospective_runtime_keys_rejected": true,
+    "write_once_cli_implemented": true,
+    "workflow_requires_exact_successful_parent_runs": true,
+    "workflow_has_no_provider_or_broker_credentials": true,
+    "complete_repository_suite_required_before_publication": true
+  },
+  "execution_status": {
+    "prospective_panel_started": false,
+    "real_daily_runtime_created": false,
+    "real_account_snapshot_loaded": false,
+    "real_market_input_capture_loaded": false,
+    "retrospective_label_loaded": false,
+    "later_price_or_pnl_loaded": false,
+    "provider_call_run": false,
+    "provider_credential_loaded": false,
+    "broker_credential_loaded": false,
+    "broker_order_submitted": false,
+    "paper_order_submitted": false,
+    "live_order_submitted": false,
+    "best_cell_selected": false,
+    "policy_promoted": false
+  },
+  "authority_boundary": {
+    "runtime_strategy_effect": "none_shadow_composition_only",
+    "provider_call_authorized": false,
+    "provider_credential_authorized": false,
+    "broker_credential_authorized": false,
+    "paper_order_authorized": false,
+    "live_order_authorized": false,
+    "retrospective_label_access_authorized": false,
+    "later_price_access_authorized": false,
+    "best_cell_selection_authorized": false,
+    "policy_promotion_eligible": false,
+    "profitability_claim_eligible": false,
+    "ross_replication_claim_eligible": false
+  },
+  "bound_files": [
+    {
+      "path": "research/strategy/prospective-daily-account-runtime-v0.1.json",
+      "file_sha256": "1bc282adda2c989c32db0214e0282341ace87fbc9392241ae0a98fc61cbdc777"
+    },
+    {
+      "path": "src/momentumbot/research/prospective_daily_account_runtime.py",
+      "file_sha256": "45473afe1b947d56fd794ca80a9f72cc7934ca446a161ecb3c7f6ab1e4080d2a"
+    },
+    {
+      "path": "scripts/build_prospective_daily_account_runtime.py",
+      "file_sha256": "e8de3b1cc7dadb9e731d380cddb5651f5fa58a50b013a65448271bb144027692"
+    },
+    {
+      "path": ".github/workflows/prospective-daily-account-runtime.yml",
+      "file_sha256": "e3e371745393323b1616c9bf1895544fa60b72d2dd525230fd124c24016a164a"
+    },
+    {
+      "path": "docs/research/prospective_daily_account_runtime_v01.md",
+      "file_sha256": "6c5ba8207329861036b0273b19362ce7dda706b94b68a6831a970703dc71d5dc"
+    },
+    {
+      "path": "tests/test_prospective_daily_account_runtime.py",
+      "file_sha256": "caab3deee8224e4691de398212ba8ea78f2eefe1873a8a46979b673b3753a7be"
+    }
+  ],
+  "next_gate": "Run the exact provider-free composer on each registered date after all four parent artifacts exist, then preregister a longer causal management-window capture before resolving exits or interpreting conditional portfolio performance.",
+  "content_sha256": "8cbcab304d48073a749e8cd13c0e352598a498f2217384d5e11bf80e62bd14ec"
+}

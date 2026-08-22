@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "contract_id": "prospective-daily-account-runtime-v0.1",
+  "artifact_type": "preregistered_label_blind_daily_account_runtime_composer",
+  "registration_date": "2026-08-22",
+  "registration_status": "registered_before_first_prospective_session",
+  "purpose": "Compose each registered date's frozen daily source, opportunity, causal L1/status, and pre-session account inputs into the exact account-by-evaluation-cell runtime records required by the prospective evaluation contract.",
+  "hypothesis": "The frozen parent mechanics can be joined deterministically without retrospective inputs into twelve independently hash-bound account-session cells per date while preserving every candidate, plan, unavailable input, modeled fill, and unresolved open position.",
+  "frozen_parents": {
+    "panel_id": "ross-account-integration-panel-v0.1",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "daily_source_contract_content_sha256": "99ba9f54ac50a913e64d78bb727351b67f8182818c54519f7d8be428651d6f38",
+    "opportunity_freeze_contract_content_sha256": "13e4458b20b64c81dc24508d2515b20cce8b61f565816e0a3ba0eea4dcee66e1",
+    "market_input_capture_contract_content_sha256": "0435f7d857a3efd12f0e325953b242572ffceb17aa07d421b1e89b7dd95ca774",
+    "account_snapshot_capture_contract_content_sha256": "5e967dbbbe2ee53187940f2ea720bd1937a4391710c97043ec03cc80c9b257b7",
+    "account_integration_contract_content_sha256": "64489aa27fec5eaf8ca12c94f4aeb47344d49a79b14df1bdda706cd23cc9ce73",
+    "prospective_execution_contract_content_sha256": "14812b9f25b5ea7230254ed86b1e0eaa30fffe3dc13b1ee141b19770706090f9",
+    "prospective_account_evaluation_contract_content_sha256": "537287a04f35d81d8104f67a02cdcd352ee880cc8703fd8b8a61c68d971d5d5c"
+  },
+  "input_chain": {
+    "daily_source_bundle_files": [
+      "scanner-runtime.json",
+      "micro-trigger-runtime.json",
+      "prospective-daily-micro-decision-source.json",
+      "producer-manifest.json"
+    ],
+    "opportunity_freeze_bundle_files": [
+      "opportunity-manifest.json",
+      "request-manifest.json",
+      "freeze-manifest.json"
+    ],
+    "market_input_capture_file": "market-input-capture.json",
+    "account_snapshot_bundle_files": [
+      "main.json",
+      "small.json",
+      "manifest.json"
+    ],
+    "all_content_hashes_and_cross_bindings_recomputed": true,
+    "missing_parent_behavior": "fail_closed_without_runtime_artifact"
+  },
+  "registered_cells": {
+    "accounts": [
+      "main_account",
+      "small_account"
+    ],
+    "behavioral_horizons_seconds": [
+      1,
+      5,
+      10
+    ],
+    "execution_scenario_ids": [
+      "l1-conservative-v0.1",
+      "l1-stress-v0.1"
+    ],
+    "daily_session_record_count": 12,
+    "ten_date_session_record_count": 120,
+    "identical_candidate_identity_across_all_cells": true,
+    "behavioral_horizon_runtime_role": "equal_report_identity_only_no_per_opportunity_modifier",
+    "best_cell_selection_allowed": false
+  },
+  "chronology_and_scarcity": {
+    "event_order": [
+      "timestamp ascending",
+      "all plan emissions before entry fills at the same timestamp",
+      "same-time entry submissions by frozen account-local scarcity priority",
+      "stable identifier tie-breakers"
+    ],
+    "one_inflight_entry_attempt_per_account": true,
+    "inflight_attempt_end": "cancel acknowledgement even after a partial fill",
+    "cross_account_priority": "not_applied_accounts_remain_independent",
+    "unqualified_candidate_behavior": "retain_as_not_submitted_with_zero_plans"
+  },
+  "entry_execution": {
+    "side": "buy_only",
+    "decision_reference": "latest complete nonhalted top_of_book_ask_at_or_before_decision_within_100ms",
+    "order_type": "marketable_limit_shadow",
+    "quantity_rule": "maximum positive whole shares inside frozen paper-safe capacity using the causal marketable limit as a conservative sizing price",
+    "partial_fills_retained": true,
+    "unavailable_inputs_retained": true,
+    "sip_or_trade_print_fallback_allowed": false,
+    "broker_submission_allowed": false
+  },
+  "management_coverage": {
+    "registered_rule": "half-2r-breakeven-first-red-1m",
+    "current_capture_window_after_decision_ms": 550,
+    "one_minute_management_inputs_available": false,
+    "filled_position_representation": "open_unresolved",
+    "synthetic_exit_allowed": false,
+    "conditional_portfolio_metrics_eligible_until_flat_complete_inputs": false
+  },
+  "output_contract": {
+    "daily_artifact_type": "label_blind_prospective_daily_account_runtime",
+    "opportunity_level_attempts_retained": true,
+    "symbol_account_evaluation_projection_retained": true,
+    "each_decision_binds_exact_account_session_hash": true,
+    "zero_opportunity_date_emits_twelve_sessions": true,
+    "runtime_frozen_before_retrospective_review": true,
+    "raw_transcript_text_persisted": false
+  },
+  "prohibited_inputs_and_actions": [
+    "Ross actions, fills, skips, recaps, transcript text, or retrospective labels",
+    "later prices, exits, P&L, or outcomes not present in the frozen causal input chain",
+    "case-by-case account, symbol, horizon, scenario, threshold, or priority overrides",
+    "behavioral horizon or execution scenario selection",
+    "provider calls, credential loading, broker calls, paper orders, or live orders",
+    "invented management exits or conditional portfolio claims while positions remain open"
+  ],
+  "authority_boundary": {
+    "runtime_strategy_effect": "none_shadow_composition_only",
+    "provider_call_authorized": false,
+    "provider_credential_authorized": false,
+    "broker_credential_authorized": false,
+    "paper_order_authorized": false,
+    "live_order_authorized": false,
+    "retrospective_label_access_authorized": false,
+    "later_price_access_authorized": false,
+    "best_cell_selection_authorized": false,
+    "policy_promotion_eligible": false,
+    "profitability_claim_eligible": false,
+    "ross_replication_claim_eligible": false
+  },
+  "next_gate": "Rehearse the entire provider-free chain synthetically, then collect and freeze each real daily twelve-session artifact. Add a separately preregistered management-window capture before interpreting exit alignment or conditional portfolio performance.",
+  "content_sha256": "dea1d60a804626ca623512d8f4828b40eca7fa57da85b12525926fc04c3d0531"
+}
