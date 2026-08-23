@@ -1,0 +1,447 @@
+name: Prospective management window v0.1
+run-name: Prospective management window v0.1 / ${{ inputs.mode || 'scheduled-capture' }} / ${{ inputs.trading_date || github.event.schedule || 'validation' }}
+
+on:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - .github/workflows/prospective-management-window.yml
+      - research/strategy/prospective-management-window-capture-v0.1.json
+      - research/data-audits/prospective-management-window-capture-v0.1-registration-2026-08-22.json
+      - src/momentumbot/research/prospective_management_window.py
+      - scripts/run_prospective_management_window.py
+      - docs/research/prospective_management_window_v01.md
+      - tests/test_prospective_management_window.py
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: Validate, capture one frozen date, or project exact frozen parents
+        required: true
+        default: validate
+        type: choice
+        options:
+          - validate
+          - capture
+          - project
+      trading_date:
+        description: Registered panel date (YYYY-MM-DD); blank for validation
+        required: false
+        type: string
+      runtime_commit_sha:
+        description: Exact research-branch commit containing this registered child
+        required: false
+        type: string
+      freeze_run_id:
+        description: Exact successful opportunity-freeze run ID for capture
+        required: false
+        type: string
+      freeze_run_attempt:
+        description: Exact opportunity-freeze run attempt for capture
+        required: false
+        type: string
+      freeze_artifact_name:
+        description: Exact opportunity-freeze artifact name for capture
+        required: false
+        type: string
+      daily_runtime_run_id:
+        description: Exact successful daily-account-runtime run ID for projection
+        required: false
+        type: string
+      daily_runtime_run_attempt:
+        description: Exact daily-account-runtime run attempt for projection
+        required: false
+        type: string
+      daily_runtime_artifact_name:
+        description: Exact daily-account-runtime artifact name for projection
+        required: false
+        type: string
+      capture_run_id:
+        description: Exact successful management-capture run ID for projection
+        required: false
+        type: string
+      capture_run_attempt:
+        description: Exact management-capture run attempt for projection
+        required: false
+        type: string
+      capture_artifact_name:
+        description: Exact management-capture artifact name for projection
+        required: false
+        type: string
+  schedule:
+    # Registered dates are on EDT (UTC-4). The resolver also requires the
+    # exact frozen 2026 New York date, so these yearless crons cannot recur.
+    # 19:00 New York is after the 10:00 source window and 15-minute management
+    # horizon while leaving time for the automatically dispatched freeze.
+    - cron: "0 23 24-28,31 8 *"
+    - cron: "0 23 1-4 9 *"
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: prospective-management-window-v0.1-${{ inputs.trading_date || github.event.schedule || 'validation' }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.mode == 'validate')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: "3.12"
+      - name: Install project without credentials
+        run: python -m pip install -e .
+      - name: Rehearse provider-bounded capture and provider-free projection
+        run: python -m unittest tests.test_prospective_management_window -v
+      - name: Compile capture and projection entry points
+        run: >-
+          python -m py_compile
+          src/momentumbot/research/prospective_management_window.py
+          scripts/run_prospective_management_window.py
+
+  resolve-capture:
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.mode == 'capture')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      should_run: ${{ steps.resolve.outputs.should_run }}
+      trading_date: ${{ steps.resolve.outputs.trading_date }}
+      runtime_commit_sha: ${{ steps.resolve.outputs.runtime_commit_sha }}
+      freeze_run_id: ${{ steps.resolve.outputs.freeze_run_id }}
+      freeze_artifact_name: ${{ steps.resolve.outputs.freeze_artifact_name }}
+    steps:
+      - name: Resolve one exact freeze and reject a second capture attempt
+        id: resolve
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          GH_TOKEN: ${{ github.token }}
+          REQUESTED_ARTIFACT: ${{ inputs.freeze_artifact_name || '' }}
+          REQUESTED_ATTEMPT: ${{ inputs.freeze_run_attempt || '' }}
+          REQUESTED_DATE: ${{ inputs.trading_date || '' }}
+          REQUESTED_RUN_ID: ${{ inputs.freeze_run_id || '' }}
+          REQUESTED_RUNTIME_SHA: ${{ inputs.runtime_commit_sha || '' }}
+          THIS_RUN_ID: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          gh api --paginate --slurp \
+            "repos/${GITHUB_REPOSITORY}/actions/artifacts?per_page=100" \
+            > artifact-pages.json
+          gh api --paginate --slurp \
+            "repos/${GITHUB_REPOSITORY}/actions/workflows/prospective-management-window.yml/runs?per_page=100" \
+            > management-run-pages.json
+          python - <<'PY'
+          import json
+          import os
+          import re
+          from datetime import UTC, date, datetime
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+
+          registered = {
+              "2026-08-24", "2026-08-25", "2026-08-26", "2026-08-27",
+              "2026-08-28", "2026-08-31", "2026-09-01", "2026-09-02",
+              "2026-09-03", "2026-09-04",
+          }
+          today_et = datetime.now(ZoneInfo("America/New_York")).date().isoformat()
+          scheduled = os.environ["EVENT_NAME"] == "schedule"
+          target = today_et if scheduled else os.environ["REQUESTED_DATE"]
+          if target not in registered:
+              raise RuntimeError("capture date is not in the frozen 2026 panel")
+          if date.fromisoformat(target) > datetime.now(UTC).date():
+              raise RuntimeError("manual capture cannot claim a future date")
+          if scheduled and target != today_et:
+              raise RuntimeError("scheduled capture date differs from New York today")
+
+          artifact_pages = json.loads(Path("artifact-pages.json").read_text())
+          artifacts = [row for page in artifact_pages for row in page.get("artifacts", [])]
+          capture_prefix = f"prospective-management-window-capture-{target}-"
+          existing = [
+              row for row in artifacts
+              if row.get("expired") is False
+              and str(row.get("name", "")).startswith(capture_prefix)
+          ]
+          if existing:
+              if not scheduled:
+                  raise RuntimeError("an immutable management capture already exists for this date")
+              with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as handle:
+                  handle.write("should_run=false\n")
+                  handle.write(f"trading_date={target}\n")
+              raise SystemExit(0)
+
+          run_pages = json.loads(Path("management-run-pages.json").read_text())
+          prior_attempts = []
+          for page in run_pages:
+              for row in page.get("workflow_runs", []):
+                  if str(row.get("id")) == os.environ["THIS_RUN_ID"]:
+                      continue
+                  title = str(row.get("display_title", ""))
+                  created = datetime.fromisoformat(str(row["created_at"]).replace("Z", "+00:00"))
+                  same_manual = f" / capture / {target}" in title
+                  same_schedule = (
+                      " / scheduled-capture / " in title
+                      and created.astimezone(ZoneInfo("America/New_York")).date().isoformat() == target
+                  )
+                  if same_manual or same_schedule:
+                      prior_attempts.append(row)
+          if prior_attempts:
+              raise RuntimeError("a prior management capture workflow already attempted this date")
+
+          if scheduled:
+              expected_name = f"prospective-opportunity-freeze-{target}"
+              matching = [
+                  row for row in artifacts
+                  if row.get("expired") is False
+                  and row.get("name") == expected_name
+                  and datetime.fromisoformat(str(row["created_at"]).replace("Z", "+00:00"))
+                      .astimezone(ZoneInfo("America/New_York")).date().isoformat() == target
+              ]
+              if len(matching) != 1:
+                  raise RuntimeError("scheduled capture requires exactly one same-date opportunity freeze")
+              selected = matching[0]
+              source_run = selected.get("workflow_run") or {}
+              run_id = str(source_run.get("id", ""))
+              artifact_name = expected_name
+              expected_attempt = ""
+              runtime_sha = ""
+          else:
+              run_id = os.environ["REQUESTED_RUN_ID"]
+              artifact_name = os.environ["REQUESTED_ARTIFACT"]
+              expected_attempt = os.environ["REQUESTED_ATTEMPT"]
+              runtime_sha = os.environ["REQUESTED_RUNTIME_SHA"]
+              if artifact_name != f"prospective-opportunity-freeze-{target}":
+                  raise RuntimeError("manual freeze artifact name differs from the exact date")
+              if not expected_attempt.isdigit() or int(expected_attempt) < 1:
+                  raise RuntimeError("manual freeze run attempt is invalid")
+              if re.fullmatch(r"[0-9]+", run_id) is None:
+                  raise RuntimeError("manual freeze run ID is invalid")
+              if re.fullmatch(r"[0-9a-f]{40}", runtime_sha) is None:
+                  raise RuntimeError("manual runtime commit is invalid")
+              matching = [
+                  row for row in artifacts
+                  if row.get("expired") is False
+                  and row.get("name") == artifact_name
+                  and str((row.get("workflow_run") or {}).get("id", "")) == run_id
+              ]
+              if len(matching) != 1:
+                  raise RuntimeError("manual freeze run does not own exactly one named artifact")
+
+          Path("selection.json").write_text(json.dumps({
+              "trading_date": target,
+              "run_id": run_id,
+              "artifact_name": artifact_name,
+              "expected_attempt": expected_attempt,
+              "runtime_sha": runtime_sha,
+              "scheduled": scheduled,
+          }))
+          PY
+          if [[ ! -f selection.json ]]; then
+            exit 0
+          fi
+          freeze_run_id="$(jq -r '.run_id' selection.json)"
+          gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${freeze_run_id}" > freeze-run.json
+          python - <<'PY'
+          import json
+          import os
+          import re
+          from pathlib import Path
+
+          selection = json.loads(Path("selection.json").read_text())
+          run = json.loads(Path("freeze-run.json").read_text())
+          if run.get("conclusion") != "success":
+              raise RuntimeError("opportunity-freeze parent did not succeed")
+          if run.get("path") != ".github/workflows/prospective-opportunity-freeze.yml":
+              raise RuntimeError("named run is not the opportunity-freeze workflow")
+          if run.get("head_branch") != "phase-3-historical-snapshot":
+              raise RuntimeError("opportunity freeze did not run on the research branch")
+          actual_attempt = str(run.get("run_attempt", ""))
+          if selection["expected_attempt"] and actual_attempt != selection["expected_attempt"]:
+              raise RuntimeError("opportunity-freeze run attempt differs")
+          head = str(run.get("head_sha", ""))
+          if re.fullmatch(r"[0-9a-f]{40}", head) is None:
+              raise RuntimeError("opportunity-freeze runtime head is invalid")
+          if selection["runtime_sha"] and head != selection["runtime_sha"]:
+              raise RuntimeError("manual runtime commit differs from the freeze run head")
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as handle:
+              handle.write("should_run=true\n")
+              handle.write(f"trading_date={selection['trading_date']}\n")
+              handle.write(f"runtime_commit_sha={head}\n")
+              handle.write(f"freeze_run_id={selection['run_id']}\n")
+              handle.write(f"freeze_artifact_name={selection['artifact_name']}\n")
+          PY
+
+  capture:
+    needs: resolve-capture
+    if: needs.resolve-capture.outputs.should_run == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ needs.resolve-capture.outputs.runtime_commit_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Verify exact registered research commit and first attempt
+        env:
+          RUNTIME_COMMIT_SHA: ${{ needs.resolve-capture.outputs.runtime_commit_sha }}
+          WORKFLOW_RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$RUNTIME_COMMIT_SHA"
+          git merge-base --is-ancestor HEAD origin/phase-3-historical-snapshot
+          test "$WORKFLOW_RUN_ATTEMPT" = "1"
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: ${{ needs.resolve-capture.outputs.freeze_artifact_name }}
+          path: prospective-opportunity-freeze
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ needs.resolve-capture.outputs.freeze_run_id }}
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: "3.12"
+      - name: Install and reverify registered capture mechanics
+        run: |
+          python -m pip install -e .
+          python -m unittest tests.test_prospective_management_window -v
+      - name: Capture the exact causal SIP management window
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+          ALPACA_PAPER_ENDPOINT: ${{ secrets.ALPACA_PAPER_ENDPOINT || 'https://paper-api.alpaca.markets' }}
+          TRADING_DATE: ${{ needs.resolve-capture.outputs.trading_date }}
+        run: |
+          set -euo pipefail
+          python scripts/run_prospective_management_window.py capture \
+            --opportunity-manifest prospective-opportunity-freeze/opportunity-manifest.json \
+            --expected-trading-date "$TRADING_DATE" \
+            --output-dir prospective-management-window-capture
+      - name: Upload immutable label-blind management capture
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: prospective-management-window-capture-${{ needs.resolve-capture.outputs.trading_date }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: prospective-management-window-capture/
+          if-no-files-found: error
+          retention-days: 90
+
+  project:
+    if: github.event_name == 'workflow_dispatch' && inputs.mode == 'project'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Validate exact projection parents
+        env:
+          CAPTURE_ARTIFACT_NAME: ${{ inputs.capture_artifact_name || '' }}
+          CAPTURE_RUN_ATTEMPT: ${{ inputs.capture_run_attempt || '' }}
+          CAPTURE_RUN_ID: ${{ inputs.capture_run_id || '' }}
+          DAILY_ARTIFACT_NAME: ${{ inputs.daily_runtime_artifact_name || '' }}
+          DAILY_RUN_ATTEMPT: ${{ inputs.daily_runtime_run_attempt || '' }}
+          DAILY_RUN_ID: ${{ inputs.daily_runtime_run_id || '' }}
+          GH_TOKEN: ${{ github.token }}
+          RUNTIME_COMMIT_SHA: ${{ inputs.runtime_commit_sha || '' }}
+          TRADING_DATE: ${{ inputs.trading_date || '' }}
+          WORKFLOW_RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import os
+          import re
+
+          if os.environ["TRADING_DATE"] not in {
+              "2026-08-24", "2026-08-25", "2026-08-26", "2026-08-27",
+              "2026-08-28", "2026-08-31", "2026-09-01", "2026-09-02",
+              "2026-09-03", "2026-09-04",
+          }:
+              raise RuntimeError("projection date is not registered")
+          if re.fullmatch(r"[0-9a-f]{40}", os.environ["RUNTIME_COMMIT_SHA"]) is None:
+              raise RuntimeError("runtime commit is invalid")
+          if os.environ["WORKFLOW_RUN_ATTEMPT"] != "1":
+              raise RuntimeError("projection workflow reruns are not allowed")
+          for field in ("CAPTURE_RUN_ID", "DAILY_RUN_ID"):
+              if re.fullmatch(r"[0-9]+", os.environ[field]) is None:
+                  raise RuntimeError(f"{field} is invalid")
+          for field in ("CAPTURE_RUN_ATTEMPT", "DAILY_RUN_ATTEMPT"):
+              if not os.environ[field].isdigit() or int(os.environ[field]) < 1:
+                  raise RuntimeError(f"{field} is invalid")
+          date = os.environ["TRADING_DATE"]
+          if not os.environ["CAPTURE_ARTIFACT_NAME"].startswith(
+              f"prospective-management-window-capture-{date}-"
+          ):
+              raise RuntimeError("capture artifact name differs from the date")
+          if not os.environ["DAILY_ARTIFACT_NAME"].startswith(
+              f"prospective-daily-account-runtime-{date}-"
+          ):
+              raise RuntimeError("daily runtime artifact name differs from the date")
+          PY
+          verify_run() {
+            run_id="$1"
+            expected_attempt="$2"
+            expected_path="$3"
+            actual_attempt="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.run_attempt')"
+            conclusion="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.conclusion')"
+            path="$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}" --jq '.path')"
+            test "$actual_attempt" = "$expected_attempt"
+            test "$conclusion" = "success"
+            test "$path" = "$expected_path"
+          }
+          verify_run "$DAILY_RUN_ID" "$DAILY_RUN_ATTEMPT" ".github/workflows/prospective-daily-account-runtime.yml"
+          verify_run "$CAPTURE_RUN_ID" "$CAPTURE_RUN_ATTEMPT" ".github/workflows/prospective-management-window.yml"
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ inputs.runtime_commit_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Verify the exact runtime commit is published on the research branch
+        env:
+          RUNTIME_COMMIT_SHA: ${{ inputs.runtime_commit_sha }}
+        run: |
+          set -euo pipefail
+          test "$(git rev-parse HEAD)" = "$RUNTIME_COMMIT_SHA"
+          git merge-base --is-ancestor HEAD origin/phase-3-historical-snapshot
+      - name: Download exact immutable daily runtime
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: ${{ inputs.daily_runtime_artifact_name }}
+          path: prospective-daily-account-runtime
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.daily_runtime_run_id }}
+      - name: Download exact immutable management capture
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: ${{ inputs.capture_artifact_name }}
+          path: prospective-management-window-capture
+          github-token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          run-id: ${{ inputs.capture_run_id }}
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: "3.12"
+      - name: Install and reverify provider-free projection
+        run: |
+          python -m pip install -e .
+          python -m unittest tests.test_prospective_management_window -v
+      - name: Project descriptive management outcomes without mutating the ledger
+        env:
+          TRADING_DATE: ${{ inputs.trading_date }}
+        run: |
+          set -euo pipefail
+          python scripts/run_prospective_management_window.py project \
+            --daily-runtime prospective-daily-account-runtime/daily-account-runtime.json \
+            --management-capture prospective-management-window-capture/management-window-capture.json \
+            --expected-trading-date "$TRADING_DATE" \
+            --output-dir prospective-management-window-projection
+      - name: Upload immutable provider-free management projection
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: prospective-management-window-projection-${{ inputs.trading_date }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: prospective-management-window-projection/
+          if-no-files-found: error
+          retention-days: 90
