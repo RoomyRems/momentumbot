@@ -188,6 +188,31 @@ explicitly open with no invented exit or P&L. This intentionally makes those
 account/cells ineligible for conditional portfolio metrics and identifies the
 longer management-window capture as the next data dependency.
 
+`prospective-management-window-capture-v0.1` now registers and implements that
+data dependency without modifying the immutable daily composer. For every
+frozen opportunity it requests raw-adjusted Alpaca SIP one-minute bars and
+eligible transaction prints through an exact 15-minute signal window plus a
+60-second execution tail. Requests for overlapping same-symbol windows are
+merged, zero-opportunity dates make no provider call, and missing or incomplete
+paths remain unavailable without a later-price lookup or end-window
+liquidation.
+
+The provider-free projection applies the already-selected
+`half-2r-breakeven-first-red-1m` management translation to exact accepted L1
+entry fills in all 12 daily account/horizon/scenario cells. SIP prints remain
+transaction proxies rather than broker fills: the child does not mutate the
+parent ledger, mark a session flat, calculate sell fees or realized P&L, or
+make conditional portfolio statistics eligible. Multiple-entry/add campaigns
+remain unavailable because their management translation was never frozen.
+
+The new workflow schedules one historical capture at 19:00 New York on each
+exact registered date, checks out the successful opportunity-freeze run's code
+SHA, rejects a second capture attempt, and uses immutable commit pins for every
+third-party action. Projection is a separately invoked provider-free step bound
+to exact successful daily-runtime and management-capture artifacts. The
+registration itself made no provider call, loaded no credential or real panel
+artifact, and created no paper or live order authority.
+
 ## Active gates, in order
 
 1. Preserve the completed cohort and all earlier real-data audits without
@@ -212,15 +237,27 @@ longer management-window capture as the next data dependency.
 7. Run the provider-free daily account composer on each exact source, account,
    freeze, and normalized market-input artifact. Preserve all 12 account/cell
    sessions, unavailable inputs, modeled entries, and unresolved positions.
-8. Preregister and implement a causal management-window capture sufficient for
-   the selected one-minute exit rule; never infer exits from the current 550 ms
-   entry window.
+8. Let the registered one-attempt management workflow capture the fixed SIP
+   window for each exact opportunity freeze, then project descriptive exits on
+   the exact daily account runtime. Preserve censored, unavailable, add, and
+   re-entry cases; never convert a transaction print into a broker fill or
+   portfolio P&L.
 9. After all ten sessions, assemble and freeze the complete 120-session runtime and account-cell hash
    chain before opening structured retrospective labels. Run the preregistered
    component comparison and release portfolio fields only for complete, flat,
    fully available account-cells.
 10. Complete a larger representative walk-forward before any policy-promotion,
    Ross-replication, or profitability interpretation.
+
+## Pre-panel development freeze
+
+The known implementation dependency required for the August 24 panel is now
+closed. Strategy and architecture scope are frozen until the registered panel
+produces evidence. Do not add a setup family, AI layer, Level 2 feature,
+threshold, runtime rewrite, or new workflow family in the meantime. Appropriate
+work before September 4 is limited to operating the registered chain,
+preserving failures exactly, and repairing a mechanical defect only when that
+repair does not change strategy semantics or reopen an observed date.
 
 ## Still not ready
 
@@ -229,8 +266,9 @@ longer management-window capture as the next data dependency.
   metric and completeness contract is registered.
 - No real daily account runtime exists yet; the complete composer has passed a
   provider-free synthetic rehearsal only.
-- The current 550 ms capture cannot model the selected one-minute exit rule, so
-  accepted prospective entries remain open until a management capture exists.
+- No real prospective management-window capture or projection exists yet. The
+  registered child can produce descriptive exit evidence, but intentionally
+  leaves the parent ledger open and portfolio metrics ineligible.
 - No feature horizon or threshold is selected.
 - The behavioral result is a 10-opportunity accepted-panel aggregate, not a
   representative multi-regime validation or a profitability result.
@@ -269,4 +307,9 @@ longer management-window capture as the next data dependency.
   they exercise the complete synthetic parent chain, all 12 sessions, account
   qualification, scenario separation, unavailable inputs, zero opportunities,
   hash binding, write-once output, and retrospective-key rejection.
-- Complete provider-free repository suite: 856 tests passed on August 22, 2026.
+- Prospective management-window tests are deterministic and provider-free;
+  they cover exact SIP/raw request construction, zero opportunities,
+  transaction-condition filtering, odd-lot proxies, fixed-entry management,
+  unavailable paths, write-once artifacts, tamper rejection, immutable action
+  pins, first-attempt scheduling, and cell-to-flattened-row binding.
+- Complete provider-free repository suite: 868 tests passed on August 22, 2026.

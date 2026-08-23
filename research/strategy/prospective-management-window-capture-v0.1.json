@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "contract_id": "prospective-management-window-capture-v0.1",
+  "artifact_type": "preregistered_label_blind_sip_management_window_capture_and_projection",
+  "registration_date": "2026-08-22",
+  "registration_status": "registered_before_first_august_24_panel_session",
+  "purpose": "Preserve the causal one-minute bar and eligible SIP transaction path needed to evaluate the already-selected management rule on frozen prospective entry fills without claiming broker execution or portfolio P&L.",
+  "hypothesis": "A fixed post-decision SIP window will usually reveal whether the frozen half-at-2R, breakeven, first-red-one-minute translation reaches an observable exit while retaining censored and ambiguous cases instead of inventing outcomes.",
+  "frozen_parents": {
+    "panel_id": "ross-account-integration-panel-v0.1",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "daily_account_runtime_contract_id": "prospective-daily-account-runtime-v0.1",
+    "daily_account_runtime_contract_content_sha256": "dea1d60a804626ca623512d8f4828b40eca7fa57da85b12525926fc04c3d0531",
+    "prospective_management_execution_contract_id": "prospective-management-execution-v0.1",
+    "prospective_management_execution_contract_content_sha256": "14812b9f25b5ea7230254ed86b1e0eaa30fffe3dc13b1ee141b19770706090f9",
+    "trade_management_contract_id": "trade-management-shadow-v0.1",
+    "trade_management_contract_content_sha256": "0bc4d98d75815c316f61cb6a06d1ac7deb4b0948672fcae58dfbc250b2e59d25",
+    "selected_management_cell_id": "half-2r-breakeven-first-red-1m"
+  },
+  "source_scope": {
+    "provider": "Alpaca Historical Market Data API",
+    "feed": "sip",
+    "bar_timeframe": "1Min",
+    "bar_adjustment": "raw",
+    "trade_source": "historical SIP prints",
+    "point_in_time_symbol_asof": "registered trading date",
+    "bar_fields_persisted": [
+      "timestamp",
+      "open",
+      "close"
+    ],
+    "trade_fields_persisted": [
+      "timestamp",
+      "source_sequence",
+      "price",
+      "size",
+      "exchange",
+      "conditions",
+      "trade_id",
+      "tape",
+      "execution_via_odd_lot"
+    ],
+    "raw_provider_payload_persisted": false
+  },
+  "window_policy": {
+    "provider_and_bar_window_start": "floor each opportunity decision timestamp to its UTC minute",
+    "projection_trade_window_start": "exact opportunity decision timestamp",
+    "management_signal_window_after_decision_seconds": 900,
+    "execution_observation_tail_seconds": 60,
+    "request_end_is_exclusive": true,
+    "overlapping_same_symbol_requests_merged": true,
+    "case_specific_window_override_allowed": false,
+    "end_of_window_liquidation_allowed": false,
+    "window_censoring_behavior": "retain open or unavailable; never infer a later exit"
+  },
+  "capture_semantics": {
+    "opportunity_manifest_frozen_before_provider_call": true,
+    "every_exact_request_attempted_once": true,
+    "automatic_retry_or_symbol_substitution_allowed": false,
+    "provider_request_failure_behavior": "fail the daily capture closed without a partial artifact",
+    "one_minute_bar_price_source": "Alpaca raw SIP aggregate",
+    "execution_path_filter": "trade-management-shadow-v0.1 execution_eligible_trades",
+    "odd_lot_behavior": "retain an otherwise-clean odd-lot as transaction evidence only",
+    "unknown_or_disqualifying_trade_condition_behavior": "exclude fail closed",
+    "same_timestamp_trade_order": "stable original provider order through source_sequence",
+    "zero_opportunity_date_behavior": "emit a valid zero-request zero-path capture",
+    "credentials_or_provider_messages_persisted": false
+  },
+  "management_projection": {
+    "parent": "exact validated prospective-daily-account-runtime-v0.1 artifact",
+    "eligible_campaign": "exactly one accepted frozen entry fill for the account, scenario, and symbol",
+    "multiple_entry_or_add_campaign_behavior": "management unavailable because add and re-entry translation is outside the frozen child",
+    "future_transaction_rule": "strictly later than the external L1 entry fill timestamp",
+    "initial_stop": "exact accepted ledger entry stop; never widen",
+    "first_target": "actual L1 entry fill plus two times initial per-share risk",
+    "event_priority_on_each_eligible_print": [
+      "active stop",
+      "already-completed first red one-minute signal",
+      "first 2R target"
+    ],
+    "first_target_action": "record a one-half transaction proxy and move the remaining fractional stop to the actual entry fill",
+    "runner_action": "first eligible SIP print after the first completed red one-minute bar or active stop",
+    "partial_target_without_runner_exit": "retain partially realized open",
+    "projected_exit_status": "descriptive management shadow only",
+    "parent_ledger_mutated": false,
+    "sell_fee_or_realized_pnl_computed": false,
+    "portfolio_financial_metrics_eligible": false,
+    "entry_execution_scenarios_remain_separate": true,
+    "management_print_path_shared_across_entry_scenarios": true
+  },
+  "knowledge_boundary": {
+    "allowed_inputs": [
+      "frozen label-blind opportunity identity",
+      "frozen label-blind daily account runtime",
+      "causal Alpaca SIP one-minute bars and trades inside the fixed window"
+    ],
+    "ross_actions_fills_skips_recaps_or_transcripts_allowed": false,
+    "retrospective_labels_allowed": false,
+    "prices_outside_fixed_window_allowed": false,
+    "outcome_driven_retry_or_window_extension_allowed": false,
+    "best_horizon_or_scenario_selection_allowed": false
+  },
+  "authority_boundary": {
+    "historical_market_data_read_authorized_only_by_capture_workflow": true,
+    "broker_account_read_required": false,
+    "broker_order_authorized": false,
+    "paper_order_authorized": false,
+    "live_order_authorized": false,
+    "runtime_strategy_effect": "none_shadow_evidence_only",
+    "policy_promotion_eligible": false,
+    "profitability_claim_eligible": false,
+    "ross_replication_claim_eligible": false
+  },
+  "limitations": [
+    "A SIP transaction print does not establish that the modeled account could fill its quantity at that price.",
+    "The capture does not model quotes, spread, queue position, displayed or hidden liquidity, routing, latency, market impact, halts, or broker acknowledgements for exits.",
+    "The fixed fifteen-minute signal window censors later management outcomes and cannot be extended after observing a case.",
+    "Adds, re-entries, discretionary tape or seller exits, topping tails, buying slowdown, and session-close flattening remain outside this child.",
+    "The projection can support descriptive exit alignment but cannot make the account session flat for conditional portfolio evaluation."
+  ],
+  "next_gate": "Capture each registered date before opening retrospective labels, then run the provider-free projection on exact frozen daily account runtimes. Do not add strategy scope before the ten-date acquisition, participation, entry, and descriptive management evidence is assembled.",
+  "content_sha256": "97270ae8d401a20c7d5661fe49e36a65276ed00bf60098e9c466fa51b05518b0"
+}

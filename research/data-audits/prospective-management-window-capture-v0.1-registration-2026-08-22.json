@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "audit_id": "prospective-management-window-capture-v0.1-registration-2026-08-22",
+  "audit_date": "2026-08-22",
+  "artifact_type": "unrun_label_blind_sip_management_window_registration",
+  "contract": {
+    "contract_id": "prospective-management-window-capture-v0.1",
+    "content_sha256": "97270ae8d401a20c7d5661fe49e36a65276ed00bf60098e9c466fa51b05518b0",
+    "file_sha256": "dd42ad3b7e826e8893f63809d6c9804ac0efbfae708992e5c5bd4c0220ee5ae7",
+    "registration_status": "registered_before_first_august_24_panel_session"
+  },
+  "frozen_parents": {
+    "panel_id": "ross-account-integration-panel-v0.1",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "daily_account_runtime_contract_id": "prospective-daily-account-runtime-v0.1",
+    "daily_account_runtime_contract_content_sha256": "dea1d60a804626ca623512d8f4828b40eca7fa57da85b12525926fc04c3d0531",
+    "prospective_management_execution_contract_id": "prospective-management-execution-v0.1",
+    "prospective_management_execution_contract_content_sha256": "14812b9f25b5ea7230254ed86b1e0eaa30fffe3dc13b1ee141b19770706090f9",
+    "trade_management_contract_id": "trade-management-shadow-v0.1",
+    "trade_management_contract_content_sha256": "0bc4d98d75815c316f61cb6a06d1ac7deb4b0948672fcae58dfbc250b2e59d25",
+    "selected_management_cell_id": "half-2r-breakeven-first-red-1m"
+  },
+  "registered_scope": {
+    "registered_date_count": 10,
+    "account_ids": [
+      "main_account",
+      "small_account"
+    ],
+    "behavioral_horizons_seconds": [
+      1,
+      5,
+      10
+    ],
+    "execution_scenario_ids": [
+      "l1-conservative-v0.1",
+      "l1-stress-v0.1"
+    ],
+    "daily_projection_cell_count": 12,
+    "provider": "Alpaca Historical Market Data API",
+    "feed": "sip",
+    "bar_timeframe": "1Min",
+    "bar_adjustment": "raw",
+    "management_signal_window_seconds": 900,
+    "execution_observation_tail_seconds": 60,
+    "end_of_window_liquidation_allowed": false,
+    "parent_ledger_mutated": false,
+    "sell_fees_or_realized_pnl_computed": false,
+    "portfolio_financial_metrics_eligible": false,
+    "best_cell_selection_allowed": false
+  },
+  "mechanical_verification": {
+    "contract_content_fingerprint_recomputed": true,
+    "synthetic_capture_and_projection_rehearsed": true,
+    "exact_request_derivation_tested": true,
+    "overlapping_symbol_window_merge_tested": true,
+    "zero_opportunity_date_tested_without_provider_call": true,
+    "exact_sip_raw_asof_provider_parameters_tested": true,
+    "eligible_transaction_filter_tested": true,
+    "odd_lot_transaction_proxy_retained": true,
+    "unknown_condition_fails_closed": true,
+    "fixed_entry_management_rule_rehearsed": true,
+    "incomplete_path_remains_unavailable": true,
+    "end_of_window_liquidation_absent": true,
+    "write_once_outputs_tested": true,
+    "content_hash_tampering_rejected": true,
+    "projection_cells_bound_to_flattened_rows": true,
+    "workflow_requires_exact_successful_parent": true,
+    "workflow_rejects_second_date_capture_attempt": true,
+    "workflow_third_party_actions_immutably_pinned": true,
+    "workflow_has_no_account_or_order_credential": true,
+    "complete_repository_suite_required_before_publication": true
+  },
+  "execution_status": {
+    "prospective_panel_started": false,
+    "real_capture_created": false,
+    "real_projection_created": false,
+    "real_daily_runtime_loaded": false,
+    "real_opportunity_manifest_loaded": false,
+    "retrospective_label_loaded": false,
+    "later_price_or_pnl_loaded": false,
+    "provider_call_run": false,
+    "provider_credential_loaded": false,
+    "broker_account_read": false,
+    "broker_order_submitted": false,
+    "paper_order_submitted": false,
+    "live_order_submitted": false,
+    "best_cell_selected": false,
+    "policy_promoted": false
+  },
+  "authority_boundary": {
+    "runtime_strategy_effect": "none_shadow_evidence_only",
+    "scheduled_historical_market_data_capture_authorized": true,
+    "capture_dates_limited_to_exact_registered_panel": true,
+    "automatic_retry_or_outcome_driven_extension_authorized": false,
+    "broker_account_read_authorized": false,
+    "broker_order_authorized": false,
+    "paper_order_authorized": false,
+    "live_order_authorized": false,
+    "retrospective_label_access_authorized": false,
+    "best_cell_selection_authorized": false,
+    "policy_promotion_eligible": false,
+    "profitability_claim_eligible": false,
+    "ross_replication_claim_eligible": false
+  },
+  "bound_files": [
+    {
+      "path": "research/strategy/prospective-management-window-capture-v0.1.json",
+      "file_sha256": "dd42ad3b7e826e8893f63809d6c9804ac0efbfae708992e5c5bd4c0220ee5ae7"
+    },
+    {
+      "path": "src/momentumbot/research/prospective_management_window.py",
+      "file_sha256": "bc431e578c7c85e1c72c72eda60ff212cf128cd5fd52cae3dcbed1bcc36523e8"
+    },
+    {
+      "path": "scripts/run_prospective_management_window.py",
+      "file_sha256": "e58bc473c2b3bf842aa44934fa521caaa3a2906228b405c614c3b24e50b3db27"
+    },
+    {
+      "path": ".github/workflows/prospective-management-window.yml",
+      "file_sha256": "6a3f8551b82910c54180950409c9eb44fab45afa9b5b92425407748184895ac8"
+    },
+    {
+      "path": "docs/research/prospective_management_window_v01.md",
+      "file_sha256": "9d754b93a3ecedf9e1b914902a7c0b655122f74c4314ed40531cee8e816d3c69"
+    },
+    {
+      "path": "tests/test_prospective_management_window.py",
+      "file_sha256": "44d42c37401744b277ba94918c226e954d4db996d68649a8ac231092acc29e1e"
+    }
+  ],
+  "next_gate": "Publish and verify the registered child, then freeze strategy and architecture work while all ten August 24 through September 4 label-blind sessions are collected. Open retrospective labels only after the complete runtime chain is frozen.",
+  "content_sha256": "e74ccd5590da8a07e20cda0ed7f39b62d1326f2920e0189e5d259d6dd79199cf"
+}
