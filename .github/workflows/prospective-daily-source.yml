@@ -276,7 +276,7 @@ jobs:
           path = Path(os.environ["PREREQUISITE_FILE"])
           payload = json.loads(path.read_text())
           unsigned = {key: value for key, value in payload.items() if key != "content_sha256"}
-          encoded = json.dumps(unsigned, ensure_ascii=True, separators=(",", ":"), sort_keys=True).encode()
+          encoded = json.dumps(unsigned, ensure_ascii=False, separators=(",", ":"), sort_keys=True).encode()
           if payload.get("content_sha256") != hashlib.sha256(encoded).hexdigest():
               raise RuntimeError("pre-session prerequisite content hash mismatch")
           if payload.get("trading_date") != os.environ["TRADING_DATE"]:
