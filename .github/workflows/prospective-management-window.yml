@@ -203,8 +203,27 @@ jobs:
                   and datetime.fromisoformat(str(row["created_at"]).replace("Z", "+00:00"))
                       .astimezone(ZoneInfo("America/New_York")).date().isoformat() == target
               ]
-              if len(matching) != 1:
-                  raise RuntimeError("scheduled capture requires exactly one same-date opportunity freeze")
+              if not matching:
+                  message = (
+                      "No same-date opportunity-freeze artifact exists. The panel date "
+                      "remains incomplete and is not interpreted as a zero-opportunity "
+                      "session; no management capture or provider call was attempted."
+                  )
+                  print(f"::warning title=Management capture blocked::{message}")
+                  with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as handle:
+                      handle.write("should_run=false\n")
+                      handle.write(f"trading_date={target}\n")
+                  summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
+                  if summary_path:
+                      with Path(summary_path).open("a", encoding="utf-8") as handle:
+                          handle.write("## Management capture blocked\n\n")
+                          handle.write(f"- Trading date: `{target}`\n")
+                          handle.write("- Reason: no same-date opportunity-freeze artifact exists.\n")
+                          handle.write("- Panel treatment: incomplete, not zero opportunity.\n")
+                          handle.write("- Provider calls: none.\n")
+                  raise SystemExit(0)
+              if len(matching) > 1:
+                  raise RuntimeError("scheduled capture found multiple same-date opportunity freezes")
               selected = matching[0]
               source_run = selected.get("workflow_run") or {}
               run_id = str(source_run.get("id", ""))
