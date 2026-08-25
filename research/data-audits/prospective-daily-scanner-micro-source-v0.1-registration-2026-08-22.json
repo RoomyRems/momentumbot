@@ -2,7 +2,13 @@
   "schema_version": 1,
   "audit_id": "prospective-daily-scanner-micro-source-v0.1-registration-2026-08-22",
   "audit_date": "2026-08-22",
-  "artifact_type": "unrun_read_only_prospective_daily_source_registration",
+  "artifact_type": "unrun_read_only_prospective_daily_source_registration_with_explicit_operational_repair_lineage",
+  "immutable_registration_snapshot": {
+    "registration_commit_sha": "98181b5",
+    "original_file_sha256": "c3287ea1d018acca3cb17be937d1fe2ce79c91bea760543181fc6f2da9bd3842",
+    "original_content_sha256": "cdf48f2a1c237d9edfdb64d1c03b62710b5a4785b2b6025ad7a13f3205e07e1b",
+    "preserved_in_git_history": true
+  },
   "contract": {
     "contract_id": "prospective-daily-scanner-micro-source-v0.1",
     "content_sha256": "99ba9f54ac50a913e64d78bb727351b67f8182818c54519f7d8be428651d6f38",
@@ -86,6 +92,19 @@
     "policy_promotion_eligible": false,
     "profitability_claim_eligible": false
   },
+  "post_registration_operational_repairs": [
+    {
+      "repair_date": "2026-08-25",
+      "repair_audit_path": "research/data-audits/prospective-daily-scanner-micro-source-v0.1-operational-repair-2026-08-25.json",
+      "repair_audit_content_sha256": "834bf050daa528a9d21a060b023461e9223e35331a0ade9c22a57fece0c830cf",
+      "failed_workflow_run_id": 32863749129,
+      "failed_workflow_run_attempt": 1,
+      "failed_panel_date": "2026-08-25",
+      "repair_scope": "same_date_historical_sip_request_window_only",
+      "strategy_semantics_changed": false,
+      "failed_date_rerun": false
+    }
+  ],
   "bound_files": [
     {
       "path": "research/strategy/prospective-daily-scanner-micro-source-v0.1.json",
@@ -97,7 +116,7 @@
     },
     {
       "path": "src/momentumbot/research/prospective_daily_source.py",
-      "file_sha256": "b8fdc7c0048e1008e74dd13f210c9e82b3004896a604473c5fbfc0bea3bf4e8f"
+      "file_sha256": "0d8df5505aa8f0f251d752b5dfde1b5886cff3746fa4722eede790da3e1684d1"
     },
     {
       "path": "scripts/build_prospective_daily_source.py",
@@ -109,13 +128,13 @@
     },
     {
       "path": "docs/research/prospective_daily_scanner_micro_source_v01.md",
-      "file_sha256": "6045b371caa60ecc1bb10b36f063ee168394aad104a903feffa5d28a75cfe015"
+      "file_sha256": "d3e3261f0442f3ef2da0a984708aef904e0557b22b12f97b8a57affeda4a2513"
     },
     {
       "path": "tests/test_prospective_daily_source.py",
-      "file_sha256": "a5cab6fed56d1231ecb6db3575e7e1e236e449045ad5fe934952f863f257cd7d"
+      "file_sha256": "039a13b6898f428efe6c1d10ea497c313ed3e0d6ad96c171344a663ce57c89c7"
     }
   ],
-  "next_gate": "Install the scheduler and dispatched workflow entry on the default branch, validate the provider-free Actions run, then preserve every registered pre-session prerequisite, exact-SHA source, and dispatched opportunity freeze. Databento quote or acquisition work still requires separate parent-bound authority.",
-  "content_sha256": "cdf48f2a1c237d9edfdb64d1c03b62710b5a4785b2b6025ad7a13f3205e07e1b"
+  "next_gate": "Publish and validate the bounded same-date SIP repair, then preserve the next normal registered pre-session prerequisite, exact-SHA source, and dispatched opportunity freeze without rerunning the failed August 25 date. Databento quote or acquisition work still requires separate parent-bound authority.",
+  "content_sha256": "b4925a0eae18b2fda9791add3a959581bc418f13f15b243607dcc2950ffbd7a9"
 }

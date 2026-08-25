@@ -229,13 +229,25 @@ def _feature_bounds(target: date, profile: StrategyProfile) -> tuple[datetime, d
     return start.astimezone(timezone.utc), end.astimezone(timezone.utc)
 
 
-def _daily_window(target: date, lookback_days: int) -> tuple[datetime, datetime]:
+def _daily_window(
+    target: date,
+    lookback_days: int,
+    *,
+    end_at: datetime | None = None,
+) -> tuple[datetime, datetime]:
     start = datetime.combine(
         target - timedelta(days=lookback_days),
         time(0, 0),
         timezone.utc,
     )
     end = datetime.combine(target + timedelta(days=1), time(0, 0), timezone.utc)
+    if end_at is not None:
+        if end_at.tzinfo is None or end_at.utcoffset() is None:
+            raise ValueError("daily bar end must be timezone-aware")
+        bounded = end_at.astimezone(timezone.utc)
+        if not start < bounded <= end:
+            raise ValueError("daily bar end is outside the requested window")
+        end = bounded
     return start, end
 
 
@@ -287,6 +299,7 @@ def discover_market_day(
     profile: StrategyProfile,
     asset_batch_size: int = 250,
     assets: list[dict[str, object]] | None = None,
+    daily_bar_end: datetime | None = None,
 ) -> DiscoveryResult:
     """Build a causal market-day acquisition set with exact time-of-day RVOL.
 
@@ -330,7 +343,11 @@ def discover_market_day(
         for symbol in symbols
     }
 
-    coarse_start, coarse_end = _daily_window(trading_date, 8)
+    coarse_start, coarse_end = _daily_window(
+        trading_date,
+        8,
+        end_at=daily_bar_end,
+    )
     coarse_raw = alpaca.bars_batched(
         symbols,
         batch_size=asset_batch_size,
@@ -372,7 +389,11 @@ def discover_market_day(
             previous_close[symbol] = prior_close
             target_high[symbol] = high
 
-    history_start, history_end = _daily_window(trading_date, 120)
+    history_start, history_end = _daily_window(
+        trading_date,
+        120,
+        end_at=daily_bar_end,
+    )
     history = alpaca.bars_batched(
         superset,
         batch_size=asset_batch_size,

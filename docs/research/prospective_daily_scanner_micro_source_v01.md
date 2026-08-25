@@ -41,9 +41,11 @@ explicit zero-decision source.
 ## Union scanner semantics
 
 The acquisition superset covers $1.50 through $20.00, at least 10% gain, and
-same-time relative volume of at least 5. It has no top-N filter. Full-session
-high is used only to avoid downloading obvious non-candidates; it is never a
-strategy feature.
+same-time relative volume of at least 5. It has no top-N filter. The daily-bar
+high through the deterministic 10:01 New York historical-data boundary is used
+only to avoid downloading obvious non-candidates; it is never a strategy
+feature. Any symbol that qualified before the 10:00 entry cutoff necessarily
+intersects this bounded acquisition superset.
 
 After reacquiring the exact rank inputs across the complete frozen active
 membership, the producer finds the first qualifying minute separately for each
@@ -86,6 +88,25 @@ retains it for 90 days, and dispatches the frozen opportunity materializer on
 The scheduler and the dispatched workflow entry must both exist on the default
 branch because GitHub schedules and `workflow_dispatch` are discovered there.
 Their runtime code and frozen contracts remain on the research branch.
+
+### August 25 operational repair
+
+The first production attempt on August 25 failed closed before emitting a
+source because the daily-bar acquisition windows ended at the following UTC
+midnight. On the same trading date that timestamp was still in the future, so
+Alpaca rejected the explicit SIP query under the existing delayed historical
+entitlement. The provider credentials and pre-session prerequisite were valid.
+
+The mechanical repair keeps the SIP feed and every registered threshold,
+profile, decision cutoff, Micro rule, and account boundary unchanged. It binds
+all same-date historical SIP daily-bar reads to the existing deterministic
+10:01 New York acquisition boundary and enforces the registered 10:20
+production start so that bound is more than 15 minutes old. Any post-cutoff
+daily high admitted by that one-minute acquisition tail remains a superset-only
+download filter and never enters a scanner feature. The August 25 attempt
+remains a failed panel date; it is not rerun or reclassified as a
+zero-opportunity date. The repair first applies to the next normal registered
+session.
 
 ## Authority and registration status
 

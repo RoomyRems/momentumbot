@@ -136,7 +136,8 @@ SESSION_TIMEZONE = "America/New_York"
 ET = ZoneInfo(SESSION_TIMEZONE)
 STRATEGY_START = time(7, 0)
 ENTRY_CUTOFF = time(10, 0)
-PRODUCTION_NOT_BEFORE = time(10, 1)
+HISTORICAL_SIP_END = time(10, 1)
+PRODUCTION_NOT_BEFORE = time(10, 20)
 VOLUME_FEATURE_START = time(4, 0)
 EMA_WARMUP_CALENDAR_DAYS = 7
 _ALLOWED_EXCHANGES = {"NASDAQ", "NYSE", "AMEX", "ARCA", "BATS", "NYSEARCA"}
@@ -207,6 +208,23 @@ def _local_date(value: datetime) -> date:
 
 def _local_time(value: datetime) -> time:
     return value.astimezone(ET).timetz().replace(tzinfo=None)
+
+
+def _same_date_historical_sip_end(trading_date: date) -> datetime:
+    """Return the deterministic end bound for same-date historical SIP reads.
+
+    The source reconstructs decisions only through the registered 10:00 New
+    York entry cutoff.  The final 09:59 one-minute aggregate is available at
+    10:00, and the existing acquisition path uses an exclusive 10:01 bound.
+    Keeping every same-date daily-bar request at that same bound avoids asking
+    Alpaca for future/recent SIP data while retaining every causal candidate.
+    """
+
+    return datetime.combine(
+        trading_date,
+        HISTORICAL_SIP_END,
+        ET,
+    ).astimezone(timezone.utc)
 
 
 def union_acquisition_profile() -> StrategyProfile:
@@ -1174,9 +1192,7 @@ def reacquire_rank_inputs(
         time(0),
         timezone.utc,
     )
-    daily_end = datetime.combine(
-        trading_date + timedelta(days=1), time(0), timezone.utc
-    )
+    daily_end = _same_date_historical_sip_end(trading_date)
     daily = alpaca.bars_batched(
         symbols,
         batch_size=asset_batch_size,
@@ -1278,9 +1294,7 @@ def _basis_query_window(
     desired_end = datetime.combine(
         max(requested_dates) + timedelta(days=15), time(0), timezone.utc
     )
-    causal_end = datetime.combine(
-        trading_date + timedelta(days=1), time(0), timezone.utc
-    )
+    causal_end = _same_date_historical_sip_end(trading_date)
     return start, min(desired_end, causal_end)
 
 
@@ -1515,9 +1529,7 @@ def build_news_records_from_provider(
     calendar_start = datetime.combine(
         trading_date - timedelta(days=14), time(0), timezone.utc
     )
-    calendar_end = datetime.combine(
-        trading_date + timedelta(days=1), time(0), timezone.utc
-    )
+    calendar_end = _same_date_historical_sip_end(trading_date)
     calendar = alpaca.bars(
         ["SPY"],
         timeframe="1Day",
@@ -1601,7 +1613,7 @@ def produce_daily_source_from_providers(
     if _local_date(current) != session:
         raise ValueError("daily source production must run on its New York date")
     if _local_time(current) < PRODUCTION_NOT_BEFORE:
-        raise ValueError("daily source production cannot run before 10:01 New York")
+        raise ValueError("daily source production cannot run before 10:20 New York")
     if asset_batch_size <= 0 or news_batch_size <= 0:
         raise ValueError("provider batch sizes must be positive")
     if minimum_sec_request_interval < 0:
@@ -1616,6 +1628,7 @@ def produce_daily_source_from_providers(
         profile=profile,
         asset_batch_size=asset_batch_size,
         assets=assets,
+        daily_bar_end=_same_date_historical_sip_end(session),
     )
     quarantined = sorted(
         set(membership_symbols)
@@ -1664,7 +1677,11 @@ def produce_daily_source_from_providers(
             "acquisition_audit_sha256": discovery_audit_fingerprint(result),
             "candidate_count": len(candidates),
             "candidate_payload_sha256": candidate_payload["content_sha256"],
-            "full_day_high_used_for_acquisition_only": True,
+            "full_day_high_used_for_acquisition_only": False,
+            "same_date_daily_bar_end": _same_date_historical_sip_end(
+                session
+            ).isoformat(),
+            "daily_extrema_after_same_date_daily_bar_end_loaded": False,
             "future_session_extrema_used_by_strategy": False,
         }
     )

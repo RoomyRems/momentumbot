@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import copy
-from datetime import UTC, datetime
+from datetime import UTC, date, datetime
 import hashlib
 import json
 from pathlib import Path
@@ -26,8 +26,11 @@ from momentumbot.research.prospective_daily_source import (
     SMALL_PROFILE_ID,
     MicroTriggerDecision,
     ProfileActivation,
+    _basis_query_window,
+    _same_date_historical_sip_end,
     build_daily_artifacts,
     build_micro_trigger_decisions,
+    build_news_records_from_provider,
     build_pre_session_prerequisites,
     build_profile_activations,
     build_scanner_runtime,
@@ -35,6 +38,7 @@ from momentumbot.research.prospective_daily_source import (
     load_daily_source_contract,
     load_pre_session_prerequisites,
     produce_daily_source_from_providers,
+    reacquire_rank_inputs,
     union_acquisition_profile,
     validate_pre_session_prerequisites,
     validate_daily_source_contract,
@@ -506,13 +510,17 @@ class ProspectiveDailySourceTests(unittest.TestCase):
         with patch(
             "momentumbot.research.prospective_daily_source.discover_market_day",
             return_value=empty,
-        ):
+        ) as discovery:
             artifacts = produce_daily_source_from_providers(
                 prerequisite=_prerequisite(),
                 alpaca=object(),  # type: ignore[arg-type]
                 sec=object(),  # type: ignore[arg-type]
-                now=lambda: datetime(2026, 8, 24, 14, 2, tzinfo=UTC),
+                now=lambda: datetime(2026, 8, 24, 14, 20, tzinfo=UTC),
             )
+        self.assertEqual(
+            discovery.call_args.kwargs["daily_bar_end"],
+            datetime(2026, 8, 24, 14, 1, tzinfo=UTC),
+        )
         self.assertEqual(artifacts.decision_source["candidate_count"], 0)
         self.assertEqual(artifacts.decision_source["decisions"], [])
         self.assertTrue(artifacts.producer_manifest["zero_opportunity_date"])
@@ -528,7 +536,7 @@ class ProspectiveDailySourceTests(unittest.TestCase):
                 prerequisite=_prerequisite(),
                 alpaca=alpaca,  # type: ignore[arg-type]
                 sec=object(),  # type: ignore[arg-type]
-                now=lambda: datetime(2026, 8, 24, 14, 2, tzinfo=UTC),
+                now=lambda: datetime(2026, 8, 24, 14, 20, tzinfo=UTC),
             )
 
     def test_provider_orchestrator_composes_a_nonzero_source(self):
@@ -610,7 +618,7 @@ class ProspectiveDailySourceTests(unittest.TestCase):
                 prerequisite=_prerequisite(),
                 alpaca=alpaca,
                 sec=object(),  # type: ignore[arg-type]
-                now=lambda: datetime(2026, 8, 24, 14, 2, tzinfo=UTC),
+                now=lambda: datetime(2026, 8, 24, 14, 20, tzinfo=UTC),
             )
         self.assertEqual(artifacts.decision_source["candidate_count"], 1)
         self.assertEqual(artifacts.decision_source["decision_count"], 1)
@@ -618,16 +626,68 @@ class ProspectiveDailySourceTests(unittest.TestCase):
 
     def test_provider_orchestrator_rejects_pre_cutoff_and_wrong_date_runs(self):
         for current in (
-            datetime(2026, 8, 24, 14, 0, tzinfo=UTC),
-            datetime(2026, 8, 25, 14, 2, tzinfo=UTC),
+            datetime(2026, 8, 24, 14, 19, 59, tzinfo=UTC),
+            datetime(2026, 8, 25, 14, 20, tzinfo=UTC),
         ):
-            with self.assertRaisesRegex(ValueError, "before 10:01|New York date"):
+            with self.assertRaisesRegex(ValueError, "before 10:20|New York date"):
                 produce_daily_source_from_providers(
                     prerequisite=_prerequisite(),
                     alpaca=object(),  # type: ignore[arg-type]
                     sec=object(),  # type: ignore[arg-type]
                     now=lambda current=current: current,
                 )
+
+    def test_same_date_sip_reads_use_the_registered_causal_end(self):
+        trading_date = date(2026, 8, 24)
+        expected = datetime(2026, 8, 24, 14, 1, tzinfo=UTC)
+        self.assertEqual(_same_date_historical_sip_end(trading_date), expected)
+
+        start, end = _basis_query_window(
+            [trading_date],
+            trading_date=trading_date,
+        )
+        self.assertLess(start, expected)
+        self.assertEqual(end, expected)
+
+        alpaca = Mock()
+        alpaca.invalid_symbols = set()
+        alpaca.bars_batched.side_effect = [{}, {}]
+        reacquire_rank_inputs(
+            alpaca,
+            trading_date=trading_date,
+            membership_symbols=["TEST"],
+            profile=union_acquisition_profile(),
+            asset_batch_size=250,
+        )
+        daily_call = alpaca.bars_batched.call_args_list[0]
+        self.assertEqual(daily_call.kwargs["timeframe"], "1Day")
+        self.assertEqual(daily_call.kwargs["feed"], "sip")
+        self.assertEqual(daily_call.kwargs["end"], expected)
+
+        calendar_index = pd.DatetimeIndex(
+            ["2026-08-21T04:00:00+00:00", "2026-08-24T04:00:00+00:00"]
+        )
+        calendar = pd.DataFrame(
+            {
+                "open": [1.0, 1.0],
+                "high": [1.0, 1.0],
+                "low": [1.0, 1.0],
+                "close": [1.0, 1.0],
+                "volume": [1, 1],
+            },
+            index=calendar_index,
+        )
+        news_alpaca = Mock()
+        news_alpaca.bars.return_value = {"SPY": calendar}
+        build_news_records_from_provider(
+            candidates=[],
+            trading_date=trading_date,
+            alpaca=news_alpaca,
+        )
+        calendar_call = news_alpaca.bars.call_args
+        self.assertEqual(calendar_call.kwargs["timeframe"], "1Day")
+        self.assertEqual(calendar_call.kwargs["feed"], "sip")
+        self.assertEqual(calendar_call.kwargs["end"], expected)
 
     def test_registration_audit_is_hash_bound_and_unarmed(self):
         audit = json.loads(REGISTRATION_AUDIT.read_text(encoding="utf-8"))

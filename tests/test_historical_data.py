@@ -30,6 +30,7 @@ def _market_timestamp(day: date, at: time) -> pd.Timestamp:
 
 class _CompleteDiscoveryClient:
     def __init__(self, target: date) -> None:
+        self.requests: list[dict[str, object]] = []
         prior = [stamp.date() for stamp in pd.bdate_range(end=target, periods=61)][:-1]
         daily_rows = []
         for day in prior:
@@ -84,6 +85,7 @@ class _CompleteDiscoveryClient:
         self.coarse = pd.DataFrame(history_rows).set_index("timestamp")
 
     def bars_batched(self, symbols, **kwargs):
+        self.requests.append(dict(kwargs))
         timeframe = kwargs["timeframe"]
         if timeframe == "1Day":
             frame = self.daily
@@ -311,6 +313,65 @@ class HistoricalDataTests(unittest.TestCase):
                     Path(raw),
                     trading_date=target,
                 )
+
+    def test_discovery_bounds_daily_bar_requests_to_explicit_causal_end(self):
+        target = date(2025, 4, 3)
+        client = _CompleteDiscoveryClient(target)
+        causal_end = datetime.combine(target, time(10, 1), ET)
+
+        discover_market_day(
+            client,
+            trading_date=target,
+            profile=current_general_2026(),
+            assets=[
+                {
+                    "id": "FIGI-AAA",
+                    "class": "us_equity",
+                    "exchange": "NASDAQ",
+                    "symbol": "AAA",
+                    "name": "AAA Incorporated",
+                    "status": "active",
+                    "tradable": True,
+                    "attributes": [],
+                }
+            ],
+            daily_bar_end=causal_end,
+        )
+
+        daily_requests = [
+            request
+            for request in client.requests
+            if request["timeframe"] == "1Day"
+        ]
+        self.assertEqual(len(daily_requests), 3)
+        self.assertTrue(
+            all(
+                request["end"] == causal_end.astimezone(timezone.utc)
+                for request in daily_requests
+            )
+        )
+
+    def test_discovery_rejects_naive_daily_bar_end(self):
+        target = date(2025, 4, 3)
+        with self.assertRaisesRegex(ValueError, "timezone-aware"):
+            discover_market_day(
+                _CompleteDiscoveryClient(target),
+                trading_date=target,
+                profile=current_general_2026(),
+                assets=[
+                    {
+                        "id": "FIGI-AAA",
+                        "class": "us_equity",
+                        "exchange": "NASDAQ",
+                        "symbol": "AAA",
+                        "name": "AAA Incorporated",
+                        "status": "active",
+                        "tradable": True,
+                        "attributes": [],
+                    }
+                ],
+                daily_bar_end=datetime(2025, 4, 3, 10, 1),
+            )
 
     def test_scan_cutoff_is_applied_when_one_minute_bar_is_available(self):
         target = date(2025, 4, 3)
