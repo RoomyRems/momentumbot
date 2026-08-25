@@ -105,9 +105,39 @@
       "test_count": 871,
       "status": "passed"
     },
-    "github_actions_validation": "pending_publication",
+    "github_actions_validation": {
+      "repair_commit_sha": "8591753df8930288775599d73928d7d29ab7a239",
+      "prospective_source_validation": {
+        "workflow_run_id": 32866791836,
+        "workflow_run_attempt": 1,
+        "event": "push",
+        "conclusion": "success"
+      },
+      "full_ci": {
+        "workflow_run_id": 32866791793,
+        "workflow_run_attempt": 1,
+        "event": "push",
+        "conclusion": "success"
+      },
+      "both_completed_successfully_on_first_attempt": true,
+      "non_panel_historical_replays": {
+        "workflow_run_ids": [
+          32866792534,
+          32866791929,
+          32866791697,
+          32866791819,
+          32866792035
+        ],
+        "conclusion": "failure",
+        "sanitized_failure_category": "alpaca_paper_trading_asset_endpoint_unauthorized",
+        "trigger_reason": "the bounded repair changed the shared historical_data.py module listed in these legacy push path filters",
+        "panel_stage": false,
+        "strategy_regression_indicated": false,
+        "rerun_performed": false
+      }
+    },
     "live_provider_call_used_for_repair_verification": false
   },
-  "next_gate": "Publish the tested repair on phase-3-historical-snapshot, validate GitHub Actions, then allow the normal August 26 pre-session capture and post-session source attempt without rerunning August 25.",
-  "content_sha256": "834bf050daa528a9d21a060b023461e9223e35331a0ade9c22a57fece0c830cf"
+  "next_gate": "Allow the normal August 26 pre-session capture at 05:30 New York and post-session source attempt at 10:20 New York without rerunning August 25. A successful first-attempt source may then dispatch the opportunity freeze.",
+  "content_sha256": "d851afa2200a31c6474dc511e75a4db70b11eb59f09b00547292186a49adb921"
 }

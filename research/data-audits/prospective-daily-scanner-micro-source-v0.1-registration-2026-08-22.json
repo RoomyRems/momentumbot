@@ -66,8 +66,8 @@
     "pre_session_runtime_count": 0,
     "daily_source_runtime_count": 0,
     "opportunity_freeze_runtime_count_from_this_producer": 0,
-    "provider_free_github_validation_run_complete": false,
-    "default_branch_scheduler_installed": false,
+    "provider_free_github_validation_run_complete": true,
+    "default_branch_scheduler_installed": true,
     "source_artifact_created": false,
     "opportunity_artifact_created": false
   },
@@ -96,7 +96,7 @@
     {
       "repair_date": "2026-08-25",
       "repair_audit_path": "research/data-audits/prospective-daily-scanner-micro-source-v0.1-operational-repair-2026-08-25.json",
-      "repair_audit_content_sha256": "834bf050daa528a9d21a060b023461e9223e35331a0ade9c22a57fece0c830cf",
+      "repair_audit_content_sha256": "d851afa2200a31c6474dc511e75a4db70b11eb59f09b00547292186a49adb921",
       "failed_workflow_run_id": 32863749129,
       "failed_workflow_run_attempt": 1,
       "failed_panel_date": "2026-08-25",
@@ -135,6 +135,6 @@
       "file_sha256": "039a13b6898f428efe6c1d10ea497c313ed3e0d6ad96c171344a663ce57c89c7"
     }
   ],
-  "next_gate": "Publish and validate the bounded same-date SIP repair, then preserve the next normal registered pre-session prerequisite, exact-SHA source, and dispatched opportunity freeze without rerunning the failed August 25 date. Databento quote or acquisition work still requires separate parent-bound authority.",
-  "content_sha256": "b4925a0eae18b2fda9791add3a959581bc418f13f15b243607dcc2950ffbd7a9"
+  "next_gate": "Preserve the next normal August 26 pre-session prerequisite, exact-SHA source, and dispatched opportunity freeze without rerunning the failed August 25 date. Databento quote or acquisition work still requires separate parent-bound authority.",
+  "content_sha256": "4ba4cc43d21f700db396219f63c6d82b8ae97029323e1af39c0bbdb2eb22665c"
 }
