@@ -132,9 +132,39 @@
       "test_count": 881,
       "status": "passed"
     },
-    "github_actions_validation": "pending_publication",
+    "github_actions_validation": {
+      "repository": "RoomyRems/momentumbot",
+      "branch": "phase-3-historical-snapshot",
+      "repair_commit_sha": "be672713837520b27ff5d5778f40564c3520c808",
+      "repair_commit_tree_sha": "5e8acdb7f5c6bd0a52966378a75daf472ea8b600",
+      "repair_parent_commit_sha": "c35e906f98cb792e2aa7c487c97f8f3ab16984f9",
+      "publication_method": "github_git_database_api_create_commit_and_fast_forward_ref",
+      "published_tree_matches_locally_tested_tree": true,
+      "remote_ref_verified": true,
+      "ci": {
+        "workflow_run_id": 32994376824,
+        "workflow_run_attempt": 1,
+        "workflow_event": "push",
+        "check_suite_id": 89382397381,
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "prospective_daily_source_validation": {
+        "workflow_run_id": 32994376889,
+        "workflow_run_attempt": 1,
+        "workflow_event": "push",
+        "check_suite_id": 89382397560,
+        "resolve_job_conclusion": "success",
+        "validate_job_conclusion": "success",
+        "capture_prerequisites_job_conclusion": "skipped",
+        "produce_job_conclusion": "skipped",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      "both_completed_successfully_on_first_attempt": true
+    },
     "live_provider_call_used_for_repair_verification": false
   },
-  "next_gate": "Publish and validate the prospective-only resolution repair, then allow the normal August 27 pre-session capture and post-session source attempt without rerunning August 26. A successful first-attempt source may then dispatch the opportunity freeze.",
-  "content_sha256": "03ee0572f2fc92af632f75b68481e51c1b9fdb28fcb646e1f08e97072ba49591"
+  "next_gate": "Repair commit be672713837520b27ff5d5778f40564c3520c808 is published on phase-3-historical-snapshot, and both full CI and prospective source validation completed successfully on their first attempts. Preserve the normal August 27 pre-session capture and post-session source attempt without rerunning August 26. A successful first-attempt source may then dispatch the opportunity freeze; quote authorization remains separately gated on a verified eligible freeze.",
+  "content_sha256": "334a3c82a9542bb66c025bcd4a3369cb9261a98295346f2d5433e188f4be08cb"
 }

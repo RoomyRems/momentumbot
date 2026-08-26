@@ -107,11 +107,17 @@
     {
       "repair_date": "2026-08-26",
       "repair_audit_path": "research/data-audits/prospective-daily-scanner-micro-source-v0.1-operational-repair-2026-08-26.json",
-      "repair_audit_content_sha256": "03ee0572f2fc92af632f75b68481e51c1b9fdb28fcb646e1f08e97072ba49591",
+      "repair_audit_content_sha256": "334a3c82a9542bb66c025bcd4a3369cb9261a98295346f2d5433e188f4be08cb",
       "failed_workflow_run_id": 32986285404,
       "failed_workflow_run_attempt": 1,
       "failed_panel_date": "2026-08-26",
       "repair_scope": "prospective_missing_daily_basis_activity_resolution_only",
+      "repair_commit_sha": "be672713837520b27ff5d5778f40564c3520c808",
+      "repair_commit_tree_sha": "5e8acdb7f5c6bd0a52966378a75daf472ea8b600",
+      "publication_method": "github_git_database_api_create_commit_and_fast_forward_ref",
+      "ci_workflow_run_id": 32994376824,
+      "prospective_source_validation_workflow_run_id": 32994376889,
+      "github_actions_validation_status": "both_completed_successfully_on_first_attempt",
       "strategy_semantics_changed": false,
       "failed_date_rerun": false
     }
@@ -146,6 +152,6 @@
       "file_sha256": "d1e7764c1747398e65ff563f0d8ad118eec1f0abbe64e2969efe33a57da745d7"
     }
   ],
-  "next_gate": "Publish and validate the prospective-only missing-daily-basis activity resolution, then preserve the next normal August 27 pre-session prerequisite, exact-SHA source, and dispatched opportunity freeze without rerunning the failed August 25 or August 26 dates. Databento quote or acquisition work still requires separate parent-bound authority.",
-  "content_sha256": "5801f1fba8d0a0f4b3ed9e45ddd0097de4586b39d5e8a287a10203d2d7f987a6"
+  "next_gate": "Preserve the next normal August 27 pre-session prerequisite, exact-SHA source, and dispatched opportunity freeze without rerunning the failed August 25 or August 26 dates. The missing-daily-basis repair is published and both hosted provider-free validations passed on their first attempts. Databento quote or acquisition work still requires separate parent-bound authority.",
+  "content_sha256": "a55df41bf1c9660544b38322c7af690d919dfb1686a28b51655b506725661339"
 }
