@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import copy
+from dataclasses import replace
 from datetime import UTC, date, datetime
 import hashlib
 import json
@@ -22,12 +23,16 @@ from momentumbot.historical_data import (
 from momentumbot.providers.sec_edgar import normalize_company_tickers_exchange
 from momentumbot.research.microstructure_contract import canonical_fingerprint
 from momentumbot.research.prospective_daily_source import (
+    CONFIRMED_NO_ACTIVITY_DISPOSITION,
     GENERAL_PROFILE_ID,
+    POSITIVE_CONTROL_ACTIVITY_DISPOSITION,
     SMALL_PROFILE_ID,
     MicroTriggerDecision,
     ProfileActivation,
     _basis_query_window,
     _same_date_historical_sip_end,
+    _validate_confirmed_inactivity_against_rank_frames,
+    _validate_discovery_completeness,
     build_daily_artifacts,
     build_micro_trigger_decisions,
     build_news_records_from_provider,
@@ -39,6 +44,7 @@ from momentumbot.research.prospective_daily_source import (
     load_pre_session_prerequisites,
     produce_daily_source_from_providers,
     reacquire_rank_inputs,
+    resolve_missing_daily_basis_activity,
     union_acquisition_profile,
     validate_pre_session_prerequisites,
     validate_daily_source_contract,
@@ -53,6 +59,12 @@ REGISTRATION_AUDIT = (
     / "research"
     / "data-audits"
     / "prospective-daily-scanner-micro-source-v0.1-registration-2026-08-22.json"
+)
+OPERATIONAL_REPAIR_AUDIT = (
+    ROOT
+    / "research"
+    / "data-audits"
+    / "prospective-daily-scanner-micro-source-v0.1-operational-repair-2026-08-26.json"
 )
 
 
@@ -69,20 +81,22 @@ def _asset(symbol: str = "TEST") -> dict[str, object]:
     }
 
 
-def _prerequisite() -> dict[str, object]:
+def _prerequisite(*symbols: str) -> dict[str, object]:
+    symbols = symbols or ("TEST",)
     return build_pre_session_prerequisites(
         trading_date="2026-08-24",
         capture_started_at=datetime(2026, 8, 24, 9, 30, tzinfo=UTC),
         capture_completed_at=datetime(2026, 8, 24, 9, 30, 2, tzinfo=UTC),
         runtime_head_sha="a" * 40,
-        asset_rows=[_asset()],
+        asset_rows=[_asset(symbol) for symbol in symbols],
         sec_ticker_rows=[
             {
-                "ticker": "TEST",
-                "cik": "1234",
-                "name": "Test Corp",
+                "ticker": symbol,
+                "cik": str(1234 + offset),
+                "name": f"{symbol} Corp",
                 "exchange": "Nasdaq",
             }
+            for offset, symbol in enumerate(symbols)
         ],
         workflow_context={"workflow_run_id": "42"},
     )
@@ -130,6 +144,13 @@ def _trade_frame() -> pd.DataFrame:
     )
 
 
+def _minute_activity_frame() -> pd.DataFrame:
+    return pd.DataFrame(
+        {"close": [2.0]},
+        index=pd.DatetimeIndex(["2026-08-24T11:00:00+00:00"]),
+    )
+
+
 def _empty_discovery() -> DiscoveryResult:
     return DiscoveryResult(
         asset_count=1,
@@ -148,6 +169,61 @@ def _empty_discovery() -> DiscoveryResult:
                 symbol="TEST",
                 disposition="excluded_daily_price_or_gain_acquisition_filter",
                 daily_scan_basis_available=True,
+                daily_price_gain_prefilter_pass=False,
+                average_daily_volume_50_available=False,
+                raw_target_minute_bars_present=False,
+                split_target_minute_bars_present=False,
+                rvol_history_sessions=0,
+                coarse_rvol_evaluated=False,
+                coarse_rvol_observation_available=False,
+                coarse_rvol_prefilter_pass=False,
+                exact_rvol_evaluated=False,
+                exact_rvol_observation_available=False,
+                causal_market_qualified=False,
+                first_market_qualified_at=None,
+                first_market_qualified_bar_started_at=None,
+            ),
+        ),
+    )
+
+
+def _missing_basis_discovery() -> DiscoveryResult:
+    assets = [_asset("ACTIVE"), _asset("QUIET")]
+    return DiscoveryResult(
+        asset_count=2,
+        listed_asset_count=2,
+        daily_superset_count=0,
+        rvol_prefilter_count=0,
+        market_candidate_count=0,
+        asset_master_sha256=asset_master_fingerprint(assets),
+        asset_status_counts={"active": 2},
+        rows=(),
+        minutes={},
+        contexts={},
+        rvol_curves={},
+        acquisition_audit=(
+            DiscoveryAuditRow(
+                symbol="ACTIVE",
+                disposition="excluded_daily_price_or_gain_acquisition_filter",
+                daily_scan_basis_available=True,
+                daily_price_gain_prefilter_pass=False,
+                average_daily_volume_50_available=False,
+                raw_target_minute_bars_present=False,
+                split_target_minute_bars_present=False,
+                rvol_history_sessions=0,
+                coarse_rvol_evaluated=False,
+                coarse_rvol_observation_available=False,
+                coarse_rvol_prefilter_pass=False,
+                exact_rvol_evaluated=False,
+                exact_rvol_observation_available=False,
+                causal_market_qualified=False,
+                first_market_qualified_at=None,
+                first_market_qualified_bar_started_at=None,
+            ),
+            DiscoveryAuditRow(
+                symbol="QUIET",
+                disposition="excluded_missing_daily_scan_basis",
+                daily_scan_basis_available=False,
                 daily_price_gain_prefilter_pass=False,
                 average_daily_volume_50_available=False,
                 raw_target_minute_bars_present=False,
@@ -505,6 +581,246 @@ class ProspectiveDailySourceTests(unittest.TestCase):
             with self.assertRaises(FileExistsError):
                 write_daily_artifacts(output, artifacts)
 
+    def test_daily_basis_activity_resolution_makes_no_call_when_not_needed(self):
+        alpaca = Mock()
+        resolution = resolve_missing_daily_basis_activity(
+            alpaca=alpaca,
+            result=_empty_discovery(),
+            trading_date=date(2026, 8, 24),
+            asset_batch_size=250,
+        )
+
+        alpaca.bars_batched.assert_not_called()
+        self.assertEqual(resolution["provider_query_pass_count"], 0)
+        self.assertEqual(resolution["rows"], [])
+        confirmed = _validate_discovery_completeness(
+            _empty_discovery(),
+            trading_date=date(2026, 8, 24),
+            assets=[_asset()],
+            membership_symbols=["TEST"],
+            profile=union_acquisition_profile(),
+            daily_basis_activity_resolution=resolution,
+        )
+        self.assertEqual(confirmed, set())
+
+    def test_daily_basis_activity_resolution_confirms_only_explicit_empty_frames(self):
+        discovery = _missing_basis_discovery()
+        self.assertTrue(discovery.acquisition_audit[0].daily_scan_basis_available)
+        self.assertFalse(
+            discovery.acquisition_audit[0].raw_target_minute_bars_present
+        )
+        empty = pd.DataFrame()
+        active = _minute_activity_frame()
+        alpaca = Mock()
+        alpaca.invalid_symbols = set()
+        alpaca.bars_batched.side_effect = [
+            {"ACTIVE": active.copy(), "QUIET": empty.copy()},
+            {"ACTIVE": active.copy(), "QUIET": empty.copy()},
+        ]
+
+        resolution = resolve_missing_daily_basis_activity(
+            alpaca=alpaca,
+            result=discovery,
+            trading_date=date(2026, 8, 24),
+            asset_batch_size=250,
+        )
+
+        self.assertEqual(resolution["provider_query_pass_count"], 2)
+        self.assertEqual(
+            resolution["positive_control_rows"],
+            [
+                {
+                    "symbol": "ACTIVE",
+                    "raw_minute_bar_count": 1,
+                    "split_minute_bar_count": 1,
+                    "disposition": POSITIVE_CONTROL_ACTIVITY_DISPOSITION,
+                }
+            ],
+        )
+        self.assertEqual(
+            resolution["rows"],
+            [
+                {
+                    "symbol": "QUIET",
+                    "raw_minute_bar_count": 0,
+                    "split_minute_bar_count": 0,
+                    "disposition": CONFIRMED_NO_ACTIVITY_DISPOSITION,
+                }
+            ],
+        )
+        for call in alpaca.bars_batched.call_args_list:
+            self.assertEqual(call.args[0], ["ACTIVE", "QUIET"])
+            self.assertEqual(call.kwargs["timeframe"], "1Min")
+            self.assertEqual(call.kwargs["feed"], "sip")
+            self.assertEqual(
+                call.kwargs["end"],
+                datetime(2026, 8, 24, 14, 1, tzinfo=UTC),
+            )
+        confirmed = _validate_discovery_completeness(
+            discovery,
+            trading_date=date(2026, 8, 24),
+            assets=[_asset("ACTIVE"), _asset("QUIET")],
+            membership_symbols=["ACTIVE", "QUIET"],
+            profile=union_acquisition_profile(),
+            daily_basis_activity_resolution=resolution,
+        )
+        self.assertEqual(confirmed, {"QUIET"})
+
+    def test_daily_basis_activity_resolution_rejects_target_activity(self):
+        active = _minute_activity_frame()
+        alpaca = Mock()
+        alpaca.invalid_symbols = set()
+        alpaca.bars_batched.side_effect = [
+            {"ACTIVE": active.copy(), "QUIET": active.copy()},
+            {"ACTIVE": active.copy(), "QUIET": active.copy()},
+        ]
+        with self.assertRaisesRegex(RuntimeError, "despite target-session"):
+            resolve_missing_daily_basis_activity(
+                alpaca=alpaca,
+                result=_missing_basis_discovery(),
+                trading_date=date(2026, 8, 24),
+                asset_batch_size=250,
+            )
+
+    def test_daily_basis_activity_resolution_rejects_mismatch_and_omission(self):
+        active = _minute_activity_frame()
+        for responses, message in (
+            (
+                [
+                    {"ACTIVE": active, "QUIET": active},
+                    {"ACTIVE": active, "QUIET": pd.DataFrame()},
+                ],
+                "raw/split activity differs",
+            ),
+            (
+                [
+                    {},
+                    {"ACTIVE": active, "QUIET": pd.DataFrame()},
+                ],
+                "response is incomplete",
+            ),
+        ):
+            alpaca = Mock()
+            alpaca.invalid_symbols = set()
+            alpaca.bars_batched.side_effect = responses
+            with self.assertRaisesRegex(RuntimeError, message):
+                resolve_missing_daily_basis_activity(
+                    alpaca=alpaca,
+                    result=_missing_basis_discovery(),
+                    trading_date=date(2026, 8, 24),
+                    asset_batch_size=250,
+                )
+
+    def test_daily_basis_activity_resolution_rejects_provider_and_symbol_failures(self):
+        alpaca = Mock()
+        alpaca.invalid_symbols = set()
+        alpaca.bars_batched.side_effect = RuntimeError(
+            "provider detail that must not be persisted"
+        )
+        with self.assertRaisesRegex(RuntimeError, "provider read failed") as caught:
+            resolve_missing_daily_basis_activity(
+                alpaca=alpaca,
+                result=_missing_basis_discovery(),
+                trading_date=date(2026, 8, 24),
+                asset_batch_size=250,
+            )
+        self.assertNotIn("provider detail", str(caught.exception))
+
+        rejected = Mock()
+        rejected.invalid_symbols = {"QUIET"}
+        rejected.bars_batched.return_value = {}
+        with self.assertRaisesRegex(RuntimeError, "rejected symbols"):
+            resolve_missing_daily_basis_activity(
+                alpaca=rejected,
+                result=_missing_basis_discovery(),
+                trading_date=date(2026, 8, 24),
+                asset_batch_size=250,
+            )
+
+    def test_daily_basis_activity_resolution_cannot_mask_provider_wide_empty_data(self):
+        discovery = _missing_basis_discovery()
+        all_missing = replace(
+            discovery,
+            asset_count=1,
+            listed_asset_count=1,
+            asset_master_sha256=asset_master_fingerprint([_asset("QUIET")]),
+            asset_status_counts={"active": 1},
+            acquisition_audit=(discovery.acquisition_audit[1],),
+        )
+        alpaca = Mock()
+        with self.assertRaisesRegex(RuntimeError, "positive-control"):
+            resolve_missing_daily_basis_activity(
+                alpaca=alpaca,
+                result=all_missing,
+                trading_date=date(2026, 8, 24),
+                asset_batch_size=250,
+        )
+        alpaca.bars_batched.assert_not_called()
+
+        alpaca = Mock()
+        alpaca.invalid_symbols = set()
+        alpaca.bars_batched.side_effect = [
+            {"ACTIVE": pd.DataFrame(), "QUIET": pd.DataFrame()},
+            {"ACTIVE": pd.DataFrame(), "QUIET": pd.DataFrame()},
+        ]
+        with self.assertRaisesRegex(RuntimeError, "positive-control response"):
+            resolve_missing_daily_basis_activity(
+                alpaca=alpaca,
+                result=discovery,
+                trading_date=date(2026, 8, 24),
+                asset_batch_size=250,
+            )
+
+    def test_daily_basis_activity_resolution_is_hash_and_membership_bound(self):
+        discovery = _missing_basis_discovery()
+        active = _minute_activity_frame()
+        alpaca = Mock()
+        alpaca.invalid_symbols = set()
+        alpaca.bars_batched.side_effect = [
+            {"ACTIVE": active.copy(), "QUIET": pd.DataFrame()},
+            {"ACTIVE": active.copy(), "QUIET": pd.DataFrame()},
+        ]
+        resolution = resolve_missing_daily_basis_activity(
+            alpaca=alpaca,
+            result=discovery,
+            trading_date=date(2026, 8, 24),
+            asset_batch_size=250,
+        )
+        tampered = copy.deepcopy(resolution)
+        tampered["rows"][0]["symbol"] = "ACTIVE"
+        with self.assertRaisesRegex(RuntimeError, "hash mismatch"):
+            _validate_discovery_completeness(
+                discovery,
+                trading_date=date(2026, 8, 24),
+                assets=[_asset("ACTIVE"), _asset("QUIET")],
+                membership_symbols=["ACTIVE", "QUIET"],
+                profile=union_acquisition_profile(),
+                daily_basis_activity_resolution=tampered,
+            )
+
+    def test_rank_reacquisition_cannot_contradict_confirmed_inactivity(self):
+        _validate_confirmed_inactivity_against_rank_frames(
+            {"QUIET"},
+            {"QUIET": pd.DataFrame()},
+        )
+        with self.assertRaisesRegex(RuntimeError, "contradicts"):
+            _validate_confirmed_inactivity_against_rank_frames(
+                {"QUIET"},
+                {
+                    "QUIET": pd.DataFrame(
+                        {"close": [2.0]},
+                        index=pd.DatetimeIndex(
+                            ["2026-08-24T11:00:00+00:00"]
+                        ),
+                    )
+                },
+            )
+        with self.assertRaisesRegex(RuntimeError, "omitted"):
+            _validate_confirmed_inactivity_against_rank_frames(
+                {"QUIET"},
+                {},
+            )
+
     def test_provider_orchestrator_retains_an_explicit_zero_candidate_date(self):
         empty = _empty_discovery()
         with patch(
@@ -524,6 +840,34 @@ class ProspectiveDailySourceTests(unittest.TestCase):
         self.assertEqual(artifacts.decision_source["candidate_count"], 0)
         self.assertEqual(artifacts.decision_source["decisions"], [])
         self.assertTrue(artifacts.producer_manifest["zero_opportunity_date"])
+
+    def test_provider_orchestrator_retains_confirmed_inactive_member_as_audited_zero(self):
+        discovery = _missing_basis_discovery()
+        active = _minute_activity_frame()
+        alpaca = Mock()
+        alpaca.invalid_symbols = set()
+        alpaca.bars_batched.side_effect = [
+            {"ACTIVE": active.copy(), "QUIET": pd.DataFrame()},
+            {"ACTIVE": active.copy(), "QUIET": pd.DataFrame()},
+        ]
+        with patch(
+            "momentumbot.research.prospective_daily_source.discover_market_day",
+            return_value=discovery,
+        ):
+            artifacts = produce_daily_source_from_providers(
+                prerequisite=_prerequisite("ACTIVE", "QUIET"),
+                alpaca=alpaca,
+                sec=object(),  # type: ignore[arg-type]
+                now=lambda: datetime(2026, 8, 24, 14, 20, tzinfo=UTC),
+            )
+
+        self.assertEqual(artifacts.decision_source["candidate_count"], 0)
+        self.assertTrue(artifacts.producer_manifest["zero_opportunity_date"])
+        resolution = artifacts.scanner_runtime["lineage"][
+            "daily_basis_activity_resolution"
+        ]
+        self.assertEqual(resolution["missing_daily_basis_symbol_count"], 1)
+        self.assertEqual(resolution["rows"][0]["symbol"], "QUIET")
 
     def test_provider_orchestrator_does_not_hide_a_rejected_member_as_zero(self):
         empty = _empty_discovery()
@@ -716,6 +1060,45 @@ class ProspectiveDailySourceTests(unittest.TestCase):
         self.assertFalse(authority["databento_quote_or_download_performed"])
         self.assertFalse(authority["broker_order_performed"])
         self.assertEqual(authority["incremental_purchase_authorized_usd"], "0")
+
+    def test_august_26_operational_repair_audit_is_hash_bound_and_future_only(self):
+        audit = json.loads(OPERATIONAL_REPAIR_AUDIT.read_text(encoding="utf-8"))
+        unsigned = {
+            key: value for key, value in audit.items() if key != "content_sha256"
+        }
+        self.assertEqual(
+            canonical_fingerprint(unsigned), audit["content_sha256"]
+        )
+        failed = audit["failed_runtime"]
+        self.assertEqual(failed["workflow_run_id"], 32986285404)
+        self.assertEqual(failed["workflow_run_attempt"], 1)
+        self.assertEqual(failed["panel_disposition"], "failed_date_not_zero_opportunity")
+        repair = audit["repair"]
+        self.assertEqual(repair["applies_first_to_registered_date"], "2026-08-27")
+        self.assertTrue(
+            repair["positive_control_included_in_both_query_passes"]
+        )
+        self.assertTrue(
+            repair[
+                "positive_control_selected_from_valid_same_date_daily_scan_basis"
+            ]
+        )
+        self.assertTrue(
+            repair[
+                "positive_control_repeat_frames_must_be_nonempty_and_equal_count"
+            ]
+        )
+        self.assertFalse(repair["provider_wide_empty_response_can_be_zero"])
+        self.assertFalse(repair["failed_date_rerun_authorized"])
+        self.assertFalse(repair["strategy_semantics_changed"])
+        self.assertFalse(repair["scanner_thresholds_changed"])
+        self.assertFalse(repair["micro_policy_changed"])
+        self.assertFalse(repair["account_state_changed"])
+        for row in audit["changed_files"]:
+            self.assertEqual(
+                hashlib.sha256((ROOT / row["path"]).read_bytes()).hexdigest(),
+                row["after_file_sha256"],
+            )
 
 
 if __name__ == "__main__":

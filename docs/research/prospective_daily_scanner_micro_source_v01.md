@@ -34,9 +34,17 @@ trigger.
 
 A missing prerequisite, a provider failure, a rejected frozen membership
 symbol, missing required scanner evidence, or missing SIP trades for an
-eligible candidate fails the date. None is converted into a zero. A genuinely
-complete date with no broad candidates or no Micro triggers is retained as an
-explicit zero-decision source.
+eligible candidate fails the date. None is converted into a zero. A member
+whose daily scan basis is absent may be excluded only after separate raw and
+split SIP one-minute normalized responses both contain that symbol and both
+are empty from 04:00 through 10:01 New York. Both query passes also include one
+deterministic positive-control member whose earlier discovery had a valid
+same-date daily scan basis; its raw and split minute frames must be nonempty
+and have the same bar count. Thus a successful-but-provider-wide-empty
+response cannot become a zero, while a day with no member above the broad
+acquisition threshold can still be resolved. A genuinely complete date with
+no broad candidates or no Micro triggers is retained as an explicit
+zero-decision source.
 
 ## Union scanner semantics
 
@@ -107,6 +115,39 @@ download filter and never enters a scanner feature. The August 25 attempt
 remains a failed panel date; it is not rerun or reclassified as a
 zero-opportunity date. The repair first applies to the next normal registered
 session.
+
+### August 26 operational repair
+
+The August 26 first-attempt source run failed closed after consuming its valid
+same-date prerequisite. Alpaca's active and tradable census included `AAAA`,
+an exchange-traded fund for which the discovery response lacked the combined
+target-day/prior-close daily scan basis. The shared discovery audit correctly
+retained that ambiguity, but the prospective completeness check treated every
+missing basis identically. It therefore could not distinguish a member with no
+target-session activity from a target-active member missing the required
+split-adjusted prior close.
+
+The prospective-only repair leaves the shared historical discovery contract
+unchanged. For only the members with a missing daily basis, it makes one raw
+and one split SIP one-minute query pass over the already bounded 04:00--10:01
+New York window. Each pass also includes the alphabetically first independent
+member whose initial discovery had a valid same-date daily scan basis. The
+normalized response maps must contain the complete requested set; the
+positive control's raw and split minute frames must be nonempty with equal bar
+counts. A missing-basis symbol is retained as an explicit
+audited noncandidate only when both of its frames are empty. The sanitized
+resolution ledger records counts and hashes the complete query set; it retains
+no bars or provider messages. If either target frame contains activity, the
+frames disagree, a normalized response omits a symbol, no positive control is
+available, the positive control fails, the provider rejects a symbol, or a
+provider call fails, the date still fails closed. A later rank reacquisition
+must also remain empty for every confirmed inactive member.
+
+The repair does not blacklist `AAAA`, filter membership through the SEC
+crosswalk, alter security-type policy, change a scanner threshold, change
+Micro-v0.1, or reinterpret August 26 as a zero. Run `32986285404`, attempt 1,
+remains the sole failed source attempt for that date and is not rerun. The
+repair first applies to the next normal registered session.
 
 ## Authority and registration status
 

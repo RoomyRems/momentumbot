@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "audit_id": "prospective-daily-scanner-micro-source-v0.1-operational-repair-2026-08-26",
+  "audit_date": "2026-08-26",
+  "artifact_type": "failed_closed_runtime_and_prospective_only_missing_daily_basis_activity_resolution",
+  "parent_registration": {
+    "path": "research/data-audits/prospective-daily-scanner-micro-source-v0.1-registration-2026-08-22.json",
+    "registration_commit_sha": "98181b5",
+    "original_file_sha256": "c3287ea1d018acca3cb17be937d1fe2ce79c91bea760543181fc6f2da9bd3842",
+    "original_content_sha256": "cdf48f2a1c237d9edfdb64d1c03b62710b5a4785b2b6025ad7a13f3205e07e1b",
+    "contract_id": "prospective-daily-scanner-micro-source-v0.1",
+    "contract_content_sha256": "99ba9f54ac50a913e64d78bb727351b67f8182818c54519f7d8be428651d6f38"
+  },
+  "failed_runtime": {
+    "repository": "RoomyRems/momentumbot",
+    "trading_date": "2026-08-26",
+    "workflow": ".github/workflows/prospective-daily-source.yml",
+    "workflow_run_id": 32986285404,
+    "workflow_run_attempt": 1,
+    "workflow_event": "schedule",
+    "scheduler_branch": "main",
+    "scheduler_head_sha": "de9d74159017877225e1ae92c9de86b725ef3f9c",
+    "exact_pre_session_runtime_sha": "c35e906f98cb792e2aa7c487c97f8f3ab16984f9",
+    "started_at": "2026-08-26T15:53:30Z",
+    "completed_at": "2026-08-26T15:58:46Z",
+    "conclusion": "failure",
+    "failed_job_id": 98233102494,
+    "failed_step": "Produce label-blind scanner and Micro trigger source",
+    "failed_step_started_at": "2026-08-26T15:54:56Z",
+    "failed_step_completed_at": "2026-08-26T15:58:43Z",
+    "sanitized_failure_category": "prospective_completeness_conflated_no_activity_with_missing_required_prior_close",
+    "sanitized_error": "market discovery lacks daily scan basis for AAAA",
+    "source_artifact_created": false,
+    "opportunity_freeze_created": false,
+    "account_snapshot_loaded": false,
+    "broker_order_made": false,
+    "databento_quote_or_download_made": false,
+    "retry_performed": false,
+    "panel_disposition": "failed_date_not_zero_opportunity"
+  },
+  "same_date_prerequisite": {
+    "workflow_run_id": 32956556641,
+    "workflow_run_attempt": 1,
+    "conclusion": "success",
+    "artifact_id": 9602191211,
+    "artifact_name": "prospective-scanner-prerequisites-2026-08-26-32956556641-1",
+    "artifact_zip_sha256": "a19ab8655c0317c555d8297eb793b5400f6223cbc421f0948041f5d8f215cc78",
+    "prerequisite_file_sha256": "8b46e13b88ae87e83eac5991c02465e7a22023a535b9e06695b292d91fa4f7d3",
+    "prerequisite_content_sha256": "ff16cb6198a431ecfac1bddf34706cc2a1074ee00d0f68d9f30931b5e2f69af9",
+    "asset_census_count": 33067,
+    "active_tradable_allowed_exchange_membership_count": 13100,
+    "capture_completed_at": "2026-08-26T10:07:04.957035+00:00",
+    "runtime_head_matches_failed_source_checkout": true
+  },
+  "root_cause": {
+    "first_failing_symbol": "AAAA",
+    "first_failing_member_name": "Amplius Aggressive Asset Allocation ETF",
+    "first_failing_member_exchange": "BATS",
+    "first_failing_member_status": "active",
+    "first_failing_member_tradable": true,
+    "mechanical_defect": "the shared discovery flag combines absence of a target-session daily bar with absence or invalidity of the required split-adjusted prior close, while the prospective completeness check treated every false flag as fatal without an independent activity resolution",
+    "recurrence_mechanism": "the current Alpaca us_equity census includes active tradable exchange-listed instruments that may have no same-session activity; the first alphabetic unresolved member can therefore fail each otherwise healthy date",
+    "why_not_zero_without_confirmation": "the original audit flag does not prove whether the target-session bar or required prior close is missing",
+    "why_not_symbol_blacklist": "a symbol-specific exclusion would change membership non-generically and would not resolve later inactive members",
+    "why_not_sec_crosswalk_filter": "SEC crosswalk absence is not a reliable security-type classifier and would remove legitimate equities",
+    "why_not_shared_historical_semantics_change": "the repair is needed only by the prospective producer and the shared historical discovery contract must retain its existing missing-basis failure semantics"
+  },
+  "repair": {
+    "scope": "prospective_missing_daily_basis_activity_resolution_only",
+    "resolver_id": "prospective-missing-daily-basis-activity-resolution-v0.1",
+    "query_timeframe": "1Min",
+    "query_feed": "sip",
+    "query_adjustments": [
+      "raw",
+      "split"
+    ],
+    "query_window_new_york": "04:00:00-10:01:00",
+    "query_targets_missing_members_plus_one_positive_control": true,
+    "no_missing_basis_provider_query_count": 0,
+    "missing_basis_provider_query_pass_count": 2,
+    "exact_normalized_response_membership_required": true,
+    "missing_member_raw_and_split_frames_must_both_be_empty": true,
+    "positive_control_selected_from_valid_same_date_daily_scan_basis": true,
+    "positive_control_included_in_both_query_passes": true,
+    "positive_control_repeat_frames_must_be_nonempty_and_equal_count": true,
+    "provider_wide_empty_response_can_be_zero": false,
+    "later_rank_reacquisition_must_remain_empty": true,
+    "sanitized_resolution_ledger_persisted": true,
+    "raw_market_data_persisted": false,
+    "provider_exception_text_persisted": false,
+    "target_activity_with_missing_prior_close_still_fails": true,
+    "incomplete_or_mismatched_response_still_fails": true,
+    "provider_failure_or_rejected_symbol_still_fails": true,
+    "shared_historical_discovery_changed": false,
+    "strategy_semantics_changed": false,
+    "scanner_thresholds_changed": false,
+    "micro_policy_changed": false,
+    "execution_scenarios_changed": false,
+    "management_rules_changed": false,
+    "account_state_changed": false,
+    "provider_purchase_authorized_usd": "0",
+    "databento_call_authorized": false,
+    "broker_order_authorized": false,
+    "applies_first_to_registered_date": "2026-08-27",
+    "failed_date_rerun_authorized": false
+  },
+  "changed_files": [
+    {
+      "path": "src/momentumbot/research/prospective_daily_source.py",
+      "before_file_sha256": "0d8df5505aa8f0f251d752b5dfde1b5886cff3746fa4722eede790da3e1684d1",
+      "after_file_sha256": "3f957335a390680bb898d42281fe95caf08726ea4ef822cea91a776aa1e7d34e"
+    },
+    {
+      "path": "tests/test_prospective_daily_source.py",
+      "before_file_sha256": "039a13b6898f428efe6c1d10ea497c313ed3e0d6ad96c171344a663ce57c89c7",
+      "after_file_sha256": "d1e7764c1747398e65ff563f0d8ad118eec1f0abbe64e2969efe33a57da745d7"
+    },
+    {
+      "path": "docs/research/prospective_daily_scanner_micro_source_v01.md",
+      "before_file_sha256": "d3e3261f0442f3ef2da0a984708aef904e0557b22b12f97b8a57affeda4a2513",
+      "after_file_sha256": "8432e9b927c832a0207d8929555c70f4815892cda1b3f2106e320a30ad3a0759"
+    }
+  ],
+  "verification": {
+    "narrow_provider_free_suite": {
+      "command": "PYTHONPATH=src python -m unittest tests.test_prospective_daily_source -v",
+      "test_count": 27,
+      "status": "passed"
+    },
+    "full_provider_free_suite": {
+      "command": "PYTHONPATH=src python -m unittest discover -s tests -v",
+      "test_count": 881,
+      "status": "passed"
+    },
+    "github_actions_validation": "pending_publication",
+    "live_provider_call_used_for_repair_verification": false
+  },
+  "next_gate": "Publish and validate the prospective-only resolution repair, then allow the normal August 27 pre-session capture and post-session source attempt without rerunning August 26. A successful first-attempt source may then dispatch the opportunity freeze.",
+  "content_sha256": "03ee0572f2fc92af632f75b68481e51c1b9fdb28fcb646e1f08e97072ba49591"
+}

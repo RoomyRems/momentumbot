@@ -103,6 +103,17 @@
       "repair_scope": "same_date_historical_sip_request_window_only",
       "strategy_semantics_changed": false,
       "failed_date_rerun": false
+    },
+    {
+      "repair_date": "2026-08-26",
+      "repair_audit_path": "research/data-audits/prospective-daily-scanner-micro-source-v0.1-operational-repair-2026-08-26.json",
+      "repair_audit_content_sha256": "03ee0572f2fc92af632f75b68481e51c1b9fdb28fcb646e1f08e97072ba49591",
+      "failed_workflow_run_id": 32986285404,
+      "failed_workflow_run_attempt": 1,
+      "failed_panel_date": "2026-08-26",
+      "repair_scope": "prospective_missing_daily_basis_activity_resolution_only",
+      "strategy_semantics_changed": false,
+      "failed_date_rerun": false
     }
   ],
   "bound_files": [
@@ -116,7 +127,7 @@
     },
     {
       "path": "src/momentumbot/research/prospective_daily_source.py",
-      "file_sha256": "0d8df5505aa8f0f251d752b5dfde1b5886cff3746fa4722eede790da3e1684d1"
+      "file_sha256": "3f957335a390680bb898d42281fe95caf08726ea4ef822cea91a776aa1e7d34e"
     },
     {
       "path": "scripts/build_prospective_daily_source.py",
@@ -128,13 +139,13 @@
     },
     {
       "path": "docs/research/prospective_daily_scanner_micro_source_v01.md",
-      "file_sha256": "d3e3261f0442f3ef2da0a984708aef904e0557b22b12f97b8a57affeda4a2513"
+      "file_sha256": "8432e9b927c832a0207d8929555c70f4815892cda1b3f2106e320a30ad3a0759"
     },
     {
       "path": "tests/test_prospective_daily_source.py",
-      "file_sha256": "039a13b6898f428efe6c1d10ea497c313ed3e0d6ad96c171344a663ce57c89c7"
+      "file_sha256": "d1e7764c1747398e65ff563f0d8ad118eec1f0abbe64e2969efe33a57da745d7"
     }
   ],
-  "next_gate": "Preserve the next normal August 26 pre-session prerequisite, exact-SHA source, and dispatched opportunity freeze without rerunning the failed August 25 date. Databento quote or acquisition work still requires separate parent-bound authority.",
-  "content_sha256": "4ba4cc43d21f700db396219f63c6d82b8ae97029323e1af39c0bbdb2eb22665c"
+  "next_gate": "Publish and validate the prospective-only missing-daily-basis activity resolution, then preserve the next normal August 27 pre-session prerequisite, exact-SHA source, and dispatched opportunity freeze without rerunning the failed August 25 or August 26 dates. Databento quote or acquisition work still requires separate parent-bound authority.",
+  "content_sha256": "5801f1fba8d0a0f4b3ed9e45ddd0097de4586b39d5e8a287a10203d2d7f987a6"
 }

@@ -131,6 +131,15 @@ PREREQUISITE_FILE = "pre-session-prerequisites.json"
 SCANNER_FILE = "scanner-runtime.json"
 MICRO_FILE = "micro-trigger-runtime.json"
 MANIFEST_FILE = "producer-manifest.json"
+DAILY_BASIS_ACTIVITY_RESOLUTION_ID = (
+    "prospective-missing-daily-basis-activity-resolution-v0.1"
+)
+CONFIRMED_NO_ACTIVITY_DISPOSITION = (
+    "excluded_confirmed_no_target_activity_through_10_01_new_york"
+)
+POSITIVE_CONTROL_ACTIVITY_DISPOSITION = (
+    "positive_control_target_activity_confirmed"
+)
 
 SESSION_TIMEZONE = "America/New_York"
 ET = ZoneInfo(SESSION_TIMEZONE)
@@ -225,6 +234,37 @@ def _same_date_historical_sip_end(trading_date: date) -> datetime:
         HISTORICAL_SIP_END,
         ET,
     ).astimezone(timezone.utc)
+
+
+def _daily_basis_activity_query(trading_date: date) -> dict[str, object]:
+    return {
+        "purpose": "resolve_missing_daily_basis_without_relaxing_required_evidence",
+        "timeframe": "1Min",
+        "feed": "sip",
+        "adjustments": ["raw", "split"],
+        "start": datetime.combine(
+            trading_date,
+            VOLUME_FEATURE_START,
+            ET,
+        )
+        .astimezone(timezone.utc)
+        .isoformat(),
+        "end": _same_date_historical_sip_end(trading_date).isoformat(),
+        "asof": trading_date.isoformat(),
+    }
+
+
+def _daily_basis_positive_controls(
+    result: DiscoveryResult,
+) -> list[str]:
+    """Select one deterministic member with a valid target-day daily basis."""
+
+    eligible = sorted(
+        row.symbol
+        for row in result.acquisition_audit
+        if row.daily_scan_basis_available
+    )
+    return eligible[:1]
 
 
 def union_acquisition_profile() -> StrategyProfile:
@@ -1415,6 +1455,339 @@ def build_float_records_from_providers(
     return sorted(records, key=lambda row: str(row["symbol"]))
 
 
+def resolve_missing_daily_basis_activity(
+    *,
+    alpaca: AlpacaDataClient,
+    result: DiscoveryResult,
+    trading_date: date,
+    asset_batch_size: int,
+) -> dict[str, object]:
+    """Confirm that missing daily bases belong only to non-trading members.
+
+    The shared discovery audit intentionally treats any missing daily basis as
+    incomplete.  The prospective source may resolve that ambiguity only with
+    two additional, successful SIP minute-query passes bounded to the causal
+    04:00--10:01 New York window.  Each pass includes one deterministic
+    positive control whose earlier discovery had a valid same-date daily scan
+    basis; its raw and split minute frames must be nonempty with the same
+    count.  Both
+    normalized response maps must contain every requested symbol, and both
+    frames for each missing-basis member must be empty.  No bars are retained;
+    only the canonical sanitized resolution ledger is persisted.
+    """
+
+    if asset_batch_size <= 0:
+        raise ValueError("asset batch size must be positive")
+    missing = sorted(
+        row.symbol
+        for row in result.acquisition_audit
+        if not row.daily_scan_basis_available
+    )
+    daily_basis_available_count = sum(
+        row.daily_scan_basis_available for row in result.acquisition_audit
+    )
+    positive_controls = _daily_basis_positive_controls(result) if missing else []
+    queried = sorted(set(missing) | set(positive_controls))
+    query = _daily_basis_activity_query(trading_date)
+    if missing and not positive_controls:
+        raise RuntimeError(
+            "cannot resolve missing daily scan basis without a positive-control "
+            "target-minute activity witness"
+        )
+
+    raw: dict[str, pd.DataFrame] = {}
+    split: dict[str, pd.DataFrame] = {}
+    if missing:
+        start = datetime.fromisoformat(str(query["start"]))
+        end = datetime.fromisoformat(str(query["end"]))
+        try:
+            raw = alpaca.bars_batched(
+                queried,
+                batch_size=asset_batch_size,
+                timeframe="1Min",
+                start=start,
+                end=end,
+                feed="sip",
+                adjustment="raw",
+                asof=trading_date,
+            )
+            split = alpaca.bars_batched(
+                queried,
+                batch_size=asset_batch_size,
+                timeframe="1Min",
+                start=start,
+                end=end,
+                feed="sip",
+                adjustment="split",
+                asof=trading_date,
+            )
+        except Exception:
+            raise RuntimeError(
+                "missing daily-basis activity confirmation provider read failed"
+            ) from None
+
+        expected = set(queried)
+        invalid = sorted(
+            expected & set(getattr(alpaca, "invalid_symbols", ()))
+        )
+        if invalid:
+            raise RuntimeError(
+                "missing daily-basis activity confirmation rejected symbols: "
+                + ",".join(invalid)
+            )
+        for label, response in (("raw", raw), ("split", split)):
+            if set(response) != expected:
+                raise RuntimeError(
+                    f"missing daily-basis {label} activity response is incomplete"
+                )
+
+    positive_control_rows: list[dict[str, object]] = []
+    for symbol in positive_controls:
+        raw_frame = raw[symbol]
+        split_frame = split[symbol]
+        if not isinstance(raw_frame, pd.DataFrame) or not isinstance(
+            split_frame, pd.DataFrame
+        ):
+            raise RuntimeError(
+                "daily-basis positive-control response contains a non-frame"
+            )
+        raw_count = len(raw_frame)
+        split_count = len(split_frame)
+        if raw_count <= 0 or split_count <= 0 or raw_count != split_count:
+            raise RuntimeError(
+                "daily-basis activity confirmation lacks a consistent "
+                "positive-control response"
+            )
+        positive_control_rows.append(
+            {
+                "symbol": symbol,
+                "raw_minute_bar_count": raw_count,
+                "split_minute_bar_count": split_count,
+                "disposition": POSITIVE_CONTROL_ACTIVITY_DISPOSITION,
+            }
+        )
+
+    rows: list[dict[str, object]] = []
+    for symbol in missing:
+        raw_frame = raw[symbol]
+        split_frame = split[symbol]
+        if not isinstance(raw_frame, pd.DataFrame) or not isinstance(
+            split_frame, pd.DataFrame
+        ):
+            raise RuntimeError(
+                "missing daily-basis activity response contains a non-frame"
+            )
+        raw_count = len(raw_frame)
+        split_count = len(split_frame)
+        if bool(raw_count) != bool(split_count):
+            raise RuntimeError(
+                "missing daily-basis raw/split activity differs for " + symbol
+            )
+        if raw_count or split_count:
+            raise RuntimeError(
+                "market discovery lacks daily scan basis despite target-session "
+                "minute activity for "
+                + symbol
+            )
+        rows.append(
+            {
+                "symbol": symbol,
+                "raw_minute_bar_count": 0,
+                "split_minute_bar_count": 0,
+                "disposition": CONFIRMED_NO_ACTIVITY_DISPOSITION,
+            }
+        )
+
+    return _fingerprinted(
+        {
+            "schema_version": 1,
+            "artifact_id": DAILY_BASIS_ACTIVITY_RESOLUTION_ID,
+            "trading_date": trading_date.isoformat(),
+            "query": query,
+            "missing_daily_basis_symbol_count": len(missing),
+            "daily_basis_available_symbol_count": daily_basis_available_count,
+            "provider_query_pass_count": 2 if missing else 0,
+            "queried_symbol_count": len(queried),
+            "queried_symbol_sha256": canonical_fingerprint(queried),
+            "positive_control_symbol_count": len(positive_controls),
+            "positive_control_symbol_sha256": canonical_fingerprint(
+                positive_controls
+            ),
+            "positive_control_rows": positive_control_rows,
+            "confirmed_no_activity_symbol_sha256": canonical_fingerprint(
+                missing
+            ),
+            "rows": rows,
+            "raw_market_data_persisted": False,
+            "provider_exception_text_persisted": False,
+        }
+    )
+
+
+def _validated_daily_basis_activity_resolution(
+    resolution: Mapping[str, object],
+    *,
+    result: DiscoveryResult,
+    trading_date: date,
+) -> set[str]:
+    expected_keys = {
+        "schema_version",
+        "artifact_id",
+        "trading_date",
+        "query",
+        "missing_daily_basis_symbol_count",
+        "daily_basis_available_symbol_count",
+        "provider_query_pass_count",
+        "queried_symbol_count",
+        "queried_symbol_sha256",
+        "positive_control_symbol_count",
+        "positive_control_symbol_sha256",
+        "positive_control_rows",
+        "confirmed_no_activity_symbol_sha256",
+        "rows",
+        "raw_market_data_persisted",
+        "provider_exception_text_persisted",
+        "content_sha256",
+    }
+    if set(resolution) != expected_keys:
+        raise RuntimeError("daily-basis activity resolution fields changed")
+    unsigned = {
+        key: value
+        for key, value in resolution.items()
+        if key != "content_sha256"
+    }
+    if resolution.get("content_sha256") != canonical_fingerprint(unsigned):
+        raise RuntimeError("daily-basis activity resolution hash mismatch")
+    if (
+        resolution.get("schema_version") != 1
+        or resolution.get("artifact_id")
+        != DAILY_BASIS_ACTIVITY_RESOLUTION_ID
+        or resolution.get("trading_date") != trading_date.isoformat()
+        or resolution.get("query") != _daily_basis_activity_query(trading_date)
+        or resolution.get("raw_market_data_persisted") is not False
+        or resolution.get("provider_exception_text_persisted") is not False
+    ):
+        raise RuntimeError("daily-basis activity resolution contract changed")
+
+    missing = sorted(
+        row.symbol
+        for row in result.acquisition_audit
+        if not row.daily_scan_basis_available
+    )
+    daily_basis_available_count = sum(
+        row.daily_scan_basis_available for row in result.acquisition_audit
+    )
+    positive_controls = _daily_basis_positive_controls(result) if missing else []
+    queried = sorted(set(missing) | set(positive_controls))
+    if missing and not positive_controls:
+        raise RuntimeError(
+            "daily-basis resolution lacks a positive-control activity witness"
+        )
+    if (
+        resolution.get("missing_daily_basis_symbol_count") != len(missing)
+        or resolution.get("daily_basis_available_symbol_count")
+        != daily_basis_available_count
+        or resolution.get("provider_query_pass_count")
+        != (2 if missing else 0)
+        or resolution.get("queried_symbol_count") != len(queried)
+        or resolution.get("queried_symbol_sha256")
+        != canonical_fingerprint(queried)
+        or resolution.get("positive_control_symbol_count")
+        != len(positive_controls)
+        or resolution.get("positive_control_symbol_sha256")
+        != canonical_fingerprint(positive_controls)
+        or resolution.get("confirmed_no_activity_symbol_sha256")
+        != canonical_fingerprint(missing)
+    ):
+        raise RuntimeError("daily-basis activity resolution summary changed")
+    raw_positive_control_rows = resolution.get("positive_control_rows")
+    if not isinstance(raw_positive_control_rows, list) or not all(
+        isinstance(row, Mapping) for row in raw_positive_control_rows
+    ):
+        raise RuntimeError("daily-basis positive-control rows are invalid")
+    positive_control_rows = [dict(row) for row in raw_positive_control_rows]
+    if positive_control_rows != sorted(
+        positive_control_rows,
+        key=lambda row: str(row.get("symbol") or ""),
+    ):
+        raise RuntimeError("daily-basis positive-control rows are unordered")
+    positive_control_row_keys = {
+        "symbol",
+        "raw_minute_bar_count",
+        "split_minute_bar_count",
+        "disposition",
+    }
+    confirmed_positive_controls: list[str] = []
+    for row in positive_control_rows:
+        raw_count = row.get("raw_minute_bar_count")
+        split_count = row.get("split_minute_bar_count")
+        if (
+            set(row) != positive_control_row_keys
+            or type(raw_count) is not int
+            or type(split_count) is not int
+            or raw_count <= 0
+            or split_count <= 0
+            or raw_count != split_count
+            or row.get("disposition")
+            != POSITIVE_CONTROL_ACTIVITY_DISPOSITION
+            or not _SYMBOL.fullmatch(str(row.get("symbol") or ""))
+        ):
+            raise RuntimeError("daily-basis positive-control row changed")
+        confirmed_positive_controls.append(str(row["symbol"]))
+    if confirmed_positive_controls != positive_controls:
+        raise RuntimeError("daily-basis positive-control membership changed")
+    raw_rows = resolution.get("rows")
+    if not isinstance(raw_rows, list) or not all(
+        isinstance(row, Mapping) for row in raw_rows
+    ):
+        raise RuntimeError("daily-basis activity resolution rows are invalid")
+    rows = [dict(row) for row in raw_rows]
+    if rows != sorted(rows, key=lambda row: str(row.get("symbol") or "")):
+        raise RuntimeError("daily-basis activity resolution rows are unordered")
+    row_keys = {
+        "symbol",
+        "raw_minute_bar_count",
+        "split_minute_bar_count",
+        "disposition",
+    }
+    confirmed: list[str] = []
+    for row in rows:
+        if (
+            set(row) != row_keys
+            or row.get("raw_minute_bar_count") != 0
+            or row.get("split_minute_bar_count") != 0
+            or row.get("disposition") != CONFIRMED_NO_ACTIVITY_DISPOSITION
+            or not _SYMBOL.fullmatch(str(row.get("symbol") or ""))
+        ):
+            raise RuntimeError("daily-basis activity resolution row changed")
+        confirmed.append(str(row["symbol"]))
+    if confirmed != missing or len(confirmed) != len(set(confirmed)):
+        raise RuntimeError("daily-basis activity resolution membership changed")
+    return set(confirmed)
+
+
+def _validate_confirmed_inactivity_against_rank_frames(
+    confirmed_inactive: Iterable[str],
+    rank_frames: Mapping[str, pd.DataFrame],
+) -> None:
+    for symbol in sorted(set(confirmed_inactive)):
+        if symbol not in rank_frames:
+            raise RuntimeError(
+                "rank reacquisition omitted a confirmed inactive member: "
+                + symbol
+            )
+        frame = rank_frames[symbol]
+        if not isinstance(frame, pd.DataFrame):
+            raise RuntimeError(
+                "rank reacquisition returned a non-frame for " + symbol
+            )
+        if not frame.empty:
+            raise RuntimeError(
+                "rank reacquisition contradicts confirmed inactivity for "
+                + symbol
+            )
+
+
 def _validate_discovery_completeness(
     result: DiscoveryResult,
     *,
@@ -1422,7 +1795,8 @@ def _validate_discovery_completeness(
     assets: Sequence[Mapping[str, object]],
     membership_symbols: Sequence[str],
     profile: StrategyProfile,
-) -> None:
+    daily_basis_activity_resolution: Mapping[str, object],
+) -> set[str]:
     """Require one internally consistent acquisition decision per member."""
 
     symbols = sorted(str(value) for value in membership_symbols)
@@ -1439,6 +1813,11 @@ def _validate_discovery_completeness(
         audit_symbols
     ) != symbols:
         raise RuntimeError("market discovery did not decide every frozen member")
+    confirmed_inactive = _validated_daily_basis_activity_resolution(
+        daily_basis_activity_resolution,
+        result=result,
+        trading_date=trading_date,
+    )
 
     def timing(
         bar_started_at: str | None,
@@ -1495,9 +1874,26 @@ def _validate_discovery_completeness(
         if pair is not None:
             audit_timings[row.symbol] = pair
         if not row.daily_scan_basis_available:
-            raise RuntimeError(
-                f"market discovery lacks daily scan basis for {row.symbol}"
-            )
+            if (
+                row.symbol not in confirmed_inactive
+                or row.disposition != "excluded_missing_daily_scan_basis"
+                or row.daily_price_gain_prefilter_pass
+                or row.average_daily_volume_50_available
+                or row.raw_target_minute_bars_present
+                or row.split_target_minute_bars_present
+                or row.rvol_history_sessions != 0
+                or row.coarse_rvol_evaluated
+                or row.coarse_rvol_observation_available
+                or row.coarse_rvol_prefilter_pass
+                or row.exact_rvol_evaluated
+                or row.exact_rvol_observation_available
+                or row.causal_market_qualified
+                or pair is not None
+            ):
+                raise RuntimeError(
+                    f"market discovery lacks required daily scan basis for {row.symbol}"
+                )
+            continue
         if (
             row.raw_target_minute_bars_present
             and not row.split_target_minute_bars_present
@@ -1517,6 +1913,7 @@ def _validate_discovery_completeness(
         raise RuntimeError(
             "market discovery audit and candidate records disagree"
         )
+    return confirmed_inactive
 
 
 def build_news_records_from_provider(
@@ -1639,12 +2036,19 @@ def produce_daily_source_from_providers(
             "market discovery rejected frozen membership symbols: "
             + ",".join(quarantined)
         )
-    _validate_discovery_completeness(
+    daily_basis_activity_resolution = resolve_missing_daily_basis_activity(
+        alpaca=alpaca,
+        result=result,
+        trading_date=session,
+        asset_batch_size=asset_batch_size,
+    )
+    confirmed_inactive = _validate_discovery_completeness(
         result,
         trading_date=session,
         assets=assets,
         membership_symbols=membership_symbols,
         profile=profile,
+        daily_basis_activity_resolution=daily_basis_activity_resolution,
     )
     candidate_payload = build_market_candidate_payload(
         trading_date=session.isoformat(),
@@ -1675,6 +2079,16 @@ def produce_daily_source_from_providers(
                 )
             ),
             "acquisition_audit_sha256": discovery_audit_fingerprint(result),
+            "daily_basis_activity_resolution_content_sha256": (
+                daily_basis_activity_resolution["content_sha256"]
+            ),
+            "confirmed_no_target_activity_count": len(confirmed_inactive),
+            "confirmed_no_target_activity_symbol_sha256": (
+                daily_basis_activity_resolution[
+                    "confirmed_no_activity_symbol_sha256"
+                ]
+            ),
+            "required_daily_scan_basis_missing_count": 0,
             "candidate_count": len(candidates),
             "candidate_payload_sha256": candidate_payload["content_sha256"],
             "full_day_high_used_for_acquisition_only": False,
@@ -1706,6 +2120,10 @@ def produce_daily_source_from_providers(
             membership_symbols=membership_symbols,
             profile=profile,
             asset_batch_size=asset_batch_size,
+        )
+        _validate_confirmed_inactivity_against_rank_frames(
+            confirmed_inactive,
+            rank_frames,
         )
         candidate_frames = {
             symbol: trim_scanner_bar_frame(
@@ -1784,6 +2202,9 @@ def produce_daily_source_from_providers(
             "market_discovery_content_sha256": discovery_manifest[
                 "content_sha256"
             ],
+            "daily_basis_activity_resolution": (
+                daily_basis_activity_resolution
+            ),
             "float_records_sha256": float_manifest["records_sha256"],
             "float_manifest_content_sha256": float_manifest["content_sha256"],
             "news_events_sha256": news_manifest["event_sha256"],
@@ -1805,6 +2226,9 @@ def produce_daily_source_from_providers(
             "market_discovery_content_sha256": discovery_manifest[
                 "content_sha256"
             ],
+            "daily_basis_activity_resolution": (
+                daily_basis_activity_resolution
+            ),
             "float_records_sha256": canonical_fingerprint([]),
             "float_manifest_content_sha256": canonical_fingerprint(
                 {"policy": causal_float_v0_1_manifest(), "records": []}
