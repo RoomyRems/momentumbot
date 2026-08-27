@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "audit_id": "prospective-panel-scheduler-resilience-v0.1-2026-08-27",
+  "audit_date": "2026-08-27",
+  "artifact_type": "prospective_scheduler_failure_and_default_branch_resilience_repair",
+  "frozen_research_parent": {
+    "repository": "RoomyRems/momentumbot",
+    "branch": "phase-3-historical-snapshot",
+    "commit_sha": "d7092541753d94d712a8d50e20a2344f07eb7bcc",
+    "commit_tree_sha": "4b7ce012e71730e5f60120cb155bed65e6c5370d",
+    "executable_research_file_changed": false
+  },
+  "august_27_observation": {
+    "run_history_checked_at": "2026-08-27T17:35:15Z",
+    "expected_account_snapshot_utc": "2026-08-27T09:15:00Z",
+    "expected_prerequisite_utc": "2026-08-27T09:30:00Z",
+    "expected_source_production_utc": "2026-08-27T14:20:00Z",
+    "account_or_daily_source_schedule_run_emitted": false,
+    "runtime_artifact_created": false,
+    "provider_call_from_absent_runs": false,
+    "retry_performed": false,
+    "panel_disposition": "failed_incomplete_date_not_zero_opportunity"
+  },
+  "delayed_management_evidence": {
+    "workflow_run_id": 33038460971,
+    "nominal_occurrence_utc": "2026-08-26T23:00:00Z",
+    "github_created_at": "2026-08-27T04:07:56Z",
+    "queue_delay_seconds": 18476,
+    "legacy_selected_date": "2026-08-27",
+    "correct_nominal_new_york_date": "2026-08-26",
+    "capture_job_started": false,
+    "provider_call_made": false,
+    "artifact_created": false
+  },
+  "root_cause": {
+    "confirmed": "August 27 account and daily-source schedule runs were absent, while the management resolver used runner-local today instead of its nominal cron occurrence",
+    "github_documented_boundary": "scheduled events can be delayed and sufficiently loaded queued jobs can be dropped",
+    "documentation_url": "https://docs.github.com/actions/using-workflows/events-that-trigger-workflows#schedule",
+    "limitation": "GitHub exposes no internal event record proving why each absent wake-up was not emitted"
+  },
+  "repair": {
+    "scope": "default_branch_scheduler_only",
+    "main_parent_commit_sha": "de9d74159017877225e1ae92c9de86b725ef3f9c",
+    "published_main_commit_sha": "5cc17a5700e2ea92c542b30dd8484b80d7b15860",
+    "published_main_tree_sha": "bb49815981ef7ccd08000e2308588ca1d263a086",
+    "published_tree_matches_locally_tested_tree": true,
+    "redundant_wakeups_per_phase_and_date": 3,
+    "wakeups_avoid_minute_zero": true,
+    "nominal_cron_date_reconstructed": true,
+    "first_emitted_wakeup_owns_phase_and_date": true,
+    "later_wakeups_are_provider_free_blocked_noops": true,
+    "prior_failed_attempt_still_blocks_retry": true,
+    "outside_window_or_ambiguous_history_fails_closed": true,
+    "applies_first_to_registered_date": "2026-08-28"
+  },
+  "changed_main_file_sha256": {
+    ".github/scripts/panel_schedule_guard.py": "a1c63940b5190d26158e3918fc7ab4439ed9fb525bfb126b05a047bb1a8c85af",
+    ".github/scripts/test_panel_schedule_guard.py": "c945c1c8e65d836e0e6d2d1c58ca54985bb411babd1044fa35522aabee9edd22",
+    ".github/workflows/account-session-snapshot.yml": "52e1c3396ee158f26e3eb0dc41a9177c4ba8aae0f50443de6ee5a186a965d9d2",
+    ".github/workflows/prospective-daily-source.yml": "a6e065678f0b256a35d2114a80e93f44f5b122a0b8220d2bb46ebfa750fcbe47",
+    ".github/workflows/prospective-management-window.yml": "06a4da7f9b24accd2ff8a77e1631e22d336ee3b5249ed7f20552155daff8d947",
+    ".github/workflows/prospective-panel-scheduler-validation.yml": "3ab0bc1f1c71a38c306ff5b9010e726fdaeebb4ad8f3582852980c44b33c2147"
+  },
+  "verification": {
+    "local_scheduler_guard_tests": 16,
+    "local_scheduler_guard_status": "passed",
+    "workflow_yaml_parse": "passed",
+    "hosted_scheduler_validation_run_id": 33099487898,
+    "hosted_scheduler_validation_job_id": 98613063209,
+    "hosted_scheduler_validation_attempt": 1,
+    "hosted_scheduler_validation_conclusion": "success",
+    "research_parent_ci_run_id": 32997469866,
+    "research_parent_ci_conclusion": "success",
+    "provider_call_used_for_repair_verification": false
+  },
+  "frozen_exclusions": {
+    "strategy_or_threshold_change": false,
+    "micro_or_management_rule_change": false,
+    "account_state_change": false,
+    "provider_policy_or_purchase_change": false,
+    "broker_order_authority": false,
+    "failed_date_rerun_authority": false
+  },
+  "panel_treatment": {
+    "failed_incomplete_dates": [
+      "2026-08-24",
+      "2026-08-25",
+      "2026-08-26",
+      "2026-08-27"
+    ],
+    "failed_dates_are_not_zero_opportunity": true,
+    "failed_dates_will_not_be_rerun": true,
+    "panel_remains_descriptive_with_operational_missingness": true
+  },
+  "next_gate": "Allow only the normal guarded August 28 wakeups. Do not rerun August 24 through August 27 and do not change strategy, thresholds, accounts, or provider policy.",
+  "content_sha256": "dbd992b593de009e8bd4c132abe666838f3766a51ac3c75058dacffc329cf47b"
+}
