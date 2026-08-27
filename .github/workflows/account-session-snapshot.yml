@@ -1,4 +1,5 @@
 name: Account pre-session snapshot v0.1
+run-name: Account pre-session snapshot v0.1 / ${{ github.event.schedule || inputs.mode || 'validation' }}
 
 on:
   push:
@@ -25,12 +26,19 @@ on:
         required: false
         type: string
   schedule:
-    # The registered 2026 sessions are all on EDT (UTC-4).  GitHub cron has no
-    # year field, so the resolver also requires an exact registered 2026 date.
-    - cron: "15 9 24-28,31 8 *"
-    - cron: "15 9 1-4 9 *"
+    # Redundant, off-hour wake-ups mitigate GitHub's documented possibility of
+    # delayed or dropped schedule events.  The schedule guard permits only the
+    # first emitted wake-up for a date; all later wake-ups are provider-free
+    # blocked no-ops and cannot become retries.
+    - cron: "17 7 24-28,31 8 *"
+    - cron: "47 8 24-28,31 8 *"
+    - cron: "17 9 24-28,31 8 *"
+    - cron: "17 7 1-4 9 *"
+    - cron: "47 8 1-4 9 *"
+    - cron: "17 9 1-4 9 *"
 
 permissions:
+  actions: read
   contents: read
 
 concurrency:
@@ -42,20 +50,56 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out the default-branch schedule guard
+        if: github.event_name == 'schedule'
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          ref: main
+          path: .panel-scheduler
+      - name: Resolve one emitted pre-session wake-up
+        id: schedule_guard
+        if: github.event_name == 'schedule'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SCHEDULE_EXPRESSION: ${{ github.event.schedule }}
+          PHASE_SCHEDULES_JSON: >-
+            {"pre-session":["17 7 24-28,31 8 *","47 8 24-28,31 8 *","17 9 24-28,31 8 *","17 7 1-4 9 *","47 8 1-4 9 *","17 9 1-4 9 *"]}
+        run: |
+          set -euo pipefail
+          gh api --paginate --slurp \
+            "repos/${GITHUB_REPOSITORY}/actions/workflows/account-session-snapshot.yml/runs?event=schedule&per_page=100" \
+            > schedule-run-pages.json
+          python .panel-scheduler/.github/scripts/panel_schedule_guard.py \
+            --run-pages schedule-run-pages.json \
+            --current-run-id "${GITHUB_RUN_ID}" \
+            --event-schedule "${SCHEDULE_EXPRESSION}" \
+            --phase pre-session \
+            --phase-schedules-json "${PHASE_SCHEDULES_JSON}" \
+            --window-start 02:00:00 \
+            --window-end 06:59:59 \
+            --github-output "${GITHUB_OUTPUT}" \
+            --github-summary "${GITHUB_STEP_SUMMARY}"
+      - name: Check out the exact runtime
+        if: github.event_name != 'schedule' || steps.schedule_guard.outputs.should_attempt == 'true'
+        uses: actions/checkout@v4
         with:
           persist-credentials: false
           # GitHub schedules are sourced only from the default branch.  The
           # same workflow is installed on main solely as a scheduler and must
           # execute the frozen research branch rather than main's source tree.
           ref: ${{ github.event_name == 'schedule' && 'phase-3-historical-snapshot' || github.sha }}
-      - uses: actions/setup-python@v5
+      - if: github.event_name != 'schedule' || steps.schedule_guard.outputs.should_attempt == 'true'
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - name: Install package
+        if: github.event_name != 'schedule' || steps.schedule_guard.outputs.should_attempt == 'true'
         run: python -m pip install -e .
       - name: Resolve validation or registered capture
         id: resolve
+        if: github.event_name != 'schedule' || steps.schedule_guard.outputs.should_attempt == 'true'
         shell: bash
         env:
           REQUESTED_MODE: ${{ inputs.mode || 'validate' }}

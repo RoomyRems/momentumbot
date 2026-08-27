@@ -1,0 +1,33 @@
+name: Prospective panel scheduler validation
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/scripts/panel_schedule_guard.py
+      - .github/scripts/test_panel_schedule_guard.py
+      - .github/workflows/account-session-snapshot.yml
+      - .github/workflows/prospective-daily-source.yml
+      - .github/workflows/prospective-management-window.yml
+      - .github/workflows/prospective-panel-scheduler-validation.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: "3.12"
+      - name: Verify nominal-date and one-attempt scheduler guard
+        run: python .github/scripts/test_panel_schedule_guard.py -v
+      - name: Compile scheduler guard
+        run: python -m py_compile .github/scripts/panel_schedule_guard.py

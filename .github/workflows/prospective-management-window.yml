@@ -69,19 +69,23 @@ on:
         required: false
         type: string
   schedule:
-    # Registered dates are on EDT (UTC-4). The resolver also requires the
-    # exact frozen 2026 New York date, so these yearless crons cannot recur.
-    # 19:00 New York is after the 10:00 source window and 15-minute management
-    # horizon while leaving time for the automatically dispatched freeze.
-    - cron: "0 23 24-28,31 8 *"
-    - cron: "0 23 1-4 9 *"
+    # Three off-hour wake-ups represent each 19:00+ New York management gate.
+    # The final wake-up occurs after 00:00 UTC but remains on the prior New
+    # York trading date.  The schedule guard reconstructs that nominal date
+    # and permits only the first emitted wake-up.
+    - cron: "11 23 24-28,31 8 *"
+    - cron: "41 23 24-28,31 8 *"
+    - cron: "11 0 25-29 8 *"
+    - cron: "11 23 1-4 9 *"
+    - cron: "41 23 1-4 9 *"
+    - cron: "11 0 1-5 9 *"
 
 permissions:
   actions: read
   contents: read
 
 concurrency:
-  group: prospective-management-window-v0.1-${{ inputs.trading_date || github.event.schedule || 'validation' }}
+  group: prospective-management-window-v0.1-${{ github.event_name }}-${{ inputs.trading_date || 'scheduled' }}
   cancel-in-progress: false
 
 jobs:
@@ -117,8 +121,40 @@ jobs:
       freeze_run_id: ${{ steps.resolve.outputs.freeze_run_id }}
       freeze_artifact_name: ${{ steps.resolve.outputs.freeze_artifact_name }}
     steps:
+      - name: Check out the default-branch schedule guard
+        if: github.event_name == 'schedule'
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          ref: main
+          path: .panel-scheduler
+      - name: Resolve one emitted management wake-up
+        id: schedule_guard
+        if: github.event_name == 'schedule'
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SCHEDULE_EXPRESSION: ${{ github.event.schedule }}
+          PHASE_SCHEDULES_JSON: >-
+            {"management":["11 23 24-28,31 8 *","41 23 24-28,31 8 *","11 0 25-29 8 *","11 23 1-4 9 *","41 23 1-4 9 *","11 0 1-5 9 *"]}
+        run: |
+          set -euo pipefail
+          gh api --paginate --slurp \
+            "repos/${GITHUB_REPOSITORY}/actions/workflows/prospective-management-window.yml/runs?event=schedule&per_page=100" \
+            > schedule-run-pages.json
+          python .panel-scheduler/.github/scripts/panel_schedule_guard.py \
+            --run-pages schedule-run-pages.json \
+            --current-run-id "${GITHUB_RUN_ID}" \
+            --event-schedule "${SCHEDULE_EXPRESSION}" \
+            --phase management \
+            --phase-schedules-json "${PHASE_SCHEDULES_JSON}" \
+            --window-start 19:00:00 \
+            --window-end 23:59:59 \
+            --github-output "${GITHUB_OUTPUT}" \
+            --github-summary "${GITHUB_STEP_SUMMARY}"
       - name: Resolve one exact freeze and reject a second capture attempt
         id: resolve
+        if: github.event_name != 'schedule' || steps.schedule_guard.outputs.should_attempt == 'true'
         shell: bash
         env:
           EVENT_NAME: ${{ github.event_name }}
@@ -128,6 +164,7 @@ jobs:
           REQUESTED_DATE: ${{ inputs.trading_date || '' }}
           REQUESTED_RUN_ID: ${{ inputs.freeze_run_id || '' }}
           REQUESTED_RUNTIME_SHA: ${{ inputs.runtime_commit_sha || '' }}
+          SCHEDULE_GUARD_DATE: ${{ steps.schedule_guard.outputs.trading_date || '' }}
           THIS_RUN_ID: ${{ github.run_id }}
         run: |
           set -euo pipefail
@@ -153,6 +190,8 @@ jobs:
           today_et = datetime.now(ZoneInfo("America/New_York")).date().isoformat()
           scheduled = os.environ["EVENT_NAME"] == "schedule"
           target = today_et if scheduled else os.environ["REQUESTED_DATE"]
+          if scheduled and os.environ["SCHEDULE_GUARD_DATE"] != target:
+              raise RuntimeError("schedule guard date differs from New York today")
           if target not in registered:
               raise RuntimeError("capture date is not in the frozen 2026 panel")
           if date.fromisoformat(target) > datetime.now(UTC).date():
@@ -178,19 +217,20 @@ jobs:
 
           run_pages = json.loads(Path("management-run-pages.json").read_text())
           prior_attempts = []
-          for page in run_pages:
-              for row in page.get("workflow_runs", []):
-                  if str(row.get("id")) == os.environ["THIS_RUN_ID"]:
-                      continue
-                  title = str(row.get("display_title", ""))
-                  created = datetime.fromisoformat(str(row["created_at"]).replace("Z", "+00:00"))
-                  same_manual = f" / capture / {target}" in title
-                  same_schedule = (
-                      " / scheduled-capture / " in title
-                      and created.astimezone(ZoneInfo("America/New_York")).date().isoformat() == target
-                  )
-                  if same_manual or same_schedule:
-                      prior_attempts.append(row)
+          if not scheduled:
+              for page in run_pages:
+                  for row in page.get("workflow_runs", []):
+                      if str(row.get("id")) == os.environ["THIS_RUN_ID"]:
+                          continue
+                      title = str(row.get("display_title", ""))
+                      created = datetime.fromisoformat(str(row["created_at"]).replace("Z", "+00:00"))
+                      same_manual = f" / capture / {target}" in title
+                      same_schedule = (
+                          " / scheduled-capture / " in title
+                          and created.astimezone(ZoneInfo("America/New_York")).date().isoformat() == target
+                      )
+                      if same_manual or same_schedule:
+                          prior_attempts.append(row)
           if prior_attempts:
               raise RuntimeError("a prior management capture workflow already attempted this date")
 
