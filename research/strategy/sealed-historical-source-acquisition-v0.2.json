@@ -1,0 +1,144 @@
+{
+  "artifact_type": "preregistered_bounded_sealed_historical_source_acquisition_repair",
+  "authority_boundary": {
+    "candidate_bound_databento_acquisition_authorized": false,
+    "historical_account_runtime_authorized": false,
+    "historical_source_acquisition_authorized": true,
+    "live_order_authorized": false,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false
+  },
+  "authorization_id": "sealed-historical-source-acquisition-v0.2",
+  "causal_boundary": {
+    "later_price_or_final_volume_used_at_decision_time": false,
+    "present_day_alpaca_asset_master_reconciliation_allowed": false,
+    "ross_actions_fills_skips_or_outcomes_may_be_read": false,
+    "strategy_threshold_or_setup_changes_allowed": false,
+    "transcript_record_values_may_be_read": false
+  },
+  "content_sha256": "be574f7e79c13eaf5c0235a02fd5d157738f4d7dd9431dd7b932c1cf20fcf315",
+  "cost_ceiling": {
+    "databento_calls_authorized": 0,
+    "incremental_provider_cost_usd": "0",
+    "paid_acquisition_authorized": false
+  },
+  "credential_routing": {
+    "credential_values_changed_observed_or_persisted": false,
+    "github_actions_secret_names": [
+      "MASSIVE_API_KEY",
+      "ALPACA_MAIN_API_KEY",
+      "ALPACA_MAIN_API_SECRET",
+      "SEC_USER_AGENT"
+    ],
+    "runtime_environment_aliases": {
+      "ALPACA_API_KEY": "ALPACA_MAIN_API_KEY",
+      "ALPACA_API_SECRET": "ALPACA_MAIN_API_SECRET",
+      "MASSIVE_API_KEY": "MASSIVE_API_KEY",
+      "SEC_USER_AGENT": "SEC_USER_AGENT"
+    }
+  },
+  "frozen_parent": {
+    "availability_report_content_sha256": "bc88728486e77ca718e77918fa83470b7a608502e34aedaa8ccb184fef03819c",
+    "availability_success_audit_content_sha256": "76baebc0df39c59e9a1a8ebc099c5c0c3080d1a4e4cb2ac013cb85f7f9070cb1",
+    "availability_workflow_run_id": "33348970745",
+    "contract_content_sha256": "93a4316a4ef785e30ebc393ec140fa02ea23027aa9cd85673d34401b3bca3452",
+    "contract_id": "sealed-historical-walk-forward-v0.1",
+    "selected_dates": [
+      "2025-05-30",
+      "2025-06-02",
+      "2025-06-03",
+      "2025-06-04",
+      "2025-06-05",
+      "2025-06-06",
+      "2025-06-09",
+      "2025-06-10",
+      "2025-06-11",
+      "2025-06-12",
+      "2025-06-13",
+      "2025-06-16",
+      "2025-06-17",
+      "2025-06-18",
+      "2025-06-20",
+      "2025-06-23",
+      "2025-06-24",
+      "2025-06-25",
+      "2025-06-26",
+      "2025-06-27",
+      "2025-07-01",
+      "2025-07-02",
+      "2025-07-07",
+      "2025-07-08",
+      "2025-07-10",
+      "2025-07-11",
+      "2025-07-14",
+      "2025-07-15",
+      "2025-07-16",
+      "2025-07-17"
+    ],
+    "v0_1_authorization_content_sha256": "0dbc26228513bb81f55c484daa56e899feabdc38f419c2ccd758c9d2853eb4d7",
+    "v0_1_failure_audit_content_sha256": "934d1ca46ceb87192f3c2846894ada202554ffd4bbe07a6a2fe7fccaf246f292",
+    "v0_1_failure_artifact_file_sha256": "17c5dbe3f67af68bbc261dd718a04516a7f3f93c99dbeaf4d888f0452288a4cd",
+    "v0_1_workflow_run_id": "33350635957"
+  },
+  "one_shot_contract": {
+    "authorization_consumed_before_provider_access": true,
+    "automatic_rerun_allowed": false,
+    "provider_substitution_allowed": false,
+    "v0_1_authorization_may_be_rerun": false,
+    "workflow_run_attempt_required": 1
+  },
+  "registered_at_date": "2026-08-31",
+  "repair_boundary": {
+    "acquisition_code_or_parameters_changed": false,
+    "dates_or_provider_routes_changed": false,
+    "request_ceiling_only_change": true,
+    "strategy_or_account_policy_changed": false,
+    "v0_1_partial_tree_reused": false
+  },
+  "request_budget": {
+    "allowed_hosts": [
+      "api.massive.com",
+      "data.alpaca.markets",
+      "data.sec.gov"
+    ],
+    "alpaca": {
+      "asset_or_account_endpoint_calls": 0,
+      "bars_maximum_pages_per_logical_request": 100,
+      "corporate_action_maximum_pages_per_request": 100,
+      "daily_and_rank_batch_size": 250,
+      "feed": "sip",
+      "minute_batch_size_maximum": 100
+    },
+    "counter_persists_counts_by_hostname_only": true,
+    "massive": {
+      "census_limit_per_page": 1000,
+      "maximum_census_pages_per_date": 20,
+      "minimum_request_interval_seconds": "12.5",
+      "split_maximum_pages_per_request": 20,
+      "ticker_event_sample_calls": 0,
+      "ticker_type_calls": 1
+    },
+    "maximum_total_http_attempts_including_retries": 40000,
+    "news": {
+      "include_content": false,
+      "maximum_candidates_per_date": 50,
+      "maximum_pages_per_batch": 10,
+      "symbol_batch_size": 50
+    },
+    "sec": {
+      "endpoints_per_unique_candidate_cik": 2,
+      "maximum_attempts_per_endpoint": 3,
+      "maximum_candidates_per_date": 50,
+      "minimum_request_interval_seconds": "0.2"
+    },
+    "shared_cross_process_counter_required": true
+  },
+  "retention_budget": {
+    "artifact_retention_days": 90,
+    "canonical_scanner_runtime_inputs_persisted_gzip": true,
+    "maximum_retained_bytes": 1500000000,
+    "raw_provider_http_responses_persisted": false,
+    "upstream_normalized_membership_market_float_news_persisted": true
+  },
+  "schema_version": 1
+}

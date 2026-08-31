@@ -17,9 +17,17 @@ granted by the registration.
 
 ## Active gate
 
-Run a provider-free availability and cost audit for the 30 immutable dates.
-Only after that audit is frozen may an exact, separately bounded acquisition be
-authorized. Unavailable dates remain unavailable and cannot be replaced.
+Provider availability passed after the v0.2 Alpaca credential-routing repair.
+The exact v0.1 source acquisition was then consumed by GitHub Actions run
+`33350635957` and failed safely at its registered 20,000-HTTP-attempt ceiling;
+the next Alpaca request was blocked before network access. No final source
+bundle was uploaded and v0.1 cannot be rerun.
+
+The active repair is `sealed-historical-source-acquisition-v0.2`. It preserves
+the 30 dates and the entire causal acquisition graph and changes only the
+zero-incremental-cost shared HTTP ceiling from 20,000 to 40,000. It remains
+provider-free until its exact registration is published and validated, and it
+may run only once after consumption of its distinct child authorization.
 
 The strategy scope freeze remains active: no new setup, AI authority, scanner or
 Micro threshold change, account rule change, execution-cell selection, or

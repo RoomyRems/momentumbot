@@ -1,0 +1,58 @@
+{
+  "artifact_type": "permanent_sealed_historical_source_acquisition_safe_failure",
+  "artifacts": {
+    "documentation": {
+      "file_sha256": "6799c4f16b50ce1a6332ecc2d1bb815cf42ed8e1e2c40675c782fe6ec540b38c",
+      "path": "docs/research/sealed_historical_source_acquisition_v01_failure.md"
+    },
+    "sanitized_failure_report": {
+      "artifact_file_sha256": "17c5dbe3f67af68bbc261dd718a04516a7f3f93c99dbeaf4d888f0452288a4cd",
+      "path": "research/data-audits/sealed-historical-source-acquisition-v0.1-failure-report-2026-08-31.json",
+      "workflow_archive_digest": "sha256:3ede72c67e988d59e6f122f27e72a02b1778cfc00af44c4ff94bd3238e6f3f78"
+    }
+  },
+  "authority_boundary": {
+    "candidate_bound_databento_acquisition_authorized": false,
+    "historical_account_runtime_authorized": false,
+    "live_order_authorized": false,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false,
+    "v0_1_rerun_authorized": false
+  },
+  "authorization": {
+    "authorization_content_sha256": "0dbc26228513bb81f55c484daa56e899feabdc38f419c2ccd758c9d2853eb4d7",
+    "authorization_id": "sealed-historical-source-acquisition-v0.1"
+  },
+  "causal_attestation": {
+    "account_or_order_endpoint_called": false,
+    "automatic_rerun_attempted": false,
+    "credential_failure": false,
+    "databento_called": false,
+    "order_submitted": false,
+    "raw_provider_http_responses_persisted": false,
+    "transcript_record_values_read": false
+  },
+  "content_sha256": "934d1ca46ceb87192f3c2846894ada202554ffd4bbe07a6a2fe7fccaf246f292",
+  "failure": {
+    "failed_step": "Freeze causal scanner snapshots and canonical source inputs",
+    "failure_classification": "registered_http_attempt_safety_ceiling_exhausted",
+    "next_request_blocked_before_network_access": true,
+    "partial_retained_bytes_not_uploaded": 613915592,
+    "root_cause": "v0.1 ceiling underestimated the independent scanner reconstruction plus full-membership rank acquisition graph"
+  },
+  "request_accounting": {
+    "alpaca_attempts": 18659,
+    "massive_attempts": 363,
+    "maximum_authorized_attempts": 20000,
+    "sec_attempts": 978,
+    "total_attempts": 20000
+  },
+  "schema_version": 1,
+  "workflow": {
+    "artifact_id": 9747011591,
+    "conclusion": "failure",
+    "run_attempt": 1,
+    "run_id": 33350635957,
+    "url": "https://github.com/RoomyRems/momentumbot/actions/runs/33350635957"
+  }
+}

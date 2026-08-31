@@ -1,0 +1,70 @@
+{
+  "artifact_type": "provider_free_sealed_historical_source_acquisition_repair_registration",
+  "artifacts": {
+    "authorization": {
+      "file_sha256": "56e9a461ac0a29e17785f8986b49993d918f10deff867d945ec3f4b36b68d30f",
+      "path": "research/strategy/sealed-historical-source-acquisition-v0.2.json"
+    },
+    "documentation": {
+      "file_sha256": "37d868d3d44aa5f2c2ae0a73551e6e0c2762fdd3b7bf089ee4d78f3b5648dfe3",
+      "path": "docs/research/sealed_historical_source_acquisition_v02.md"
+    },
+    "failure_audit": {
+      "file_sha256": "2cc762f7334fee4174d102ecb24bae96437c5328249a5338500b5e8e7b5e3b78",
+      "path": "research/data-audits/sealed-historical-source-acquisition-v0.1-failure-2026-08-31.json"
+    },
+    "failure_documentation": {
+      "file_sha256": "6799c4f16b50ce1a6332ecc2d1bb815cf42ed8e1e2c40675c782fe6ec540b38c",
+      "path": "docs/research/sealed_historical_source_acquisition_v01_failure.md"
+    },
+    "failure_report": {
+      "file_sha256": "17c5dbe3f67af68bbc261dd718a04516a7f3f93c99dbeaf4d888f0452288a4cd",
+      "path": "research/data-audits/sealed-historical-source-acquisition-v0.1-failure-report-2026-08-31.json"
+    },
+    "implementation": {
+      "file_sha256": "00e7f5ec0923555969bd78953e1dfa731059aaa3e1c9d27d7dec3897436c70cb",
+      "path": "src/momentumbot/research/sealed_historical_source_acquisition_v02.py"
+    },
+    "runner": {
+      "file_sha256": "f5eaa118249aac8067f2d0bbc84d49c1ba91b2e40d90c84bbed8ae14ff3c600c",
+      "path": "scripts/run_sealed_historical_source_acquisition_v02.py"
+    },
+    "v0_1_registration": {
+      "file_sha256": "456562581cce61cb0704ad1554797b6bed69bbd66fab323bb57d3a7ed60bb0b9",
+      "path": "research/data-audits/sealed-historical-source-acquisition-v0.1-registration-2026-08-31.json"
+    },
+    "workflow": {
+      "file_sha256": "f5386c207981d418644bfb3a01fe5ff61d2f6853d813d548f74ff2ebee322dde",
+      "path": ".github/workflows/sealed-historical-source-acquisition-v02.yml"
+    }
+  },
+  "authority_boundary": {
+    "candidate_bound_databento_acquisition_authorized": false,
+    "historical_account_runtime_authorized": false,
+    "historical_source_v0_2_authorized_after_publication_and_green_validation": true,
+    "live_order_authorized": false,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false,
+    "v0_1_rerun_authorized": false
+  },
+  "authorization_content_sha256": "be574f7e79c13eaf5c0235a02fd5d157738f4d7dd9431dd7b932c1cf20fcf315",
+  "authorization_id": "sealed-historical-source-acquisition-v0.2",
+  "causal_attestation": {
+    "account_or_order_endpoint_calls": 0,
+    "credential_values_accessed_or_observed": false,
+    "databento_calls": 0,
+    "provider_calls": 0,
+    "runtime_started": false,
+    "strategy_or_account_policy_changed": false,
+    "transcript_record_values_decoded": false
+  },
+  "content_sha256": "c1f7da2cd288900a02019fca4f8d091611a3b0f5254c39d893638a99a11bcbd5",
+  "repair": {
+    "maximum_total_http_attempts_including_retries": 40000,
+    "only_changed_operational_bound": "maximum_total_http_attempts_including_retries",
+    "v0_1_maximum_total_http_attempts": 20000,
+    "v0_1_observed_total_http_attempts": 20000,
+    "v0_1_workflow_run_id": 33350635957
+  },
+  "schema_version": 1
+}
