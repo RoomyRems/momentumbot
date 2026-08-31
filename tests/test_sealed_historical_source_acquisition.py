@@ -52,7 +52,7 @@ REGISTRATION_AUDIT = (
     / "research/data-audits"
     / "sealed-historical-source-acquisition-v0.1-registration-2026-08-31.json"
 )
-REGISTRATION_AUDIT_CONTENT_SHA256 = "3992fac0704b98d83d22efef2865eb7e26867cc9b3f643d2840e8111726137a6"
+REGISTRATION_AUDIT_CONTENT_SHA256 = "920c2de32a8a05425928966d53b370f3ce2302f035afce178af9453a181a0db1"
 
 
 class SealedHistoricalSourceAcquisitionTests(unittest.TestCase):
@@ -217,6 +217,8 @@ class SealedHistoricalSourceAcquisitionTests(unittest.TestCase):
         )
         self.assertNotIn("${{ runner.temp }}", text)
         self.assertNotIn("git fetch --no-tags origin", text)
+        self.assertIn('test "${#AUTHORIZATION_COMMIT_SHA}" = "40"', text)
+        self.assertIn("*[!0-9a-f]*) exit 1", text)
         self.assertIn(
             "git rev-parse origin/phase-3-historical-snapshot", text
         )
