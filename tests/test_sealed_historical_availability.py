@@ -47,6 +47,21 @@ REGISTRATION_AUDIT = (
 REGISTRATION_AUDIT_CONTENT_SHA256 = (
     "46e6122be93b434a456d7a0da0f09e6eb1c5596e26bc37727ab24089c3e46c05"
 )
+FAILURE_REPORT = (
+    ROOT
+    / "research"
+    / "data-audits"
+    / "sealed-historical-provider-availability-v0.1-report-2026-08-31.json"
+)
+FAILURE_AUDIT = (
+    ROOT
+    / "research"
+    / "data-audits"
+    / "sealed-historical-provider-availability-v0.1-failure-2026-08-31.json"
+)
+FAILURE_AUDIT_CONTENT_SHA256 = (
+    "59fc89f8f86af18cb08fa65abb40dba388665afe880d2d18013bfc1317c42759"
+)
 
 
 class _Metadata:
@@ -165,6 +180,39 @@ class SealedHistoricalAvailabilityTests(unittest.TestCase):
         self.assertEqual(canonical_fingerprint(body), claimed)
         self.assertEqual(claimed, REGISTRATION_AUDIT_CONTENT_SHA256)
         self.assertEqual(audit["causal_attestation"]["provider_calls_during_registration"], 0)
+        for row in audit["artifacts"].values():
+            path = ROOT / row["path"]
+            self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), row["file_sha256"])
+
+    def test_permanent_failure_is_sanitized_hash_bound_and_non_authorizing(self) -> None:
+        report = load_json_object(FAILURE_REPORT)
+        validate_report(report, self.authorization, self.registration)
+        self.assertFalse(report["availability_gate_passed"])
+        self.assertEqual(report["call_counts"]["total"], 4)
+        self.assertEqual(
+            report["probes"]["alpaca_sip_session_calendar"]["status"], 401
+        )
+        self.assertTrue(
+            report["probes"]["databento_dataset_range"][
+                "selected_interval_covered"
+            ]
+        )
+        self.assertTrue(
+            all(
+                row["ok"]
+                for row in report["probes"]["massive_point_in_time_endpoints"]
+            )
+        )
+
+        audit = load_json_object(FAILURE_AUDIT)
+        body = dict(audit)
+        claimed = body.pop("content_sha256")
+        self.assertEqual(canonical_fingerprint(body), claimed)
+        self.assertEqual(claimed, FAILURE_AUDIT_CONTENT_SHA256)
+        self.assertFalse(audit["authority_boundary"]["provider_probe_rerun_authorized"])
+        self.assertFalse(audit["authority_boundary"]["full_data_acquisition_authorized"])
+        self.assertEqual(audit["workflow"]["run_attempt"], 1)
+        self.assertEqual(audit["workflow"]["run_id"], 33348067097)
         for row in audit["artifacts"].values():
             path = ROOT / row["path"]
             self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), row["file_sha256"])

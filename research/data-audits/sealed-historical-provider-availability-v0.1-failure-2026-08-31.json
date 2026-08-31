@@ -1,0 +1,74 @@
+{
+  "artifact_type": "permanent_sealed_historical_provider_availability_safe_failure",
+  "artifacts": {
+    "documentation": {
+      "file_sha256": "b44616c1556c2c7f705affb51ca9981bb52877bdf27a044303b2e21df7a7f931",
+      "path": "docs/research/sealed_historical_provider_availability_v01_failure.md"
+    },
+    "sanitized_report": {
+      "content_sha256": "05be1e2e7ab30433489b4d00ec79414c13a73b249df0c5d33742049a7d7a6e08",
+      "file_sha256": "306e489d191499b2527a6c07f0cea15475077be90e8b34f249934705d505c279",
+      "path": "research/data-audits/sealed-historical-provider-availability-v0.1-report-2026-08-31.json"
+    }
+  },
+  "authority_boundary": {
+    "full_data_acquisition_authorized": false,
+    "historical_runtime_authorized": false,
+    "live_order_authorized": false,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false,
+    "provider_probe_rerun_authorized": false,
+    "provider_substitution_authorized": false
+  },
+  "authorization": {
+    "authorization_content_sha256": "a985794bc0856aa37d8a79ba43f068994329e4950b60cb1d86ba5436a1f77295",
+    "authorization_id": "sealed-historical-provider-availability-v0.1",
+    "research_commit_sha": "d7357f74c4b2fd2ce2d00c5ff0d7efaad2cf38e5"
+  },
+  "call_accounting": {
+    "alpaca_calls": 1,
+    "databento_calls": 1,
+    "massive_calls": 2,
+    "maximum_authorized_calls": 4,
+    "reported_incremental_cost_usd": "0",
+    "total_calls": 4
+  },
+  "causal_attestation": {
+    "account_or_broker_endpoint_called": false,
+    "automatic_retry_or_rerun_attempted": false,
+    "credential_value_observed_or_persisted": false,
+    "historical_universe_downloaded": false,
+    "intraday_market_data_downloaded": false,
+    "order_submitted": false,
+    "raw_provider_rows_persisted": false,
+    "transcript_record_values_read": false
+  },
+  "content_sha256": "59fc89f8f86af18cb08fa65abb40dba388665afe880d2d18013bfc1317c42759",
+  "failure": {
+    "failed_gate": "alpaca_sip_session_calendar",
+    "failure_classification": "provider_authentication_failed",
+    "http_status": 401,
+    "interpretation": "the configured Alpaca market-data credential pair was rejected; selected-session absence and SIP entitlement were not tested",
+    "massive_point_in_time_samples_passed": true,
+    "overall_availability_gate_passed": false,
+    "xnas_itch_selected_interval_covered": true
+  },
+  "frozen_parent": {
+    "content_sha256": "93a4316a4ef785e30ebc393ec140fa02ea23027aa9cd85673d34401b3bca3452",
+    "contract_id": "sealed-historical-walk-forward-v0.1",
+    "selected_session_count": 30
+  },
+  "next_gate": "valid Alpaca market-data credentials plus a separately preregistered child authorization; v0.1 remains permanently failed and cannot be rerun",
+  "recorded_at_date": "2026-08-31",
+  "schema_version": 1,
+  "workflow": {
+    "artifact_digest": "sha256:dc33ed20ed99b4fd3275673d3d5d7ce384ebc2bd9f428849f4fecf73d560e5cd",
+    "artifact_id": 9742668936,
+    "conclusion": "failure",
+    "default_branch_dispatcher_commit_sha": "941012ea3e38fab4a39809d6a7632a37544b791e",
+    "provider_free_validation_conclusion": "success",
+    "run_attempt": 1,
+    "run_id": 33348067097,
+    "url": "https://github.com/RoomyRems/momentumbot/actions/runs/33348067097"
+  }
+}
