@@ -1,18 +1,9 @@
 name: Causal scanner frozen-source snapshot
 
 on:
+  # This superseded provider replay remains available only for deliberate
+  # historical reproduction. Current scanner work uses sealed source bundles.
   workflow_dispatch:
-  push:
-    branches:
-      - phase-3-historical-snapshot
-    paths:
-      - src/momentumbot/causal_scanner_snapshot.py
-      - src/momentumbot/scanner_source_inputs.py
-      - scripts/build_causal_scanner_snapshot.py
-      - tests/test_causal_scanner_snapshot.py
-      - tests/test_build_causal_scanner_snapshot.py
-      - tests/test_scanner_source_inputs.py
-      - .github/workflows/causal-scanner-frozen-source.yml
 
 permissions:
   contents: read
@@ -20,6 +11,7 @@ permissions:
 
 jobs:
   build:
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 180
     env:

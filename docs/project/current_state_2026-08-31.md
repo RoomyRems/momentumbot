@@ -44,3 +44,18 @@ Databento acquisition and transcript-label review remain blocked.
 The strategy scope freeze remains active: no new setup, AI authority, scanner or
 Micro threshold change, account rule change, execution-cell selection, or
 management-rule change is allowed inside this experiment.
+
+## Legacy workflow hygiene
+
+The v0.3 registration push also exposed two superseded provider workflows whose
+path filters still matched shared scanner and historical-data tests. Runs
+`33445164818` and `33445164899` reached legacy Alpaca calls and failed with HTTP
+401 before producing usable data. They did not affect the v0.3 registration,
+whose validation passed and whose acquisition job remained skipped.
+
+`massive-historical-census.yml` and `causal-scanner-frozen-source.yml` are now
+manual-only historical reproduction workflows. Ordinary pushes cannot start
+their jobs, expose their provider secrets, or overlap the active sealed-source
+experiment. This trigger-only maintenance does not change any provider route,
+strategy policy, scanner/Micro threshold, frozen artifact, or acquisition
+authority.

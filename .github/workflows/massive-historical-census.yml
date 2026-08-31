@@ -1,56 +1,17 @@
 name: Massive historical ticker census
 
 on:
+  # Legacy provider acquisition is retained for explicit historical
+  # reproduction only. Ordinary pushes must never expose provider secrets or
+  # start this superseded two-date prototype.
   workflow_dispatch:
-  # Scanner-only changes replay the exact frozen source in the dedicated
-  # scanner workflow. Workflow-only edits require an intentional dispatch.
-  push:
-    branches:
-      - phase-3-historical-snapshot
-    paths:
-      - src/momentumbot/providers/massive.py
-      - scripts/build_massive_historical_census.py
-      - tests/test_massive_provider.py
-      - tests/test_build_massive_historical_census.py
-      - scripts/audit_massive_alpaca_market_coverage.py
-      - tests/test_massive_market_coverage.py
-      - src/momentumbot/instrument_metadata.py
-      - scripts/audit_massive_instrument_metadata.py
-      - tests/test_instrument_metadata.py
-      - src/momentumbot/historical_universe.py
-      - scripts/build_massive_provisional_universe.py
-      - tests/test_historical_universe.py
-      - tests/test_build_massive_provisional_universe.py
-      - scripts/audit_historical_identity_continuity.py
-      - tests/test_historical_identity_audit.py
-      - src/momentumbot/identity_resolved_universe.py
-      - tests/test_identity_resolved_universe.py
-      - src/momentumbot/causal_market_discovery.py
-      - src/momentumbot/historical_data.py
-      - scripts/build_identity_resolved_market_discovery.py
-      - tests/test_causal_market_discovery.py
-      - tests/test_historical_data.py
-      - src/momentumbot/historical_float.py
-      - src/momentumbot/providers/sec_edgar.py
-      - scripts/edgar_smoke.py
-      - scripts/build_causal_float_enrichment.py
-      - scripts/build_sec_float_join.py
-      - tests/test_historical_float.py
-      - tests/test_build_causal_float_enrichment.py
-      - tests/test_sec_edgar.py
-      - tests/test_sec_float_join.py
-      - src/momentumbot/providers/alpaca.py
-      - src/momentumbot/historical_news.py
-      - scripts/build_causal_news_enrichment.py
-      - tests/test_alpaca_provider.py
-      - tests/test_historical_news.py
-      - research/data-audits/massive-identity-corporate-actions-v0.1-2026-08-16.json
 
 permissions:
   contents: read
 
 jobs:
   build:
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 180
     env:
