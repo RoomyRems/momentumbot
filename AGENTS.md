@@ -17,6 +17,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 |---|---|---|
 | Current checkpoint / next gate | `docs/project/current_state_2026-08-31.md` | immutable parent checkpoints plus linked frozen manifests and audits |
 | Sealed historical walk-forward | `docs/research/sealed_historical_walk_forward_v01.md` | opaque corpus commitment, prior-date exclusions, deterministic 30-session selector and provider-free registration audit |
+| Sealed historical provider availability | `docs/research/sealed_historical_provider_availability_v01.md` | four-call one-shot entitlement gate, sanitized report contract and separately bounded authority |
 | Runtime and hybrid architecture | `docs/architecture.md` | executable code under `src/momentumbot/` |
 | Current Ross-derived policy | `docs/strategy/current_rulebook.md` | `research/rules/current_rules.json` and policy code |
 | Strategy/discretion coverage | `docs/research/strategy_discretion_coverage_v02.md` | immutable v0.1 parent, versioned v0.2 delta and `strategy_coverage_v02.py` |

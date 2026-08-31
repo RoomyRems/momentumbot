@@ -1,0 +1,117 @@
+name: Sealed historical provider availability v0.1
+
+on:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - .github/workflows/sealed-historical-provider-availability.yml
+      - research/strategy/sealed-historical-provider-availability-v0.1-authorization.json
+      - research/data-audits/sealed-historical-provider-availability-v0.1-registration-2026-08-31.json
+      - src/momentumbot/research/sealed_historical_availability.py
+      - scripts/probe_sealed_historical_availability.py
+      - tests/test_sealed_historical_availability.py
+      - docs/research/sealed_historical_provider_availability_v01.md
+      - AGENTS.md
+  workflow_dispatch:
+    inputs:
+      authorization_commit_sha:
+        description: Full research-branch commit containing the frozen authorization
+        required: true
+        type: string
+      authorization_path:
+        description: Exact frozen provider-probe authorization path
+        required: true
+        default: research/strategy/sealed-historical-provider-availability-v0.1-authorization.json
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.authorization_commit_sha || github.sha }}
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: "3.12"
+      - name: Install provider-free project
+        run: python -m pip install -e .
+      - name: Validate frozen authorization without credentials
+        run: python scripts/probe_sealed_historical_availability.py --validate-only
+      - name: Run provider-free availability tests
+        run: python -m unittest tests.test_sealed_historical_availability -v
+      - name: Compile availability entry points
+        run: >-
+          python -m py_compile
+          src/momentumbot/research/sealed_historical_availability.py
+          scripts/probe_sealed_historical_availability.py
+
+  probe:
+    if: github.event_name == 'workflow_dispatch' && github.run_attempt == 1
+    needs: validate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ inputs.authorization_commit_sha }}
+      - name: Verify exact immutable authorization checkout
+        env:
+          AUTHORIZATION_COMMIT_SHA: ${{ inputs.authorization_commit_sha }}
+          AUTHORIZATION_PATH: ${{ inputs.authorization_path }}
+        run: |
+          test "$GITHUB_RUN_ATTEMPT" = "1"
+          test "$GITHUB_REPOSITORY" = "RoomyRems/momentumbot"
+          test "$AUTHORIZATION_PATH" = "research/strategy/sealed-historical-provider-availability-v0.1-authorization.json"
+          case "$AUTHORIZATION_COMMIT_SHA" in
+            [0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]) ;;
+            *) exit 1 ;;
+          esac
+          test "$(git rev-parse HEAD)" = "$AUTHORIZATION_COMMIT_SHA"
+          git fetch --no-tags origin phase-3-historical-snapshot
+          git merge-base --is-ancestor "$AUTHORIZATION_COMMIT_SHA" origin/phase-3-historical-snapshot
+          test -f "$AUTHORIZATION_PATH"
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: "3.12"
+      - name: Install exact provider probe environment
+        run: python -m pip install -e . databento==0.83.0
+      - name: Run the exact four-call sanitized probe
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+          DATABENTO_API_KEY: ${{ secrets.DATABENTO_API_KEY }}
+          MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
+          POLYGON_API_KEY: ${{ secrets.POLYGON_API_KEY }}
+        run: >-
+          python scripts/probe_sealed_historical_availability.py
+          --authorization "${{ inputs.authorization_path }}"
+          --authorization-commit-sha "${{ inputs.authorization_commit_sha }}"
+          --output sealed-historical-provider-availability-report.json
+      - name: Upload sanitized probe report
+        if: always() && hashFiles('sealed-historical-provider-availability-report.json') != ''
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: sealed-historical-provider-availability-${{ github.run_id }}
+          path: sealed-historical-provider-availability-report.json
+          if-no-files-found: error
+          retention-days: 90
+      - name: Enforce availability gate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path("sealed-historical-provider-availability-report.json").read_text())
+          if report.get("availability_gate_passed") is not True:
+              raise SystemExit("sealed historical provider availability gate did not pass")
+          if report.get("call_counts") != {"alpaca": 1, "massive": 2, "databento": 1, "total": 4}:
+              raise SystemExit("sealed historical provider call budget mismatch")
+          PY

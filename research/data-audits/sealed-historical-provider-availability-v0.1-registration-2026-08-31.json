@@ -1,0 +1,59 @@
+{
+  "artifact_type": "provider_free_sealed_historical_availability_registration_audit",
+  "artifacts": {
+    "authorization": {
+      "content_sha256": "a985794bc0856aa37d8a79ba43f068994329e4950b60cb1d86ba5436a1f77295",
+      "file_sha256": "6cf648a9ee1eb8ca876df2580327ce6982f78e42db49f273270089865da94b87",
+      "path": "research/strategy/sealed-historical-provider-availability-v0.1-authorization.json"
+    },
+    "documentation": {
+      "file_sha256": "4c0012e05572407dedf402a9027d5c9d3271750b7ca65019f72306527b57f554",
+      "path": "docs/research/sealed_historical_provider_availability_v01.md"
+    },
+    "implementation": {
+      "file_sha256": "0ceb2dd7689e6106241dd1b5225c81f3a045a664aa6e3f9729f143ad61675e3b",
+      "path": "src/momentumbot/research/sealed_historical_availability.py"
+    },
+    "runner": {
+      "file_sha256": "24feaac3b784972d94622cf1367afaaf5f4f8ca665631c03fe7855ff45a31d8e",
+      "path": "scripts/probe_sealed_historical_availability.py"
+    },
+    "workflow": {
+      "file_sha256": "b728bdcbff187c6696f84ce4508a5ca3b27fe2444e75e2f182d23fd07fa0eca5",
+      "path": ".github/workflows/sealed-historical-provider-availability.yml"
+    }
+  },
+  "authority_boundary": {
+    "full_data_acquisition_authorized": false,
+    "live_order_authorized": false,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false,
+    "provider_probe_authorized_after_publication_and_green_validation": true
+  },
+  "authorization_id": "sealed-historical-provider-availability-v0.1",
+  "call_budget": {
+    "alpaca_sip_daily_calls": 1,
+    "databento_metadata_calls": 1,
+    "massive_reference_calls": 2,
+    "maximum_total_calls": 4,
+    "pagination_allowed": false,
+    "reported_incremental_cost_usd": "0"
+  },
+  "causal_attestation": {
+    "account_or_broker_endpoint_calls": 0,
+    "credentials_accessed_during_registration": false,
+    "provider_calls_during_registration": 0,
+    "raw_provider_rows_persisted": false,
+    "ross_actions_or_outcomes_opened": false,
+    "transcript_record_values_decoded": false
+  },
+  "content_sha256": "46e6122be93b434a456d7a0da0f09e6eb1c5596e26bc37727ab24089c3e46c05",
+  "frozen_parent": {
+    "content_sha256": "93a4316a4ef785e30ebc393ec140fa02ea23027aa9cd85673d34401b3bca3452",
+    "contract_id": "sealed-historical-walk-forward-v0.1",
+    "session_count": 30
+  },
+  "registered_at_date": "2026-08-31",
+  "registration_status": "provider_free_complete_probe_not_run",
+  "schema_version": 1
+}

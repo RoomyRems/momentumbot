@@ -1,0 +1,90 @@
+{
+  "artifact_type": "preregistered_bounded_provider_availability_authorization",
+  "authority_boundary": {
+    "full_data_acquisition_authorized": false,
+    "live_order_authorized": false,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false,
+    "provider_probe_authorized": true
+  },
+  "authorization_id": "sealed-historical-provider-availability-v0.1",
+  "authorized_calls": {
+    "alpaca_sip_spy_daily": {
+      "maximum_calls": 1,
+      "pagination_allowed": false,
+      "raw_rows_persisted": false
+    },
+    "databento_dataset_range": {
+      "dataset": "XNAS.ITCH",
+      "maximum_calls": 1,
+      "metadata_only": true
+    },
+    "massive_point_in_time_sample": {
+      "dates": [
+        "2025-05-30",
+        "2025-07-17"
+      ],
+      "limit_per_call": 1,
+      "maximum_calls": 2,
+      "pagination_allowed": false,
+      "raw_rows_persisted": false
+    },
+    "maximum_total_calls": 4
+  },
+  "content_sha256": "a985794bc0856aa37d8a79ba43f068994329e4950b60cb1d86ba5436a1f77295",
+  "frozen_parent": {
+    "content_sha256": "93a4316a4ef785e30ebc393ec140fa02ea23027aa9cd85673d34401b3bca3452",
+    "contract_id": "sealed-historical-walk-forward-v0.1",
+    "selected_dates": [
+      "2025-05-30",
+      "2025-06-02",
+      "2025-06-03",
+      "2025-06-04",
+      "2025-06-05",
+      "2025-06-06",
+      "2025-06-09",
+      "2025-06-10",
+      "2025-06-11",
+      "2025-06-12",
+      "2025-06-13",
+      "2025-06-16",
+      "2025-06-17",
+      "2025-06-18",
+      "2025-06-20",
+      "2025-06-23",
+      "2025-06-24",
+      "2025-06-25",
+      "2025-06-26",
+      "2025-06-27",
+      "2025-07-01",
+      "2025-07-02",
+      "2025-07-07",
+      "2025-07-08",
+      "2025-07-10",
+      "2025-07-11",
+      "2025-07-14",
+      "2025-07-15",
+      "2025-07-16",
+      "2025-07-17"
+    ]
+  },
+  "one_shot_contract": {
+    "automatic_retry_allowed": false,
+    "provider_response_body_or_rows_may_be_uploaded": false,
+    "run_attempt_required": 1,
+    "safe_failure_is_permanent": true
+  },
+  "prohibitions": [
+    "account_or_broker_endpoint",
+    "automatic_retry_or_rerun",
+    "databento_timeseries_or_batch_download",
+    "full_massive_pagination",
+    "historical_universe_or_intraday_bulk_download",
+    "news_or_sec_content_download",
+    "paper_or_live_order",
+    "transcript_record_value_read"
+  ],
+  "registered_at_date": "2026-08-31",
+  "reported_incremental_cost_usd": "0",
+  "schema_version": 1
+}
