@@ -1,0 +1,191 @@
+{
+  "artifact_type": "preregistered_sealed_historical_walk_forward",
+  "authority_boundary": {
+    "live_order_authorized": false,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false,
+    "profitability_claim_eligible": false,
+    "provider_call_authorized": false,
+    "ross_replication_claim_eligible": false
+  },
+  "causal_boundary": {
+    "later_prices_or_final_volume_allowed_at_decision_time": false,
+    "present_day_reference_facts_projected_backward": false,
+    "ross_actions_fills_skips_or_recap_judgments_allowed_in_runtime": false,
+    "runtime_order": [
+      "point_in_time_reference_and_membership",
+      "causal_market_news_and_float_inputs",
+      "label_blind_scanner_and_micro_replay",
+      "candidate_bound_execution_inputs",
+      "chronological_account_and_management_replay",
+      "runtime_hash_freeze",
+      "retrospective_label_open",
+      "component_evaluation"
+    ],
+    "transcript_titles_or_captions_allowed_before_runtime_freeze": false,
+    "unavailable_date_counted_as_zero_opportunity": false,
+    "unavailable_date_replaced": false
+  },
+  "content_sha256": "93a4316a4ef785e30ebc393ec140fa02ea23027aa9cd85673d34401b3bca3452",
+  "contract_id": "sealed-historical-walk-forward-v0.1",
+  "evaluation_contract": {
+    "all_accounts_horizons_and_scenarios_reported_separately": true,
+    "best_cell_selection_allowed": false,
+    "best_trade_removed_sensitivity_required": true,
+    "candidate_acquisition_reported": true,
+    "entry_and_exit_alignment_reported_descriptively": true,
+    "financial_metrics_require_complete_flat_runtime": true,
+    "policy_promotion_allowed": false,
+    "source_unavailable_is_not_a_skip": true,
+    "trade_skip_agreement_reported_when_observable": true,
+    "weighted_overall_imitation_score_allowed": false
+  },
+  "execution_status": {
+    "evaluation": "not_started",
+    "historical_market_runtime": "not_started",
+    "provider_availability_audit": "not_started",
+    "provider_cost_quote": "not_started",
+    "retrospective_label_review": "not_started",
+    "runtime_hash_freeze": "not_started"
+  },
+  "frozen_parents": {
+    "corpus_manifest_content_sha256": "551ae4862174c30dd738cc444e27ed6ad1e54e4ebb6201edaab4c7afceb7c17e",
+    "exclusion_manifest_content_sha256": "9521d404a8ce0c6a6807905d085250304637651c797c4e4e24554541cb482f77",
+    "general_strategy_profile_fingerprint": "7d15fb979701324bf862b1dc37e5f9b514dcf1ab8cf1e062ae4a60027233d4ff",
+    "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+    "prospective_account_evaluation_content_sha256": "537287a04f35d81d8104f67a02cdcd352ee880cc8703fd8b8a61c68d971d5d5c",
+    "prospective_daily_runtime_content_sha256": "dea1d60a804626ca623512d8f4828b40eca7fa57da85b12525926fc04c3d0531",
+    "prospective_daily_source_content_sha256": "99ba9f54ac50a913e64d78bb727351b67f8182818c54519f7d8be428651d6f38",
+    "prospective_management_capture_content_sha256": "97270ae8d401a20c7d5661fe49e36a65276ed00bf60098e9c466fa51b05518b0",
+    "research_commit": "a2d2ffe5959fce7b4f4733528df4f873ea1913be",
+    "research_tree": "bee90f8514963db644cfb2abbf9a8e2ae98378c0",
+    "small_strategy_profile_fingerprint": "fb86fc5326903cab16c283a03d8e371f66487f41589fb1b69b79f8912a0a6489"
+  },
+  "hypothesis": "The unchanged causal scanner, Micro-v0.1, account, execution, and management chain can be replayed across a deterministically selected 30-session historical block and evaluated without opening retrospective transcript evidence before runtime freeze.",
+  "isolated_change": {
+    "account_rules_changed": false,
+    "case_specific_threshold_or_symbol_exception": false,
+    "changed_component": "session sampling and historical data transport only",
+    "execution_scenarios_changed": false,
+    "management_rule_changed": false,
+    "micro_policy_changed": false,
+    "retrospective_label_policy_changed": false,
+    "scanner_thresholds_changed": false
+  },
+  "provider_gates": {
+    "availability_audit_required": true,
+    "complete_cross_section_required": true,
+    "cost_quote_required_before_paid_acquisition": true,
+    "credential_access_authorized_by_this_contract": false,
+    "market_data_acquisition_authorized_by_this_contract": false,
+    "point_in_time_universe_required": true,
+    "provider_or_coverage_failure_behavior": "freeze date as unavailable without replacement",
+    "registration_provider_calls": 0
+  },
+  "registration_date": "2026-08-31",
+  "registration_status": "registered_provider_free_runtime_not_started",
+  "runtime_panel": {
+    "account_reset_between_dates": false,
+    "accounts": [
+      "main_account",
+      "small_account"
+    ],
+    "behavioral_horizons_seconds": [
+      1,
+      5,
+      10
+    ],
+    "cells_may_be_selected_or_ranked": false,
+    "cells_per_session": 12,
+    "chronology": "each account-and-cell path carries state forward across all selected dates",
+    "execution_scenarios": [
+      "baseline_conservative",
+      "stress"
+    ],
+    "session_count": 30,
+    "total_session_cell_count": 360
+  },
+  "sampling_contract": {
+    "block_size": 30,
+    "calendar_id": "embedded-nyse-full-session-calendar-2025-01-02--2026-06-30-v0.1",
+    "calendar_session_count": 370,
+    "candidate_interval": {
+      "end": "2026-06-30",
+      "start": "2025-01-02"
+    },
+    "complete_block_count": 10,
+    "date_replacement_allowed": false,
+    "discarded_tail_session_count": 12,
+    "early_close_sessions_excluded": [
+      "2025-07-03",
+      "2025-11-28",
+      "2025-12-24"
+    ],
+    "eligible_session_count": 312,
+    "exchange_closures_excluded": [
+      "2025-01-09",
+      "2025-01-20",
+      "2025-02-17",
+      "2025-04-18",
+      "2025-05-26",
+      "2025-06-19",
+      "2025-07-04",
+      "2025-09-01",
+      "2025-11-27",
+      "2025-12-25",
+      "2026-01-01",
+      "2026-01-19",
+      "2026-02-16",
+      "2026-04-03",
+      "2026-05-25",
+      "2026-06-19"
+    ],
+    "prior_research_dates_excluded": true,
+    "provider_session_confirmation_required_before_acquisition": true,
+    "seed_inputs": {
+      "calendar_id": "embedded-nyse-full-session-calendar-2025-01-02--2026-06-30-v0.1",
+      "contract_id": "sealed-historical-walk-forward-v0.1",
+      "corpus_manifest_content_sha256": "551ae4862174c30dd738cc444e27ed6ad1e54e4ebb6201edaab4c7afceb7c17e",
+      "exclusion_manifest_content_sha256": "9521d404a8ce0c6a6807905d085250304637651c797c4e4e24554541cb482f77",
+      "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa"
+    },
+    "selected_block_index_zero_based": 3,
+    "selected_dates": [
+      "2025-05-30",
+      "2025-06-02",
+      "2025-06-03",
+      "2025-06-04",
+      "2025-06-05",
+      "2025-06-06",
+      "2025-06-09",
+      "2025-06-10",
+      "2025-06-11",
+      "2025-06-12",
+      "2025-06-13",
+      "2025-06-16",
+      "2025-06-17",
+      "2025-06-18",
+      "2025-06-20",
+      "2025-06-23",
+      "2025-06-24",
+      "2025-06-25",
+      "2025-06-26",
+      "2025-06-27",
+      "2025-07-01",
+      "2025-07-02",
+      "2025-07-07",
+      "2025-07-08",
+      "2025-07-10",
+      "2025-07-11",
+      "2025-07-14",
+      "2025-07-15",
+      "2025-07-16",
+      "2025-07-17"
+    ],
+    "selection_seed_sha256": "1b2182196ebb851e552f3ccfe22697ba75197e707dc66c92f09e0b75baabdb4f",
+    "selection_uses_symbols_or_outcomes": false,
+    "selection_uses_transcript_record_values": false,
+    "weekends_excluded": true
+  },
+  "schema_version": 1
+}

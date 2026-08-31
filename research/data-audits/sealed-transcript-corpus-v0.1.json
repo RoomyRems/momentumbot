@@ -1,0 +1,84 @@
+{
+  "artifact_type": "opaque_transcript_corpus_commitment",
+  "content_sha256": "551ae4862174c30dd738cc444e27ed6ad1e54e4ebb6201edaab4c7afceb7c17e",
+  "forbidden_record_fields": [
+    "title",
+    "captions",
+    "videoId",
+    "channelName",
+    "channelID",
+    "dateText",
+    "relativeDateText",
+    "thumbnailUrl",
+    "status",
+    "reason"
+  ],
+  "forbidden_values_opened_for_selection": false,
+  "manifest_id": "sealed-daytradewarrior-corpus-v0.1",
+  "part_count": 8,
+  "parts": [
+    {
+      "byte_count": 5424450,
+      "logical_part": 1,
+      "raw_sha256": "c59a8dd67bf4cb2b3bb4539996bbe1b648b1503a73916371b2f98661a4d33db0",
+      "record_count": 300,
+      "serialization": "json_array"
+    },
+    {
+      "byte_count": 7315856,
+      "logical_part": 2,
+      "raw_sha256": "536022ff78231cf34663728d97b498870e2e1065c2cfcb226b066bbcbf3760fc",
+      "record_count": 300,
+      "serialization": "json_lines"
+    },
+    {
+      "byte_count": 9068867,
+      "logical_part": 3,
+      "raw_sha256": "1a5694e50977f5f833bab26c9205d8fe0da8226c9b59cbd738371e15d37b5b20",
+      "record_count": 300,
+      "serialization": "json_lines"
+    },
+    {
+      "byte_count": 5919070,
+      "logical_part": 4,
+      "raw_sha256": "9441b1abf8005905cb860f9a2dd13c6802fcc17417c2020eaf131f616c7c718a",
+      "record_count": 300,
+      "serialization": "json_lines"
+    },
+    {
+      "byte_count": 4252567,
+      "logical_part": 5,
+      "raw_sha256": "f864193c2a153d30d57e3d283201cf1f69419d93157a3f51cc6fbe35af4bf098",
+      "record_count": 300,
+      "serialization": "json_lines"
+    },
+    {
+      "byte_count": 5253740,
+      "logical_part": 6,
+      "raw_sha256": "0d40e3ac5583181cbe266410f565b609f92138df124ae9f304de1381b4b823b4",
+      "record_count": 300,
+      "serialization": "json_lines"
+    },
+    {
+      "byte_count": 4803339,
+      "logical_part": 7,
+      "raw_sha256": "605a75bfcbe4addfa514d77e4771acdfd2b78e4c39c858cf037d129104030c29",
+      "record_count": 300,
+      "serialization": "json_lines"
+    },
+    {
+      "byte_count": 3652414,
+      "logical_part": 8,
+      "raw_sha256": "8338d30844f3104aac82ce5e35dbb39c52ec8fcb1145238775fcc095800a4486",
+      "record_count": 192,
+      "serialization": "json_lines"
+    }
+  ],
+  "raw_files_committed_to_repository": false,
+  "record_count": 2292,
+  "record_values_decoded": false,
+  "record_values_persisted": false,
+  "registered_at_date": "2026-08-31",
+  "schema_version": 1,
+  "selection_input": "this_manifest_content_sha256_only"
+}

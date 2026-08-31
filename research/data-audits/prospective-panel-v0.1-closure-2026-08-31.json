@@ -1,0 +1,98 @@
+{
+  "artifact_type": "prospective_panel_terminal_closure_audit",
+  "authority_boundary": {
+    "historical_date_backfill_authorized": false,
+    "live_order_authorized": false,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false,
+    "prospective_retry_authorized": false,
+    "provider_call_authorized": false
+  },
+  "closure": {
+    "closed_at_date": "2026-08-31",
+    "default_branch_commit": "999ef73e260c381f3d5e5cae2327bd2717c58e35",
+    "default_branch_parent": "5cc17a5700e2ea92c542b30dd8484b80d7b15860",
+    "manual_provider_modes_removed": true,
+    "scheduled_wakeups_removed": true,
+    "validation_only": true,
+    "validation_run": {
+      "attempt": 1,
+      "conclusion": "success",
+      "run_id": 33346246873,
+      "url": "https://github.com/RoomyRems/momentumbot/actions/runs/33346246873"
+    },
+    "withdrawn_unstarted_dates": [
+      "2026-08-31",
+      "2026-09-01",
+      "2026-09-02",
+      "2026-09-03",
+      "2026-09-04"
+    ]
+  },
+  "contract_id": "prospective-panel-v0.1",
+  "dates": [
+    {
+      "account_snapshot_run_id": 32714791812,
+      "date": "2026-08-24",
+      "management_run_id": 32788395751,
+      "primary_failure": "daily source prerequisite hash verification encoded Unicode company names inconsistently",
+      "source_prerequisite_run_id": 32715546469,
+      "source_production_run_id": 32742324222,
+      "status": "incomplete_operational_failure"
+    },
+    {
+      "account_snapshot_run_id": 32834113693,
+      "date": "2026-08-25",
+      "management_run_id": 32909996364,
+      "primary_failure": "same-date SIP daily-bar request extended into the future and was rejected by the delayed entitlement",
+      "source_prerequisite_run_id": 32835100241,
+      "source_production_run_id": 32863749129,
+      "status": "incomplete_operational_failure"
+    },
+    {
+      "account_snapshot_run_id": 32955693894,
+      "date": "2026-08-26",
+      "management_run_id": 33038460971,
+      "primary_failure": "discovered symbol AAAA lacked the required daily scan basis under the original completeness rule",
+      "source_prerequisite_run_id": 32956556641,
+      "source_production_run_id": 32986285404,
+      "status": "incomplete_operational_failure"
+    },
+    {
+      "account_snapshot_run_id": null,
+      "date": "2026-08-27",
+      "management_run_id": 33149584360,
+      "primary_failure": "GitHub emitted no eligible account or daily-source scheduled attempt for the date",
+      "source_prerequisite_run_id": null,
+      "source_production_run_id": null,
+      "status": "incomplete_scheduler_non_emission"
+    },
+    {
+      "account_snapshot_run_id": 33203865237,
+      "date": "2026-08-28",
+      "management_run_id": 33233117866,
+      "primary_failure": "late scheduled wakeups produced no valid pre-session artifact, so production failed at exact artifact resolution",
+      "source_prerequisite_run_id": 33204123748,
+      "source_production_run_id": 33220903992,
+      "status": "incomplete_scheduler_delay"
+    }
+  ],
+  "evidence_boundary": {
+    "databento_acquisitions": 0,
+    "evaluable_account_session_cells": 0,
+    "opportunity_freezes": 0,
+    "orders": 0,
+    "retrospective_labels_opened_for_failed_dates": false,
+    "zero_opportunity_dates_recorded": 0
+  },
+  "overall_status": "closed_no_evaluable_sessions",
+  "preserved_failed_validation": {
+    "cause": "the pre-closure scheduler audit still expected cron expressions after their removal",
+    "provider_calls": 0,
+    "run_id": 33346170657,
+    "url": "https://github.com/RoomyRems/momentumbot/actions/runs/33346170657"
+  },
+  "research_branch_at_closure": "a2d2ffe5959fce7b4f4733528df4f873ea1913be",
+  "schema_version": 1,
+  "content_sha256": "1760d8d05ec0bf10a4f88fa9c2b3ab677fceec44c2151ce1b110c52dbd40a997"
+}

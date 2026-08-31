@@ -1,0 +1,83 @@
+{
+  "artifact_type": "provider_free_historical_panel_registration_audit",
+  "artifacts": {
+    "contract": {
+      "content_sha256": "93a4316a4ef785e30ebc393ec140fa02ea23027aa9cd85673d34401b3bca3452",
+      "file_sha256": "063df5e36210386a7c25890963ace5a7b2a70fdafb07f9103c5d402c69b195e2",
+      "path": "research/strategy/sealed-historical-walk-forward-v0.1.json"
+    },
+    "corpus_manifest": {
+      "content_sha256": "551ae4862174c30dd738cc444e27ed6ad1e54e4ebb6201edaab4c7afceb7c17e",
+      "file_sha256": "c628ebb1cf58e6697f5c18df7d95ab1bbac1515c5e8d8ef954f160fa1baa5b2d",
+      "path": "research/data-audits/sealed-transcript-corpus-v0.1.json",
+      "raw_corpus_committed": false
+    },
+    "exclusion_manifest": {
+      "content_sha256": "9521d404a8ce0c6a6807905d085250304637651c797c4e4e24554541cb482f77",
+      "file_sha256": "27a8e394eaf20b7bbb8311419549f09de22a748a8bd102be394ce2fcc17d262e",
+      "path": "research/data-audits/sealed-historical-date-exclusions-v0.1.json"
+    }
+  },
+  "authority_boundary": {
+    "live_order_authorized": false,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false,
+    "provider_call_authorized": false
+  },
+  "causal_attestation": {
+    "credential_access": false,
+    "orders": 0,
+    "provider_calls": 0,
+    "ross_actions_or_outcomes_opened_for_selection": false,
+    "runtime_started": false,
+    "titles_or_captions_opened_for_selection": false,
+    "transcript_record_values_decoded": false
+  },
+  "content_sha256": "dedd891612cd0129f1ec354b6e81af0f2fd169bb466ea9b94b1ae2ee542e9add",
+  "contract_id": "sealed-historical-walk-forward-v0.1",
+  "next_gate": "provider-free session availability and cost audit; no acquisition until a separately frozen bounded authorization",
+  "parent_research_commit": "a2d2ffe5959fce7b4f4733528df4f873ea1913be",
+  "parent_research_tree": "bee90f8514963db644cfb2abbf9a8e2ae98378c0",
+  "registered_at_date": "2026-08-31",
+  "registration_id": "sealed-historical-walk-forward-v0.1-registration",
+  "schema_version": 1,
+  "selection": {
+    "date_replacement_allowed": false,
+    "selected_block_index_zero_based": 3,
+    "selected_dates": [
+      "2025-05-30",
+      "2025-06-02",
+      "2025-06-03",
+      "2025-06-04",
+      "2025-06-05",
+      "2025-06-06",
+      "2025-06-09",
+      "2025-06-10",
+      "2025-06-11",
+      "2025-06-12",
+      "2025-06-13",
+      "2025-06-16",
+      "2025-06-17",
+      "2025-06-18",
+      "2025-06-20",
+      "2025-06-23",
+      "2025-06-24",
+      "2025-06-25",
+      "2025-06-26",
+      "2025-06-27",
+      "2025-07-01",
+      "2025-07-02",
+      "2025-07-07",
+      "2025-07-08",
+      "2025-07-10",
+      "2025-07-11",
+      "2025-07-14",
+      "2025-07-15",
+      "2025-07-16",
+      "2025-07-17"
+    ],
+    "selection_seed_sha256": "1b2182196ebb851e552f3ccfe22697ba75197e707dc66c92f09e0b75baabdb4f",
+    "session_cell_count": 360,
+    "session_count": 30
+  }
+}

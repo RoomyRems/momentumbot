@@ -1,0 +1,45 @@
+name: Sealed historical walk-forward v0.1
+
+on:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - .github/workflows/sealed-historical-walk-forward.yml
+      - research/strategy/sealed-historical-walk-forward-v0.1.json
+      - research/data-audits/sealed-transcript-corpus-v0.1.json
+      - research/data-audits/sealed-historical-date-exclusions-v0.1.json
+      - research/data-audits/sealed-historical-walk-forward-v0.1-registration-2026-08-31.json
+      - research/data-audits/prospective-panel-v0.1-closure-2026-08-31.json
+      - src/momentumbot/research/sealed_historical_walk_forward.py
+      - scripts/register_sealed_historical_walk_forward.py
+      - tests/test_sealed_historical_walk_forward.py
+      - docs/research/sealed_historical_walk_forward_v01.md
+      - docs/project/current_state_2026-08-31.md
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: "3.12"
+      - name: Install provider-free project
+        run: python -m pip install -e .
+      - name: Validate sealed manifests and selected dates
+        run: python scripts/register_sealed_historical_walk_forward.py --validate-only
+      - name: Run leakage and tamper tests
+        run: python -m unittest tests.test_sealed_historical_walk_forward -v
+      - name: Compile registration entry points
+        run: >-
+          python -m py_compile
+          src/momentumbot/research/sealed_historical_walk_forward.py
+          scripts/register_sealed_historical_walk_forward.py
