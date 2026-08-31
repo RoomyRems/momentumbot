@@ -1,0 +1,105 @@
+{
+  "artifact_type": "provider_free_sealed_historical_source_acquisition_registration",
+  "artifacts": {
+    "alpaca_provider": {
+      "file_sha256": "1d6ba09f01e40bcc5c0da06b17f80ac41f0b7a4a9951d1688ba26f7c6c88f3a6",
+      "path": "src/momentumbot/providers/alpaca.py"
+    },
+    "authorization": {
+      "content_sha256": "0dbc26228513bb81f55c484daa56e899feabdc38f419c2ccd758c9d2853eb4d7",
+      "file_sha256": "165d7f87e8d06e5c05670449f8d158bcf1fb1263b594df5997632ab56199f8b1",
+      "path": "research/strategy/sealed-historical-source-acquisition-v0.1.json"
+    },
+    "census_builder": {
+      "file_sha256": "30056a18cffaa8e88acc64e5430f1a97f919cf81e7a6fab973a862c8ba129675",
+      "path": "scripts/build_massive_historical_census.py"
+    },
+    "documentation": {
+      "file_sha256": "298f5245dad95ea5c7bb496aa2fb895d8f4951c1395ffd587d41d1a950e97390",
+      "path": "docs/research/sealed_historical_source_acquisition_v01.md"
+    },
+    "float_builder": {
+      "file_sha256": "de76764780bdbfcbf909b27504c6e1d29bfdd9510717e482617ed9a4b53b124b",
+      "path": "scripts/build_causal_float_enrichment.py"
+    },
+    "http_transport": {
+      "file_sha256": "d576f951eb9c5865be98fb4ebc0ca04520191139ae39ff7ba06a53541e540407",
+      "path": "src/momentumbot/providers/http_json.py"
+    },
+    "implementation": {
+      "file_sha256": "b06527eaa0e3a1dd0e560fc55e3f78587de1750c3c62c114bc44122f4d02270b",
+      "path": "src/momentumbot/research/sealed_historical_source_acquisition.py"
+    },
+    "news_builder": {
+      "file_sha256": "110855e46f83b951fa76ed82bc54d5c8b2be5d1fba8e02b4ee9482d2cc0afaf2",
+      "path": "scripts/build_causal_news_enrichment.py"
+    },
+    "request_budget": {
+      "file_sha256": "e0a9d202d35c570709e58dd2dbabcdcc69658290398378bbb0c05335141a30ef",
+      "path": "src/momentumbot/providers/request_budget.py"
+    },
+    "runner": {
+      "file_sha256": "7632e6ffd2c6e09a1d6f716c04b04e2bc59e3e657a8fa2a486826b833b64014a",
+      "path": "scripts/run_sealed_historical_source_acquisition.py"
+    },
+    "scanner_builder": {
+      "file_sha256": "793b240ad35d8c6ce67ec07cd63ad814adc6567ea07063e61155fba019d1a755",
+      "path": "scripts/build_causal_scanner_snapshot.py"
+    },
+    "sec_provider": {
+      "file_sha256": "721668ecb9ee1abca5e3052de3a07cf2cae62d8f9bc9ec0d295e22dea274a753",
+      "path": "src/momentumbot/providers/sec_edgar.py"
+    },
+    "workflow": {
+      "file_sha256": "997708a048bc379c09cc4f444a304a4bfe1fd6a7a86fb9207bee49a0b4bb6831",
+      "path": ".github/workflows/sealed-historical-source-acquisition.yml"
+    }
+  },
+  "authority_boundary": {
+    "candidate_bound_databento_acquisition_authorized": false,
+    "historical_account_runtime_authorized": false,
+    "historical_source_acquisition_authorized_after_publication_and_green_validation": true,
+    "live_order_authorized": false,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false
+  },
+  "authorization_id": "sealed-historical-source-acquisition-v0.1",
+  "budgets": {
+    "incremental_provider_cost_usd": "0",
+    "maximum_candidates_per_date": 50,
+    "maximum_census_pages_per_date": 20,
+    "maximum_retained_bytes": 1500000000,
+    "maximum_total_http_attempts_including_retries": 20000
+  },
+  "causal_attestation": {
+    "account_or_order_endpoint_calls": 0,
+    "credential_values_accessed_or_observed": false,
+    "provider_calls": 0,
+    "runtime_started": false,
+    "transcript_record_values_decoded": false
+  },
+  "content_sha256": "5c73e2c40ff46835847c96efa8bfc8715185720763656665518cadcbcec49b99",
+  "credential_routing": {
+    "alpaca_github_secret_names": [
+      "ALPACA_MAIN_API_KEY",
+      "ALPACA_MAIN_API_SECRET"
+    ],
+    "generic_alpaca_secret_names_used": false,
+    "secret_values_changed_or_regenerated": false
+  },
+  "frozen_parent": {
+    "availability_report_content_sha256": "bc88728486e77ca718e77918fa83470b7a608502e34aedaa8ccb184fef03819c",
+    "availability_success_audit_content_sha256": "76baebc0df39c59e9a1a8ebc099c5c0c3080d1a4e4cb2ac013cb85f7f9070cb1",
+    "availability_workflow_run_id": 33348970745,
+    "contract_content_sha256": "93a4316a4ef785e30ebc393ec140fa02ea23027aa9cd85673d34401b3bca3452",
+    "selected_session_count": 30
+  },
+  "one_shot": {
+    "authorization_consumed_before_provider_access": true,
+    "automatic_rerun_allowed": false,
+    "workflow_run_attempt_required": 1
+  },
+  "registered_at_date": "2026-08-31",
+  "registration_status": "provider_free_complete_acquisition_not_run",
+  "schema_version": 1
+}

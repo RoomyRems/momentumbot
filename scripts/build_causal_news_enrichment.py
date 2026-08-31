@@ -69,10 +69,16 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--census-root", type=Path, required=True)
     parser.add_argument("--dates", nargs="+")
     parser.add_argument("--news-batch-size", type=int, default=50)
+    parser.add_argument("--news-max-pages", type=int, default=100)
+    parser.add_argument("--max-candidates-per-date", type=int, default=100)
     parser.add_argument("--output", type=Path)
     args = parser.parse_args(argv)
     if args.news_batch_size <= 0:
         raise ValueError("news batch size must be positive")
+    if args.news_max_pages <= 0:
+        raise ValueError("news page ceiling must be positive")
+    if args.max_candidates_per_date <= 0:
+        raise ValueError("candidate ceiling must be positive")
 
     discovery_root = args.census_root / CAUSAL_MARKET_DISCOVERY_POLICY_ID
     float_root = args.census_root / CAUSAL_FLOAT_POLICY_ID
@@ -111,6 +117,10 @@ def main(argv: list[str] | None = None) -> int:
         candidate_rows, candidate_payload, discovery_date_manifest = (
             load_market_candidate_payload(discovery_root / value)
         )
+        if len(candidate_rows) > args.max_candidates_per_date:
+            raise RuntimeError(
+                f"{value} candidate count exceeds the frozen acquisition ceiling"
+            )
         float_records, float_date_manifest = load_causal_float_records(
             float_root / value,
             candidate_rows=candidate_rows,
@@ -143,6 +153,7 @@ def main(argv: list[str] | None = None) -> int:
                         start=window_start,
                         end=window_end,
                         include_content=False,
+                        max_pages=args.news_max_pages,
                     )
                 )
             except Exception as exc:  # A missing provider page is not no-news.

@@ -499,12 +499,15 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--census-root", type=Path, required=True)
     parser.add_argument("--dates", nargs="+")
     parser.add_argument("--asset-batch-size", type=int, default=250)
+    parser.add_argument("--max-candidates-per-date", type=int, default=100)
     parser.add_argument("--output", type=Path)
     parser.add_argument("--persist-source-inputs", action="store_true")
     parser.add_argument("--source-input-output", type=Path)
     args = parser.parse_args(argv)
     if args.asset_batch_size <= 0:
         raise ValueError("asset batch size must be positive")
+    if args.max_candidates_per_date <= 0:
+        raise ValueError("candidate ceiling must be positive")
     if args.source_input_output is not None and not args.persist_source_inputs:
         raise ValueError("source-input output requires --persist-source-inputs")
 
@@ -563,6 +566,10 @@ def main(argv: list[str] | None = None) -> int:
         candidate_rows, candidate_payload, market_date_manifest = (
             load_market_candidate_payload(market_root / value)
         )
+        if len(candidate_rows) > args.max_candidates_per_date:
+            raise RuntimeError(
+                f"{value} candidate count exceeds the frozen acquisition ceiling"
+            )
         float_records, float_date_manifest = load_causal_float_records(
             float_root / value,
             candidate_rows=candidate_rows,

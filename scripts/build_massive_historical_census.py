@@ -273,6 +273,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--minimum-request-interval", type=float, default=12.5)
     parser.add_argument("--limit", type=int, default=1000)
     parser.add_argument("--max-pages", type=int, default=100)
+    parser.add_argument("--skip-current-alpaca-reconciliation", action="store_true")
     args = parser.parse_args(argv)
 
     trading_dates = sorted({date.fromisoformat(value) for value in args.dates})
@@ -301,24 +302,29 @@ def main(argv: list[str] | None = None) -> int:
             "rows": ticker_types,
         },
     )
-    alpaca = AlpacaDataClient.from_env()
-    alpaca_retrieved_at = datetime.now(timezone.utc).isoformat()
-    raw_alpaca_assets = alpaca.assets()
-    normalized_alpaca_assets = normalize_asset_master(raw_alpaca_assets)
-    alpaca_master_sha = asset_master_fingerprint(raw_alpaca_assets)
-    _write_json(
-        root / "alpaca-current-asset-master.json",
-        {
-            "schema_version": 1,
-            "source": "alpaca_v2_assets",
-            "retrieved_at_utc": alpaca_retrieved_at,
-            "point_in_time_membership": False,
-            "asset_count": len(normalized_alpaca_assets),
-            "status_counts": asset_master_status_counts(raw_alpaca_assets),
-            "sha256": alpaca_master_sha,
-            "assets": normalized_alpaca_assets,
-        },
-    )
+    if args.skip_current_alpaca_reconciliation:
+        raw_alpaca_assets: list[dict[str, object]] = []
+        normalized_alpaca_assets: tuple[dict[str, object], ...] = ()
+        alpaca_master_sha = None
+    else:
+        alpaca = AlpacaDataClient.from_env()
+        alpaca_retrieved_at = datetime.now(timezone.utc).isoformat()
+        raw_alpaca_assets = alpaca.assets()
+        normalized_alpaca_assets = normalize_asset_master(raw_alpaca_assets)
+        alpaca_master_sha = asset_master_fingerprint(raw_alpaca_assets)
+        _write_json(
+            root / "alpaca-current-asset-master.json",
+            {
+                "schema_version": 1,
+                "source": "alpaca_v2_assets",
+                "retrieved_at_utc": alpaca_retrieved_at,
+                "point_in_time_membership": False,
+                "asset_count": len(normalized_alpaca_assets),
+                "status_counts": asset_master_status_counts(raw_alpaca_assets),
+                "sha256": alpaca_master_sha,
+                "assets": normalized_alpaca_assets,
+            },
+        )
 
     date_manifests: list[dict[str, object]] = []
     for trading_date in trading_dates:
@@ -378,6 +384,9 @@ def main(argv: list[str] | None = None) -> int:
         "minimum_request_interval_seconds": args.minimum_request_interval,
         "official_free_tier_limit": "5 API requests per minute",
         "alpaca_current_asset_master_sha256": alpaca_master_sha,
+        "current_alpaca_reconciliation_skipped": bool(
+            args.skip_current_alpaca_reconciliation
+        ),
         "date_manifests": date_manifests,
         "all_fetches_complete": all(
             bool(manifest["fetch_complete"]) for manifest in date_manifests

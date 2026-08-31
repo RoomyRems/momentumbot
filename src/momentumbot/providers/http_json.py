@@ -7,6 +7,8 @@ import urllib.error
 import urllib.request
 from typing import Any
 
+from .request_budget import consume_provider_request
+
 _RETRYABLE_STATUS = {429, 500, 502, 503, 504}
 
 
@@ -29,6 +31,7 @@ def get_json(
     request = urllib.request.Request(url, headers=headers or {}, method="GET")
     for attempt in range(max_retries + 1):
         try:
+            consume_provider_request(url)
             with urllib.request.urlopen(request, timeout=timeout_seconds) as response:
                 raw = _decode_body(
                     response.read(), response.headers.get("Content-Encoding") or ""

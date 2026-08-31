@@ -134,14 +134,17 @@ class AlpacaDataClient:
         adjustment: str = "raw",
         asof: date | str | None = None,
         limit: int = 10_000,
+        max_pages: int = 100,
     ) -> dict[str, pd.DataFrame]:
         names = list(dict.fromkeys(str(symbol).upper() for symbol in symbols if symbol))
         if not names:
             return {}
+        if max_pages <= 0:
+            raise ValueError("Alpaca bars max_pages must be positive")
         result_rows: dict[str, list[dict[str, Any]]] = {symbol: [] for symbol in names}
         page_token: str | None = None
         seen_tokens: set[str] = set()
-        while True:
+        for _page_number in range(1, max_pages + 1):
             params: dict[str, object] = {
                 "symbols": ",".join(names),
                 "timeframe": timeframe,
@@ -176,6 +179,8 @@ class AlpacaDataClient:
             if page_token in seen_tokens:
                 raise RuntimeError("Alpaca pagination token repeated")
             seen_tokens.add(page_token)
+        else:
+            raise RuntimeError("Alpaca bars exceeded max_pages")
         return {symbol: _frame(rows) for symbol, rows in result_rows.items()}
 
     def bars_batched(

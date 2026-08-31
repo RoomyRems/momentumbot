@@ -32,6 +32,25 @@ class AlpacaProviderTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, "429"):
                 client.bars_batched(["AAPL"])
 
+    def test_bars_rejects_unique_pagination_past_frozen_page_cap(self):
+        client = AlpacaDataClient("key", "secret")
+        responses = [
+            {"bars": {}, "next_page_token": "one"},
+            {"bars": {}, "next_page_token": "two"},
+        ]
+        with patch(
+            "momentumbot.providers.alpaca.get_json",
+            side_effect=responses,
+        ):
+            with self.assertRaisesRegex(RuntimeError, "exceeded max_pages"):
+                client.bars(
+                    ["AAPL"],
+                    timeframe="1Day",
+                    start="2025-01-01T00:00:00Z",
+                    end="2025-01-03T00:00:00Z",
+                    max_pages=2,
+                )
+
     def test_corporate_actions_paginates_grouped_response(self):
         client = AlpacaDataClient("key", "secret")
         payloads = [

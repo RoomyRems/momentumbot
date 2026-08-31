@@ -27,6 +27,7 @@ from momentumbot.historical_float import (
 )
 from momentumbot.identity_resolved_universe import json_fingerprint
 from momentumbot.providers.alpaca import AlpacaDataClient
+from momentumbot.providers.request_budget import consume_provider_request
 from momentumbot.providers.sec_edgar import (
     ParsedCompanyFacts,
     SecEdgarClient,
@@ -51,6 +52,7 @@ def _sec_call(
 ) -> tuple[dict[str, Any] | None, str, str | None]:
     for attempt in range(attempts):
         try:
+            consume_provider_request("https://data.sec.gov")
             return function(), "success", None
         except urllib.error.HTTPError as exc:
             if exc.code == 404:
@@ -190,12 +192,15 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--dates", nargs="+")
     parser.add_argument("--minimum-sec-request-interval", type=float, default=0.2)
     parser.add_argument("--sec-attempts", type=int, default=3)
+    parser.add_argument("--max-candidates-per-date", type=int, default=100)
     parser.add_argument("--output", type=Path)
     args = parser.parse_args(argv)
     if args.minimum_sec_request_interval < 0:
         raise ValueError("SEC request interval cannot be negative")
     if args.sec_attempts <= 0:
         raise ValueError("SEC attempts must be positive")
+    if args.max_candidates_per_date <= 0:
+        raise ValueError("candidate ceiling must be positive")
 
     discovery_root = args.census_root / CAUSAL_MARKET_DISCOVERY_POLICY_ID
     discovery_manifest = json.loads(
@@ -232,6 +237,10 @@ def main(argv: list[str] | None = None) -> int:
         candidate_rows, candidate_payload, discovery_date_manifest = (
             load_market_candidate_payload(discovery_root / value)
         )
+        if len(candidate_rows) > args.max_candidates_per_date:
+            raise RuntimeError(
+                f"{value} candidate count exceeds the frozen acquisition ceiling"
+            )
         records: list[dict[str, object]] = []
         for candidate in candidate_rows:
             symbol = str(candidate["symbol"])
