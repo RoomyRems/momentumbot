@@ -52,7 +52,7 @@ REGISTRATION_AUDIT = (
     / "research/data-audits"
     / "sealed-historical-source-acquisition-v0.1-registration-2026-08-31.json"
 )
-REGISTRATION_AUDIT_CONTENT_SHA256 = "6a5b8a41d624859987adc2d556030ef33295ac94e1a2bf7e14acc8f994fda1e3"
+REGISTRATION_AUDIT_CONTENT_SHA256 = "3992fac0704b98d83d22efef2865eb7e26867cc9b3f643d2840e8111726137a6"
 
 
 class SealedHistoricalSourceAcquisitionTests(unittest.TestCase):
@@ -211,8 +211,15 @@ class SealedHistoricalSourceAcquisitionTests(unittest.TestCase):
         self.assertNotIn("ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}", text)
         self.assertNotIn("DATABENTO_API_KEY", text)
         self.assertIn("MOMENTUMBOT_PROVIDER_REQUEST_BUDGET_LIMIT: \"20000\"", text)
-        self.assertIn("${RUNNER_TEMP}/sealed-historical-source-request-budget.json", text)
+        self.assertIn(
+            "MOMENTUMBOT_PROVIDER_REQUEST_BUDGET_FILE: /tmp/momentumbot-",
+            text,
+        )
         self.assertNotIn("${{ runner.temp }}", text)
+        self.assertNotIn("git fetch --no-tags origin", text)
+        self.assertIn(
+            "git rev-parse origin/phase-3-historical-snapshot", text
+        )
         self.assertIn("--skip-current-alpaca-reconciliation", text)
         self.assertIn("--persist-source-inputs", text)
         self.assertNotIn("schedule:", text)
