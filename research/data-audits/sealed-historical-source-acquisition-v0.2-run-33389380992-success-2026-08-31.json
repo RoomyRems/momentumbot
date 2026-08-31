@@ -1,0 +1,68 @@
+{
+  "artifact_type": "permanent_sealed_historical_source_acquisition_v0_2_success",
+  "authority_boundary": {
+    "databento_request_authorized": false,
+    "historical_runtime_validity_established": false,
+    "live_order_authorized": false,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false,
+    "source_acquisition_rerun_authorized": false
+  },
+  "causal_attestation": {
+    "account_or_order_endpoint_called": false,
+    "credential_values_persisted": false,
+    "databento_called": false,
+    "order_submitted": false,
+    "present_day_alpaca_asset_master_called": false,
+    "raw_provider_http_responses_persisted": false,
+    "ross_labels_or_outcomes_read": false,
+    "strategy_or_account_policy_changed": false,
+    "transcript_record_values_read": false
+  },
+  "content_sha256": "5be0fef73e639a6cbe9d40b0ec6b38ca22aefb007175790a7bc45248eeac583c",
+  "independent_verification": {
+    "all_30_offline_date_validators_passed": true,
+    "all_158_content_sha256_claims_recomputed": true,
+    "all_auxiliary_record_hashes_match": true,
+    "all_compressed_input_hashes_match": true,
+    "all_source_lineage_hashes_match": true,
+    "artifact_file_count": 738,
+    "manifest_count": 191,
+    "retained_content_bytes_recomputed": 698035604,
+    "zip_digest_matches_github": true
+  },
+  "recorded_at_date": "2026-08-31",
+  "result": {
+    "acquisition_report_content_sha256": "c7e843102368e7718449436e1876b608d680d50a7ce297fd3efb8e8b21d3c71a",
+    "acquisition_report_file_sha256": "e0e1e1505f788f78fcdeb8ea383f53eeb76426944a56a8911a6b5cc7bacb91aa",
+    "canonical_scanner_inputs_complete": true,
+    "incremental_provider_cost_usd": "0",
+    "maximum_retained_bytes": 1500000000,
+    "observed_retained_bytes": 698035604,
+    "selected_session_count": 30,
+    "source_acquisition_gate_passed": true,
+    "source_root_manifest_file_sha256": "525322ba327983f78fcdeb8ea383f53eeb76426944a56a8911a6b5cc7bacb91aa"
+  },
+  "schema_version": 1,
+  "source_hashes": {
+    "float": "516545b60bfb3b15f46b186d6ec7ad3bfa4de523ddb941d8e4449afad367ce6f",
+    "identity": "323c1f6500d3e52d11a19cc3e8a0d73df2eff815891e0f84f02857d58e61e2b4",
+    "market": "2c85ad798d829dfb7305adf7f2e0ff61c4fb9493c1e79ca5efe3f64eb08fcdf5",
+    "news": "5e531dbdde70215adfb5755a6a6ffa61c6ea5821b26fe15358c401005ff62cec",
+    "scanner": "94cfbe1101eca1e0edd91d0d4fccf1428ef34b7cca7bd06a3f504256f693c0e8",
+    "scanner_source_inputs": "efd2c0434b8e520434b0d1b06fad872c4fcdc3373db01190b1745cd02870b790"
+  },
+  "workflow": {
+    "artifact_github_digest": "sha256:4d2b7528c846b428acee3024dbc727646b60756f0b811afcdfce1398dbdc5254",
+    "artifact_id": 9768323386,
+    "artifact_name": "sealed-historical-source-acquisition-v02-33389380992-1",
+    "authorization_commit_sha": "f720e93f9b88f92998c50f3807456ed2dcc3b8c0",
+    "authorization_content_sha256": "be574f7e79c13eaf5c0235a02fd5d157738f4d7dd9431dd7b932c1cf20fcf315",
+    "conclusion": "success",
+    "dispatcher_head_sha": "25e94520f60d68609c01f1fc65b091a84569d28c",
+    "run_attempt": 1,
+    "run_id": 33389380992,
+    "tree_sha": "9d7050494b67e7cda721518b7e24dae176b33c76",
+    "url": "https://github.com/RoomyRems/momentumbot/actions/runs/33389380992"
+  }
+}

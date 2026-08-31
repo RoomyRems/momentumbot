@@ -1,0 +1,96 @@
+{
+  "artifact_type": "permanent_sealed_historical_scanner_runtime_v0_1_normalization_failure",
+  "causal_boundary": {
+    "databento_called": false,
+    "later_prices_or_pnl_read": false,
+    "live_order_submitted": false,
+    "micro_runtime_started": false,
+    "paper_order_submitted": false,
+    "provider_calls_made": false,
+    "retrospective_outcomes_read": false,
+    "ross_actions_or_fills_read": false,
+    "scanner_or_micro_threshold_changed": false,
+    "transcript_files_opened_or_inventoried": false,
+    "transcript_record_values_read": false
+  },
+  "conclusion": "fail_closed_mixed_split_adjusted_previous_close_and_raw_intraday_price_basis_invalidates_cross_sectional_rank",
+  "content_sha256": "216a991edb77fadc70d83f4c9d944080fb8b6bdc477ad55085313c62ec992fd6",
+  "diagnostic_result": {
+    "general_profile_provisional_activation_count_not_frozen": 121,
+    "market_candidate_count": 716,
+    "provisional_manifest_content_sha256_not_frozen": "970e738bb7ae2685bf9b99c3d4c77bf4341424a216701eb9543139176e10d7be",
+    "provider_free_scanner_replay_exact_on_all_dates": true,
+    "scanner_row_count": 66902,
+    "selected_session_count": 30,
+    "small_account_non_rank_pillar_pass_row_count": 4156,
+    "small_account_non_rank_pillar_pass_session_count": 25,
+    "small_account_rank_qualified_activation_count": 0
+  },
+  "failure_interpretation": {
+    "general_profile_result_is_strategy_evidence": false,
+    "normalization_failure_is_a_strategy_failure": false,
+    "provisional_activations_frozen_for_downstream_use": false,
+    "small_account_zero_is_a_valid_zero_opportunity_result": false,
+    "source_acquisition_transport_success_revoked": false
+  },
+  "mixed_basis_evidence": {
+    "frozen_intraday_adjustment": "raw",
+    "frozen_previous_close_adjustment": "split",
+    "leader_row_counts": {
+      "BKNG": 14340,
+      "KLAC": 10476,
+      "NFLX": 31368,
+      "RGC": 7056
+    },
+    "representative_first_raw_close_to_stored_previous_close_ratios": [
+      {
+        "date": "2025-05-30",
+        "ratio": 9.998818,
+        "symbol": "NFLX"
+      },
+      {
+        "date": "2025-06-04",
+        "ratio": 14.758937,
+        "symbol": "ORLY"
+      },
+      {
+        "date": "2025-06-10",
+        "ratio": 25.029899,
+        "symbol": "BKNG"
+      },
+      {
+        "date": "2025-06-16",
+        "ratio": 25.242993,
+        "symbol": "BKNG"
+      },
+      {
+        "date": "2025-06-02",
+        "ratio": 10.069045,
+        "symbol": "KLAC"
+      },
+      {
+        "date": "2025-06-02",
+        "ratio": 41.161174,
+        "symbol": "RGC"
+      }
+    ],
+    "root_cause": "the registered scanner compares split-adjusted daily previous closes with raw same-session minute closes; the exact frozen inputs demonstrate incompatible share bases through near-integer price ratios and mechanically impossible multi-thousand-percent leaders"
+  },
+  "next_gate": {
+    "automatic_rerun_allowed": false,
+    "candidate_bound_micro_acquisition_allowed": false,
+    "repair_scope": "register a new child source acquisition that uses one time-causal share basis for both prior close and intraday prices, rebuilds candidate discovery and cross-sectional rank, and preserves every other frozen date provider threshold and policy",
+    "source_v0_2_mutation_allowed": false,
+    "transcript_label_review_allowed": false
+  },
+  "recorded_at_date": "2026-08-31",
+  "schema_version": 1,
+  "source_parent": {
+    "acquisition_report_content_sha256": "c7e843102368e7718449436e1876b608d680d50a7ce297fd3efb8e8b21d3c71a",
+    "artifact_id": 9768323386,
+    "artifact_zip_sha256": "4d2b7528c846b428acee3024dbc727646b60756f0b811afcdfce1398dbdc5254",
+    "scanner_root_content_sha256": "94cfbe1101eca1e0edd91d0d4fccf1428ef34b7cca7bd06a3f504256f693c0e8",
+    "scanner_source_inputs_root_content_sha256": "efd2c0434b8e520434b0d1b06fad872c4fcdc3373db01190b1745cd02870b790",
+    "workflow_run_id": 33389380992
+  }
+}

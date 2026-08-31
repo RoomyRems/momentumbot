@@ -18,16 +18,26 @@ granted by the registration.
 ## Active gate
 
 Provider availability passed after the v0.2 Alpaca credential-routing repair.
-The exact v0.1 source acquisition was then consumed by GitHub Actions run
-`33350635957` and failed safely at its registered 20,000-HTTP-attempt ceiling;
-the next Alpaca request was blocked before network access. No final source
-bundle was uploaded and v0.1 cannot be rerun.
+Source acquisition v0.1 then failed safely at its 20,000-request ceiling.
+The request-ceiling-only v0.2 child succeeded in GitHub Actions run
+`33389380992`: 24,779 of 40,000 authorized attempts, 698,035,604 retained
+bytes, zero incremental provider cost, and a complete independently verified
+30-date bundle. Its permanent audit is
+`research/data-audits/sealed-historical-source-acquisition-v0.2-run-33389380992-success-2026-08-31.json`.
 
-The active repair is `sealed-historical-source-acquisition-v0.2`. It preserves
-the 30 dates and the entire causal acquisition graph and changes only the
-zero-incremental-cost shared HTTP ceiling from 20,000 to 40,000. It remains
-provider-free until its exact registration is published and validated, and it
-may run only once after consumption of its distinct child authorization.
+The first provider-free scanner runtime gate then failed before Micro replay.
+All 66,902 scanner rows reproduced exactly, but the frozen rank inputs compare
+split-adjusted previous closes with raw intraday closes. Near-integer basis
+ratios created impossible leaders and blocked every small-account top-three
+activation even though 4,156 row-minutes across 25 dates passed its other
+pillars. Zero small-account activations is therefore an invalid data result,
+not strategy evidence. No provisional activation is frozen.
+
+The active repair is a new child source acquisition that changes only the
+historical price-normalization basis and then rebuilds discovery and rank. It
+must preserve all 30 dates, providers, thresholds and strategy/account rules;
+it may not mutate or rerun consumed source v0.2. Candidate-bound Micro or
+Databento acquisition and transcript-label review remain blocked.
 
 The strategy scope freeze remains active: no new setup, AI authority, scanner or
 Micro threshold change, account rule change, execution-cell selection, or
