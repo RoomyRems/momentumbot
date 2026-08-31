@@ -1,0 +1,41 @@
+{
+  "artifact_type": "sealed_historical_walk_forward_validation_audit",
+  "authority_boundary": {
+    "live_order_authorized": false,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false,
+    "provider_call_authorized": false
+  },
+  "contract_content_sha256": "93a4316a4ef785e30ebc393ec140fa02ea23027aa9cd85673d34401b3bca3452",
+  "contract_id": "sealed-historical-walk-forward-v0.1",
+  "github": {
+    "branch": "phase-3-historical-snapshot",
+    "commit": "81dbb63bc7e797818d586a24801b8a11bb5d394f",
+    "general_ci": {
+      "attempt": 1,
+      "conclusion": "success",
+      "run_id": 33346979519,
+      "url": "https://github.com/RoomyRems/momentumbot/actions/runs/33346979519"
+    },
+    "sealed_validation": {
+      "attempt": 1,
+      "conclusion": "success",
+      "run_id": 33346979538,
+      "url": "https://github.com/RoomyRems/momentumbot/actions/runs/33346979538"
+    },
+    "tree": "1fdbb6b06e56a380df097007ee402350e260846d"
+  },
+  "local_validation": {
+    "all_json_and_workflows_parsed": true,
+    "compile_passed": true,
+    "corpus_bytes_reverified_against_manifest": true,
+    "focused_tests_passed": 16,
+    "full_tests_passed": 897,
+    "whitespace_check_passed": true
+  },
+  "provider_calls": 0,
+  "registered_at_date": "2026-08-31",
+  "registration_status": "validated_provider_free_runtime_not_started",
+  "schema_version": 1,
+  "content_sha256": "2322eb17ec5ca44f76a2e4fe9551d0b429a3c69d27993fa87ac1c1ddffafdf59"
+}

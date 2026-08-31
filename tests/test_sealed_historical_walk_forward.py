@@ -46,6 +46,11 @@ CLOSURE = (
     / "research/data-audits"
     / "prospective-panel-v0.1-closure-2026-08-31.json"
 )
+VALIDATION_AUDIT = (
+    ROOT
+    / "research/data-audits"
+    / "sealed-historical-walk-forward-v0.1-validation-2026-08-31.json"
+)
 SCRIPT = ROOT / "scripts/register_sealed_historical_walk_forward.py"
 
 
@@ -233,6 +238,25 @@ class SealedHistoricalWalkForwardTests(unittest.TestCase):
         self.assertEqual(closure["evidence_boundary"]["orders"], 0)
         self.assertEqual(len(closure["dates"]), 5)
         self.assertEqual(len(closure["closure"]["withdrawn_unstarted_dates"]), 5)
+
+    def test_remote_validation_audit_is_exact_and_provider_free(self) -> None:
+        audit = load_json_object(VALIDATION_AUDIT)
+        body = dict(audit)
+        observed = body.pop("content_sha256")
+        self.assertEqual(observed, canonical_fingerprint(body))
+        self.assertEqual(
+            observed,
+            "2322eb17ec5ca44f76a2e4fe9551d0b429a3c69d27993fa87ac1c1ddffafdf59",
+        )
+        self.assertEqual(
+            audit["github"]["commit"],
+            "81dbb63bc7e797818d586a24801b8a11bb5d394f",
+        )
+        self.assertEqual(audit["github"]["general_ci"]["conclusion"], "success")
+        self.assertEqual(audit["github"]["sealed_validation"]["conclusion"], "success")
+        self.assertEqual(audit["local_validation"]["full_tests_passed"], 897)
+        self.assertEqual(audit["provider_calls"], 0)
+        self.assertFalse(audit["authority_boundary"]["provider_call_authorized"])
 
     def test_validation_cli_is_provider_free(self) -> None:
         env = dict(os.environ)
