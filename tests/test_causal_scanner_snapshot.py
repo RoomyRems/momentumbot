@@ -20,6 +20,11 @@ from momentumbot.causal_scanner_snapshot import (
     trim_scanner_rvol_series,
     validate_causal_scanner_snapshot,
 )
+from momentumbot.causal_scanner_snapshot_v02 import (
+    NORMALIZED_RANK_MINUTE_ADJUSTMENT,
+    build_scanner_snapshot_rows as build_scanner_snapshot_rows_v02,
+    causal_scanner_snapshot_v0_2_manifest,
+)
 from momentumbot.models import current_general_2026
 from momentumbot.identity_resolved_universe import json_fingerprint
 
@@ -120,6 +125,34 @@ def _source_hashes() -> dict[str, str]:
 
 
 class CausalScannerSnapshotTests(unittest.TestCase):
+    def test_normalized_rank_uses_split_gain_but_raw_price(self) -> None:
+        raw = _bars([100.0])
+        normalized = _bars([10.0])
+        rows = build_scanner_snapshot_rows_v02(
+            trading_date=date(2025, 4, 3),
+            profile=_profile(time(7, 2)),
+            candidate_rows=[dict(_candidate(), previous_close=8.0)],
+            float_records=[_float_record()],
+            news_events=[],
+            news_statuses=[_news_status()],
+            membership_symbols=["AAA"],
+            previous_close_by_symbol={"AAA": 8.0},
+            rank_raw_minute_bars_by_symbol={"AAA": normalized},
+            candidate_raw_minute_bars_by_symbol={"AAA": raw},
+            candidate_exact_rvol_by_symbol={"AAA": _rvol([6.0])},
+            rank_minute_adjustment=NORMALIZED_RANK_MINUTE_ADJUSTMENT,
+        )
+
+        self.assertEqual(rows[0]["price"], 100.0)
+        self.assertEqual(rows[0]["percent_gain"], 25.0)
+        self.assertEqual(rows[0]["rank_leader_percent_gain"], 25.0)
+        policy = causal_scanner_snapshot_v0_2_manifest()
+        self.assertEqual(policy["rank_acquisition_basis"]["minute_adjustment"], "split")
+        self.assertEqual(
+            causal_scanner_snapshot_v0_1_manifest()["rank_acquisition_basis"]["minute_adjustment"],
+            "raw",
+        )
+
     def test_later_news_changes_disposition_only_at_publication(self) -> None:
         candidate_bars = _bars([2.0, 2.1, 2.2])
         rows = build_scanner_snapshot_rows(

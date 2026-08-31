@@ -33,8 +33,10 @@ activation even though 4,156 row-minutes across 25 dates passed its other
 pillars. Zero small-account activations is therefore an invalid data result,
 not strategy evidence. No provisional activation is frozen.
 
-The active repair is a new child source acquisition that changes only the
-historical price-normalization basis and then rebuilds discovery and rank. It
+The active repair is the provider-free registered v0.3 child source acquisition.
+It changes only the historical price-normalization basis and then rebuilds
+discovery and rank. Percentage gain and rank use split-adjusted prior and target
+prices consistently; actual price and volume remain raw. It
 must preserve all 30 dates, providers, thresholds and strategy/account rules;
 it may not mutate or rerun consumed source v0.2. Candidate-bound Micro or
 Databento acquisition and transcript-label review remain blocked.

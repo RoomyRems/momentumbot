@@ -1,0 +1,257 @@
+{
+  "artifact_type": "preregistered_split_consistent_sealed_historical_source_acquisition_repair",
+  "authority_boundary": {
+    "candidate_bound_databento_acquisition_authorized": false,
+    "historical_account_runtime_authorized": false,
+    "historical_source_acquisition_authorized": true,
+    "live_order_authorized": false,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false
+  },
+  "authorization_id": "sealed-historical-source-acquisition-v0.3",
+  "causal_boundary": {
+    "later_price_or_final_volume_used_at_decision_time": false,
+    "present_day_alpaca_asset_master_reconciliation_allowed": false,
+    "ross_actions_fills_skips_or_outcomes_may_be_read": false,
+    "strategy_threshold_or_setup_changes_allowed": false,
+    "transcript_record_values_may_be_read": false
+  },
+  "content_sha256": "77a37b207dc9ef15b5cbbef32911285c11926c95a53821635458b54b8ae3bffb",
+  "cost_ceiling": {
+    "databento_calls_authorized": 0,
+    "incremental_provider_cost_usd": "0",
+    "paid_acquisition_authorized": false
+  },
+  "credential_routing": {
+    "credential_values_changed_observed_or_persisted": false,
+    "github_actions_secret_names": [
+      "MASSIVE_API_KEY",
+      "ALPACA_MAIN_API_KEY",
+      "ALPACA_MAIN_API_SECRET",
+      "SEC_USER_AGENT"
+    ],
+    "runtime_environment_aliases": {
+      "ALPACA_API_KEY": "ALPACA_MAIN_API_KEY",
+      "ALPACA_API_SECRET": "ALPACA_MAIN_API_SECRET",
+      "MASSIVE_API_KEY": "MASSIVE_API_KEY",
+      "SEC_USER_AGENT": "SEC_USER_AGENT"
+    }
+  },
+  "frozen_parent": {
+    "availability_report_content_sha256": "bc88728486e77ca718e77918fa83470b7a608502e34aedaa8ccb184fef03819c",
+    "availability_success_audit_content_sha256": "76baebc0df39c59e9a1a8ebc099c5c0c3080d1a4e4cb2ac013cb85f7f9070cb1",
+    "availability_workflow_run_id": "33348970745",
+    "contract_content_sha256": "93a4316a4ef785e30ebc393ec140fa02ea23027aa9cd85673d34401b3bca3452",
+    "contract_id": "sealed-historical-walk-forward-v0.1",
+    "scanner_v0_1_failure_audit_content_sha256": "216a991edb77fadc70d83f4c9d944080fb8b6bdc477ad55085313c62ec992fd6",
+    "selected_dates": [
+      "2025-05-30",
+      "2025-06-02",
+      "2025-06-03",
+      "2025-06-04",
+      "2025-06-05",
+      "2025-06-06",
+      "2025-06-09",
+      "2025-06-10",
+      "2025-06-11",
+      "2025-06-12",
+      "2025-06-13",
+      "2025-06-16",
+      "2025-06-17",
+      "2025-06-18",
+      "2025-06-20",
+      "2025-06-23",
+      "2025-06-24",
+      "2025-06-25",
+      "2025-06-26",
+      "2025-06-27",
+      "2025-07-01",
+      "2025-07-02",
+      "2025-07-07",
+      "2025-07-08",
+      "2025-07-10",
+      "2025-07-11",
+      "2025-07-14",
+      "2025-07-15",
+      "2025-07-16",
+      "2025-07-17"
+    ],
+    "v0_1_authorization_content_sha256": "0dbc26228513bb81f55c484daa56e899feabdc38f419c2ccd758c9d2853eb4d7",
+    "v0_1_failure_artifact_file_sha256": "17c5dbe3f67af68bbc261dd718a04516a7f3f93c99dbeaf4d888f0452288a4cd",
+    "v0_1_failure_audit_content_sha256": "934d1ca46ceb87192f3c2846894ada202554ffd4bbe07a6a2fe7fccaf246f292",
+    "v0_1_workflow_run_id": "33350635957",
+    "v0_2_artifact_zip_sha256": "4d2b7528c846b428acee3024dbc727646b60756f0b811afcdfce1398dbdc5254",
+    "v0_2_authorization_content_sha256": "be574f7e79c13eaf5c0235a02fd5d157738f4d7dd9431dd7b932c1cf20fcf315",
+    "v0_2_success_audit_content_sha256": "5be0fef73e639a6cbe9d40b0ec6b38ca22aefb007175790a7bc45248eeac583c",
+    "v0_2_workflow_run_id": "33389380992"
+  },
+  "normalization_contract": {
+    "actual_price_and_volume_adjustment": "raw",
+    "cross_sectional_rank_previous_close_adjustment": "split",
+    "cross_sectional_rank_target_minute_adjustment": "split",
+    "market_discovery_policy": {
+      "acquisition_prefilter_rule": "split_target_high_over_split_previous_close_for_gain_superset_and_raw_target_range_for_price_superset_only",
+      "coarse_rvol_bar_size": "15Min",
+      "daily_history_calendar_days": 120,
+      "decision_availability_rule": "bar_close_and_same_time_rvol_available_at_bar_start_plus_1_minute",
+      "exact_rvol_bar_size": "1Min",
+      "exact_rvol_prior_sessions": 50,
+      "fingerprint": "77a3b6efef5b321120d34d5a497676ee891d3d0c2edf55989144bf79c65e1240",
+      "gain_normalization_rule": "percent_gain_uses_split_target_close_over_split_previous_close_while_price_threshold_uses_raw_target_close",
+      "minute_bar_timestamp_semantics": "alpaca_1min_timestamp_is_bar_start",
+      "policy_id": "causal-market-discovery-v0.3",
+      "scan_window_timestamp_rule": "session_bounds_apply_to_decision_availability_timestamp",
+      "source_universe_policy_id": "identity-resolved-universe-v0.1",
+      "status": "frozen_research_acquisition_contract_not_promotable",
+      "strategy_input_rule": "raw_target_1min_price_and_volume_split_target_1min_gain_and_exact_same_time_split_rvol_at_decision_availability",
+      "supersedes_policy_fingerprint": "dbcbebae2b785ef8af68a37122658e02aa6fec3310c03581426273c5b66516d5",
+      "supersedes_policy_id": "causal-market-discovery-v0.2"
+    },
+    "percent_gain_previous_close_adjustment": "split",
+    "percent_gain_target_minute_adjustment": "split",
+    "raw_split_target_timestamp_coverage_must_match": true,
+    "scanner_policy": {
+      "activation_rule": "first_market_qualified_at",
+      "artifact_provider_error_rule": "fatal_upstream_float_news_or_rank_acquisition_error_blocks_entire_date",
+      "candidate_bar_rule": "exact_completed_raw_candidate_bar_for_actual_price_and_volume_with_same_timestamp_split_rank_bar_for_gain",
+      "candidate_previous_close_authority_rule": "uniform_all_membership_reacquired_split_previous_close_is_authoritative_for_both_rank_and_candidate_snapshot_after_frozen_market_candidate_corroboration",
+      "candidate_previous_close_match_tolerance": {
+        "absolute": 1e-12,
+        "relative": 1e-12
+      },
+      "candidate_rank_frame_authority_rule": "split_adjusted_all_membership_frame_is_authoritative_for_gain_and_rank_raw_candidate_frame_is_authoritative_for_price_volume",
+      "candidate_rank_frame_close_match_tolerance": {
+        "absolute": 1e-12,
+        "relative": 1e-12
+      },
+      "candidate_rank_frame_volume_match_rule": "not_compared_because_split_rank_volume_is_not_a_strategy_input",
+      "completed_bar_rule": "one_minute_bar_close_available_at_bar_start_plus_one_minute",
+      "decision_clock_rule": "one_wall_clock_minute_from_activation_to_exclusive_cutoff",
+      "disposition_precedence": [
+        "missing_candidate_completed_bar",
+        "missing_candidate_market_feature",
+        "missing_cross_sectional_rank",
+        "unknown_float",
+        "news_provider_error",
+        "price_rule",
+        "gain_rule",
+        "rvol_rule",
+        "float_rule",
+        "provider_news_presence_unclassified"
+      ],
+      "fingerprint": "5d22fe8dc8eeea2a58590c3f5b6302effc7b42a137d44281a85780eb8677bf6a",
+      "float_profile_rule": "profile_max_float_shares_must_equal_source_float_policy_limit",
+      "float_rule": "frozen_causal_classification_and_asof",
+      "float_unknown_rule": "unknown_or_provider_error_fails_closed",
+      "forbidden_runtime_inputs": [
+        "benchmark_labels",
+        "retrospective_trade_outcomes",
+        "future_session_extrema_as_snapshot_features",
+        "trades",
+        "setups",
+        "portfolio_state",
+        "pnl"
+      ],
+      "market_feature_rule": "raw_close_and_volume_split_consistent_gain_and_exact_same_time_split_rvol",
+      "news_absence_rule": "successful_provider_relative_absence_recorded_unclassified",
+      "news_provider_error_rule": "provider_error_fails_closed",
+      "news_rule": "provider_event_published_at_lte_decision_time_only",
+      "ordered_record_rule": "decision_time_ascending_then_symbol_ascending",
+      "partial_date_emission_on_provider_error": false,
+      "policy_id": "causal-scanner-snapshot-v0.2",
+      "prior_close_input_rule": "identity_membership_symbol_ascending_split_adjusted_previous_close",
+      "rank_acquisition_basis": {
+        "asof_rule": "trading_date",
+        "feed": "sip",
+        "minute_adjustment": "split",
+        "minute_timeframe": "1Min",
+        "previous_close_adjustment": "split",
+        "previous_close_lookback_calendar_days": 21,
+        "previous_close_timeframe": "1Day",
+        "provider": "alpaca_historical_stock_bars"
+      },
+      "rank_coverage_rule": "members_without_completed_bar_since_volume_feature_start_are_counted_but_absent_from_rank_input",
+      "rank_missing_rule": "missing_candidate_rank_or_incomplete_gain_input_fails_closed",
+      "rank_rule": "gain_desc_symbol_asc_over_all_identity_members_with_latest_completed_close_observed_from_volume_feature_start_through_decision_and_carried_forward",
+      "rank_threshold_rule": "feature_only_no_final_top_n_threshold_frozen",
+      "row_provider_error_rule": "defensive_fail_closed_state_for_validated_per_symbol_status_only",
+      "session_timezone": "America/New_York",
+      "source_float_policy_id": "causal-sec-float-v0.1",
+      "source_identity_policy_id": "identity-resolved-universe-v0.1",
+      "source_input_fingerprint_rule": "streamed_canonical_newline_records_without_materializing_full_tape",
+      "source_input_persistence_rule": "fingerprint_only_raw_reacquired_inputs_not_persisted",
+      "source_market_candidate_artifact_id": "causal-market-candidates-v0.3",
+      "source_market_policy_id": "causal-market-discovery-v0.3",
+      "source_news_policy_id": "causal-alpaca-news-v0.2",
+      "status": "frozen_research_feature_decision_contract_not_promotable",
+      "supersedes_policy_fingerprint": "ed21becad10855b4a085b6e05b6feac8f21e4ce511a100b2381522154818f42a",
+      "supersedes_policy_id": "causal-scanner-snapshot-v0.1",
+      "upstream_market_acquisition_tail_rule": "accept_target_date_minute_bars_through_10:01_America/New_York_then_drop_bars_not_completed_strictly_before_exclusive_cutoff_before_fingerprinting_or_features"
+    },
+    "split_factor_cancels_from_gain_and_rank": true,
+    "split_factor_may_not_affect_price_threshold": true
+  },
+  "one_shot_contract": {
+    "authorization_consumed_before_provider_access": true,
+    "automatic_rerun_allowed": false,
+    "provider_substitution_allowed": false,
+    "v0_1_authorization_may_be_rerun": false,
+    "v0_2_authorization_may_be_rerun": false,
+    "workflow_run_attempt_required": 1
+  },
+  "registered_at_date": "2026-08-31",
+  "repair_boundary": {
+    "candidate_discovery_and_rank_rebuilt": true,
+    "dates_or_provider_routes_changed": false,
+    "normalization_only_change": true,
+    "request_or_retention_ceiling_changed": false,
+    "source_v0_2_tree_reused_or_mutated": false,
+    "strategy_micro_or_account_policy_changed": false
+  },
+  "request_budget": {
+    "allowed_hosts": [
+      "api.massive.com",
+      "data.alpaca.markets",
+      "data.sec.gov"
+    ],
+    "alpaca": {
+      "asset_or_account_endpoint_calls": 0,
+      "bars_maximum_pages_per_logical_request": 100,
+      "corporate_action_maximum_pages_per_request": 100,
+      "daily_and_rank_batch_size": 250,
+      "feed": "sip",
+      "minute_batch_size_maximum": 100
+    },
+    "counter_persists_counts_by_hostname_only": true,
+    "massive": {
+      "census_limit_per_page": 1000,
+      "maximum_census_pages_per_date": 20,
+      "minimum_request_interval_seconds": "12.5",
+      "split_maximum_pages_per_request": 20,
+      "ticker_event_sample_calls": 0,
+      "ticker_type_calls": 1
+    },
+    "maximum_total_http_attempts_including_retries": 40000,
+    "news": {
+      "include_content": false,
+      "maximum_candidates_per_date": 50,
+      "maximum_pages_per_batch": 10,
+      "symbol_batch_size": 50
+    },
+    "sec": {
+      "endpoints_per_unique_candidate_cik": 2,
+      "maximum_attempts_per_endpoint": 3,
+      "maximum_candidates_per_date": 50,
+      "minimum_request_interval_seconds": "0.2"
+    },
+    "shared_cross_process_counter_required": true
+  },
+  "retention_budget": {
+    "artifact_retention_days": 90,
+    "canonical_scanner_runtime_inputs_persisted_gzip": true,
+    "maximum_retained_bytes": 1500000000,
+    "raw_provider_http_responses_persisted": false,
+    "upstream_normalized_membership_market_float_news_persisted": true
+  },
+  "schema_version": 1
+}

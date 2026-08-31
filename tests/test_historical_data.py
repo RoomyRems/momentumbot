@@ -18,6 +18,7 @@ from momentumbot.historical_data import (
     normalize_asset_master,
     write_discovery,
 )
+from momentumbot.historical_data_v03 import _split_consistent_daily_scan_basis
 from momentumbot.models import current_general_2026
 
 
@@ -177,6 +178,26 @@ class HistoricalDataTests(unittest.TestCase):
         self.assertEqual(prior_close, 5.00)
         self.assertEqual(high, 6.50)
         self.assertEqual(low, 5.50)
+
+    def test_split_consistent_basis_cancels_future_adjustment_factor(self):
+        raw = self._frame(
+            [
+                {"timestamp": "2025-06-02T04:00:00Z", "close": 100.0, "high": 101.0, "low": 99.0},
+                {"timestamp": "2025-06-03T04:00:00Z", "close": 110.0, "high": 112.0, "low": 105.0},
+            ]
+        )
+        split = self._frame(
+            [
+                {"timestamp": "2025-06-02T04:00:00Z", "close": 10.0, "high": 10.1, "low": 9.9},
+                {"timestamp": "2025-06-03T04:00:00Z", "close": 11.0, "high": 11.2, "low": 10.5},
+            ]
+        )
+
+        basis = _split_consistent_daily_scan_basis(
+            raw, split, date(2025, 6, 3)
+        )
+        self.assertEqual(basis, (10.0, 11.2, 112.0, 105.0))
+        self.assertAlmostEqual((basis[1] / basis[0] - 1.0) * 100.0, 12.0)
 
     def test_asset_master_fingerprint_is_order_independent(self):
         first = [

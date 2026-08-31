@@ -20,6 +20,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 | Sealed historical provider availability | `docs/research/sealed_historical_provider_availability_v02.md` | permanent v0.1 routing failure, one-call main-credential child repair and unchanged acquisition boundary |
 | Sealed historical source acquisition | `docs/research/sealed_historical_source_acquisition_v02.md` | permanent v0.1 request-budget failure, request-ceiling-only v0.2 child and unchanged causal acquisition graph |
 | Sealed historical scanner runtime failure | `docs/research/sealed_historical_scanner_runtime_v01_failure.md` | exact provider-free replay, mixed price-basis diagnosis and blocked normalization-only child gate |
+| Sealed historical normalization repair | `docs/research/sealed_historical_source_acquisition_v03.md` | split/split gain and rank, raw price/volume, immutable v0.2 success/failure parents and one-shot child authority |
 | Runtime and hybrid architecture | `docs/architecture.md` | executable code under `src/momentumbot/` |
 | Current Ross-derived policy | `docs/strategy/current_rulebook.md` | `research/rules/current_rules.json` and policy code |
 | Strategy/discretion coverage | `docs/research/strategy_discretion_coverage_v02.md` | immutable v0.1 parent, versioned v0.2 delta and `strategy_coverage_v02.py` |

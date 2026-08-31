@@ -1,0 +1,91 @@
+{
+  "artifact_type": "provider_free_sealed_historical_source_acquisition_v0_3_registration",
+  "artifacts": {
+    "authorization": {
+      "content_sha256": "77a37b207dc9ef15b5cbbef32911285c11926c95a53821635458b54b8ae3bffb",
+      "file_sha256": "d208ef0c27ec1d7a15a13380ee696b289f759a48852a1091ca28a5fa6e4f3185",
+      "path": "research/strategy/sealed-historical-source-acquisition-v0.3.json"
+    },
+    "documentation": {
+      "file_sha256": "97bfd0fb8c28bea0f8f5d96ce0011c6417e7846cd93dbfb7e1e60e9f2c1fcbf7",
+      "path": "docs/research/sealed_historical_source_acquisition_v03.md"
+    },
+    "float_builder": {
+      "file_sha256": "87c3a46aa5fdb074f343ce4601198cd380f9124009a62e7c1416752b3518c449",
+      "path": "scripts/build_causal_float_enrichment_v03.py"
+    },
+    "float_loader": {
+      "file_sha256": "a1f168d07f149dd589c78c2533a789926153dba34706aaa092c12d9fae730075",
+      "path": "src/momentumbot/historical_float_v03.py"
+    },
+    "historical_data": {
+      "file_sha256": "24ae072eb53d10583afdc8210cfc01ec4372f3b41525a3019f744f0ab4b8496f",
+      "path": "src/momentumbot/historical_data_v03.py"
+    },
+    "implementation": {
+      "file_sha256": "1947701c6fb9d92bb3408b8d29fa4e47c47baec0c178b9d512b3bca703a75d6a",
+      "path": "src/momentumbot/research/sealed_historical_source_acquisition_v03.py"
+    },
+    "market_builder": {
+      "file_sha256": "da2c041cbce713daf857e2e998dcc210a0328c810ca42b830f8c4c94f5fd53a5",
+      "path": "scripts/build_identity_resolved_market_discovery_v03.py"
+    },
+    "market_policy": {
+      "file_sha256": "01c2992dd7d8765c003957021f47a3d6e689c4fe0a693b9049cdad8afa10d586",
+      "path": "src/momentumbot/causal_market_discovery_v03.py"
+    },
+    "news_builder": {
+      "file_sha256": "024998bc3c7384ad02c439c2532e9007366dcc8e828c6fef76eb7804e866cb91",
+      "path": "scripts/build_causal_news_enrichment_v03.py"
+    },
+    "runner": {
+      "file_sha256": "997652617eae5034b4a0e18d90ee4f7dd1563c6cba7d2d246323d4c695da4107",
+      "path": "scripts/run_sealed_historical_source_acquisition_v03.py"
+    },
+    "scanner_builder": {
+      "file_sha256": "255485b31b7f4c018bd6e656c1127023c192e7fb7fb142f9971e9dee38d9fbe0",
+      "path": "scripts/build_causal_scanner_snapshot_v03.py"
+    },
+    "scanner_policy": {
+      "file_sha256": "b8a437981f4912f81cf2b899f18d3053c0e3764af9cb416369157f54e9f81ac2",
+      "path": "src/momentumbot/causal_scanner_snapshot_v02.py"
+    },
+    "source_inputs": {
+      "file_sha256": "fa32dfc3c60d2684055cab7eb4578bf6da347072ba6c71d64590f365f19f74af",
+      "path": "src/momentumbot/scanner_source_inputs_v02.py"
+    },
+    "workflow": {
+      "file_sha256": "f527c900877f30a56cf4b6a6b86bcb48af1840f449e50bfb7411a2f1e5e9d7ab",
+      "path": ".github/workflows/sealed-historical-source-acquisition-v03.yml"
+    }
+  },
+  "authority_boundary": {
+    "automatic_rerun_allowed": false,
+    "candidate_bound_databento_authorized": false,
+    "live_order_authorized": false,
+    "manual_dispatch_required": true,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false,
+    "push_validation_provider_free": true
+  },
+  "authorization_content_sha256": "77a37b207dc9ef15b5cbbef32911285c11926c95a53821635458b54b8ae3bffb",
+  "authorization_id": "sealed-historical-source-acquisition-v0.3",
+  "causal_attestation": {
+    "account_or_order_endpoint_calls": 0,
+    "databento_calls": 0,
+    "orders_submitted": 0,
+    "provider_calls": 0,
+    "ross_labels_or_outcomes_read": false,
+    "runtime_started": false,
+    "transcript_record_values_read": false
+  },
+  "content_sha256": "2177a8e867668a45c78b661c971429ff0bbda0fd6aa967d060be02a8e164d3f8",
+  "frozen_parents": {
+    "scanner_v0_1_failure_audit_content_sha256": "216a991edb77fadc70d83f4c9d944080fb8b6bdc477ad55085313c62ec992fd6",
+    "v0_2_success_audit_content_sha256": "5be0fef73e639a6cbe9d40b0ec6b38ca22aefb007175790a7bc45248eeac583c"
+  },
+  "registered_at_date": "2026-08-31",
+  "registration_status": "provider_free_complete_acquisition_not_dispatched",
+  "repair": "split_consistent_gain_and_rank_raw_price_and_volume",
+  "schema_version": 1
+}
