@@ -1,0 +1,289 @@
+name: Sealed historical source acquisition v0.1
+
+on:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - .github/workflows/sealed-historical-source-acquisition.yml
+      - research/strategy/sealed-historical-source-acquisition-v0.1.json
+      - research/data-audits/sealed-historical-source-acquisition-v0.1-registration-2026-08-31.json
+      - src/momentumbot/research/sealed_historical_source_acquisition.py
+      - src/momentumbot/providers/request_budget.py
+      - src/momentumbot/providers/http_json.py
+      - src/momentumbot/providers/alpaca.py
+      - src/momentumbot/providers/sec_edgar.py
+      - scripts/run_sealed_historical_source_acquisition.py
+      - scripts/build_massive_historical_census.py
+      - scripts/build_causal_float_enrichment.py
+      - scripts/build_causal_news_enrichment.py
+      - scripts/build_causal_scanner_snapshot.py
+      - tests/test_sealed_historical_source_acquisition.py
+      - tests/test_provider_request_budget.py
+      - tests/test_alpaca_provider.py
+      - docs/research/sealed_historical_source_acquisition_v01.md
+      - AGENTS.md
+  workflow_dispatch:
+    inputs:
+      authorization_commit_sha:
+        description: Full research-branch commit containing the frozen acquisition
+        required: true
+        type: string
+      authorization_path:
+        description: Exact frozen source-acquisition authorization path
+        required: true
+        default: research/strategy/sealed-historical-source-acquisition-v0.1.json
+        type: string
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: sealed-historical-source-acquisition-v0.1
+  cancel-in-progress: false
+
+env:
+  PANEL_DATES: >-
+    2025-05-30 2025-06-02 2025-06-03 2025-06-04 2025-06-05
+    2025-06-06 2025-06-09 2025-06-10 2025-06-11 2025-06-12
+    2025-06-13 2025-06-16 2025-06-17 2025-06-18 2025-06-20
+    2025-06-23 2025-06-24 2025-06-25 2025-06-26 2025-06-27
+    2025-07-01 2025-07-02 2025-07-07 2025-07-08 2025-07-10
+    2025-07-11 2025-07-14 2025-07-15 2025-07-16 2025-07-17
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.authorization_commit_sha || github.sha }}
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: "3.12"
+      - name: Install provider-free project
+        run: python -m pip install -e .
+      - name: Validate frozen acquisition and parents without credentials
+        run: python scripts/run_sealed_historical_source_acquisition.py --validate-only
+      - name: Run bounded-acquisition tests
+        run: >-
+          python -m unittest
+          tests.test_sealed_historical_source_acquisition
+          tests.test_provider_request_budget
+          tests.test_alpaca_provider
+          -v
+      - name: Compile acquisition entry points
+        run: >-
+          python -m py_compile
+          src/momentumbot/research/sealed_historical_source_acquisition.py
+          src/momentumbot/providers/request_budget.py
+          scripts/run_sealed_historical_source_acquisition.py
+
+  acquire:
+    if: github.event_name == 'workflow_dispatch' && github.run_attempt == 1
+    needs: validate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    env:
+      ALPACA_API_KEY: ${{ secrets.ALPACA_MAIN_API_KEY }}
+      ALPACA_API_SECRET: ${{ secrets.ALPACA_MAIN_API_SECRET }}
+      MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
+      SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+      MOMENTUMBOT_PROVIDER_REQUEST_BUDGET_LIMIT: "20000"
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ inputs.authorization_commit_sha }}
+      - name: Verify exact immutable acquisition checkout
+        env:
+          AUTHORIZATION_COMMIT_SHA: ${{ inputs.authorization_commit_sha }}
+          AUTHORIZATION_PATH: ${{ inputs.authorization_path }}
+        run: |
+          test "$GITHUB_RUN_ATTEMPT" = "1"
+          test "$GITHUB_REPOSITORY" = "RoomyRems/momentumbot"
+          test "$AUTHORIZATION_PATH" = "research/strategy/sealed-historical-source-acquisition-v0.1.json"
+          case "$AUTHORIZATION_COMMIT_SHA" in
+            [0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]) ;;
+            *) exit 1 ;;
+          esac
+          test "$(git rev-parse HEAD)" = "$AUTHORIZATION_COMMIT_SHA"
+          git fetch --no-tags origin phase-3-historical-snapshot
+          git merge-base --is-ancestor "$AUTHORIZATION_COMMIT_SHA" origin/phase-3-historical-snapshot
+          test -f "$AUTHORIZATION_PATH"
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: "3.12"
+      - name: Initialize the runner-local shared request-budget path
+        run: |
+          printf '%s\n' \
+            "MOMENTUMBOT_PROVIDER_REQUEST_BUDGET_FILE=${RUNNER_TEMP}/sealed-historical-source-request-budget.json" \
+            >> "$GITHUB_ENV"
+      - name: Install exact acquisition environment
+        run: python -m pip install -e .
+      - name: Revalidate exact frozen authority without provider access
+        run: python scripts/run_sealed_historical_source_acquisition.py --validate-only
+      - name: Create write-once consumption marker
+        env:
+          AUTHORIZATION_PATH: ${{ inputs.authorization_path }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          authorization = json.loads(Path(os.environ["AUTHORIZATION_PATH"]).read_text())
+          marker = {
+              "schema_version": 1,
+              "artifact_type": "sealed_historical_source_acquisition_consumption",
+              "authorization_id": authorization["authorization_id"],
+              "authorization_content_sha256": authorization["content_sha256"],
+              "workflow_run_id": os.environ["GITHUB_RUN_ID"],
+              "provider_call_made_before_marker": False,
+              "authorization_consumed": True,
+          }
+          Path("sealed-historical-source-acquisition-consumption.json").write_text(
+              json.dumps(marker, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          with Path(os.environ["GITHUB_ENV"]).open("a", encoding="utf-8") as handle:
+              handle.write(
+                  "SOURCE_AUTHORIZATION_SHA256="
+                  f"{authorization['content_sha256']}\n"
+              )
+          PY
+      - name: Refuse an authorization already consumed by another run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          artifact_name="sealed-historical-source-acquisition-consumed-${SOURCE_AUTHORIZATION_SHA256}"
+          prior_count="$(gh api \
+            "repos/${GITHUB_REPOSITORY}/actions/artifacts?name=${artifact_name}&per_page=100" \
+            --jq '.total_count')"
+          test "$prior_count" = "0"
+      - name: Consume authorization before provider access
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: sealed-historical-source-acquisition-consumed-${{ env.SOURCE_AUTHORIZATION_SHA256 }}
+          path: sealed-historical-source-acquisition-consumption.json
+          if-no-files-found: error
+          retention-days: 90
+      - name: Acquire point-in-time Massive membership
+        run: >-
+          python scripts/build_massive_historical_census.py
+          --dates $PANEL_DATES
+          --minimum-request-interval 12.5
+          --limit 1000
+          --max-pages 20
+          --skip-current-alpaca-reconciliation
+          --output sealed-historical-source-acquisition/source
+      - name: Freeze instrument semantics and SIP daily coverage
+        run: |
+          python scripts/audit_massive_instrument_metadata.py \
+            --census-root sealed-historical-source-acquisition/source
+          python scripts/audit_massive_alpaca_market_coverage.py \
+            --census-root sealed-historical-source-acquisition/source \
+            --batch-size 250
+          python scripts/build_massive_provisional_universe.py \
+            --census-root sealed-historical-source-acquisition/source
+      - name: Freeze panel identity and corporate-action normalization
+        run: |
+          python scripts/audit_historical_identity_continuity.py \
+            --census-root sealed-historical-source-acquisition/source \
+            --dates 2025-05-30 2025-07-17 \
+            --lookback-days 120 \
+            --batch-size 200 \
+            --minimum-massive-request-interval 12.5 \
+            --ticker-event-sample-size 0
+          python scripts/build_identity_resolved_universe.py \
+            --census-root sealed-historical-source-acquisition/source
+      - name: Acquire causal market float and news inputs
+        run: |
+          python scripts/build_identity_resolved_market_discovery.py \
+            --census-root sealed-historical-source-acquisition/source \
+            --dates $PANEL_DATES \
+            --asset-batch-size 250
+          python scripts/build_causal_float_enrichment.py \
+            --census-root sealed-historical-source-acquisition/source \
+            --dates $PANEL_DATES \
+            --minimum-sec-request-interval 0.2 \
+            --sec-attempts 3 \
+            --max-candidates-per-date 50
+          python scripts/build_causal_news_enrichment.py \
+            --census-root sealed-historical-source-acquisition/source \
+            --dates $PANEL_DATES \
+            --news-batch-size 50 \
+            --news-max-pages 10 \
+            --max-candidates-per-date 50
+      - name: Freeze causal scanner snapshots and canonical source inputs
+        run: >-
+          python scripts/build_causal_scanner_snapshot.py
+          --census-root sealed-historical-source-acquisition/source
+          --dates $PANEL_DATES
+          --asset-batch-size 250
+          --max-candidates-per-date 50
+          --persist-source-inputs
+          --source-input-output sealed-historical-source-acquisition/source/causal-scanner-source-inputs-v0.1
+      - name: Build and enforce the bounded acquisition report
+        run: >-
+          python scripts/run_sealed_historical_source_acquisition.py
+          --authorization "${{ inputs.authorization_path }}"
+          --source-root sealed-historical-source-acquisition/source
+          --request-budget "$MOMENTUMBOT_PROVIDER_REQUEST_BUDGET_FILE"
+          --authorization-commit-sha "${{ inputs.authorization_commit_sha }}"
+          --output sealed-historical-source-acquisition/acquisition-report.json
+      - name: Upload completed normalized and canonical source bundle
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: sealed-historical-source-acquisition-${{ github.run_id }}-${{ github.run_attempt }}
+          path: sealed-historical-source-acquisition
+          if-no-files-found: error
+          retention-days: 90
+      - name: Upload sanitized failure accounting
+        if: failure()
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          budget_path = Path(os.environ["MOMENTUMBOT_PROVIDER_REQUEST_BUDGET_FILE"])
+          budget = (
+              json.loads(budget_path.read_text(encoding="utf-8"))
+              if budget_path.exists()
+              else {"schema_version": 1, "total_attempts": 0, "by_host": {}}
+          )
+          root = Path("sealed-historical-source-acquisition/source")
+          retained = sum(
+              path.stat().st_size for path in root.rglob("*") if path.is_file()
+          ) if root.exists() else 0
+          summary = {
+              "schema_version": 1,
+              "artifact_type": "sealed_historical_source_acquisition_safe_failure",
+              "workflow_run_id": os.environ["GITHUB_RUN_ID"],
+              "workflow_run_attempt": int(os.environ["GITHUB_RUN_ATTEMPT"]),
+              "request_budget": budget,
+              "partial_retained_bytes": retained,
+              "raw_provider_http_responses_persisted": False,
+              "transcript_record_values_read": False,
+              "order_submitted": False,
+              "automatic_rerun_allowed": False,
+          }
+          Path("sealed-historical-source-acquisition-failure.json").write_text(
+              json.dumps(summary, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          PY
+      - name: Preserve sanitized failure accounting only
+        if: failure()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: sealed-historical-source-acquisition-failure-${{ github.run_id }}-${{ github.run_attempt }}
+          path: sealed-historical-source-acquisition-failure.json
+          if-no-files-found: error
+          retention-days: 90
