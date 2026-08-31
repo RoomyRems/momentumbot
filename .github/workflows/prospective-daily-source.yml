@@ -15,34 +15,12 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: Validate, capture today's pre-session inputs, or produce today's source
+        description: Provider-free validation only; the prospective panel is closed
         required: true
         default: validate
         type: choice
         options:
           - validate
-          - capture-prerequisites
-          - produce
-      trading_date:
-        description: Optional guard; capture/produce must equal today's New York date
-        required: false
-        type: string
-  schedule:
-    # Each causal phase has three off-hour wake-ups.  The schedule guard binds
-    # delayed events to their nominal New York date and permits only the first
-    # emitted wake-up for a phase/date, so redundancy cannot become a retry.
-    - cron: "29 7 24-28,31 8 *"
-    - cron: "59 8 24-28,31 8 *"
-    - cron: "29 9 24-28,31 8 *"
-    - cron: "29 7 1-4 9 *"
-    - cron: "59 8 1-4 9 *"
-    - cron: "29 9 1-4 9 *"
-    - cron: "23 14 24-28,31 8 *"
-    - cron: "53 14 24-28,31 8 *"
-    - cron: "23 15 24-28,31 8 *"
-    - cron: "23 14 1-4 9 *"
-    - cron: "53 14 1-4 9 *"
-    - cron: "23 15 1-4 9 *"
 
 permissions:
   actions: write

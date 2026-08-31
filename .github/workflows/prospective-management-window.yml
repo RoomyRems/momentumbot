@@ -16,69 +16,12 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: Validate, capture one frozen date, or project exact frozen parents
+        description: Provider-free validation only; the prospective panel is closed
         required: true
         default: validate
         type: choice
         options:
           - validate
-          - capture
-          - project
-      trading_date:
-        description: Registered panel date (YYYY-MM-DD); blank for validation
-        required: false
-        type: string
-      runtime_commit_sha:
-        description: Exact research-branch commit containing this registered child
-        required: false
-        type: string
-      freeze_run_id:
-        description: Exact successful opportunity-freeze run ID for capture
-        required: false
-        type: string
-      freeze_run_attempt:
-        description: Exact opportunity-freeze run attempt for capture
-        required: false
-        type: string
-      freeze_artifact_name:
-        description: Exact opportunity-freeze artifact name for capture
-        required: false
-        type: string
-      daily_runtime_run_id:
-        description: Exact successful daily-account-runtime run ID for projection
-        required: false
-        type: string
-      daily_runtime_run_attempt:
-        description: Exact daily-account-runtime run attempt for projection
-        required: false
-        type: string
-      daily_runtime_artifact_name:
-        description: Exact daily-account-runtime artifact name for projection
-        required: false
-        type: string
-      capture_run_id:
-        description: Exact successful management-capture run ID for projection
-        required: false
-        type: string
-      capture_run_attempt:
-        description: Exact management-capture run attempt for projection
-        required: false
-        type: string
-      capture_artifact_name:
-        description: Exact management-capture artifact name for projection
-        required: false
-        type: string
-  schedule:
-    # Three off-hour wake-ups represent each 19:00+ New York management gate.
-    # The final wake-up occurs after 00:00 UTC but remains on the prior New
-    # York trading date.  The schedule guard reconstructs that nominal date
-    # and permits only the first emitted wake-up.
-    - cron: "11 23 24-28,31 8 *"
-    - cron: "41 23 24-28,31 8 *"
-    - cron: "11 0 25-29 8 *"
-    - cron: "11 23 1-4 9 *"
-    - cron: "41 23 1-4 9 *"
-    - cron: "11 0 1-5 9 *"
 
 permissions:
   actions: read

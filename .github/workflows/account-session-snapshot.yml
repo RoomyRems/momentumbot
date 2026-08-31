@@ -14,28 +14,12 @@ on:
   workflow_dispatch:
     inputs:
       mode:
-        description: Validate credentials now or capture a registered pre-session snapshot
+        description: Provider-free validation only; the prospective panel is closed
         required: true
         default: validate
         type: choice
         options:
           - validate
-          - capture
-      session_date:
-        description: Optional YYYY-MM-DD capture guard; must equal today's New York date
-        required: false
-        type: string
-  schedule:
-    # Redundant, off-hour wake-ups mitigate GitHub's documented possibility of
-    # delayed or dropped schedule events.  The schedule guard permits only the
-    # first emitted wake-up for a date; all later wake-ups are provider-free
-    # blocked no-ops and cannot become retries.
-    - cron: "17 7 24-28,31 8 *"
-    - cron: "47 8 24-28,31 8 *"
-    - cron: "17 9 24-28,31 8 *"
-    - cron: "17 7 1-4 9 *"
-    - cron: "47 8 1-4 9 *"
-    - cron: "17 9 1-4 9 *"
 
 permissions:
   actions: read
