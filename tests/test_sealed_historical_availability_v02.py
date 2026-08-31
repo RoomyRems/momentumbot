@@ -70,6 +70,21 @@ REGISTRATION_AUDIT = (
 REGISTRATION_AUDIT_CONTENT_SHA256 = (
     "865ec84dfe7a818b292ce2dc8044e556834fbf9db2260a262f7d97ee0b2bacef"
 )
+SUCCESS_REPORT = (
+    ROOT
+    / "research"
+    / "data-audits"
+    / "sealed-historical-provider-availability-v0.2-report-2026-08-31.json"
+)
+SUCCESS_AUDIT = (
+    ROOT
+    / "research"
+    / "data-audits"
+    / "sealed-historical-provider-availability-v0.2-success-2026-08-31.json"
+)
+SUCCESS_AUDIT_CONTENT_SHA256 = (
+    "76baebc0df39c59e9a1a8ebc099c5c0c3080d1a4e4cb2ac013cb85f7f9070cb1"
+)
 
 
 def _alpaca_payload(
@@ -178,6 +193,30 @@ class SealedHistoricalAvailabilityV02Tests(unittest.TestCase):
         rendered = json.dumps(report, sort_keys=True)
         self.assertNotIn('"bars"', rendered)
         self.assertNotIn('"open"', rendered)
+
+    def test_published_success_audit_binds_exact_sanitized_report(self) -> None:
+        report = load_json_object(SUCCESS_REPORT)
+        validate_report(report, self.authorization)
+        self.assertTrue(report["availability_gate_passed"])
+        self.assertEqual(report["workflow_provenance"]["workflow_run_attempt"], 1)
+        self.assertEqual(report["workflow_provenance"]["workflow_run_id"], "33348970745")
+
+        audit = load_json_object(SUCCESS_AUDIT)
+        body = dict(audit)
+        claimed = body.pop("content_sha256")
+        self.assertEqual(canonical_fingerprint(body), claimed)
+        self.assertEqual(claimed, SUCCESS_AUDIT_CONTENT_SHA256)
+        self.assertTrue(audit["result"]["availability_gate_passed"])
+        self.assertFalse(
+            audit["credential_routing_finding"][
+                "secret_values_changed_or_regenerated"
+            ]
+        )
+        for row in audit["artifacts"].values():
+            path = ROOT / row["path"]
+            self.assertEqual(
+                hashlib.sha256(path.read_bytes()).hexdigest(), row["file_sha256"]
+            )
 
     def test_provider_failure_is_preserved_without_retry(self) -> None:
         response = {"ok": False, "status": 401, "error_kind": "http_error"}

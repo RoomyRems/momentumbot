@@ -1,0 +1,87 @@
+{
+  "artifact_type": "permanent_sealed_historical_provider_availability_repair_success",
+  "artifacts": {
+    "documentation": {
+      "file_sha256": "d0ad21b2efe23e879e565a5ab1717aef31af1f6eb7b2e7db650b5fdde30b7830",
+      "path": "docs/research/sealed_historical_provider_availability_v02_success.md"
+    },
+    "sanitized_report": {
+      "content_sha256": "bc88728486e77ca718e77918fa83470b7a608502e34aedaa8ccb184fef03819c",
+      "file_sha256": "ee19213930bb7dc9bf7211e1e4959cc4bfbeda5454586e3c0ff3130bdacef435",
+      "path": "research/data-audits/sealed-historical-provider-availability-v0.2-report-2026-08-31.json"
+    }
+  },
+  "authority_boundary": {
+    "full_data_acquisition_authorized": false,
+    "historical_runtime_authorized": false,
+    "live_order_authorized": false,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false,
+    "provider_probe_rerun_authorized": false,
+    "provider_substitution_authorized": false
+  },
+  "authorization": {
+    "authorization_content_sha256": "72840ae3386559dfc0cb2ddea422e67a2e6a71685b641f0d94e193d5680d2de9",
+    "authorization_id": "sealed-historical-provider-availability-v0.2",
+    "research_commit_sha": "a051af989bc822434b0ba46d621a1d564692ec5a"
+  },
+  "call_accounting": {
+    "current_alpaca_calls": 1,
+    "current_total_calls": 1,
+    "cumulative_v0_1_and_v0_2_calls": 5,
+    "maximum_authorized_current_calls": 1,
+    "reported_incremental_cost_usd": "0"
+  },
+  "causal_attestation": {
+    "account_or_broker_endpoint_called": false,
+    "automatic_retry_or_rerun_attempted": false,
+    "credential_value_observed_or_persisted": false,
+    "historical_universe_downloaded": false,
+    "intraday_market_data_downloaded": false,
+    "order_submitted": false,
+    "raw_provider_rows_persisted": false,
+    "transcript_record_values_read": false,
+    "v0_1_run_rerun": false
+  },
+  "content_sha256": "76baebc0df39c59e9a1a8ebc099c5c0c3080d1a4e4cb2ac013cb85f7f9070cb1",
+  "credential_routing_finding": {
+    "correct_github_actions_secret_names": [
+      "ALPACA_MAIN_API_KEY",
+      "ALPACA_MAIN_API_SECRET"
+    ],
+    "secret_values_changed_or_regenerated": false,
+    "validated_precedent_commit": "e7db059bf258b4d069c788d6293307737d4cea2e",
+    "v0_1_failure_root_cause": "generic_secret_names_routed_instead_of_validated_main_paper_secret_names"
+  },
+  "frozen_parent": {
+    "contract_content_sha256": "93a4316a4ef785e30ebc393ec140fa02ea23027aa9cd85673d34401b3bca3452",
+    "selected_session_count": 30,
+    "v0_1_failure_audit_content_sha256": "59fc89f8f86af18cb08fa65abb40dba388665afe880d2d18013bfc1317c42759",
+    "v0_1_failure_report_content_sha256": "05be1e2e7ab30433489b4d00ec79414c13a73b249df0c5d33742049a7d7a6e08",
+    "v0_1_workflow_run_id": 33348067097
+  },
+  "result": {
+    "alpaca_http_status": 200,
+    "all_selected_sessions_observed": true,
+    "availability_gate_passed": true,
+    "databento_xnas_itch_interval_covered_inherited": true,
+    "massive_point_in_time_samples_passed_inherited": true,
+    "missing_selected_dates": [],
+    "next_gate": "register exact bounded historical acquisition and cost ceilings"
+  },
+  "recorded_at_date": "2026-08-31",
+  "schema_version": 1,
+  "workflow": {
+    "artifact_digest": "sha256:fd0adc9017ec8466795ebb3f6b248e06a74457b62f34ef7f7aca9961de0b4a86",
+    "artifact_id": 9742950340,
+    "conclusion": "success",
+    "default_branch_dispatcher_commit_sha": "7bc7ef3156523c0c42d9ae5025ba25bf5cca1320",
+    "provider_free_ci_run_id": 33348878475,
+    "provider_free_ci_run_url": "https://github.com/RoomyRems/momentumbot/actions/runs/33348878475",
+    "provider_free_validation_run_id": 33348878516,
+    "provider_free_validation_run_url": "https://github.com/RoomyRems/momentumbot/actions/runs/33348878516",
+    "run_attempt": 1,
+    "run_id": 33348970745,
+    "url": "https://github.com/RoomyRems/momentumbot/actions/runs/33348970745"
+  }
+}
