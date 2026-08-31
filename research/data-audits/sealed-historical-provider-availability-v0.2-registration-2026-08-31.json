@@ -1,0 +1,65 @@
+{
+  "artifact_type": "provider_free_sealed_historical_availability_repair_registration",
+  "artifacts": {
+    "authorization": {
+      "content_sha256": "72840ae3386559dfc0cb2ddea422e67a2e6a71685b641f0d94e193d5680d2de9",
+      "file_sha256": "b678dc32b8357b07324d5c66da37ac9a4286cafa742ab15a4dd5d12c2609da66",
+      "path": "research/strategy/sealed-historical-provider-availability-v0.2-authorization.json"
+    },
+    "documentation": {
+      "file_sha256": "447fbc1c046f52aed8e219e67316428111b259e6fb97507d77ec8b8f392b4017",
+      "path": "docs/research/sealed_historical_provider_availability_v02.md"
+    },
+    "implementation": {
+      "file_sha256": "253b9f47d2f3780f4d3fdc0f8a85c9520c7cbd4f71882246bf116b01757115b1",
+      "path": "src/momentumbot/research/sealed_historical_availability_v02.py"
+    },
+    "runner": {
+      "file_sha256": "6664e8f4b5c077189083b3fddb0efdd5e0d94f36582917a8092d51fded656666",
+      "path": "scripts/probe_sealed_historical_availability_v02.py"
+    },
+    "workflow": {
+      "file_sha256": "dcef90ba65f435d39c2ed4139cfa92d8ea7ef6e88f1bafa6ef9195549d33be10",
+      "path": ".github/workflows/sealed-historical-provider-availability-v02.yml"
+    }
+  },
+  "authority_boundary": {
+    "full_data_acquisition_authorized": false,
+    "live_order_authorized": false,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false,
+    "provider_repair_probe_authorized_after_publication_and_green_validation": true
+  },
+  "authorization_id": "sealed-historical-provider-availability-v0.2",
+  "causal_attestation": {
+    "account_or_broker_endpoint_calls": 0,
+    "credential_values_accessed_or_observed_during_registration": false,
+    "provider_calls_during_registration": 0,
+    "raw_provider_rows_persisted": false,
+    "transcript_record_values_decoded": false
+  },
+  "content_sha256": "865ec84dfe7a818b292ce2dc8044e556834fbf9db2260a262f7d97ee0b2bacef",
+  "frozen_parent": {
+    "contract_content_sha256": "93a4316a4ef785e30ebc393ec140fa02ea23027aa9cd85673d34401b3bca3452",
+    "v0_1_authorization_content_sha256": "a985794bc0856aa37d8a79ba43f068994329e4950b60cb1d86ba5436a1f77295",
+    "v0_1_failure_audit_content_sha256": "59fc89f8f86af18cb08fa65abb40dba388665afe880d2d18013bfc1317c42759",
+    "v0_1_failure_report_content_sha256": "05be1e2e7ab30433489b4d00ec79414c13a73b249df0c5d33742049a7d7a6e08",
+    "v0_1_workflow_run_id": 33348067097
+  },
+  "isolated_repair": {
+    "alpaca_request_changed": false,
+    "authorized_current_provider_calls": 1,
+    "github_actions_secret_names": [
+      "ALPACA_MAIN_API_KEY",
+      "ALPACA_MAIN_API_SECRET"
+    ],
+    "massive_or_databento_repeated": false,
+    "secret_values_changed_or_observed": false,
+    "selected_dates_or_strategy_changed": false,
+    "validated_precedent_commit": "e7db059bf258b4d069c788d6293307737d4cea2e"
+  },
+  "registered_at_date": "2026-08-31",
+  "registration_status": "provider_free_complete_repair_probe_not_run",
+  "reported_incremental_cost_usd": "0",
+  "schema_version": 1
+}

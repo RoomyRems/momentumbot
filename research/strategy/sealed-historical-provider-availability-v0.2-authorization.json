@@ -1,0 +1,109 @@
+{
+  "artifact_type": "preregistered_bounded_provider_availability_credential_routing_repair",
+  "authority_boundary": {
+    "full_data_acquisition_authorized": false,
+    "live_order_authorized": false,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false,
+    "provider_repair_probe_authorized": true
+  },
+  "authorization_id": "sealed-historical-provider-availability-v0.2",
+  "authorized_call": {
+    "alpaca_sip_spy_daily": {
+      "maximum_calls": 1,
+      "pagination_allowed": false,
+      "raw_rows_persisted": false
+    },
+    "maximum_total_calls": 1
+  },
+  "content_sha256": "72840ae3386559dfc0cb2ddea422e67a2e6a71685b641f0d94e193d5680d2de9",
+  "credential_routing": {
+    "github_actions_secret_names": [
+      "ALPACA_MAIN_API_KEY",
+      "ALPACA_MAIN_API_SECRET"
+    ],
+    "prior_incorrect_secret_names": [
+      "ALPACA_API_KEY",
+      "ALPACA_API_SECRET"
+    ],
+    "runtime_environment_aliases": {
+      "ALPACA_API_KEY": "ALPACA_MAIN_API_KEY",
+      "ALPACA_API_SECRET": "ALPACA_MAIN_API_SECRET"
+    },
+    "validated_precedent_commit": "e7db059bf258b4d069c788d6293307737d4cea2e",
+    "validated_precedent_description": "Use validated paper credentials for prospective scheduler"
+  },
+  "frozen_parent": {
+    "contract_content_sha256": "93a4316a4ef785e30ebc393ec140fa02ea23027aa9cd85673d34401b3bca3452",
+    "contract_id": "sealed-historical-walk-forward-v0.1",
+    "selected_dates": [
+      "2025-05-30",
+      "2025-06-02",
+      "2025-06-03",
+      "2025-06-04",
+      "2025-06-05",
+      "2025-06-06",
+      "2025-06-09",
+      "2025-06-10",
+      "2025-06-11",
+      "2025-06-12",
+      "2025-06-13",
+      "2025-06-16",
+      "2025-06-17",
+      "2025-06-18",
+      "2025-06-20",
+      "2025-06-23",
+      "2025-06-24",
+      "2025-06-25",
+      "2025-06-26",
+      "2025-06-27",
+      "2025-07-01",
+      "2025-07-02",
+      "2025-07-07",
+      "2025-07-08",
+      "2025-07-10",
+      "2025-07-11",
+      "2025-07-14",
+      "2025-07-15",
+      "2025-07-16",
+      "2025-07-17"
+    ],
+    "v0_1_authorization_content_sha256": "a985794bc0856aa37d8a79ba43f068994329e4950b60cb1d86ba5436a1f77295",
+    "v0_1_failure_audit_content_sha256": "59fc89f8f86af18cb08fa65abb40dba388665afe880d2d18013bfc1317c42759",
+    "v0_1_failure_report_content_sha256": "05be1e2e7ab30433489b4d00ec79414c13a73b249df0c5d33742049a7d7a6e08",
+    "v0_1_workflow_run_id": 33348067097
+  },
+  "inherited_provider_results": {
+    "databento_xnas_itch_interval_covered": true,
+    "massive_point_in_time_sample_dates": [
+      "2025-05-30",
+      "2025-07-17"
+    ],
+    "provider_calls_repeated": false
+  },
+  "isolated_change": {
+    "alpaca_endpoint_or_parameters_changed": false,
+    "credential_values_changed_or_observed": false,
+    "github_secret_routing_only": true,
+    "massive_or_databento_called_again": false,
+    "selected_dates_or_strategy_changed": false
+  },
+  "one_shot_contract": {
+    "automatic_retry_allowed": false,
+    "run_attempt_required": 1,
+    "v0_1_run_may_be_rerun": false
+  },
+  "prohibitions": [
+    "account_or_broker_endpoint",
+    "automatic_retry_or_rerun",
+    "databento_call",
+    "historical_universe_or_intraday_bulk_download",
+    "massive_or_polygon_call",
+    "news_or_sec_content_download",
+    "paper_or_live_order",
+    "transcript_record_value_read"
+  ],
+  "registered_at_date": "2026-08-31",
+  "reported_incremental_cost_usd": "0",
+  "schema_version": 1
+}
