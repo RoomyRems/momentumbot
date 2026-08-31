@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import importlib.util
-import json
 import re
 import sys
 import unittest
@@ -23,6 +22,9 @@ ACCOUNT_SCHEDULES = {
         "17 7 24-28,31 8 *",
         "47 8 24-28,31 8 *",
         "17 9 24-28,31 8 *",
+        "17 7 1-4 9 *",
+        "47 8 1-4 9 *",
+        "17 9 1-4 9 *",
     ]
 }
 DAILY_SCHEDULES = {
@@ -30,11 +32,17 @@ DAILY_SCHEDULES = {
         "29 7 24-28,31 8 *",
         "59 8 24-28,31 8 *",
         "29 9 24-28,31 8 *",
+        "29 7 1-4 9 *",
+        "59 8 1-4 9 *",
+        "29 9 1-4 9 *",
     ],
     "produce": [
         "23 14 24-28,31 8 *",
         "53 14 24-28,31 8 *",
         "23 15 24-28,31 8 *",
+        "23 14 1-4 9 *",
+        "53 14 1-4 9 *",
+        "23 15 1-4 9 *",
     ],
 }
 MANAGEMENT_SCHEDULES = {
@@ -42,6 +50,9 @@ MANAGEMENT_SCHEDULES = {
         "11 23 24-28,31 8 *",
         "41 23 24-28,31 8 *",
         "11 0 25-29 8 *",
+        "11 23 1-4 9 *",
+        "41 23 1-4 9 *",
+        "11 0 1-5 9 *",
     ]
 }
 
@@ -251,7 +262,7 @@ class PanelScheduleGuardTests(unittest.TestCase):
                 datetime.fromisoformat("2026-08-25T02:00:00+00:00"),
             )
 
-    def test_workflow_crons_and_guard_maps_are_identical(self) -> None:
+    def test_default_branch_workflows_are_closed_and_validation_only(self) -> None:
         for relative in (
             ".github/workflows/account-session-snapshot.yml",
             ".github/workflows/prospective-daily-source.yml",
@@ -259,18 +270,18 @@ class PanelScheduleGuardTests(unittest.TestCase):
         ):
             content = (REPOSITORY_ROOT / relative).read_text(encoding="utf-8")
             crons = set(re.findall(r'^\s+- cron: "([^"]+)"$', content, flags=re.MULTILINE))
-            matches = re.findall(
-                r"^\s+PHASE_SCHEDULES_JSON: >-\n\s+({.*})$",
-                content,
-                flags=re.MULTILINE,
+            self.assertEqual(crons, set(), relative)
+            self.assertNotRegex(content, r"(?m)^  schedule:$", relative)
+            self.assertIn("Provider-free validation only; the prospective panel is closed", content)
+            dispatch = content.split("permissions:", 1)[0]
+            self.assertRegex(dispatch, r"(?m)^\s+- validate$")
+            self.assertNotRegex(
+                dispatch,
+                r"(?m)^\s+- (capture|capture-prerequisites|produce|project)$",
+                relative,
             )
-            self.assertEqual(len(matches), 1, relative)
-            schedule_map = json.loads(matches[0])
-            guarded = {expression for expressions in schedule_map.values() for expression in expressions}
-            self.assertEqual(crons, guarded, relative)
-            self.assertGreaterEqual(len(crons), 3, relative)
 
-    def test_scheduler_workflows_bind_expression_and_shared_guard(self) -> None:
+    def test_closed_workflows_retain_historical_guard_for_audit(self) -> None:
         for relative in (
             ".github/workflows/account-session-snapshot.yml",
             ".github/workflows/prospective-daily-source.yml",
@@ -283,19 +294,9 @@ class PanelScheduleGuardTests(unittest.TestCase):
             self.assertIn("--current-run-id \"${GITHUB_RUN_ID}\"", content, relative)
             self.assertRegex(content, r"(?m)^  actions: (read|write)$", relative)
 
-    def test_each_panel_date_has_three_wakeups_per_phase(self) -> None:
-        for relative in (
-            ".github/workflows/account-session-snapshot.yml",
-            ".github/workflows/prospective-daily-source.yml",
-            ".github/workflows/prospective-management-window.yml",
-        ):
-            content = (REPOSITORY_ROOT / relative).read_text(encoding="utf-8")
-            encoded = re.findall(
-                r"^\s+PHASE_SCHEDULES_JSON: >-\n\s+({.*})$",
-                content,
-                flags=re.MULTILINE,
-            )[0]
-            for phase, expressions in json.loads(encoded).items():
+    def test_historical_schedule_maps_cover_each_panel_date_three_times(self) -> None:
+        for schedule_map in (ACCOUNT_SCHEDULES, DAILY_SCHEDULES, MANAGEMENT_SCHEDULES):
+            for phase, expressions in schedule_map.items():
                 counts = {date: 0 for date in guard.PANEL_DATES}
                 for expression in expressions:
                     minute, hour, day, month, _ = expression.split()
@@ -315,7 +316,7 @@ class PanelScheduleGuardTests(unittest.TestCase):
                             target = nominal.astimezone(guard.NEW_YORK).date().isoformat()
                             if target in counts:
                                 counts[target] += 1
-                self.assertEqual(set(counts.values()), {3}, f"{relative}: {phase}")
+                self.assertEqual(set(counts.values()), {3}, phase)
 
 
 if __name__ == "__main__":
