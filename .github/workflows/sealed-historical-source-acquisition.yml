@@ -93,7 +93,6 @@ jobs:
       ALPACA_API_SECRET: ${{ secrets.ALPACA_MAIN_API_SECRET }}
       MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
       SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
-      MOMENTUMBOT_PROVIDER_REQUEST_BUDGET_FILE: ${{ runner.temp }}/sealed-historical-source-request-budget.json
       MOMENTUMBOT_PROVIDER_REQUEST_BUDGET_LIMIT: "20000"
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
@@ -120,6 +119,11 @@ jobs:
       - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
         with:
           python-version: "3.12"
+      - name: Initialize the runner-local shared request-budget path
+        run: |
+          printf '%s\n' \
+            "MOMENTUMBOT_PROVIDER_REQUEST_BUDGET_FILE=${RUNNER_TEMP}/sealed-historical-source-request-budget.json" \
+            >> "$GITHUB_ENV"
       - name: Install exact acquisition environment
         run: python -m pip install -e .
       - name: Revalidate exact frozen authority without provider access
