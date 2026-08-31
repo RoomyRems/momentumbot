@@ -109,9 +109,10 @@ jobs:
           test "$GITHUB_RUN_ATTEMPT" = "1"
           test "$GITHUB_REPOSITORY" = "RoomyRems/momentumbot"
           test "$AUTHORIZATION_PATH" = "research/strategy/sealed-historical-source-acquisition-v0.1.json"
+          test "${#AUTHORIZATION_COMMIT_SHA}" = "40"
           case "$AUTHORIZATION_COMMIT_SHA" in
-            [0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f][0-9a-f]) ;;
-            *) exit 1 ;;
+            *[!0-9a-f]*) exit 1 ;;
+            *) ;;
           esac
           test "$(git rev-parse HEAD)" = "$AUTHORIZATION_COMMIT_SHA"
           test "$(git rev-parse origin/phase-3-historical-snapshot)" = "$AUTHORIZATION_COMMIT_SHA"
