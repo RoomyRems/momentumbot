@@ -1,0 +1,182 @@
+{
+  "artifact_type": "preregistered_sealed_historical_source_recovery_v0_8",
+  "authority_boundary": {
+    "candidate_bound_databento_authorized": false,
+    "historical_source_recovery_authorized": true,
+    "live_order_authorized": false,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false
+  },
+  "authorization_id": "sealed-historical-source-acquisition-v0.8",
+  "causal_boundary": {
+    "later_price_or_final_volume_used_at_decision_time": false,
+    "ross_actions_fills_skips_or_outcomes_may_be_read": false,
+    "strategy_threshold_or_setup_changes_allowed": false,
+    "transcript_record_values_may_be_read": false
+  },
+  "content_sha256": "6fb5fdacd642a9d8957bafa6811d1055411def6de792c6769f929c628343b011",
+  "cost_ceiling": {
+    "databento_calls_authorized": 0,
+    "incremental_provider_cost_usd": "0",
+    "paid_acquisition_authorized": false
+  },
+  "dispatcher_contract": {
+    "contents_write_allowed_only_in_consumption_job": true,
+    "dispatcher_blob_must_match_authorized_research_workflow": true,
+    "provider_credentials_allowed_in_consume_or_freeze_job": false,
+    "provider_free_freeze_is_separate_job": true,
+    "workflow_ref": "RoomyRems/momentumbot/.github/workflows/sealed-historical-source-acquisition-v08.yml@refs/heads/main"
+  },
+  "downstream_contract": {
+    "float_policy_id": "causal-sec-float-v0.2",
+    "market_policy_id": "causal-market-discovery-v0.3",
+    "news_policy_id": "causal-alpaca-news-v0.2",
+    "scanner_policy_id": "causal-scanner-snapshot-v0.3",
+    "scanner_source_input_id": "causal-scanner-source-inputs-v0.2",
+    "strategy_profiles_or_thresholds_changed": false
+  },
+  "execution_order_contract": [
+    "validate_v0_8_authorization_and_exact_v0_7_safe_failure_provider_free",
+    "fetch_exact_v0_6_checkpoint_artifact_metadata_once_and_validate_field_specific_receipt",
+    "download_rehash_and_replay_exact_v0_6_failure_checkpoint_before_consumption",
+    "preflight_all_946_candidates_and_float_records_through_authoritative_identity_rule_before_consumption",
+    "compare_parent_and_child_third_party_environments_before_consumption",
+    "create_and_upload_v0_8_consumption_marker_provider_free",
+    "atomically_create_v0_8_consumption_tag_before_provider_access",
+    "download_exact_v0_6_failure_checkpoint",
+    "rehash_and_replay_all_parent_identity_market_target_basis_and_float_inputs_provider_free",
+    "materialize_exact_parent_normalized_source_and_seed_composite_request_ledger",
+    "resume_identity_compatible_news_and_canonical_scanner_source_acquisition",
+    "upload_pre_scanner_provider_checkpoint",
+    "download_and_rehash_checkpoint_in_separate_provider_free_job",
+    "freeze_and_exactly_replay_all_scanner_snapshots_provider_free"
+  ],
+  "failed_child": {
+    "authorization_commit_sha": "dfe63ebf716f288455ab9a2e6eed1a3695c84439",
+    "authorization_content_sha256": "c45dfa3276b15465db3afca3f3370caea19fe55337f92981fa421a7a734c0221",
+    "authorization_id": "sealed-historical-source-acquisition-v0.7",
+    "authorization_permanently_consumed": false,
+    "authorization_tree_sha": "b2d67e787ad12e93ec81e2bf2c72a55110f14bbe",
+    "consumption_tag_created": false,
+    "dispatcher_workflow_sha": "d872d56c5840d8542c281b105ec0d32ff8baacae",
+    "failure_audit_content_sha256": "9422a1e2ef3cfef5c90737812b5e876188e8630b4a21b88058538c16efd23f3b",
+    "provider_calls": 0,
+    "workflow_run_attempt": 1,
+    "workflow_run_id": 33530672018
+  },
+  "frozen_parent": {
+    "authorization_commit_sha": "0d231ffecb6d4104aad53dec0b7499a16d8943f6",
+    "authorization_content_sha256": "0343efff8ceb49b7c3ae2e589029cf4cf0b02d72c1961f85807913f67385202e",
+    "authorization_tree_sha": "1b6106018579769e056bbeea3aa5fbab31b2c12f",
+    "consumption_marker_zip_sha256": "c7273ca1e08945790a95f9578ca87bc105e64eee2a951cc7d999390774753257",
+    "dispatcher_workflow_sha": "d3fd65e2b621b250e0085be40b1905a2dc982ae6",
+    "failure_audit_content_sha256": "a2637524a3bea25811fee58724d1421493d6ad73866a02e8dcfb35997a717406",
+    "failure_checkpoint_artifact_id": 9806541315,
+    "failure_checkpoint_artifact_name": "sealed-historical-source-acquisition-v06-failure-checkpoint-33521937708-1",
+    "failure_checkpoint_zip_sha256": "ab51a247d4fc86fef16203f8dc7fefb104abd71668a37ffc6e450e2513d469c35",
+    "failure_summary_zip_sha256": "824f269328a99b90ec2c7aac6987f93a2dcc9b4d2879c8f23020b183ff3e046a",
+    "source_candidate_count": 946,
+    "source_file_count": 584,
+    "source_float_record_count": 946,
+    "source_retained_bytes": 542222230,
+    "source_tree_content_sha256": "7eec4b420581efa52e39208952f386d4f81a092a39bca5c4acaaee7da642740c",
+    "workflow_run_attempt": 1,
+    "workflow_run_id": 33521937708
+  },
+  "one_shot_contract": {
+    "authorization_consumed_before_provider_access": true,
+    "automatic_rerun_allowed": false,
+    "manual_workflow_dispatch_required": true,
+    "prior_authorization_reruns_allowed": {
+      "v0.1": false,
+      "v0.2": false,
+      "v0.3": false,
+      "v0.4": false,
+      "v0.5": false,
+      "v0.6": false,
+      "v0.7": false
+    },
+    "provider_substitution_allowed": false,
+    "push_or_schedule_provider_access_allowed": false,
+    "repository_consumption_tag_deletion_allowed": false,
+    "repository_consumption_tag_prefix": "refs/tags/sealed-historical-source-acquisition-v08-consumed-",
+    "workflow_run_attempt_required": 1
+  },
+  "provider_entrypoint_contract": {
+    "all_network_capable_scripts_use_wrapper": true,
+    "allowed_entrypoints": [
+      "scripts/build_causal_news_enrichment_v08.py",
+      "scripts/build_causal_scanner_snapshot_v08.py"
+    ],
+    "ambient_proxy_use_allowed": false,
+    "child_network_hosts": [
+      "data.alpaca.markets"
+    ],
+    "direct_socket_or_process_escape_allowed": false,
+    "massive_identity_market_sec_or_float_entrypoint_allowed": false,
+    "redirects_allowed": false,
+    "wrapper_path": "scripts/run_provider_entrypoint_v08.py"
+  },
+  "recovery_contract": {
+    "failure_checkpoint_artifact_downloaded_from_exact_parent_run": true,
+    "normalized_parent_source_reused_exactly": true,
+    "parent_identity_or_market_provider_requests_repeated": false,
+    "parent_source_recovery_receipt_content_sha256": "e25d892acb469309674384e3731291e2c7a44a6ddbbee13bf4fb5cbe285ce4c1",
+    "raw_parent_provider_responses_present_or_reused": false,
+    "resume_stage": "publication_timed_causal_news_inputs"
+  },
+  "registered_at_date": "2026-09-01",
+  "repair_boundary": {
+    "accepted_identity_kinds": [
+      "composite_figi",
+      "unique_cik_fallback"
+    ],
+    "all_946_candidates_and_float_records_preflighted_before_consumption": true,
+    "candidate_identity_values_rewritten": false,
+    "field_specific_sanitized_artifact_metadata_diagnostics": true,
+    "float_records_rewritten": false,
+    "news_and_scanner_use_one_downstream_compatibility_rule": true,
+    "obsolete_cik_identity_kind_accepted": false,
+    "parent_artifact_metadata_fetched_once_per_gate": true,
+    "raw_provider_response_persisted": false,
+    "strategy_float_news_scanner_or_micro_policy_changed": false,
+    "transport_http_pagination_budget_authorization_or_artifact_error_remains_fatal": true
+  },
+  "reproducibility_environment_contract": {
+    "clean_cpython_3_12_virtual_environment_required_per_job": true,
+    "editable_project_lines_must_match_respective_authorized_commits": true,
+    "parent_artifact_full_replay_required_before_consumption": true,
+    "parent_third_party_environment_freeze_must_match": true,
+    "pip_check_required": true,
+    "requirements_hashes_and_binary_wheels_required": true,
+    "requirements_path": "requirements-sealed-source-v04.txt"
+  },
+  "request_budget": {
+    "allowed_hosts": [
+      "api.massive.com",
+      "data.alpaca.markets",
+      "data.sec.gov"
+    ],
+    "candidate_operational_ceiling_per_date": 100,
+    "child_massive_calls_authorized": 0,
+    "child_sec_calls_authorized": 0,
+    "composite_parent_attempts_by_host": {
+      "api.massive.com": 363,
+      "data.alpaca.markets": 15849,
+      "data.sec.gov": 1328
+    },
+    "composite_parent_total_attempts": 17540,
+    "maximum_total_http_attempts_including_parent_and_child_retries": 40000,
+    "new_attempts_increment_parent_seed": true
+  },
+  "retention_budget": {
+    "artifact_retention_days": 90,
+    "maximum_retained_bytes": 1500000000,
+    "normalized_parent_source_persisted": true,
+    "pinned_requirements_and_environment_persisted": true,
+    "pre_scanner_source_checkpoint_persisted": true,
+    "raw_provider_http_responses_persisted": false,
+    "sanitized_candidate_normalization_diagnostics_persisted": true
+  },
+  "schema_version": 1
+}

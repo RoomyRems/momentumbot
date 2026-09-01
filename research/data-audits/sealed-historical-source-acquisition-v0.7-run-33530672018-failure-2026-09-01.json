@@ -1,0 +1,85 @@
+{
+  "artifact_type": "sealed_historical_source_acquisition_v0_7_permanent_failure_audit",
+  "causal_attestation": {
+    "account_or_order_endpoint_called": false,
+    "automatic_rerun_allowed": false,
+    "authorization_consumed": false,
+    "databento_called": false,
+    "order_submitted": false,
+    "provider_called": false,
+    "provider_substitution_occurred": false,
+    "ross_labels_or_outcomes_read": false,
+    "strategy_micro_or_account_policy_changed": false,
+    "transcript_record_values_read": false
+  },
+  "conclusion": "fail_closed_parent_artifact_metadata_preflight_unobservable_comparison",
+  "content_sha256": "9422a1e2ef3cfef5c90737812b5e876188e8630b4a21b88058538c16efd23f3b",
+  "failure": {
+    "acquire_job_started": false,
+    "consume_job_started": false,
+    "exact_failed_comparison_recoverable_from_logs": false,
+    "failed_job": "validate",
+    "failed_stage": "Preflight exact retained parent artifact metadata before consumption",
+    "failed_step_number": 12,
+    "freeze_job_started": false,
+    "provider_credentials_present_in_failed_job": false,
+    "root_cause": "four independent gh api command substitutions were compared with opaque shell test expressions; one returned nonzero but the observed field values were not retained, so the exact comparison cannot be reconstructed from the sanitized job log",
+    "safe_repair": "fetch the artifact metadata once, parse one retained provider-free JSON document with duplicate-key and type checks, validate every expected field through a versioned Python entry point, and emit only a field-specific sanitized mismatch reason"
+  },
+  "frozen_authority": {
+    "authorization_commit_sha": "dfe63ebf716f288455ab9a2e6eed1a3695c84439",
+    "authorization_content_sha256": "c45dfa3276b15465db3afca3f3370caea19fe55337f92981fa421a7a734c0221",
+    "authorization_id": "sealed-historical-source-acquisition-v0.7",
+    "authorization_path": "research/strategy/sealed-historical-source-acquisition-v0.7.json",
+    "authorization_permanently_consumed": false,
+    "authorization_tree_sha": "b2d67e787ad12e93ec81e2bf2c72a55110f14bbe",
+    "dispatcher_tree_sha": "77af757444aea125f16d4a82c1ba5f8ca09f873f",
+    "dispatcher_workflow_sha": "d872d56c5840d8542c281b105ec0d32ff8baacae"
+  },
+  "independently_verified_parent_artifact": {
+    "artifact_id": 9806541315,
+    "artifact_name": "sealed-historical-source-acquisition-v06-failure-checkpoint-33521937708-1",
+    "digest": "sha256:ab51a247d4fc86fef16203f8dc7fefb104abd71668a37ffc6e450e2513d469c35",
+    "expired": false,
+    "expires_at": "2026-11-30T14:50:07Z",
+    "observed_after_terminal_failure": true,
+    "size_in_bytes": 43338553,
+    "workflow_run_id": 33521937708
+  },
+  "provider_accounting": {
+    "blocked_attempts": 0,
+    "child_attempts": 0,
+    "maximum_total_http_attempts": 40000,
+    "observed_attempts_by_host": {
+      "api.massive.com": 363,
+      "data.alpaca.markets": 15849,
+      "data.sec.gov": 1328
+    },
+    "observed_total_http_attempts": 17540,
+    "unauthorized_hosts_detected": []
+  },
+  "repair_boundary": {
+    "artifact_metadata_must_be_fetched_once": true,
+    "artifact_metadata_validation_must_be_provider_free": true,
+    "field_specific_sanitized_diagnostics_required": true,
+    "massive_identity_market_sec_and_float_acquisition_may_be_repeated": false,
+    "parent_checkpoint_download_and_full_replay_remain_pre_consumption": true,
+    "parent_request_counts_must_seed_child_composite_ceiling": true,
+    "strategy_profile_or_threshold_change_allowed": false,
+    "v0_7_may_be_rerun": false
+  },
+  "run_artifacts": {
+    "artifact_count": 0,
+    "consumption_marker_created": false,
+    "failure_artifact_created": false,
+    "provider_checkpoint_created": false
+  },
+  "schema_version": 1,
+  "workflow": {
+    "attempt": 1,
+    "event": "workflow_dispatch",
+    "head_branch": "main",
+    "run_id": 33530672018,
+    "status": "failure"
+  }
+}

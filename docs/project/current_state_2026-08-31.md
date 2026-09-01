@@ -54,15 +54,26 @@ Massive, 15,849 Alpaca and 1,328 SEC.
 
 The retained v0.6 checkpoint contains 584 normalized source files,
 542,222,230 bytes, 30 dates, 946 candidates and 946 complete float records.
-The active local repair is v0.7. Before consumption it rehashes that exact
-checkpoint and deep-loads every candidate, target-basis artifact and float
-record under only `composite_figi` and `unique_cik_fallback`. The same temporary
-compatibility scope wraps both the unchanged news builder and unchanged
-scanner-input builder, and restores the legacy function afterward. No identity
-or float record is rewritten. The child exposes only Alpaca network access;
-Massive, identity, market, SEC and float acquisition cannot repeat. It will
-checkpoint every pre-scanner byte and freeze scanner snapshots in a separate
-provider-free job. v0.7 is not published, consumed or dispatched.
+The v0.7 downstream compatibility repair was published and dispatched once as
+run `33530672018`. Its authorization, research commit/tree and all provider-free
+safety tests passed, but validation stopped before checkpoint download at
+`Preflight exact retained parent artifact metadata before consumption`. The
+step used four independent opaque shell comparisons and retained none of the
+observed values, so the exact comparison that returned nonzero is
+unrecoverable. Independent post-run metadata shows the artifact ID, name,
+digest, parent run and unexpired status all still match. Consume, acquire and
+freeze were skipped, no tag or artifact was created, no provider call occurred,
+and the inherited ledger remains 17,540 of 40,000. v0.7 may not be rerun.
+
+The active local repair is v0.8. It freezes the terminal v0.7 evidence and
+replaces the four-command metadata gate with one GitHub metadata fetch followed
+by a strict versioned Python validator. The validator rejects duplicate keys,
+non-finite JSON, type confusion, symlinks, oversize input and any ID/name/
+digest/size/parent-run/expiry mismatch while emitting only a field-specific
+sanitized reason. The exact v0.6 checkpoint, all-946 identity/float preflight,
+temporary downstream compatibility scope, Alpaca-only child route, request
+seed, separate provider-free freeze and every strategy boundary are unchanged.
+v0.8 is not published, consumed or dispatched.
 Candidate-bound Micro or Databento acquisition and transcript-label review
 remain blocked.
 
