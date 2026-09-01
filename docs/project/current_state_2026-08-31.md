@@ -54,26 +54,27 @@ Massive, 15,849 Alpaca and 1,328 SEC.
 
 The retained v0.6 checkpoint contains 584 normalized source files,
 542,222,230 bytes, 30 dates, 946 candidates and 946 complete float records.
-The v0.7 downstream compatibility repair was published and dispatched once as
-run `33530672018`. Its authorization, research commit/tree and all provider-free
-safety tests passed, but validation stopped before checkpoint download at
-`Preflight exact retained parent artifact metadata before consumption`. The
-step used four independent opaque shell comparisons and retained none of the
-observed values, so the exact comparison that returned nonzero is
-unrecoverable. Independent post-run metadata shows the artifact ID, name,
-digest, parent run and unexpired status all still match. Consume, acquire and
-freeze were skipped, no tag or artifact was created, no provider call occurred,
-and the inherited ledger remains 17,540 of 40,000. v0.7 may not be rerun.
+The v0.7 downstream compatibility repair failed safely before consumption in
+run `33530672018`; its opaque four-request metadata check was replaced by the
+v0.8 single-fetch, field-specific validator. v0.8 then ran once as run
+`33543415600`. Its authorization, exact commit/tree, environment and both
+45-test gates passed, and the validator failed closed at the parent artifact
+`digest` field before checkpoint download, consumption or provider access.
 
-The active local repair is v0.8. It freezes the terminal v0.7 evidence and
-replaces the four-command metadata gate with one GitHub metadata fetch followed
-by a strict versioned Python validator. The validator rejects duplicate keys,
-non-finite JSON, type confusion, symlinks, oversize input and any ID/name/
-digest/size/parent-run/expiry mismatch while emitting only a field-specific
-sanitized reason. The exact v0.6 checkpoint, all-946 identity/float preflight,
-temporary downstream compatibility scope, Alpaca-only child route, request
-seed, separate provider-free freeze and every strategy boundary are unchanged.
-v0.8 is not published, consumed or dispatched.
+The exact root cause is a preregistration transcription error. v0.8 froze
+`ab51a247...3d469c35`, while both GitHub's live metadata and the independently
+downloaded, archive-verified ZIP hash to
+`ab51a247d4fc86b61d0099087721987b704def9d1086c6cdafb7767d63fa8b6e`.
+No v0.8 tag or run artifact exists and the inherited request ledger remains
+17,540 of 40,000. v0.8 may not be rerun.
+
+The active local repair is v0.9. It freezes the terminal v0.8 evidence,
+corrects only the parent ZIP provenance value, and registration-binds a frozen
+sanitized live-metadata fixture plus the independently recomputed ZIP digest.
+The exact v0.6 checkpoint, all-946 identity/float preflight, temporary
+downstream compatibility scope, Alpaca-only child route, request seed, separate
+provider-free freeze and every strategy boundary are unchanged. v0.9 is not
+published, consumed or dispatched.
 Candidate-bound Micro or Databento acquisition and transcript-label review
 remain blocked.
 

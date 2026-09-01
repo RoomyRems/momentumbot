@@ -1,0 +1,245 @@
+{
+  "artifact_type": "provider_free_sealed_historical_source_recovery_v0_9_registration",
+  "artifacts": {
+    "acquisition_validator": {
+      "file_sha256": "1066e7928aec91fc56074d9d6ac2d9b61c521361e9693740c15be273a3ef7dd8",
+      "path": "src/momentumbot/research/sealed_historical_source_acquisition_v09.py"
+    },
+    "alpaca_provider": {
+      "file_sha256": "1d6ba09f01e40bcc5c0da06b17f80ac41f0b7a4a9951d1688ba26f7c6c88f3a6",
+      "path": "src/momentumbot/providers/alpaca.py"
+    },
+    "artifact_metadata_fixture": {
+      "file_sha256": "063e44a613440a022175e01184eeef9e547f3a8d4c9d4a9c10940e799d03d68e",
+      "path": "research/data-audits/sealed-historical-source-acquisition-v0.9-parent-artifact-metadata-2026-09-01.json"
+    },
+    "artifact_metadata_runner": {
+      "file_sha256": "277915ceadd9f5011cf8644483f76fb7cecfb5e248b7e7c8bf90f44a1c20ee00",
+      "path": "scripts/validate_parent_artifact_metadata_v09.py"
+    },
+    "artifact_metadata_validator": {
+      "file_sha256": "debe36f7e025a581b9ae1e48c15b9b2b77a81d0b445aa73eab6353707d2ccb34",
+      "path": "src/momentumbot/research/sealed_historical_source_artifact_metadata_v09.py"
+    },
+    "authoritative_identity_rule": {
+      "file_sha256": "da62c831969601afa3d4d9c268524fa4194eb98e59d39d47eac174557ac1a55a",
+      "path": "src/momentumbot/historical_float_identity_v06.py"
+    },
+    "authorization": {
+      "file_sha256": "67e7f2eb497858b255453c397bf12a7385bfaf4ad652bb80bfc6d7cbb10a40be",
+      "path": "research/strategy/sealed-historical-source-acquisition-v0.9.json"
+    },
+    "authorization_validator": {
+      "file_sha256": "9026b370fc62d0ff5e05d251ad65ef99d3b2ae6d7e82f8bca61a8363b08b32a3",
+      "path": "src/momentumbot/research/sealed_historical_source_authorization_v09.py"
+    },
+    "checkpoint_builder": {
+      "file_sha256": "adbb4352718fadd4db9f528c6398350d80a0cfce80cf7167b54c6a230a71902a",
+      "path": "scripts/build_sealed_historical_source_checkpoint_v09.py"
+    },
+    "checkpoint_validator": {
+      "file_sha256": "ea68a6b22a31a4f7874b55adfcd6f491f5b9a0c0603d7ba83982b2940e4d2f13",
+      "path": "src/momentumbot/research/sealed_historical_source_checkpoint_v09.py"
+    },
+    "documentation": {
+      "file_sha256": "dca8c28ebee99b70f42b325f11ce4e915684b12d3869cad0908613b7f9509f7f",
+      "path": "docs/research/sealed_historical_source_acquisition_v09.md"
+    },
+    "downstream_identity_compatibility": {
+      "file_sha256": "178eb7beaeb63967d309fee09b882b91a2b705672eb5adc128e3383360b125c4",
+      "path": "src/momentumbot/historical_float_identity_v09.py"
+    },
+    "failed_child_authorization": {
+      "file_sha256": "7bd99788981b20e26a5f096265edb4b7b751f5bd7151195b97efcb41c9dda565",
+      "path": "research/strategy/sealed-historical-source-acquisition-v0.8.json"
+    },
+    "failed_child_registration": {
+      "file_sha256": "d368a8f03a60a4f481d4f21ebae052db25ad76b61daff5321aff56b80369aa55",
+      "path": "research/data-audits/sealed-historical-source-acquisition-v0.8-registration-2026-09-01.json"
+    },
+    "failed_child_workflow": {
+      "file_sha256": "35d516bf36d3c3d47874332a4ef727447833b50fdafd244af3a6bf87164b815d",
+      "path": ".github/workflows/sealed-historical-source-acquisition-v08.yml"
+    },
+    "failure_audit": {
+      "file_sha256": "8834cd46f852879caa5f1a40906ad172eec4ae440acefbd27de18825b12d0aa8",
+      "path": "research/data-audits/sealed-historical-source-acquisition-v0.8-run-33543415600-failure-2026-09-01.json"
+    },
+    "float_policy": {
+      "file_sha256": "893df774a1361f80128a3492c627249f270bb1dbc584e024ea87e4802c2d3827",
+      "path": "src/momentumbot/historical_float_v04.py"
+    },
+    "historical_data": {
+      "file_sha256": "24ae072eb53d10583afdc8210cfc01ec4372f3b41525a3019f744f0ab4b8496f",
+      "path": "src/momentumbot/historical_data_v03.py"
+    },
+    "http_transport": {
+      "file_sha256": "d576f951eb9c5865be98fb4ebc0ca04520191139ae39ff7ba06a53541e540407",
+      "path": "src/momentumbot/providers/http_json.py"
+    },
+    "identity_loader": {
+      "file_sha256": "ac3814657434b07ee5a22ac167ca034f56d00aa44faa2859d45becc57d96a89f",
+      "path": "src/momentumbot/identity_resolved_universe.py"
+    },
+    "market_loader": {
+      "file_sha256": "01c2992dd7d8765c003957021f47a3d6e689c4fe0a693b9049cdad8afa10d586",
+      "path": "src/momentumbot/causal_market_discovery_v03.py"
+    },
+    "news_adapter": {
+      "file_sha256": "78f921092305133c35866365491854b6ee5db708d4442ad7ed04d5b087a2f07c",
+      "path": "scripts/build_causal_news_enrichment_v09.py"
+    },
+    "news_parent": {
+      "file_sha256": "38dbd7c9f3434bd31e6ff011c0e1265c6fee8737cc6bbc4aa457d57736cfeb46",
+      "path": "scripts/build_causal_news_enrichment_v04.py"
+    },
+    "news_policy": {
+      "file_sha256": "6927e509040418fb4cd54b812d7c0406400bc0c81087dd84d4f2d2026d9439a0",
+      "path": "src/momentumbot/historical_news.py"
+    },
+    "parent_acquisition_validator": {
+      "file_sha256": "56776a334683f29728ff3e304134941d135d7d08841cb39701588c78718ef5cb",
+      "path": "src/momentumbot/research/sealed_historical_source_acquisition_v06.py"
+    },
+    "parent_authorization": {
+      "file_sha256": "da652d38f4c37cf662e71c6f72286f109d927cba8deb85bb85e43ee21da30f16",
+      "path": "research/strategy/sealed-historical-source-acquisition-v0.6.json"
+    },
+    "parent_checkpoint_validator": {
+      "file_sha256": "015a4dfbe034850211c63b01bad2aeb987ef87968400756fa5404486378fb9c5",
+      "path": "src/momentumbot/research/sealed_historical_source_checkpoint_v06.py"
+    },
+    "parent_float_adapter": {
+      "file_sha256": "a73ef9add0e3c2b7133ea36c5ea1c8dad6aed43743b9066579f39f92a5e0885d",
+      "path": "scripts/build_causal_float_enrichment_v06.py"
+    },
+    "project_metadata": {
+      "file_sha256": "d430dd49b582c09dac25e273a11a53e4215a299e8f13ac032c8be10fff88f53d",
+      "path": "pyproject.toml"
+    },
+    "provider_transport_guard": {
+      "file_sha256": "e0fbff2919c07b261c46896f0585810ba3753ad47c25f63fe4f0a496951be441",
+      "path": "scripts/run_provider_entrypoint_v04.py"
+    },
+    "provider_wrapper": {
+      "file_sha256": "03d522ca8c88b28246cb1b48ad24ea4118838f18fe63a589590276d9a1d0972c",
+      "path": "scripts/run_provider_entrypoint_v09.py"
+    },
+    "recovery_runner": {
+      "file_sha256": "06125a9376e3ec1f8d2a17471d50441c05530a2a5892caa33a9128345121a775",
+      "path": "scripts/validate_sealed_historical_source_recovery_v09.py"
+    },
+    "recovery_validator": {
+      "file_sha256": "515594058afac7c8622c463ddff55009e76a58fb1892017277ca8f648eb8450e",
+      "path": "src/momentumbot/research/sealed_historical_source_recovery_v09.py"
+    },
+    "request_budget": {
+      "file_sha256": "e0a9d202d35c570709e58dd2dbabcdcc69658290398378bbb0c05335141a30ef",
+      "path": "src/momentumbot/providers/request_budget.py"
+    },
+    "requirements": {
+      "file_sha256": "0a9cce71ad0e35defb000e4b0b1a210ed9c41e84c6eb113e8ac79c242a5b52f3",
+      "path": "requirements-sealed-source-v04.txt"
+    },
+    "runner": {
+      "file_sha256": "d24efba929a57aea75c14e27a8a2a162a66f1f7bcf2fae73cd54374b51a44e5c",
+      "path": "scripts/run_sealed_historical_source_acquisition_v09.py"
+    },
+    "scanner_adapter": {
+      "file_sha256": "bbc42a5de6f979c035758c594471ff609ec199604f55fefe371168d0ec64445d",
+      "path": "scripts/build_causal_scanner_snapshot_v09.py"
+    },
+    "scanner_parent": {
+      "file_sha256": "83df1dfaca1661d8fee0a7b8fa36aa51d12fa54c3a899984c47ed6b1aff9db7d",
+      "path": "scripts/build_causal_scanner_snapshot_v04.py"
+    },
+    "scanner_policy": {
+      "file_sha256": "91605152a35895d8d370667683e3ff55c1adff99ea94173a6cea490e0d9ec0b0",
+      "path": "src/momentumbot/causal_scanner_snapshot_v03.py"
+    },
+    "scanner_source_inputs": {
+      "file_sha256": "5606db1d5723f8b28324c60e0b40fdfe4377f0c909ace156cc079d940ea1f151",
+      "path": "src/momentumbot/scanner_source_inputs_v03.py"
+    },
+    "selected_dates": {
+      "file_sha256": "0ceb2dd7689e6106241dd1b5225c81f3a045a664aa6e3f9729f143ad61675e3b",
+      "path": "src/momentumbot/research/sealed_historical_availability.py"
+    },
+    "source_parent_failure_audit": {
+      "file_sha256": "fad2433ca48e477a6943c12f58ba3d2697a755503a8d995fc171b02dc09bda9a",
+      "path": "research/data-audits/sealed-historical-source-acquisition-v0.6-run-33521937708-failure-2026-09-01.json"
+    },
+    "strategy_profile_union": {
+      "file_sha256": "4c2fb7d5b0f0deabdc95a7e8087cfbb3011eea207dd4e8d6ab171e3db79cb7f4",
+      "path": "src/momentumbot/historical_profile_union_v01.py"
+    },
+    "workflow": {
+      "file_sha256": "3e923d1b8ace9e7d9b910a2e743cffd8685251259fcad1694369f520d5509237",
+      "path": ".github/workflows/sealed-historical-source-acquisition-v09.yml"
+    }
+  },
+  "authority_boundary": {
+    "automatic_rerun_allowed": false,
+    "candidate_bound_databento_authorized": false,
+    "exact_commit_tree_and_dispatcher_authorization_required": true,
+    "live_order_authorized": false,
+    "manual_dispatch_required": true,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false,
+    "push_validation_provider_free": true,
+    "repository_consumption_tag_required_before_provider_access": true
+  },
+  "authorization_content_sha256": "447c11b09206b4c19ccade6c1aae70ce5bb17e4a483db6f9581d14ee3f5f862f",
+  "authorization_id": "sealed-historical-source-acquisition-v0.9",
+  "causal_attestation": {
+    "account_or_order_endpoint_calls": 0,
+    "credential_values_accessed_or_observed": false,
+    "databento_calls": 0,
+    "orders_submitted": 0,
+    "provider_calls": 0,
+    "ross_labels_or_outcomes_read": false,
+    "runtime_started": false,
+    "transcript_record_values_read": false
+  },
+  "content_sha256": "d5351a1412034715560cb3a72025f70434590a32d957758906400f02962c0c1c",
+  "frozen_parent": {
+    "failed_child_authorization_content_sha256": "6fb5fdacd642a9d8957bafa6811d1055411def6de792c6769f929c628343b011",
+    "failed_child_failure_audit_content_sha256": "dc45346045907afabc77e8321eb21654eef53578dfa5fd4f98cc197bfc85cd95",
+    "failed_child_workflow_run_id": 33543415600,
+    "failure_audit_content_sha256": "a2637524a3bea25811fee58724d1421493d6ad73866a02e8dcfb35997a717406",
+    "failure_checkpoint_zip_sha256": "ab51a247d4fc86b61d0099087721987b704def9d1086c6cdafb7767d63fa8b6e",
+    "v0_6_authorization_content_sha256": "0343efff8ceb49b7c3ae2e589029cf4cf0b02d72c1961f85807913f67385202e",
+    "v0_6_workflow_run_id": 33521937708
+  },
+  "registered_at_date": "2026-09-01",
+  "registration_status": "provider_free_complete_recovery_not_dispatched",
+  "repair": {
+    "all_946_candidates_and_float_records_preflighted": true,
+    "authoritative_identity_kinds": [
+      "composite_figi",
+      "unique_cik_fallback"
+    ],
+    "child_network_hosts": [
+      "data.alpaca.markets"
+    ],
+    "composite_parent_request_seed": 17540,
+    "downloaded_zip_sha256_matches_frozen_artifact_metadata": true,
+    "downstream_identity_values_or_float_records_rewritten": false,
+    "external_provider_ledgers_cross_bound": true,
+    "field_specific_sanitized_artifact_metadata_diagnostics": true,
+    "frozen_real_artifact_metadata_fixture_required": true,
+    "massive_identity_market_sec_or_float_requests_repeated": false,
+    "news_and_scanner_use_one_compatibility_rule": true,
+    "non_alpaca_hosts_blocked_before_child_network_access": true,
+    "obsolete_cik_identity_kind_rejected": true,
+    "parent_artifact_metadata_fetched_once_per_gate": true,
+    "parent_artifact_replayed_before_consumption": true,
+    "parent_normalized_source_reused_exactly": true,
+    "provider_checkpoint_before_scanner_freeze": true,
+    "provider_free_freeze_separate_job": true,
+    "strategy_profiles_or_thresholds_changed": false,
+    "third_party_environment_exact_with_commit_specific_editable_line": true,
+    "total_request_ceiling": 40000
+  },
+  "schema_version": 1
+}

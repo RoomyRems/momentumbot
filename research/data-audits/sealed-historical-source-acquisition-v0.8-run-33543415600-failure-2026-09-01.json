@@ -1,0 +1,92 @@
+{
+  "artifact_type": "sealed_historical_source_acquisition_v0_8_permanent_failure_audit",
+  "causal_attestation": {
+    "account_or_order_endpoint_called": false,
+    "automatic_rerun_allowed": false,
+    "authorization_consumed": false,
+    "databento_called": false,
+    "order_submitted": false,
+    "provider_called": false,
+    "provider_substitution_occurred": false,
+    "ross_labels_or_outcomes_read": false,
+    "strategy_micro_or_account_policy_changed": false,
+    "transcript_record_values_read": false
+  },
+  "conclusion": "fail_closed_preregistered_parent_artifact_digest_mismatch",
+  "content_sha256": "dc45346045907afabc77e8321eb21654eef53578dfa5fd4f98cc197bfc85cd95",
+  "failure": {
+    "acquire_job_started": false,
+    "consume_job_started": false,
+    "exact_failed_comparison_recoverable_from_logs": true,
+    "failed_job": "validate",
+    "failed_stage": "Preflight exact retained parent artifact metadata before consumption",
+    "failed_step_number": 12,
+    "freeze_job_started": false,
+    "provider_credentials_present_in_failed_job": false,
+    "root_cause": "the v0.8 preregistration transcribed the retained v0.6 checkpoint ZIP digest incorrectly; the single-fetch validator correctly rejected GitHub's live digest before authorization consumption",
+    "safe_repair": "create an immutable v0.9 child that binds the independently downloaded ZIP digest and validates a frozen real-metadata fixture so the expected value cannot be derived from the implementation constant under test"
+  },
+  "frozen_authority": {
+    "authorization_commit_sha": "4d36948548fcb630a9973ff639127e74fc6acf50",
+    "authorization_content_sha256": "6fb5fdacd642a9d8957bafa6811d1055411def6de792c6769f929c628343b011",
+    "authorization_id": "sealed-historical-source-acquisition-v0.8",
+    "authorization_path": "research/strategy/sealed-historical-source-acquisition-v0.8.json",
+    "authorization_permanently_consumed": false,
+    "authorization_tree_sha": "18396d2259161a9527f98fa6c41f256572c15be7",
+    "consumption_tag_created": false,
+    "dispatcher_tree_sha": "9d6e02d2f5865bbe3de85a6564555e0f51268665",
+    "dispatcher_workflow_blob_sha": "6654a6f750631333964a11b188797a6bb6e1df83",
+    "dispatcher_workflow_sha": "53c0f5cce78464614115a1d4a80af548147a9953"
+  },
+  "independently_verified_parent_artifact": {
+    "archive_integrity_check": "passed",
+    "artifact_id": 9806541315,
+    "artifact_name": "sealed-historical-source-acquisition-v06-failure-checkpoint-33521937708-1",
+    "digest": "sha256:ab51a247d4fc86b61d0099087721987b704def9d1086c6cdafb7767d63fa8b6e",
+    "digest_matches_downloaded_zip_sha256": true,
+    "expired": false,
+    "expires_at": "2026-11-30T14:50:07Z",
+    "observed_after_terminal_failure": true,
+    "size_in_bytes": 43338553,
+    "v0_8_preregistered_digest": "sha256:ab51a247d4fc86fef16203f8dc7fefb104abd71668a37ffc6e450e2513d469c35",
+    "workflow_run_id": 33521937708
+  },
+  "provider_accounting": {
+    "blocked_attempts": 0,
+    "child_attempts": 0,
+    "maximum_total_http_attempts": 40000,
+    "observed_attempts_by_host": {
+      "api.massive.com": 363,
+      "data.alpaca.markets": 15849,
+      "data.sec.gov": 1328
+    },
+    "observed_total_http_attempts": 17540,
+    "unauthorized_hosts_detected": []
+  },
+  "repair_boundary": {
+    "artifact_metadata_must_be_fetched_once": true,
+    "artifact_metadata_validation_must_be_provider_free": true,
+    "downloaded_zip_sha256_must_match_frozen_live_metadata": true,
+    "frozen_real_metadata_fixture_required": true,
+    "massive_identity_market_sec_and_float_acquisition_may_be_repeated": false,
+    "parent_checkpoint_download_and_full_replay_remain_pre_consumption": true,
+    "parent_request_counts_must_seed_child_composite_ceiling": true,
+    "strategy_profile_or_threshold_change_allowed": false,
+    "v0_8_may_be_rerun": false
+  },
+  "run_artifacts": {
+    "artifact_count": 0,
+    "consumption_marker_created": false,
+    "failure_artifact_created": false,
+    "provider_checkpoint_created": false
+  },
+  "schema_version": 1,
+  "workflow": {
+    "attempt": 1,
+    "event": "workflow_dispatch",
+    "head_branch": "main",
+    "head_sha": "53c0f5cce78464614115a1d4a80af548147a9953",
+    "run_id": 33543415600,
+    "status": "failure"
+  }
+}
