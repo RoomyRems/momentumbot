@@ -36,26 +36,30 @@ not strategy evidence. No provisional activation is frozen.
 The v0.3 child failed after provider acquisition because its artifact validator
 reconstructed adjusted gain from raw displayed price. The v0.4 child repaired
 that mismatch and several adjacent recovery, float-basis, candidate-union and
-checkpoint defects. Run `33468687163` then completed all 30 normalized market
-dates and permanently consumed v0.4, but failed during the first date's float
-enrichment when one provider-derived measure-basis record raised an uncaught
-data-validation `ValueError`. The exact offending provider field was not
-retained by design.
+checkpoint defects. Run `33468687163` completed all 30 normalized market dates
+and permanently consumed v0.4, but failed during float enrichment. The v0.5
+child added candidate-level containment and recovered the exact v0.4 source.
+Run `33516311649` then failed on candidate `CHEB` because the consumed float
+validator rejected the authoritative `unique_cik_fallback` identity kind while
+admitting the obsolete name `cik`. This was a code-contract vocabulary mismatch,
+not bad provider data.
 
-The v0.4 failure checkpoint is complete through normalized market discovery:
+The v0.5 failure checkpoint is complete through normalized market discovery:
 523 files, 537,662,001 bytes, 30 dates and 946 candidates. Exact provider-free
-replay validates every recovered candidate and qualification-minute raw/split
-target pair. The child recovery must therefore reuse that tree without
+replay validates every qualification-minute raw/split target pair and all 946
+authoritative identities: 737 Composite FIGI and 209 unique-CIK fallback. The
+child recovery must therefore reuse that tree without
 repeating Massive, identity or market requests; request accounting starts at
-the parent's 14,524 attempts.
+the parent's 14,536 attempts.
 
-The active local repair is v0.5. It contains only provider-derived float
-measure-basis `TypeError`/`ValueError` at the symbol-date boundary, records an
-unknown fail-closed float for that candidate, and keeps transport, budget,
-authorization, recovered-source and downstream validation errors fatal. It
-then resumes unchanged float, news and canonical scanner-source acquisition,
-checkpoints every pre-scanner byte, and freezes scanner snapshots in a separate
-provider-free job. v0.5 is not published, authorized, consumed or dispatched.
+The active local repair is v0.6. Before consumption it rehashes the exact v0.5
+checkpoint and validates all 946 identities against only `composite_figi` and
+`unique_cik_fallback`. Its float adapter consumes those exact names without
+rewriting identity values and retains v0.5's candidate-level provider-data
+containment. It then resumes unchanged float, news and canonical scanner-source
+acquisition, checkpoints every pre-scanner byte, and freezes scanner snapshots
+in a separate provider-free job. v0.6 is not published, authorized, consumed or
+dispatched.
 Candidate-bound Micro or Databento acquisition and transcript-label review
 remain blocked.
 

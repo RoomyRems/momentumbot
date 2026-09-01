@@ -1,0 +1,108 @@
+{
+  "artifact_type": "sealed_historical_source_acquisition_v0_5_permanent_failure_audit",
+  "causal_attestation": {
+    "account_or_order_endpoint_called": false,
+    "automatic_rerun_allowed": false,
+    "databento_called": false,
+    "order_submitted": false,
+    "provider_substitution_occurred": false,
+    "raw_provider_http_responses_persisted": false,
+    "ross_labels_or_outcomes_read": false,
+    "strategy_micro_or_account_policy_changed": false,
+    "transcript_record_values_read": false
+  },
+  "conclusion": "fail_closed_identity_contract_vocabulary_mismatch",
+  "content_sha256": "9b7b6dffd3f87d2362baf998aa72ca7403d70fea1e49cab976efd9bdfd174a7e",
+  "failure": {
+    "error_class": "ValueError",
+    "failed_candidate": "CHEB",
+    "failed_job": "acquire",
+    "failed_stage": "Resume candidate-contained target-date float acquisition",
+    "failed_step_number": 11,
+    "first_date_completed": false,
+    "freeze_job_started": false,
+    "provider_data_caused_failure": false,
+    "raw_exception_message_retained": false,
+    "recovered_exception_message": "float candidate identity kind is unsupported",
+    "root_cause": "the float identity validator accepted obsolete kind cik but rejected the authoritative unique_cik_fallback kind",
+    "sanitized_normalization_rejection_count": 0
+  },
+  "frozen_authority": {
+    "authorization_commit_sha": "12d3c08dcfa042f785c6e35060916cfbd47a1df8",
+    "authorization_content_sha256": "23ad997837490c14c200c10b34c8285db7b18ddebca131e6299a8cd70b3bbc49",
+    "authorization_id": "sealed-historical-source-acquisition-v0.5",
+    "authorization_path": "research/strategy/sealed-historical-source-acquisition-v0.5.json",
+    "authorization_permanently_consumed": true,
+    "authorization_tree_sha": "c9f3f47814376519a2d4ff5f77ed449f3e445a9d",
+    "dispatcher_workflow_sha": "40bd399245654c5608abebf249d08c2f69403381"
+  },
+  "independently_verified_artifacts": {
+    "consumption_marker": {
+      "artifact_id": 9803765694,
+      "artifact_name": "sealed-historical-source-acquisition-v05-consumed-23ad997837490c14c200c10b34c8285db7b18ddebca131e6299a8cd70b3bbc49",
+      "content_sha256": "fdde6fbe2aa59515c4742ad670f517395dd656f289837d937cba2b9d2d2ce584",
+      "file_sha256": "3224f328f6587c6f11e6904daceb8f904362707bfc6ee7af8145507280f2f2d2",
+      "zip_sha256": "f0395b5cabdcb6b0a6318efa3f8d3796946ba8da2bd8e093d007593e7a4fd52f"
+    },
+    "failure_checkpoint": {
+      "artifact_id": 9803791643,
+      "artifact_name": "sealed-historical-source-acquisition-v05-failure-checkpoint-33516311649-1",
+      "size_in_bytes": 42779698,
+      "zip_sha256": "0c40d099acf86fef16203f8dc7fefb104abd71668a37ffc6e450e2513d469c35"
+    },
+    "sanitized_failure": {
+      "artifact_id": 9803792342,
+      "artifact_name": "sealed-historical-source-acquisition-v05-failure-33516311649-1",
+      "content_sha256": "a263933e493038b93d254885b78d496777e158817c7ec183731aa523eb869f73",
+      "file_sha256": "92c13066948710f0ed7cbfcfba7a8be2ca10865c21d61c9d20db2ff843d47950",
+      "zip_sha256": "3069408571732288238c8f839257a085b2c7fa25a92853e8d962a79bf55312ea"
+    }
+  },
+  "offline_checkpoint_verification": {
+    "accepted_composite_figi_candidates": 737,
+    "accepted_unique_cik_fallback_candidates": 209,
+    "all_candidates_satisfy_authoritative_identity_contract": true,
+    "candidate_count": 946,
+    "date_count": 30,
+    "first_incompatible_float_candidate": "CHEB",
+    "identity_root_content_sha256": "225ed7b4fb4a9d8651b319250437a5f323f8961b2b61ef3a09849f83451ce3f5",
+    "market_root_content_sha256": "206431d94f8b6359fceb9627abb2d07acdcde414de2bfed351411b4b08e55852",
+    "maximum_candidates_on_one_date": 48,
+    "source_directory_count": 66,
+    "source_file_count": 523,
+    "source_retained_bytes": 537662001,
+    "source_tree_content_sha256": "03182a9b2ccaf026589986f73f6bb3e3c156b360eee5e0cae3f8fc31b1537607"
+  },
+  "provider_accounting": {
+    "blocked_attempts": 0,
+    "child_attempts": 12,
+    "maximum_total_http_attempts": 40000,
+    "observed_attempts_by_host": {
+      "api.massive.com": 363,
+      "data.alpaca.markets": 14161,
+      "data.sec.gov": 12
+    },
+    "observed_total_http_attempts": 14536,
+    "unauthorized_hosts_detected": []
+  },
+  "repair_boundary": {
+    "all_946_recovered_candidates_must_pass_identity_preflight_before_consumption": true,
+    "authoritative_identity_kinds": [
+      "composite_figi",
+      "unique_cik_fallback"
+    ],
+    "market_membership_identity_and_discovery_may_be_reacquired": false,
+    "parent_request_counts_must_seed_child_composite_ceiling": true,
+    "strategy_profile_or_threshold_change_allowed": false,
+    "transport_authorization_artifact_or_budget_error_remains_fatal": true,
+    "v0_5_may_be_rerun": false
+  },
+  "schema_version": 1,
+  "workflow": {
+    "attempt": 1,
+    "event": "workflow_dispatch",
+    "head_branch": "main",
+    "run_id": 33516311649,
+    "status": "failure"
+  }
+}
