@@ -24,6 +24,7 @@ from momentumbot.research.sealed_historical_source_authorization_v04 import (
 
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github/workflows/sealed-historical-source-acquisition-v04.yml"
+REQUIREMENTS = ROOT / "requirements-sealed-source-v04.txt"
 RUNNER = ROOT / "scripts/run_sealed_historical_source_acquisition_v04.py"
 V03_WORKFLOW = ROOT / ".github/workflows/sealed-historical-source-acquisition-v03.yml"
 V03_RUNNER = ROOT / "scripts/run_sealed_historical_source_acquisition_v03.py"
@@ -195,6 +196,13 @@ class SealedHistoricalSourceWorkflowV04Tests(unittest.TestCase):
         self.assertEqual(environment.get("DISPATCHER_WORKFLOW_REF"), "${{ github.workflow_ref }}")
 
     def test_pinned_install_and_environment_freeze_precede_provider_access(self) -> None:
+        requirements = REQUIREMENTS.read_text(encoding="utf-8")
+        self.assertIn("wheel==0.48.0", requirements)
+        self.assertIn("packaging==26.3", requirements)
+        self.assertIn(
+            "sha256:d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+            requirements,
+        )
         for job_name, step_name in (
             ("validate", "Install pinned provider-free environment"),
             (
