@@ -1,0 +1,96 @@
+{
+  "artifact_type": "sealed_historical_source_acquisition_v0_3_permanent_failure_audit",
+  "causal_attestation": {
+    "account_or_order_endpoint_called": false,
+    "automatic_rerun_allowed": false,
+    "databento_called": false,
+    "order_submitted": false,
+    "provider_substitution_occurred": false,
+    "ross_labels_or_outcomes_read": false,
+    "strategy_micro_or_account_policy_changed": false,
+    "transcript_record_values_read": false
+  },
+  "conclusion": "fail_closed_split_consistent_gain_was_incorrectly_validated_against_raw_display_price",
+  "content_sha256": "f63d995117fb95d673d9b0678baa258086f67f9f11bde331acbd74ee7604baaf",
+  "failure": {
+    "exception": "ValueError: scanner percent gain is inconsistent with price",
+    "failed_step": "Freeze causal scanner snapshots and canonical source inputs",
+    "first_failing_date": "2025-05-30",
+    "provider_data_failure": false,
+    "scanner_snapshot_dates_completed": [],
+    "source_input_dates_completed": [
+      "2025-05-30"
+    ],
+    "validator_location": "src/momentumbot/causal_scanner_snapshot_v02.py:validate_causal_scanner_snapshot"
+  },
+  "frozen_authority": {
+    "authorization_content_sha256": "77a37b207dc9ef15b5cbbef32911285c11926c95a53821635458b54b8ae3bffb",
+    "authorization_id": "sealed-historical-source-acquisition-v0.3",
+    "authorization_path": "research/strategy/sealed-historical-source-acquisition-v0.3.json",
+    "authorization_permanently_consumed": true,
+    "exact_checkout_commit": "e4ad51059daec0129b157eea45aac9d250a8cc5f",
+    "exact_checkout_tree": "9155ef9da7b3dce51b5ce1d1dcc45420c91cc3d8",
+    "repository": "RoomyRems/momentumbot"
+  },
+  "independently_verified_artifacts": {
+    "consumption_marker": {
+      "artifact_id": 9779345925,
+      "artifact_name": "sealed-historical-source-acquisition-v03-consumed-77a37b207dc9ef15b5cbbef32911285c11926c95a53821635458b54b8ae3bffb",
+      "expires_at": "2026-11-29T23:14:15Z",
+      "inner_file_sha256": "e2c087785b4005f9e84b8c1b85a1ddc99ce4022ed6341e42afaf6ed5aab54bca",
+      "zip_sha256": "ca1243c521f0b2f19c1507d48b7b11078a103faed7d4fea75f982f7d0d46b070"
+    },
+    "sanitized_failure": {
+      "artifact_id": 9783084048,
+      "artifact_name": "sealed-historical-source-acquisition-v03-failure-33449815223-1",
+      "expires_at": "2026-11-29T23:14:15Z",
+      "inner_file_sha256": "0a8c6e0c9a861a47f6351990940b92e9863e639d6b88c63f53d0a25a5fa423cf",
+      "zip_sha256": "71afe1777bb71beb3abcc1dba4682206fd1b555e1a47d9d998e0300053523478"
+    }
+  },
+  "partial_result": {
+    "all_30_dates_completed_float": true,
+    "all_30_dates_completed_market_discovery": true,
+    "all_30_dates_completed_news": true,
+    "partial_retained_bytes": 541225982,
+    "partial_source_tree_uploaded": false,
+    "reusable_completed_source_bundle_exists": false
+  },
+  "post_failure_provider_free_audit": {
+    "additional_blockers_confirmed": [
+      "normalized source-input stream loader hard-coded the v0.1 scanner contract",
+      "normalized scanner snapshot loader defaulted to v0.1 artifact and policy identifiers",
+      "final bundle validation did not deeply load compressed source inputs or replay scanner rows",
+      "general-only discovery could omit valid 1.50-to-1.99 small-account candidates",
+      "absolute SEC float normalization did not cancel provider adjustments for post-target splits"
+    ],
+    "transcript_or_label_files_opened": false
+  },
+  "repair_boundary": {
+    "new_child_authorization_required": true,
+    "permanent_repository_consumption_audit_required_before_child_dispatch": true,
+    "provider_free_regression_and_end_to_end_replay_required_before_dispatch": true,
+    "raw_price_remains_authoritative_for_price_threshold": true,
+    "split_target_close_remains_authoritative_for_gain_and_rank": true,
+    "v0_3_may_not_be_rerun_or_mutated": true
+  },
+  "request_budget": {
+    "by_host": {
+      "api.massive.com": 363,
+      "data.alpaca.markets": 14817,
+      "data.sec.gov": 1144
+    },
+    "maximum_total_http_attempts": 40000,
+    "observed_total_http_attempts": 16324
+  },
+  "schema_version": 1,
+  "workflow": {
+    "acquisition_job_id": 99677026939,
+    "attempt": 1,
+    "default_branch_dispatcher_commit_observed": "35b2411217626a56ae2aa06199045aa4c0cf1714",
+    "dispatcher_workflow_sha_embedded_in_run_artifacts": false,
+    "run_id": 33449815223,
+    "validation_job_id": 99676949592,
+    "validation_job_passed": true
+  }
+}

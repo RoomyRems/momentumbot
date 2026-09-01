@@ -1,0 +1,188 @@
+{
+  "artifact_type": "provider_free_sealed_historical_source_acquisition_v0_4_registration",
+  "artifacts": {
+    "acquisition_validator": {
+      "file_sha256": "a73db49b7a749f0720f5c8817d4cecc46d6f12f87f6f052bcefa301fb83c3cae",
+      "path": "src/momentumbot/research/sealed_historical_source_acquisition_v04.py"
+    },
+    "alpaca_provider": {
+      "file_sha256": "1d6ba09f01e40bcc5c0da06b17f80ac41f0b7a4a9951d1688ba26f7c6c88f3a6",
+      "path": "src/momentumbot/providers/alpaca.py"
+    },
+    "authorization": {
+      "file_sha256": "2110415d8dfff847c1bf215602b0eb9f43bfa8440f9d03e7e5ce1e0c5a228fb1",
+      "path": "research/strategy/sealed-historical-source-acquisition-v0.4.json"
+    },
+    "authorization_validator": {
+      "file_sha256": "296f74c8bd2b24d8269fdf61199b954c8b81bf4cc42ab4fb8d1f5000876692f9",
+      "path": "src/momentumbot/research/sealed_historical_source_authorization_v04.py"
+    },
+    "census_builder": {
+      "file_sha256": "30056a18cffaa8e88acc64e5430f1a97f919cf81e7a6fab973a862c8ba129675",
+      "path": "scripts/build_massive_historical_census.py"
+    },
+    "checkpoint_builder": {
+      "file_sha256": "2f8baa3b0dfd4dae70483359df63df5a49f265781134142599389be2d5ee2caa",
+      "path": "scripts/build_sealed_historical_source_checkpoint_v04.py"
+    },
+    "checkpoint_validator": {
+      "file_sha256": "ddb28da00029885592e06c76101604ca50759836d9a7107a7a2f4593442fbe7f",
+      "path": "src/momentumbot/research/sealed_historical_source_checkpoint_v01.py"
+    },
+    "documentation": {
+      "file_sha256": "092c27e5829d160827f09ba483371b3f3c3b95ff36025e4f5779e1f4e831c4a2",
+      "path": "docs/research/sealed_historical_source_acquisition_v04.md"
+    },
+    "float_builder": {
+      "file_sha256": "ac1ea282ff46d662a792a491ad85a7194ee54db6eae42d017602a5c83888eea9",
+      "path": "scripts/build_causal_float_enrichment_v04.py"
+    },
+    "float_policy": {
+      "file_sha256": "893df774a1361f80128a3492c627249f270bb1dbc584e024ea87e4802c2d3827",
+      "path": "src/momentumbot/historical_float_v04.py"
+    },
+    "historical_data": {
+      "file_sha256": "24ae072eb53d10583afdc8210cfc01ec4372f3b41525a3019f744f0ab4b8496f",
+      "path": "src/momentumbot/historical_data_v03.py"
+    },
+    "http_transport": {
+      "file_sha256": "d576f951eb9c5865be98fb4ebc0ca04520191139ae39ff7ba06a53541e540407",
+      "path": "src/momentumbot/providers/http_json.py"
+    },
+    "identity_continuity_builder": {
+      "file_sha256": "46851b95a152b52b1bc7eba8fe953b2b69141609ebc6cca8dcbaeed34847832c",
+      "path": "scripts/audit_historical_identity_continuity.py"
+    },
+    "identity_resolved_universe": {
+      "file_sha256": "ac3814657434b07ee5a22ac167ca034f56d00aa44faa2859d45becc57d96a89f",
+      "path": "src/momentumbot/identity_resolved_universe.py"
+    },
+    "instrument_metadata_builder": {
+      "file_sha256": "d917f4c9ba4dfb278e696d7ce554a1b01cf27a1f3d7f96a142c754171e627e0b",
+      "path": "scripts/audit_massive_instrument_metadata.py"
+    },
+    "market_builder": {
+      "file_sha256": "3b653c48ec84bba852b4a599b4b75cf460020c7c303033160bbc404588f7e1df",
+      "path": "scripts/build_identity_resolved_market_discovery_v04.py"
+    },
+    "market_coverage_builder": {
+      "file_sha256": "4424ee16aef09ae7ea8a58ab4535a8308c6e308ed5dfdc52da3fe6c13f69b6f4",
+      "path": "scripts/audit_massive_alpaca_market_coverage.py"
+    },
+    "market_policy": {
+      "file_sha256": "01c2992dd7d8765c003957021f47a3d6e689c4fe0a693b9049cdad8afa10d586",
+      "path": "src/momentumbot/causal_market_discovery_v03.py"
+    },
+    "massive_provider": {
+      "file_sha256": "a94c6b2783e4b06f75a347ec47dc6318b6dc5d5dee728690e394027f99014a73",
+      "path": "src/momentumbot/providers/massive.py"
+    },
+    "news_builder": {
+      "file_sha256": "38dbd7c9f3434bd31e6ff011c0e1265c6fee8737cc6bbc4aa457d57736cfeb46",
+      "path": "scripts/build_causal_news_enrichment_v04.py"
+    },
+    "news_policy": {
+      "file_sha256": "6927e509040418fb4cd54b812d7c0406400bc0c81087dd84d4f2d2026d9439a0",
+      "path": "src/momentumbot/historical_news.py"
+    },
+    "project_metadata": {
+      "file_sha256": "d430dd49b582c09dac25e273a11a53e4215a299e8f13ac032c8be10fff88f53d",
+      "path": "pyproject.toml"
+    },
+    "provider_wrapper": {
+      "file_sha256": "e0fbff2919c07b261c46896f0585810ba3753ad47c25f63fe4f0a496951be441",
+      "path": "scripts/run_provider_entrypoint_v04.py"
+    },
+    "provisional_universe_builder": {
+      "file_sha256": "012a7def93c872f6632c96bd3e0797f860a2938e35369f29868f420c8532f88c",
+      "path": "scripts/build_massive_provisional_universe.py"
+    },
+    "request_budget": {
+      "file_sha256": "e0a9d202d35c570709e58dd2dbabcdcc69658290398378bbb0c05335141a30ef",
+      "path": "src/momentumbot/providers/request_budget.py"
+    },
+    "requirements": {
+      "file_sha256": "a77e442a82e4b0b6317cc1867b7e01602d1d481038f6def3bea8fddebc036d36",
+      "path": "requirements-sealed-source-v04.txt"
+    },
+    "runner": {
+      "file_sha256": "c00e01493cb2d96d523508389d09a83ac792682999e076d406c59979a38653ad",
+      "path": "scripts/run_sealed_historical_source_acquisition_v04.py"
+    },
+    "scanner_builder": {
+      "file_sha256": "83df1dfaca1661d8fee0a7b8fa36aa51d12fa54c3a899984c47ed6b1aff9db7d",
+      "path": "scripts/build_causal_scanner_snapshot_v04.py"
+    },
+    "scanner_policy": {
+      "file_sha256": "91605152a35895d8d370667683e3ff55c1adff99ea94173a6cea490e0d9ec0b0",
+      "path": "src/momentumbot/causal_scanner_snapshot_v03.py"
+    },
+    "scanner_source_inputs": {
+      "file_sha256": "5606db1d5723f8b28324c60e0b40fdfe4377f0c909ace156cc079d940ea1f151",
+      "path": "src/momentumbot/scanner_source_inputs_v03.py"
+    },
+    "sec_provider": {
+      "file_sha256": "721668ecb9ee1abca5e3052de3a07cf2cae62d8f9bc9ec0d295e22dea274a753",
+      "path": "src/momentumbot/providers/sec_edgar.py"
+    },
+    "strategy_profile_union": {
+      "file_sha256": "4c2fb7d5b0f0deabdc95a7e8087cfbb3011eea207dd4e8d6ab171e3db79cb7f4",
+      "path": "src/momentumbot/historical_profile_union_v01.py"
+    },
+    "universe_builder": {
+      "file_sha256": "403b0682264db6128d818fde2e98cba43e0105e17fce95fdd5e2f1a5090d8749",
+      "path": "scripts/build_identity_resolved_universe.py"
+    },
+    "v0_3_failure_audit": {
+      "file_sha256": "243cbc4c8df9ea2d4ee940d49fdf5f92a0c465d3822a39194982956b66f9576a",
+      "path": "research/data-audits/sealed-historical-source-acquisition-v0.3-run-33449815223-failure-2026-09-01.json"
+    },
+    "workflow": {
+      "file_sha256": "d661a9de8187de6972afaa0838e9cee2e296afdeb8889a102a66922799b76e14",
+      "path": ".github/workflows/sealed-historical-source-acquisition-v04.yml"
+    }
+  },
+  "authority_boundary": {
+    "automatic_rerun_allowed": false,
+    "candidate_bound_databento_authorized": false,
+    "exact_commit_tree_and_dispatcher_authorization_required": true,
+    "live_order_authorized": false,
+    "manual_dispatch_required": true,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false,
+    "push_validation_provider_free": true,
+    "repository_consumption_tag_required_before_provider_access": true
+  },
+  "authorization_content_sha256": "bbe51f4483a73f92b1f58c9f6c2085d8a47505346c2d340fbe59c0421f3f31b7",
+  "authorization_id": "sealed-historical-source-acquisition-v0.4",
+  "causal_attestation": {
+    "account_or_order_endpoint_calls": 0,
+    "credential_values_accessed_or_observed": false,
+    "databento_calls": 0,
+    "orders_submitted": 0,
+    "provider_calls": 0,
+    "ross_labels_or_outcomes_read": false,
+    "runtime_started": false,
+    "transcript_record_values_read": false
+  },
+  "content_sha256": "7c33a772fa7b356fef65eb56f40ef9ac2311ae28bbbb7b2539e55cab809dca88",
+  "frozen_parents": {
+    "v0_2_success_audit_content_sha256": "5be0fef73e639a6cbe9d40b0ec6b38ca22aefb007175790a7bc45248eeac583c",
+    "v0_3_authorization_content_sha256": "77a37b207dc9ef15b5cbbef32911285c11926c95a53821635458b54b8ae3bffb",
+    "v0_3_failure_audit_content_sha256": "f63d995117fb95d673d9b0678baa258086f67f9f11bde331acbd74ee7604baaf",
+    "v0_3_workflow_run_id": 33449815223
+  },
+  "registered_at_date": "2026-09-01",
+  "registration_status": "provider_free_complete_acquisition_not_dispatched",
+  "repair": {
+    "candidate_operational_cap": 100,
+    "float_target_basis": "exact_qualification_minute",
+    "provider_checkpoint_before_scanner_freeze": true,
+    "provider_free_freeze_separate_job": true,
+    "scanner_gain_and_rank_basis": "split_target_over_split_previous_close",
+    "strategy_profiles_changed": false,
+    "total_request_ceiling": 40000,
+    "v0_3_partial_source_reused": false
+  },
+  "schema_version": 1
+}
