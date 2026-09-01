@@ -1,0 +1,114 @@
+{
+  "artifact_type": "sealed_historical_source_acquisition_v0_6_permanent_failure_audit",
+  "causal_attestation": {
+    "account_or_order_endpoint_called": false,
+    "automatic_rerun_allowed": false,
+    "databento_called": false,
+    "order_submitted": false,
+    "provider_substitution_occurred": false,
+    "raw_provider_http_responses_persisted": false,
+    "ross_labels_or_outcomes_read": false,
+    "strategy_micro_or_account_policy_changed": false,
+    "transcript_record_values_read": false
+  },
+  "conclusion": "fail_closed_downstream_identity_loader_version_mismatch",
+  "content_sha256": "a2637524a3bea25811fee58724d1421493d6ad73866a02e8dcfb35997a717406",
+  "failure": {
+    "error_class": "ValueError",
+    "failed_job": "acquire",
+    "failed_stage": "Acquire publication-timed causal news inputs",
+    "failed_step_number": 12,
+    "float_candidate_rejection_count": 0,
+    "float_dates_completed": 30,
+    "float_records_completed": 946,
+    "freeze_job_started": false,
+    "news_dates_completed": 0,
+    "news_provider_client_constructed": false,
+    "news_provider_requests_made": 0,
+    "provider_data_caused_failure": false,
+    "raw_exception_message_retained": false,
+    "recovered_exception_message": "float candidate identity kind is unsupported",
+    "root_cause": "the unchanged news builder reloaded the complete authoritative float bundle through a legacy validator that accepts obsolete kind cik but rejects unique_cik_fallback"
+  },
+  "frozen_authority": {
+    "authorization_commit_sha": "0d231ffecb6d4104aad53dec0b7499a16d8943f6",
+    "authorization_content_sha256": "0343efff8ceb49b7c3ae2e589029cf4cf0b02d72c1961f85807913f67385202e",
+    "authorization_id": "sealed-historical-source-acquisition-v0.6",
+    "authorization_path": "research/strategy/sealed-historical-source-acquisition-v0.6.json",
+    "authorization_permanently_consumed": true,
+    "authorization_tree_sha": "1b6106018579769e056bbeea3aa5fbab31b2c12f",
+    "dispatcher_workflow_sha": "d3fd65e2b621b250e0085be40b1905a2dc982ae6"
+  },
+  "independently_verified_artifacts": {
+    "consumption_marker": {
+      "artifact_id": 9806090455,
+      "artifact_name": "sealed-historical-source-acquisition-v06-consumed-0343efff8ceb49b7c3ae2e589029cf4cf0b02d72c1961f85807913f67385202e",
+      "content_sha256": "39e7acb9a50ac829e0984852131e2f8293bf51339036ac8fea427b696aa94e9a",
+      "file_sha256": "aff4768887330e82da4954272a40cc84eb369bb7abff801f5cdb7ae96ab5c741",
+      "zip_sha256": "c7273ca1e08945790a95f9578ca87bc105e64eee2a951cc7d999390774753257"
+    },
+    "failure_checkpoint": {
+      "artifact_id": 9806541315,
+      "artifact_name": "sealed-historical-source-acquisition-v06-failure-checkpoint-33521937708-1",
+      "size_in_bytes": 43338553,
+      "zip_sha256": "ab51a247d4fc86fef16203f8dc7fefb104abd71668a37ffc6e450e2513d469c35"
+    },
+    "sanitized_failure": {
+      "artifact_id": 9806541882,
+      "artifact_name": "sealed-historical-source-acquisition-v06-failure-33521937708-1",
+      "content_sha256": "3cb615c19855d59f0756f2c446d6b72e6c607a44cb4235c63c1f735df192838a",
+      "file_sha256": "91c4c1ef3bdc7da59cd71edf36a330976ff4279fea0cc45b058fac30c22aa64d",
+      "zip_sha256": "824f269328a99b90ec2c7aac6987f93a2dcc9b4d2879c8f23020b183ff3e046a"
+    }
+  },
+  "offline_checkpoint_verification": {
+    "accepted_composite_figi_candidates": 737,
+    "accepted_unique_cik_fallback_candidates": 209,
+    "all_candidates_and_float_records_load_with_authoritative_identity_contract": true,
+    "candidate_count": 946,
+    "date_count": 30,
+    "float_record_count": 946,
+    "float_root_content_sha256": "eac2a02d24cb0106181480355778c5094ed9436769d75356bd2d1ee90de4a9cc",
+    "identity_root_content_sha256": "225ed7b4fb4a9d8651b319250437a5f323f8961b2b61ef3a09849f83451ce3f5",
+    "legacy_news_float_loader_reproduces_failure": true,
+    "market_root_content_sha256": "206431d94f8b6359fceb9627abb2d07acdcde414de2bfed351411b4b08e55852",
+    "maximum_candidates_on_one_date": 48,
+    "source_directory_count": 97,
+    "source_file_count": 584,
+    "source_retained_bytes": 542222230,
+    "source_tree_content_sha256": "7eec4b420581efa52e39208952f386d4f81a092a39bca5c4acaaee7da642740c"
+  },
+  "provider_accounting": {
+    "blocked_attempts": 0,
+    "child_attempts": 3004,
+    "maximum_total_http_attempts": 40000,
+    "observed_attempts_by_host": {
+      "api.massive.com": 363,
+      "data.alpaca.markets": 15849,
+      "data.sec.gov": 1328
+    },
+    "observed_total_http_attempts": 17540,
+    "unauthorized_hosts_detected": []
+  },
+  "repair_boundary": {
+    "all_946_candidates_and_float_records_must_pass_downstream_preflight_before_consumption": true,
+    "authoritative_identity_kinds": [
+      "composite_figi",
+      "unique_cik_fallback"
+    ],
+    "massive_identity_market_sec_and_float_acquisition_may_be_repeated": false,
+    "news_and_scanner_downstream_float_loaders_must_share_one_compatibility_rule": true,
+    "parent_request_counts_must_seed_child_composite_ceiling": true,
+    "strategy_profile_or_threshold_change_allowed": false,
+    "transport_authorization_artifact_or_budget_error_remains_fatal": true,
+    "v0_6_may_be_rerun": false
+  },
+  "schema_version": 1,
+  "workflow": {
+    "attempt": 1,
+    "event": "workflow_dispatch",
+    "head_branch": "main",
+    "run_id": 33521937708,
+    "status": "failure"
+  }
+}

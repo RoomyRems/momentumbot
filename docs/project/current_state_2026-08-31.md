@@ -44,22 +44,25 @@ validator rejected the authoritative `unique_cik_fallback` identity kind while
 admitting the obsolete name `cik`. This was a code-contract vocabulary mismatch,
 not bad provider data.
 
-The v0.5 failure checkpoint is complete through normalized market discovery:
-523 files, 537,662,001 bytes, 30 dates and 946 candidates. Exact provider-free
-replay validates every qualification-minute raw/split target pair and all 946
-authoritative identities: 737 Composite FIGI and 209 unique-CIK fallback. The
-child recovery must therefore reuse that tree without
-repeating Massive, identity or market requests; request accounting starts at
-the parent's 14,536 attempts.
+The v0.6 child repaired the float-stage identity vocabulary and run
+`33521937708` completed all 30 float dates and all 946 candidates with zero
+candidate rejection. It then permanently failed before news provider access:
+the unchanged news builder reloaded the valid float bundle through the legacy
+validator, which rejects `unique_cik_fallback`. v0.6 is consumed and may not be
+rerun. Its terminal cumulative ledger is 17,540 of 40,000 requests: 363
+Massive, 15,849 Alpaca and 1,328 SEC.
 
-The active local repair is v0.6. Before consumption it rehashes the exact v0.5
-checkpoint and validates all 946 identities against only `composite_figi` and
-`unique_cik_fallback`. Its float adapter consumes those exact names without
-rewriting identity values and retains v0.5's candidate-level provider-data
-containment. It then resumes unchanged float, news and canonical scanner-source
-acquisition, checkpoints every pre-scanner byte, and freezes scanner snapshots
-in a separate provider-free job. v0.6 is not published, authorized, consumed or
-dispatched.
+The retained v0.6 checkpoint contains 584 normalized source files,
+542,222,230 bytes, 30 dates, 946 candidates and 946 complete float records.
+The active local repair is v0.7. Before consumption it rehashes that exact
+checkpoint and deep-loads every candidate, target-basis artifact and float
+record under only `composite_figi` and `unique_cik_fallback`. The same temporary
+compatibility scope wraps both the unchanged news builder and unchanged
+scanner-input builder, and restores the legacy function afterward. No identity
+or float record is rewritten. The child exposes only Alpaca network access;
+Massive, identity, market, SEC and float acquisition cannot repeat. It will
+checkpoint every pre-scanner byte and freeze scanner snapshots in a separate
+provider-free job. v0.7 is not published, consumed or dispatched.
 Candidate-bound Micro or Databento acquisition and transcript-label review
 remain blocked.
 
