@@ -33,13 +33,31 @@ activation even though 4,156 row-minutes across 25 dates passed its other
 pillars. Zero small-account activations is therefore an invalid data result,
 not strategy evidence. No provisional activation is frozen.
 
-The active repair is the provider-free registered v0.3 child source acquisition.
-It changes only the historical price-normalization basis and then rebuilds
-discovery and rank. Percentage gain and rank use split-adjusted prior and target
-prices consistently; actual price and volume remain raw. It
-must preserve all 30 dates, providers, thresholds and strategy/account rules;
-it may not mutate or rerun consumed source v0.2. Candidate-bound Micro or
-Databento acquisition and transcript-label review remain blocked.
+The v0.3 child failed after provider acquisition because its artifact validator
+reconstructed adjusted gain from raw displayed price. The v0.4 child repaired
+that mismatch and several adjacent recovery, float-basis, candidate-union and
+checkpoint defects. Run `33468687163` then completed all 30 normalized market
+dates and permanently consumed v0.4, but failed during the first date's float
+enrichment when one provider-derived measure-basis record raised an uncaught
+data-validation `ValueError`. The exact offending provider field was not
+retained by design.
+
+The v0.4 failure checkpoint is complete through normalized market discovery:
+523 files, 537,662,001 bytes, 30 dates and 946 candidates. Exact provider-free
+replay validates every recovered candidate and qualification-minute raw/split
+target pair. The child recovery must therefore reuse that tree without
+repeating Massive, identity or market requests; request accounting starts at
+the parent's 14,524 attempts.
+
+The active local repair is v0.5. It contains only provider-derived float
+measure-basis `TypeError`/`ValueError` at the symbol-date boundary, records an
+unknown fail-closed float for that candidate, and keeps transport, budget,
+authorization, recovered-source and downstream validation errors fatal. It
+then resumes unchanged float, news and canonical scanner-source acquisition,
+checkpoints every pre-scanner byte, and freezes scanner snapshots in a separate
+provider-free job. v0.5 is not published, authorized, consumed or dispatched.
+Candidate-bound Micro or Databento acquisition and transcript-label review
+remain blocked.
 
 The strategy scope freeze remains active: no new setup, AI authority, scanner or
 Micro threshold change, account rule change, execution-cell selection, or

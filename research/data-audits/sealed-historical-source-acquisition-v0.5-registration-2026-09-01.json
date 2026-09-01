@@ -1,0 +1,196 @@
+{
+  "artifact_type": "provider_free_sealed_historical_source_recovery_v0_5_registration",
+  "artifacts": {
+    "acquisition_validator": {
+      "file_sha256": "a6150143e6020e6f689fd3a2f0b33ef6943a88eb13929561e9b609595d17e83f",
+      "path": "src/momentumbot/research/sealed_historical_source_acquisition_v05.py"
+    },
+    "alpaca_provider": {
+      "file_sha256": "1d6ba09f01e40bcc5c0da06b17f80ac41f0b7a4a9951d1688ba26f7c6c88f3a6",
+      "path": "src/momentumbot/providers/alpaca.py"
+    },
+    "authorization": {
+      "file_sha256": "1949f8ec261aecf45c25bc51cddeaecd1d4499640f4ccd56619c0cf78dc1199d",
+      "path": "research/strategy/sealed-historical-source-acquisition-v0.5.json"
+    },
+    "authorization_validator": {
+      "file_sha256": "c3881cac841d8295641d3dac9600588b468909a5f9f08749c9092422fc026517",
+      "path": "src/momentumbot/research/sealed_historical_source_authorization_v05.py"
+    },
+    "checkpoint_builder": {
+      "file_sha256": "380ba2ed20e84a129e7ed9b5d8bb1daa451e3236e1bd8a746655364d5bf07996",
+      "path": "scripts/build_sealed_historical_source_checkpoint_v05.py"
+    },
+    "checkpoint_validator": {
+      "file_sha256": "fa47138213b7dd62fb629d75aaf0560dd342a116071fbdb7833504f32a347530",
+      "path": "src/momentumbot/research/sealed_historical_source_checkpoint_v05.py"
+    },
+    "documentation": {
+      "file_sha256": "9b96a5d474492e51a8d401b2e5552f02f14dbe373d0a3a7a5fc4153757331285",
+      "path": "docs/research/sealed_historical_source_acquisition_v05.md"
+    },
+    "failure_audit": {
+      "file_sha256": "4cb4db9dd6e3d9116dc0d40a48e5f367a6cff6f06903499809cf85b0bc7e88f7",
+      "path": "research/data-audits/sealed-historical-source-acquisition-v0.4-run-33468687163-failure-2026-09-01.json"
+    },
+    "float_adapter": {
+      "file_sha256": "5f2a7d6781a387f65ea840aefd780da7cb7d2d98b30e25b34921a0036c0696c6",
+      "path": "scripts/build_causal_float_enrichment_v05.py"
+    },
+    "float_parent": {
+      "file_sha256": "ac1ea282ff46d662a792a491ad85a7194ee54db6eae42d017602a5c83888eea9",
+      "path": "scripts/build_causal_float_enrichment_v04.py"
+    },
+    "float_policy": {
+      "file_sha256": "893df774a1361f80128a3492c627249f270bb1dbc584e024ea87e4802c2d3827",
+      "path": "src/momentumbot/historical_float_v04.py"
+    },
+    "historical_data": {
+      "file_sha256": "24ae072eb53d10583afdc8210cfc01ec4372f3b41525a3019f744f0ab4b8496f",
+      "path": "src/momentumbot/historical_data_v03.py"
+    },
+    "http_transport": {
+      "file_sha256": "d576f951eb9c5865be98fb4ebc0ca04520191139ae39ff7ba06a53541e540407",
+      "path": "src/momentumbot/providers/http_json.py"
+    },
+    "identity_loader": {
+      "file_sha256": "ac3814657434b07ee5a22ac167ca034f56d00aa44faa2859d45becc57d96a89f",
+      "path": "src/momentumbot/identity_resolved_universe.py"
+    },
+    "market_loader": {
+      "file_sha256": "01c2992dd7d8765c003957021f47a3d6e689c4fe0a693b9049cdad8afa10d586",
+      "path": "src/momentumbot/causal_market_discovery_v03.py"
+    },
+    "news_builder": {
+      "file_sha256": "38dbd7c9f3434bd31e6ff011c0e1265c6fee8737cc6bbc4aa457d57736cfeb46",
+      "path": "scripts/build_causal_news_enrichment_v04.py"
+    },
+    "news_policy": {
+      "file_sha256": "6927e509040418fb4cd54b812d7c0406400bc0c81087dd84d4f2d2026d9439a0",
+      "path": "src/momentumbot/historical_news.py"
+    },
+    "parent_acquisition_validator": {
+      "file_sha256": "a73db49b7a749f0720f5c8817d4cecc46d6f12f87f6f052bcefa301fb83c3cae",
+      "path": "src/momentumbot/research/sealed_historical_source_acquisition_v04.py"
+    },
+    "parent_authorization": {
+      "file_sha256": "2110415d8dfff847c1bf215602b0eb9f43bfa8440f9d03e7e5ce1e0c5a228fb1",
+      "path": "research/strategy/sealed-historical-source-acquisition-v0.4.json"
+    },
+    "parent_checkpoint_validator": {
+      "file_sha256": "ddb28da00029885592e06c76101604ca50759836d9a7107a7a2f4593442fbe7f",
+      "path": "src/momentumbot/research/sealed_historical_source_checkpoint_v01.py"
+    },
+    "project_metadata": {
+      "file_sha256": "d430dd49b582c09dac25e273a11a53e4215a299e8f13ac032c8be10fff88f53d",
+      "path": "pyproject.toml"
+    },
+    "provider_wrapper": {
+      "file_sha256": "b54f8b9aa43a86d857b52d689287ff49559bf0df69b972f3e5a438fd1f6c07c5",
+      "path": "scripts/run_provider_entrypoint_v05.py"
+    },
+    "provider_transport_guard": {
+      "file_sha256": "e0fbff2919c07b261c46896f0585810ba3753ad47c25f63fe4f0a496951be441",
+      "path": "scripts/run_provider_entrypoint_v04.py"
+    },
+    "recovery_runner": {
+      "file_sha256": "1f8d5643de427df9653c917af04d6c9bce12214f90d15c9ffef8633f2e1424cd",
+      "path": "scripts/validate_sealed_historical_source_recovery_v05.py"
+    },
+    "recovery_validator": {
+      "file_sha256": "bd61c90aea9fabec349fc6b0ef1667cc81f645aa88ec45eade6beb41f36525e2",
+      "path": "src/momentumbot/research/sealed_historical_source_recovery_v05.py"
+    },
+    "request_budget": {
+      "file_sha256": "e0a9d202d35c570709e58dd2dbabcdcc69658290398378bbb0c05335141a30ef",
+      "path": "src/momentumbot/providers/request_budget.py"
+    },
+    "requirements": {
+      "file_sha256": "0a9cce71ad0e35defb000e4b0b1a210ed9c41e84c6eb113e8ac79c242a5b52f3",
+      "path": "requirements-sealed-source-v04.txt"
+    },
+    "runner": {
+      "file_sha256": "df825487f1cbaf0ee2c8044a9b5a85b5f40219236ec8a1e860a557b7df780338",
+      "path": "scripts/run_sealed_historical_source_acquisition_v05.py"
+    },
+    "scanner_builder": {
+      "file_sha256": "83df1dfaca1661d8fee0a7b8fa36aa51d12fa54c3a899984c47ed6b1aff9db7d",
+      "path": "scripts/build_causal_scanner_snapshot_v04.py"
+    },
+    "scanner_policy": {
+      "file_sha256": "91605152a35895d8d370667683e3ff55c1adff99ea94173a6cea490e0d9ec0b0",
+      "path": "src/momentumbot/causal_scanner_snapshot_v03.py"
+    },
+    "scanner_source_inputs": {
+      "file_sha256": "5606db1d5723f8b28324c60e0b40fdfe4377f0c909ace156cc079d940ea1f151",
+      "path": "src/momentumbot/scanner_source_inputs_v03.py"
+    },
+    "sec_provider": {
+      "file_sha256": "721668ecb9ee1abca5e3052de3a07cf2cae62d8f9bc9ec0d295e22dea274a753",
+      "path": "src/momentumbot/providers/sec_edgar.py"
+    },
+    "selected_dates": {
+      "file_sha256": "0ceb2dd7689e6106241dd1b5225c81f3a045a664aa6e3f9729f143ad61675e3b",
+      "path": "src/momentumbot/research/sealed_historical_availability.py"
+    },
+    "strategy_profile_union": {
+      "file_sha256": "4c2fb7d5b0f0deabdc95a7e8087cfbb3011eea207dd4e8d6ab171e3db79cb7f4",
+      "path": "src/momentumbot/historical_profile_union_v01.py"
+    },
+    "workflow": {
+      "file_sha256": "c194e11cdb167afcbbd792c07efedb787e0415a86be6dffdbbbd1de6d70ee61b",
+      "path": ".github/workflows/sealed-historical-source-acquisition-v05.yml"
+    }
+  },
+  "authority_boundary": {
+    "automatic_rerun_allowed": false,
+    "candidate_bound_databento_authorized": false,
+    "exact_commit_tree_and_dispatcher_authorization_required": true,
+    "live_order_authorized": false,
+    "manual_dispatch_required": true,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false,
+    "push_validation_provider_free": true,
+    "repository_consumption_tag_required_before_provider_access": true
+  },
+  "authorization_content_sha256": "23ad997837490c14c200c10b34c8285db7b18ddebca131e6299a8cd70b3bbc49",
+  "authorization_id": "sealed-historical-source-acquisition-v0.5",
+  "causal_attestation": {
+    "account_or_order_endpoint_calls": 0,
+    "credential_values_accessed_or_observed": false,
+    "databento_calls": 0,
+    "orders_submitted": 0,
+    "provider_calls": 0,
+    "ross_labels_or_outcomes_read": false,
+    "runtime_started": false,
+    "transcript_record_values_read": false
+  },
+  "content_sha256": "2817d6e902bebba5d34008bb44e5edf8786e289c1be35e43b0d743c8501a13cb",
+  "frozen_parent": {
+    "failure_audit_content_sha256": "d2096f4c4217ccb5ac5753ca209cb5b0be9b2299dd79a8c33db08153faa58aeb",
+    "failure_checkpoint_zip_sha256": "e9eb2854aa40d386509524475441f8ef159e0e73fcc63af4acf988b364ece1b9",
+    "v0_4_authorization_content_sha256": "bbe51f4483a73f92b1f58c9f6c2085d8a47505346c2d340fbe59c0421f3f31b7",
+    "v0_4_workflow_run_id": 33468687163
+  },
+  "registered_at_date": "2026-09-01",
+  "registration_status": "provider_free_complete_recovery_not_dispatched",
+  "repair": {
+    "candidate_data_errors_fail_closed_per_symbol_date": true,
+    "child_network_hosts": [
+      "data.alpaca.markets",
+      "data.sec.gov"
+    ],
+    "composite_parent_request_seed": 14524,
+    "external_provider_ledgers_cross_bound": true,
+    "market_identity_or_massive_requests_repeated": false,
+    "massive_blocked_before_child_network_access": true,
+    "parent_artifact_replayed_before_consumption": true,
+    "parent_normalized_source_reused_exactly": true,
+    "provider_checkpoint_before_scanner_freeze": true,
+    "provider_free_freeze_separate_job": true,
+    "strategy_profiles_or_thresholds_changed": false,
+    "third_party_environment_exact_with_commit_specific_editable_line": true,
+    "total_request_ceiling": 40000
+  },
+  "schema_version": 1
+}
