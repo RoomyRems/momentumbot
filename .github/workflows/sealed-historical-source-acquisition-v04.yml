@@ -1,0 +1,735 @@
+name: Sealed historical source acquisition v0.4
+
+on:
+  push:
+    branches:
+      - phase-3-historical-snapshot
+    paths:
+      - .github/workflows/sealed-historical-source-acquisition-v04.yml
+      - requirements-sealed-source-v04.txt
+      - research/strategy/sealed-historical-source-acquisition-v0.4.json
+      - research/data-audits/sealed-historical-source-acquisition-v0.4-registration-2026-09-01.json
+      - research/data-audits/sealed-historical-source-acquisition-v0.3-run-33449815223-failure-2026-09-01.json
+      - src/momentumbot/research/sealed_historical_source_authorization_v04.py
+      - src/momentumbot/research/sealed_historical_source_acquisition_v04.py
+      - src/momentumbot/research/sealed_historical_source_checkpoint_v01.py
+      - src/momentumbot/historical_profile_union_v01.py
+      - src/momentumbot/historical_data_v03.py
+      - src/momentumbot/historical_float_v04.py
+      - src/momentumbot/causal_market_discovery_v03.py
+      - src/momentumbot/causal_scanner_snapshot_v03.py
+      - src/momentumbot/scanner_source_inputs_v03.py
+      - scripts/run_provider_entrypoint_v04.py
+      - scripts/run_sealed_historical_source_acquisition_v04.py
+      - scripts/build_identity_resolved_market_discovery_v04.py
+      - scripts/build_causal_float_enrichment_v04.py
+      - scripts/build_causal_news_enrichment_v04.py
+      - scripts/build_causal_scanner_snapshot_v04.py
+      - scripts/build_sealed_historical_source_checkpoint_v04.py
+      - tests/test_provider_entrypoint_v04.py
+      - tests/test_historical_profile_union_v01.py
+      - tests/test_historical_float_v04.py
+      - tests/test_causal_scanner_snapshot_v03.py
+      - tests/test_sealed_historical_source_checkpoint_v01.py
+      - tests/test_sealed_historical_source_authorization_v04.py
+      - tests/test_sealed_historical_source_acquisition_v04.py
+      - tests/test_sealed_historical_source_integration_v04.py
+      - tests/test_sealed_historical_source_workflow_v04.py
+      - docs/research/sealed_historical_source_acquisition_v04.md
+  workflow_dispatch:
+    inputs:
+      authorization_commit_sha:
+        description: Exact research-branch commit containing the frozen v0.4 child
+        required: true
+        type: string
+      authorization_tree_sha:
+        description: Exact Git tree for the authorized research commit
+        required: true
+        type: string
+      authorization_path:
+        description: Exact frozen v0.4 authorization path
+        required: true
+        default: research/strategy/sealed-historical-source-acquisition-v0.4.json
+        type: string
+
+permissions:
+  actions: read
+  contents: read
+
+concurrency:
+  group: sealed-historical-source-acquisition-v0.4
+  cancel-in-progress: false
+
+env:
+  PANEL_DATES: >-
+    2025-05-30 2025-06-02 2025-06-03 2025-06-04 2025-06-05
+    2025-06-06 2025-06-09 2025-06-10 2025-06-11 2025-06-12
+    2025-06-13 2025-06-16 2025-06-17 2025-06-18 2025-06-20
+    2025-06-23 2025-06-24 2025-06-25 2025-06-26 2025-06-27
+    2025-07-01 2025-07-02 2025-07-07 2025-07-08 2025-07-10
+    2025-07-11 2025-07-14 2025-07-15 2025-07-16 2025-07-17
+  ACQUISITION_ROOT: sealed-historical-source-acquisition-v04
+  SOURCE_ROOT: sealed-historical-source-acquisition-v04/source
+  CHECKPOINT_ROOT: sealed-historical-source-acquisition-v04/provider-checkpoint
+  MOMENTUMBOT_PROVIDER_BLOCKED_ATTEMPT_FILE: /tmp/momentumbot-sealed-historical-source-v04-blocked-attempts.json
+  MOMENTUMBOT_PROVIDER_REQUEST_BUDGET_FILE: /tmp/momentumbot-sealed-historical-source-v04-request-budget.json
+  MOMENTUMBOT_PROVIDER_REQUEST_BUDGET_LIMIT: "40000"
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.authorization_commit_sha || github.sha }}
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: "3.12"
+      - name: Install pinned provider-free environment
+        run: |
+          test ! -e "$GITHUB_WORKSPACE/.venv-v04"
+          python -m venv "$GITHUB_WORKSPACE/.venv-v04"
+          "$GITHUB_WORKSPACE/.venv-v04/bin/python" -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-source-v04.txt
+          echo "$GITHUB_WORKSPACE/.venv-v04/bin" >> "$GITHUB_PATH"
+          "$GITHUB_WORKSPACE/.venv-v04/bin/python" -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          "$GITHUB_WORKSPACE/.venv-v04/bin/python" -m pip check
+      - name: Validate frozen v0.4 child and parents without credentials
+        run: python scripts/run_sealed_historical_source_acquisition_v04.py --validate-only
+      - name: Run provider-free v0.4 preflight and adversarial gates
+        run: >-
+          python -m unittest
+          tests.test_historical_profile_union_v01
+          tests.test_historical_float_v04
+          tests.test_causal_scanner_snapshot_v03
+          tests.test_provider_entrypoint_v04
+          tests.test_sealed_historical_source_checkpoint_v01
+          tests.test_sealed_historical_source_authorization_v04
+          tests.test_sealed_historical_source_acquisition_v04
+          tests.test_sealed_historical_source_integration_v04
+          tests.test_sealed_historical_source_workflow_v04
+          -v
+      - name: Compile every v0.4 acquisition entry point
+        run: >-
+          python -m py_compile
+          src/momentumbot/research/sealed_historical_source_authorization_v04.py
+          src/momentumbot/research/sealed_historical_source_acquisition_v04.py
+          src/momentumbot/research/sealed_historical_source_checkpoint_v01.py
+          src/momentumbot/historical_profile_union_v01.py
+          src/momentumbot/historical_float_v04.py
+          src/momentumbot/causal_scanner_snapshot_v03.py
+          src/momentumbot/scanner_source_inputs_v03.py
+          scripts/run_provider_entrypoint_v04.py
+          scripts/run_sealed_historical_source_acquisition_v04.py
+          scripts/build_identity_resolved_market_discovery_v04.py
+          scripts/build_causal_float_enrichment_v04.py
+          scripts/build_causal_news_enrichment_v04.py
+          scripts/build_causal_scanner_snapshot_v04.py
+          scripts/build_sealed_historical_source_checkpoint_v04.py
+
+  consume:
+    if: github.event_name == 'workflow_dispatch' && github.run_attempt == 1
+    needs: validate
+    permissions:
+      actions: read
+      contents: write
+    outputs:
+      authorization_sha256: ${{ steps.authority.outputs.authorization_sha256 }}
+      consumption_ref_name: ${{ steps.authority.outputs.consumption_ref_name }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ inputs.authorization_commit_sha }}
+      - name: Verify exact immutable authorization checkout and dispatcher
+        id: authority
+        env:
+          AUTHORIZATION_COMMIT_SHA: ${{ inputs.authorization_commit_sha }}
+          AUTHORIZATION_TREE_SHA: ${{ inputs.authorization_tree_sha }}
+          AUTHORIZATION_PATH: ${{ inputs.authorization_path }}
+          DISPATCHER_WORKFLOW_SHA: ${{ github.workflow_sha }}
+          DISPATCHER_WORKFLOW_REF: ${{ github.workflow_ref }}
+        run: |
+          test "$GITHUB_EVENT_NAME" = "workflow_dispatch"
+          test "$GITHUB_RUN_ATTEMPT" = "1"
+          test "$GITHUB_REPOSITORY" = "RoomyRems/momentumbot"
+          test "$GITHUB_REF" = "refs/heads/main"
+          test "$AUTHORIZATION_PATH" = "research/strategy/sealed-historical-source-acquisition-v0.4.json"
+          test "$DISPATCHER_WORKFLOW_REF" = "RoomyRems/momentumbot/.github/workflows/sealed-historical-source-acquisition-v04.yml@refs/heads/main"
+          for value in "$AUTHORIZATION_COMMIT_SHA" "$AUTHORIZATION_TREE_SHA" "$DISPATCHER_WORKFLOW_SHA"; do
+            test "${#value}" = "40"
+            case "$value" in
+              *[!0-9a-f]*) exit 1 ;;
+              *) ;;
+            esac
+          done
+          test "$(git rev-parse HEAD)" = "$AUTHORIZATION_COMMIT_SHA"
+          test "$(git rev-parse HEAD^{tree})" = "$AUTHORIZATION_TREE_SHA"
+          test "$(git rev-parse origin/phase-3-historical-snapshot)" = "$AUTHORIZATION_COMMIT_SHA"
+          test "$GITHUB_SHA" = "$DISPATCHER_WORKFLOW_SHA"
+          dispatcher_blob="$(git rev-parse "${DISPATCHER_WORKFLOW_SHA}:.github/workflows/sealed-historical-source-acquisition-v04.yml")"
+          authorized_blob="$(git hash-object .github/workflows/sealed-historical-source-acquisition-v04.yml)"
+          test "$dispatcher_blob" = "$authorized_blob"
+          test -f "$AUTHORIZATION_PATH"
+          test -f requirements-sealed-source-v04.txt
+          test -z "$(git status --porcelain --untracked-files=all)"
+          python - <<'PY'
+          import json
+          import os
+          import re
+          from pathlib import Path
+
+          payload = json.loads(Path(os.environ["AUTHORIZATION_PATH"]).read_text())
+          digest = payload.get("content_sha256")
+          if not isinstance(digest, str) or re.fullmatch(r"[0-9a-f]{64}", digest) is None:
+              raise SystemExit("authorization content hash is invalid")
+          consumption_ref = (
+              "refs/tags/sealed-historical-source-acquisition-v04-consumed-"
+              f"{digest}"
+          )
+          with Path(os.environ["GITHUB_ENV"]).open("a", encoding="utf-8") as handle:
+              handle.write(f"SOURCE_AUTHORIZATION_SHA256={digest}\n")
+              handle.write(f"CONSUMPTION_REF_NAME={consumption_ref}\n")
+          with Path(os.environ["GITHUB_OUTPUT"]).open("a", encoding="utf-8") as handle:
+              handle.write(f"authorization_sha256={digest}\n")
+              handle.write(f"consumption_ref_name={consumption_ref}\n")
+          PY
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: "3.12"
+      - name: Install exact consumption environment without provider credentials
+        run: |
+          test ! -e "$GITHUB_WORKSPACE/.venv-v04"
+          python -m venv "$GITHUB_WORKSPACE/.venv-v04"
+          "$GITHUB_WORKSPACE/.venv-v04/bin/python" -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-source-v04.txt
+          echo "$GITHUB_WORKSPACE/.venv-v04/bin" >> "$GITHUB_PATH"
+          "$GITHUB_WORKSPACE/.venv-v04/bin/python" -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          "$GITHUB_WORKSPACE/.venv-v04/bin/python" -m pip check
+      - name: Revalidate exact frozen authority without provider credentials
+        run: python scripts/run_sealed_historical_source_acquisition_v04.py --validate-only
+      - name: Create provenance-bound write-once consumption marker
+        run: >-
+          python scripts/run_sealed_historical_source_acquisition_v04.py
+          --write-consumption-marker
+          --authorization "${{ inputs.authorization_path }}"
+          --authorization-commit-sha "${{ inputs.authorization_commit_sha }}"
+          --authorization-tree-sha "${{ inputs.authorization_tree_sha }}"
+          --dispatcher-workflow-sha "${{ github.workflow_sha }}"
+          --dispatcher-workflow-ref "${{ github.workflow_ref }}"
+          --consumption-ref-name "$CONSUMPTION_REF_NAME"
+          --consumption-ref-target-sha "${{ inputs.authorization_commit_sha }}"
+          --output "$ACQUISITION_ROOT/consumption.json"
+      - name: Atomically consume authorization in durable Git ref
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/git/refs" \
+            -f ref="$CONSUMPTION_REF_NAME" \
+            -f sha="${{ inputs.authorization_commit_sha }}" >/dev/null
+          short_ref="${CONSUMPTION_REF_NAME#refs/}"
+          observed="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/${short_ref}" --jq '.object.sha')"
+          test "$observed" = "${{ inputs.authorization_commit_sha }}"
+      - name: Preserve consumed authorization marker
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: sealed-historical-source-acquisition-v04-consumed-${{ env.SOURCE_AUTHORIZATION_SHA256 }}
+          path: sealed-historical-source-acquisition-v04/consumption.json
+          if-no-files-found: error
+          retention-days: 90
+
+  acquire:
+    if: github.event_name == 'workflow_dispatch' && github.run_attempt == 1
+    needs: consume
+    permissions:
+      actions: read
+      contents: read
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ inputs.authorization_commit_sha }}
+      - name: Verify exact immutable authorization checkout and dispatcher
+        env:
+          AUTHORIZATION_COMMIT_SHA: ${{ inputs.authorization_commit_sha }}
+          AUTHORIZATION_TREE_SHA: ${{ inputs.authorization_tree_sha }}
+          AUTHORIZATION_PATH: ${{ inputs.authorization_path }}
+          DISPATCHER_WORKFLOW_SHA: ${{ github.workflow_sha }}
+          DISPATCHER_WORKFLOW_REF: ${{ github.workflow_ref }}
+          EXPECTED_AUTHORIZATION_SHA256: ${{ needs.consume.outputs.authorization_sha256 }}
+          EXPECTED_CONSUMPTION_REF_NAME: ${{ needs.consume.outputs.consumption_ref_name }}
+        run: |
+          test "$GITHUB_EVENT_NAME" = "workflow_dispatch"
+          test "$GITHUB_RUN_ATTEMPT" = "1"
+          test "$GITHUB_REPOSITORY" = "RoomyRems/momentumbot"
+          test "$GITHUB_REF" = "refs/heads/main"
+          test "$AUTHORIZATION_PATH" = "research/strategy/sealed-historical-source-acquisition-v0.4.json"
+          test "$DISPATCHER_WORKFLOW_REF" = "RoomyRems/momentumbot/.github/workflows/sealed-historical-source-acquisition-v04.yml@refs/heads/main"
+          for value in "$AUTHORIZATION_COMMIT_SHA" "$AUTHORIZATION_TREE_SHA" "$DISPATCHER_WORKFLOW_SHA"; do
+            test "${#value}" = "40"
+            case "$value" in
+              *[!0-9a-f]*) exit 1 ;;
+              *) ;;
+            esac
+          done
+          test "$(git rev-parse HEAD)" = "$AUTHORIZATION_COMMIT_SHA"
+          test "$(git rev-parse HEAD^{tree})" = "$AUTHORIZATION_TREE_SHA"
+          test "$(git rev-parse origin/phase-3-historical-snapshot)" = "$AUTHORIZATION_COMMIT_SHA"
+          test "$GITHUB_SHA" = "$DISPATCHER_WORKFLOW_SHA"
+          dispatcher_blob="$(git rev-parse "${DISPATCHER_WORKFLOW_SHA}:.github/workflows/sealed-historical-source-acquisition-v04.yml")"
+          authorized_blob="$(git hash-object .github/workflows/sealed-historical-source-acquisition-v04.yml)"
+          test "$dispatcher_blob" = "$authorized_blob"
+          test -f "$AUTHORIZATION_PATH"
+          test -f requirements-sealed-source-v04.txt
+          test -z "$(git status --porcelain --untracked-files=all)"
+          python - <<'PY'
+          import json
+          import os
+          import re
+          from pathlib import Path
+
+          payload = json.loads(Path(os.environ["AUTHORIZATION_PATH"]).read_text())
+          digest = payload.get("content_sha256")
+          if not isinstance(digest, str) or re.fullmatch(r"[0-9a-f]{64}", digest) is None:
+              raise SystemExit("authorization content hash is invalid")
+          expected_ref = (
+              "refs/tags/sealed-historical-source-acquisition-v04-consumed-"
+              f"{digest}"
+          )
+          if digest != os.environ["EXPECTED_AUTHORIZATION_SHA256"]:
+              raise SystemExit("consumption job authorization hash differs")
+          if expected_ref != os.environ["EXPECTED_CONSUMPTION_REF_NAME"]:
+              raise SystemExit("consumption job ref name differs")
+          with Path(os.environ["GITHUB_ENV"]).open("a", encoding="utf-8") as handle:
+              handle.write(f"SOURCE_AUTHORIZATION_SHA256={digest}\n")
+              handle.write(f"CONSUMPTION_REF_NAME={expected_ref}\n")
+          PY
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: "3.12"
+      - name: Download exact consumed authorization marker
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: sealed-historical-source-acquisition-v04-consumed-${{ needs.consume.outputs.authorization_sha256 }}
+          path: sealed-historical-source-acquisition-v04
+      - name: Install exact acquisition environment without provider credentials
+        run: |
+          test ! -e "$GITHUB_WORKSPACE/.venv-v04"
+          python -m venv "$GITHUB_WORKSPACE/.venv-v04"
+          "$GITHUB_WORKSPACE/.venv-v04/bin/python" -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-source-v04.txt
+          echo "$GITHUB_WORKSPACE/.venv-v04/bin" >> "$GITHUB_PATH"
+          "$GITHUB_WORKSPACE/.venv-v04/bin/python" -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          "$GITHUB_WORKSPACE/.venv-v04/bin/python" -m pip check
+          mkdir -p "$CHECKPOINT_ROOT/environment"
+          "$GITHUB_WORKSPACE/.venv-v04/bin/python" -m pip freeze --all | LC_ALL=C sort > "$CHECKPOINT_ROOT/environment/pip-freeze.txt"
+          cp requirements-sealed-source-v04.txt "$CHECKPOINT_ROOT/environment/requirements-sealed-source-v04.txt"
+      - name: Revalidate authority marker and durable ref before provider access
+        env:
+          GH_TOKEN: ${{ github.token }}
+          AUTHORIZATION_COMMIT_SHA: ${{ inputs.authorization_commit_sha }}
+          AUTHORIZATION_TREE_SHA: ${{ inputs.authorization_tree_sha }}
+          DISPATCHER_WORKFLOW_SHA: ${{ github.workflow_sha }}
+          DISPATCHER_WORKFLOW_REF: ${{ github.workflow_ref }}
+        run: |
+          python scripts/run_sealed_historical_source_acquisition_v04.py --validate-only
+          short_ref="${CONSUMPTION_REF_NAME#refs/}"
+          observed="$(gh api "repos/${GITHUB_REPOSITORY}/git/ref/${short_ref}" --jq '.object.sha')"
+          test "$observed" = "${{ inputs.authorization_commit_sha }}"
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          from scripts.run_sealed_historical_source_acquisition_v04 import (
+              _strict_provenance,
+              build_consumption_marker,
+          )
+
+          provenance = _strict_provenance(
+              repository=os.environ["GITHUB_REPOSITORY"],
+              authorization_commit_sha=os.environ["AUTHORIZATION_COMMIT_SHA"],
+              authorization_tree_sha=os.environ["AUTHORIZATION_TREE_SHA"],
+              dispatcher_workflow_sha=os.environ["DISPATCHER_WORKFLOW_SHA"],
+              dispatcher_workflow_ref=os.environ["DISPATCHER_WORKFLOW_REF"],
+              workflow_run_id=os.environ["GITHUB_RUN_ID"],
+              workflow_run_attempt=int(os.environ["GITHUB_RUN_ATTEMPT"]),
+          )
+          expected = build_consumption_marker(
+              authorization_id="sealed-historical-source-acquisition-v0.4",
+              authorization_content_sha256=os.environ["SOURCE_AUTHORIZATION_SHA256"],
+              provenance=provenance,
+              consumption_ref_name=os.environ["CONSUMPTION_REF_NAME"],
+              consumption_ref_target_sha=os.environ["AUTHORIZATION_COMMIT_SHA"],
+          )
+          observed = json.loads(Path(os.environ["ACQUISITION_ROOT"] + "/consumption.json").read_text())
+          if observed != expected:
+              raise SystemExit("consumption marker differs from durable authority")
+          PY
+
+      - name: Acquire point-in-time Massive membership
+        env:
+          MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
+        run: >-
+          python scripts/run_provider_entrypoint_v04.py
+          scripts/build_massive_historical_census.py
+          --dates $PANEL_DATES
+          --minimum-request-interval 12.5
+          --limit 1000
+          --max-pages 20
+          --skip-current-alpaca-reconciliation
+          --output "$SOURCE_ROOT"
+      - name: Freeze instrument semantics
+        run: >-
+          python scripts/run_provider_entrypoint_v04.py
+          scripts/audit_massive_instrument_metadata.py
+          --census-root "$SOURCE_ROOT"
+      - name: Freeze SIP daily coverage
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_MAIN_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_MAIN_API_SECRET }}
+        run: >-
+          python scripts/run_provider_entrypoint_v04.py
+          scripts/audit_massive_alpaca_market_coverage.py
+          --census-root "$SOURCE_ROOT"
+          --batch-size 250
+      - name: Build provider-free provisional universe
+        run: >-
+          python scripts/build_massive_provisional_universe.py
+          --census-root "$SOURCE_ROOT"
+      - name: Freeze panel identity and corporate-action normalization
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_MAIN_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_MAIN_API_SECRET }}
+          MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
+        run: >-
+          python scripts/run_provider_entrypoint_v04.py
+          scripts/audit_historical_identity_continuity.py
+          --census-root "$SOURCE_ROOT"
+          --dates 2025-05-30 2025-07-17
+          --lookback-days 120
+          --batch-size 200
+          --minimum-massive-request-interval 12.5
+          --ticker-event-sample-size 0
+      - name: Build provider-free identity-resolved universe
+        run: >-
+          python scripts/build_identity_resolved_universe.py
+          --census-root "$SOURCE_ROOT"
+      - name: Acquire split-consistent profile-union market inputs
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_MAIN_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_MAIN_API_SECRET }}
+        run: >-
+          python scripts/run_provider_entrypoint_v04.py
+          scripts/build_identity_resolved_market_discovery_v04.py
+          --census-root "$SOURCE_ROOT"
+          --dates $PANEL_DATES
+          --asset-batch-size 250
+          --gain-basis split_previous_close_split_target_close
+          --market-discovery-id causal-market-discovery-v0.3
+          --candidate-artifact-id causal-market-candidates-v0.3
+          --profile-mode historical-profile-union-v0.1
+      - name: Acquire target-date-basis causal float inputs
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_MAIN_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_MAIN_API_SECRET }}
+          SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
+        run: >-
+          python scripts/run_provider_entrypoint_v04.py
+          scripts/build_causal_float_enrichment_v04.py
+          --census-root "$SOURCE_ROOT"
+          --dates $PANEL_DATES
+          --market-discovery-id causal-market-discovery-v0.3
+          --minimum-sec-request-interval 0.2
+          --sec-attempts 3
+          --max-candidates-per-date 100
+      - name: Acquire publication-timed causal news inputs
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_MAIN_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_MAIN_API_SECRET }}
+        run: >-
+          python scripts/run_provider_entrypoint_v04.py
+          scripts/build_causal_news_enrichment_v04.py
+          --census-root "$SOURCE_ROOT"
+          --dates $PANEL_DATES
+          --news-batch-size 50
+          --news-max-pages 10
+          --max-candidates-per-date 100
+      - name: Snapshot sanitized upstream provider ledgers before long canonical acquisition
+        run: |
+          test -f "$MOMENTUMBOT_PROVIDER_REQUEST_BUDGET_FILE"
+          test -f "$MOMENTUMBOT_PROVIDER_BLOCKED_ATTEMPT_FILE"
+          cp "$MOMENTUMBOT_PROVIDER_REQUEST_BUDGET_FILE" "$CHECKPOINT_ROOT/request-budget.json"
+          cp "$MOMENTUMBOT_PROVIDER_BLOCKED_ATTEMPT_FILE" "$CHECKPOINT_ROOT/blocked-attempts.json"
+      - name: Upload reusable upstream progress before long canonical acquisition
+        id: upstream_progress_upload
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: sealed-historical-source-acquisition-v04-upstream-progress-${{ github.run_id }}-${{ github.run_attempt }}
+          path: sealed-historical-source-acquisition-v04
+          if-no-files-found: error
+          retention-days: 90
+      - name: Acquire canonical split-rank scanner source inputs
+        timeout-minutes: 150
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_MAIN_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_MAIN_API_SECRET }}
+        run: >-
+          python scripts/run_provider_entrypoint_v04.py
+          scripts/build_causal_scanner_snapshot_v04.py
+          --phase acquire-source-inputs
+          --census-root "$SOURCE_ROOT"
+          --dates $PANEL_DATES
+          --asset-batch-size 250
+          --max-candidates-per-date 100
+          --source-input-output "$SOURCE_ROOT/causal-scanner-source-inputs-v0.2"
+
+      - name: Freeze final sanitized provider ledgers without credentials
+        run: |
+          test -f "$MOMENTUMBOT_PROVIDER_REQUEST_BUDGET_FILE"
+          test -f "$MOMENTUMBOT_PROVIDER_BLOCKED_ATTEMPT_FILE"
+          cp "$MOMENTUMBOT_PROVIDER_REQUEST_BUDGET_FILE" "$CHECKPOINT_ROOT/request-budget.json"
+          cp "$MOMENTUMBOT_PROVIDER_BLOCKED_ATTEMPT_FILE" "$CHECKPOINT_ROOT/blocked-attempts.json"
+      - name: Build hash-inventoried provider checkpoint without credentials
+        run: >-
+          python scripts/build_sealed_historical_source_checkpoint_v04.py
+          --source-root "$SOURCE_ROOT"
+          --request-budget "$CHECKPOINT_ROOT/request-budget.json"
+          --blocked-attempt-ledger "$CHECKPOINT_ROOT/blocked-attempts.json"
+          --authorization "${{ inputs.authorization_path }}"
+          --authorization-commit-sha "${{ inputs.authorization_commit_sha }}"
+          --authorization-tree-sha "${{ inputs.authorization_tree_sha }}"
+          --dispatcher-workflow-sha "${{ github.workflow_sha }}"
+          --dispatcher-workflow-ref "${{ github.workflow_ref }}"
+          --environment-freeze "$CHECKPOINT_ROOT/environment/pip-freeze.txt"
+          --requirements "$CHECKPOINT_ROOT/environment/requirements-sealed-source-v04.txt"
+          --output "$CHECKPOINT_ROOT/source-checkpoint.json"
+      - name: Upload label-blind provider checkpoint before scanner freeze
+        id: provider_checkpoint_upload
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: sealed-historical-source-acquisition-v04-provider-checkpoint-${{ github.run_id }}-${{ github.run_attempt }}
+          path: sealed-historical-source-acquisition-v04
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Build sanitized failure accounting without credentials
+        if: failure() || cancelled()
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src
+        run: >-
+          python scripts/run_sealed_historical_source_acquisition_v04.py
+          --write-safe-failure
+          --authorization "${{ inputs.authorization_path }}"
+          --source-root "$SOURCE_ROOT"
+          --request-budget "$MOMENTUMBOT_PROVIDER_REQUEST_BUDGET_FILE"
+          --blocked-attempt-ledger "$MOMENTUMBOT_PROVIDER_BLOCKED_ATTEMPT_FILE"
+          --source-checkpoint "$CHECKPOINT_ROOT/source-checkpoint.json"
+          --environment-freeze "$CHECKPOINT_ROOT/environment/pip-freeze.txt"
+          --requirements "$CHECKPOINT_ROOT/environment/requirements-sealed-source-v04.txt"
+          --authorization-commit-sha "${{ inputs.authorization_commit_sha }}"
+          --authorization-tree-sha "${{ inputs.authorization_tree_sha }}"
+          --dispatcher-workflow-sha "${{ github.workflow_sha }}"
+          --dispatcher-workflow-ref "${{ github.workflow_ref }}"
+          --output "$ACQUISITION_ROOT/safe-failure.json"
+      - name: Check whether the provider checkpoint is already retained
+        if: failure() || cancelled()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          UPLOADED_CHECKPOINT_ARTIFACT_ID: ${{ steps.provider_checkpoint_upload.outputs.artifact-id }}
+        run: |
+          echo "UPLOAD_FAILURE_SOURCE=true" >> "$GITHUB_ENV"
+          if test -n "$UPLOADED_CHECKPOINT_ARTIFACT_ID"; then
+            count="1"
+          else
+            artifact_name="sealed-historical-source-acquisition-v04-provider-checkpoint-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+            count="$(gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts?name=${artifact_name}&per_page=100" --jq '.total_count')"
+          fi
+          if test "$count" -gt 0; then
+            echo "UPLOAD_FAILURE_SOURCE=false" >> "$GITHUB_ENV"
+          fi
+      - name: Preserve current source and checkpoint when no checkpoint artifact exists
+        if: (failure() || cancelled()) && env.UPLOAD_FAILURE_SOURCE == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: sealed-historical-source-acquisition-v04-failure-checkpoint-${{ github.run_id }}-${{ github.run_attempt }}
+          path: sealed-historical-source-acquisition-v04
+          if-no-files-found: error
+          retention-days: 90
+      - name: Preserve sanitized failure accounting
+        if: failure() || cancelled()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: sealed-historical-source-acquisition-v04-failure-${{ github.run_id }}-${{ github.run_attempt }}
+          path: sealed-historical-source-acquisition-v04/safe-failure.json
+          if-no-files-found: error
+          retention-days: 90
+
+  freeze:
+    if: github.event_name == 'workflow_dispatch' && github.run_attempt == 1
+    needs: [consume, acquire]
+    permissions:
+      actions: read
+      contents: read
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+          fetch-depth: 0
+          ref: ${{ inputs.authorization_commit_sha }}
+      - name: Verify exact immutable provider-free checkout and dispatcher
+        env:
+          AUTHORIZATION_COMMIT_SHA: ${{ inputs.authorization_commit_sha }}
+          AUTHORIZATION_TREE_SHA: ${{ inputs.authorization_tree_sha }}
+          AUTHORIZATION_PATH: ${{ inputs.authorization_path }}
+          DISPATCHER_WORKFLOW_SHA: ${{ github.workflow_sha }}
+          DISPATCHER_WORKFLOW_REF: ${{ github.workflow_ref }}
+          EXPECTED_AUTHORIZATION_SHA256: ${{ needs.consume.outputs.authorization_sha256 }}
+          EXPECTED_CONSUMPTION_REF_NAME: ${{ needs.consume.outputs.consumption_ref_name }}
+        run: |
+          test "$GITHUB_EVENT_NAME" = "workflow_dispatch"
+          test "$GITHUB_RUN_ATTEMPT" = "1"
+          test "$GITHUB_REPOSITORY" = "RoomyRems/momentumbot"
+          test "$GITHUB_REF" = "refs/heads/main"
+          test "$AUTHORIZATION_PATH" = "research/strategy/sealed-historical-source-acquisition-v0.4.json"
+          test "$DISPATCHER_WORKFLOW_REF" = "RoomyRems/momentumbot/.github/workflows/sealed-historical-source-acquisition-v04.yml@refs/heads/main"
+          for value in "$AUTHORIZATION_COMMIT_SHA" "$AUTHORIZATION_TREE_SHA" "$DISPATCHER_WORKFLOW_SHA"; do
+            test "${#value}" = "40"
+            case "$value" in
+              *[!0-9a-f]*) exit 1 ;;
+              *) ;;
+            esac
+          done
+          test "$(git rev-parse HEAD)" = "$AUTHORIZATION_COMMIT_SHA"
+          test "$(git rev-parse HEAD^{tree})" = "$AUTHORIZATION_TREE_SHA"
+          test "$(git rev-parse origin/phase-3-historical-snapshot)" = "$AUTHORIZATION_COMMIT_SHA"
+          test "$GITHUB_SHA" = "$DISPATCHER_WORKFLOW_SHA"
+          dispatcher_blob="$(git rev-parse "${DISPATCHER_WORKFLOW_SHA}:.github/workflows/sealed-historical-source-acquisition-v04.yml")"
+          authorized_blob="$(git hash-object .github/workflows/sealed-historical-source-acquisition-v04.yml)"
+          test "$dispatcher_blob" = "$authorized_blob"
+          test -f "$AUTHORIZATION_PATH"
+          test -f requirements-sealed-source-v04.txt
+          test -z "$(git status --porcelain --untracked-files=all)"
+          python - <<'PY'
+          import json
+          import os
+          import re
+          from pathlib import Path
+
+          payload = json.loads(Path(os.environ["AUTHORIZATION_PATH"]).read_text())
+          digest = payload.get("content_sha256")
+          if not isinstance(digest, str) or re.fullmatch(r"[0-9a-f]{64}", digest) is None:
+              raise SystemExit("authorization content hash is invalid")
+          expected_ref = (
+              "refs/tags/sealed-historical-source-acquisition-v04-consumed-"
+              f"{digest}"
+          )
+          if digest != os.environ["EXPECTED_AUTHORIZATION_SHA256"]:
+              raise SystemExit("consumption job authorization hash differs")
+          if expected_ref != os.environ["EXPECTED_CONSUMPTION_REF_NAME"]:
+              raise SystemExit("consumption job ref name differs")
+          with Path(os.environ["GITHUB_ENV"]).open("a", encoding="utf-8") as handle:
+              handle.write(f"SOURCE_AUTHORIZATION_SHA256={digest}\n")
+              handle.write(f"CONSUMPTION_REF_NAME={expected_ref}\n")
+          PY
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: "3.12"
+      - name: Download exact provider checkpoint
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: sealed-historical-source-acquisition-v04-provider-checkpoint-${{ github.run_id }}-${{ github.run_attempt }}
+          path: sealed-historical-source-acquisition-v04
+      - name: Recreate and verify exact provider-free environment
+        run: |
+          test ! -e "$GITHUB_WORKSPACE/.venv-v04"
+          python -m venv "$GITHUB_WORKSPACE/.venv-v04"
+          "$GITHUB_WORKSPACE/.venv-v04/bin/python" -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-source-v04.txt
+          echo "$GITHUB_WORKSPACE/.venv-v04/bin" >> "$GITHUB_PATH"
+          "$GITHUB_WORKSPACE/.venv-v04/bin/python" -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          "$GITHUB_WORKSPACE/.venv-v04/bin/python" -m pip check
+          "$GITHUB_WORKSPACE/.venv-v04/bin/python" -m pip freeze --all | LC_ALL=C sort > /tmp/momentumbot-sealed-historical-source-v04-freeze-pip-freeze.txt
+          cmp -s /tmp/momentumbot-sealed-historical-source-v04-freeze-pip-freeze.txt "$CHECKPOINT_ROOT/environment/pip-freeze.txt"
+          cmp -s requirements-sealed-source-v04.txt "$CHECKPOINT_ROOT/environment/requirements-sealed-source-v04.txt"
+      - name: Revalidate exact frozen authority without provider credentials
+        run: python scripts/run_sealed_historical_source_acquisition_v04.py --validate-only
+      - name: Rehash and validate downloaded provider checkpoint before scanner loading
+        run: >-
+          python scripts/build_sealed_historical_source_checkpoint_v04.py
+          --validate-existing
+          --source-root "$SOURCE_ROOT"
+          --request-budget "$CHECKPOINT_ROOT/request-budget.json"
+          --blocked-attempt-ledger "$CHECKPOINT_ROOT/blocked-attempts.json"
+          --authorization "${{ inputs.authorization_path }}"
+          --authorization-commit-sha "${{ inputs.authorization_commit_sha }}"
+          --authorization-tree-sha "${{ inputs.authorization_tree_sha }}"
+          --dispatcher-workflow-sha "${{ github.workflow_sha }}"
+          --dispatcher-workflow-ref "${{ github.workflow_ref }}"
+          --environment-freeze "$CHECKPOINT_ROOT/environment/pip-freeze.txt"
+          --requirements "$CHECKPOINT_ROOT/environment/requirements-sealed-source-v04.txt"
+          --output "$CHECKPOINT_ROOT/source-checkpoint.json"
+      - name: Freeze scanner snapshots from canonical inputs without credentials
+        run: >-
+          python scripts/build_causal_scanner_snapshot_v04.py
+          --phase freeze-snapshots
+          --census-root "$SOURCE_ROOT"
+          --dates $PANEL_DATES
+          --asset-batch-size 250
+          --max-candidates-per-date 100
+          --source-input-output "$SOURCE_ROOT/causal-scanner-source-inputs-v0.2"
+          --output "$SOURCE_ROOT/causal-scanner-snapshot-v0.3"
+      - name: Build strict deep-replay acquisition report without credentials
+        run: >-
+          python scripts/run_sealed_historical_source_acquisition_v04.py
+          --authorization "${{ inputs.authorization_path }}"
+          --source-root "$SOURCE_ROOT"
+          --request-budget "$CHECKPOINT_ROOT/request-budget.json"
+          --source-checkpoint "$CHECKPOINT_ROOT/source-checkpoint.json"
+          --environment-freeze "$CHECKPOINT_ROOT/environment/pip-freeze.txt"
+          --requirements "$CHECKPOINT_ROOT/environment/requirements-sealed-source-v04.txt"
+          --authorization-commit-sha "${{ inputs.authorization_commit_sha }}"
+          --authorization-tree-sha "${{ inputs.authorization_tree_sha }}"
+          --dispatcher-workflow-sha "${{ github.workflow_sha }}"
+          --dispatcher-workflow-ref "${{ github.workflow_ref }}"
+          --output "$ACQUISITION_ROOT/acquisition-report.json"
+      - name: Upload completed normalized canonical and audited source bundle
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: sealed-historical-source-acquisition-v04-${{ github.run_id }}-${{ github.run_attempt }}
+          path: sealed-historical-source-acquisition-v04
+          if-no-files-found: error
+          retention-days: 90
+      - name: Build sanitized provider-free failure accounting
+        if: failure() || cancelled()
+        env:
+          PYTHONPATH: ${{ github.workspace }}/src
+        run: >-
+          python scripts/run_sealed_historical_source_acquisition_v04.py
+          --write-safe-failure
+          --authorization "${{ inputs.authorization_path }}"
+          --source-root "$SOURCE_ROOT"
+          --request-budget "$CHECKPOINT_ROOT/request-budget.json"
+          --blocked-attempt-ledger "$CHECKPOINT_ROOT/blocked-attempts.json"
+          --source-checkpoint "$CHECKPOINT_ROOT/source-checkpoint.json"
+          --environment-freeze "$CHECKPOINT_ROOT/environment/pip-freeze.txt"
+          --requirements "$CHECKPOINT_ROOT/environment/requirements-sealed-source-v04.txt"
+          --authorization-commit-sha "${{ inputs.authorization_commit_sha }}"
+          --authorization-tree-sha "${{ inputs.authorization_tree_sha }}"
+          --dispatcher-workflow-sha "${{ github.workflow_sha }}"
+          --dispatcher-workflow-ref "${{ github.workflow_ref }}"
+          --output "$ACQUISITION_ROOT/safe-failure.json"
+      - name: Preserve sanitized provider-free failure accounting
+        if: failure() || cancelled()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: sealed-historical-source-acquisition-v04-freeze-failure-${{ github.run_id }}-${{ github.run_attempt }}
+          path: sealed-historical-source-acquisition-v04/safe-failure.json
+          if-no-files-found: error
+          retention-days: 90
