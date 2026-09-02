@@ -1,0 +1,215 @@
+{
+  "artifact_type": "provider_free_sealed_historical_source_recovery_v0_10_registration",
+  "artifacts": {
+    "acquisition_validator": {
+      "file_sha256": "f46f7766df86f03cf8ac1b9b3e76d0ab00c4fe13b39c4f4a9ac89d78e8089cac",
+      "path": "src/momentumbot/research/sealed_historical_source_acquisition_v10.py"
+    },
+    "alpaca_provider": {
+      "file_sha256": "1d6ba09f01e40bcc5c0da06b17f80ac41f0b7a4a9951d1688ba26f7c6c88f3a6",
+      "path": "src/momentumbot/providers/alpaca.py"
+    },
+    "artifact_metadata_fixture": {
+      "file_sha256": "7c9fc4eb943dbeb187edd9dfb7568cb03e53239e6f7636e749b11cb764a53600",
+      "path": "research/data-audits/sealed-historical-source-acquisition-v0.10-parent-artifact-metadata-2026-09-02.json"
+    },
+    "artifact_metadata_runner": {
+      "file_sha256": "af73a706f288a8a6f8dfb6e8ab66601477ed0d9cc6d056757848eb113dddb444",
+      "path": "scripts/validate_parent_artifact_metadata_v10.py"
+    },
+    "artifact_metadata_validator": {
+      "file_sha256": "090a5df5a9385bdc5edc82a356bbe3c6996278b06d9eb0e4ed63c1094827dce5",
+      "path": "src/momentumbot/research/sealed_historical_source_artifact_metadata_v10.py"
+    },
+    "authoritative_identity_rule": {
+      "file_sha256": "da62c831969601afa3d4d9c268524fa4194eb98e59d39d47eac174557ac1a55a",
+      "path": "src/momentumbot/historical_float_identity_v06.py"
+    },
+    "authorization": {
+      "file_sha256": "cb7b3f82fe4ce4cc6c7aa867916f68dfa6a1463f31ddfb07c939dd5691103c0d",
+      "path": "research/strategy/sealed-historical-source-acquisition-v0.10.json"
+    },
+    "authorization_validator": {
+      "file_sha256": "403d6ad9d51801cb2f06657bd188d5b34b4307fba68387f53fd06aecc8df0232",
+      "path": "src/momentumbot/research/sealed_historical_source_authorization_v10.py"
+    },
+    "checkpoint_builder": {
+      "file_sha256": "cdf98a08da4726cec4a14f3e351829f6fa8d809536b96a2af7e4891d30b38718",
+      "path": "scripts/build_sealed_historical_source_checkpoint_v10.py"
+    },
+    "checkpoint_validator": {
+      "file_sha256": "779f74dc8e9e79a44cf4b3dcc754074ee7dbf08ae38cf7c5a00036d6036f3c1c",
+      "path": "src/momentumbot/research/sealed_historical_source_checkpoint_v10.py"
+    },
+    "documentation": {
+      "file_sha256": "7d0c49f4c7c14d4ce7cfb51a2b3c4a905cd883355d2cc9c8c2779e64d15efc74",
+      "path": "docs/research/sealed_historical_source_acquisition_v10.md"
+    },
+    "downstream_identity_compatibility": {
+      "file_sha256": "178eb7beaeb63967d309fee09b882b91a2b705672eb5adc128e3383360b125c4",
+      "path": "src/momentumbot/historical_float_identity_v09.py"
+    },
+    "failure_audit": {
+      "file_sha256": "8e44af6b58c35983da362984dfa668936746fbe7873ab84629bcad825b510e5a",
+      "path": "research/data-audits/sealed-historical-source-acquisition-v0.9-run-33577895166-failure-2026-09-02.json"
+    },
+    "float_policy": {
+      "file_sha256": "893df774a1361f80128a3492c627249f270bb1dbc584e024ea87e4802c2d3827",
+      "path": "src/momentumbot/historical_float_v04.py"
+    },
+    "historical_data": {
+      "file_sha256": "24ae072eb53d10583afdc8210cfc01ec4372f3b41525a3019f744f0ab4b8496f",
+      "path": "src/momentumbot/historical_data_v03.py"
+    },
+    "http_transport": {
+      "file_sha256": "d576f951eb9c5865be98fb4ebc0ca04520191139ae39ff7ba06a53541e540407",
+      "path": "src/momentumbot/providers/http_json.py"
+    },
+    "identity_loader": {
+      "file_sha256": "ac3814657434b07ee5a22ac167ca034f56d00aa44faa2859d45becc57d96a89f",
+      "path": "src/momentumbot/identity_resolved_universe.py"
+    },
+    "market_loader": {
+      "file_sha256": "01c2992dd7d8765c003957021f47a3d6e689c4fe0a693b9049cdad8afa10d586",
+      "path": "src/momentumbot/causal_market_discovery_v03.py"
+    },
+    "news_policy": {
+      "file_sha256": "6927e509040418fb4cd54b812d7c0406400bc0c81087dd84d4f2d2026d9439a0",
+      "path": "src/momentumbot/historical_news.py"
+    },
+    "parent_authorization": {
+      "file_sha256": "67e7f2eb497858b255453c397bf12a7385bfaf4ad652bb80bfc6d7cbb10a40be",
+      "path": "research/strategy/sealed-historical-source-acquisition-v0.9.json"
+    },
+    "parent_registration": {
+      "file_sha256": "f16e71fe94f6ed875b5fe07d296e3d5d386159e74ec787210097ab71f3c40825",
+      "path": "research/data-audits/sealed-historical-source-acquisition-v0.9-registration-2026-09-01.json"
+    },
+    "parent_workflow": {
+      "file_sha256": "3e923d1b8ace9e7d9b910a2e743cffd8685251259fcad1694369f520d5509237",
+      "path": ".github/workflows/sealed-historical-source-acquisition-v09.yml"
+    },
+    "project_metadata": {
+      "file_sha256": "d430dd49b582c09dac25e273a11a53e4215a299e8f13ac032c8be10fff88f53d",
+      "path": "pyproject.toml"
+    },
+    "provider_transport_guard": {
+      "file_sha256": "e0fbff2919c07b261c46896f0585810ba3753ad47c25f63fe4f0a496951be441",
+      "path": "scripts/run_provider_entrypoint_v04.py"
+    },
+    "provider_wrapper": {
+      "file_sha256": "30059fa14dcee18189f10c7a1925fb57eb65e9558d037c1e89c2b395cfe5fa0a",
+      "path": "scripts/run_provider_entrypoint_v10.py"
+    },
+    "recovery_runner": {
+      "file_sha256": "07c9f7b325f13dd01cef8652e3d0bb7f5a5fd7a66272e2be0bef5318040fb45a",
+      "path": "scripts/validate_sealed_historical_source_recovery_v10.py"
+    },
+    "recovery_validator": {
+      "file_sha256": "ee8f6cd0aee6094a507d910c540292d4e7e1468c26cc0a2d5189a8403c053bad",
+      "path": "src/momentumbot/research/sealed_historical_source_recovery_v10.py"
+    },
+    "request_budget": {
+      "file_sha256": "e0a9d202d35c570709e58dd2dbabcdcc69658290398378bbb0c05335141a30ef",
+      "path": "src/momentumbot/providers/request_budget.py"
+    },
+    "requirements": {
+      "file_sha256": "0a9cce71ad0e35defb000e4b0b1a210ed9c41e84c6eb113e8ac79c242a5b52f3",
+      "path": "requirements-sealed-source-v04.txt"
+    },
+    "runner": {
+      "file_sha256": "3cacfcb71d8bd70ea96a69f043f5817a0086623f09cc79bedcef70606bce5658",
+      "path": "scripts/run_sealed_historical_source_acquisition_v10.py"
+    },
+    "rvol_alignment": {
+      "file_sha256": "40c4ab8fd4687a62bef5a122c90bc9cd9523459185b1b13ce7114e61a094fdf2",
+      "path": "src/momentumbot/scanner_rvol_alignment_v10.py"
+    },
+    "rvol_regression_test": {
+      "file_sha256": "98e89229c50df5066494053e0c9de227e31a912730f57b308f96ef20415c6361",
+      "path": "tests/test_scanner_rvol_alignment_v10.py"
+    },
+    "scanner_adapter": {
+      "file_sha256": "7500a94f55b2eee113e66b5d6ab3905a555affd74fcb38def4960a02dd45c350",
+      "path": "scripts/build_causal_scanner_snapshot_v10.py"
+    },
+    "scanner_parent": {
+      "file_sha256": "83df1dfaca1661d8fee0a7b8fa36aa51d12fa54c3a899984c47ed6b1aff9db7d",
+      "path": "scripts/build_causal_scanner_snapshot_v04.py"
+    },
+    "scanner_policy": {
+      "file_sha256": "91605152a35895d8d370667683e3ff55c1adff99ea94173a6cea490e0d9ec0b0",
+      "path": "src/momentumbot/causal_scanner_snapshot_v03.py"
+    },
+    "scanner_source_inputs": {
+      "file_sha256": "5606db1d5723f8b28324c60e0b40fdfe4377f0c909ace156cc079d940ea1f151",
+      "path": "src/momentumbot/scanner_source_inputs_v03.py"
+    },
+    "selected_dates": {
+      "file_sha256": "0ceb2dd7689e6106241dd1b5225c81f3a045a664aa6e3f9729f143ad61675e3b",
+      "path": "src/momentumbot/research/sealed_historical_availability.py"
+    },
+    "strategy_profile_union": {
+      "file_sha256": "4c2fb7d5b0f0deabdc95a7e8087cfbb3011eea207dd4e8d6ab171e3db79cb7f4",
+      "path": "src/momentumbot/historical_profile_union_v01.py"
+    },
+    "workflow": {
+      "file_sha256": "e3f5295f2f3d4c75723fcb62666f4bf8da2adceef3b8922513053d66eb248fd9",
+      "path": ".github/workflows/sealed-historical-source-acquisition-v10.yml"
+    }
+  },
+  "authority_boundary": {
+    "automatic_rerun_allowed": false,
+    "candidate_bound_databento_authorized": false,
+    "exact_commit_tree_and_dispatcher_authorization_required": true,
+    "live_order_authorized": false,
+    "manual_dispatch_required": true,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false,
+    "push_validation_provider_free": true,
+    "repository_consumption_tag_required_before_provider_access": true
+  },
+  "authorization_content_sha256": "a6519754147c39273a25b2ea818b1906dfa93ea5018edac831e2a0a7052463c7",
+  "authorization_id": "sealed-historical-source-acquisition-v0.10",
+  "causal_attestation": {
+    "account_or_order_endpoint_calls": 0,
+    "credential_values_accessed_or_observed": false,
+    "databento_calls": 0,
+    "orders_submitted": 0,
+    "provider_calls": 0,
+    "ross_labels_or_outcomes_read": false,
+    "runtime_started": false,
+    "transcript_record_values_read": false
+  },
+  "content_sha256": "8e2e4240ec517f6c2ca721aa6d13bdb4e50ff2236298dbb9fd444a7cefd5d491",
+  "frozen_parent": {
+    "authorization_content_sha256": "447c11b09206b4c19ccade6c1aae70ce5bb17e4a483db6f9581d14ee3f5f862f",
+    "failure_audit_content_sha256": "2484db2533c09d6abd08151b3538017443ebbc7ed00cbe026bf5dc08e280b7ff",
+    "failure_checkpoint_zip_sha256": "0db44af6ffe695642444e384378faf3dfb3b6be8e059c0dca7bc0ee77d589244",
+    "workflow_run_id": 33577895166
+  },
+  "registered_at_date": "2026-09-02",
+  "registration_status": "provider_free_complete_recovery_not_dispatched",
+  "repair": {
+    "blrx_sparse_timestamp_regression_passed": true,
+    "child_network_hosts": [
+      "data.alpaca.markets"
+    ],
+    "complete_market_float_and_news_source_reused": true,
+    "composite_parent_request_seed": 17844,
+    "exact_rvol_fill_interpolation_or_value_change": false,
+    "exact_rvol_projected_to_raw_bar_index": true,
+    "external_provider_ledgers_cross_bound": true,
+    "massive_identity_market_sec_float_or_news_requests_repeated": false,
+    "missing_raw_timestamp_fails_closed": true,
+    "parent_artifact_replayed_before_consumption": true,
+    "partial_parent_scanner_tape_reused": false,
+    "provider_checkpoint_before_scanner_freeze": true,
+    "provider_free_freeze_separate_job": true,
+    "scanner_source_round_trip_passed": true,
+    "strategy_profiles_or_thresholds_changed": false,
+    "third_party_environment_exact_with_commit_specific_editable_line": true,
+    "total_request_ceiling": 40000
+  },
+  "schema_version": 1
+}

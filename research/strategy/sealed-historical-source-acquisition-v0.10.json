@@ -1,0 +1,179 @@
+{
+  "artifact_type": "preregistered_sealed_historical_source_recovery_v0_10",
+  "authority_boundary": {
+    "candidate_bound_databento_authorized": false,
+    "historical_source_recovery_authorized": true,
+    "live_order_authorized": false,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false
+  },
+  "authorization_id": "sealed-historical-source-acquisition-v0.10",
+  "causal_boundary": {
+    "later_price_or_final_volume_used_at_decision_time": false,
+    "ross_actions_fills_skips_or_outcomes_may_be_read": false,
+    "strategy_threshold_or_setup_changes_allowed": false,
+    "transcript_record_values_may_be_read": false
+  },
+  "content_sha256": "a6519754147c39273a25b2ea818b1906dfa93ea5018edac831e2a0a7052463c7",
+  "cost_ceiling": {
+    "databento_calls_authorized": 0,
+    "incremental_provider_cost_usd": "0",
+    "paid_acquisition_authorized": false
+  },
+  "dispatcher_contract": {
+    "contents_write_allowed_only_in_consumption_job": true,
+    "dispatcher_blob_must_match_authorized_research_workflow": true,
+    "provider_credentials_allowed_in_consume_or_freeze_job": false,
+    "provider_free_freeze_is_separate_job": true,
+    "workflow_ref": "RoomyRems/momentumbot/.github/workflows/sealed-historical-source-acquisition-v10.yml@refs/heads/main"
+  },
+  "downstream_contract": {
+    "float_policy_id": "causal-sec-float-v0.2",
+    "market_policy_id": "causal-market-discovery-v0.3",
+    "news_policy_id": "causal-alpaca-news-v0.2",
+    "scanner_policy_id": "causal-scanner-snapshot-v0.3",
+    "scanner_source_input_id": "causal-scanner-source-inputs-v0.2",
+    "strategy_profiles_or_thresholds_changed": false
+  },
+  "execution_order_contract": [
+    "validate_v0_10_authorization_and_exact_v0_9_failure_provider_free",
+    "fetch_exact_v0_9_failure_checkpoint_metadata_once_and_validate_field_specific_receipt",
+    "download_rehash_and_replay_exact_v0_9_failure_checkpoint_before_consumption",
+    "reproduce_blrx_sparse_rvol_failure_and_complete_write_read_round_trip_provider_free",
+    "compare_parent_and_child_third_party_environments_before_consumption",
+    "create_and_upload_v0_10_consumption_marker_provider_free",
+    "atomically_create_v0_10_consumption_tag_before_provider_access",
+    "download_and_revalidate_exact_v0_9_failure_checkpoint",
+    "remove_only_the_incomplete_parent_scanner_tape",
+    "materialize_645_complete_market_float_and_news_source_files_and_seed_17844_request_ledger",
+    "acquire_only_rvol_aligned_canonical_scanner_source_inputs",
+    "upload_provider_checkpoint",
+    "download_and_rehash_checkpoint_in_separate_provider_free_job",
+    "freeze_and_exactly_replay_all_scanner_snapshots_provider_free"
+  ],
+  "failed_parent": {
+    "authorization_commit_sha": "92d8b4deceae5c2bb6edfb10016a0e05c33c8bfa",
+    "authorization_content_sha256": "447c11b09206b4c19ccade6c1aae70ce5bb17e4a483db6f9581d14ee3f5f862f",
+    "authorization_id": "sealed-historical-source-acquisition-v0.9",
+    "authorization_permanently_consumed": true,
+    "authorization_tree_sha": "d214d0990665a92ea24760a972232998378fae38",
+    "consumption_marker_zip_sha256": "45ffd55148274751a71d51f5d43b26d99fd828ad8ed29fa96afc0f70a3ed4049",
+    "dispatcher_workflow_sha": "b92a236dc92e8311c70c1b76ab657cea809fbe90",
+    "failure_audit_content_sha256": "2484db2533c09d6abd08151b3538017443ebbc7ed00cbe026bf5dc08e280b7ff",
+    "failure_checkpoint_artifact_id": 9827444933,
+    "failure_checkpoint_artifact_name": "sealed-historical-source-acquisition-v09-failure-checkpoint-33577895166-1",
+    "failure_checkpoint_zip_sha256": "0db44af6ffe695642444e384378faf3dfb3b6be8e059c0dca7bc0ee77d589244",
+    "failure_summary_zip_sha256": "abfc32a08bc0995b7ee23ebdf8ebd3d2def7f1227273e3ddd8a80ee174718ffe",
+    "source_candidate_count": 946,
+    "source_file_count": 646,
+    "source_float_record_count": 946,
+    "source_retained_bytes": 544738038,
+    "source_tree_content_sha256": "60113df5eb307e3c5f31ab075017c9cca4e1da70c2177de40c26df7bed7a5f9f",
+    "upstream_progress_zip_sha256": "9442dd289f7ae5bf8413159cde1cbc15f913d51b38d959e5e9eed4b7316cc40b",
+    "workflow_run_attempt": 1,
+    "workflow_run_id": 33577895166
+  },
+  "one_shot_contract": {
+    "authorization_consumed_before_provider_access": true,
+    "automatic_rerun_allowed": false,
+    "manual_workflow_dispatch_required": true,
+    "prior_authorization_reruns_allowed": {
+      "v0.1": false,
+      "v0.2": false,
+      "v0.3": false,
+      "v0.4": false,
+      "v0.5": false,
+      "v0.6": false,
+      "v0.7": false,
+      "v0.8": false,
+      "v0.9": false
+    },
+    "provider_substitution_allowed": false,
+    "push_or_schedule_provider_access_allowed": false,
+    "repository_consumption_tag_deletion_allowed": false,
+    "repository_consumption_tag_prefix": "refs/tags/sealed-historical-source-acquisition-v10-consumed-",
+    "workflow_run_attempt_required": 1
+  },
+  "provider_entrypoint_contract": {
+    "all_network_capable_scripts_use_wrapper": true,
+    "allowed_entrypoints": [
+      "scripts/build_causal_scanner_snapshot_v10.py"
+    ],
+    "ambient_proxy_use_allowed": false,
+    "child_network_hosts": [
+      "data.alpaca.markets"
+    ],
+    "direct_socket_or_process_escape_allowed": false,
+    "massive_identity_market_sec_float_or_news_entrypoint_allowed": false,
+    "redirects_allowed": false,
+    "wrapper_path": "scripts/run_provider_entrypoint_v10.py"
+  },
+  "recovery_contract": {
+    "complete_parent_market_float_and_news_source_reused": true,
+    "failure_checkpoint_artifact_downloaded_from_exact_parent_run": true,
+    "incomplete_parent_scanner_tape_removed_before_recovery": true,
+    "normalized_parent_source_reused_exactly_except_partial_scanner_tape": true,
+    "parent_identity_or_market_provider_requests_repeated": false,
+    "parent_identity_market_float_or_news_provider_requests_repeated": false,
+    "parent_source_recovery_receipt_content_sha256": "776470b9616c582b229f9e0118c0a31338639f17c33878676c85997ab3d3d750",
+    "raw_parent_provider_responses_present_or_reused": false,
+    "resume_stage": "canonical_split_rank_scanner_source_inputs"
+  },
+  "registered_at_date": "2026-09-02",
+  "repair_boundary": {
+    "all_946_candidates_and_float_records_preflighted_before_consumption": true,
+    "blrx_177_raw_vs_359_dense_timestamp_case_reproduced": true,
+    "candidate_identity_or_float_values_rewritten": false,
+    "complete_scanner_source_write_read_round_trip_required": true,
+    "downloaded_zip_sha256_matches_frozen_artifact_metadata": true,
+    "exact_rvol_fill_or_interpolation_allowed": false,
+    "exact_rvol_missing_raw_timestamp_allowed": false,
+    "exact_rvol_projected_to_corresponding_raw_bar_index": true,
+    "exact_rvol_values_changed": false,
+    "field_specific_sanitized_artifact_metadata_diagnostics": true,
+    "frozen_real_artifact_metadata_fixture_required": true,
+    "parent_artifact_metadata_fetched_once_per_gate": true,
+    "partial_parent_scanner_tape_reused": false,
+    "raw_provider_response_persisted": false,
+    "strategy_float_news_scanner_or_micro_policy_changed": false,
+    "transport_http_pagination_budget_authorization_or_artifact_error_remains_fatal": true
+  },
+  "reproducibility_environment_contract": {
+    "clean_cpython_3_12_virtual_environment_required_per_job": true,
+    "editable_project_lines_must_match_respective_authorized_commits": true,
+    "parent_artifact_full_replay_required_before_consumption": true,
+    "parent_third_party_environment_freeze_must_match": true,
+    "pip_check_required": true,
+    "requirements_hashes_and_binary_wheels_required": true,
+    "requirements_path": "requirements-sealed-source-v04.txt"
+  },
+  "request_budget": {
+    "allowed_hosts": [
+      "api.massive.com",
+      "data.alpaca.markets",
+      "data.sec.gov"
+    ],
+    "candidate_operational_ceiling_per_date": 100,
+    "child_massive_calls_authorized": 0,
+    "child_news_calls_authorized": 0,
+    "child_sec_calls_authorized": 0,
+    "composite_parent_attempts_by_host": {
+      "api.massive.com": 363,
+      "data.alpaca.markets": 16153,
+      "data.sec.gov": 1328
+    },
+    "composite_parent_total_attempts": 17844,
+    "maximum_total_http_attempts_including_parent_and_child_retries": 40000,
+    "new_attempts_increment_parent_seed": true
+  },
+  "retention_budget": {
+    "artifact_retention_days": 90,
+    "maximum_retained_bytes": 1500000000,
+    "normalized_parent_source_persisted": true,
+    "pinned_requirements_and_environment_persisted": true,
+    "pre_scanner_source_checkpoint_persisted": true,
+    "raw_provider_http_responses_persisted": false,
+    "sanitized_candidate_normalization_diagnostics_persisted": true
+  },
+  "schema_version": 1
+}

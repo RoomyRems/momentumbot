@@ -1,0 +1,118 @@
+{
+  "artifact_type": "sealed_historical_source_acquisition_v0_9_permanent_failure_audit",
+  "causal_attestation": {
+    "account_or_order_endpoint_called": false,
+    "automatic_rerun_allowed": false,
+    "authorization_consumed": true,
+    "databento_called": false,
+    "order_submitted": false,
+    "provider_called": true,
+    "provider_substitution_occurred": false,
+    "ross_labels_or_outcomes_read": false,
+    "strategy_micro_or_account_policy_changed": false,
+    "transcript_record_values_read": false
+  },
+  "conclusion": "fail_closed_exact_rvol_raw_bar_index_contract_mismatch",
+  "content_sha256": "2484db2533c09d6abd08151b3538017443ebbc7ed00cbe026bf5dc08e280b7ff",
+  "failure": {
+    "completed_before_failure": [
+      "all_30_market_discovery_dates",
+      "all_30_float_dates",
+      "all_30_news_dates",
+      "all_946_candidate_records",
+      "all_946_float_records",
+      "2025_05_30_membership_records",
+      "2025_05_30_previous_close_records",
+      "2025_05_30_rank_split_bar_records",
+      "2025_05_30_raw_candidate_bar_records"
+    ],
+    "failed_job": "acquire",
+    "failed_stage": "Acquire canonical split-rank scanner source inputs",
+    "first_candidate_symbol": "BLRX",
+    "first_trading_date": "2025-05-30",
+    "provider_credentials_valid": true,
+    "root_cause": "the exact-RVOL adapter emitted the intended complete minute grid while the canonical source writer required its timestamps to equal the raw candidate-bar timestamps; BLRX raw bars began at the first observed trade minute",
+    "safe_repair": "create an immutable v0.10 child that removes the incomplete parent scanner tape and projects each exact-RVOL series onto its corresponding raw candidate-bar index before the frozen canonical writer, without filling, interpolation, or value changes"
+  },
+  "frozen_authority": {
+    "authorization_commit_sha": "92d8b4deceae5c2bb6edfb10016a0e05c33c8bfa",
+    "authorization_content_sha256": "447c11b09206b4c19ccade6c1aae70ce5bb17e4a483db6f9581d14ee3f5f862f",
+    "authorization_id": "sealed-historical-source-acquisition-v0.9",
+    "authorization_path": "research/strategy/sealed-historical-source-acquisition-v0.9.json",
+    "authorization_permanently_consumed": true,
+    "authorization_tree_sha": "d214d0990665a92ea24760a972232998378fae38",
+    "consumption_ref_name": "refs/tags/sealed-historical-source-acquisition-v09-consumed-447c11b09206b4c19ccade6c1aae70ce5bb17e4a483db6f9581d14ee3f5f862f",
+    "consumption_ref_target_sha": "92d8b4deceae5c2bb6edfb10016a0e05c33c8bfa",
+    "dispatcher_workflow_sha": "b92a236dc92e8311c70c1b76ab657cea809fbe90"
+  },
+  "partial_scanner_evidence": {
+    "candidate_exact_rvol_records": 0,
+    "candidate_raw_bar_records": 3078,
+    "first_candidate_raw_first_timestamp": "2025-05-30T11:02:00+00:00",
+    "first_candidate_raw_last_timestamp": "2025-05-30T13:58:00+00:00",
+    "first_candidate_raw_timestamp_count": 177,
+    "first_candidate_raw_timestamps_sha256": "e8899e681460b9e504b3c28e62849820afca44c60ee6db2d8f5020cc06a5f9cc",
+    "manifest_completed": false,
+    "membership_records": 5421,
+    "partial_file_sha256": "076fe05c8101f70679c884f6fc84c65cdd8fa78b6d378aa34022eb094f144377",
+    "partial_file_size_bytes": 782310,
+    "previous_close_records": 5421,
+    "rank_split_close_bar_records": 136018
+  },
+  "preserved_artifacts": {
+    "consumption_marker": {
+      "artifact_id": 9827324985,
+      "zip_sha256": "45ffd55148274751a71d51f5d43b26d99fd828ad8ed29fa96afc0f70a3ed4049"
+    },
+    "failure_checkpoint": {
+      "artifact_id": 9827444933,
+      "artifact_name": "sealed-historical-source-acquisition-v09-failure-checkpoint-33577895166-1",
+      "file_count": 654,
+      "source_file_count": 646,
+      "source_retained_bytes": 544738038,
+      "source_tree_content_sha256": "60113df5eb307e3c5f31ab075017c9cca4e1da70c2177de40c26df7bed7a5f9f",
+      "zip_sha256": "0db44af6ffe695642444e384378faf3dfb3b6be8e059c0dca7bc0ee77d589244"
+    },
+    "sanitized_failure": {
+      "artifact_id": 9827445335,
+      "content_sha256": "812621e6b2c79574ecf8b5ccf14d67050179cccb2d619e3fa047a4a8e16da562",
+      "zip_sha256": "abfc32a08bc0995b7ee23ebdf8ebd3d2def7f1227273e3ddd8a80ee174718ffe"
+    },
+    "upstream_progress": {
+      "artifact_id": 9827348767,
+      "zip_sha256": "9442dd289f7ae5bf8413159cde1cbc15f913d51b38d959e5e9eed4b7316cc40b"
+    }
+  },
+  "provider_accounting": {
+    "blocked_attempts": 0,
+    "child_attempts": 304,
+    "maximum_total_http_attempts": 40000,
+    "observed_attempts_by_host": {
+      "api.massive.com": 363,
+      "data.alpaca.markets": 16153,
+      "data.sec.gov": 1328
+    },
+    "observed_total_http_attempts": 17844,
+    "remaining_attempts": 22156,
+    "unauthorized_hosts_detected": []
+  },
+  "repair_boundary": {
+    "complete_market_float_and_news_source_must_be_reused": true,
+    "exact_rvol_values_dates_thresholds_or_strategy_rules_may_change": false,
+    "fill_or_interpolation_allowed": false,
+    "missing_rvol_at_a_raw_bar_timestamp_must_fail": true,
+    "partial_parent_scanner_tape_may_be_promoted": false,
+    "provider_free_sparse_timestamp_round_trip_required": true,
+    "scanner_source_recovery_may_use_alpaca_only": true,
+    "v0_9_may_be_rerun": false
+  },
+  "schema_version": 1,
+  "workflow": {
+    "attempt": 1,
+    "event": "workflow_dispatch",
+    "head_branch": "main",
+    "head_sha": "b92a236dc92e8311c70c1b76ab657cea809fbe90",
+    "run_id": 33577895166,
+    "status": "failure"
+  }
+}

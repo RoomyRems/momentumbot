@@ -68,13 +68,26 @@ downloaded, archive-verified ZIP hash to
 No v0.8 tag or run artifact exists and the inherited request ledger remains
 17,540 of 40,000. v0.8 may not be rerun.
 
-The active local repair is v0.9. It freezes the terminal v0.8 evidence,
-corrects only the parent ZIP provenance value, and registration-binds a frozen
-sanitized live-metadata fixture plus the independently recomputed ZIP digest.
-The exact v0.6 checkpoint, all-946 identity/float preflight, temporary
-downstream compatibility scope, Alpaca-only child route, request seed, separate
-provider-free freeze and every strategy boundary are unchanged. v0.9 is not
-published, consumed or dispatched.
+v0.9 was published and dispatched once as run `33577895166`. It passed every
+provider-free gate, permanently consumed its authorization, completed all 30
+news dates, and failed during canonical scanner-source serialization on the
+first candidate, BLRX. The exact-RVOL adapter emitted its intended 359-minute
+grid while the raw candidate bars had 177 observed timestamps; the frozen
+writer incorrectly required identical indexes before persisting the RVOL values
+that the scanner already reads only at raw-bar timestamps. This was a
+deterministic adapter contract mismatch, not a provider, credential, or budget
+failure. The terminal ledger is 17,844 of 40,000 requests: 363 Massive, 16,153
+Alpaca and 1,328 SEC.
+
+The active local repair is v0.10. It binds the exact 654-file v0.9 failure
+checkpoint, removes only the incomplete one-file scanner directory, and
+revalidates the remaining 645-file market/float/news source across all 30 dates
+and 946 candidates. Its additive adapter projects exact RVOL onto each raw-bar
+index without fill, interpolation, or value change; missing raw timestamps
+remain fatal. A provider-free BLRX regression reproduces the failure and proves
+a complete canonical write/read round trip. v0.10 exposes only the scanner
+builder through the Alpaca-only provider guard, so market, float, and news
+requests cannot repeat. It is not published, consumed, or dispatched.
 Candidate-bound Micro or Databento acquisition and transcript-label review
 remain blocked.
 
