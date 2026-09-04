@@ -1,0 +1,153 @@
+{
+  "artifact_type": "provider_free_sealed_historical_source_recovery_v0_12_registration",
+  "artifacts": {
+    "artifact_metadata_fixture": {
+      "file_sha256": "5d2e3f7bd8d0d214207058829b5b5b96b00a00e259c8cd5e84bd4f2dfffd071d",
+      "path": "research/data-audits/sealed-historical-source-acquisition-v0.11-parent-artifact-metadata-2026-09-04.json"
+    },
+    "artifact_metadata_runner": {
+      "file_sha256": "33b0939143d57c684f944b496a215f54fc33e7a2aa0554366bdde7fdaa0ac75f",
+      "path": "scripts/validate_parent_artifact_metadata_v11.py"
+    },
+    "artifact_metadata_validator": {
+      "file_sha256": "bd3aaae1dbc868ee34fa962aa70ae360808d1e8c24f97ceadb44feb9d718c5f4",
+      "path": "src/momentumbot/research/sealed_historical_source_artifact_metadata_v11.py"
+    },
+    "authorization": {
+      "file_sha256": "30aae23678dd6b86364cdcdc02a41ff4bdeb65d17979bda078acbc1ed106de9c",
+      "path": "research/strategy/sealed-historical-source-acquisition-v0.12.json"
+    },
+    "authorization_validator": {
+      "file_sha256": "385ce7c50b5767d2143d39f6ee09f74dcc6fe32d238ee24e169194674d27be08",
+      "path": "src/momentumbot/research/sealed_historical_source_authorization_v12.py"
+    },
+    "data_parent_failure_audit": {
+      "file_sha256": "f13b73cf6c1d3c312568fe76585cca827bedb2986018f3896facef97c4fae3d6",
+      "path": "research/data-audits/sealed-historical-source-acquisition-v0.10-run-33706372901-failure-2026-09-04.json"
+    },
+    "documentation": {
+      "file_sha256": "d4a8a9022b060ae4dc92ea833b025d3621022fbff97a3d2892c744023de3c08e",
+      "path": "docs/research/sealed_historical_source_acquisition_v12.md"
+    },
+    "failed_execution_audit": {
+      "file_sha256": "03acea4d48223f82298e30dd9901c7b50ce94ae21e7e9a15dc7b7fa185d1a0a2",
+      "path": "research/data-audits/sealed-historical-source-acquisition-v0.11-run-33928334660-failure-2026-09-04.json"
+    },
+    "failed_execution_authorization": {
+      "file_sha256": "562265275283296cc7447b7094003aa704e4bfe8b9c67b0cd2b2ef647a786dc0",
+      "path": "research/strategy/sealed-historical-source-acquisition-v0.11.json"
+    },
+    "failed_execution_workflow": {
+      "file_sha256": "17575e9cb7179c818270ec3f5083d2942d52c24cd09a8de8a9c88d34a2a6cf60",
+      "path": ".github/workflows/sealed-historical-source-acquisition-v11.yml"
+    },
+    "final_identity_adapter": {
+      "file_sha256": "680aad54f59d5f7c30c65faa46eb00673c892d44250d146f5d16115afef44750",
+      "path": "src/momentumbot/historical_float_identity_v11.py"
+    },
+    "final_report": {
+      "file_sha256": "97267a89c21715647f2632a80dd5b33c170404dddfad9025b670fc9eafaab505",
+      "path": "src/momentumbot/research/sealed_historical_source_acquisition_v12.py"
+    },
+    "historical_float_parent": {
+      "file_sha256": "893df774a1361f80128a3492c627249f270bb1dbc584e024ea87e4802c2d3827",
+      "path": "src/momentumbot/historical_float_v04.py"
+    },
+    "parent_authoritative_identity_rule": {
+      "file_sha256": "da62c831969601afa3d4d9c268524fa4194eb98e59d39d47eac174557ac1a55a",
+      "path": "src/momentumbot/historical_float_identity_v06.py"
+    },
+    "parent_checkpoint_validator": {
+      "file_sha256": "779f74dc8e9e79a44cf4b3dcc754074ee7dbf08ae38cf7c5a00036d6036f3c1c",
+      "path": "src/momentumbot/research/sealed_historical_source_checkpoint_v10.py"
+    },
+    "parent_downstream_identity_adapter": {
+      "file_sha256": "178eb7beaeb63967d309fee09b882b91a2b705672eb5adc128e3383360b125c4",
+      "path": "src/momentumbot/historical_float_identity_v09.py"
+    },
+    "parent_scanner_adapter": {
+      "file_sha256": "7500a94f55b2eee113e66b5d6ab3905a555affd74fcb38def4960a02dd45c350",
+      "path": "scripts/build_causal_scanner_snapshot_v10.py"
+    },
+    "parent_workflow": {
+      "file_sha256": "e3f5295f2f3d4c75723fcb62666f4bf8da2adceef3b8922513053d66eb248fd9",
+      "path": ".github/workflows/sealed-historical-source-acquisition-v10.yml"
+    },
+    "requirements": {
+      "file_sha256": "0a9cce71ad0e35defb000e4b0b1a210ed9c41e84c6eb113e8ac79c242a5b52f3",
+      "path": "requirements-sealed-source-v04.txt"
+    },
+    "runner": {
+      "file_sha256": "cd5233ef63ce6bef38b0f16a9c9b87cf8034d67ee1e1ca7f8d17ab8a15625ef8",
+      "path": "scripts/run_sealed_historical_source_acquisition_v12.py"
+    },
+    "workflow": {
+      "file_sha256": "7a6ec6eb3c8031bc022340a73408b837d75e03b20338845787f6b87df0679f39",
+      "path": ".github/workflows/sealed-historical-source-acquisition-v12.yml"
+    },
+    "workflow_regression_test": {
+      "file_sha256": "9b756daa8384b94836930c45232cb1258a3134462cfab8c525e826a62a55f95e",
+      "path": "tests/test_sealed_historical_source_workflow_v12.py"
+    }
+  },
+  "authority_boundary": {
+    "automatic_rerun_allowed": false,
+    "candidate_bound_databento_authorized": false,
+    "exact_commit_tree_and_dispatcher_authorization_required": true,
+    "live_order_authorized": false,
+    "manual_dispatch_required": true,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false,
+    "provider_credentials_allowed": false,
+    "push_validation_provider_free": true
+  },
+  "authorization_content_sha256": "a44c675ca2ad1c164eb5d868a74e779ed300580eb93ee643ce5c2a31c42c2c1a",
+  "authorization_id": "sealed-historical-source-acquisition-v0.12",
+  "causal_attestation": {
+    "account_or_order_endpoint_calls": 0,
+    "credential_values_accessed_or_observed": false,
+    "databento_calls": 0,
+    "orders_submitted": 0,
+    "provider_calls": 0,
+    "ross_labels_or_outcomes_read": false,
+    "runtime_started": false,
+    "transcript_record_values_read": false
+  },
+  "content_sha256": "d31230d10d31232cb86b1285bb03d6afd47d5042fdbfe99469048a9d7fc7f372",
+  "failed_execution": {
+    "authorization_content_sha256": "135f67d754d5d3c0f7fbb9aaf57b6acb2c9034bf861540c5b610d880754816b8",
+    "failure_artifact_id": 9957636441,
+    "failure_audit_content_sha256": "c901ff41eda568af3941d4e91adac65b4d7e9d519d2377a8a96e161c734b4a82",
+    "provider_calls": 0,
+    "safe_failure_content_sha256": "f30b6cb90b73de8f07fbb8beea360cac5791d21b049522e75320f7c1fbfa8234",
+    "workflow_run_id": 33928334660
+  },
+  "frozen_parent": {
+    "authorization_content_sha256": "a6519754147c39273a25b2ea818b1906dfa93ea5018edac831e2a0a7052463c7",
+    "failure_audit_content_sha256": "d793a0fe5d9e4e1d0b9bf77edf8f164eb58860724aa4b6a7e3d09ec4f1fc03c5",
+    "provider_checkpoint_artifact_id": 9877181150,
+    "provider_checkpoint_content_sha256": "fef36fbcf2844f1da8510572a95c2f2978509bd2b021d2227c03c5ba5f3466f9",
+    "provider_checkpoint_zip_sha256": "b13bb68c5c231ba51b73c63d2a0d7e73fa78a0a837d4e35b94a55ddf5006b3b3",
+    "workflow_run_id": 33706372901
+  },
+  "registered_at_date": "2026-09-04",
+  "registration_status": "provider_free_freeze_recovery_not_dispatched",
+  "repair": {
+    "all_946_candidates_and_float_records_preflighted": true,
+    "authoritative_identity_kind_counts": {
+      "composite_figi": 737,
+      "unique_cik_fallback": 209
+    },
+    "candidate_identity_or_float_values_rewritten": false,
+    "exact_v0_10_provider_checkpoint_reused": true,
+    "final_summarizer_only_scope": true,
+    "identity_validator_restored_after_success_or_exception": true,
+    "same_step_environment_comparison_uses_explicit_v0_12_interpreter": true,
+    "provider_requests_repeated": false,
+    "scanner_snapshots_rebuilt_from_canonical_inputs_only": true,
+    "strategy_profiles_or_thresholds_changed": false,
+    "v0_11_rerun_allowed": false,
+    "workflow_only_repair": true
+  },
+  "schema_version": 1
+}

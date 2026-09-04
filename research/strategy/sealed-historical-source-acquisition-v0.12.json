@@ -1,0 +1,151 @@
+{
+  "artifact_type": "preregistered_sealed_historical_source_freeze_recovery_v0_12",
+  "authority_boundary": {
+    "candidate_bound_databento_authorized": false,
+    "historical_provider_access_authorized": false,
+    "label_blind_source_freeze_authorized": true,
+    "live_order_authorized": false,
+    "paper_order_authorized": false,
+    "policy_promotion_eligible": false
+  },
+  "authorization_id": "sealed-historical-source-acquisition-v0.12",
+  "causal_boundary": {
+    "later_price_or_final_volume_used_at_decision_time": false,
+    "ross_actions_fills_skips_or_outcomes_may_be_read": false,
+    "strategy_threshold_or_setup_changes_allowed": false,
+    "transcript_record_values_may_be_read": false
+  },
+  "content_sha256": "a44c675ca2ad1c164eb5d868a74e779ed300580eb93ee643ce5c2a31c42c2c1a",
+  "cost_ceiling": {
+    "databento_calls_authorized": 0,
+    "incremental_provider_cost_usd": "0",
+    "paid_acquisition_authorized": false
+  },
+  "dispatcher_contract": {
+    "contents_write_allowed": false,
+    "dispatcher_blob_must_match_authorized_research_workflow": true,
+    "provider_credentials_allowed_in_any_job": false,
+    "workflow_ref": "RoomyRems/momentumbot/.github/workflows/sealed-historical-source-acquisition-v12.yml@refs/heads/main"
+  },
+  "downstream_contract": {
+    "float_policy_id": "causal-sec-float-v0.2",
+    "market_policy_id": "causal-market-discovery-v0.3",
+    "news_policy_id": "causal-alpaca-news-v0.2",
+    "scanner_policy_id": "causal-scanner-snapshot-v0.3",
+    "scanner_source_input_id": "causal-scanner-source-inputs-v0.2",
+    "strategy_profiles_or_thresholds_changed": false
+  },
+  "execution_order_contract": [
+    "validate_v0_12_authorization_and_exact_v0_11_failure_provider_free",
+    "fetch_exact_v0_10_provider_checkpoint_metadata_once",
+    "download_exact_v0_10_provider_checkpoint",
+    "rehash_and_deeply_validate_all_706_checkpoint_source_files",
+    "compare_v0_10_and_v0_12_third_party_environments_with_explicit_v0_12_interpreter",
+    "freeze_all_30_scanner_snapshots_from_canonical_inputs_provider_free",
+    "preflight_all_946_authoritative_candidate_and_float_identities",
+    "scope_identity_compatibility_only_around_final_source_deep_replay",
+    "restore_legacy_identity_validator",
+    "upload_completed_767_file_label_blind_source_bundle"
+  ],
+  "failed_parent": {
+    "acquisition_job_succeeded": true,
+    "authorization_commit_sha": "652db5675a35b6f455aa0d924aa50428dd995280",
+    "authorization_content_sha256": "a6519754147c39273a25b2ea818b1906dfa93ea5018edac831e2a0a7052463c7",
+    "authorization_id": "sealed-historical-source-acquisition-v0.10",
+    "authorization_permanently_consumed": true,
+    "authorization_tree_sha": "48092229da6a5cf2dd24de6fe4f98584e6de68e3",
+    "dispatcher_workflow_sha": "8b920876d9a513f31d6fdb6795c4155a2c1a1519",
+    "failure_audit_content_sha256": "d793a0fe5d9e4e1d0b9bf77edf8f164eb58860724aa4b6a7e3d09ec4f1fc03c5",
+    "freeze_job_failed_after_scanner_snapshot_completion": true,
+    "provider_checkpoint_artifact_id": 9877181150,
+    "provider_checkpoint_artifact_name": "sealed-historical-source-acquisition-v10-provider-checkpoint-33706372901-1",
+    "provider_checkpoint_zip_sha256": "b13bb68c5c231ba51b73c63d2a0d7e73fa78a0a837d4e35b94a55ddf5006b3b3",
+    "safe_failure_zip_sha256": "f19b19cbb90b7fef6ee3cac6aee37cbc0709437e30aeafbb2c9ef166c9e1eebe",
+    "workflow_run_attempt": 1,
+    "workflow_run_id": 33706372901
+  },
+  "failed_execution": {
+    "authorization_commit_sha": "bad5bfb048f3e4d5690038dfc4dd7c9c0968ea63",
+    "authorization_content_sha256": "135f67d754d5d3c0f7fbb9aaf57b6acb2c9034bf861540c5b610d880754816b8",
+    "authorization_id": "sealed-historical-source-acquisition-v0.11",
+    "authorization_tree_sha": "e8bb6290721a93f0904012363ebdff34313ce3e3",
+    "dispatcher_workflow_sha": "1a4f9f7bf483c139c4d656b2ab0a23279e8cf769",
+    "failure_artifact_id": 9957636441,
+    "failure_artifact_zip_sha256": "8b62a18458e05391029ef918833016b5fc62024fda5f333b3f1a710b752aa378",
+    "failure_audit_content_sha256": "c901ff41eda568af3941d4e91adac65b4d7e9d519d2377a8a96e161c734b4a82",
+    "failed_before_checkpoint_deep_validation": true,
+    "provider_calls": 0,
+    "safe_failure_content_sha256": "f30b6cb90b73de8f07fbb8beea360cac5791d21b049522e75320f7c1fbfa8234",
+    "workflow_run_attempt": 1,
+    "workflow_run_id": 33928334660
+  },
+  "one_shot_contract": {
+    "automatic_rerun_allowed": false,
+    "manual_workflow_dispatch_required": true,
+    "parent_authorization_rerun_allowed": false,
+    "provider_consumption_tag_required": false,
+    "push_execution_limited_to_provider_free_validation": true,
+    "workflow_run_attempt_required": 1
+  },
+  "provider_free_contract": {
+    "allowed_provider_entrypoints": [],
+    "ambient_proxy_use_allowed": false,
+    "brokerage_or_market_provider_hosts_allowed": [],
+    "credential_environment_variables_allowed": [],
+    "direct_socket_or_process_escape_allowed": false,
+    "github_artifact_download_only": true,
+    "provider_calls_authorized": 0
+  },
+  "recovery_contract": {
+    "parent_checkpoint_source_checkpoint_content_sha256": "fef36fbcf2844f1da8510572a95c2f2978509bd2b021d2227c03c5ba5f3466f9",
+    "parent_checkpoint_source_file_count": 706,
+    "parent_checkpoint_source_retained_bytes": 572044578,
+    "parent_checkpoint_source_tree_content_sha256": "dc95bb478bcb7fdb1b230fa4885402228c82f8614c80fe975a23510ec1922a48",
+    "parent_provider_checkpoint_downloaded_from_exact_run": true,
+    "parent_provider_checkpoint_reused_exactly": true,
+    "provider_requests_repeated": false,
+    "resume_stage": "provider_free_scanner_snapshot_and_final_deep_replay"
+  },
+  "registered_at_date": "2026-09-04",
+  "repair_boundary": {
+    "all_946_candidates_and_float_records_preflighted": true,
+    "authoritative_identity_kinds": [
+      "composite_figi",
+      "unique_cik_fallback"
+    ],
+    "candidate_identity_or_float_values_rewritten": false,
+    "final_summarizer_only_scope": true,
+    "identity_compatibility_restored_after_exception": true,
+    "same_step_environment_comparison_uses_explicit_v0_12_interpreter": true,
+    "scanner_snapshot_values_recomputed_from_frozen_canonical_inputs_only": true,
+    "strategy_float_news_scanner_or_micro_policy_changed": false
+  },
+  "reproducibility_environment_contract": {
+    "clean_cpython_3_12_virtual_environment_required_per_job": true,
+    "editable_project_lines_must_match_respective_authorized_commits": true,
+    "parent_checkpoint_full_replay_required": true,
+    "parent_third_party_environment_freeze_must_match": true,
+    "pip_check_required": true,
+    "requirements_hashes_and_binary_wheels_required": true,
+    "requirements_path": "requirements-sealed-source-v04.txt"
+  },
+  "request_accounting": {
+    "additional_provider_http_attempts_authorized": 0,
+    "blocked_attempts": 0,
+    "frozen_attempts_by_host": {
+      "api.massive.com": 363,
+      "data.alpaca.markets": 28831,
+      "data.sec.gov": 1328
+    },
+    "frozen_total_attempts": 30522,
+    "maximum_parent_http_attempts": 40000
+  },
+  "retention_budget": {
+    "artifact_retention_days": 90,
+    "maximum_retained_bytes": 1500000000,
+    "normalized_source_persisted": true,
+    "pinned_requirements_and_environment_persisted": true,
+    "raw_provider_http_responses_persisted": false
+  },
+  "schema_version": 1
+}

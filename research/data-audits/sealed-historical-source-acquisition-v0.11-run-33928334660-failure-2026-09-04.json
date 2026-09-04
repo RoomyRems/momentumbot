@@ -1,0 +1,71 @@
+{
+  "artifact_type": "sealed_historical_source_acquisition_v0_11_failure_audit",
+  "audited_at_date": "2026-09-04",
+  "causal_attestation": {
+    "account_or_order_endpoint_calls": 0,
+    "credential_values_accessed_or_observed": false,
+    "databento_calls": 0,
+    "orders_submitted": 0,
+    "provider_calls": 0,
+    "ross_labels_or_outcomes_read": false,
+    "transcript_record_values_read": false
+  },
+  "conclusion": "fail_closed_same_step_virtualenv_interpreter_scope_mismatch",
+  "content_sha256": "c901ff41eda568af3941d4e91adac65b4d7e9d519d2377a8a96e161c734b4a82",
+  "failure": {
+    "exception_message": "No module named 'momentumbot'",
+    "exception_type": "ModuleNotFoundError",
+    "failed_job": "freeze",
+    "failed_step": "Recreate and compare exact provider-free environment",
+    "narrow_repair": "invoke_the_explicit_v0_12_virtualenv_python_for_the_same_step_environment_comparison",
+    "root_cause": "github_path_updates_apply_only_to_later_steps_but_the_same_step_environment_comparison_invoked_plain_python"
+  },
+  "failure_artifact": {
+    "artifact_id": 9957636441,
+    "artifact_name": "sealed-historical-source-acquisition-v11-failure-33928334660-1",
+    "archive_size_bytes": 854,
+    "expires_at": "2026-12-03T23:08:17Z",
+    "safe_failure_content_sha256": "f30b6cb90b73de8f07fbb8beea360cac5791d21b049522e75320f7c1fbfa8234",
+    "safe_failure_file_sha256": "94b159bb7346589b061d65cef0c9f2ae49492432b76b1042a6984e0827b6b721",
+    "safe_failure_size_bytes": 1461,
+    "zip_sha256": "8b62a18458e05391029ef918833016b5fc62024fda5f333b3f1a710b752aa378"
+  },
+  "parent_provider_checkpoint": {
+    "artifact_download_succeeded": true,
+    "artifact_id": 9877181150,
+    "artifact_metadata_validation_succeeded": true,
+    "artifact_name": "sealed-historical-source-acquisition-v10-provider-checkpoint-33706372901-1",
+    "deep_validation_started": false,
+    "remains_immutable": true,
+    "zip_sha256": "b13bb68c5c231ba51b73c63d2a0d7e73fa78a0a837d4e35b94a55ddf5006b3b3"
+  },
+  "progress": {
+    "environment_install_and_freeze_completed": true,
+    "final_report_completed": false,
+    "scanner_snapshot_present": false,
+    "validate_job_succeeded": true
+  },
+  "repair_boundary": {
+    "automatic_rerun_allowed": false,
+    "new_version_required": "v0.12",
+    "provider_requests_repeated": false,
+    "strategy_profiles_or_thresholds_changed": false,
+    "v0_11_rerun_allowed": false
+  },
+  "schema_version": 1,
+  "workflow": {
+    "authorization_commit_sha": "bad5bfb048f3e4d5690038dfc4dd7c9c0968ea63",
+    "authorization_content_sha256": "135f67d754d5d3c0f7fbb9aaf57b6acb2c9034bf861540c5b610d880754816b8",
+    "authorization_id": "sealed-historical-source-acquisition-v0.11",
+    "authorization_path": "research/strategy/sealed-historical-source-acquisition-v0.11.json",
+    "authorization_tree_sha": "e8bb6290721a93f0904012363ebdff34313ce3e3",
+    "dispatcher_workflow_ref": "RoomyRems/momentumbot/.github/workflows/sealed-historical-source-acquisition-v11.yml@refs/heads/main",
+    "dispatcher_workflow_sha": "1a4f9f7bf483c139c4d656b2ab0a23279e8cf769",
+    "event": "workflow_dispatch",
+    "head_branch": "main",
+    "repository": "RoomyRems/momentumbot",
+    "run_attempt": 1,
+    "run_id": 33928334660,
+    "run_number": 2
+  }
+}

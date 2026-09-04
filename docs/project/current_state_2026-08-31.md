@@ -92,16 +92,24 @@ deterministic validator-scope mismatch, not a provider, credential, budget,
 acquisition, or scanner-freeze failure. v0.10 is permanently consumed and may
 not be rerun.
 
-The registered provider-free repair is v0.11. It binds exact v0.10 provider-checkpoint
-artifact `9877181150`, reuses all 706 source files without provider access,
-rebuilds scanner snapshots from canonical inputs, preflights all 946 candidate
-and float records, and applies the already-audited v0.6 identity rule only
-around the final source summarizer. The legacy validator is restored in
-`finally`; no identity or float values are rewritten. v0.11 contains no
-provider entrypoint or credential and authorizes zero additional
-historical-provider HTTP attempts. This research-branch registration has not
-been installed on `main` or dispatched. Candidate-bound Micro or Databento
-acquisition and transcript-label review remain blocked.
+v0.11 was then installed and dispatched exactly once as run `33928334660`.
+Its provider-free validation, immutable checkout, dispatcher check, exact
+artifact-metadata check, and v0.10 checkpoint download succeeded. It failed
+closed in the next step because the same shell step installed MomentumBot into
+`.venv-v11` but invoked system `python` before the `GITHUB_PATH` addition could
+take effect. The resulting `ModuleNotFoundError` occurred before checkpoint
+deep validation, scanner output, or final replay. Provider calls remained zero,
+the safe-failure artifact is `9957636441`, and v0.11 may not be rerun.
+
+The registered provider-free repair is now v0.12. It invokes the explicit
+`.venv-v12/bin/python` for that same-step comparison and adds a static workflow
+regression for the exact failed form. Everything else remains inherited: exact
+v0.10 provider-checkpoint artifact `9877181150`, all 706 source files, 30
+scanner replays from canonical inputs, the 946-record identity preflight, the
+narrow final-summarizer identity scope, and `finally` restoration. v0.12 has no
+provider entrypoint or credential and authorizes zero additional provider HTTP
+attempts. Candidate-bound Micro or Databento acquisition and transcript-label
+review remain blocked until the label-blind source Snapshot succeeds.
 
 The strategy scope freeze remains active: no new setup, AI authority, scanner or
 Micro threshold change, account rule change, execution-cell selection, or
