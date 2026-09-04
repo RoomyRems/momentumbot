@@ -1,0 +1,109 @@
+{
+  "artifact_type": "sealed_historical_source_acquisition_v0_10_permanent_failure_audit",
+  "causal_attestation": {
+    "account_or_order_endpoint_called": false,
+    "automatic_rerun_allowed": false,
+    "authorization_consumed": true,
+    "databento_called": false,
+    "order_submitted": false,
+    "provider_acquisition_completed": true,
+    "provider_substitution_occurred": false,
+    "ross_labels_or_outcomes_read": false,
+    "strategy_micro_or_account_policy_changed": false,
+    "transcript_record_values_read": false
+  },
+  "conclusion": "fail_closed_final_summarizer_identity_scope_mismatch",
+  "content_sha256": "d793a0fe5d9e4e1d0b9bf77edf8f164eb58860724aa4b6a7e3d09ec4f1fc03c5",
+  "failure": {
+    "error_class": "ValueError",
+    "failed_job": "freeze",
+    "failed_stage": "Build strict deep-replay recovery report without credentials",
+    "failed_step_number": 9,
+    "freeze_scanner_dates_completed": 30,
+    "provider_data_caused_failure": false,
+    "recovered_exception_message": "float candidate identity kind is unsupported",
+    "root_cause": "the final source summarizer reloaded the complete authoritative float bundle after the scanner adapter restored the legacy validator; that validator accepts obsolete kind cik but rejects unique_cik_fallback",
+    "safe_repair": "recover the exact v0.10 provider checkpoint, rebuild scanner snapshots without credentials, preflight all 946 authoritative identities, and scope the existing v0.6 identity compatibility rule only around the final deep replay"
+  },
+  "frozen_authority": {
+    "authorization_commit_sha": "652db5675a35b6f455aa0d924aa50428dd995280",
+    "authorization_content_sha256": "a6519754147c39273a25b2ea818b1906dfa93ea5018edac831e2a0a7052463c7",
+    "authorization_id": "sealed-historical-source-acquisition-v0.10",
+    "authorization_path": "research/strategy/sealed-historical-source-acquisition-v0.10.json",
+    "authorization_permanently_consumed": true,
+    "authorization_tree_sha": "48092229da6a5cf2dd24de6fe4f98584e6de68e3",
+    "consumption_ref_name": "refs/tags/sealed-historical-source-acquisition-v10-consumed-a6519754147c39273a25b2ea818b1906dfa93ea5018edac831e2a0a7052463c7",
+    "consumption_ref_target_sha": "652db5675a35b6f455aa0d924aa50428dd995280",
+    "dispatcher_workflow_sha": "8b920876d9a513f31d6fdb6795c4155a2c1a1519"
+  },
+  "identity_evidence": {
+    "authoritative_identity_kinds": [
+      "composite_figi",
+      "unique_cik_fallback"
+    ],
+    "candidate_count": 946,
+    "composite_figi_count": 737,
+    "float_record_count": 946,
+    "legacy_final_summarizer_failure_reproduced": true,
+    "unique_cik_fallback_count": 209
+  },
+  "preserved_artifacts": {
+    "consumption_marker": {
+      "artifact_id": 9875365414,
+      "artifact_name": "sealed-historical-source-acquisition-v10-consumed-a6519754147c39273a25b2ea818b1906dfa93ea5018edac831e2a0a7052463c7",
+      "zip_sha256": "b0be20afe2e7000128fa2866c63b085c878522e78be07a89d32c931455db136a"
+    },
+    "freeze_failure": {
+      "artifact_id": 9879652610,
+      "artifact_name": "sealed-historical-source-acquisition-v10-freeze-failure-33706372901-1",
+      "content_sha256": "5fa8930780f2d2245baacea22c70b3da95933324df9f57274ff23f75363fd55c",
+      "file_sha256": "0a564c92f76dbf42a2a7099a22a4dadc02773015e648e6e00765b7b329ccb2d9",
+      "zip_sha256": "f19b19cbb90b7fef6ee3cac6aee37cbc0709437e30aeafbb2c9ef166c9e1eebe"
+    },
+    "provider_checkpoint": {
+      "artifact_id": 9877181150,
+      "artifact_name": "sealed-historical-source-acquisition-v10-provider-checkpoint-33706372901-1",
+      "source_checkpoint_content_sha256": "fef36fbcf2844f1da8510572a95c2f2978509bd2b021d2227c03c5ba5f3466f9",
+      "source_checkpoint_file_sha256": "7d1f6858fa669af9de467c36c11e5aff0f3e7af99c0e65bbffcb2814c1040711",
+      "source_directory_count": 159,
+      "source_file_count": 706,
+      "source_retained_bytes": 572044578,
+      "source_tree_content_sha256": "dc95bb478bcb7fdb1b230fa4885402228c82f8614c80fe975a23510ec1922a48",
+      "zip_size_bytes": 71298708,
+      "zip_sha256": "b13bb68c5c231ba51b73c63d2a0d7e73fa78a0a837d4e35b94a55ddf5006b3b3"
+    }
+  },
+  "provider_accounting": {
+    "blocked_attempts": 0,
+    "child_attempts": 12678,
+    "maximum_total_http_attempts": 40000,
+    "observed_attempts_by_host": {
+      "api.massive.com": 363,
+      "data.alpaca.markets": 28831,
+      "data.sec.gov": 1328
+    },
+    "observed_total_http_attempts": 30522,
+    "remaining_attempts": 9478,
+    "unauthorized_hosts_detected": []
+  },
+  "repair_boundary": {
+    "all_946_candidates_and_float_records_must_pass_final_preflight": true,
+    "authoritative_identity_values_or_float_records_may_change": false,
+    "final_summarizer_must_restore_legacy_validator_after_replay": true,
+    "identity_market_float_news_or_scanner_provider_requests_may_be_repeated": false,
+    "parent_provider_checkpoint_must_be_reused_exactly": true,
+    "provider_credentials_or_network_entrypoints_allowed": false,
+    "scanner_snapshots_may_be_rebuilt_provider_free_from_canonical_inputs": true,
+    "strategy_profile_or_threshold_change_allowed": false,
+    "v0_10_may_be_rerun": false
+  },
+  "schema_version": 1,
+  "workflow": {
+    "attempt": 1,
+    "event": "workflow_dispatch",
+    "head_branch": "main",
+    "head_sha": "8b920876d9a513f31d6fdb6795c4155a2c1a1519",
+    "run_id": 33706372901,
+    "status": "failure"
+  }
+}

@@ -79,17 +79,29 @@ deterministic adapter contract mismatch, not a provider, credential, or budget
 failure. The terminal ledger is 17,844 of 40,000 requests: 363 Massive, 16,153
 Alpaca and 1,328 SEC.
 
-The active local repair is v0.10. It binds the exact 654-file v0.9 failure
-checkpoint, removes only the incomplete one-file scanner directory, and
-revalidates the remaining 645-file market/float/news source across all 30 dates
-and 946 candidates. Its additive adapter projects exact RVOL onto each raw-bar
-index without fill, interpolation, or value change; missing raw timestamps
-remain fatal. A provider-free BLRX regression reproduces the failure and proves
-a complete canonical write/read round trip. v0.10 exposes only the scanner
-builder through the Alpaca-only provider guard, so market, float, and news
-requests cannot repeat. It is not published, consumed, or dispatched.
-Candidate-bound Micro or Databento acquisition and transcript-label review
-remain blocked.
+v0.10 was published and dispatched once as run `33706372901`. Its validation,
+consumption, and acquisition jobs succeeded. All 30 canonical scanner-source
+dates completed, the exact-RVOL repair passed the prior v0.9 failure point, and
+the 706-file provider checkpoint was uploaded with 30,522 of 40,000 requests:
+363 Massive, 28,831 Alpaca, and 1,328 SEC. The separate credential-free freeze
+job completed all 30 scanner snapshots, then failed in the final deep-replay
+summarizer. That summarizer reloaded the valid float bundle after the scanner
+adapter restored the legacy float validator, which accepts obsolete `cik` but
+rejects 209 authoritative `unique_cik_fallback` identities. The failure was a
+deterministic validator-scope mismatch, not a provider, credential, budget,
+acquisition, or scanner-freeze failure. v0.10 is permanently consumed and may
+not be rerun.
+
+The registered provider-free repair is v0.11. It binds exact v0.10 provider-checkpoint
+artifact `9877181150`, reuses all 706 source files without provider access,
+rebuilds scanner snapshots from canonical inputs, preflights all 946 candidate
+and float records, and applies the already-audited v0.6 identity rule only
+around the final source summarizer. The legacy validator is restored in
+`finally`; no identity or float values are rewritten. v0.11 contains no
+provider entrypoint or credential and authorizes zero additional
+historical-provider HTTP attempts. This research-branch registration has not
+been installed on `main` or dispatched. Candidate-bound Micro or Databento
+acquisition and transcript-label review remain blocked.
 
 The strategy scope freeze remains active: no new setup, AI authority, scanner or
 Micro threshold change, account rule change, execution-cell selection, or
