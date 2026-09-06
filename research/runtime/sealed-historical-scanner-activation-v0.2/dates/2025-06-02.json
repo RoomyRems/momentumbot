@@ -1,0 +1,102 @@
+{
+  "activation_count": 4,
+  "activations": [
+    {
+      "activation_id": "activation-9ae2547b63bbc3d0e9ffc28ac07579867b738776327799a17223af5aaadfa50b",
+      "candidate_qualified_at": "2025-06-02T11:01:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "scanner_record_content_sha256": "e41738a817bb76c99d209ea0066bca4936709c0954bad735b28e48001698c916",
+      "scanner_snapshot_content_sha256": "38a5fe17a10d9a029aeb926a6df49ed958f2f714f72aa5c719150fc5f09ee5ad",
+      "symbol": "INM"
+    },
+    {
+      "activation_id": "activation-e82efb644d8e11426748b7fcafee29a7bbe7f569d83dc148110de0467477b326",
+      "candidate_qualified_at": "2025-06-02T11:06:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "0cb42e96f29465a482c537d0bc670520082b425ba7d1fdf81aec2cd71c7b767a",
+      "scanner_snapshot_content_sha256": "38a5fe17a10d9a029aeb926a6df49ed958f2f714f72aa5c719150fc5f09ee5ad",
+      "symbol": "LYRA"
+    },
+    {
+      "activation_id": "activation-680692a8d246991cf7669c5d460b82726caa5d6357c181d16c19f0e57d197545",
+      "candidate_qualified_at": "2025-06-02T12:07:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "33894dc5b8a6d3addacc0f0f4fd13ef552fdf22c221d977a64135a60d8938620",
+      "scanner_snapshot_content_sha256": "38a5fe17a10d9a029aeb926a6df49ed958f2f714f72aa5c719150fc5f09ee5ad",
+      "symbol": "NTRB"
+    },
+    {
+      "activation_id": "activation-ad39b0a74181abd5429be2bd8d08df9b324c15e929d2b9990df94ca26e606ff5",
+      "candidate_qualified_at": "2025-06-02T13:40:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "447659e66947d9020a589e1ad62b96eb10db61d574725a534e13fff87966a1e3",
+      "scanner_snapshot_content_sha256": "38a5fe17a10d9a029aeb926a6df49ed958f2f714f72aa5c719150fc5f09ee5ad",
+      "symbol": "UHG"
+    }
+  ],
+  "artifact_type": "sealed_historical_scanner_activation_and_micro_input_plan",
+  "backtesting_started": false,
+  "content_sha256": "7b7b9424e0620afae408a001807ca40e80aa756bbdc4ffd553b48f7635be9882",
+  "contract_id": "sealed-historical-scanner-micro-runtime-v0.2",
+  "general_strategy_profile_fingerprint": "7d15fb979701324bf862b1dc37e5f9b514dcf1ab8cf1e062ae4a60027233d4ff",
+  "micro_input_request_count": 4,
+  "micro_input_requests": [
+    {
+      "activation_id": "activation-9ae2547b63bbc3d0e9ffc28ac07579867b738776327799a17223af5aaadfa50b",
+      "end_exclusive_new_york": "2025-06-02T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-06-02T11:01:00+00:00",
+      "symbol": "INM"
+    },
+    {
+      "activation_id": "activation-e82efb644d8e11426748b7fcafee29a7bbe7f569d83dc148110de0467477b326",
+      "end_exclusive_new_york": "2025-06-02T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-06-02T11:06:00+00:00",
+      "symbol": "LYRA"
+    },
+    {
+      "activation_id": "activation-680692a8d246991cf7669c5d460b82726caa5d6357c181d16c19f0e57d197545",
+      "end_exclusive_new_york": "2025-06-02T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-06-02T12:07:00+00:00",
+      "symbol": "NTRB"
+    },
+    {
+      "activation_id": "activation-ad39b0a74181abd5429be2bd8d08df9b324c15e929d2b9990df94ca26e606ff5",
+      "end_exclusive_new_york": "2025-06-02T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-06-02T13:40:00+00:00",
+      "symbol": "UHG"
+    }
+  ],
+  "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+  "micro_runtime_complete": false,
+  "provider_calls": 0,
+  "retrospective_labels_loaded": false,
+  "schema_version": 1,
+  "small_strategy_profile_fingerprint": "fb86fc5326903cab16c283a03d8e371f66487f41589fb1b69b79f8912a0a6489",
+  "source_scanner_snapshot_content_sha256": "38a5fe17a10d9a029aeb926a6df49ed958f2f714f72aa5c719150fc5f09ee5ad",
+  "trading_date": "2025-06-02"
+}

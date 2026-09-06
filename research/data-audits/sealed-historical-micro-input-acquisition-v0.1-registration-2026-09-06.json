@@ -1,0 +1,45 @@
+{
+  "artifact_type": "sealed_historical_micro_input_acquisition_registration",
+  "backtesting_executed": false,
+  "code_file_sha256": {
+    ".github/workflows/sealed-historical-micro-input-acquisition-v01.yml": "a4e31592a30f324d5b61cb50988ce8d6fc39258b49170648362a2151b179caba",
+    "scripts/capture_sealed_historical_micro_inputs_v01.py": "75126e4e46de2c6f1ee435a579d4ef57b438499ba05f69c806047e82a6d714e8",
+    "src/momentumbot/research/sealed_historical_micro_inputs_v01.py": "b6f5029fe7ae33a34d38df1fa4f6797cdab4a3b6f4ca5cc9aa98e234914b75b5"
+  },
+  "content_sha256": "51d4d13498fc687aa3e7287519460a8c02a861f3255f2432c0f1dbda56e01bdb",
+  "contract_content_sha256": "49252f660b5eea207258bbcdfe527c490fba8701c2314eb62d2f82ff0f91338b",
+  "contract_file_sha256": "3b1a43b8ea6c757ea405bc8b64b1792e9f3d06699db0d2441e919c72acb66969",
+  "execution_child_added": false,
+  "logical_request_count": 340,
+  "micro_runtime_executed": false,
+  "next_gate": "add_the_sole_tested_parent_bound_execution_child_and_capture_once",
+  "policy_changed": false,
+  "provider_calls_at_registration": 0,
+  "published_preparation_parent_commit": "6aee6d31c911a60a1570091db649efac184142d7",
+  "published_preparation_parent_tree": "38b0eb593a85bc774343f3c2283e7b08216b1151",
+  "registration_date": "2026-09-06",
+  "request_manifest_sha256": "8efb12cdd14496d90da1c39d8d520de0e5163203b8bc3bc201c4bcbd2317c871",
+  "scanner_activation_plan_content_sha256": "764354afcd61c180bc332d247f3bf2035254142006011eeb562bedda86fa704d",
+  "schema_version": 1,
+  "source_ledger_unchanged": true,
+  "source_validation_content_sha256": "a989414e9b0ad06c557242fab2ad11d0aaf18abb9bf5bd5cc70580ed23207a7f",
+  "symbol_date_count": 170,
+  "tests": {
+    "focused": {
+      "elapsed_seconds": 6.861,
+      "log_sha256": "fcba982b5b2822d6059185acbfa81e7f095ec652fe208d7c0075fc98d40f21ad",
+      "passed": 30
+    },
+    "full": {
+      "elapsed_seconds": 51.66,
+      "log_sha256": "62a20c91a08395e15601f062346c26f57be946830abd49926500ac10156a88ca",
+      "passed": 1423
+    },
+    "optimized": {
+      "elapsed_seconds": 7.029,
+      "log_sha256": "359ec73117b76aab800ede0150c8ce918c7de0a407dab47d442cb5de3f49fe83",
+      "passed": 30
+    }
+  },
+  "undefined_name_gate_passed": true
+}

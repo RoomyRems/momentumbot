@@ -1,0 +1,163 @@
+{
+  "activation_count": 7,
+  "activations": [
+    {
+      "activation_id": "activation-a46d16e390effc0dd910e91807de9e4055e176576ef7f67e2986f7fb4d520150",
+      "candidate_qualified_at": "2025-06-09T11:00:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "scanner_record_content_sha256": "fefe0139cde2222ce5f6dc1e8843b29cfdd8793273f0b2c3611092e11129fed7",
+      "scanner_snapshot_content_sha256": "1397b006e726037e91cef71ae5e6673bac3e440502ab71b64dd19136e7d941e8",
+      "symbol": "KNW"
+    },
+    {
+      "activation_id": "activation-b58bf404977168142fb4927eba418a99a649b33761343a477ad62ef3b1c34a93",
+      "candidate_qualified_at": "2025-06-09T11:20:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "452d084bc158bfe9345afa14ee3492bc9b963558d773dd8c6eee351f567f5ce1",
+      "scanner_snapshot_content_sha256": "1397b006e726037e91cef71ae5e6673bac3e440502ab71b64dd19136e7d941e8",
+      "symbol": "LPCN"
+    },
+    {
+      "activation_id": "activation-db39fb0483d91e88daae6ee2a5c984b10c3ba87f7bd0feb81422e237d0e3a96a",
+      "candidate_qualified_at": "2025-06-09T12:09:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "b33c91e5a0c194586ce0c2afb6a5490956349487565af7414afebf803fd8494a",
+      "scanner_snapshot_content_sha256": "1397b006e726037e91cef71ae5e6673bac3e440502ab71b64dd19136e7d941e8",
+      "symbol": "TPST"
+    },
+    {
+      "activation_id": "activation-0ce04a9c35e669098049481d8afb0a3def360920ee2edd5d38f464f3599dd8be",
+      "candidate_qualified_at": "2025-06-09T12:14:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "0ecab6ee87496b7466397cfa474b566301eb5ec94c13fd6d273eb03d8f956f1f",
+      "scanner_snapshot_content_sha256": "1397b006e726037e91cef71ae5e6673bac3e440502ab71b64dd19136e7d941e8",
+      "symbol": "ELAB"
+    },
+    {
+      "activation_id": "activation-292cbc1bc58c71d97ebdfb43c94b378a990b54ba5457bd1edba907b20b5f7813",
+      "candidate_qualified_at": "2025-06-09T13:05:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "scanner_record_content_sha256": "0392d38df50cdfaa07a1a2c4b410ec64d831a48e869406dd6ad272c9dbbfc80f",
+      "scanner_snapshot_content_sha256": "1397b006e726037e91cef71ae5e6673bac3e440502ab71b64dd19136e7d941e8",
+      "symbol": "SNPX"
+    },
+    {
+      "activation_id": "activation-f08af2e58b1089ccbcc6a12ba7164697ab53f3136d59d0e8b66bf102d6e0e7cc",
+      "candidate_qualified_at": "2025-06-09T13:17:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "c2cabf402688bb69c61da19d9139c689a05c8f40a8b5fb8f50231241a0c2de49",
+      "scanner_snapshot_content_sha256": "1397b006e726037e91cef71ae5e6673bac3e440502ab71b64dd19136e7d941e8",
+      "symbol": "NISN"
+    },
+    {
+      "activation_id": "activation-c024bc46a9732bd708ab26d1ed1b5273413aa6ec450535c926e0c2c692cd4f90",
+      "candidate_qualified_at": "2025-06-09T13:55:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "8e09ce40e7916081a4a54f220f5e908b65ed2451129e37b417a5b3aa4fd8bf6a",
+      "scanner_snapshot_content_sha256": "1397b006e726037e91cef71ae5e6673bac3e440502ab71b64dd19136e7d941e8",
+      "symbol": "FAT"
+    }
+  ],
+  "artifact_type": "sealed_historical_scanner_activation_and_micro_input_plan",
+  "backtesting_started": false,
+  "content_sha256": "8d625a637c5eab89a5380df6727d9f4b4a6fa393a1a777928e267b51126e2be4",
+  "contract_id": "sealed-historical-scanner-micro-runtime-v0.2",
+  "general_strategy_profile_fingerprint": "7d15fb979701324bf862b1dc37e5f9b514dcf1ab8cf1e062ae4a60027233d4ff",
+  "micro_input_request_count": 7,
+  "micro_input_requests": [
+    {
+      "activation_id": "activation-a46d16e390effc0dd910e91807de9e4055e176576ef7f67e2986f7fb4d520150",
+      "end_exclusive_new_york": "2025-06-09T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-06-09T11:00:00+00:00",
+      "symbol": "KNW"
+    },
+    {
+      "activation_id": "activation-b58bf404977168142fb4927eba418a99a649b33761343a477ad62ef3b1c34a93",
+      "end_exclusive_new_york": "2025-06-09T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-06-09T11:20:00+00:00",
+      "symbol": "LPCN"
+    },
+    {
+      "activation_id": "activation-db39fb0483d91e88daae6ee2a5c984b10c3ba87f7bd0feb81422e237d0e3a96a",
+      "end_exclusive_new_york": "2025-06-09T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-06-09T12:09:00+00:00",
+      "symbol": "TPST"
+    },
+    {
+      "activation_id": "activation-0ce04a9c35e669098049481d8afb0a3def360920ee2edd5d38f464f3599dd8be",
+      "end_exclusive_new_york": "2025-06-09T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-06-09T12:14:00+00:00",
+      "symbol": "ELAB"
+    },
+    {
+      "activation_id": "activation-292cbc1bc58c71d97ebdfb43c94b378a990b54ba5457bd1edba907b20b5f7813",
+      "end_exclusive_new_york": "2025-06-09T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-06-09T13:05:00+00:00",
+      "symbol": "SNPX"
+    },
+    {
+      "activation_id": "activation-f08af2e58b1089ccbcc6a12ba7164697ab53f3136d59d0e8b66bf102d6e0e7cc",
+      "end_exclusive_new_york": "2025-06-09T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-06-09T13:17:00+00:00",
+      "symbol": "NISN"
+    },
+    {
+      "activation_id": "activation-c024bc46a9732bd708ab26d1ed1b5273413aa6ec450535c926e0c2c692cd4f90",
+      "end_exclusive_new_york": "2025-06-09T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-06-09T13:55:00+00:00",
+      "symbol": "FAT"
+    }
+  ],
+  "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+  "micro_runtime_complete": false,
+  "provider_calls": 0,
+  "retrospective_labels_loaded": false,
+  "schema_version": 1,
+  "small_strategy_profile_fingerprint": "fb86fc5326903cab16c283a03d8e371f66487f41589fb1b69b79f8912a0a6489",
+  "source_scanner_snapshot_content_sha256": "1397b006e726037e91cef71ae5e6673bac3e440502ab71b64dd19136e7d941e8",
+  "trading_date": "2025-06-09"
+}

@@ -1,0 +1,142 @@
+{
+  "activation_count": 6,
+  "activations": [
+    {
+      "activation_id": "activation-b7b54299ae3634821f9f578118dbcce614c9d7ea2cf4bec42fcda8de1258a126",
+      "candidate_qualified_at": "2025-06-26T11:08:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "f25467250828f0f4bf7b5ea2e307457bc703f4ac47b7293e55073708850a753b",
+      "scanner_snapshot_content_sha256": "4dfa588703285b766cf449ab9913535f4b6f25864e26642bc2e4964336cf3116",
+      "symbol": "CYN"
+    },
+    {
+      "activation_id": "activation-8d3b402327db0b34a5653f9a2ee527ca6fd6cbbd8cfb94c436026fcf99e3536f",
+      "candidate_qualified_at": "2025-06-26T11:36:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "77b37a288639161c407becca790673841a389a5825279e1eff0aef4694a2cc5e",
+      "scanner_snapshot_content_sha256": "4dfa588703285b766cf449ab9913535f4b6f25864e26642bc2e4964336cf3116",
+      "symbol": "KWE"
+    },
+    {
+      "activation_id": "activation-a4f34b3fa16782d6202a4111d0ba60f371ced9e1e6c2dd9158eb54326f2c80a2",
+      "candidate_qualified_at": "2025-06-26T12:01:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "scanner_record_content_sha256": "963752bf9f86b790108b48f54b4eeae76aa967521502b0ce06e2e04b7dd31983",
+      "scanner_snapshot_content_sha256": "4dfa588703285b766cf449ab9913535f4b6f25864e26642bc2e4964336cf3116",
+      "symbol": "ASTI"
+    },
+    {
+      "activation_id": "activation-cd29eab16a5cbb9965812300522fdda703a9b30c66879a973fc77cb792d753b2",
+      "candidate_qualified_at": "2025-06-26T12:24:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "3b56d2467b17c0938f28893cb28fae94c90c2be1ceb6f89266c65cb0a8b2912e",
+      "scanner_snapshot_content_sha256": "4dfa588703285b766cf449ab9913535f4b6f25864e26642bc2e4964336cf3116",
+      "symbol": "LIVE"
+    },
+    {
+      "activation_id": "activation-cb1731ce0b7e8f0e8b2081529029ff9f34cd1f9f4660b98a2c9a3f60746e13c9",
+      "candidate_qualified_at": "2025-06-26T12:50:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "e3b945cfadb4d9d503fed8420791b770991542cb0bf376161345af303c65463e",
+      "scanner_snapshot_content_sha256": "4dfa588703285b766cf449ab9913535f4b6f25864e26642bc2e4964336cf3116",
+      "symbol": "ALBT"
+    },
+    {
+      "activation_id": "activation-a189980ec28fcb4c271264857969f592a58d778a58af2a4997da822a73e421a9",
+      "candidate_qualified_at": "2025-06-26T13:03:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "a547fea6912c034408459ac68789a758df1d52f20fa3a38a7ae1ada970bdd8d8",
+      "scanner_snapshot_content_sha256": "4dfa588703285b766cf449ab9913535f4b6f25864e26642bc2e4964336cf3116",
+      "symbol": "VVOS"
+    }
+  ],
+  "artifact_type": "sealed_historical_scanner_activation_and_micro_input_plan",
+  "backtesting_started": false,
+  "content_sha256": "e78c2127181e56f03939f39b90c9cbdbe7ea6211f4829cc827be848e5db23259",
+  "contract_id": "sealed-historical-scanner-micro-runtime-v0.2",
+  "general_strategy_profile_fingerprint": "7d15fb979701324bf862b1dc37e5f9b514dcf1ab8cf1e062ae4a60027233d4ff",
+  "micro_input_request_count": 6,
+  "micro_input_requests": [
+    {
+      "activation_id": "activation-b7b54299ae3634821f9f578118dbcce614c9d7ea2cf4bec42fcda8de1258a126",
+      "end_exclusive_new_york": "2025-06-26T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-06-26T11:08:00+00:00",
+      "symbol": "CYN"
+    },
+    {
+      "activation_id": "activation-8d3b402327db0b34a5653f9a2ee527ca6fd6cbbd8cfb94c436026fcf99e3536f",
+      "end_exclusive_new_york": "2025-06-26T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-06-26T11:36:00+00:00",
+      "symbol": "KWE"
+    },
+    {
+      "activation_id": "activation-a4f34b3fa16782d6202a4111d0ba60f371ced9e1e6c2dd9158eb54326f2c80a2",
+      "end_exclusive_new_york": "2025-06-26T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-06-26T12:01:00+00:00",
+      "symbol": "ASTI"
+    },
+    {
+      "activation_id": "activation-cd29eab16a5cbb9965812300522fdda703a9b30c66879a973fc77cb792d753b2",
+      "end_exclusive_new_york": "2025-06-26T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-06-26T12:24:00+00:00",
+      "symbol": "LIVE"
+    },
+    {
+      "activation_id": "activation-cb1731ce0b7e8f0e8b2081529029ff9f34cd1f9f4660b98a2c9a3f60746e13c9",
+      "end_exclusive_new_york": "2025-06-26T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-06-26T12:50:00+00:00",
+      "symbol": "ALBT"
+    },
+    {
+      "activation_id": "activation-a189980ec28fcb4c271264857969f592a58d778a58af2a4997da822a73e421a9",
+      "end_exclusive_new_york": "2025-06-26T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-06-26T13:03:00+00:00",
+      "symbol": "VVOS"
+    }
+  ],
+  "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+  "micro_runtime_complete": false,
+  "provider_calls": 0,
+  "retrospective_labels_loaded": false,
+  "schema_version": 1,
+  "small_strategy_profile_fingerprint": "fb86fc5326903cab16c283a03d8e371f66487f41589fb1b69b79f8912a0a6489",
+  "source_scanner_snapshot_content_sha256": "4dfa588703285b766cf449ab9913535f4b6f25864e26642bc2e4964336cf3116",
+  "trading_date": "2025-06-26"
+}

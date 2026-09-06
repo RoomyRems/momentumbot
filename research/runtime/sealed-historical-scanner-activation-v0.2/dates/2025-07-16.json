@@ -1,0 +1,162 @@
+{
+  "activation_count": 7,
+  "activations": [
+    {
+      "activation_id": "activation-9db27c4963d224a66bd42021ee4604dd11ec741edbaef46785e4dfbdcf66f539",
+      "candidate_qualified_at": "2025-07-16T11:00:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "8b36d88cac1e629102ac4c8f986f68e87ffa4c02a38d58de0727461cac557e2e",
+      "scanner_snapshot_content_sha256": "92c33cd0d76fe2580e001738f10f203432158b1954303e015cba4e960b0f61c5",
+      "symbol": "DPRO"
+    },
+    {
+      "activation_id": "activation-f8f10a770af1464492f616dc450a9c6b488d523b9d01926b5d3ef9bd1e5c416a",
+      "candidate_qualified_at": "2025-07-16T11:00:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "02266f487559643b689979c65e2768345e9ddd5729d775c67a054eb5283675f0",
+      "scanner_snapshot_content_sha256": "92c33cd0d76fe2580e001738f10f203432158b1954303e015cba4e960b0f61c5",
+      "symbol": "DTST"
+    },
+    {
+      "activation_id": "activation-aed3189f50de979b039f8a025f2eb17fc1cd48e2795ef9802577028f1c81f25a",
+      "candidate_qualified_at": "2025-07-16T11:00:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "3c45ab79b5058636bd7d5cd3210e960fd399a186bee2f74ee425f212688ea4fc",
+      "scanner_snapshot_content_sha256": "92c33cd0d76fe2580e001738f10f203432158b1954303e015cba4e960b0f61c5",
+      "symbol": "NUWE"
+    },
+    {
+      "activation_id": "activation-32d56a229a17e524122510d85e301075927befdbd7cd73cee4620354d61502d8",
+      "candidate_qualified_at": "2025-07-16T12:04:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "scanner_record_content_sha256": "e255b24d8e3cacd44c88feced0668106ffeef261fe35b6707979a71239ea21b5",
+      "scanner_snapshot_content_sha256": "92c33cd0d76fe2580e001738f10f203432158b1954303e015cba4e960b0f61c5",
+      "symbol": "QLGN"
+    },
+    {
+      "activation_id": "activation-fa08ebc221c71c48a81b33605b5abeb839560752370f493088836fb5ef3ab101",
+      "candidate_qualified_at": "2025-07-16T12:44:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "a22818b48f7fe7ebf2f3d857955b5118d78df2bcb761cdbc20d5de2ab41b908d",
+      "scanner_snapshot_content_sha256": "92c33cd0d76fe2580e001738f10f203432158b1954303e015cba4e960b0f61c5",
+      "symbol": "BNRG"
+    },
+    {
+      "activation_id": "activation-7809c603b51993d40d6502c1b19a3e3ed3aefa211556912ebb89d4af407e1a86",
+      "candidate_qualified_at": "2025-07-16T13:36:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "79c0b22751e256d0d935e1054633b5a88519eb6a2784b998a549099e70b975f4",
+      "scanner_snapshot_content_sha256": "92c33cd0d76fe2580e001738f10f203432158b1954303e015cba4e960b0f61c5",
+      "symbol": "INBS"
+    },
+    {
+      "activation_id": "activation-57985051a98f61ef1b8726e142a59cdfe6f1d8d09d083ae6d86bf1b56ff8012b",
+      "candidate_qualified_at": "2025-07-16T13:41:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "56e97e6fef248aaf90a284977c8a7728043b4f15e5f385f3b3cde9a0242f5b53",
+      "scanner_snapshot_content_sha256": "92c33cd0d76fe2580e001738f10f203432158b1954303e015cba4e960b0f61c5",
+      "symbol": "RMCF"
+    }
+  ],
+  "artifact_type": "sealed_historical_scanner_activation_and_micro_input_plan",
+  "backtesting_started": false,
+  "content_sha256": "1f3c30af190dd38b07a80bf9f1dfbcd810145e8b2c6643b26a60961e202313ee",
+  "contract_id": "sealed-historical-scanner-micro-runtime-v0.2",
+  "general_strategy_profile_fingerprint": "7d15fb979701324bf862b1dc37e5f9b514dcf1ab8cf1e062ae4a60027233d4ff",
+  "micro_input_request_count": 7,
+  "micro_input_requests": [
+    {
+      "activation_id": "activation-9db27c4963d224a66bd42021ee4604dd11ec741edbaef46785e4dfbdcf66f539",
+      "end_exclusive_new_york": "2025-07-16T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-07-16T11:00:00+00:00",
+      "symbol": "DPRO"
+    },
+    {
+      "activation_id": "activation-f8f10a770af1464492f616dc450a9c6b488d523b9d01926b5d3ef9bd1e5c416a",
+      "end_exclusive_new_york": "2025-07-16T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-07-16T11:00:00+00:00",
+      "symbol": "DTST"
+    },
+    {
+      "activation_id": "activation-aed3189f50de979b039f8a025f2eb17fc1cd48e2795ef9802577028f1c81f25a",
+      "end_exclusive_new_york": "2025-07-16T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-07-16T11:00:00+00:00",
+      "symbol": "NUWE"
+    },
+    {
+      "activation_id": "activation-32d56a229a17e524122510d85e301075927befdbd7cd73cee4620354d61502d8",
+      "end_exclusive_new_york": "2025-07-16T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-07-16T12:04:00+00:00",
+      "symbol": "QLGN"
+    },
+    {
+      "activation_id": "activation-fa08ebc221c71c48a81b33605b5abeb839560752370f493088836fb5ef3ab101",
+      "end_exclusive_new_york": "2025-07-16T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-07-16T12:44:00+00:00",
+      "symbol": "BNRG"
+    },
+    {
+      "activation_id": "activation-7809c603b51993d40d6502c1b19a3e3ed3aefa211556912ebb89d4af407e1a86",
+      "end_exclusive_new_york": "2025-07-16T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-07-16T13:36:00+00:00",
+      "symbol": "INBS"
+    },
+    {
+      "activation_id": "activation-57985051a98f61ef1b8726e142a59cdfe6f1d8d09d083ae6d86bf1b56ff8012b",
+      "end_exclusive_new_york": "2025-07-16T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-07-16T13:41:00+00:00",
+      "symbol": "RMCF"
+    }
+  ],
+  "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+  "micro_runtime_complete": false,
+  "provider_calls": 0,
+  "retrospective_labels_loaded": false,
+  "schema_version": 1,
+  "small_strategy_profile_fingerprint": "fb86fc5326903cab16c283a03d8e371f66487f41589fb1b69b79f8912a0a6489",
+  "source_scanner_snapshot_content_sha256": "92c33cd0d76fe2580e001738f10f203432158b1954303e015cba4e960b0f61c5",
+  "trading_date": "2025-07-16"
+}

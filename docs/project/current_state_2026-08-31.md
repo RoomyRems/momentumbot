@@ -140,14 +140,22 @@ The final report passes the source-acquisition gate; its intermediate remains
 ineligible. Measured hashes and verification methods are recorded in
 `research/data-audits/sealed-historical-source-v0.13-final-verification-34039993297.json`.
 
-The isolated v0.2 scanner/Micro preparation binds that exact final artifact,
-preserves both scanner profiles and Micro-v0.1, and grants no execution
-authority. Its source-validation CLI performs no strategy replay. The next
-separate execution gate can freeze scanner profile activations and an exact
-candidate-bound Micro input request manifest. Micro execution remains blocked:
-completed 10-second bars and normalized SIP trade events are missing from the
-one-minute source bundle. They may not be substituted or treated as zero
-triggers. See `docs/research/sealed_historical_scanner_micro_runtime_v02.md`.
+The v0.2 scanner/Micro preparation binds that exact final artifact and preserves
+both scanner profiles and Micro-v0.1. Following the user's separate 2026-09-06
+operational authorization, the scanner stage executed once and independently
+verified 192 activations across all 30 dates and 170 symbol/date pairs: 164
+general-profile and 55 small-account-profile activations, including 27 exact-time
+ties. Its 31 frozen output files and permanent execution receipt are retained
+under `research/runtime/sealed-historical-scanner-activation-v0.2/` and
+`research/data-audits/sealed-historical-scanner-activation-v0.2-execution-2026-09-06.json`.
+
+The candidate-bound Micro input child is prepared for 170 SIP-print windows and
+170 prior seven-day one-minute EMA-warmup windows. It reuses the v0.13 session
+bars and preserves the source ledger. Micro remains pending complete normalized
+SIP inputs, derived completed 10-second bars, and causal warmup price-basis
+validation; missing inputs cannot be treated as zero triggers. The next
+one-shot execution child binds the tested acquisition commit/tree and workflow.
+See `docs/research/sealed_historical_micro_inputs_v01.md`.
 
 The strategy scope freeze remains active: no new setup, AI authority, scanner or
 Micro threshold change, account rule change, execution-cell selection, or

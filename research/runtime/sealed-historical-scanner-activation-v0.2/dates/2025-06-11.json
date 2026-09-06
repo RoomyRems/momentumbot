@@ -1,0 +1,81 @@
+{
+  "activation_count": 3,
+  "activations": [
+    {
+      "activation_id": "activation-e4c34a804c93ded85f56e530906f568c44226e43f642a64c650b3af5b9c7726c",
+      "candidate_qualified_at": "2025-06-11T11:08:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-small-account-2026"
+      ],
+      "scanner_record_content_sha256": "eb3ee5a9bb51e8f08e5666fe6167107d85b7bd39450ddda2c1c7f3588fb841f4",
+      "scanner_snapshot_content_sha256": "50ac2afee0550d4e7ee7f799172b959bad4c92c5f58572abd0174af9b29450c9",
+      "symbol": "HSDT"
+    },
+    {
+      "activation_id": "activation-dd06899ba6648db882f3ad82d4d9eec8004d24ae1f58ae3d2dbb1f3d9ce67477",
+      "candidate_qualified_at": "2025-06-11T11:14:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "6d289d6df6f19339f9922488545ff64c3ab222a876f6b86121162deb5efcd97b",
+      "scanner_snapshot_content_sha256": "50ac2afee0550d4e7ee7f799172b959bad4c92c5f58572abd0174af9b29450c9",
+      "symbol": "HSDT"
+    },
+    {
+      "activation_id": "activation-c864142b1e2f46b66611d67fc2c43635d5f74913f1816d662e5791000132fa3a",
+      "candidate_qualified_at": "2025-06-11T12:03:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "d99dbc7e11ae858a7d3649f32a0daaf008182653d3c756d0f89c2e30aad7120b",
+      "scanner_snapshot_content_sha256": "50ac2afee0550d4e7ee7f799172b959bad4c92c5f58572abd0174af9b29450c9",
+      "symbol": "KZIA"
+    }
+  ],
+  "artifact_type": "sealed_historical_scanner_activation_and_micro_input_plan",
+  "backtesting_started": false,
+  "content_sha256": "5cf006413cf24b9e5951ee145daabc7b59c96eca46a1d17433ce993a6ead2e4a",
+  "contract_id": "sealed-historical-scanner-micro-runtime-v0.2",
+  "general_strategy_profile_fingerprint": "7d15fb979701324bf862b1dc37e5f9b514dcf1ab8cf1e062ae4a60027233d4ff",
+  "micro_input_request_count": 3,
+  "micro_input_requests": [
+    {
+      "activation_id": "activation-e4c34a804c93ded85f56e530906f568c44226e43f642a64c650b3af5b9c7726c",
+      "end_exclusive_new_york": "2025-06-11T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-06-11T11:08:00+00:00",
+      "symbol": "HSDT"
+    },
+    {
+      "activation_id": "activation-dd06899ba6648db882f3ad82d4d9eec8004d24ae1f58ae3d2dbb1f3d9ce67477",
+      "end_exclusive_new_york": "2025-06-11T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-06-11T11:14:00+00:00",
+      "symbol": "HSDT"
+    },
+    {
+      "activation_id": "activation-c864142b1e2f46b66611d67fc2c43635d5f74913f1816d662e5791000132fa3a",
+      "end_exclusive_new_york": "2025-06-11T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-06-11T12:03:00+00:00",
+      "symbol": "KZIA"
+    }
+  ],
+  "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+  "micro_runtime_complete": false,
+  "provider_calls": 0,
+  "retrospective_labels_loaded": false,
+  "schema_version": 1,
+  "small_strategy_profile_fingerprint": "fb86fc5326903cab16c283a03d8e371f66487f41589fb1b69b79f8912a0a6489",
+  "source_scanner_snapshot_content_sha256": "50ac2afee0550d4e7ee7f799172b959bad4c92c5f58572abd0174af9b29450c9",
+  "trading_date": "2025-06-11"
+}

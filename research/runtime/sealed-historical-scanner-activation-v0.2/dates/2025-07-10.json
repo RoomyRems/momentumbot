@@ -1,0 +1,161 @@
+{
+  "activation_count": 7,
+  "activations": [
+    {
+      "activation_id": "activation-598d553d9590aea11392c2fa20a439a4454b246551057a9df69bb50d7960aa3b",
+      "candidate_qualified_at": "2025-07-10T11:05:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "e17e7f14ae2a57347794153204c405b24bf5e6cd58bcf92b2e41e49c750e67e6",
+      "scanner_snapshot_content_sha256": "c03d5f41f80a6dd363a4aea927235ed31c20f0bcf8b95f206f50d7de72a64fa2",
+      "symbol": "AIRI"
+    },
+    {
+      "activation_id": "activation-db5c339fcd7b0ec492f44f8a8d41eac99c4a60e4f779c0735f6827fda6cc33ca",
+      "candidate_qualified_at": "2025-07-10T11:07:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-small-account-2026"
+      ],
+      "scanner_record_content_sha256": "b47857d657180f4d6cf97c8160cb121f96cfe8012a1b42ba2bcc5cd1be9a0456",
+      "scanner_snapshot_content_sha256": "c03d5f41f80a6dd363a4aea927235ed31c20f0bcf8b95f206f50d7de72a64fa2",
+      "symbol": "AIRI"
+    },
+    {
+      "activation_id": "activation-7a4f6fb166415fcd602f4bdc4fb1c4c06ae649d54d1f6203e9d88d491270727c",
+      "candidate_qualified_at": "2025-07-10T11:15:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "f752aede324781ebc333734ffc58e3d8e5960595270c880bf018f505c11c0e0d",
+      "scanner_snapshot_content_sha256": "c03d5f41f80a6dd363a4aea927235ed31c20f0bcf8b95f206f50d7de72a64fa2",
+      "symbol": "TZUP"
+    },
+    {
+      "activation_id": "activation-4df165ce507ff9259c3ed4b6fb064845433f4fc4edafe4ba4954ee0096e399ee",
+      "candidate_qualified_at": "2025-07-10T12:01:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "e9d4b127766088aad8e50396838a9dff80ec0567355f34c636d0abae6c0e0b2e",
+      "scanner_snapshot_content_sha256": "c03d5f41f80a6dd363a4aea927235ed31c20f0bcf8b95f206f50d7de72a64fa2",
+      "symbol": "BSET"
+    },
+    {
+      "activation_id": "activation-329c5c89be60e0b87c9ea4db3061595d513596979803435d87e5a1e35ccd4208",
+      "candidate_qualified_at": "2025-07-10T12:03:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "d006c9f099d8a650c5481fca8b08e12d78050858b3597b278a7cf8ce12dd7064",
+      "scanner_snapshot_content_sha256": "c03d5f41f80a6dd363a4aea927235ed31c20f0bcf8b95f206f50d7de72a64fa2",
+      "symbol": "DALN"
+    },
+    {
+      "activation_id": "activation-ff8589ac59566a598feeed9319641f12598a8920750d680ffda37f7a709a922f",
+      "candidate_qualified_at": "2025-07-10T13:40:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "3c60ff370b1b2677f05541830234b7a4354223d4cc7f151729d625fd5ff8aee6",
+      "scanner_snapshot_content_sha256": "c03d5f41f80a6dd363a4aea927235ed31c20f0bcf8b95f206f50d7de72a64fa2",
+      "symbol": "PTHS"
+    },
+    {
+      "activation_id": "activation-a8c053e6e9a33d12c155da760db08d98f1cf25ce34c3b882bdd8526bd7935333",
+      "candidate_qualified_at": "2025-07-10T13:52:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "8fb4ecb45da32f94fd974c2e4e1589d239508223080cdc8213faee35be99079e",
+      "scanner_snapshot_content_sha256": "c03d5f41f80a6dd363a4aea927235ed31c20f0bcf8b95f206f50d7de72a64fa2",
+      "symbol": "LSF"
+    }
+  ],
+  "artifact_type": "sealed_historical_scanner_activation_and_micro_input_plan",
+  "backtesting_started": false,
+  "content_sha256": "e2a56c9d5a0cff51ec1576e9d7d8f97866a56a18ee948099bd30292d1cd1134b",
+  "contract_id": "sealed-historical-scanner-micro-runtime-v0.2",
+  "general_strategy_profile_fingerprint": "7d15fb979701324bf862b1dc37e5f9b514dcf1ab8cf1e062ae4a60027233d4ff",
+  "micro_input_request_count": 7,
+  "micro_input_requests": [
+    {
+      "activation_id": "activation-598d553d9590aea11392c2fa20a439a4454b246551057a9df69bb50d7960aa3b",
+      "end_exclusive_new_york": "2025-07-10T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-07-10T11:05:00+00:00",
+      "symbol": "AIRI"
+    },
+    {
+      "activation_id": "activation-db5c339fcd7b0ec492f44f8a8d41eac99c4a60e4f779c0735f6827fda6cc33ca",
+      "end_exclusive_new_york": "2025-07-10T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-07-10T11:07:00+00:00",
+      "symbol": "AIRI"
+    },
+    {
+      "activation_id": "activation-7a4f6fb166415fcd602f4bdc4fb1c4c06ae649d54d1f6203e9d88d491270727c",
+      "end_exclusive_new_york": "2025-07-10T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-07-10T11:15:00+00:00",
+      "symbol": "TZUP"
+    },
+    {
+      "activation_id": "activation-4df165ce507ff9259c3ed4b6fb064845433f4fc4edafe4ba4954ee0096e399ee",
+      "end_exclusive_new_york": "2025-07-10T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-07-10T12:01:00+00:00",
+      "symbol": "BSET"
+    },
+    {
+      "activation_id": "activation-329c5c89be60e0b87c9ea4db3061595d513596979803435d87e5a1e35ccd4208",
+      "end_exclusive_new_york": "2025-07-10T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-07-10T12:03:00+00:00",
+      "symbol": "DALN"
+    },
+    {
+      "activation_id": "activation-ff8589ac59566a598feeed9319641f12598a8920750d680ffda37f7a709a922f",
+      "end_exclusive_new_york": "2025-07-10T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-07-10T13:40:00+00:00",
+      "symbol": "PTHS"
+    },
+    {
+      "activation_id": "activation-a8c053e6e9a33d12c155da760db08d98f1cf25ce34c3b882bdd8526bd7935333",
+      "end_exclusive_new_york": "2025-07-10T10:00:00-04:00",
+      "required_inputs": [
+        "completed_10_second_bars",
+        "normalized_sip_trade_events"
+      ],
+      "start_inclusive": "2025-07-10T13:52:00+00:00",
+      "symbol": "LSF"
+    }
+  ],
+  "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+  "micro_runtime_complete": false,
+  "provider_calls": 0,
+  "retrospective_labels_loaded": false,
+  "schema_version": 1,
+  "small_strategy_profile_fingerprint": "fb86fc5326903cab16c283a03d8e371f66487f41589fb1b69b79f8912a0a6489",
+  "source_scanner_snapshot_content_sha256": "c03d5f41f80a6dd363a4aea927235ed31c20f0bcf8b95f206f50d7de72a64fa2",
+  "trading_date": "2025-07-10"
+}
