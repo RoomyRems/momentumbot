@@ -1,0 +1,110 @@
+[
+  {
+    "rule_id": "MB-ENT-001",
+    "title": "First-pullback quality",
+    "category": "entry",
+    "statement": "A high-quality first pullback follows a strong impulse, generally retraces no more than about 50%, shows lighter selling volume than buying volume, stays above VWAP and the 9 EMA, and avoids major topping-tail rejection.",
+    "observation_type": "rule",
+    "decision_role": "deterministic",
+    "confidence": 0.99,
+    "status": "active_current_era",
+    "applies_from": "2026-08-05",
+    "evidence": [{"video_id":"xGIa8Vg0PWM","title":"Growing a $2k Account to $65,662.04 in 30 Days (My Day Trading Strategy)","published_at":"2026-08-05","mode":"normative_teaching","note":"The August course explicitly teaches <=50% retracement, lighter red volume, VWAP/9EMA support and topping-tail caution."}]
+  },
+  {
+    "rule_id": "MB-ENT-002",
+    "title": "First candle to make a new high",
+    "category": "entry",
+    "statement": "The canonical confirmation entry triggers as the first candle in the pullback breaks above the high of the preceding candle; it does not wait for that candle to close.",
+    "observation_type": "rule",
+    "decision_role": "deterministic",
+    "confidence": 0.99,
+    "status": "active_current_era",
+    "applies_from": "2025-12-20",
+    "evidence": [{"video_id":"oKlhUSSHe2Q","title":"How To Start Day Trading in 2026 (full training)","published_at":"2025-12-20","mode":"normative_teaching","note":"The full training defines the first candle to make a new high as the entry."}]
+  },
+  {
+    "rule_id": "MB-ENT-003",
+    "title": "Pullback-low invalidation",
+    "category": "entry",
+    "statement": "The logical maximum loss for the canonical pullback entry is the low of the pullback.",
+    "observation_type": "rule",
+    "decision_role": "deterministic",
+    "confidence": 0.99,
+    "status": "active_current_era",
+    "applies_from": "2025-12-20",
+    "evidence": [{"video_id":"oKlhUSSHe2Q","title":"How To Start Day Trading in 2026 (full training)","published_at":"2025-12-20","mode":"normative_teaching","note":"The full training places max loss at the pullback low."}]
+  },
+  {
+    "rule_id": "MB-ENT-004",
+    "title": "Two-R opportunity to prior high",
+    "category": "entry",
+    "statement": "Before entry, the distance to the prior/high-of-day target should plausibly provide about 2R relative to the pullback-low risk.",
+    "observation_type": "rule",
+    "decision_role": "deterministic",
+    "confidence": 0.99,
+    "status": "active_current_era",
+    "applies_from": "2025-12-20",
+    "evidence": [{"video_id":"oKlhUSSHe2Q","title":"How To Start Day Trading in 2026 (full training)","published_at":"2025-12-20","mode":"normative_teaching","note":"The full training uses a retest of high-of-day and requires roughly twice the planned risk."}]
+  },
+  {
+    "rule_id": "MB-ENT-005",
+    "title": "Micro pullback definition",
+    "category": "entry",
+    "statement": "A micro pullback is the fast one-candle version of the pullback setup; the same first-new-high logic applies.",
+    "observation_type": "rule",
+    "decision_role": "deterministic",
+    "confidence": 0.97,
+    "status": "active_current_era",
+    "applies_from": "2026-01-03",
+    "evidence": [{"video_id":"oaHTe5lotSQ","title":"I Reset My Account to $2,000 (AGAIN) Robinhood Challenge Ep 1","published_at":"2026-01-03","mode":"normative_teaching","note":"The small-account lesson explicitly defines a micro pullback as only one pullback candle."}]
+  },
+  {
+    "rule_id": "MB-ENT-006",
+    "title": "Prefer early pullbacks",
+    "category": "entry",
+    "statement": "First and early pullbacks are preferred; later pullbacks can remain tradable but generally become more extended and choppier.",
+    "observation_type": "preference",
+    "decision_role": "deterministic",
+    "confidence": 0.93,
+    "status": "active_current_era",
+    "applies_from": "2025-12-20",
+    "evidence": [{"video_id":"oKlhUSSHe2Q","title":"How To Start Day Trading in 2026 (full training)","published_at":"2025-12-20","mode":"normative_teaching","note":"Current training calls the first pullback a pocket of consistency and notes later pullbacks get choppier."}]
+  },
+  {
+    "rule_id": "MB-POS-001",
+    "title": "Starter first trade / cushion",
+    "category": "position_management",
+    "statement": "Begin the session with a starter-sized first trade; if it works, the resulting cushion can justify greater aggression, while an immediate failure raises a caution flag.",
+    "observation_type": "market_regime_adaptation",
+    "decision_role": "deterministic",
+    "confidence": 0.97,
+    "status": "active_current_era",
+    "applies_from": "2026-05-21",
+    "evidence": [{"video_id":"5AV2OLWD1gc","title":"Top 5 Reasons Why Traders Lose Money 💰Don’t Make These Mistakes!!!","published_at":"2026-05-21","mode":"normative_teaching","note":"Ross explicitly describes using a starter on the first trade to test the water and only gaining confidence after a successful first trade."}]
+  },
+  {
+    "rule_id": "MB-POS-002",
+    "title": "No averaging down",
+    "category": "position_management",
+    "statement": "Do not add to a losing position in the baseline.",
+    "observation_type": "rule",
+    "decision_role": "deterministic",
+    "confidence": 0.99,
+    "status": "active_current_era",
+    "applies_from": "2025-06-28",
+    "evidence": [{"video_id":"Wsq8zdtCcis","title":"How I Made $500,000 in 7 Days of Day Trading (Full Training)","published_at":"2025-06-28","mode":"normative_teaching","note":"The full training explicitly states do not average down and defines it as adding to losing trades."}]
+  },
+  {
+    "rule_id": "MB-EXE-001",
+    "title": "Slippage can invalidate entry",
+    "category": "execution",
+    "statement": "If actual entry slippage materially increases stop distance and destroys the required reward/risk, exit or reject rather than pretending the original plan still applies.",
+    "observation_type": "rule",
+    "decision_role": "deterministic",
+    "confidence": 0.98,
+    "status": "active_current_era",
+    "applies_from": "2026-07-09",
+    "evidence": [{"video_id":"miyJZq-5uIg","title":"My Account Is Up Over 1,000% in 17 Days...","published_at":"2026-07-09","mode":"observed_behavior","note":"A current recap explicitly explains that ~15-20 cents of entry slippage doubled planned risk and made the original reward/risk much worse."}]
+  }
+]
