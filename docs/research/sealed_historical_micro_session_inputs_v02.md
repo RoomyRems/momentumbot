@@ -57,3 +57,43 @@ consumes only completed causal bars and support values.
 This acquisition emits input evidence only. Micro, execution/status acquisition,
 account simulation, retrospective comparison, and policy promotion retain their
 registered order and validation requirements. No label or transcript is opened.
+
+## Consumed operation and independent verification
+
+The sole execution child `bf5863a7115abef9e22c4f527448cd9c20084f47` ran once as
+`34054580516`, attempt 1, and completed successfully. Its tested code parent is
+`e7b0b64eb61358cf3462a48026c14d1ae052d8fb`. CI and dedicated validation passed at
+that exact parent. The execution used CPython 3.12.14, the frozen requirement
+lock, undefined-name checks, and 19 focused tests both normally and under `-O`.
+The broader prepublication suite passed 37 focused tests in both modes and all
+1,430 repository tests.
+
+Independent verification downloaded both ZIPs and checked every retained file,
+receipt, canonical tape row, interval, request ID and ledger entry. Capture
+artifact `9995587996` has ZIP SHA-256
+`d689f493c10996bee7eddde68d62812e7850fc322caa2d530d33a97c84878e3f`;
+consumption artifact `9995572398` has ZIP SHA-256
+`1b16ca8d92b9f7e381e5abbc947aeebcdf755f661611f5643d4fc78b18e8c122`.
+The report file/content hashes are
+`ebd2f02b3df83fbc5cb45b8fee86120e278c3a41c8a1d07e87e972bef6c26b9d`
+and `9fc1c5fda0942ded03cfb3a574d69802bae927dcf31f538c917cbfb33af103e0`.
+All 348 capture files and 170 tapes passed; the separate ledger records exactly
+170 HTTP attempts and zero blocked attempts.
+
+The acquisition envelope includes the 09:59 minute. The pre-existing
+`trim_scanner_bar_frame` rule retains only bars whose end is strictly before
+10:00, as does the v0.13 source builder. The initial diagnostic comparison
+included the unavailable 09:59 tail and therefore reported an extra PBM minute;
+inspection traced that difference to this existing acquisition/runtime boundary.
+Applying that unchanged rule verifies all 29,405 usable minute closes and
+volumes exactly against v0.13 across every frozen pair and date. All 149 retained
+09:59 tail rows remain in the hashed input evidence and are unavailable to the
+entry runtime. No source row, price, volume, threshold, or cutoff was rewritten.
+
+The permanent receipt is
+`research/data-audits/sealed-historical-micro-session-input-v0.2-independent-verification-34054580516.json`,
+content commitment
+`cd501d099993ec66d69ac548d72c401d858ac5ffc2740eda69b4fe7ed45f301a`.
+The remaining prerequisite is terminal verification of SIP-print/warmup run
+`34053730042`, then causal price-basis validation and the provider-free Micro
+runtime. This consumed workflow is never rerun.

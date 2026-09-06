@@ -25,6 +25,14 @@ strategy profiles remain unchanged. Micro cannot execute until both captured
 artifacts are independently verified and their minute fields and warmup basis
 validate against the immutable source. No retrospective input is opened.
 
+The raw minute supplement subsequently completed as run `34054580516`, attempt
+1, at `bf5863a7115abef9e22c4f527448cd9c20084f47`. Independent verification passed
+for capture artifact `9995587996`: all 348 files, 170 tapes, and 29,405 usable
+minute closes/volumes match the immutable source, with 170 new child-ledger
+requests and zero blocked attempts. The existing completed-bar cutoff excludes
+149 hashed tail bars that become available at 10:00. The SIP-print/warmup run
+`34053730042` remains the pending input dependency at this checkpoint.
+
 ## Current state
 
 The prospective August 24–September 4 panel is terminally closed. Its five
