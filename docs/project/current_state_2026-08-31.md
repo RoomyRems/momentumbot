@@ -94,6 +94,17 @@ fresh complete re-quote at or below both ceilings before any download. Main,
 all prior consumption refs, source/strategy evidence, and the original ledger
 remain unchanged. No time series or account/fill simulation occurred here.
 
+The separate historical execution-input acquisition is now prepared under
+`docs/research/sealed_historical_execution_acquisition_v01.md`. Its fresh
+180-call metadata preflight must stay within both verified quote ceilings
+before any of the 90 exact time-series requests can begin. It reuses unchanged
+record normalization and ordering validators, retains minimal normalized tapes
+and sealed receipts, deletes ephemeral DBN files, and stops on the first
+failure. Code validation and a separate sole execution child are required
+before consumption; no acquisition execution record exists in this preparation
+checkpoint. Downstream capture composition and management-input gates remain
+separate from account/fill simulation.
+
 ## Current state
 
 The prospective August 24–September 4 panel is terminally closed. Its five

@@ -1,0 +1,171 @@
+name: Sealed historical execution input acquisition v0.1
+
+on:
+  push:
+    branches: [phase-3-historical-snapshot]
+    paths:
+      - .github/workflows/sealed-historical-execution-input-acquisition-v01.yml
+      - requirements-sealed-execution-quote-v01.txt
+      - research/strategy/sealed-historical-execution-input-acquisition-v0.1.json
+      - research/strategy/sealed-historical-execution-input-acquisition-v0.1-execution.json
+      - src/momentumbot/research/sealed_historical_execution_acquisition_v01.py
+      - src/momentumbot/research/sealed_historical_execution_transport_v01.py
+      - scripts/acquire_sealed_historical_execution_inputs_v01.py
+      - tests/test_sealed_historical_execution_acquisition_v01.py
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sealed-historical-execution-input-acquisition-v01
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      execute: ${{ steps.detect.outputs.execute }}
+    env:
+      PYTHONPATH: src:scripts
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - name: Detect only the sole added execution record
+        id: detect
+        run: |
+          python - <<'PY'
+          import os, subprocess
+          path = 'research/strategy/sealed-historical-execution-input-acquisition-v0.1-execution.json'
+          changed = subprocess.check_output(['git', 'diff', '--name-only', 'HEAD^', 'HEAD'], text=True).splitlines()
+          added = subprocess.check_output(['git', 'diff', '--diff-filter=A', '--name-only', 'HEAD^', 'HEAD'], text=True).splitlines()
+          execute = path in changed
+          if execute and (changed != [path] or added != [path]):
+              raise SystemExit('Only the sole added execution record can start acquisition')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as handle:
+              handle.write(f'execute={str(execute).lower()}\n')
+          PY
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12.14"
+      - name: Install hash-locked acquisition environment without credentials
+        run: |
+          python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-execution-quote-v01.txt
+          python -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          python -m pip check
+      - name: Verify exact parent and acquisition tests normally and optimized
+        run: |
+          python scripts/acquire_sealed_historical_execution_inputs_v01.py --validate-only
+          python -m unittest tests.test_sealed_historical_execution_acquisition_v01 tests.test_sealed_historical_execution_quote_v01 tests.test_prospective_market_input_acquisition -v
+          python -O -m unittest tests.test_sealed_historical_execution_acquisition_v01 tests.test_sealed_historical_execution_quote_v01 tests.test_prospective_market_input_acquisition -v
+          python - <<'PY'
+          from pathlib import Path
+          from check_recovery_entrypoints_v13 import undefined_globals
+          for name in ['scripts/acquire_sealed_historical_execution_inputs_v01.py', 'src/momentumbot/research/sealed_historical_execution_acquisition_v01.py', 'src/momentumbot/research/sealed_historical_execution_transport_v01.py']:
+              missing = undefined_globals(Path(name).read_text(), name)
+              if missing:
+                  raise SystemExit(f'{name}: {sorted(missing)}')
+          PY
+
+  acquire:
+    needs: validate
+    if: needs.validate.outputs.execute == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    permissions:
+      contents: write
+      actions: read
+    env:
+      PYTHONPATH: src:scripts
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - name: Bind exact first-attempt execution child
+        run: |
+          test "$GITHUB_EVENT_NAME" = push
+          test "$GITHUB_REF" = refs/heads/phase-3-historical-snapshot
+          test "$GITHUB_RUN_ATTEMPT" = 1
+          test "$(git diff --name-only HEAD^ HEAD)" = research/strategy/sealed-historical-execution-input-acquisition-v0.1-execution.json
+          test "$(git diff --diff-filter=A --name-only HEAD^ HEAD)" = research/strategy/sealed-historical-execution-input-acquisition-v0.1-execution.json
+          printf 'EXECUTION_CODE_COMMIT_SHA=%s\n' "$(git rev-parse HEAD^)" >> "$GITHUB_ENV"
+          printf 'EXECUTION_CODE_TREE_SHA=%s\n' "$(git show -s --format=%T HEAD^)" >> "$GITHUB_ENV"
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12.14"
+      - name: Install and retain the exact locked environment
+        run: |
+          python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-execution-quote-v01.txt
+          python -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          python -m pip check
+          mkdir execution-input-preflight
+          python -m pip freeze --all > execution-input-preflight/pip-freeze.txt
+      - name: Validate execution and every parent byte offline
+        run: python scripts/acquire_sealed_historical_execution_inputs_v01.py --validate-only --check-execution
+      - name: Verify successful CI and dedicated validation at the exact code parent
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python - <<'PY'
+          import json, subprocess
+          from pathlib import Path
+          value = json.loads(Path('research/strategy/sealed-historical-execution-input-acquisition-v0.1-execution.json').read_text())
+          for field, path in [('code_ci_run_id', '.github/workflows/ci.yml'), ('code_validation_run_id', '.github/workflows/sealed-historical-execution-input-acquisition-v01.yml')]:
+              result = json.loads(subprocess.check_output(['gh', 'api', f'repos/RoomyRems/momentumbot/actions/runs/{value[field]}'], text=True))
+              expected = {'head_sha': value['code_commit_sha'], 'head_branch': 'phase-3-historical-snapshot', 'event': 'push', 'run_attempt': 1, 'status': 'completed', 'conclusion': 'success', 'path': path}
+              if any(result.get(k) != v for k, v in expected.items()):
+                  raise SystemExit('Exact code validation run differs')
+              Path(f'execution-input-preflight/{field}.json').write_text(json.dumps(result, indent=2, sort_keys=True)+'\n')
+          PY
+      - name: Download and verify the exact independently verified parent quote
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/RoomyRems/momentumbot/actions/runs/34066187628 > execution-input-preflight/parent-quote-run.json
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/9999061044 > execution-input-preflight/parent-quote-artifact.json
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/9999061044/zip > execution-input-preflight/parent-quote.zip
+          python - <<'PYCODE'
+          import json
+          from pathlib import Path
+          from momentumbot.research.sealed_historical_execution_acquisition_v01 import verify_quote_zip
+          root = Path('execution-input-preflight')
+          run = json.loads((root/'parent-quote-run.json').read_text())
+          expected = {'id':34066187628,'head_sha':'dd295304dcc5e7cc0ebd300d094ab20636a72b92','head_branch':'phase-3-historical-snapshot','event':'push','run_attempt':1,'status':'completed','conclusion':'success','path':'.github/workflows/sealed-historical-execution-input-quote-v01.yml'}
+          if any(run.get(k)!=v for k,v in expected.items()):
+              raise SystemExit('Parent quote run differs')
+          artifact = json.loads((root/'parent-quote-artifact.json').read_text())
+          if artifact['id']!=9999061044 or artifact['workflow_run']['id']!=34066187628 or artifact['name']!='sealed-historical-execution-quote-v01-result-34066187628-1':
+              raise SystemExit('Parent quote artifact differs')
+          verify_quote_zip(root/'parent-quote.zip',Path('.'))
+          PYCODE
+      - name: Atomically consume the exact acquisition once
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method POST repos/RoomyRems/momentumbot/git/refs -f ref=refs/tags/sealed-historical-execution-input-acquisition-v0.1-consumed -f sha="$GITHUB_SHA" > execution-input-preflight/consumption-ref.json
+          python scripts/acquire_sealed_historical_execution_inputs_v01.py --consume --preflight-root execution-input-preflight
+      - name: Durably upload consumption before provider access
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: sealed-historical-execution-input-v01-consumption-${{ github.run_id }}-${{ github.run_attempt }}
+          path: execution-input-preflight
+          if-no-files-found: error
+          retention-days: 90
+      - name: Requote then acquire the exact 90 execution input tapes
+        timeout-minutes: 35
+        env:
+          DATABENTO_API_KEY: ${{ secrets.DATABENTO_API_KEY }}
+        run: python scripts/acquire_sealed_historical_execution_inputs_v01.py --acquire --preflight-root execution-input-preflight --output-root execution-inputs
+      - name: Retain sanitized complete or partial input evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: sealed-historical-execution-input-v01-result-${{ github.run_id }}-${{ github.run_attempt }}
+          path: execution-inputs
+          if-no-files-found: ignore
+          retention-days: 90
