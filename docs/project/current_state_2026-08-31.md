@@ -126,8 +126,28 @@ scientific commands deny network and subprocess I/O. A dedicated research-push
 end-to-end verification workflow can produce a durable non-final proof against
 the exact 706-file parent, unchanged 30,522-request ledger, all 946 identities,
 and completed 767-file source. Verification reports cannot open the final gate.
-The final v0.13 recovery remains unarmed until this complete real-data proof
-passes and the exact commit/tree/main dispatcher is separately authorized.
+The final v0.13 recovery was kept unarmed until that complete real-data proof
+passed and the exact commit/tree/main dispatcher was separately authorized.
+
+On 2026-09-06, final source-freeze run `34039993297` succeeded as
+`workflow_dispatch` from `main`, attempt 1, dispatcher `de24eb17316191da69d92e61f6843af25e9c22d0`,
+checking out research commit `8b2b9379319d293291366bae5f898f66c5dd492b`.
+Independent verification matched both GitHub ZIP digests and every retained
+source hash: 767 files, 190 directories, all 706 inherited files unchanged,
+and only 61 permitted scanner additions. The exact 30 dates, both 946-identity
+populations, pinned environment, and 30,522-request ledger remain unchanged.
+The final report passes the source-acquisition gate; its intermediate remains
+ineligible. Measured hashes and verification methods are recorded in
+`research/data-audits/sealed-historical-source-v0.13-final-verification-34039993297.json`.
+
+The isolated v0.2 scanner/Micro preparation binds that exact final artifact,
+preserves both scanner profiles and Micro-v0.1, and grants no execution
+authority. Its source-validation CLI performs no strategy replay. The next
+separate execution gate can freeze scanner profile activations and an exact
+candidate-bound Micro input request manifest. Micro execution remains blocked:
+completed 10-second bars and normalized SIP trade events are missing from the
+one-minute source bundle. They may not be substituted or treated as zero
+triggers. See `docs/research/sealed_historical_scanner_micro_runtime_v02.md`.
 
 The strategy scope freeze remains active: no new setup, AI authority, scanner or
 Micro threshold change, account rule change, execution-cell selection, or

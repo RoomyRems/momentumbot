@@ -1,0 +1,240 @@
+{
+  "all_intermediate_members_unchanged_in_final": true,
+  "archives": {
+    "final": {
+      "artifact_id": 9993250947,
+      "artifact_name": "sealed-historical-source-acquisition-v13-34039993297-1",
+      "expanded_bytes": 748542614,
+      "sha256": "af89836213a905a1e02dabd54cce1d2bab2f55214c2d7bc0dce44d4700243638",
+      "url": "https://github.com/RoomyRems/momentumbot/actions/runs/34039993297/artifacts/9993250947",
+      "workflow_run_attempt": 1,
+      "workflow_run_id": 34039993297,
+      "zip_bytes": 78404172
+    },
+    "intermediate": {
+      "artifact_id": 9992623035,
+      "artifact_name": "sealed-historical-source-v13-intermediate-34039993297-1",
+      "expanded_bytes": 748471910,
+      "sha256": "87c7be24989257ca11a2a56e85533786e8761a61e49ba12c874086c3b1226b37",
+      "url": "https://github.com/RoomyRems/momentumbot/actions/runs/34039993297/artifacts/9992623035",
+      "workflow_run_attempt": 1,
+      "workflow_run_id": 34039993297,
+      "zip_bytes": 78380962
+    },
+    "parent": {
+      "artifact_id": 9877181150,
+      "artifact_name": "sealed-historical-source-acquisition-v10-provider-checkpoint-33706372901-1",
+      "expanded_bytes": 572213603,
+      "sha256": "b13bb68c5c231ba51b73c63d2a0d7e73fa78a0a837d4e35b94a55ddf5006b3b3",
+      "url": "https://github.com/RoomyRems/momentumbot/actions/runs/33706372901/artifacts/9877181150",
+      "workflow_run_attempt": 1,
+      "workflow_run_id": 33706372901,
+      "zip_bytes": 71298708
+    }
+  },
+  "artifact_type": "independent_final_snapshot_verification",
+  "audit_finalized_at": "2026-09-06T18:09:43.095627+00:00",
+  "authorization_commit_sha": "8b2b9379319d293291366bae5f898f66c5dd492b",
+  "authorization_content_sha256": "e075fa7bb99a55ca3b55f88673c3509f02886b139f1980fcf8dfd6a606d397a6",
+  "authorization_path": "research/strategy/sealed-historical-source-acquisition-v0.13.json",
+  "authorization_tree_sha": "997745472ccd749f0af4cb2e88a258ea3790ea8e",
+  "blocked_provider_attempts": 0,
+  "candidate_identity_counts": {
+    "composite_figi": 737,
+    "unique_cik_fallback": 209
+  },
+  "causal_attestation": {
+    "account_or_order_endpoint_called": false,
+    "all_candidates_and_float_records_preflighted": true,
+    "authoritative_identity_kinds": [
+      "composite_figi",
+      "unique_cik_fallback"
+    ],
+    "candidate_identity_values_rewritten": false,
+    "final_summarizer_identity_scope_restored": true,
+    "float_records_rewritten": false,
+    "order_submitted": false,
+    "parent_provider_checkpoint_reused_exactly": true,
+    "provider_requests_repeated": false,
+    "ross_labels_or_outcomes_read": false,
+    "scanner_snapshots_rebuilt_from_frozen_inputs_only": true,
+    "strategy_micro_or_account_policy_changed": false,
+    "transcript_record_values_read": false
+  },
+  "content_sha256": "00c73507b57a2337d65a83daf12ec002b545ecd8a8903b628f02d92070c039a1",
+  "cost": {
+    "databento_called": false,
+    "incremental_provider_cost_usd": "0",
+    "provider_calls": 0
+  },
+  "dates": [
+    "2025-05-30",
+    "2025-06-02",
+    "2025-06-03",
+    "2025-06-04",
+    "2025-06-05",
+    "2025-06-06",
+    "2025-06-09",
+    "2025-06-10",
+    "2025-06-11",
+    "2025-06-12",
+    "2025-06-13",
+    "2025-06-16",
+    "2025-06-17",
+    "2025-06-18",
+    "2025-06-20",
+    "2025-06-23",
+    "2025-06-24",
+    "2025-06-25",
+    "2025-06-26",
+    "2025-06-27",
+    "2025-07-01",
+    "2025-07-02",
+    "2025-07-07",
+    "2025-07-08",
+    "2025-07-10",
+    "2025-07-11",
+    "2025-07-14",
+    "2025-07-15",
+    "2025-07-16",
+    "2025-07-17"
+  ],
+  "dispatcher_commit_sha": "de24eb17316191da69d92e61f6843af25e9c22d0",
+  "dispatcher_tree_sha": "3c6aa851a960ee8f8dfe7430e4a1f040f6d1df5d",
+  "environment_comparison": {
+    "child_environment_freeze_sha256": "c8288dc8b4295e153e8b8dde9c74e77668ed8a16a693371ff296730a47feaab1",
+    "child_project_commit_sha": "8b2b9379319d293291366bae5f898f66c5dd492b",
+    "parent_environment_freeze_sha256": "580a7b8d85d8a925c4c7fa979fda816cb9f907bab9542ed793b3091ed9301dd7",
+    "parent_project_commit_sha": "652db5675a35b6f455aa0d924aa50428dd995280",
+    "schema_version": 1,
+    "third_party_environment_sha256": "99f7ef78df0f77ec47971f53e33915f714f33ac3a911718fc0c881e6a45ed579"
+  },
+  "execution_mode": "github_actions",
+  "float_identity_counts": {
+    "composite_figi": 737,
+    "unique_cik_fallback": 209
+  },
+  "intermediate_backtest_eligible": false,
+  "intermediate_content_sha256": "d94525525e4fc6ab8b0e47154733f721ecba27ca71bdce57aa91458d39edf6d1",
+  "intermediate_file_sha256": "e2627b5baa954129fcb5b092be92c43ec3544daec7865c61efe2b5c0048abf05",
+  "intermediate_source_acquisition_gate_passed": false,
+  "next_gate": "provider_free_label_blind_scanner_and_micro_runtime_freeze",
+  "parent_files_unchanged": 706,
+  "parent_source_checkpoint": {
+    "content_sha256": "fef36fbcf2844f1da8510572a95c2f2978509bd2b021d2227c03c5ba5f3466f9",
+    "file_count": 706,
+    "file_sha256": "7d1f6858fa669af9de467c36c11e5aff0f3e7af99c0e65bbffcb2814c1040711",
+    "retained_bytes": 572044578,
+    "source_tree_sha256": "dc95bb478bcb7fdb1b230fa4885402228c82f8614c80fe975a23510ec1922a48"
+  },
+  "permitted_scanner_additions": 61,
+  "preparation": {
+    "backtesting_executed": false,
+    "branch": "prepare-v013-historical-runtime",
+    "contract_content_sha256": "0c1354fb1f9a7775a80def125f339de0aa94ed537bd574c0bfbbf7b02b4047d5",
+    "contract_id": "sealed-historical-scanner-micro-runtime-v0.2",
+    "micro_runtime_blocker": [
+      "completed_10_second_bars",
+      "normalized_sip_trade_events"
+    ],
+    "micro_runtime_executed": false,
+    "next_separate_execution_gate": "freeze_scanner_profile_activations_and_candidate_bound_micro_input_request_manifest",
+    "python_version": "3.12.13",
+    "reconciled_existing_preparation_commit": "936b53c1791fd481c7926d975bb3b465f07b8d14",
+    "registration_content_sha256": "506c4ec189eccd34694ef3e4d6bbae89b0e36eeb85acd02772b1597ff11ea737",
+    "remote_refs_changed": false,
+    "reviewed_code_file_sha256": {
+      "scripts/prepare_sealed_historical_scanner_micro_runtime_v02.py": "ec7f3b7bebd8eacadaddf1a2733c14bc7d0e36188142ec9e56e7faa1d1e13132",
+      "src/momentumbot/research/sealed_historical_scanner_micro_runtime_v02.py": "4ef7ee72658f124ebf7dbf4e9ecf6c2465590f8631980bdae3cdea1cecb69ce7"
+    },
+    "scanner_activation_materialization_executed": false,
+    "source_validation": {
+      "contract_id": "sealed-historical-scanner-micro-runtime-v0.2",
+      "micro_runtime_started": false,
+      "registration_valid": true,
+      "runtime_execution_authorized": false,
+      "runtime_started": false,
+      "scanner_activation_materialization_started": false,
+      "source_validation": {
+        "micro_v0_1_runtime_ready": false,
+        "missing_required_inputs": [
+          "completed_10_second_bars",
+          "normalized_sip_trade_events"
+        ],
+        "provider_calls": 0,
+        "runtime_started": false,
+        "scanner_snapshot_ready": true,
+        "schema_version": 1,
+        "source_verified": true
+      }
+    },
+    "tests": {
+      "focused": {
+        "elapsed_seconds": 3.852,
+        "log_sha256": "f9c69544017fea7850c0db8ed31d88519a867a032ae1a3cda3d24b580e5607fc",
+        "passed": 12
+      },
+      "full": {
+        "elapsed_seconds": 44.904,
+        "log_sha256": "7fe92ac3c518f7e76aa773a7750fe2415fdd756eacbec78c8428cf01755855c1",
+        "passed": 1405
+      },
+      "optimized": {
+        "elapsed_seconds": 4.119,
+        "log_sha256": "b6fab79e8c2f28fe0bcc07b270208e41b0850f67e2c2cd0c944535d4f623eb11",
+        "passed": 12
+      }
+    },
+    "undefined_name_gate": {
+      "files": [
+        "scripts/prepare_sealed_historical_scanner_micro_runtime_v02.py",
+        "src/momentumbot/research/sealed_historical_scanner_micro_runtime_v02.py"
+      ],
+      "passed": true
+    },
+    "workflow_dispatched": false
+  },
+  "report_content_sha256": "03d2853fd82163387ee55fa32ba50c5f18e2c7a8a96e80054ff9830d47bd43c4",
+  "report_file_sha256": "048644a52d368381de3d01c143255758dd90f47b800d94716c4baa3193fcbdbf",
+  "request_budget": {
+    "by_host": {
+      "api.massive.com": 363,
+      "data.alpaca.markets": 28831,
+      "data.sec.gov": 1328
+    },
+    "schema_version": 1,
+    "total_attempts": 30522
+  },
+  "run_attempt_rechecked": 1,
+  "run_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34039993297",
+  "schema_version": 1,
+  "source_acquisition_gate_passed": true,
+  "source_directory_count": 190,
+  "source_file_count": 767,
+  "source_retained_bytes": 748128473,
+  "source_tree_sha256": "74cc2895bf46d1c9a054f57108b7aae17af6a291f72678f1cd935118c844bed6",
+  "verification": {
+    "all_source_hashes_independently_recomputed": true,
+    "exact_provider_free_source_replay_verified_for_all_dates": true,
+    "final_report_validator_passed": true,
+    "identity_preflight_independently_recomputed": true,
+    "intermediate_validator_passed": true,
+    "log_file_sha256": {
+      "freeze.log": "619e70a81d05af71e5a08141b729ac26a5efaa2ebf06db018f29f10366edb527",
+      "validate.log": "ed0f62083f694b07d337b016d11af3b5a59b7769d74edb05db362faa77982e4e"
+    },
+    "new_scanner_micro_strategy_replay_executed": false,
+    "normal_and_optimized_focused_tests_each": 44,
+    "parent_archive_independently_rehashed": true,
+    "run_jobs_and_steps_verified": true,
+    "source_replay_verification_method": "Inspected the exact successful workflow deep source replay, causal attestations, and validator restoration; independently rehashed every source byte in both archives and recomputed inventory, identity preflight and report/checkpoint validation. No additional full source reconstruction was executed during this audit."
+  },
+  "verified_at": "2026-09-06T17:50:54.793791+00:00",
+  "workflow_blob_sha": "c955741309ad704343b8d81d93b444789f1cd29a",
+  "workflow_branch": "main",
+  "workflow_event": "workflow_dispatch",
+  "workflow_file_sha256": "5c5836705dd71f530459dd5f66ae669906bc72f1afef4d782a47b5a4fb631dd1",
+  "workflow_path": ".github/workflows/sealed-historical-source-acquisition-v13.yml",
+  "workflow_run_attempt": 1,
+  "workflow_run_id": 34039993297
+}

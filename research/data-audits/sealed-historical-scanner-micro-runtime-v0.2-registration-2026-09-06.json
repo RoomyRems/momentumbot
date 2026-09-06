@@ -1,0 +1,33 @@
+{
+  "artifact_type": "provider_free_historical_runtime_preparation_registration",
+  "causal_attestation": {
+    "backtesting_started": false,
+    "broker_or_order_endpoints_accessed": false,
+    "databento_accessed": false,
+    "market_provider_calls": 0,
+    "micro_runtime_started": false,
+    "retrospective_labels_opened": false,
+    "scanner_runtime_started": false,
+    "transcript_files_opened_or_inventoried": false
+  },
+  "content_sha256": "506c4ec189eccd34694ef3e4d6bbae89b0e36eeb85acd02772b1597ff11ea737",
+  "contract": {
+    "content_sha256": "0c1354fb1f9a7775a80def125f339de0aa94ed537bd574c0bfbbf7b02b4047d5",
+    "file_sha256": "88e14157cbbe0e73081b99ddef5a94b053f208f39807de487fb8630cf6d02756",
+    "path": "research/strategy/sealed-historical-scanner-micro-runtime-v0.2.json"
+  },
+  "contract_id": "sealed-historical-scanner-micro-runtime-v0.2",
+  "next_gate": "separate authorization to materialize frozen scanner profile activations and the exact candidate-bound Micro input request manifest; no Micro replay or backtest",
+  "registered_at_date": "2026-09-06",
+  "registration_id": "sealed-historical-scanner-micro-runtime-v0.2-registration",
+  "schema_version": 1,
+  "source_receipt": {
+    "artifact_id": 9993250947,
+    "artifact_zip_sha256": "af89836213a905a1e02dabd54cce1d2bab2f55214c2d7bc0dce44d4700243638",
+    "recovery_report_content_sha256": "03d2853fd82163387ee55fa32ba50c5f18e2c7a8a96e80054ff9830d47bd43c4",
+    "recovery_report_file_sha256": "048644a52d368381de3d01c143255758dd90f47b800d94716c4baa3193fcbdbf",
+    "source_tree_content_sha256": "74cc2895bf46d1c9a054f57108b7aae17af6a291f72678f1cd935118c844bed6",
+    "workflow_run_attempt": 1,
+    "workflow_run_id": "34039993297"
+  }
+}
