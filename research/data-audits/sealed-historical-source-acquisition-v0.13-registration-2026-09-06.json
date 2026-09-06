@@ -1,0 +1,84 @@
+{
+  "artifact_type": "provider_free_source_recovery_v0_13_registration",
+  "artifacts": {
+    "authorization": {
+      "file_sha256": "c491c30fbdb46fe71ef64116a8114afea88ee40e43cea52d2cd3112d756a53bc",
+      "path": "research/strategy/sealed-historical-source-acquisition-v0.13.json"
+    },
+    "authorization_regression_tests": {
+      "file_sha256": "c8a1356da5b89303786a30560dba65d26cd556c6f9bf88f62ac3410de61ece78",
+      "path": "tests/test_sealed_historical_source_authorization_v13.py"
+    },
+    "authorization_validator": {
+      "file_sha256": "c8a3efddca45be766f9d5265acba5c049f1eefcc34ce5257e8a4121c358e6dfc",
+      "path": "src/momentumbot/research/sealed_historical_source_authorization_v13.py"
+    },
+    "documentation": {
+      "file_sha256": "3d1cdf20d4d1cdf3675ede4aca4cd08047157be51441c142e7c7d85283501e3d",
+      "path": "docs/research/sealed_historical_source_acquisition_v13.md"
+    },
+    "failed_execution_audit": {
+      "file_sha256": "69b8af902d003c317e62d2f7ae279fd9a6f7c45561a2f8865c557d0138875c87",
+      "path": "research/data-audits/sealed-historical-source-acquisition-v0.12-run-33929860053-failure-2026-09-06.json"
+    },
+    "failed_execution_workflow": {
+      "file_sha256": "7a6ec6eb3c8031bc022340a73408b837d75e03b20338845787f6b87df0679f39",
+      "path": ".github/workflows/sealed-historical-source-acquisition-v12.yml"
+    },
+    "final_identity_adapter": {
+      "file_sha256": "680aad54f59d5f7c30c65faa46eb00673c892d44250d146f5d16115afef44750",
+      "path": "src/momentumbot/historical_float_identity_v11.py"
+    },
+    "final_report": {
+      "file_sha256": "82da123736f98aec6bc9ecf28fd09f040ef769fc8d04331c8ea8fafa76955f4c",
+      "path": "src/momentumbot/research/sealed_historical_source_acquisition_v13.py"
+    },
+    "offline_guard": {
+      "file_sha256": "fd28ca7e4a27832721a890a1a41af36863a7f13568ca9e85e17c2d5f35e0627d",
+      "path": "scripts/run_offline_python_v13.py"
+    },
+    "parent_checkpoint_validator": {
+      "file_sha256": "779f74dc8e9e79a44cf4b3dcc754074ee7dbf08ae38cf7c5a00036d6036f3c1c",
+      "path": "src/momentumbot/research/sealed_historical_source_checkpoint_v10.py"
+    },
+    "parent_scanner_adapter": {
+      "file_sha256": "7500a94f55b2eee113e66b5d6ab3905a555affd74fcb38def4960a02dd45c350",
+      "path": "scripts/build_causal_scanner_snapshot_v10.py"
+    },
+    "prelaunch_verification_workflow": {
+      "file_sha256": "03ff2bcace27fc1c3201773ac1ddeecaf0964b9fb82b0b6630c0519a8fe963ac",
+      "path": ".github/workflows/sealed-historical-source-recovery-v13-e2e.yml"
+    },
+    "requirements": {
+      "file_sha256": "0a9cce71ad0e35defb000e4b0b1a210ed9c41e84c6eb113e8ac79c242a5b52f3",
+      "path": "requirements-sealed-source-v04.txt"
+    },
+    "runner": {
+      "file_sha256": "1bc8709cf0c01a9a872ffe54287c02d473f057e3370fe1b7803c9661b21aa489",
+      "path": "scripts/run_sealed_historical_source_acquisition_v13.py"
+    },
+    "runner_regression_tests": {
+      "file_sha256": "e05c039baca9f6c2b7a6e98e157a7f49e497e619d30a8509194a410e9c6911d8",
+      "path": "tests/test_sealed_historical_source_runner_v13.py"
+    },
+    "undefined_name_gate": {
+      "file_sha256": "3e74714c89a66ee91186406187221c549ac2e0a165a63bb00675d08e45b7d446",
+      "path": "scripts/check_recovery_entrypoints_v13.py"
+    },
+    "workflow": {
+      "file_sha256": "5c5836705dd71f530459dd5f66ae669906bc72f1afef4d782a47b5a4fb631dd1",
+      "path": ".github/workflows/sealed-historical-source-acquisition-v13.yml"
+    },
+    "workflow_regression_tests": {
+      "file_sha256": "8d22046fedb7a45047a139b623ce3c6c9ab70eace96f7e1051426344b8a31ba9",
+      "path": "tests/test_sealed_historical_source_workflow_v13.py"
+    }
+  },
+  "authorization_content_sha256": "e075fa7bb99a55ca3b55f88673c3509f02886b139f1980fcf8dfd6a606d397a6",
+  "authorization_id": "sealed-historical-source-acquisition-v0.13",
+  "content_sha256": "39f9aa51804b22363f794e91b542b498ac41d69abfbf4c79905caf3256d65b80",
+  "launch_allowed": false,
+  "provider_calls_authorized": 0,
+  "schema_version": 1,
+  "status": "unarmed_pending_completed_e2e_and_exact_manual_authorization"
+}

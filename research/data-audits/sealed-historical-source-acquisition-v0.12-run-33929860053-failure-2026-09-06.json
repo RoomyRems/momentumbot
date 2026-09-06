@@ -1,0 +1,70 @@
+{
+  "artifact_type": "sealed_historical_source_acquisition_v0_12_failure_audit",
+  "audited_at_date": "2026-09-06",
+  "causal_attestation": {
+    "account_or_order_endpoint_calls": 0,
+    "databento_calls": 0,
+    "orders_submitted": 0,
+    "provider_calls": 0,
+    "ross_labels_or_outcomes_read": false,
+    "transcript_record_values_read": false
+  },
+  "conclusion": "fail_closed_final_runner_missing_parent_request_budget_import",
+  "content_sha256": "1fa5c8b1d16442f177b4f22565c9edbc063a869330f23b2febb290d9ececeb60",
+  "failure": {
+    "coverage_gap": "helper_tests_and_compile_gate_do_not_execute_the_cli_success_path",
+    "exception_message": "name 'PARENT_REQUEST_BUDGET' is not defined",
+    "exception_type": "NameError",
+    "failed_job": "freeze",
+    "failed_job_id": 101206174795,
+    "failed_step": "Build identity-compatible strict final deep replay without credentials",
+    "failed_step_number": 10,
+    "file": "scripts/run_sealed_historical_source_acquisition_v12.py",
+    "line": 259,
+    "root_cause": "runner_uses_frozen_ledger_constant_without_importing_it"
+  },
+  "failure_artifact": {
+    "archive_size_bytes": 948,
+    "artifact_id": 9960256394,
+    "artifact_name": "sealed-historical-source-acquisition-v12-failure-33929860053-1",
+    "expires_at": "2026-12-03T23:32:08Z",
+    "safe_failure_content_sha256": "6d1f21a5c9868a3021f36c3979e1d6f841f8fc44ba8b551b6e28f524a16d2ab5",
+    "safe_failure_file_sha256": "f9d83f061c66e6ddf2c8efaa8e54f62a2a251896fbb6451d0bdb9a22f65e43dc",
+    "safe_failure_size_bytes": 1772,
+    "zip_sha256": "15587131e4eb2cf07a17ec4222aad81a1e6d9c428154bf834aa6dad1f1f4ac76"
+  },
+  "parent_provider_checkpoint": {
+    "artifact_id": 9877181150,
+    "remains_immutable": true,
+    "zip_sha256": "b13bb68c5c231ba51b73c63d2a0d7e73fa78a0a837d4e35b94a55ddf5006b3b3"
+  },
+  "progress": {
+    "failure_artifact_inventory_count": 1,
+    "final_bundle_uploaded": false,
+    "final_report_completed": false,
+    "provider_checkpoint_706_files_validated": true,
+    "scanner_freeze_completed_dates": 30,
+    "scanner_snapshot_uploaded": false,
+    "validate_job_succeeded": true
+  },
+  "repair_boundary": {
+    "automatic_rerun_allowed": false,
+    "new_version_required": "v0.13",
+    "provider_requests_repeated": false,
+    "strategy_profiles_or_thresholds_changed": false,
+    "v0_12_rerun_allowed": false
+  },
+  "schema_version": 1,
+  "workflow": {
+    "authorization_commit_sha": "dbe3abf2bf320fb014d76a34f3bf790d2d343deb",
+    "authorization_content_sha256": "a44c675ca2ad1c164eb5d868a74e779ed300580eb93ee643ce5c2a31c42c2c1a",
+    "authorization_path": "research/strategy/sealed-historical-source-acquisition-v0.12.json",
+    "authorization_tree_sha": "ce9f6dd6f66b2bbf4cc39748f6f5af6a8a3d3782",
+    "dispatcher_workflow_sha": "070efdff977a637c60afff0b8826134ab31f92d4",
+    "event": "workflow_dispatch",
+    "head_branch": "main",
+    "repository": "RoomyRems/momentumbot",
+    "run_attempt": 1,
+    "run_id": 33929860053
+  }
+}

@@ -101,7 +101,7 @@ take effect. The resulting `ModuleNotFoundError` occurred before checkpoint
 deep validation, scanner output, or final replay. Provider calls remained zero,
 the safe-failure artifact is `9957636441`, and v0.11 may not be rerun.
 
-The registered provider-free repair is now v0.12. It invokes the explicit
+The provider-free v0.12 repair invoked the explicit
 `.venv-v12/bin/python` for that same-step comparison and adds a static workflow
 regression for the exact failed form. Everything else remains inherited: exact
 v0.10 provider-checkpoint artifact `9877181150`, all 706 source files, 30
@@ -110,6 +110,24 @@ narrow final-summarizer identity scope, and `finally` restoration. v0.12 has no
 provider entrypoint or credential and authorizes zero additional provider HTTP
 attempts. Candidate-bound Micro or Databento acquisition and transcript-label
 review remain blocked until the label-blind source Snapshot succeeds.
+
+v0.12 was dispatched once as run `33929860053`, attempt 1, at research commit
+`dbe3abf2bf320fb014d76a34f3bf790d2d343deb` and main dispatcher
+`070efdff977a637c60afff0b8826134ab31f92d4`. It validated the exact checkpoint
+and completed all 30 scanner freezes, then failed in the final CLI because
+`PARENT_REQUEST_BUDGET` was used without being imported. Only sanitized failure
+artifact `9960256394` was uploaded; no final bundle or scanner checkpoint was
+preserved by that execution. v0.12 remains failed and may not be rerun.
+
+The additive v0.13 recovery fixes that runner import and adds an undefined-name
+gate, actual CLI success/failure regressions, a pre-freeze ledger/identity
+preflight, and a hash-bound intermediate upload before final reporting. Its
+scientific commands deny network and subprocess I/O. A dedicated research-push
+end-to-end verification workflow can produce a durable non-final proof against
+the exact 706-file parent, unchanged 30,522-request ledger, all 946 identities,
+and completed 767-file source. Verification reports cannot open the final gate.
+The final v0.13 recovery remains unarmed until this complete real-data proof
+passes and the exact commit/tree/main dispatcher is separately authorized.
 
 The strategy scope freeze remains active: no new setup, AI authority, scanner or
 Micro threshold change, account rule change, execution-cell selection, or
