@@ -1,0 +1,43 @@
+{
+  "accounts_or_fills_simulated": false,
+  "artifact_id": "sealed-historical-execution-input-quote-v0.1-registration-2026-09-06",
+  "artifact_type": "historical_execution_metadata_quote_registration_audit",
+  "backtesting_executed": false,
+  "code_file_sha256": {
+    ".github/workflows/sealed-historical-execution-input-quote-v01.yml": "dfdc1819eb0e50cd0b110aa218e6354eb55015881d6faad99b8c3fe87115a99d",
+    "requirements-sealed-execution-quote-v01.txt": "03f4da335027e4c83bcf38e523c2e11aeaae49778f5bd6caa47e4703348b31b4",
+    "research/strategy/sealed-historical-execution-input-quote-v0.1.json": "910873079e7a0312203dce489607dd95bfe99f78f778cb99b4323f2c627ee9d3",
+    "scripts/quote_sealed_historical_execution_inputs_v01.py": "a76739fab6123bfbd7257b66a9ca3045a4fbbc6d013d96beacedc77ff734598e",
+    "src/momentumbot/research/sealed_historical_execution_quote_v01.py": "be5d81c039ba0256b2622ea65d2f966f56fa2f9a87b77f2e39485d92c6464383",
+    "src/momentumbot/research/sealed_historical_metadata_transport_v01.py": "0d3665043c805d661ecc2bd76e646ccfbb068d7f5e3e0d56419b4155a2fe893d",
+    "tests/test_sealed_historical_execution_quote_v01.py": "1d30131184e55f705d72de65a0a1df51f8c32911eac1a2f6ec39bd4dd537eed8"
+  },
+  "consumed_refs_changed": false,
+  "content_sha256": "0a2640838d78b219363fd7e6cfc65ca1c5cea89c54b3b8aa6f403da62f7282a1",
+  "contract_content_sha256": "d4b91164f6dc2dc6139987059ce36a31544c43a2c4b6c01f5e9ee1ab53f91d1b",
+  "execution_record_created": false,
+  "input_plan_inventory_sha256": "6aa9208ce5d37998021dcf09f30fb68ca3e5184b4505ea25c42f3f80b8ab38c1",
+  "maximum_metadata_calls": 180,
+  "micro_reexecuted": false,
+  "next_gate": "exact_parent_ci_then_sole_metadata_quote_execution_child",
+  "parent_commit_sha": "3af740c7ed80d04ba604399fa26b9d369d246271",
+  "parent_tree_sha": "c91806b2929c714036dba3fc724ec790b627eca9",
+  "provider_calls": 0,
+  "quote_executed": false,
+  "request_count": 90,
+  "request_list_content_sha256": "4515172de55e48d42f1312b5b298dd2c126fccea700b39417cf600221d76e8ce",
+  "retrospective_inputs_loaded": false,
+  "schema_version": 1,
+  "source_or_policy_changed": false,
+  "validation": {
+    "databento": "0.83.0",
+    "focused_normal_tests": 41,
+    "focused_optimized_tests": 41,
+    "full_repository_tests": 1465,
+    "hosted_python_required": "3.12.14",
+    "local_python": "3.12.13",
+    "offline_cli_validation": "passed",
+    "real_sdk_fake_transport_tests": 2,
+    "undefined_names": "passed"
+  }
+}

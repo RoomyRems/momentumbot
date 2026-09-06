@@ -1,0 +1,67 @@
+# Exact CPython 3.12 / Linux x86-64 metadata-only SDK environment.
+# Frozen source dependencies are retained byte-for-byte below; provider SDK additions follow.
+# Exact CPython 3.12 / Linux x86-64 provider-free runtime registered for v0.4.
+# The workflow installs this file with `--require-hashes` before the editable
+# project install and preserves both this lock and `pip freeze` in the source
+# checkpoint.  Every hash below is the SHA-256 of the exact PyPI wheel used by
+# the pinned ubuntu-24.04 acquisition runner; source distributions are rejected.
+pip==26.2.1 \
+    --hash=sha256:71138adf1f4ca900cdb7d289c21b7494329f2332b6d85f0e1c42108c0384ed3e
+setuptools==84.0.0 \
+    --hash=sha256:51a52592b3b99e102b609654876bd65f19f999935166d1352678931132b0c670
+wheel==0.48.0 \
+    --hash=sha256:3217dcc807155e45db462d7ef2431f5ddda0d7273b700d05a67b271ceb1287ab
+packaging==26.3 \
+    --hash=sha256:d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c
+numpy==2.3.5 \
+    --hash=sha256:0d8163f43acde9a73c2a33605353a4f1bc4798745a8b1d73183b28e5b435ae28
+pandas==2.2.3 \
+    --hash=sha256:fffb8ae78d8af97f849404f21411c95062db1496aeb3e56f146f0355c9989319
+PyYAML==6.0.3 \
+    --hash=sha256:ba1cc08a7ccde2d2ec775841541641e4548226580ab850948cbfda66a1befcdc
+python-dateutil==2.9.0.post0 \
+    --hash=sha256:a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427
+pytz==2026.3.post1 \
+    --hash=sha256:dd95840dd199baea12d9cc096a1d452caa6596a1c1e4b5f3dbd1541855d5e815
+tzdata==2026.3 \
+    --hash=sha256:dc096730c87af6cab1b171c9d532be840741ff5d459015e7f6947bd7d7e54931
+six==1.17.0 \
+    --hash=sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274
+
+# Databento 0.83.0 and exact additional wheel dependencies.
+aiohappyeyeballs==2.7.1 \
+    --hash=sha256:9243213661e29250eb41368e5daa826fc017156c3b8a11440826b2e3ed376472
+aiohttp==3.14.3 \
+    --hash=sha256:543906c127fb1d929b95076db19b83fa2d46751006ff1e23b093aa5ac4d8db42
+aiosignal==1.4.0 \
+    --hash=sha256:053243f8b92b990551949e63930a839ff0cf0b0ebbe0597b0f3fb19e1a0fe82e
+attrs==26.1.0 \
+    --hash=sha256:c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309
+certifi==2026.7.22 \
+    --hash=sha256:62f22742b58a1a33014a2b6b706588a8d7e2a88ae7bd1a6ebe8c992928483775
+charset_normalizer==3.5.1 \
+    --hash=sha256:b9af956078716df40d985fb0dfeb2c2120c5ca92ba4ff4b388acfd01cdc14d08
+databento==0.83.0 \
+    --hash=sha256:dbf3902af4909ccf35712b54e61fa16e88c6331aaf773e9e7977fdd9f75f4a70
+databento_dbn==0.65.0 \
+    --hash=sha256:1734c1fe5dd6185a9b4a1ffdaedd83057b74db19d1077f6c1a5058dee5a9bc77
+frozenlist==1.8.0 \
+    --hash=sha256:494a5952b1c597ba44e0e78113a7266e656b9794eec897b19ead706bd7074383
+idna==3.19 \
+    --hash=sha256:815e7be7a7806d54abb586dc943addc79e8b2ee16915059658cbeff4b1b43bf4
+multidict==6.7.1 \
+    --hash=sha256:bfde23ef6ed9db7eaee6c37dcec08524cb43903c60b285b172b6c094711b3961
+propcache==0.5.2 \
+    --hash=sha256:6f328175a2cde1f0ff2c4ed8ce968b9dcfb55f3a7153f39e2957ed994da13476
+pyarrow==25.0.1 \
+    --hash=sha256:5389cdf79447ed1515c9e31620e6e1e2302249564d603f2ad727d4f6d313e4c3
+requests==2.34.2 \
+    --hash=sha256:2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0
+typing_extensions==4.16.0 \
+    --hash=sha256:481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8
+urllib3==2.7.0 \
+    --hash=sha256:9fb4c81ebbb1ce9531cce37674bbc6f1360472bc18ca9a553ede278ef7276897
+yarl==1.24.5 \
+    --hash=sha256:f08c7513ecef5aad65687bfdf6bc601ae9fccd04a42904501f8f7141abad9eb9
+zstandard==0.25.0 \
+    --hash=sha256:5a56ba0db2d244117ed744dfa8f6f5b366e14148e00de44723413b2f3938a902

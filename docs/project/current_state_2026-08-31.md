@@ -73,6 +73,14 @@ quote-bound bounded acquisition. No quote, acquisition, account/fill simulation,
 backtest, or policy change occurred during registration. See
 `docs/research/sealed_historical_execution_inputs_v01.md`.
 
+The historical execution metadata-quote harness is now prepared under
+`docs/research/sealed_historical_execution_quote_v01.md`. It preserves the
+exact 90-request plan and permits only 180 size/cost metadata calls through a
+bounded pinned-SDK transport. Its code push validates offline; a separate sole
+execution record can consume the operation only after exact-parent CI and
+dedicated validation pass. The consumption artifact must be durable before
+provider access. No quote has executed in this preparation checkpoint.
+
 ## Current state
 
 The prospective August 24–September 4 panel is terminally closed. Its five
