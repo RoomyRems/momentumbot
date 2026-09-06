@@ -74,3 +74,32 @@ Provider-free validation:
 PYTHONPATH=src:scripts python scripts/quote_sealed_historical_execution_inputs_v01.py --validate-only
 python -m unittest tests.test_sealed_historical_execution_quote_v01 tests.test_sealed_historical_execution_inputs_v01 tests.test_prospective_market_input_quote -v
 ```
+
+## Independently verified execution
+
+Code commit `9f8e5618840a833bf89a2d7a5fa851dd106342a3` passed CI `34066094928`
+and dedicated validation `34066094979` before sole execution child
+`dd295304dcc5e7cc0ebd300d094ab20636a72b92` started run `34066187628`, attempt 1.
+Both jobs and every step passed. CPython 3.12.14, the exact hash lock,
+normal/optimized focused tests, exact input validation, and durable consumption
+before metadata access were verified from the logs and artifacts.
+
+Independent downloads matched GitHub's two ZIP digests and all 16 artifact
+members. Consumption artifact `9999014554` is committed by
+`c343ef9b6e88e76a59e0158bb04716b6946913f9bda9f4768441caa44b134e29`;
+result artifact `9999061044` by
+`2a353b635407bffdb8076d88acdc520ad48f0bc19e28ff5d8c2e4ede8a88aa43`.
+The report file/content hashes are
+`d2197b2c4319391f6f7164d414bfef9c8755a502069ecff410e1d6757ce45682` /
+`d74deaf49f63410da1452d494306dd07e22eedf3f572e3171d7c2ded34d18374`.
+All 90 requests are quoted and available at the metadata gate, with 180 HTTP
+attempts, zero blocked attempts, 154,456,640 billable bytes, and an estimated
+total cost of USD `0.172787457709`. This is a quote, not measured billing or
+proof that future normalized execution/status capture is complete.
+
+The permanent independent receipt and exact report are
+`research/data-audits/sealed-historical-execution-input-quote-v0.1-independent-verification-34066187628.json`
+and `research/data-audits/sealed-historical-execution-input-quote-v0.1-report-34066187628.json`.
+The consumed ref is immutable. No rerun, download, account simulation, or
+policy change follows from the quote alone; the next child must satisfy the
+registered bounded acquisition checks under the continuing user authority.

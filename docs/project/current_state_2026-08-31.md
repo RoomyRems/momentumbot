@@ -81,6 +81,19 @@ execution record can consume the operation only after exact-parent CI and
 dedicated validation pass. The consumption artifact must be durable before
 provider access. No quote has executed in this preparation checkpoint.
 
+The quote subsequently completed once as run `34066187628`, attempt 1, at
+`dd295304dcc5e7cc0ebd300d094ab20636a72b92`. Independent verification passed both
+ZIPs and all 16 files, including all 180 metadata/HTTP calls and zero blocked
+attempts. All 90 requests have complete nonzero size quotes. The measured
+ceilings are 154,456,640 billable bytes and USD `0.172787457709`. Result artifact
+`9999061044` has ZIP SHA-256
+`2a353b635407bffdb8076d88acdc520ad48f0bc19e28ff5d8c2e4ede8a88aa43`.
+The exact report and independent audit are retained under `research/data-audits/`.
+The next dependency is the separate bounded historical acquisition, with a
+fresh complete re-quote at or below both ceilings before any download. Main,
+all prior consumption refs, source/strategy evidence, and the original ledger
+remain unchanged. No time series or account/fill simulation occurred here.
+
 ## Current state
 
 The prospective August 24–September 4 panel is terminally closed. Its five

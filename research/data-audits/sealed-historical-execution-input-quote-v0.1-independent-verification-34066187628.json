@@ -1,0 +1,357 @@
+{
+  "accounts_or_fills_simulated": false,
+  "all_jobs_steps_and_sanitized_logs_verified": true,
+  "artifact_id": "sealed-historical-execution-input-quote-v0.1-independent-verification-34066187628",
+  "artifact_type": "independent_historical_execution_metadata_quote_verification",
+  "artifact_verification_passed": true,
+  "artifacts": {
+    "consumption": {
+      "file_sha256": {
+        "code_ci_run_id.json": "90c4f7bed495379276d06be5dcb7936d3029ae052820225c17e9b6ce80c244e6",
+        "code_validation_run_id.json": "92a55ceeb95d7c73f6cce964d53bdb65e912ca1a6a481ed5cce3cd62bc0880f9",
+        "consumption-ref.json": "f09c71bff2522e3e23fdd228f2f1868adbd3c38ad2ae408117829f12298d041a",
+        "consumption.json": "07827207504d097250ca5f479bf8f955003a57d22fff73acd15dc062aed1a200",
+        "contract.json": "910873079e7a0312203dce489607dd95bfe99f78f778cb99b4323f2c627ee9d3",
+        "execution.json": "d7fa7beea8a0890fc568b488064815153e34b3b8e339ff4936a86a0eedb56f13",
+        "pip-freeze.txt": "5195d81fa9528577c351c7a8b728af6f026a303731ffd688b2ec763c8b15b637",
+        "requirements-sealed-execution-quote-v01.txt": "03f4da335027e4c83bcf38e523c2e11aeaae49778f5bd6caa47e4703348b31b4"
+      },
+      "id": 9999014554,
+      "json_content_sha256": {
+        "consumption.json": "e708b17322127a516645af452ca0b92a8a1aec906dba92228c31796a617fe2b9",
+        "contract.json": "d4b91164f6dc2dc6139987059ce36a31544c43a2c4b6c01f5e9ee1ab53f91d1b",
+        "execution.json": "fbfffb891739c3c4c08f41b2f0dcd107b2d82904776c3f76fee33d02624680a1"
+      },
+      "member_count": 8,
+      "name": "sealed-historical-execution-quote-v01-consumption-34066187628-1",
+      "zip_bytes": 8674,
+      "zip_sha256": "c343ef9b6e88e76a59e0158bb04716b6946913f9bda9f4768441caa44b134e29"
+    },
+    "result": {
+      "file_sha256": {
+        "consumption.json": "07827207504d097250ca5f479bf8f955003a57d22fff73acd15dc062aed1a200",
+        "contract.json": "910873079e7a0312203dce489607dd95bfe99f78f778cb99b4323f2c627ee9d3",
+        "execution.json": "d7fa7beea8a0890fc568b488064815153e34b3b8e339ff4936a86a0eedb56f13",
+        "http-ledger.json": "ce04bf6f34061fe40031223782594081ea08af3098ed8a3f38307d7d5c8dac8b",
+        "metadata-ledger.json": "fbbc32722fdd330dc2b0d797d7519e1675721c930a72d34c3ec110865e055437",
+        "quote-inventory.json": "13db4aaed649f79abcc06ca83519f23cd7f0c55640721357b031dce290a8ca7b",
+        "quote-report.json": "d2197b2c4319391f6f7164d414bfef9c8755a502069ecff410e1d6757ce45682",
+        "request-manifest.json": "ee0701cfbe81bfb546c1fb2d2573cf824b434d3a34ff6f1dffdd8cec5435a2e3"
+      },
+      "id": 9999061044,
+      "json_content_sha256": {
+        "consumption.json": "e708b17322127a516645af452ca0b92a8a1aec906dba92228c31796a617fe2b9",
+        "contract.json": "d4b91164f6dc2dc6139987059ce36a31544c43a2c4b6c01f5e9ee1ab53f91d1b",
+        "execution.json": "fbfffb891739c3c4c08f41b2f0dcd107b2d82904776c3f76fee33d02624680a1",
+        "http-ledger.json": "528123a42a738de95bc487fbb1e47cf5d392173b7d2aa180129fb7c6c7936a9c",
+        "metadata-ledger.json": "6ce5499aa251fbd4ed7cb7568461dbce10f4d37ec577438839c93de6d0214c47",
+        "quote-inventory.json": "4d94755924a2e3d177f9c5fccf2e818728b1581af5dc9f9586d1f703ee1346a7",
+        "quote-report.json": "d74deaf49f63410da1452d494306dd07e22eedf3f572e3171d7c2ded34d18374",
+        "request-manifest.json": "f263b9de9c87a3b05b69ccf1769a15e4128f6ea65d9fb19a300aab6bc62752e9"
+      },
+      "member_count": 8,
+      "name": "sealed-historical-execution-quote-v01-result-34066187628-1",
+      "zip_bytes": 22191,
+      "zip_sha256": "2a353b635407bffdb8076d88acdc520ad48f0bc19e28ff5d8c2e4ede8a88aa43"
+    }
+  },
+  "available_request_count": 90,
+  "backtesting_executed": false,
+  "blocked_attempts": 0,
+  "code_commit_sha": "9f8e5618840a833bf89a2d7a5fa851dd106342a3",
+  "code_tree_sha": "f0c40335f5498ff284aef19d414d8867969ae7a1",
+  "complete_request_count": 90,
+  "consumption_durable_before_metadata": true,
+  "content_sha256": "59dff08ef7fbb3562282fc96a3c0a7dc3d2e11118e66dec27739fdb1c71961f7",
+  "date_count": 30,
+  "dates": [
+    "2025-05-30",
+    "2025-06-02",
+    "2025-06-03",
+    "2025-06-04",
+    "2025-06-05",
+    "2025-06-06",
+    "2025-06-09",
+    "2025-06-10",
+    "2025-06-11",
+    "2025-06-12",
+    "2025-06-13",
+    "2025-06-16",
+    "2025-06-17",
+    "2025-06-18",
+    "2025-06-20",
+    "2025-06-23",
+    "2025-06-24",
+    "2025-06-25",
+    "2025-06-26",
+    "2025-06-27",
+    "2025-07-01",
+    "2025-07-02",
+    "2025-07-07",
+    "2025-07-08",
+    "2025-07-10",
+    "2025-07-11",
+    "2025-07-14",
+    "2025-07-15",
+    "2025-07-16",
+    "2025-07-17"
+  ],
+  "execution_commit_sha": "dd295304dcc5e7cc0ebd300d094ab20636a72b92",
+  "execution_tree_sha": "8b854bdb9f02031915433dff3c7708de81fd809c",
+  "http_attempts": 180,
+  "immutable_refs_verified": {
+    "heads/main": "de24eb17316191da69d92e61f6843af25e9c22d0",
+    "tags/sealed-historical-execution-input-quote-v0.1-consumed": "dd295304dcc5e7cc0ebd300d094ab20636a72b92",
+    "tags/sealed-historical-micro-input-acquisition-v0.1-consumed": "5cab2eb3aa2b73a2cbf1d57575519a7b99961e24",
+    "tags/sealed-historical-micro-session-input-acquisition-v0.2-consumed": "bf5863a7115abef9e22c4f527448cd9c20084f47"
+  },
+  "jobs_and_steps": [
+    {
+      "conclusion": "success",
+      "id": 101575240319,
+      "name": "validate",
+      "steps": [
+        {
+          "completed_at": "2026-09-06T23:11:46Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "started_at": "2026-09-06T23:11:46Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:11:48Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 2,
+          "started_at": "2026-09-06T23:11:46Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:11:48Z",
+          "conclusion": "success",
+          "name": "Detect only the sole added execution record",
+          "number": 3,
+          "started_at": "2026-09-06T23:11:48Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:11:48Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+          "number": 4,
+          "started_at": "2026-09-06T23:11:48Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:12:04Z",
+          "conclusion": "success",
+          "name": "Install hash-locked metadata environment without credentials",
+          "number": 5,
+          "started_at": "2026-09-06T23:11:48Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:12:16Z",
+          "conclusion": "success",
+          "name": "Verify exact parent and metadata-only tests normally and optimized",
+          "number": 6,
+          "started_at": "2026-09-06T23:12:04Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:12:16Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+          "number": 11,
+          "started_at": "2026-09-06T23:12:16Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:12:16Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 12,
+          "started_at": "2026-09-06T23:12:16Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:12:17Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 13,
+          "started_at": "2026-09-06T23:12:16Z",
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "conclusion": "success",
+      "id": 101575316298,
+      "name": "quote",
+      "steps": [
+        {
+          "completed_at": "2026-09-06T23:12:22Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "started_at": "2026-09-06T23:12:20Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:12:24Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 2,
+          "started_at": "2026-09-06T23:12:22Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:12:24Z",
+          "conclusion": "success",
+          "name": "Bind exact first-attempt execution child",
+          "number": 3,
+          "started_at": "2026-09-06T23:12:24Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:12:24Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+          "number": 4,
+          "started_at": "2026-09-06T23:12:24Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:12:38Z",
+          "conclusion": "success",
+          "name": "Install and retain the exact locked environment",
+          "number": 5,
+          "started_at": "2026-09-06T23:12:24Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:12:39Z",
+          "conclusion": "success",
+          "name": "Validate execution and every parent byte offline",
+          "number": 6,
+          "started_at": "2026-09-06T23:12:38Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:12:40Z",
+          "conclusion": "success",
+          "name": "Verify successful CI and dedicated validation at the exact code parent",
+          "number": 7,
+          "started_at": "2026-09-06T23:12:39Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:12:42Z",
+          "conclusion": "success",
+          "name": "Atomically consume the metadata quote once",
+          "number": 8,
+          "started_at": "2026-09-06T23:12:40Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:12:42Z",
+          "conclusion": "success",
+          "name": "Durably upload consumption before metadata access",
+          "number": 9,
+          "started_at": "2026-09-06T23:12:42Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:15:50Z",
+          "conclusion": "success",
+          "name": "Quote only the exact 180 bounded metadata calls",
+          "number": 10,
+          "started_at": "2026-09-06T23:12:42Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:15:51Z",
+          "conclusion": "success",
+          "name": "Retain sanitized complete or partial quote evidence",
+          "number": 11,
+          "started_at": "2026-09-06T23:15:50Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:15:51Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+          "number": 21,
+          "started_at": "2026-09-06T23:15:51Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:15:51Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 22,
+          "started_at": "2026-09-06T23:15:51Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:15:51Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 23,
+          "started_at": "2026-09-06T23:15:51Z",
+          "status": "completed"
+        }
+      ]
+    }
+  ],
+  "metadata_calls": 180,
+  "metadata_quote_gate_passed": true,
+  "next_gate": "exact_quote_bound_historical_execution_input_acquisition",
+  "no_rerun": true,
+  "opportunity_count": 109,
+  "request_count": 90,
+  "request_list_content_sha256": "4515172de55e48d42f1312b5b298dd2c126fccea700b39417cf600221d76e8ce",
+  "retrospective_inputs_loaded": false,
+  "run": {
+    "conclusion": "success",
+    "event": "push",
+    "head_branch": "phase-3-historical-snapshot",
+    "head_sha": "dd295304dcc5e7cc0ebd300d094ab20636a72b92",
+    "id": 34066187628,
+    "path": ".github/workflows/sealed-historical-execution-input-quote-v01.yml",
+    "run_attempt": 1,
+    "status": "completed"
+  },
+  "run_id": 34066187628,
+  "sanitized_log_file_sha256": {
+    "code_ci.log": "d86b5cd3a4bacfa6876e44b61bd0bfdf4e9012bf11e438184231c241df8cb447",
+    "code_validation.log": "54b3fa9f4989e88868eba90d2c1ac468afdaff4f92b415a4fe8acd9ebf547c0a",
+    "execution_quote.log": "09cb012f93d0145c6f061bf4d732e771b1ac28a81c823691ffe738c8e8380182",
+    "execution_validation.log": "88416b5068645112667ea6f98e73c3f45a7d65cbc882f4934575b664ab3bba56"
+  },
+  "schema_version": 1,
+  "source_ledger_unchanged": {
+    "alpaca": 28831,
+    "massive": 363,
+    "sec": 1328,
+    "total": 30522
+  },
+  "source_tree_sha256": "74cc2895bf46d1c9a054f57108b7aae17af6a291f72678f1cd935118c844bed6",
+  "symbol_date_count": 45,
+  "timeseries_acquired": false,
+  "total_billable_size_bytes": 154456640,
+  "total_quoted_cost_usd": "0.172787457709",
+  "unavailable_requests": [],
+  "validation": {
+    "dedicated_real_sdk_tests": 2,
+    "focused_normal_tests": 41,
+    "focused_optimized_tests": 41,
+    "full_code_ci_optional_sdk_skips": 2,
+    "full_code_ci_tests": 1465,
+    "full_local_tests": 1465,
+    "hosted_python": "3.12.14",
+    "local_python": "3.12.13",
+    "sdk": "0.83.0"
+  }
+}
