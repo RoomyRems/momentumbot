@@ -1,5 +1,30 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Latest continuation — 2026-09-06
+
+Final source-freeze run `34039993297` and artifact `9993250947` passed independent
+verification. The source tree, all 30 dates, 946 candidate/float identities,
+and original 30,522-request ledger are frozen. The provider-free scanner plan
+then froze 192 activations across 170 symbol/date pairs. Its exact output is
+`research/runtime/sealed-historical-scanner-activation-v0.2/`.
+
+The user's continuing development and operational authorization was applied to
+the separate bounded SIP-print and prior-warmup capture. Code commit
+`46e5bd28bf852402faf0e5092d1ca253ca6cc7d0` passed CI and dedicated validation;
+sole execution child `5cab2eb3aa2b73a2cbf1d57575519a7b99961e24` started run
+`34053730042`, attempt 1. Its consumption artifact `9995333130` was durably
+uploaded before market-data access. Do not rerun or edit that consumed capture.
+
+Input review identified one additional dependency: the canonical scanner stream
+retains minute close/volume, while unchanged session VWAP also requires high
+and low. A separate 170-request raw minute supplement is registered and tested
+under `docs/research/sealed_historical_micro_session_inputs_v02.md`. It has its
+own 680-attempt ceiling, consumption ref, and ledger; its execution file is
+not part of the code preparation commit. The source Snapshot and both frozen
+strategy profiles remain unchanged. Micro cannot execute until both captured
+artifacts are independently verified and their minute fields and warmup basis
+validate against the immutable source. No retrospective input is opened.
+
 ## Current state
 
 The prospective August 24–September 4 panel is terminally closed. Its five

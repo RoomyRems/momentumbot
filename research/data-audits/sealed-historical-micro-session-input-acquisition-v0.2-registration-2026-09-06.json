@@ -1,0 +1,52 @@
+{
+  "artifact_id": "sealed-historical-micro-session-input-acquisition-v0.2-registration-2026-09-06",
+  "code_file_sha256": {
+    ".github/workflows/sealed-historical-micro-session-input-acquisition-v02.yml": "969593d330d655f22c46ebf11228a9ee1bdbf56a7bb3e9f066555b6ec9818b24",
+    "scripts/capture_sealed_historical_micro_session_inputs_v02.py": "4d3a2aabc9ae602ed881ae3e4eed2170d234846b76e4b26600285fae18393c9d",
+    "src/momentumbot/research/sealed_historical_micro_session_inputs_v02.py": "c3d5d5f1e9ff988f914dcd6b4d5f4b647dd5f838a8cb39ea4a59eb4bd139ec13",
+    "tests/test_sealed_historical_micro_session_inputs_v02.py": "28265e8e079b39935438e55688d80d9b29f0a5b989e85055d8f69baca9975855"
+  },
+  "content_sha256": "62e66bc42e5921454fa7f6572db877704d2a13b3a057df2c80d7c23dbf428ab3",
+  "contract_content_sha256": "d2660aaa38585cab675d1dedbda0947c28c69951e95339da5cc50317c04005e8",
+  "dependency_evidence": {
+    "required_vwap_fields": [
+      "high",
+      "low",
+      "close",
+      "volume"
+    ],
+    "retained_candidate_fields": [
+      "raw_close",
+      "raw_volume"
+    ],
+    "source_module": "src/momentumbot/scanner_source_inputs_v03.py",
+    "source_module_file_sha256": "5606db1d5723f8b28324c60e0b40fdfe4377f0c909ace156cc079d940ea1f151",
+    "substitution_allowed": false
+  },
+  "execution_record_added": false,
+  "frozen_source_artifact_id": 9993250947,
+  "frozen_source_run_id": 34039993297,
+  "labels_loaded": false,
+  "micro_executed": false,
+  "original_source_ledger_unchanged": true,
+  "prior_input_capture_attempt": 1,
+  "prior_input_capture_run_id": 34053730042,
+  "prior_input_code_commit_sha": "46e5bd28bf852402faf0e5092d1ca253ca6cc7d0",
+  "prior_input_execution_commit_sha": "5cab2eb3aa2b73a2cbf1d57575519a7b99961e24",
+  "registration_provider_calls": 0,
+  "schema_version": 1,
+  "strategy_or_account_policy_changed": false,
+  "validation": {
+    "focused_normal_count": 37,
+    "focused_optimized_count": 37,
+    "repository_test_count": 1430,
+    "source_preflight_content_sha256": "ed11f5f821847798bff7fc3c210a52e454d06b47e6bd1a2fc2f5e048c60f8130",
+    "source_preflight_passed": true,
+    "test_log_sha256": {
+      "micro-session-v02-focused.log": "0b5cc82d488d6793ea10796e00871b06ebd72652d08b3ef5b302a6ee8f7e308f",
+      "micro-session-v02-full.log": "225f9a0c6c57583100f72982b03a9ad0462be62e0c91438240882a440d8f3fd5",
+      "micro-session-v02-optimized.log": "08eb75072146a711f9b20d3089b05f626c5657ba59653b742a81a8ad62d83485"
+    },
+    "undefined_name_checks_passed": true
+  }
+}

@@ -1,0 +1,135 @@
+name: Sealed historical Micro session input acquisition v0.2
+
+on:
+  push:
+    branches: [phase-3-historical-snapshot]
+    paths:
+      - research/strategy/sealed-historical-micro-session-input-acquisition-v0.2-execution.json
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: sealed-historical-micro-session-input-acquisition-v02
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      PYTHONPATH: src:scripts
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - name: Bind sole execution child to its tested parent
+        run: |
+          test "$GITHUB_EVENT_NAME" = push
+          test "$GITHUB_REF" = refs/heads/phase-3-historical-snapshot
+          test "$GITHUB_RUN_ATTEMPT" = 1
+          test "$(git diff --name-only HEAD^ HEAD)" = research/strategy/sealed-historical-micro-session-input-acquisition-v0.2-execution.json
+          test "$(git diff --diff-filter=A --name-only HEAD^ HEAD)" = research/strategy/sealed-historical-micro-session-input-acquisition-v0.2-execution.json
+          printf 'EXECUTION_CODE_COMMIT_SHA=%s\n' "$(git rev-parse HEAD^)" >> "$GITHUB_ENV"
+          printf 'EXECUTION_CODE_TREE_SHA=%s\n' "$(git show -s --format=%T HEAD^)" >> "$GITHUB_ENV"
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: "3.12.14"
+      - name: Install the frozen Python environment
+        run: |
+          python -m venv .venv-micro-input
+          .venv-micro-input/bin/python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-source-v04.txt
+          .venv-micro-input/bin/python -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          .venv-micro-input/bin/python -m pip check
+          mkdir -p micro-capture-preflight
+          .venv-micro-input/bin/python -m pip freeze --all > micro-capture-preflight/pip-freeze.txt
+          cp requirements-sealed-source-v04.txt micro-capture-preflight/requirements-sealed-source-v04.txt
+      - name: Validate registration and exact execution provenance offline
+        run: .venv-micro-input/bin/python scripts/capture_sealed_historical_micro_session_inputs_v02.py --validate-only --check-execution
+      - name: Validate undefined globals and adversarial capture tests
+        run: |
+          .venv-micro-input/bin/python - <<'PY'
+          from pathlib import Path
+          from check_recovery_entrypoints_v13 import undefined_globals
+          for name in ['scripts/capture_sealed_historical_micro_session_inputs_v02.py', 'src/momentumbot/research/sealed_historical_micro_session_inputs_v02.py']:
+              missing = undefined_globals(Path(name).read_text(), name)
+              if missing:
+                  raise SystemExit(f'{name}: {sorted(missing)}')
+          PY
+          .venv-micro-input/bin/python -m unittest tests.test_sealed_historical_micro_session_inputs_v02 tests.test_sealed_historical_scanner_micro_runtime_v02 -v
+          .venv-micro-input/bin/python -O -m unittest tests.test_sealed_historical_micro_session_inputs_v02 tests.test_sealed_historical_scanner_micro_runtime_v02 -v
+      - name: Verify and download the exact final source artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/9993250947 > micro-capture-preflight/source-artifact-metadata.json
+          .venv-micro-input/bin/python - <<'PY'
+          import json
+          from pathlib import Path
+          value = json.loads(Path('micro-capture-preflight/source-artifact-metadata.json').read_text())
+          expected = {'id': 9993250947, 'name': 'sealed-historical-source-acquisition-v13-34039993297-1', 'expired': False, 'size_in_bytes': 78404172, 'digest': 'sha256:af89836213a905a1e02dabd54cce1d2bab2f55214c2d7bc0dce44d4700243638'}
+          if any(value.get(key) != item for key, item in expected.items()):
+              raise SystemExit('Final source artifact metadata differs')
+          run = value.get('workflow_run', {})
+          if run.get('id') != 34039993297 or run.get('head_sha') != 'de24eb17316191da69d92e61f6843af25e9c22d0':
+              raise SystemExit('Final source artifact run provenance differs')
+          PY
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/9993250947/zip > "$RUNNER_TEMP/final-v13.zip"
+          .venv-micro-input/bin/python - <<'PY'
+          import os, zipfile
+          from pathlib import Path, PurePosixPath
+          from momentumbot.research.sealed_historical_micro_session_inputs_v02 import file_sha
+          archive = Path(os.environ['RUNNER_TEMP']) / 'final-v13.zip'
+          if file_sha(archive) != 'af89836213a905a1e02dabd54cce1d2bab2f55214c2d7bc0dce44d4700243638':
+              raise SystemExit('Final source ZIP digest differs')
+          with zipfile.ZipFile(archive) as bundle:
+              for name in bundle.namelist():
+                  if PurePosixPath(name).is_absolute() or '..' in PurePosixPath(name).parts:
+                      raise SystemExit('Unsafe source archive member')
+              bundle.extractall(Path(os.environ['RUNNER_TEMP']) / 'final-v13')
+          PY
+      - name: Deeply verify all source bytes without provider credentials
+        run: .venv-micro-input/bin/python scripts/capture_sealed_historical_micro_session_inputs_v02.py --verify-source "$RUNNER_TEMP/final-v13" > micro-capture-preflight/source-validation.json
+      - name: Atomically consume this acquisition once
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method POST repos/RoomyRems/momentumbot/git/refs -f ref=refs/tags/sealed-historical-micro-session-input-acquisition-v0.2-consumed -f sha="$GITHUB_SHA" > micro-capture-preflight/consumption-ref.json
+          .venv-micro-input/bin/python - <<'PY'
+          import os, json
+          from pathlib import Path
+          from momentumbot.research.sealed_historical_micro_session_inputs_v02 import CONSUMPTION_REF, EXECUTION_RELATIVE, frozen, seal, write_json
+          execution = frozen(Path(EXECUTION_RELATIVE))
+          ref = json.loads(Path('micro-capture-preflight/consumption-ref.json').read_text())
+          if ref.get('ref') != CONSUMPTION_REF or ref.get('object', {}).get('sha') != os.environ['GITHUB_SHA']:
+              raise SystemExit('Durable consumption ref differs')
+          write_json(Path('micro-capture-preflight/consumption.json'), seal({'execution_content_sha256': execution['content_sha256'], 'consumption_ref': CONSUMPTION_REF, 'execution_commit_sha': os.environ['GITHUB_SHA'], 'workflow_run_id': os.environ['GITHUB_RUN_ID'], 'workflow_run_attempt': 1}))
+          PY
+      - name: Durably upload consumption before market-data access
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: sealed-historical-micro-session-input-v02-consumption-${{ github.run_id }}-${{ github.run_attempt }}
+          path: micro-capture-preflight
+          if-no-files-found: error
+          retention-days: 90
+      - name: Capture only the missing raw session minute OHLC
+        timeout-minutes: 15
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_MAIN_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_MAIN_API_SECRET }}
+        run: >-
+          .venv-micro-input/bin/python scripts/capture_sealed_historical_micro_session_inputs_v02.py
+          --acquire --output micro-input-capture
+          --consumption-marker micro-capture-preflight/consumption.json
+          --source-receipt micro-capture-preflight/source-validation.json
+      - name: Preserve complete or partial normalized input evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: sealed-historical-micro-session-input-v02-capture-${{ github.run_id }}-${{ github.run_attempt }}
+          path: micro-input-capture
+          if-no-files-found: ignore
+          retention-days: 90
