@@ -105,6 +105,31 @@ before consumption; no acquisition execution record exists in this preparation
 checkpoint. Downstream capture composition and management-input gates remain
 separate from account/fill simulation.
 
+That acquisition consumed its sole execution child
+`5a375f86e951b1e9eeb6c010995c9b57025913b7` and ended in failure as run
+`34067754001`, attempt 1. All 180 fresh metadata calls passed at the exact
+original quote totals. The first time-series request, `2025-05-30-GITS-mbp-1`,
+returned HTTP 200 and 21,788 bytes, then failed during normalization. The
+remaining 89 requests were never attempted. There are zero completed
+normalized tapes; the acquisition and downstream input gates did not pass.
+This is an unavailable dependency, not a zero-trigger outcome.
+
+Independent verification passed both retained ZIPs and all 23 metadata files.
+The separate ledger is 181 attempts: 180 metadata and one time series, zero
+blocked attempts. Result artifact `9999544369` has ZIP SHA-256
+`90d9a52c04acbf3482a716e08ba4f66cb1e0a601ceb76fbb22de02a9ae424285`.
+The original source ledger, main, all consumed refs, the 109 Micro decisions,
+and every strategy/account assumption are unchanged. No account/fill simulation
+or backtest began. The consumed acquisition has not been rerun or repaired.
+
+The receipt identifies the normalization phase but does not retain the failed
+subcheck. The temporary DBN was deleted under the registered retention rule,
+so the exact metadata/mapping/order cause cannot be established from retained
+evidence. A separately versioned diagnostic child is the next dependency;
+validation must not be relaxed and the failed v0.1 remains immutable. The
+completed monitor remains paused. See the permanent failure section in
+`docs/research/sealed_historical_execution_acquisition_v01.md`.
+
 ## Current state
 
 The prospective August 24–September 4 panel is terminally closed. Its five

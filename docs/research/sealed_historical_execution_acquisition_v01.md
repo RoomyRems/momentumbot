@@ -75,3 +75,48 @@ ambiguous-time and unusable-book rules. Account/fill simulation remains blocked
 until those input gates and registered management inputs are satisfied. No
 source or Micro rerun, policy change, retrospective input, order access, or
 backtest is part of this acquisition.
+
+## Permanent first-attempt failure
+
+Code commit `aa57605ba457917997778b46e667edd7822d82d1`, tree
+`10237775b2493396f8ad81ecf6b14b1f00c0b93b`, passed CI `34067634814` and dedicated
+validation `34067634832`. All 1,477 local repository tests and 40 focused tests
+normally/optimized passed; hosted CI passed with five optional SDK tests
+covered by the pinned dedicated job. Synthetic real-DBN round trips for both
+schemas also passed. These checks did not prove that every real provider
+response would satisfy normalization.
+
+Sole execution child `5a375f86e951b1e9eeb6c010995c9b57025913b7`, tree
+`e137ba670930aa1ad6d984d5a52489337e385fd6`, started run `34067754001` as push
+attempt 1. Every prerequisite and the durable consumption upload passed before
+the provider step. The fresh quote matched both original totals exactly.
+The first request, `2025-05-30-GITS-mbp-1`, completed HTTP 200 with 21,788 wire
+bytes within its 2,041,376-byte wire bound. Its temporary DBN commitment is
+`be5e196dc30d08ecc9b9140bafe160a77aeec5347b14bcb9f4cbcb6f436b1dc9`.
+Normalization then raised an error. The runner stopped, removed the temporary
+DBN, and retained no normalized tape or completed tape receipt. The remaining
+89 requests were not attempted. Total attempts are 181, with zero blocked
+attempts, redirects or retries. The acquisition gate is false.
+
+Independent downloads verified all 11 consumption and 12 result members,
+every file/JSON hash, the exact request chain, all 180 requote results, and both
+ledgers. Consumption artifact `9999496374` has ZIP SHA-256
+`080bac59e72a00eb5d294312275b02836fbda2415b71dfd39bd134546f14216f`;
+result artifact `9999544369` has
+`90d9a52c04acbf3482a716e08ba4f66cb1e0a601ceb76fbb22de02a9ae424285`.
+The capture report file/content hashes are
+`4a60754567cd39b4a31ab222526ef4326000ea82eb9e252dce3897840c143f1c` /
+`907b2dc18ed6f04a9b5562a4bd08889b69bf171fcd62cea3b06587ca0daaf3d9`.
+
+The sanitizer retained the exact request and `normalization` phase, but not
+which metadata, mapping, required-field or ordering check failed. Raw evidence
+was deleted according to the frozen contract. The root cause therefore remains
+unconfirmed; no provider-response value or validation subcheck is inferred.
+The next child needs versioned, non-sensitive diagnostics before any further
+acquisition, preserving this consumed failure and every original policy.
+No in-place repair, rerun, substitution, account simulation or backtest occurred.
+
+Permanent records:
+
+- `research/data-audits/sealed-historical-execution-input-acquisition-v0.1-independent-verification-34067754001.json`
+- `research/data-audits/sealed-historical-execution-input-acquisition-v0.1-report-34067754001.json`

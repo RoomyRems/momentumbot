@@ -1,0 +1,502 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "acquisition_gate_passed": false,
+  "all_jobs_steps_and_sanitized_logs_inspected": true,
+  "artifact_id": "sealed-historical-execution-input-acquisition-v0.1-independent-verification-34067754001",
+  "artifact_type": "independent_historical_execution_input_acquisition_verification",
+  "artifacts": {
+    "consumption": {
+      "files": {
+        "code_ci_run_id.json": {
+          "bytes": 13598,
+          "sha256": "0e8226099b85f1ee2e91943a4d453f88ebb10210aad13d2421e7647e9271a243"
+        },
+        "code_validation_run_id.json": {
+          "bytes": 13691,
+          "sha256": "ae680615ff2dccc490e6e20f19373788159584a18afb61ea1d8e4ba6d923b22d"
+        },
+        "consumption-ref.json": {
+          "bytes": 523,
+          "sha256": "796ef3576f8892e5ddc983a5a09d42ab5f5311f154f060f1005560a08183efd7"
+        },
+        "consumption.json": {
+          "bytes": 609,
+          "sha256": "ef532f24f4d0c09bcac40ad550d8f7d7132e0e8aa6804fdb2e44e1856790022b"
+        },
+        "contract.json": {
+          "bytes": 2785,
+          "sha256": "0bf4baae383f2699372410f982b2d03eb936219d5d150eeeb5f54f33c47b5520"
+        },
+        "execution.json": {
+          "bytes": 1271,
+          "sha256": "c751ab5610f51332a7eb6745f30550dd5ed8b8cced4fb1ef09549df0ebfff5d1"
+        },
+        "parent-quote-artifact.json": {
+          "bytes": 743,
+          "sha256": "434eb9c1c073ec9aa313ed6550e544c43296768cde2060619ad66a3b254ef70f"
+        },
+        "parent-quote-run.json": {
+          "bytes": 12347,
+          "sha256": "f7e8ac4159c0f26043ad0ebfde4601c88666a5c4548a8e8ad49f8d5d52c3f8b3"
+        },
+        "parent-quote.zip": {
+          "bytes": 22191,
+          "sha256": "2a353b635407bffdb8076d88acdc520ad48f0bc19e28ff5d8c2e4ede8a88aa43"
+        },
+        "pip-freeze.txt": {
+          "bytes": 606,
+          "sha256": "bfb01601b002a11525fc4df76861cb9678637d8d69294c882ceb603cc69a6c31"
+        },
+        "requirements-sealed-execution-quote-v01.txt": {
+          "bytes": 3583,
+          "sha256": "03f4da335027e4c83bcf38e523c2e11aeaae49778f5bd6caa47e4703348b31b4"
+        }
+      },
+      "id": 9999496374,
+      "json_content_sha256": {
+        "consumption.json": "497ed38ebce45ae864787541c383ea816ac185e2e5096dce9a54fba83bdf29d9",
+        "contract.json": "1fbcaa0ecf9413aa42b9dbad8bb14a6492bdb07d664c223b07edb1e6898090b4",
+        "execution.json": "2106f23c07d5fa9cd78cfaa0ecce59ec433b8e1ece7676975c95db184dc89bef"
+      },
+      "member_count": 11,
+      "name": "sealed-historical-execution-input-v01-consumption-34067754001-1",
+      "zip_bytes": 32876,
+      "zip_sha256": "080bac59e72a00eb5d294312275b02836fbda2415b71dfd39bd134546f14216f"
+    },
+    "result": {
+      "files": {
+        "capture-inventory.json": {
+          "bytes": 2264,
+          "sha256": "edab9bffe270264b095d1a9bbfc02c2057b4db346a03e59537be5c92c1ba80a1"
+        },
+        "capture-report.json": {
+          "bytes": 88022,
+          "sha256": "4a60754567cd39b4a31ab222526ef4326000ea82eb9e252dce3897840c143f1c"
+        },
+        "consumption.json": {
+          "bytes": 609,
+          "sha256": "ef532f24f4d0c09bcac40ad550d8f7d7132e0e8aa6804fdb2e44e1856790022b"
+        },
+        "contract.json": {
+          "bytes": 2785,
+          "sha256": "0bf4baae383f2699372410f982b2d03eb936219d5d150eeeb5f54f33c47b5520"
+        },
+        "download-ledger.json": {
+          "bytes": 569,
+          "sha256": "322d1eb1845437764ac6f21a3edec3fa1f962868fad8b375d18395c9e315a062"
+        },
+        "execution.json": {
+          "bytes": 1271,
+          "sha256": "c751ab5610f51332a7eb6745f30550dd5ed8b8cced4fb1ef09549df0ebfff5d1"
+        },
+        "metadata-http-ledger.json": {
+          "bytes": 29808,
+          "sha256": "ce04bf6f34061fe40031223782594081ea08af3098ed8a3f38307d7d5c8dac8b"
+        },
+        "metadata-ledger.json": {
+          "bytes": 51746,
+          "sha256": "fbbc32722fdd330dc2b0d797d7519e1675721c930a72d34c3ec110865e055437"
+        },
+        "parent-quote-report.json": {
+          "bytes": 75551,
+          "sha256": "d2197b2c4319391f6f7164d414bfef9c8755a502069ecff410e1d6757ce45682"
+        },
+        "request-manifest.json": {
+          "bytes": 31007,
+          "sha256": "ee0701cfbe81bfb546c1fb2d2573cf824b434d3a34ff6f1dffdd8cec5435a2e3"
+        },
+        "requote-report.json": {
+          "bytes": 80975,
+          "sha256": "f3a2dfe5fe56b8609210b20c2dfa594ab44bbca40999cb9f8886c0d4eba1287c"
+        },
+        "timeseries-http-ledger.json": {
+          "bytes": 582,
+          "sha256": "8d6c1ccf733bec9e5686ea33b09470edf7bfc906d40be11bf52f4e5fdcf2ef50"
+        }
+      },
+      "id": 9999544369,
+      "json_content_sha256": {
+        "capture-inventory.json": "f9e58542302fad3cb2bc2e162e4b74de3bc25c55711841cf979c0999c8f27dc7",
+        "capture-report.json": "907b2dc18ed6f04a9b5562a4bd08889b69bf171fcd62cea3b06587ca0daaf3d9",
+        "consumption.json": "497ed38ebce45ae864787541c383ea816ac185e2e5096dce9a54fba83bdf29d9",
+        "contract.json": "1fbcaa0ecf9413aa42b9dbad8bb14a6492bdb07d664c223b07edb1e6898090b4",
+        "download-ledger.json": "30c37ab15c03d15b9c1325e1d0bf9af89a317ad8371228c502bfe40b3008e275",
+        "execution.json": "2106f23c07d5fa9cd78cfaa0ecce59ec433b8e1ece7676975c95db184dc89bef",
+        "metadata-http-ledger.json": "528123a42a738de95bc487fbb1e47cf5d392173b7d2aa180129fb7c6c7936a9c",
+        "metadata-ledger.json": "6ce5499aa251fbd4ed7cb7568461dbce10f4d37ec577438839c93de6d0214c47",
+        "parent-quote-report.json": "d74deaf49f63410da1452d494306dd07e22eedf3f572e3171d7c2ded34d18374",
+        "request-manifest.json": "f263b9de9c87a3b05b69ccf1769a15e4128f6ea65d9fb19a300aab6bc62752e9",
+        "requote-report.json": "aa78cc85b7601aac46612d742dc567a51a5345558e20a4ed111dd3eb3c2f456b",
+        "timeseries-http-ledger.json": "48a4067fc56d8ec688b99bbdd7cb6e59a3ca5e4245c58b06bfda91f3b306241b"
+      },
+      "member_count": 12,
+      "name": "sealed-historical-execution-input-v01-result-34067754001-1",
+      "zip_bytes": 41995,
+      "zip_sha256": "90d9a52c04acbf3482a716e08ba4f66cb1e0a601ceb76fbb22de02a9ae424285"
+    }
+  },
+  "backtesting_executed": false,
+  "blocked_attempts": 0,
+  "code_commit_sha": "aa57605ba457917997778b46e667edd7822d82d1",
+  "code_tree_sha": "10237775b2493396f8ad81ecf6b14b1f00c0b93b",
+  "completed_request_count": 0,
+  "completed_tape_receipt_count": 0,
+  "consumed_code_or_contract_repaired": false,
+  "consumption_durable_before_provider": true,
+  "content_sha256": "613e1cde55d7d5c2d3272d4669e4bf2fcc2055a86e1c151abdb55359cb28996a",
+  "date_count": 30,
+  "dates": [
+    "2025-05-30",
+    "2025-06-02",
+    "2025-06-03",
+    "2025-06-04",
+    "2025-06-05",
+    "2025-06-06",
+    "2025-06-09",
+    "2025-06-10",
+    "2025-06-11",
+    "2025-06-12",
+    "2025-06-13",
+    "2025-06-16",
+    "2025-06-17",
+    "2025-06-18",
+    "2025-06-20",
+    "2025-06-23",
+    "2025-06-24",
+    "2025-06-25",
+    "2025-06-26",
+    "2025-06-27",
+    "2025-07-01",
+    "2025-07-02",
+    "2025-07-07",
+    "2025-07-08",
+    "2025-07-10",
+    "2025-07-11",
+    "2025-07-14",
+    "2025-07-15",
+    "2025-07-16",
+    "2025-07-17"
+  ],
+  "diagnostic_limit": "Raw DBN was deleted under the frozen retention contract; only its hash and the normalization phase survive. No exact metadata, mapping, field or ordering subcheck can be identified from retained evidence.",
+  "execution_commit_sha": "5a375f86e951b1e9eeb6c010995c9b57025913b7",
+  "execution_tree_sha": "e137ba670930aa1ad6d984d5a52489337e385fd6",
+  "failed_request_ephemeral_dbn_sha256": "be5e196dc30d08ecc9b9140bafe160a77aeec5347b14bcb9f4cbcb6f436b1dc9",
+  "failed_request_http_status": 200,
+  "failed_request_id": "2025-05-30-GITS-mbp-1",
+  "failed_request_ordinal": 1,
+  "failed_request_wire_bytes": 21788,
+  "failed_validation_subcheck": "not_retained_by_v0.1_sanitized_receipt",
+  "failure": {
+    "error": "download_or_normalization_incomplete",
+    "failed_requests": [
+      {
+        "ephemeral_dbn_sha256": "be5e196dc30d08ecc9b9140bafe160a77aeec5347b14bcb9f4cbcb6f436b1dc9",
+        "error": "download_or_normalization_failed",
+        "failure_stage": "normalization",
+        "ordinal": 1,
+        "request_content_sha256": "be03937b8eb8af38764d3203fbeebd7f360eeacfd21e92ae0d14e3f4ebf8ab9a",
+        "request_id": "2025-05-30-GITS-mbp-1",
+        "schema": "mbp-1",
+        "status": "failed",
+        "tape": null
+      }
+    ]
+  },
+  "failure_phase": "normalization",
+  "http_attempts": 181,
+  "immutable_refs_verified": {
+    "heads/main": "de24eb17316191da69d92e61f6843af25e9c22d0",
+    "tags/sealed-historical-execution-input-acquisition-v0.1-consumed": "5a375f86e951b1e9eeb6c010995c9b57025913b7",
+    "tags/sealed-historical-execution-input-quote-v0.1-consumed": "dd295304dcc5e7cc0ebd300d094ab20636a72b92",
+    "tags/sealed-historical-micro-input-acquisition-v0.1-consumed": "5cab2eb3aa2b73a2cbf1d57575519a7b99961e24",
+    "tags/sealed-historical-micro-session-input-acquisition-v0.2-consumed": "bf5863a7115abef9e22c4f527448cd9c20084f47"
+  },
+  "jobs_and_steps": [
+    {
+      "conclusion": "success",
+      "id": 101579419419,
+      "name": "validate",
+      "steps": [
+        {
+          "completed_at": "2026-09-06T23:45:10Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "started_at": "2026-09-06T23:45:09Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:45:12Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 2,
+          "started_at": "2026-09-06T23:45:10Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:45:12Z",
+          "conclusion": "success",
+          "name": "Detect only the sole added execution record",
+          "number": 3,
+          "started_at": "2026-09-06T23:45:12Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:45:12Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+          "number": 4,
+          "started_at": "2026-09-06T23:45:12Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:45:30Z",
+          "conclusion": "success",
+          "name": "Install hash-locked acquisition environment without credentials",
+          "number": 5,
+          "started_at": "2026-09-06T23:45:12Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:45:42Z",
+          "conclusion": "success",
+          "name": "Verify exact parent and acquisition tests normally and optimized",
+          "number": 6,
+          "started_at": "2026-09-06T23:45:30Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:45:43Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+          "number": 11,
+          "started_at": "2026-09-06T23:45:42Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:45:43Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 12,
+          "started_at": "2026-09-06T23:45:43Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:45:43Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 13,
+          "started_at": "2026-09-06T23:45:43Z",
+          "status": "completed"
+        }
+      ]
+    },
+    {
+      "conclusion": "failure",
+      "id": 101579504213,
+      "name": "acquire",
+      "steps": [
+        {
+          "completed_at": "2026-09-06T23:45:49Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "started_at": "2026-09-06T23:45:48Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:45:51Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 2,
+          "started_at": "2026-09-06T23:45:49Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:45:51Z",
+          "conclusion": "success",
+          "name": "Bind exact first-attempt execution child",
+          "number": 3,
+          "started_at": "2026-09-06T23:45:51Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:45:51Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+          "number": 4,
+          "started_at": "2026-09-06T23:45:51Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:46:08Z",
+          "conclusion": "success",
+          "name": "Install and retain the exact locked environment",
+          "number": 5,
+          "started_at": "2026-09-06T23:45:51Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:46:09Z",
+          "conclusion": "success",
+          "name": "Validate execution and every parent byte offline",
+          "number": 6,
+          "started_at": "2026-09-06T23:46:08Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:46:12Z",
+          "conclusion": "success",
+          "name": "Verify successful CI and dedicated validation at the exact code parent",
+          "number": 7,
+          "started_at": "2026-09-06T23:46:09Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:46:13Z",
+          "conclusion": "success",
+          "name": "Download and verify the exact independently verified parent quote",
+          "number": 8,
+          "started_at": "2026-09-06T23:46:12Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:46:15Z",
+          "conclusion": "success",
+          "name": "Atomically consume the exact acquisition once",
+          "number": 9,
+          "started_at": "2026-09-06T23:46:13Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:46:16Z",
+          "conclusion": "success",
+          "name": "Durably upload consumption before provider access",
+          "number": 10,
+          "started_at": "2026-09-06T23:46:15Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:49:47Z",
+          "conclusion": "failure",
+          "name": "Requote then acquire the exact 90 execution input tapes",
+          "number": 11,
+          "started_at": "2026-09-06T23:46:16Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:49:47Z",
+          "conclusion": "success",
+          "name": "Retain sanitized complete or partial input evidence",
+          "number": 12,
+          "started_at": "2026-09-06T23:49:47Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:49:47Z",
+          "conclusion": "skipped",
+          "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+          "number": 23,
+          "started_at": "2026-09-06T23:49:47Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:49:48Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 24,
+          "started_at": "2026-09-06T23:49:47Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-06T23:49:48Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 25,
+          "started_at": "2026-09-06T23:49:48Z",
+          "status": "completed"
+        }
+      ]
+    }
+  ],
+  "metadata_http_attempts": 180,
+  "monitor_remains_paused": true,
+  "next_gate": "separately_versioned_diagnostic_child_required_before_any_further_input_acquisition",
+  "no_rerun": true,
+  "normalized_bytes": 0,
+  "normalized_row_count": 0,
+  "normalized_tape_count": 0,
+  "opportunity_count": 109,
+  "request_count": 90,
+  "requote_billable_bytes": 154456640,
+  "requote_cost_usd": "0.172787457709",
+  "retained_artifact_verification_passed": true,
+  "retained_tape_bytes": 0,
+  "retrospective_inputs_loaded": false,
+  "root_cause_confirmed": false,
+  "rows_by_schema": {
+    "mbp-1": 0,
+    "status": 0
+  },
+  "run": {
+    "conclusion": "failure",
+    "event": "push",
+    "head_branch": "phase-3-historical-snapshot",
+    "head_sha": "5a375f86e951b1e9eeb6c010995c9b57025913b7",
+    "id": 34067754001,
+    "path": ".github/workflows/sealed-historical-execution-input-acquisition-v01.yml",
+    "run_attempt": 1,
+    "status": "completed"
+  },
+  "run_id": 34067754001,
+  "sanitized_log_file_sha256": {
+    "code_ci.log": "5e0b66f23eafa0ca92c88e048381e8b649dfa88b62ac3be9ef74c60c59dcfc3e",
+    "code_validation.log": "c4c89c710191e8bd76f99da891707f7b4dac76cbb774fce544fa27006f4c254c",
+    "execution_acquisition.log": "7a9d77e02bf8b521894811df1c344b3496259583cd2c52c2c88d77eb7acf5e1d",
+    "execution_validation.log": "192ee6c4fbefd45c4e36fca043fbcdfe995f8ee6770b9a4fa66e506b0778a36a"
+  },
+  "schema_version": 1,
+  "source_ledger_unchanged": {
+    "alpaca": 28831,
+    "massive": 363,
+    "sec": 1328,
+    "total": 30522
+  },
+  "source_tree_sha256": "74cc2895bf46d1c9a054f57108b7aae17af6a291f72678f1cd935118c844bed6",
+  "symbol_date_count": 45,
+  "tapes": [],
+  "timeseries_http_attempts": 1,
+  "timeseries_http_ledger": {
+    "attempts": [
+      {
+        "http_status": 200,
+        "maximum_wire_bytes": 2041376,
+        "method": "timeseries.get_range",
+        "ordinal": 1,
+        "request_content_sha256": "be03937b8eb8af38764d3203fbeebd7f360eeacfd21e92ae0d14e3f4ebf8ab9a",
+        "request_id": "2025-05-30-GITS-mbp-1",
+        "status": "complete",
+        "wire_bytes": 21788
+      }
+    ],
+    "automatic_retries": 0,
+    "blocked_attempts": 0,
+    "content_sha256": "48a4067fc56d8ec688b99bbdd7cb6e59a3ca5e4245c58b06bfda91f3b306241b",
+    "http_attempts": 1,
+    "redirects_followed": 0,
+    "unregistered_endpoint_calls": 0
+  },
+  "unattempted_request_count": 89,
+  "unavailable_inputs_are_zero_trigger_results": false,
+  "validation": {
+    "dedicated_sdk_roundtrip": "passed",
+    "focused_normal_tests": 40,
+    "focused_optimized_tests": 40,
+    "full_code_ci_optional_sdk_skips": 5,
+    "full_code_ci_tests": 1477,
+    "full_local_tests": 1477,
+    "hosted_python": "3.12.14",
+    "local_python": "3.12.13",
+    "sdk": "0.83.0"
+  }
+}
