@@ -1,0 +1,44 @@
+{
+  "accounts_or_fills_simulated": false,
+  "artifact_id": "sealed-historical-execution-input-registration-v0.1-2026-09-06",
+  "artifact_type": "independent_historical_execution_input_registration_audit",
+  "backtesting_executed": false,
+  "consumed_acquisitions_rerun": false,
+  "content_sha256": "2603ab9e48df97367597cb89e53483f5f2de73930d4f4302ea8e5b7fc2007b67",
+  "contract_content_sha256": "b7e9262f20ffe9a5c063c7e8becb312c10921320aa4ee511ffc5679c39230667",
+  "contract_id": "sealed-historical-execution-input-registration-v0.1",
+  "date_count": 30,
+  "file_sha256": {
+    "freeze-manifest.json": "867ffa66b94890ba06d73e0e70d82058793d8cea76eb3eef44bfb828fdd2df9a",
+    "opportunity-manifest.json": "e784f26b3e0fcabd465feb49f4fa7ca0f4444cff737f04d4e0455df64a03469c",
+    "request-manifest.json": "ee0701cfbe81bfb546c1fb2d2573cf824b434d3a34ff6f1dffdd8cec5435a2e3"
+  },
+  "inventory_content_sha256": "6aa9208ce5d37998021dcf09f30fb68ca3e5184b4505ea25c42f3f80b8ab38c1",
+  "main_dispatcher_commit_unchanged": "de24eb17316191da69d92e61f6843af25e9c22d0",
+  "manifest_content_sha256": {
+    "freeze-manifest.json": "3a4bb30d051daf982629693167e351de2fe46c3f94bf98168c9dfab1029212f0",
+    "opportunity-manifest.json": "63924c9c67afe46cb02e927b22b7c5204c63dfc2d65f50125d36892c2620925e",
+    "request-manifest.json": "f263b9de9c87a3b05b69ccf1769a15e4128f6ea65d9fb19a300aab6bc62752e9"
+  },
+  "micro_reexecuted": false,
+  "next_gate": "exact_historical_execution_input_metadata_quote",
+  "opportunity_count": 109,
+  "parent_commit_sha": "3d20c7efdcb53b8d3bfa46b550d41001108a8dac",
+  "parent_tree_sha": "1ca85c8377483f6f4cdf50cc51bbfa584c8be807",
+  "provider_calls": 0,
+  "registration_date": "2026-09-06",
+  "request_count": 90,
+  "retrospective_labels_loaded": false,
+  "schema_version": 1,
+  "source_evidence_changed": false,
+  "symbol_date_count": 45,
+  "validation": {
+    "cli_validate_only": "passed",
+    "focused_normal_tests": 48,
+    "focused_optimized_tests": 48,
+    "full_repository_tests": 1450,
+    "python": "3.12.13",
+    "undefined_name_validation": "passed"
+  },
+  "verification_passed": true
+}

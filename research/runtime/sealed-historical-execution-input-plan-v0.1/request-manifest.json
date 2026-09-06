@@ -1,0 +1,1220 @@
+{
+  "artifact_type": "offline_exact_unquoted_historical_market_input_requests",
+  "content_sha256": "f263b9de9c87a3b05b69ccf1769a15e4128f6ea65d9fb19a300aab6bc62752e9",
+  "contract_content_sha256": "b7e9262f20ffe9a5c063c7e8becb312c10921320aa4ee511ffc5679c39230667",
+  "contract_id": "sealed-historical-execution-input-registration-v0.1",
+  "databento_credit_authorized_usd": "0",
+  "dates": [
+    "2025-05-30",
+    "2025-06-02",
+    "2025-06-03",
+    "2025-06-04",
+    "2025-06-05",
+    "2025-06-06",
+    "2025-06-09",
+    "2025-06-10",
+    "2025-06-11",
+    "2025-06-12",
+    "2025-06-13",
+    "2025-06-16",
+    "2025-06-17",
+    "2025-06-18",
+    "2025-06-20",
+    "2025-06-23",
+    "2025-06-24",
+    "2025-06-25",
+    "2025-06-26",
+    "2025-06-27",
+    "2025-07-01",
+    "2025-07-02",
+    "2025-07-07",
+    "2025-07-08",
+    "2025-07-10",
+    "2025-07-11",
+    "2025-07-14",
+    "2025-07-15",
+    "2025-07-16",
+    "2025-07-17"
+  ],
+  "opportunity_count": 109,
+  "opportunity_manifest_content_sha256": "63924c9c67afe46cb02e927b22b7c5204c63dfc2d65f50125d36892c2620925e",
+  "panel_id": "sealed-historical-walk-forward-v0.1",
+  "provider_metadata_quote_made": false,
+  "provider_purchase_authorized": false,
+  "provider_timeseries_request_made": false,
+  "request_count": 90,
+  "request_list_content_sha256": "4515172de55e48d42f1312b5b298dd2c126fccea700b39417cf600221d76e8ce",
+  "requests": [
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1748609850749660996,
+      "request_id": "2025-05-30-GITS-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1748609823047734566,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "GITS"
+      ],
+      "trading_date": "2025-05-30"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1748609850749660996,
+      "request_id": "2025-05-30-GITS-status",
+      "schema": "status",
+      "start_ns": 1748563200000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "GITS"
+      ],
+      "trading_date": "2025-05-30"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1748862290893383234,
+      "request_id": "2025-06-02-INM-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1748862268031368840,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "INM"
+      ],
+      "trading_date": "2025-06-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1748862290893383234,
+      "request_id": "2025-06-02-INM-status",
+      "schema": "status",
+      "start_ns": 1748822400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "INM"
+      ],
+      "trading_date": "2025-06-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1748863647487229086,
+      "request_id": "2025-06-02-LYRA-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1748862530174801315,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "LYRA"
+      ],
+      "trading_date": "2025-06-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1748863647487229086,
+      "request_id": "2025-06-02-LYRA-status",
+      "schema": "status",
+      "start_ns": 1748822400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "LYRA"
+      ],
+      "trading_date": "2025-06-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749036609438228166,
+      "request_id": "2025-06-04-STSS-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1749036608788228165,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "STSS"
+      ],
+      "trading_date": "2025-06-04"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749036609438228166,
+      "request_id": "2025-06-04-STSS-status",
+      "schema": "status",
+      "start_ns": 1748995200000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "STSS"
+      ],
+      "trading_date": "2025-06-04"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749208887991912252,
+      "request_id": "2025-06-06-RENT-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1749208887341912251,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "RENT"
+      ],
+      "trading_date": "2025-06-06"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749208887991912252,
+      "request_id": "2025-06-06-RENT-status",
+      "schema": "status",
+      "start_ns": 1749168000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "RENT"
+      ],
+      "trading_date": "2025-06-06"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749211064625872642,
+      "request_id": "2025-06-06-VERO-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1749211044478954510,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "VERO"
+      ],
+      "trading_date": "2025-06-06"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749211064625872642,
+      "request_id": "2025-06-06-VERO-status",
+      "schema": "status",
+      "start_ns": 1749168000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "VERO"
+      ],
+      "trading_date": "2025-06-06"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749474352346681808,
+      "request_id": "2025-06-09-SNPX-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1749474351696681807,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "SNPX"
+      ],
+      "trading_date": "2025-06-09"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749474352346681808,
+      "request_id": "2025-06-09-SNPX-status",
+      "schema": "status",
+      "start_ns": 1749427200000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "SNPX"
+      ],
+      "trading_date": "2025-06-09"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749476641496767020,
+      "request_id": "2025-06-09-TPST-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1749475048605419945,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "TPST"
+      ],
+      "trading_date": "2025-06-09"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749476641496767020,
+      "request_id": "2025-06-09-TPST-status",
+      "schema": "status",
+      "start_ns": 1749427200000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "TPST"
+      ],
+      "trading_date": "2025-06-09"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749562260555336246,
+      "request_id": "2025-06-10-DPRO-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1749562259729503495,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "DPRO"
+      ],
+      "trading_date": "2025-06-10"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749562260555336246,
+      "request_id": "2025-06-10-DPRO-status",
+      "schema": "status",
+      "start_ns": 1749513600000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "DPRO"
+      ],
+      "trading_date": "2025-06-10"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749556610632832424,
+      "request_id": "2025-06-10-GELS-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1749556417831330811,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "GELS"
+      ],
+      "trading_date": "2025-06-10"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749556610632832424,
+      "request_id": "2025-06-10-GELS-status",
+      "schema": "status",
+      "start_ns": 1749513600000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "GELS"
+      ],
+      "trading_date": "2025-06-10"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749640292859051286,
+      "request_id": "2025-06-11-HSDT-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1749640253532450572,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "HSDT"
+      ],
+      "trading_date": "2025-06-11"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749640292859051286,
+      "request_id": "2025-06-11-HSDT-status",
+      "schema": "status",
+      "start_ns": 1749600000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "HSDT"
+      ],
+      "trading_date": "2025-06-11"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749736500588644946,
+      "request_id": "2025-06-12-XTIA-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1749735843494150998,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "XTIA"
+      ],
+      "trading_date": "2025-06-12"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749736500588644946,
+      "request_id": "2025-06-12-XTIA-status",
+      "schema": "status",
+      "start_ns": 1749686400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "XTIA"
+      ],
+      "trading_date": "2025-06-12"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749822930392083340,
+      "request_id": "2025-06-13-JVA-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1749822929742083339,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "JVA"
+      ],
+      "trading_date": "2025-06-13"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749822930392083340,
+      "request_id": "2025-06-13-JVA-status",
+      "schema": "status",
+      "start_ns": 1749772800000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "JVA"
+      ],
+      "trading_date": "2025-06-13"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750248218950843886,
+      "request_id": "2025-06-18-APVO-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1750248218300843885,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "APVO"
+      ],
+      "trading_date": "2025-06-18"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750248218950843886,
+      "request_id": "2025-06-18-APVO-status",
+      "schema": "status",
+      "start_ns": 1750204800000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "APVO"
+      ],
+      "trading_date": "2025-06-18"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750247279180846630,
+      "request_id": "2025-06-18-RELI-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1750247278530846629,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "RELI"
+      ],
+      "trading_date": "2025-06-18"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750247279180846630,
+      "request_id": "2025-06-18-RELI-status",
+      "schema": "status",
+      "start_ns": 1750204800000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "RELI"
+      ],
+      "trading_date": "2025-06-18"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750685801384591158,
+      "request_id": "2025-06-23-HUSA-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1750676741245333694,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "HUSA"
+      ],
+      "trading_date": "2025-06-23"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750685801384591158,
+      "request_id": "2025-06-23-HUSA-status",
+      "schema": "status",
+      "start_ns": 1750636800000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "HUSA"
+      ],
+      "trading_date": "2025-06-23"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750765623400793752,
+      "request_id": "2025-06-24-INM-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1750765616628932160,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "INM"
+      ],
+      "trading_date": "2025-06-24"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750765623400793752,
+      "request_id": "2025-06-24-INM-status",
+      "schema": "status",
+      "start_ns": 1750723200000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "INM"
+      ],
+      "trading_date": "2025-06-24"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750857890141554836,
+      "request_id": "2025-06-25-GCTK-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1750857889491554835,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "GCTK"
+      ],
+      "trading_date": "2025-06-25"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750857890141554836,
+      "request_id": "2025-06-25-GCTK-status",
+      "schema": "status",
+      "start_ns": 1750809600000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "GCTK"
+      ],
+      "trading_date": "2025-06-25"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750943992995083212,
+      "request_id": "2025-06-26-CYN-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1750936554579090590,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "CYN"
+      ],
+      "trading_date": "2025-06-26"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750943992995083212,
+      "request_id": "2025-06-26-CYN-status",
+      "schema": "status",
+      "start_ns": 1750896000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "CYN"
+      ],
+      "trading_date": "2025-06-26"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750944918145441350,
+      "request_id": "2025-06-26-LIVE-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1750944839759964368,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "LIVE"
+      ],
+      "trading_date": "2025-06-26"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750944918145441350,
+      "request_id": "2025-06-26-LIVE-status",
+      "schema": "status",
+      "start_ns": 1750896000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "LIVE"
+      ],
+      "trading_date": "2025-06-26"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751022559498937527,
+      "request_id": "2025-06-27-BBLG-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751022513795213360,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "BBLG"
+      ],
+      "trading_date": "2025-06-27"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751022559498937527,
+      "request_id": "2025-06-27-BBLG-status",
+      "schema": "status",
+      "start_ns": 1750982400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "BBLG"
+      ],
+      "trading_date": "2025-06-27"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751029542025389534,
+      "request_id": "2025-06-27-LCFY-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751028254334543674,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "LCFY"
+      ],
+      "trading_date": "2025-06-27"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751029542025389534,
+      "request_id": "2025-06-27-LCFY-status",
+      "schema": "status",
+      "start_ns": 1750982400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "LCFY"
+      ],
+      "trading_date": "2025-06-27"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751367812156311011,
+      "request_id": "2025-07-01-CLRO-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751367800335229558,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "CLRO"
+      ],
+      "trading_date": "2025-07-01"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751367812156311011,
+      "request_id": "2025-07-01-CLRO-status",
+      "schema": "status",
+      "start_ns": 1751328000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "CLRO"
+      ],
+      "trading_date": "2025-07-01"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751368927327924111,
+      "request_id": "2025-07-01-GPUS-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751368917668904510,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "GPUS"
+      ],
+      "trading_date": "2025-07-01"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751368927327924111,
+      "request_id": "2025-07-01-GPUS-status",
+      "schema": "status",
+      "start_ns": 1751328000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "GPUS"
+      ],
+      "trading_date": "2025-07-01"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751372416758395999,
+      "request_id": "2025-07-01-TRNR-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751372416108395998,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "TRNR"
+      ],
+      "trading_date": "2025-07-01"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751372416758395999,
+      "request_id": "2025-07-01-TRNR-status",
+      "schema": "status",
+      "start_ns": 1751328000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "TRNR"
+      ],
+      "trading_date": "2025-07-01"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751463770037731149,
+      "request_id": "2025-07-02-CYN-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751463769387731148,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "CYN"
+      ],
+      "trading_date": "2025-07-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751463770037731149,
+      "request_id": "2025-07-02-CYN-status",
+      "schema": "status",
+      "start_ns": 1751414400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "CYN"
+      ],
+      "trading_date": "2025-07-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751456892065784761,
+      "request_id": "2025-07-02-ELWS-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751456891415784760,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "ELWS"
+      ],
+      "trading_date": "2025-07-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751456892065784761,
+      "request_id": "2025-07-02-ELWS-status",
+      "schema": "status",
+      "start_ns": 1751414400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "ELWS"
+      ],
+      "trading_date": "2025-07-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751464029431827632,
+      "request_id": "2025-07-02-LIXT-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751464028781827631,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "LIXT"
+      ],
+      "trading_date": "2025-07-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751464029431827632,
+      "request_id": "2025-07-02-LIXT-status",
+      "schema": "status",
+      "start_ns": 1751414400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "LIXT"
+      ],
+      "trading_date": "2025-07-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751463301627644743,
+      "request_id": "2025-07-02-NTRB-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751463277929648206,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "NTRB"
+      ],
+      "trading_date": "2025-07-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751463301627644743,
+      "request_id": "2025-07-02-NTRB-status",
+      "schema": "status",
+      "start_ns": 1751414400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "NTRB"
+      ],
+      "trading_date": "2025-07-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751893611118081707,
+      "request_id": "2025-07-07-CYCC-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751893610468081706,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "CYCC"
+      ],
+      "trading_date": "2025-07-07"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751893611118081707,
+      "request_id": "2025-07-07-CYCC-status",
+      "schema": "status",
+      "start_ns": 1751846400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "CYCC"
+      ],
+      "trading_date": "2025-07-07"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751895926663575282,
+      "request_id": "2025-07-07-MBIO-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751893273311038475,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "MBIO"
+      ],
+      "trading_date": "2025-07-07"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751895926663575282,
+      "request_id": "2025-07-07-MBIO-status",
+      "schema": "status",
+      "start_ns": 1751846400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "MBIO"
+      ],
+      "trading_date": "2025-07-07"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751980304164703183,
+      "request_id": "2025-07-08-IROH-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751980303514703182,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "IROH"
+      ],
+      "trading_date": "2025-07-08"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751980304164703183,
+      "request_id": "2025-07-08-IROH-status",
+      "schema": "status",
+      "start_ns": 1751932800000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "IROH"
+      ],
+      "trading_date": "2025-07-08"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751975204455033625,
+      "request_id": "2025-07-08-NDRA-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751975203805033624,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "NDRA"
+      ],
+      "trading_date": "2025-07-08"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751975204455033625,
+      "request_id": "2025-07-08-NDRA-status",
+      "schema": "status",
+      "start_ns": 1751932800000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "NDRA"
+      ],
+      "trading_date": "2025-07-08"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752149404801277683,
+      "request_id": "2025-07-10-DALN-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752149197572330600,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "DALN"
+      ],
+      "trading_date": "2025-07-10"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752149404801277683,
+      "request_id": "2025-07-10-DALN-status",
+      "schema": "status",
+      "start_ns": 1752105600000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "DALN"
+      ],
+      "trading_date": "2025-07-10"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752238022612476437,
+      "request_id": "2025-07-11-HOLO-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752237882073547224,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "HOLO"
+      ],
+      "trading_date": "2025-07-11"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752238022612476437,
+      "request_id": "2025-07-11-HOLO-status",
+      "schema": "status",
+      "start_ns": 1752192000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "HOLO"
+      ],
+      "trading_date": "2025-07-11"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752231681852204350,
+      "request_id": "2025-07-11-SGN-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752231642893674400,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "SGN"
+      ],
+      "trading_date": "2025-07-11"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752231681852204350,
+      "request_id": "2025-07-11-SGN-status",
+      "schema": "status",
+      "start_ns": 1752192000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "SGN"
+      ],
+      "trading_date": "2025-07-11"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752494881635731028,
+      "request_id": "2025-07-14-DARE-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752494849977827401,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "DARE"
+      ],
+      "trading_date": "2025-07-14"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752494881635731028,
+      "request_id": "2025-07-14-DARE-status",
+      "schema": "status",
+      "start_ns": 1752451200000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "DARE"
+      ],
+      "trading_date": "2025-07-14"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752491381573393169,
+      "request_id": "2025-07-14-SONN-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752490957492881654,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "SONN"
+      ],
+      "trading_date": "2025-07-14"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752491381573393169,
+      "request_id": "2025-07-14-SONN-status",
+      "schema": "status",
+      "start_ns": 1752451200000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "SONN"
+      ],
+      "trading_date": "2025-07-14"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752492115931671376,
+      "request_id": "2025-07-14-SQFT-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752491966973430692,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "SQFT"
+      ],
+      "trading_date": "2025-07-14"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752492115931671376,
+      "request_id": "2025-07-14-SQFT-status",
+      "schema": "status",
+      "start_ns": 1752451200000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "SQFT"
+      ],
+      "trading_date": "2025-07-14"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752586973628965063,
+      "request_id": "2025-07-15-XAGE-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752580565209819825,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "XAGE"
+      ],
+      "trading_date": "2025-07-15"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752586973628965063,
+      "request_id": "2025-07-15-XAGE-status",
+      "schema": "status",
+      "start_ns": 1752537600000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "XAGE"
+      ],
+      "trading_date": "2025-07-15"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752669963904677565,
+      "request_id": "2025-07-16-BNRG-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752669963254677564,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "BNRG"
+      ],
+      "trading_date": "2025-07-16"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752669963904677565,
+      "request_id": "2025-07-16-BNRG-status",
+      "schema": "status",
+      "start_ns": 1752624000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "BNRG"
+      ],
+      "trading_date": "2025-07-16"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752673129731616192,
+      "request_id": "2025-07-16-INBS-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752673081332497264,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "INBS"
+      ],
+      "trading_date": "2025-07-16"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752673129731616192,
+      "request_id": "2025-07-16-INBS-status",
+      "schema": "status",
+      "start_ns": 1752624000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "INBS"
+      ],
+      "trading_date": "2025-07-16"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752673300587356270,
+      "request_id": "2025-07-16-NUWE-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752663863727787070,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "NUWE"
+      ],
+      "trading_date": "2025-07-16"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752673300587356270,
+      "request_id": "2025-07-16-NUWE-status",
+      "schema": "status",
+      "start_ns": 1752624000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "NUWE"
+      ],
+      "trading_date": "2025-07-16"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752669616892347549,
+      "request_id": "2025-07-16-QLGN-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752669616242347548,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "QLGN"
+      ],
+      "trading_date": "2025-07-16"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752669616892347549,
+      "request_id": "2025-07-16-QLGN-status",
+      "schema": "status",
+      "start_ns": 1752624000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "QLGN"
+      ],
+      "trading_date": "2025-07-16"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752759264141527590,
+      "request_id": "2025-07-17-WINT-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752759242269151325,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "WINT"
+      ],
+      "trading_date": "2025-07-17"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752759264141527590,
+      "request_id": "2025-07-17-WINT-status",
+      "schema": "status",
+      "start_ns": 1752710400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "WINT"
+      ],
+      "trading_date": "2025-07-17"
+    }
+  ],
+  "schema_version": 1
+}

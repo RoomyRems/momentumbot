@@ -59,6 +59,20 @@ unavailable. The immutable 31-file bundle is under
 The next causal dependency is candidate-bound execution and status input
 registration. No account/fill simulation or backtest has begun.
 
+The provider-free historical execution/status input registration now binds that
+exact Micro checkpoint (`3d20c7efdcb53b8d3bfa46b550d41001108a8dac`) and re-derives
+109 opportunities across 45 symbol/date pairs. Its 90 unquoted `XNAS.ITCH`
+`mbp-1`/`status` requests use the unchanged 100-millisecond lookback and
+550-millisecond tail with a one-nanosecond exclusive-end pad. All 30 dates,
+including five explicit no-decision dates, and both profile eligibilities are
+preserved. The three-file plan is frozen under
+`research/runtime/sealed-historical-execution-input-plan-v0.1/`.
+The next dependency is its own tested historical metadata-quote adapter and
+exact one-shot record: at most 180 size/cost calls, followed by a successful
+quote-bound bounded acquisition. No quote, acquisition, account/fill simulation,
+backtest, or policy change occurred during registration. See
+`docs/research/sealed_historical_execution_inputs_v01.md`.
+
 ## Current state
 
 The prospective August 24–September 4 panel is terminally closed. Its five

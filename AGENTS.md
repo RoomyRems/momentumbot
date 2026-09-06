@@ -17,6 +17,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 |---|---|---|
 | Current checkpoint / next gate | `docs/project/current_state_2026-08-31.md` | immutable parent checkpoints plus linked frozen manifests and audits |
 | Sealed historical walk-forward | `docs/research/sealed_historical_walk_forward_v01.md` | opaque corpus commitment, prior-date exclusions, deterministic 30-session selector and provider-free registration audit |
+| Historical execution/status input plan | `docs/research/sealed_historical_execution_inputs_v01.md` | exact completed Micro checkpoint, 109 frozen decisions, 90 unquoted requests, and independent input/quote gates |
 | Sealed historical provider availability | `docs/research/sealed_historical_provider_availability_v02.md` | permanent v0.1 routing failure, one-call main-credential child repair and unchanged acquisition boundary |
 | Sealed historical source acquisition | `docs/research/sealed_historical_source_acquisition_v02.md` | permanent v0.1 request-budget failure, request-ceiling-only v0.2 child and unchanged causal acquisition graph |
 | Sealed historical scanner runtime failure | `docs/research/sealed_historical_scanner_runtime_v01_failure.md` | exact provider-free replay, mixed price-basis diagnosis and blocked normalization-only child gate |
