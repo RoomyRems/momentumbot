@@ -1,0 +1,199 @@
+{
+  "accounts_simulated": false,
+  "activation_count": 4,
+  "activations": [
+    {
+      "activation_id": "activation-c9cf9c328eb4b45320a1e87eb0dc10a6a6bb300610138d8e62e67e62755c2e12",
+      "candidate_qualified_at": "2025-07-15T11:00:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "scanner_record_content_sha256": "337cc539f1f71d62bd06de9ed191a0c8176b8e8c29bc5d244037326b1ec937f6",
+      "scanner_snapshot_content_sha256": "a262bc8b3c0af763fa31e60312ab0dac3e71be251d355dbded3c144ff67cd68d",
+      "symbol": "XAGE"
+    },
+    {
+      "activation_id": "activation-ab70d8d2f3c09b9d88fc459580deb7b222574974658622f44b41e6ca08e92850",
+      "candidate_qualified_at": "2025-07-15T11:25:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "4a13cbd99ecfcd00c5a156ce540b9a2c06df669004ee5948a4e96b61a525c1d6",
+      "scanner_snapshot_content_sha256": "a262bc8b3c0af763fa31e60312ab0dac3e71be251d355dbded3c144ff67cd68d",
+      "symbol": "CYCC"
+    },
+    {
+      "activation_id": "activation-2b5556a4e26b35b55602556fcfaa39e2f62c7cd51c159ac1f83e62936235cb31",
+      "candidate_qualified_at": "2025-07-15T12:08:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "f06a408b849916d60c7c7e209300c1679f0ebe1d9afa20fc51e2715bec932d7f",
+      "scanner_snapshot_content_sha256": "a262bc8b3c0af763fa31e60312ab0dac3e71be251d355dbded3c144ff67cd68d",
+      "symbol": "HTOO"
+    },
+    {
+      "activation_id": "activation-07f08c8eea322cf7189bae5b96658836ca85ab3ce320fc6a98996d69f3363602",
+      "candidate_qualified_at": "2025-07-15T13:38:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "58f7173e7aadfbbbf5768b90be3a83502ffc0354ff077a1df23f0d52975b9cbe",
+      "scanner_snapshot_content_sha256": "a262bc8b3c0af763fa31e60312ab0dac3e71be251d355dbded3c144ff67cd68d",
+      "symbol": "INBS"
+    }
+  ],
+  "artifact_type": "sealed_historical_micro_trigger_runtime_date",
+  "backtesting_executed": false,
+  "basis_evidence": {
+    "CYCC": {
+      "content_sha256": "b69c927a7132fbf2138915cf34c654aaf254c5634d19a791f3eed1aff00e060e",
+      "last_pair_available_at": "2025-07-15T11:25:00+00:00",
+      "maximum_relative_pair_deviation": 0.0,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "cdaad9b025fe997d4dcd26e96356b39fd836ddd733a96d2cb5cd98e0f8d0ca38",
+      "pair_count": 177,
+      "raw_to_split_factor": 1.0
+    },
+    "HTOO": {
+      "content_sha256": "49f57756d2022d38c5cac74d88e1b5b780d6e86e5bbc3a650aa59aa13a29b020",
+      "last_pair_available_at": "2025-07-15T12:08:00+00:00",
+      "maximum_relative_pair_deviation": 0.0,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "5e4bddbafc3c0f505fd1beaa7b063f8cb73351767fb35e71364a8bc9688d1775",
+      "pair_count": 48,
+      "raw_to_split_factor": 1.0
+    },
+    "INBS": {
+      "content_sha256": "b3b25b7dfec8e22e99e3c4a4889254e273fe1610cee217ed79bfda8b724fe501",
+      "last_pair_available_at": "2025-07-15T13:38:00+00:00",
+      "maximum_relative_pair_deviation": 0.0002453385672227526,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "befde42da7042ea860c0b6f551d1806616803da3c44df1128cbedb8f42dc7add",
+      "pair_count": 43,
+      "raw_to_split_factor": 0.1
+    },
+    "XAGE": {
+      "content_sha256": "6708d6e5e56a6a5647930b398d02f0391c72666836ec2077a61f91ca011c1754",
+      "last_pair_available_at": "2025-07-15T11:00:00+00:00",
+      "maximum_relative_pair_deviation": 0.0,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "a9f5ae5018175933166b0627e3491cd77776511130a5cb33f404e66d48d7e92b",
+      "pair_count": 179,
+      "raw_to_split_factor": 1.0
+    }
+  },
+  "content_sha256": "2fe26049f82017ab8bac3696447d2f08aa3f596722454796b43bde3baae3f2ee",
+  "contract_id": "sealed-historical-micro-runtime-v0.1",
+  "decision_count": 2,
+  "decisions": [
+    {
+      "activation_id": "activation-c9cf9c328eb4b45320a1e87eb0dc10a6a6bb300610138d8e62e67e62755c2e12",
+      "candidate_qualified_at": "2025-07-15T11:00:00+00:00",
+      "decision_at": "2025-07-15T11:56:05.309819825+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "micro_runtime_content_sha256": "2b09c7f0694cd1ef1842305374af4cedfc32b32acd003fab90afecee778d37a4",
+      "plan": {
+        "armed_at": "2025-07-15T11:56:00+00:00",
+        "breakout_level": 6.4,
+        "expires_at": "2025-07-15T11:56:10+00:00",
+        "minimum_new_high_price": 6.41,
+        "pullback_number": 2,
+        "source_bar_start": "2025-07-15T11:55:50+00:00",
+        "stop_price": 6.2,
+        "symbol": "XAGE"
+      },
+      "plan_id": "plan-2a1a9928ee50cdd855a34924c3c8bce32e22b88742b2c9a7ab92ee9e0b13d6b6",
+      "symbol": "XAGE"
+    },
+    {
+      "activation_id": "activation-c9cf9c328eb4b45320a1e87eb0dc10a6a6bb300610138d8e62e67e62755c2e12",
+      "candidate_qualified_at": "2025-07-15T11:00:00+00:00",
+      "decision_at": "2025-07-15T13:42:53.078965062+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "micro_runtime_content_sha256": "a37cdc0d600f0209d27950b76a419bfdc8a869144058ee06f07c4f320fa0292b",
+      "plan": {
+        "armed_at": "2025-07-15T13:42:50+00:00",
+        "breakout_level": 7.79,
+        "expires_at": "2025-07-15T13:43:00+00:00",
+        "minimum_new_high_price": 7.8,
+        "pullback_number": 6,
+        "source_bar_start": "2025-07-15T13:42:40+00:00",
+        "stop_price": 7.59,
+        "symbol": "XAGE"
+      },
+      "plan_id": "plan-70b47ac4ca00cbbe32d0046dd2a572ebe06ae655fbfd3c21762d348f314ec5bd",
+      "symbol": "XAGE"
+    }
+  ],
+  "fills_simulated": false,
+  "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+  "outcome_count": 4,
+  "outcomes": [
+    {
+      "activation_id": "activation-c9cf9c328eb4b45320a1e87eb0dc10a6a6bb300610138d8e62e67e62755c2e12",
+      "candidate_qualified_at": "2025-07-15T11:00:00+00:00",
+      "causal_input_content_sha256": "97b6e1658e99233da8b9793e3631a0bdcc42d23841585f0c78d0fd40588770f3",
+      "decision_count": 2,
+      "decision_plan_ids": [
+        "plan-2a1a9928ee50cdd855a34924c3c8bce32e22b88742b2c9a7ab92ee9e0b13d6b6",
+        "plan-70b47ac4ca00cbbe32d0046dd2a572ebe06ae655fbfd3c21762d348f314ec5bd"
+      ],
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "status": "triggered",
+      "symbol": "XAGE"
+    },
+    {
+      "activation_id": "activation-ab70d8d2f3c09b9d88fc459580deb7b222574974658622f44b41e6ca08e92850",
+      "candidate_qualified_at": "2025-07-15T11:25:00+00:00",
+      "causal_input_content_sha256": "8f5c018b3513cada6e4c679056bf65a871abf93b799b997d4954c3b144ca1831",
+      "decision_count": 0,
+      "decision_plan_ids": [],
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "status": "no_trigger",
+      "symbol": "CYCC"
+    },
+    {
+      "activation_id": "activation-2b5556a4e26b35b55602556fcfaa39e2f62c7cd51c159ac1f83e62936235cb31",
+      "candidate_qualified_at": "2025-07-15T12:08:00+00:00",
+      "causal_input_content_sha256": "c8e0f06654aa07ef9f27f2fb6abd023228887fe6a45f662de196fbf1083bf00f",
+      "decision_count": 0,
+      "decision_plan_ids": [],
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "status": "no_trigger",
+      "symbol": "HTOO"
+    },
+    {
+      "activation_id": "activation-07f08c8eea322cf7189bae5b96658836ca85ab3ce320fc6a98996d69f3363602",
+      "candidate_qualified_at": "2025-07-15T13:38:00+00:00",
+      "causal_input_content_sha256": "a90b36aaf9a02b402c267d981cd6f7309c15ae6d403a42cbf4eed31e0cf189af",
+      "decision_count": 0,
+      "decision_plan_ids": [],
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "status": "no_trigger",
+      "symbol": "INBS"
+    }
+  ],
+  "provider_calls": 0,
+  "retrospective_labels_loaded": false,
+  "scanner_activation_plan_content_sha256": "9d51ac9ec661304bc4ec575e5768ae5c40b2c026ae6191c2c89ab8324a7f36a9",
+  "schema_version": 1,
+  "trading_date": "2025-07-15",
+  "unavailable_count": 0
+}

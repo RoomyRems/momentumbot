@@ -1,0 +1,226 @@
+{
+  "accounts_simulated": false,
+  "activation_count": 5,
+  "activations": [
+    {
+      "activation_id": "activation-5acf1b79ff3c356304f8bd12b5d4488c3e037abc17c57ef5c13f091d76721a26",
+      "candidate_qualified_at": "2025-07-17T11:00:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "59c6d502a936aae7cd06f16520cf2572f1bed227697df01eb9844cc642aad166",
+      "scanner_snapshot_content_sha256": "e5c321e034e44a60c04451a42abe8a5321e6f349c52e893f6e9156868d656ed5",
+      "symbol": "BGLC"
+    },
+    {
+      "activation_id": "activation-f3e03606e1023b95c1f10fb47851cf0cca3e48eba669799711095556c48a0fa1",
+      "candidate_qualified_at": "2025-07-17T11:00:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "496e88819073dfd11f7ff0df0538b0da78a662a8f4bde6009d9db4b4bbea3597",
+      "scanner_snapshot_content_sha256": "e5c321e034e44a60c04451a42abe8a5321e6f349c52e893f6e9156868d656ed5",
+      "symbol": "DPRO"
+    },
+    {
+      "activation_id": "activation-02e4effdc633c3ede7974fadb516fde0ba8d20c3b0250a5eddfb605d299c2203",
+      "candidate_qualified_at": "2025-07-17T11:00:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "eae028169f30fcee10c3370457e72081f969a25d339bf316346a6ec4648a849c",
+      "scanner_snapshot_content_sha256": "e5c321e034e44a60c04451a42abe8a5321e6f349c52e893f6e9156868d656ed5",
+      "symbol": "XXII"
+    },
+    {
+      "activation_id": "activation-574613c1ed7d58b05d39dcffc3dcb1087ccd449944f189af1cdcfee5b0b5b309",
+      "candidate_qualified_at": "2025-07-17T13:27:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "fd672204ee1b3fce6c668c7f3f5a526b338a0b17101bcbb16d84f4912eea8fcf",
+      "scanner_snapshot_content_sha256": "e5c321e034e44a60c04451a42abe8a5321e6f349c52e893f6e9156868d656ed5",
+      "symbol": "BTCT"
+    },
+    {
+      "activation_id": "activation-7fc1580babe654404c059062b659db39ab9a85579865c03dd580480df7de1551",
+      "candidate_qualified_at": "2025-07-17T13:33:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-small-account-2026"
+      ],
+      "scanner_record_content_sha256": "e6b927c60491385e94fbe2c898f1af3ec3dc1f2d7fa847a7fe154f70b5056852",
+      "scanner_snapshot_content_sha256": "e5c321e034e44a60c04451a42abe8a5321e6f349c52e893f6e9156868d656ed5",
+      "symbol": "WINT"
+    }
+  ],
+  "artifact_type": "sealed_historical_micro_trigger_runtime_date",
+  "backtesting_executed": false,
+  "basis_evidence": {
+    "BGLC": {
+      "content_sha256": "3aa84c068ea9b650b27b0faf55fa9297913927f1a47eb60a1b781e0db806dd0d",
+      "last_pair_available_at": "2025-07-17T11:00:00+00:00",
+      "maximum_relative_pair_deviation": 0.0,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "efb9c7057d31201240b7f1f16e4426a569c820069cc783fac46c8d281fbd27c5",
+      "pair_count": 167,
+      "raw_to_split_factor": 1.0
+    },
+    "BTCT": {
+      "content_sha256": "e7d2fdbfc9e2af118d4c52a6fd15648c7d052d0056a7c2eb2f7a4534363bb536",
+      "last_pair_available_at": "2025-07-17T13:27:00+00:00",
+      "maximum_relative_pair_deviation": 0.0,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "dd2632b9ae77338fd22e7c1d12fd71e97fd0749f72362c4f481824f31112df22",
+      "pair_count": 158,
+      "raw_to_split_factor": 1.0
+    },
+    "DPRO": {
+      "content_sha256": "a59fa13d8a33c38595dc438c7bac70bd4aa2684e0cf8c028fac7733b3551a6d3",
+      "last_pair_available_at": "2025-07-17T11:00:00+00:00",
+      "maximum_relative_pair_deviation": 0.0,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "91964bac2c06019bc2c0afcc0be24f9c467e79c4cb893b91d55d8930c6fc301b",
+      "pair_count": 161,
+      "raw_to_split_factor": 1.0
+    },
+    "WINT": {
+      "content_sha256": "ae8c960536d2069afd9ef3dcfbe11478b8c279c9075308f2af8c6b5e1cd25359",
+      "last_pair_available_at": "2025-07-17T13:33:00+00:00",
+      "maximum_relative_pair_deviation": 0.0,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "7267e4c9d107edf379c74713474cb8b22eed5edb01df71ef707fc0fc5d0f8009",
+      "pair_count": 333,
+      "raw_to_split_factor": 1.0
+    },
+    "XXII": {
+      "content_sha256": "bea364e0cac2ccaffd14ef4990fafd79aee799c233f21ca4f8bc81714699b2e9",
+      "last_pair_available_at": "2025-07-17T11:00:00+00:00",
+      "maximum_relative_pair_deviation": 1.1102230246251565e-16,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "b78dd23b21c50165e6baf791cd32eccd21660b660ba95a53a7cdeae681a9abac",
+      "pair_count": 180,
+      "raw_to_split_factor": 0.0033333333333333335
+    }
+  },
+  "content_sha256": "17864f873caff1e622240360b477be171d41ceb82bea831cfcbdca5fa16dd735",
+  "contract_id": "sealed-historical-micro-runtime-v0.1",
+  "decision_count": 2,
+  "decisions": [
+    {
+      "activation_id": "activation-7fc1580babe654404c059062b659db39ab9a85579865c03dd580480df7de1551",
+      "candidate_qualified_at": "2025-07-17T13:33:00+00:00",
+      "decision_at": "2025-07-17T13:34:02.369151325+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-small-account-2026"
+      ],
+      "micro_runtime_content_sha256": "d8fac39899688915bbeff986c052f32ca515a92993f685db9e96b2aae7478a52",
+      "plan": {
+        "armed_at": "2025-07-17T13:34:00+00:00",
+        "breakout_level": 1.74,
+        "expires_at": "2025-07-17T13:34:10+00:00",
+        "minimum_new_high_price": 1.75,
+        "pullback_number": 1,
+        "source_bar_start": "2025-07-17T13:33:50+00:00",
+        "stop_price": 1.67,
+        "symbol": "WINT"
+      },
+      "plan_id": "plan-b6c845419b6533e1d8087344022f6b23daaac7266283001f94e8fcac75fcc4a7",
+      "symbol": "WINT"
+    },
+    {
+      "activation_id": "activation-7fc1580babe654404c059062b659db39ab9a85579865c03dd580480df7de1551",
+      "candidate_qualified_at": "2025-07-17T13:33:00+00:00",
+      "decision_at": "2025-07-17T13:34:23.591527589+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-small-account-2026"
+      ],
+      "micro_runtime_content_sha256": "1598f5e21878dcd2543e56e143c664a7b53065448fe4aabe2245411e8132f49d",
+      "plan": {
+        "armed_at": "2025-07-17T13:34:20+00:00",
+        "breakout_level": 1.73,
+        "expires_at": "2025-07-17T13:34:30+00:00",
+        "minimum_new_high_price": 1.74,
+        "pullback_number": 1,
+        "source_bar_start": "2025-07-17T13:34:10+00:00",
+        "stop_price": 1.67,
+        "symbol": "WINT"
+      },
+      "plan_id": "plan-8c8feec6b6876d43f0b614f2d76737e231aea90629d33df3538e6e1db5910359",
+      "symbol": "WINT"
+    }
+  ],
+  "fills_simulated": false,
+  "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+  "outcome_count": 5,
+  "outcomes": [
+    {
+      "activation_id": "activation-5acf1b79ff3c356304f8bd12b5d4488c3e037abc17c57ef5c13f091d76721a26",
+      "candidate_qualified_at": "2025-07-17T11:00:00+00:00",
+      "causal_input_content_sha256": "ac4b8c15773158d65f73df30e04224c2d41577540862a4809f7ef71d980d4318",
+      "decision_count": 0,
+      "decision_plan_ids": [],
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "status": "no_trigger",
+      "symbol": "BGLC"
+    },
+    {
+      "activation_id": "activation-f3e03606e1023b95c1f10fb47851cf0cca3e48eba669799711095556c48a0fa1",
+      "candidate_qualified_at": "2025-07-17T11:00:00+00:00",
+      "causal_input_content_sha256": "13556ee28068bf2050b6947179457dd26a8588b53455729a98e33aa21084ef44",
+      "decision_count": 0,
+      "decision_plan_ids": [],
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "status": "no_trigger",
+      "symbol": "DPRO"
+    },
+    {
+      "activation_id": "activation-02e4effdc633c3ede7974fadb516fde0ba8d20c3b0250a5eddfb605d299c2203",
+      "candidate_qualified_at": "2025-07-17T11:00:00+00:00",
+      "causal_input_content_sha256": "a4177b5cc53b476e1558161d1241c75ab2782525f0173fb8e2fe42903404d643",
+      "decision_count": 0,
+      "decision_plan_ids": [],
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "status": "no_trigger",
+      "symbol": "XXII"
+    },
+    {
+      "activation_id": "activation-574613c1ed7d58b05d39dcffc3dcb1087ccd449944f189af1cdcfee5b0b5b309",
+      "candidate_qualified_at": "2025-07-17T13:27:00+00:00",
+      "causal_input_content_sha256": "7ed702fb2ff1953ab74304fbedfdf45485767701200b2ab42f93e75715a6f19f",
+      "decision_count": 0,
+      "decision_plan_ids": [],
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "status": "no_trigger",
+      "symbol": "BTCT"
+    },
+    {
+      "activation_id": "activation-7fc1580babe654404c059062b659db39ab9a85579865c03dd580480df7de1551",
+      "candidate_qualified_at": "2025-07-17T13:33:00+00:00",
+      "causal_input_content_sha256": "b4200a93882d4bdce9debffa530a59e22e485e0c7e35e77b76331d5db847069e",
+      "decision_count": 2,
+      "decision_plan_ids": [
+        "plan-b6c845419b6533e1d8087344022f6b23daaac7266283001f94e8fcac75fcc4a7",
+        "plan-8c8feec6b6876d43f0b614f2d76737e231aea90629d33df3538e6e1db5910359"
+      ],
+      "eligible_strategy_profile_ids": [
+        "current-small-account-2026"
+      ],
+      "status": "triggered",
+      "symbol": "WINT"
+    }
+  ],
+  "provider_calls": 0,
+  "retrospective_labels_loaded": false,
+  "scanner_activation_plan_content_sha256": "05ebc7ee3c08fd86dc96d008b33b42c924df60d68cfabcb89d14a8a2569724e2",
+  "schema_version": 1,
+  "trading_date": "2025-07-17",
+  "unavailable_count": 0
+}

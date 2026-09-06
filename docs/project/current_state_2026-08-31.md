@@ -33,6 +33,32 @@ requests and zero blocked attempts. The existing completed-bar cutoff excludes
 149 hashed tail bars that become available at 10:00. The SIP-print/warmup run
 `34053730042` remains the pending input dependency at this checkpoint.
 
+The SIP-print/prior-warmup capture subsequently completed as run `34053730042`,
+attempt 1. Independent verification passed all 688 files, 340 tapes and
+receipts, 20,048,752 normalized rows, the exact 340-request plan, 2,264 provider
+attempts, and zero blocked attempts. The captured evidence covers all 170
+symbol/date pairs and 30 dates. Its ZIP commitment is
+`d31eac851c1246ce23025e9518562ed3f41b8f818d42b8de707a6d86d307be99`.
+The original v0.13 ledger remains untouched.
+
+The provider-free Micro-v0.1 historical adapter is registered under
+`research/strategy/sealed-historical-micro-runtime-v0.1.json`. It validates
+both exact capture artifacts and the final Snapshot, normalizes the prior
+split-adjusted warmup onto the raw session basis using only completed
+preactivation pairs, and reuses the unchanged support, SIP aggregation, and
+trigger builders. It writes explicit trigger/no-trigger outcomes and rejects
+missing inputs. Account/order simulation, retrospective evidence, backtesting,
+and policy change remain outside this stage.
+
+That runtime completed once across all 30 sessions. It preserved all 192
+activations and emitted 109 unique causal Micro decisions from 48 triggered
+activations; 144 activations are explicit no-trigger outcomes and none are
+unavailable. The immutable 31-file bundle is under
+`research/runtime/sealed-historical-micro-v0.1/`, with manifest content hash
+`cca8dbf0fcf37dd05dc77355de06bf384f37c081152302ce750c939550100904`.
+The next causal dependency is candidate-bound execution and status input
+registration. No account/fill simulation or backtest has begun.
+
 ## Current state
 
 The prospective August 24–September 4 panel is terminally closed. Its five

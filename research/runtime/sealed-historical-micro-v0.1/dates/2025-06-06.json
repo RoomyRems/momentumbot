@@ -1,0 +1,319 @@
+{
+  "accounts_simulated": false,
+  "activation_count": 7,
+  "activations": [
+    {
+      "activation_id": "activation-ae8a74f964fb13876e7932b7f768d73bc44ff3fb32edf7f8fc12879c8edb6482",
+      "candidate_qualified_at": "2025-06-06T11:00:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "scanner_record_content_sha256": "36eaef0fbdb7cffdb31952aa0d18279c5b894fa6491cf0e4b800744fc99538ca",
+      "scanner_snapshot_content_sha256": "965ab55b8d35f3aaa4b355ad64708f595f6eeabd11495f6913665f20f6a33ad6",
+      "symbol": "BJDX"
+    },
+    {
+      "activation_id": "activation-15f8ac1ffe1d17d3599c43013095a626764b6ce62a4e846c4571a7c8c6eaa4bf",
+      "candidate_qualified_at": "2025-06-06T11:00:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "scanner_record_content_sha256": "62bafbf87fc7edef4ed9be1d8d4820ff2fe394ab37333a7195e193f15582dc1b",
+      "scanner_snapshot_content_sha256": "965ab55b8d35f3aaa4b355ad64708f595f6eeabd11495f6913665f20f6a33ad6",
+      "symbol": "EYEN"
+    },
+    {
+      "activation_id": "activation-aa144cb54ee2a3d5ffa5f55ec71a54cd7c92bea4dbc277ea2240488938b0b9e5",
+      "candidate_qualified_at": "2025-06-06T11:06:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "57a77fb98d24a221a66fda46db84ea12d41b584bf200e654a9141d2f112a7fe1",
+      "scanner_snapshot_content_sha256": "965ab55b8d35f3aaa4b355ad64708f595f6eeabd11495f6913665f20f6a33ad6",
+      "symbol": "RENT"
+    },
+    {
+      "activation_id": "activation-da98a4bd57266aef8ae2a1e0891732951fadad1ea14f47213c9ba9eaa4c32428",
+      "candidate_qualified_at": "2025-06-06T11:17:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "0fb04c1622c75d5a8d18d25e5594f915d32a9c06edb4e7b4627677450f89dd49",
+      "scanner_snapshot_content_sha256": "965ab55b8d35f3aaa4b355ad64708f595f6eeabd11495f6913665f20f6a33ad6",
+      "symbol": "DIST"
+    },
+    {
+      "activation_id": "activation-d53fad5b35b53f0f362394172d819fe486baadf2918ac56e116861a5e90cc037",
+      "candidate_qualified_at": "2025-06-06T11:34:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "scanner_record_content_sha256": "c1c505da5f56b2e87b7b4057a48c0b5e8ac54724ef76f3e99d2e8d3b5f0bbdae",
+      "scanner_snapshot_content_sha256": "965ab55b8d35f3aaa4b355ad64708f595f6eeabd11495f6913665f20f6a33ad6",
+      "symbol": "VERO"
+    },
+    {
+      "activation_id": "activation-86c808af655a8fadbff99019d08ada11acba170c67641ac81324f0b2b48a9d99",
+      "candidate_qualified_at": "2025-06-06T12:04:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "37f51a777432ff72160b71806697a602f90ddfc4bf70f2403633c2144e9cff66",
+      "scanner_snapshot_content_sha256": "965ab55b8d35f3aaa4b355ad64708f595f6eeabd11495f6913665f20f6a33ad6",
+      "symbol": "VEEE"
+    },
+    {
+      "activation_id": "activation-dd28fa0aee6c60cdab84093e2ab7f532c6071067be65b22b78b2af687afe33da",
+      "candidate_qualified_at": "2025-06-06T13:06:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-small-account-2026"
+      ],
+      "scanner_record_content_sha256": "45d5b6e44c60dece4a822358b3dd4493e4dea9766844ba313fa61f462300d144",
+      "scanner_snapshot_content_sha256": "965ab55b8d35f3aaa4b355ad64708f595f6eeabd11495f6913665f20f6a33ad6",
+      "symbol": "KNW"
+    }
+  ],
+  "artifact_type": "sealed_historical_micro_trigger_runtime_date",
+  "backtesting_executed": false,
+  "basis_evidence": {
+    "BJDX": {
+      "content_sha256": "10a076d90f94a6a56ac38469c02502eb72be861d4f14018b7bff27bdf15ed4f5",
+      "last_pair_available_at": "2025-06-06T11:00:00+00:00",
+      "maximum_relative_pair_deviation": 0.0,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "95d2d9fbcd9376ca7bef45d5fd2a154abdd34c837b4d28b8a63ff8a90126c148",
+      "pair_count": 180,
+      "raw_to_split_factor": 0.25
+    },
+    "DIST": {
+      "content_sha256": "eb48dc8da0910a1fbbb85c94f0633d03d94ebd25b1e70d7230cfa1edea15de6c",
+      "last_pair_available_at": "2025-06-06T11:17:00+00:00",
+      "maximum_relative_pair_deviation": 0.0,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "727ecac411e71c55d15764453dfe3adef643a0c3d20177dafde8743ff8d3ace2",
+      "pair_count": 6,
+      "raw_to_split_factor": 1.0
+    },
+    "EYEN": {
+      "content_sha256": "b8591dcef51f4fb84ed55142c2deef6bb4900b8c320401085ccb4367a2499d81",
+      "last_pair_available_at": "2025-06-06T11:00:00+00:00",
+      "maximum_relative_pair_deviation": 0.0,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "d066214e6208631a4631171a9d70aaccc5bac4f6fecf204a9bae53991f1e1fc6",
+      "pair_count": 180,
+      "raw_to_split_factor": 1.0
+    },
+    "KNW": {
+      "content_sha256": "94e75e361d0070fada1ab7d31a23b27bc686ec84aa1bd6f56eacba667655dc05",
+      "last_pair_available_at": "2025-06-06T13:06:00+00:00",
+      "maximum_relative_pair_deviation": 0.0,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "c71f20997d33e6e5c747097a094184e60be7331146b36f41ed2f52a729373c73",
+      "pair_count": 24,
+      "raw_to_split_factor": 1.0
+    },
+    "RENT": {
+      "content_sha256": "d6e62514c30a3e6500c75811b1bc0cc0034614878a5bc758fc6477cc350fbdc5",
+      "last_pair_available_at": "2025-06-06T11:06:00+00:00",
+      "maximum_relative_pair_deviation": 0.0,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "c78b7820c30e5ef6dba37e780f3fcf45366df88cbee9c5a17dda35595b3b866c",
+      "pair_count": 12,
+      "raw_to_split_factor": 1.0
+    },
+    "VEEE": {
+      "content_sha256": "295700da17b6b75f7d89723935def685c6d8483dac23d66ecdc430b0c5d617b3",
+      "last_pair_available_at": "2025-06-06T12:04:00+00:00",
+      "maximum_relative_pair_deviation": 2.9081039162326405e-06,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "06886cc6c48ab14c4e47df41916b2ee4c5afab3daa2e0facd95d4668dac7a1d7",
+      "pair_count": 4,
+      "raw_to_split_factor": 0.02702702702702703
+    },
+    "VERO": {
+      "content_sha256": "fa021e347747ed336693efd193dfabfb7e9a44ba54f619a53176e920413af429",
+      "last_pair_available_at": "2025-06-06T11:34:00+00:00",
+      "maximum_relative_pair_deviation": 0.0,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "5dfe1adb8d90ccdb622430af16b7c43b2b819bdbf4df4c333d53b9591ec0f3ca",
+      "pair_count": 4,
+      "raw_to_split_factor": 1.0
+    }
+  },
+  "content_sha256": "10b26cf7994704a7a1f93ff9095c9c770a9390f8c525550e1a025afb4ce0ccb7",
+  "contract_id": "sealed-historical-micro-runtime-v0.1",
+  "decision_count": 3,
+  "decisions": [
+    {
+      "activation_id": "activation-aa144cb54ee2a3d5ffa5f55ec71a54cd7c92bea4dbc277ea2240488938b0b9e5",
+      "candidate_qualified_at": "2025-06-06T11:06:00+00:00",
+      "decision_at": "2025-06-06T11:21:27.441912251+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "micro_runtime_content_sha256": "7c5ea67880c7950a099b9d5063b20029c2a31f0efb0dc4139261462e0234e954",
+      "plan": {
+        "armed_at": "2025-06-06T11:21:20+00:00",
+        "breakout_level": 8.15,
+        "expires_at": "2025-06-06T11:21:30+00:00",
+        "minimum_new_high_price": 8.16,
+        "pullback_number": 2,
+        "source_bar_start": "2025-06-06T11:21:10+00:00",
+        "stop_price": 8.13,
+        "symbol": "RENT"
+      },
+      "plan_id": "plan-e1eb374d01a7c0588010296552429ab532f6adb94ef22000ac82b25776c9ddef",
+      "symbol": "RENT"
+    },
+    {
+      "activation_id": "activation-d53fad5b35b53f0f362394172d819fe486baadf2918ac56e116861a5e90cc037",
+      "candidate_qualified_at": "2025-06-06T11:34:00+00:00",
+      "decision_at": "2025-06-06T11:57:24.578954510+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "micro_runtime_content_sha256": "addce616cdb8d1f0793988f131323640f86d4f7972751c49ddc2df33053aa9a0",
+      "plan": {
+        "armed_at": "2025-06-06T11:57:20+00:00",
+        "breakout_level": 4.19,
+        "expires_at": "2025-06-06T11:57:30+00:00",
+        "minimum_new_high_price": 4.2,
+        "pullback_number": 2,
+        "source_bar_start": "2025-06-06T11:57:10+00:00",
+        "stop_price": 3.99,
+        "symbol": "VERO"
+      },
+      "plan_id": "plan-4cd8e22d2729d10860636984f39f7182f55eea0cb6aecd2ba364852d4f3625e5",
+      "symbol": "VERO"
+    },
+    {
+      "activation_id": "activation-d53fad5b35b53f0f362394172d819fe486baadf2918ac56e116861a5e90cc037",
+      "candidate_qualified_at": "2025-06-06T11:34:00+00:00",
+      "decision_at": "2025-06-06T11:57:44.075872641+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "micro_runtime_content_sha256": "4ff7cf169e619799db31bd09a9e17ff3d0ff1c4b82d8afdaf112ab471c016f86",
+      "plan": {
+        "armed_at": "2025-06-06T11:57:40+00:00",
+        "breakout_level": 4.15,
+        "expires_at": "2025-06-06T11:57:50+00:00",
+        "minimum_new_high_price": 4.16,
+        "pullback_number": 2,
+        "source_bar_start": "2025-06-06T11:57:30+00:00",
+        "stop_price": 3.99,
+        "symbol": "VERO"
+      },
+      "plan_id": "plan-5a33007841a76c14998db18c7a5b6aab001b734f83009e9c929aab1f9feb70ee",
+      "symbol": "VERO"
+    }
+  ],
+  "fills_simulated": false,
+  "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+  "outcome_count": 7,
+  "outcomes": [
+    {
+      "activation_id": "activation-ae8a74f964fb13876e7932b7f768d73bc44ff3fb32edf7f8fc12879c8edb6482",
+      "candidate_qualified_at": "2025-06-06T11:00:00+00:00",
+      "causal_input_content_sha256": "7c87596b5f3f736af2d40a2725a59fe6241dfd5e74fc41133cb2a3031294c015",
+      "decision_count": 0,
+      "decision_plan_ids": [],
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "status": "no_trigger",
+      "symbol": "BJDX"
+    },
+    {
+      "activation_id": "activation-15f8ac1ffe1d17d3599c43013095a626764b6ce62a4e846c4571a7c8c6eaa4bf",
+      "candidate_qualified_at": "2025-06-06T11:00:00+00:00",
+      "causal_input_content_sha256": "c1b4dea5dac031349040ece0791c267f57c5da6dd06eccdef0af314ba76afaba",
+      "decision_count": 0,
+      "decision_plan_ids": [],
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "status": "no_trigger",
+      "symbol": "EYEN"
+    },
+    {
+      "activation_id": "activation-aa144cb54ee2a3d5ffa5f55ec71a54cd7c92bea4dbc277ea2240488938b0b9e5",
+      "candidate_qualified_at": "2025-06-06T11:06:00+00:00",
+      "causal_input_content_sha256": "b5a43fdf37874e9791d7d95dc0c799bfa0b65a6d12cdc54e01cec58a3efe3fd7",
+      "decision_count": 1,
+      "decision_plan_ids": [
+        "plan-e1eb374d01a7c0588010296552429ab532f6adb94ef22000ac82b25776c9ddef"
+      ],
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "status": "triggered",
+      "symbol": "RENT"
+    },
+    {
+      "activation_id": "activation-da98a4bd57266aef8ae2a1e0891732951fadad1ea14f47213c9ba9eaa4c32428",
+      "candidate_qualified_at": "2025-06-06T11:17:00+00:00",
+      "causal_input_content_sha256": "7901b3915a2ab83266bbb344d8974af1c9ad3651e8de32cd66a8516fb6e0d115",
+      "decision_count": 0,
+      "decision_plan_ids": [],
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "status": "no_trigger",
+      "symbol": "DIST"
+    },
+    {
+      "activation_id": "activation-d53fad5b35b53f0f362394172d819fe486baadf2918ac56e116861a5e90cc037",
+      "candidate_qualified_at": "2025-06-06T11:34:00+00:00",
+      "causal_input_content_sha256": "ec8f99773c32af6e2c549b39de3dd3409c5ad0856398dd0de6233d9afbaba606",
+      "decision_count": 2,
+      "decision_plan_ids": [
+        "plan-4cd8e22d2729d10860636984f39f7182f55eea0cb6aecd2ba364852d4f3625e5",
+        "plan-5a33007841a76c14998db18c7a5b6aab001b734f83009e9c929aab1f9feb70ee"
+      ],
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "status": "triggered",
+      "symbol": "VERO"
+    },
+    {
+      "activation_id": "activation-86c808af655a8fadbff99019d08ada11acba170c67641ac81324f0b2b48a9d99",
+      "candidate_qualified_at": "2025-06-06T12:04:00+00:00",
+      "causal_input_content_sha256": "28a25a9d66a38747e1b8082e93face49815c5d024ac2b223ffa77dd77e5602a0",
+      "decision_count": 0,
+      "decision_plan_ids": [],
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "status": "no_trigger",
+      "symbol": "VEEE"
+    },
+    {
+      "activation_id": "activation-dd28fa0aee6c60cdab84093e2ab7f532c6071067be65b22b78b2af687afe33da",
+      "candidate_qualified_at": "2025-06-06T13:06:00+00:00",
+      "causal_input_content_sha256": "e877ed1781831c5ac4b12fbd7f5bad46970921651938b0db54d2483effaa66db",
+      "decision_count": 0,
+      "decision_plan_ids": [],
+      "eligible_strategy_profile_ids": [
+        "current-small-account-2026"
+      ],
+      "status": "no_trigger",
+      "symbol": "KNW"
+    }
+  ],
+  "provider_calls": 0,
+  "retrospective_labels_loaded": false,
+  "scanner_activation_plan_content_sha256": "950e8fbcebb2e261f36ddacb5dbd189fd9cafb63b8667d00f9ba4e41e5fe7df6",
+  "schema_version": 1,
+  "trading_date": "2025-06-06",
+  "unavailable_count": 0
+}

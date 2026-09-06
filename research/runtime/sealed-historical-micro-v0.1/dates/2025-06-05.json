@@ -1,0 +1,87 @@
+{
+  "accounts_simulated": false,
+  "activation_count": 2,
+  "activations": [
+    {
+      "activation_id": "activation-ba695727b565efa471fd272f81362a7ad88116602379ce20e8b468edc48f5d20",
+      "candidate_qualified_at": "2025-06-05T11:10:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "7e5121d6dbbd7fa8f5544687f7dcd0a5a9a449804b5c00cbdfc4f1b194189161",
+      "scanner_snapshot_content_sha256": "aacda8e7da0e0dc1d2d0b0eff5dbcd4f56f3bbf43b3e0ebea0ade49d3f6b1337",
+      "symbol": "CTNT"
+    },
+    {
+      "activation_id": "activation-0fc40565a54416476eb383f16ea7536fd41e4b6e3eb91ce60751739403e366dd",
+      "candidate_qualified_at": "2025-06-05T11:23:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "97b7022106343ca2e387130c37dcde099cf7171e383b95f382642e3d2405cfc2",
+      "scanner_snapshot_content_sha256": "aacda8e7da0e0dc1d2d0b0eff5dbcd4f56f3bbf43b3e0ebea0ade49d3f6b1337",
+      "symbol": "PHIO"
+    }
+  ],
+  "artifact_type": "sealed_historical_micro_trigger_runtime_date",
+  "backtesting_executed": false,
+  "basis_evidence": {
+    "CTNT": {
+      "content_sha256": "e9f20d5ff91e4b984f86ebbc173b55ac378c8e8af50bfe65b7445f99b8cd3df3",
+      "last_pair_available_at": "2025-06-05T11:10:00+00:00",
+      "maximum_relative_pair_deviation": 2.220446049250313e-16,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "85e2c5cf13c5d810fd1f033ab70949ef9c6a36618971d7521203ab861487684e",
+      "pair_count": 190,
+      "raw_to_split_factor": 0.005
+    },
+    "PHIO": {
+      "content_sha256": "4bbe29a65ff6afb6d4246037853a958f487494080961769fc9d532d36d885f60",
+      "last_pair_available_at": "2025-06-05T11:23:00+00:00",
+      "maximum_relative_pair_deviation": 0.0,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "d69e9a9ee83389290581b65174d6227fcfa2fbc1540c27e64f4f8e5fff993164",
+      "pair_count": 38,
+      "raw_to_split_factor": 1.0
+    }
+  },
+  "content_sha256": "957569108a4060ec14e3aaa15c971cb9f4ae683fe812fd43c766373197a305a5",
+  "contract_id": "sealed-historical-micro-runtime-v0.1",
+  "decision_count": 0,
+  "decisions": [],
+  "fills_simulated": false,
+  "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+  "outcome_count": 2,
+  "outcomes": [
+    {
+      "activation_id": "activation-ba695727b565efa471fd272f81362a7ad88116602379ce20e8b468edc48f5d20",
+      "candidate_qualified_at": "2025-06-05T11:10:00+00:00",
+      "causal_input_content_sha256": "d2d8ddaa88777f802cb8822a0e251d166446fac607bdad8765e514f3840519bf",
+      "decision_count": 0,
+      "decision_plan_ids": [],
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "status": "no_trigger",
+      "symbol": "CTNT"
+    },
+    {
+      "activation_id": "activation-0fc40565a54416476eb383f16ea7536fd41e4b6e3eb91ce60751739403e366dd",
+      "candidate_qualified_at": "2025-06-05T11:23:00+00:00",
+      "causal_input_content_sha256": "9965c259d40ac481d21e82a3d8df93c8c7f390c41a99280e2478fbc4cf0aee20",
+      "decision_count": 0,
+      "decision_plan_ids": [],
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "status": "no_trigger",
+      "symbol": "PHIO"
+    }
+  ],
+  "provider_calls": 0,
+  "retrospective_labels_loaded": false,
+  "scanner_activation_plan_content_sha256": "54741e7afc64b7bb18b24e000c2e80b051d895b7a4dbd37067021dee8091e7a9",
+  "schema_version": 1,
+  "trading_date": "2025-06-05",
+  "unavailable_count": 0
+}

@@ -1,0 +1,397 @@
+{
+  "accounts_simulated": false,
+  "activation_count": 7,
+  "activations": [
+    {
+      "activation_id": "activation-4ed726c40a3532d3fc0a58cdc1befcb796bf14a362e252857ba525fa35d891fa",
+      "candidate_qualified_at": "2025-07-02T11:07:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "5c7a1ba605559f16396d0912762483ade3d46585bc851da26a7ed9babb8fd053",
+      "scanner_snapshot_content_sha256": "3cc9ff780db1440e19e20406bb2603b9fc4461106c83a9f535f7870149f602d1",
+      "symbol": "CYN"
+    },
+    {
+      "activation_id": "activation-c94ec42cac29c94a4aade43ab8b2f8169a42642f80a1e0f790be41418a03c3c2",
+      "candidate_qualified_at": "2025-07-02T11:46:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "scanner_record_content_sha256": "2f6e23723ef8a25213ca00e3b6028be61c0cbb82392ecf1902cbc1ab120ea133",
+      "scanner_snapshot_content_sha256": "3cc9ff780db1440e19e20406bb2603b9fc4461106c83a9f535f7870149f602d1",
+      "symbol": "ELWS"
+    },
+    {
+      "activation_id": "activation-b542d1f387596e1296fd6e61c313a58f663ab18f59953b0b2fe762b6ea75f9a3",
+      "candidate_qualified_at": "2025-07-02T12:06:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-small-account-2026"
+      ],
+      "scanner_record_content_sha256": "d168a0913f8f1da425015953ccb8b4520fde82ff7ed5c4fa5a82e48b7a165f8f",
+      "scanner_snapshot_content_sha256": "3cc9ff780db1440e19e20406bb2603b9fc4461106c83a9f535f7870149f602d1",
+      "symbol": "BON"
+    },
+    {
+      "activation_id": "activation-0e69c5b36f5260e50116c988159dba5aecb15ce8685b5c9d7c24cd3e9918f285",
+      "candidate_qualified_at": "2025-07-02T12:07:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "4f8ac2325ae792c228b114edb6b5f29c58bca219eaf276efc2b34a409832a09d",
+      "scanner_snapshot_content_sha256": "3cc9ff780db1440e19e20406bb2603b9fc4461106c83a9f535f7870149f602d1",
+      "symbol": "NTRB"
+    },
+    {
+      "activation_id": "activation-da86d30acd000c271fd2f9ccd63ad59f64f22c60eb9dfa5f90640a217ae63558",
+      "candidate_qualified_at": "2025-07-02T12:09:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "scanner_record_content_sha256": "ba7db3bb338e57ea5750de6c15a1fe140141ddfd2b46deae5ea09531a1b44bc3",
+      "scanner_snapshot_content_sha256": "3cc9ff780db1440e19e20406bb2603b9fc4461106c83a9f535f7870149f602d1",
+      "symbol": "BMRA"
+    },
+    {
+      "activation_id": "activation-b42d2b0fc0c8d4aa088f3397286a6f98f3cb66b78c26d963db64c96bd1a38d7f",
+      "candidate_qualified_at": "2025-07-02T13:43:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-small-account-2026"
+      ],
+      "scanner_record_content_sha256": "7d3f6f80a011c9d0e366e5100b3331f377fd25b70b067919aa8817c238abac88",
+      "scanner_snapshot_content_sha256": "3cc9ff780db1440e19e20406bb2603b9fc4461106c83a9f535f7870149f602d1",
+      "symbol": "LIXT"
+    },
+    {
+      "activation_id": "activation-403871dfe3567ada27710a56def42e72828f81c391e7a44d8fa00b154f7906fa",
+      "candidate_qualified_at": "2025-07-02T13:47:00+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "scanner_record_content_sha256": "e7c60c427a83d41a3b84e13f69b715f3e6e5bc23997a1e319c4cfaf752367aaa",
+      "scanner_snapshot_content_sha256": "3cc9ff780db1440e19e20406bb2603b9fc4461106c83a9f535f7870149f602d1",
+      "symbol": "LIXT"
+    }
+  ],
+  "artifact_type": "sealed_historical_micro_trigger_runtime_date",
+  "backtesting_executed": false,
+  "basis_evidence": {
+    "BMRA": {
+      "content_sha256": "6316cc8648f0b69d2f404aff8dbf440e91be26eb17b5389a89d1730ecb3964b3",
+      "last_pair_available_at": "2025-07-02T12:09:00+00:00",
+      "maximum_relative_pair_deviation": 0.0,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "693c21f60b3332351c567966d18e9a06176fbcae47a17289c28cffff31981b9b",
+      "pair_count": 1,
+      "raw_to_split_factor": 1.0
+    },
+    "BON": {
+      "content_sha256": "6fc19d696a50b56086f932f2f92f7cd4d82fbb25472e7836178963dde39ad6fa",
+      "last_pair_available_at": "2025-07-02T12:06:00+00:00",
+      "maximum_relative_pair_deviation": 0.0,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "e975292a0716a2ed9918e27f8e164331af0266d920b1b0148b06d9eadf2645e9",
+      "pair_count": 18,
+      "raw_to_split_factor": 1.0
+    },
+    "CYN": {
+      "content_sha256": "60a8250380dad8f6ab164c67d1c6ce74ffa29a93f8e0a964988602258bdae8bf",
+      "last_pair_available_at": "2025-07-02T11:07:00+00:00",
+      "maximum_relative_pair_deviation": 0.0,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "447c7e6adc8ac86ac3c847b043e2e4380b65dee3b75f792234211391e75bf816",
+      "pair_count": 30,
+      "raw_to_split_factor": 1.0
+    },
+    "ELWS": {
+      "content_sha256": "2984227e11e52ee393a664684ce13a6be2f17256c73aed0da1ec29222dc9cf3a",
+      "last_pair_available_at": "2025-07-02T11:46:00+00:00",
+      "maximum_relative_pair_deviation": 0.0,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "03f1876a7d9d6e3fd9cfdb80fe561232719fc42dc759c3d6e2231337013b4e95",
+      "pair_count": 128,
+      "raw_to_split_factor": 1.0
+    },
+    "LIXT": {
+      "content_sha256": "4f32c11234acc4f9dd0ec8e538f7a4f5787c010089709ab728db4bbfabb2c493",
+      "last_pair_available_at": "2025-07-02T13:43:00+00:00",
+      "maximum_relative_pair_deviation": 0.0,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "eaa00a129b588efa32169fd6ff029df41133a0c545d19642f64ce72f022bf737",
+      "pair_count": 86,
+      "raw_to_split_factor": 1.0
+    },
+    "NTRB": {
+      "content_sha256": "05357dc769ed5ae587cfbe02c25c1447638cf9a7b43bf38d573aab64a01e7ed9",
+      "last_pair_available_at": "2025-07-02T12:07:00+00:00",
+      "maximum_relative_pair_deviation": 0.0,
+      "method": "median_raw_close_divided_by_split_close_from_completed_preactivation_pairs",
+      "ordered_pair_content_sha256": "09a592fafa2e604ae83db1bb49d30827d9844400599f81023ed56f3626902ee5",
+      "pair_count": 9,
+      "raw_to_split_factor": 1.0
+    }
+  },
+  "content_sha256": "4ae32027a03596e782a97afd639ca11fdd9f9c9ff2e86e5bf4fa17cd34e300c0",
+  "contract_id": "sealed-historical-micro-runtime-v0.1",
+  "decision_count": 7,
+  "decisions": [
+    {
+      "activation_id": "activation-c94ec42cac29c94a4aade43ab8b2f8169a42642f80a1e0f790be41418a03c3c2",
+      "candidate_qualified_at": "2025-07-02T11:46:00+00:00",
+      "decision_at": "2025-07-02T11:48:11.515784760+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "micro_runtime_content_sha256": "e8dbd4d3c71c01fc7657e701ea3a8a9879ea25a0900ab875b889e3992890acf3",
+      "plan": {
+        "armed_at": "2025-07-02T11:48:10+00:00",
+        "breakout_level": 3.58,
+        "expires_at": "2025-07-02T11:48:20+00:00",
+        "minimum_new_high_price": 3.59,
+        "pullback_number": 3,
+        "source_bar_start": "2025-07-02T11:48:00+00:00",
+        "stop_price": 3.51,
+        "symbol": "ELWS"
+      },
+      "plan_id": "plan-54b227bc91f31eac04c8c13df7493705ac77ba83fd302b88ee6556fff97442cf",
+      "symbol": "ELWS"
+    },
+    {
+      "activation_id": "activation-0e69c5b36f5260e50116c988159dba5aecb15ce8685b5c9d7c24cd3e9918f285",
+      "candidate_qualified_at": "2025-07-02T12:07:00+00:00",
+      "decision_at": "2025-07-02T13:34:38.029648206+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "micro_runtime_content_sha256": "ec8087ea1a5c00cbd86cd05dd7b67701e3b92cf05aca174965764140fff62766",
+      "plan": {
+        "armed_at": "2025-07-02T13:34:30+00:00",
+        "breakout_level": 9.87,
+        "expires_at": "2025-07-02T13:34:40+00:00",
+        "minimum_new_high_price": 9.88,
+        "pullback_number": 5,
+        "source_bar_start": "2025-07-02T13:34:20+00:00",
+        "stop_price": 9.66,
+        "symbol": "NTRB"
+      },
+      "plan_id": "plan-01322f746191db7de2e6120e2fa92772cb26a413e8341606c9edb5e13acb3174",
+      "symbol": "NTRB"
+    },
+    {
+      "activation_id": "activation-0e69c5b36f5260e50116c988159dba5aecb15ce8685b5c9d7c24cd3e9918f285",
+      "candidate_qualified_at": "2025-07-02T12:07:00+00:00",
+      "decision_at": "2025-07-02T13:34:49.721991867+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "micro_runtime_content_sha256": "b062d279f9bf9d0aa11667ab8161fe424aed7596c9528b231714c56b104a4040",
+      "plan": {
+        "armed_at": "2025-07-02T13:34:40+00:00",
+        "breakout_level": 9.88,
+        "expires_at": "2025-07-02T13:34:50+00:00",
+        "minimum_new_high_price": 9.89,
+        "pullback_number": 5,
+        "source_bar_start": "2025-07-02T13:34:30+00:00",
+        "stop_price": 9.66,
+        "symbol": "NTRB"
+      },
+      "plan_id": "plan-8d32da4fd9716203e9c657a43cd88cfb209e4bcb02cc883f268f939c167012b4",
+      "symbol": "NTRB"
+    },
+    {
+      "activation_id": "activation-0e69c5b36f5260e50116c988159dba5aecb15ce8685b5c9d7c24cd3e9918f285",
+      "candidate_qualified_at": "2025-07-02T12:07:00+00:00",
+      "decision_at": "2025-07-02T13:34:53.475581081+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "micro_runtime_content_sha256": "d62c648c536d5963d60b9a0b412627f8fce8b8d6420787227aaa7289c9cd4f99",
+      "plan": {
+        "armed_at": "2025-07-02T13:34:50+00:00",
+        "breakout_level": 9.92,
+        "expires_at": "2025-07-02T13:35:00+00:00",
+        "minimum_new_high_price": 9.93,
+        "pullback_number": 5,
+        "source_bar_start": "2025-07-02T13:34:40+00:00",
+        "stop_price": 9.66,
+        "symbol": "NTRB"
+      },
+      "plan_id": "plan-b2f9d0cdcc70df9a78255e38d8c0e5d3ece109cc3dfa2853ebe73d64dcd7ee06",
+      "symbol": "NTRB"
+    },
+    {
+      "activation_id": "activation-0e69c5b36f5260e50116c988159dba5aecb15ce8685b5c9d7c24cd3e9918f285",
+      "candidate_qualified_at": "2025-07-02T12:07:00+00:00",
+      "decision_at": "2025-07-02T13:35:01.077644742+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "micro_runtime_content_sha256": "d55ed479920776d5fac0f4ebdc8d57559f196a82211830125682bb99d93a910f",
+      "plan": {
+        "armed_at": "2025-07-02T13:35:00+00:00",
+        "breakout_level": 9.98,
+        "expires_at": "2025-07-02T13:35:10+00:00",
+        "minimum_new_high_price": 9.99,
+        "pullback_number": 5,
+        "source_bar_start": "2025-07-02T13:34:50+00:00",
+        "stop_price": 9.66,
+        "symbol": "NTRB"
+      },
+      "plan_id": "plan-20d28fe9ccf3ff7b7085e2b57d37a0854a858b606e7f3fc9a292035f3c60966e",
+      "symbol": "NTRB"
+    },
+    {
+      "activation_id": "activation-4ed726c40a3532d3fc0a58cdc1befcb796bf14a362e252857ba525fa35d891fa",
+      "candidate_qualified_at": "2025-07-02T11:07:00+00:00",
+      "decision_at": "2025-07-02T13:42:49.487731148+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "micro_runtime_content_sha256": "d4ca4e9a4b8fbaf860133f2edbd6843d9aaedcbcda7dbddc902b11e6dc764c32",
+      "plan": {
+        "armed_at": "2025-07-02T13:42:40+00:00",
+        "breakout_level": 16.54,
+        "expires_at": "2025-07-02T13:42:50+00:00",
+        "minimum_new_high_price": 16.55,
+        "pullback_number": 9,
+        "source_bar_start": "2025-07-02T13:42:30+00:00",
+        "stop_price": 16.355,
+        "symbol": "CYN"
+      },
+      "plan_id": "plan-b96b1c21d3aec00dd409e731ef10434260493309cf9cf9016d03cd41af93d3e9",
+      "symbol": "CYN"
+    },
+    {
+      "activation_id": "activation-b42d2b0fc0c8d4aa088f3397286a6f98f3cb66b78c26d963db64c96bd1a38d7f",
+      "candidate_qualified_at": "2025-07-02T13:43:00+00:00",
+      "decision_at": "2025-07-02T13:47:08.881827631+00:00",
+      "eligible_strategy_profile_ids": [
+        "current-small-account-2026"
+      ],
+      "micro_runtime_content_sha256": "e5e2328f759932da08ffae9e8a51faeb291e86f396b445498ca4e672e575e922",
+      "plan": {
+        "armed_at": "2025-07-02T13:47:00+00:00",
+        "breakout_level": 2.22,
+        "expires_at": "2025-07-02T13:47:10+00:00",
+        "minimum_new_high_price": 2.23,
+        "pullback_number": 2,
+        "source_bar_start": "2025-07-02T13:46:50+00:00",
+        "stop_price": 2.16,
+        "symbol": "LIXT"
+      },
+      "plan_id": "plan-d737fc59620243c95f6b16401d6dfd5a87ab32773cfc284dd4217d8b0e948125",
+      "symbol": "LIXT"
+    }
+  ],
+  "fills_simulated": false,
+  "micro_policy_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+  "outcome_count": 7,
+  "outcomes": [
+    {
+      "activation_id": "activation-4ed726c40a3532d3fc0a58cdc1befcb796bf14a362e252857ba525fa35d891fa",
+      "candidate_qualified_at": "2025-07-02T11:07:00+00:00",
+      "causal_input_content_sha256": "c088df2239c77de0ecece35e0ec18c8b1b0ea94266e4b9d5dad18cc74614c43c",
+      "decision_count": 1,
+      "decision_plan_ids": [
+        "plan-b96b1c21d3aec00dd409e731ef10434260493309cf9cf9016d03cd41af93d3e9"
+      ],
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "status": "triggered",
+      "symbol": "CYN"
+    },
+    {
+      "activation_id": "activation-c94ec42cac29c94a4aade43ab8b2f8169a42642f80a1e0f790be41418a03c3c2",
+      "candidate_qualified_at": "2025-07-02T11:46:00+00:00",
+      "causal_input_content_sha256": "16749ec499b9f927af042b16115ca0e2ec6d693c506cd371245d6b96d30bfd91",
+      "decision_count": 1,
+      "decision_plan_ids": [
+        "plan-54b227bc91f31eac04c8c13df7493705ac77ba83fd302b88ee6556fff97442cf"
+      ],
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "status": "triggered",
+      "symbol": "ELWS"
+    },
+    {
+      "activation_id": "activation-b542d1f387596e1296fd6e61c313a58f663ab18f59953b0b2fe762b6ea75f9a3",
+      "candidate_qualified_at": "2025-07-02T12:06:00+00:00",
+      "causal_input_content_sha256": "31d61b96844efa17a9e2bf7ccaab8eee0330efd50957746e2701455bdc7be85a",
+      "decision_count": 0,
+      "decision_plan_ids": [],
+      "eligible_strategy_profile_ids": [
+        "current-small-account-2026"
+      ],
+      "status": "no_trigger",
+      "symbol": "BON"
+    },
+    {
+      "activation_id": "activation-0e69c5b36f5260e50116c988159dba5aecb15ce8685b5c9d7c24cd3e9918f285",
+      "candidate_qualified_at": "2025-07-02T12:07:00+00:00",
+      "causal_input_content_sha256": "ecdbc1d3a829fae3dcdd08816555d508fd34f27711b2f82de812e788940fa53e",
+      "decision_count": 4,
+      "decision_plan_ids": [
+        "plan-01322f746191db7de2e6120e2fa92772cb26a413e8341606c9edb5e13acb3174",
+        "plan-8d32da4fd9716203e9c657a43cd88cfb209e4bcb02cc883f268f939c167012b4",
+        "plan-b2f9d0cdcc70df9a78255e38d8c0e5d3ece109cc3dfa2853ebe73d64dcd7ee06",
+        "plan-20d28fe9ccf3ff7b7085e2b57d37a0854a858b606e7f3fc9a292035f3c60966e"
+      ],
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "status": "triggered",
+      "symbol": "NTRB"
+    },
+    {
+      "activation_id": "activation-da86d30acd000c271fd2f9ccd63ad59f64f22c60eb9dfa5f90640a217ae63558",
+      "candidate_qualified_at": "2025-07-02T12:09:00+00:00",
+      "causal_input_content_sha256": "d4dc07929744b8eedf3cdfa35dee9d940a95aa3a3670baacdbb6aa2d13a90276",
+      "decision_count": 0,
+      "decision_plan_ids": [],
+      "eligible_strategy_profile_ids": [
+        "current-general-2026",
+        "current-small-account-2026"
+      ],
+      "status": "no_trigger",
+      "symbol": "BMRA"
+    },
+    {
+      "activation_id": "activation-b42d2b0fc0c8d4aa088f3397286a6f98f3cb66b78c26d963db64c96bd1a38d7f",
+      "candidate_qualified_at": "2025-07-02T13:43:00+00:00",
+      "causal_input_content_sha256": "080fd591f997a100b547793ac943c4555cdff4697573b255e8ae76b56ad4b158",
+      "decision_count": 1,
+      "decision_plan_ids": [
+        "plan-d737fc59620243c95f6b16401d6dfd5a87ab32773cfc284dd4217d8b0e948125"
+      ],
+      "eligible_strategy_profile_ids": [
+        "current-small-account-2026"
+      ],
+      "status": "triggered",
+      "symbol": "LIXT"
+    },
+    {
+      "activation_id": "activation-403871dfe3567ada27710a56def42e72828f81c391e7a44d8fa00b154f7906fa",
+      "candidate_qualified_at": "2025-07-02T13:47:00+00:00",
+      "causal_input_content_sha256": "080fd591f997a100b547793ac943c4555cdff4697573b255e8ae76b56ad4b158",
+      "decision_count": 0,
+      "decision_plan_ids": [],
+      "eligible_strategy_profile_ids": [
+        "current-general-2026"
+      ],
+      "status": "no_trigger",
+      "symbol": "LIXT"
+    }
+  ],
+  "provider_calls": 0,
+  "retrospective_labels_loaded": false,
+  "scanner_activation_plan_content_sha256": "6ba985629716e5b2f3b92b1dc9cdcf1f22c88e41225dbd37273a6930f8af9417",
+  "schema_version": 1,
+  "trading_date": "2025-07-02",
+  "unavailable_count": 0
+}
