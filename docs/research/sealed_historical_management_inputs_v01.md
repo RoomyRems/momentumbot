@@ -104,3 +104,34 @@ three pinned artifacts, then reconstructs offline and checks all five committed
 metadata documents and all 112 tape hashes. It retains a complete bundle only
 after successful verification, for 90 days. Source-artifact expiry is an
 explicit retention dependency, not authority to reacquire market data.
+
+## Verified result
+
+Code `b616d60f48c8596fc31e6dc0d4943171fade18c6` passed all eight hosted
+workflows on attempt 1. Local verification passed all 1,724 tests with zero
+skips; 92 dedicated tests passed normally and optimized locally and hosted.
+Generic CI passed with 51 optional-SDK skips. Static undefined-global checks
+passed for both entry points.
+
+The dedicated [reconstruction run](https://github.com/RoomyRems/momentumbot/actions/runs/34147224779)
+rebuilt all sources and matched the frozen compressed bytes. The downloaded
+artifact `10028253493` was independently checked against all 117 local files.
+It is 43,591,721 ZIP bytes, SHA-256
+`e6ae822301440e3c0d183546b472e5b6f4e0f50d6e4f1b67178ba6bf46e382e0`,
+and expires on 2026-12-06. Unpacked bundle size is 43,991,068 bytes; the 112
+tapes total 43,461,101 compressed bytes.
+
+The frozen manifest content commitment is
+`df00c1aa3e66fbb3040e63df210ef71ead7518858f5bc3ff44fc59067eeb15de`.
+The independent checker verified all 1,064 original files, 520 logical tapes
+and 20,106,693 logical source rows, then compared every one of the 3,655,190
+composed rows with an independently timestamp-selected original record.
+Both rejected candidates' truncated files are exact recorded-length prefixes
+of the final verified tapes, preserving reproducible failure evidence without
+misclassifying either candidate as a valid freeze.
+
+The [permanent audit](../../research/data-audits/sealed-historical-management-inputs-v0.1-independent-verification.json)
+retains both independent checkers, all output hashes, hosted evidence, source
+commitments and the rejected-candidate metadata. Main and all prior consumed
+references remain unchanged. The next gate remains causal management and
+executable-exit registration, not account replay or financial evaluation.

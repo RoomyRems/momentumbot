@@ -1,6 +1,43 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current preparation: management composition locally verified
+## Current checkpoint: complete management inputs independently verified
+
+Code checkpoint `b616d60f48c8596fc31e6dc0d4943171fade18c6` passed all eight
+hosted workflows on their first attempt. The dedicated offline reconstruction
+run `34147224779` reproduced all five frozen metadata files and all 112
+compressed tape hashes from the exact three retained source artifacts.
+Downloaded artifact `10028253493` independently matches every local output byte.
+
+All 56 management windows now have complete source tapes: 3,654,215 SIP prints
+and 975 raw minute bars, with exact source ordering and ordinal lineage.
+The independent checker compared all 3,655,190 selected rows byte-for-byte
+against timestamp-selected original records and checked all 1,064 original
+files, 520 tapes and 20,106,693 logical source rows. The bundle has 117 files
+and 43,991,068 unpacked bytes, including 43,461,101 compressed tape bytes.
+
+The frozen manifest content commitment is
+`df00c1aa3e66fbb3040e63df210ef71ead7518858f5bc3ff44fc59067eeb15de`.
+The retained ZIP is 43,591,721 bytes with SHA-256
+`e6ae822301440e3c0d183546b472e5b6f4e0f50d6e4f1b67178ba6bf46e382e0`.
+The [permanent audit](../../research/data-audits/sealed-historical-management-inputs-v0.1-independent-verification.json)
+contains the independent checker, whole-file evidence, hosted validation and
+reconstructable evidence for both rejected local streaming-write candidates.
+
+All 1,724 local tests passed with zero skips; 92 dedicated tests passed normally
+and optimized locally and hosted. Generic CI passed with its 51 optional-SDK
+skips. All 109 opportunities, 23 unavailable entry inputs, 30 dates, once-only
+account seeds and handoff dependencies remain unchanged. Main and all nine
+consumed tags are unchanged. No provider request, projection, account replay,
+backtest, order or retrospective input access ran in this stage.
+
+Next: register causal management projection and executable-exit dependencies
+against this verified bundle. Completed-bar causality and frozen trade
+eligibility still belong to that later projection. Descriptive SIP exits cannot
+close account positions. Causal next-session valuation and historical account
+replay remain later dependencies; all runtime gates remain false. See
+[complete management inputs](../research/sealed_historical_management_inputs_v01.md).
+
+## Prior preparation: management composition locally verified
 
 The provider-free child binds audited parent
 `536226a134aa9863130205b954065f24c89ce599`. It composes 112 real bar/trade
