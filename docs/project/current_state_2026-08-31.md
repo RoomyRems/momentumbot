@@ -1,6 +1,23 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: remaining execution inputs independently verified
+## Current preparation: provider-free opportunity input availability
+
+The availability v0.1 child is registered against verified parent
+`24aaa19c50a39bce43ef9491f7630e2a81e330f8`. It binds both exact acquisition
+artifact ZIPs and the unchanged 109-opportunity plan, classifies each causal
+decision reference/window with the frozen adapter, and retains all 30 dates.
+JVA remains explicitly unavailable. No provider calls, account/fill simulation,
+Micro replay, backtesting or retrospective input access are authorized by this
+child. All existing gates remain false.
+
+The 81 focused tests passed normally and optimized, including synthetic
+end-to-end composition of all 109 identities and all five no-decision dates.
+All 1,610 repository tests passed locally with zero skips. The real retained
+captures have not yet been composed. The code registration must also pass
+exact-commit hosted validation before that operation.
+See [the registered stage](../research/sealed_historical_execution_availability_v01.md).
+
+## Prior checkpoint: remaining execution inputs independently verified
 
 [Run 34084113393](https://github.com/RoomyRems/momentumbot/actions/runs/34084113393)
 completed once as push attempt 1 at `0c4010044ee8557136b3c119c6350e134bba46d2`.
