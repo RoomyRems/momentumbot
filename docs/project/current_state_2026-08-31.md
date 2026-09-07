@@ -2,6 +2,25 @@
 
 ## Latest development — 2026-09-07
 
+The separately consumed v0.2 acquisition ended in a verified input-availability
+failure as run `34076412463`, attempt 1, execution
+`e2c250367895d209ec4706288a22655636298685`. The first 24 requests completed and
+retain 73,614 normalized rows. Request 25, `2025-06-13-JVA-mbp-1`, returned HTTP
+200 and 99 wire bytes, then failed normalization with `empty_exact_request`.
+Its exact 09:55:29.742083339–09:55:30.392083340 New York window yielded no
+normalized quote records. The remaining 65 requests were never attempted.
+
+Independent verification passed all 80 files across the consumption and result
+ZIPs, all 24 tapes/receipts and the 205-attempt separate ledger, with zero blocked
+attempts. Main, the original source ledger, all consumed refs and frozen
+strategy inputs remain unchanged. No account/fill simulation or backtest ran.
+The acquisition and downstream input gates are false; unavailable inputs are
+not zero-trigger results. The consumed workflow must not be rerun or repaired.
+The next dependency is a separately registered diagnosis of this exact missing
+input, preserving all request bounds and existing evidence. The monitor is
+paused. See the permanent failure section and audit in
+`docs/research/sealed_historical_execution_acquisition_v02.md`.
+
 Historical execution/status acquisition v0.2 is now prepared against verified
 record-order adapter commit `45f24e880ef6cc1f3eadd490ca5aa59e5ee94c71`, tree
 `8f0727234c6d9634b6a789da04a4b19445ae7f41`. It retains the exact 90 requests,

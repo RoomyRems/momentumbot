@@ -105,3 +105,67 @@ management-input gates before account/fill simulation. No source or Micro
 rerun, policy change, retrospective input, brokerage access, paper/live order
 or backtest is part of this acquisition. Neither consumed parent is repaired
 or rerun.
+
+## Permanent first-attempt missing-input failure
+
+Code commit `7d474682a6a42f519c41b373756be1ac6a16eeb2`, tree
+`17a599583b5a0eaf8c367865d5f08090bf697ddc`, passed CI `34076112217` and dedicated
+validation `34076112234`. Dedicated CPython 3.12.14 validation passed 94 tests
+normally and optimized. Local full validation passed all 1,539 tests; general
+CI passed with 20 optional SDK skips. Sixteen were covered by the new dedicated
+job; four unchanged diagnostic tests were covered by pinned adapter validation
+`34073929465`. The code-only acquisition job was skipped.
+
+Sole execution child `e2c250367895d209ec4706288a22655636298685`, tree
+`952c82ffb4ffb8be141006d5a0244ad54adfa808`, started run `34076412463` as push
+attempt 1. The exact checkout, sole-child check, 29 dependency pins, normal and
+optimized validation, every parent prerequisite and durable consumption upload
+passed before provider access. The fresh 180-call quote matched both original
+ceilings exactly. Execution-commit CI `34076412479` also passed.
+
+The first 24 requests completed: 12 quote tapes and 12 status tapes across
+12 symbol/date pairs and eight dates. Every one of their 73,614 normalized rows
+passed independent verification: 73,573 quote rows and 41 status rows, including
+8,239 preserved adjacent native-key ties. The first GITS request exactly matches
+all 1,136 diagnostic native rows. This verifies the record-order repair on the
+retained prefix; it does not establish complete input coverage.
+
+Request 25, `2025-06-13-JVA-mbp-1`, returned HTTP 200 with 99 wire bytes, within
+the unchanged 80,176-byte wire ceiling. Its exact interval is
+`1749822929742083339` through `1749822930392083340` nanoseconds, end exclusive:
+09:55:29.742083339 through 09:55:30.392083340 New York. Despite its complete
+14,640-byte size quote, normalization produced no quote rows and rejected it
+with `empty_exact_request`. Its ephemeral DBN SHA-256 is
+`ae2ff3b0dd1be78d948ac39bda9de49eafef668e1678f92128aff6f1b227519f`.
+No failed-request tape or receipt prefix exists; raw DBN bytes were removed
+according to the registered retention rule. The provider-side reason for the
+empty interval is not established by the retained evidence.
+
+The runner stopped before the remaining 65 requests. There were 205 total HTTP
+attempts: 180 metadata and 25 time series, zero blocked attempts, redirects or
+retries. All previous tapes/receipts remain retained. Acquisition and downstream
+input gates are false; all 66 missing normalized tapes are unavailable inputs.
+No symbols, dates, windows, policies or source records were substituted.
+
+Independent downloads verified all 18 consumption and 62 result files, every
+internal/file hash, all full decompressed tapes and both ledgers. Result artifact
+`10002303908` ZIP SHA-256 is
+`2065c140c2c14bc7da14a22483934eb1631169a36a599e522e0b59c27d7ff6e9`;
+consumption artifact `10002219905` ZIP SHA-256 is
+`f848f9f79afc62c82249ba27afde23e0d6948875cee6df2820425b1e65b9efa9`.
+Capture report file/content hashes are
+`ddd6160e67f09420ff914c5db50b418fd60ec0fae615dfc32168eed87a69dd57` /
+`62e20bfc72efe69c56811b49d320195da1e562f7195d2b04119e47c9284e9d6b`.
+
+The original source ledger remains 30,522 requests; main and all consumed refs
+remain exact. No account/fill simulation, retrospective access or backtest
+occurred. The monitor is paused. This consumed v0.2 cannot be modified or rerun.
+The next dependency is a separately registered, narrowly scoped diagnosis of
+the exact missing JVA input. Request bounds and validation cannot be weakened
+or replaced to infer a successful capture.
+
+Permanent records:
+
+- `research/data-audits/sealed-historical-execution-input-acquisition-v0.2-independent-verification-34076412463.json`
+- `research/data-audits/sealed-historical-execution-input-acquisition-v0.2-report-34076412463.json`
+- `research/data-audits/sealed-historical-execution-input-acquisition-v0.2-inventory-34076412463.json`
