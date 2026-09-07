@@ -1,0 +1,73 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "account_runtime_input_gate_passed": false,
+  "acquisition_gate_passed": false,
+  "actual_request_count": 0,
+  "artifact_type": "conditional_executable_exit_requirements",
+  "backtesting_executed": false,
+  "broker_account_read": false,
+  "capture_edge": "required_exclusive_end_must_not_exceed_original_opportunity_end_no_extension",
+  "content_sha256": "ea48eb5f782959898a1bd12351425eaf2b4b300f06b7d096da93b436531e9b62",
+  "contract_id": "sealed-historical-management-projection-v0.1",
+  "dataset": "XNAS.ITCH",
+  "descriptive_target_touch_is_confirmed_fill": false,
+  "execution_clock_and_order": "native_receive_time_sequence_original_request_ordinal_frozen_record_order_adapter",
+  "exit_execution_implementation_registered": false,
+  "historical_execution_authorized": false,
+  "liquidity": "first_eligible_state_once_floor_displayed_size_times_haircut_cancel_remainder",
+  "management_input_gate_passed": false,
+  "management_projection_executed": false,
+  "paper_or_live_orders_authorized": false,
+  "policy_changed": false,
+  "portfolio_financial_metrics_eligible": false,
+  "provider_calls": 0,
+  "provider_purchase_authorized_usd": "0",
+  "quote_end_exclusive_offset_ns": 550000001,
+  "quote_start_offset_ns": -100000000,
+  "quote_status_ambiguity_or_unknown_status": "unavailable_fail_closed_no_substitution",
+  "reference_quote": "latest_at_or_before_decision_within_frozen_100ms_reference_window",
+  "request_identity_and_scope": "requires_separate_registration_no_native_request_IDs_invented_here",
+  "retrospective_inputs_loaded": false,
+  "scenario_selection": "both_frozen_scenarios_same_evidence_no_best_scenario_selection",
+  "scenarios": [
+    {
+      "arrival_latency_ns": 100000000,
+      "cancel_ack_latency_ns": 100000000,
+      "cancel_after_arrival_ns": 250000000,
+      "displayed_size_haircut": "0.25",
+      "limit_offset_ticks": 5,
+      "max_quote_age_ns": 100000000,
+      "scenario_id": "l1-conservative-v0.1"
+    },
+    {
+      "arrival_latency_ns": 250000000,
+      "cancel_ack_latency_ns": 150000000,
+      "cancel_after_arrival_ns": 150000000,
+      "displayed_size_haircut": "0.10",
+      "limit_offset_ticks": 2,
+      "max_quote_age_ns": 50000000,
+      "scenario_id": "l1-stress-v0.1"
+    }
+  ],
+  "schemas": [
+    "mbp-1",
+    "status"
+  ],
+  "sell_limit": "known_bid_minus_frozen_offset_times_0.01_tick_using_existing_marketable_limit_price",
+  "sip_or_bar_clock": "event_time_or_completed_bar_proxy_not_measured_receive_or_publication_latency",
+  "sip_proxy_can_close_account": false,
+  "status_end": "quote_end_exclusive",
+  "status_start": "same_trading_date_UTC_midnight",
+  "stype_in": "raw_symbol",
+  "unresolved_required_bindings": [
+    "independently_verified_single_accepted_entry_with_path_scenario_symbol_session_stop_and_fill_receipt",
+    "whole_share_half_target_rounding_and_one_share_behavior",
+    "confirmed_target_fill_feedback_before_executable_breakeven_stop_activation",
+    "partial_target_completion_cancellation_retry_and_competing_exit_order_lifecycle",
+    "cross_order_liquidity_and_remaining_share_conservation",
+    "causal_signal_to_order_clock_without_invented_SIP_receive_or_bar_publication_timestamps",
+    "independently_quoted_and_authorized_exact_exit_quote_status_evidence_if_missing",
+    "historical_date_applicable_fee_schedule_not_automatic_reuse_of_2026_prospective_fees",
+    "confirmed_sell_fills_cash_risk_and_prior_session_close_handoff"
+  ]
+}

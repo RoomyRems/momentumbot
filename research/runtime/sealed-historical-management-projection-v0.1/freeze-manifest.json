@@ -1,0 +1,41 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "account_runtime_input_gate_passed": false,
+  "acquisition_gate_passed": false,
+  "backtesting_executed": false,
+  "broker_account_read": false,
+  "content_sha256": "0fef2f3bf29a3439dfa07d58a8fa189294f533197f53d70bc7939e186280960d",
+  "contract_content_sha256": "5546c4bd0c3f62bb9f2da279d080d73635dbb64f8510cfea33891eb000ca19c1",
+  "contract_id": "sealed-historical-management-projection-v0.1",
+  "document_content_sha256": {
+    "executable-exit-requirements.json": "ea48eb5f782959898a1bd12351425eaf2b4b300f06b7d096da93b436531e9b62",
+    "projection-input-requirements.json": "059c5ecbeb954e33fecfc0faa525c732223202ae2fac6ac7302084f0705f36ca",
+    "readiness-report.json": "1d62a1f1ef9f4ca1296bd154b3d34c59a33e44d8b4e8c6fe19f583357e2c8dae"
+  },
+  "file_inventory": {
+    "executable-exit-requirements.json": {
+      "bytes": 3488,
+      "sha256": "3aacf8c0c44769e6d30f60bac94a05db0d183c1881e928cf2200368788e0e919"
+    },
+    "projection-input-requirements.json": {
+      "bytes": 175176,
+      "sha256": "8b89b1ffd05de277bcff906140b5aeb142a823cce99260d9c967a8d1dc9e931f"
+    },
+    "readiness-report.json": {
+      "bytes": 1430,
+      "sha256": "827e9e1451cf3c05c6aa15b1144a67c9323b636ee318a39aeb74cff21817ac35"
+    }
+  },
+  "historical_execution_authorized": false,
+  "management_input_gate_passed": false,
+  "management_input_manifest_content_sha256": "df00c1aa3e66fbb3040e63df210ef71ead7518858f5bc3ff44fc59067eeb15de",
+  "management_projection_executed": false,
+  "next_gate": "register_confirmed_entry_binding_and_executable_management_fill_feedback_before_historical_projection_or_exit_capture",
+  "paper_or_live_orders_authorized": false,
+  "parent_commit_sha": "f4a8d98b5ff780a4138ed4eb5628423891e4818d",
+  "policy_changed": false,
+  "portfolio_financial_metrics_eligible": false,
+  "provider_calls": 0,
+  "provider_purchase_authorized_usd": "0",
+  "retrospective_inputs_loaded": false
+}

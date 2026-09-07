@@ -1,6 +1,32 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: complete management inputs independently verified
+## Current preparation: causal management mechanics and exit requirements
+
+An isolated child of `f4a8d98b5ff780a4138ed4eb5628423891e4818d` registers
+the frozen fractional SIP management primitive with exact source lineage and
+completed-bar timing. It preserves stop/red/target priority, strict post-fill
+prints, equal-time source order and the existing 15-minute plus 60-second tail
+semantics. Synthetic parity tests compare it with the existing external-fill
+function. Post-terminal future-red metadata is omitted without changing legs.
+
+Conditional executable-exit requirements preserve both frozen L1 scenarios,
+native record ordering, quote/status windows and fail-closed edge handling.
+They do not produce orders or provider requests. Confirmed-entry binding,
+whole-share/partial-fill feedback, historical fees and causal order-clock
+integration remain explicit dependencies. No historical projection, account
+replay, source-tape access, purchase or retrospective input access runs here.
+
+All 109 opportunities, 23 unavailable entry inputs, 30 dates, 12 paths,
+360 session slots and 744 profile/scenario references remain unchanged.
+Every historical management, execution, account and financial-metric gate
+stays false. All 1,767 local tests passed with zero skips; 90 focused tests
+passed normally and optimized. Independent stdlib verification matched every
+opportunity field, nanosecond bound, date, availability reason and all 744
+references. Next: complete hosted checks, then bind verified entry receipts
+and register executable management feedback. See
+[causal management mechanics](../research/sealed_historical_management_projection_v01.md).
+
+## Prior checkpoint: complete management inputs independently verified
 
 Code checkpoint `b616d60f48c8596fc31e6dc0d4943171fade18c6` passed all eight
 hosted workflows on their first attempt. The dedicated offline reconstruction
