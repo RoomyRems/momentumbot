@@ -1,0 +1,252 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "account_runtime_input_gate_passed": false,
+  "acquisition_gate_passed": false,
+  "allowed_host": "data.alpaca.markets",
+  "allowed_method": "GET",
+  "allowed_paths": [
+    "/v2/stocks/bars",
+    "/v2/stocks/trades"
+  ],
+  "artifact_type": "separately_consumed_exact_missing_management_capture",
+  "automatic_retries_allowed": false,
+  "backtesting_executed": false,
+  "broker_account_read": false,
+  "compressed_byte_ceiling_enforced_before_every_file_write": true,
+  "consumption_ref": "refs/tags/sealed-historical-management-missing-input-acquisition-v0.1-consumed",
+  "content_sha256": "80fe214b43c735328efa3313ec3ebd3c95a333ed36bb5b5c4ecb313c3c1f3513",
+  "contract_id": "sealed-historical-management-missing-input-acquisition-v0.1",
+  "durable_consumption_before_provider_access_required": true,
+  "empty_exhausted_segment": "retain_zero_record_receipt_as_source_evidence_never_infer_a_trade_or_exit_outcome",
+  "execution_child_required": true,
+  "historical_execution_authorized": false,
+  "hypothesis": "exact_missing_tail_envelopes_can_be_exhausted_without_repeating_retained_sources",
+  "implementation_file_sha256": {
+    ".github/workflows/sealed-historical-management-capture-validation-v01.yml": "8b4c4631a3b555c5851696eb8ad1187109b87e8488f33ceb5836f2d37eb6860d",
+    ".github/workflows/sealed-historical-management-input-acquisition-v01.yml": "048e1d7d8e346d4b5e5835aade090f9de49a02674bcb790a4e58a4295fd89054",
+    "requirements-sealed-execution-quote-v01.txt": "03f4da335027e4c83bcf38e523c2e11aeaae49778f5bd6caa47e4703348b31b4",
+    "scripts/capture_sealed_historical_management_inputs_v01.py": "c8f6f8bd3368770a8311adbcf0aa4af9b99409dec12613be392322a975ed1693",
+    "scripts/run_offline_python_v13.py": "fd28ca7e4a27832721a890a1a41af36863a7f13568ca9e85e17c2d5f35e0627d",
+    "src/momentumbot/research/sealed_historical_management_capture_v01.py": "cfccb813c042089d9807e1e3fa16710befbb7a4211f6054319b77714dca95a20",
+    "tests/test_sealed_historical_management_capture_v01.py": "45b4510aedee154454ff5ca7da31cef4e04355a0a54e0bbdae7fea4667677231"
+  },
+  "incremental_provider_cost_usd": "0",
+  "logical_request_count": 10,
+  "management_input_gate_passed": false,
+  "management_projection_executed": false,
+  "maximum_http_attempts": 512,
+  "maximum_normalized_compressed_bytes": 100000000,
+  "maximum_response_bytes": 16000000,
+  "minimum_request_interval_seconds": 0.35,
+  "missing_requirements_content_sha256": "ed224ffa83aabe742b3f4a2534076050a4ba96825b0b93ca770754f562a6e82e",
+  "missing_requirements_path": "research/strategy/sealed-historical-management-missing-inputs-v0.1.json",
+  "next_gate": "independently_verify_missing_capture_then_provider_free_management_source_composition",
+  "page_limit": 10000,
+  "paper_or_live_orders_authorized": false,
+  "parent_commit_sha": "813960e42a96edd40983bc3e414743c0bf67452d",
+  "parent_tree_sha": "49b7c0d4d71d5ce2adc452bfa3d64216903556cf",
+  "partial_failure_evidence_retained": true,
+  "policy_changed": false,
+  "portfolio_financial_metrics_eligible": false,
+  "provider": "existing_alpaca_market_data_subscription",
+  "provider_access_authorized_by_this_registration": false,
+  "provider_calls": 0,
+  "provider_purchase_authorized_usd": "0",
+  "redirects_allowed": false,
+  "request_manifest_sha256": "7653fc7f2f5d41a4a3984ac53bd7fe4a0f7c64fbcd7a3658763f24716c790661",
+  "requests": [
+    {
+      "adjustment": "raw",
+      "asof": "2025-06-09",
+      "coverage_id": "2025-06-09-TPST-management-02:raw_sip_1m_bars",
+      "end_exclusive": true,
+      "end_ns": 1749477600946767019,
+      "feed": "sip",
+      "kind": "session_1m_raw",
+      "management_request_id": "2025-06-09-TPST-management-02",
+      "opportunity_ids": [
+        "opportunity-ba711448d3fa0fce6dd148eed47f48b8e717c2fdbcb1dacb1edeb14e1310d300",
+        "opportunity-2f75d20ec9526bcfdc71cd11ae4bafb66d608160bc40d01a7365fdb51dd12889"
+      ],
+      "request_id": "60659cf1e032bbae0d3f03d6c3e1b287f37a543b12faaa15c9ea1ac271a15056",
+      "resource": "raw_sip_1m_bars",
+      "start_ns": 1749477600000000000,
+      "symbol": "TPST",
+      "trading_date": "2025-06-09"
+    },
+    {
+      "adjustment": null,
+      "asof": "2025-06-09",
+      "coverage_id": "2025-06-09-TPST-management-02:sip_transactions",
+      "end_exclusive": true,
+      "end_ns": 1749477600946767019,
+      "feed": "sip",
+      "kind": "sip_trades",
+      "management_request_id": "2025-06-09-TPST-management-02",
+      "opportunity_ids": [
+        "opportunity-ba711448d3fa0fce6dd148eed47f48b8e717c2fdbcb1dacb1edeb14e1310d300",
+        "opportunity-2f75d20ec9526bcfdc71cd11ae4bafb66d608160bc40d01a7365fdb51dd12889"
+      ],
+      "request_id": "d2d97afd23db999e38af23eb0d0c3de74d1c72c304bef8671538317d49103732",
+      "resource": "sip_transactions",
+      "start_ns": 1749477600000000000,
+      "symbol": "TPST",
+      "trading_date": "2025-06-09"
+    },
+    {
+      "adjustment": "raw",
+      "asof": "2025-06-12",
+      "coverage_id": "2025-06-12-XTIA-management-01:raw_sip_1m_bars",
+      "end_exclusive": true,
+      "end_ns": 1749737460038644945,
+      "feed": "sip",
+      "kind": "session_1m_raw",
+      "management_request_id": "2025-06-12-XTIA-management-01",
+      "opportunity_ids": [
+        "opportunity-aa63605a971ab2dffb8ab31233469eca322dcfbedbca9cfa0f4b5772e0fb8660",
+        "opportunity-37019c1c2b7def2ac6c137b21064edcbf1b49f4ca48483c86f4234c6efd7d919"
+      ],
+      "request_id": "0173d0d7c0d556b79868fda49648699b5c18772564fa38c4f320e4ca5d5ce6c9",
+      "resource": "raw_sip_1m_bars",
+      "start_ns": 1749736800000000000,
+      "symbol": "XTIA",
+      "trading_date": "2025-06-12"
+    },
+    {
+      "adjustment": null,
+      "asof": "2025-06-12",
+      "coverage_id": "2025-06-12-XTIA-management-01:sip_transactions",
+      "end_exclusive": true,
+      "end_ns": 1749737460038644945,
+      "feed": "sip",
+      "kind": "sip_trades",
+      "management_request_id": "2025-06-12-XTIA-management-01",
+      "opportunity_ids": [
+        "opportunity-aa63605a971ab2dffb8ab31233469eca322dcfbedbca9cfa0f4b5772e0fb8660",
+        "opportunity-37019c1c2b7def2ac6c137b21064edcbf1b49f4ca48483c86f4234c6efd7d919"
+      ],
+      "request_id": "7fbfd90300d5e5428ff33b0b27b1f0a09e9bc1292fa4723a0b5a8dcf300243b6",
+      "resource": "sip_transactions",
+      "start_ns": 1749736800000000000,
+      "symbol": "XTIA",
+      "trading_date": "2025-06-12"
+    },
+    {
+      "adjustment": "raw",
+      "asof": "2025-06-13",
+      "coverage_id": "2025-06-13-JVA-management-01:raw_sip_1m_bars",
+      "end_exclusive": true,
+      "end_ns": 1749823889842083339,
+      "feed": "sip",
+      "kind": "session_1m_raw",
+      "management_request_id": "2025-06-13-JVA-management-01",
+      "opportunity_ids": [
+        "opportunity-584abfa60e5a82b205ac89afb352068295e49e833f930caf9d60018d1e1b694a"
+      ],
+      "request_id": "bb401920c69f1ca3fe47a6d02e3eb5887f831318544fcc24ccf759995aaa73a9",
+      "resource": "raw_sip_1m_bars",
+      "start_ns": 1749823200000000000,
+      "symbol": "JVA",
+      "trading_date": "2025-06-13"
+    },
+    {
+      "adjustment": null,
+      "asof": "2025-06-13",
+      "coverage_id": "2025-06-13-JVA-management-01:sip_transactions",
+      "end_exclusive": true,
+      "end_ns": 1749823889842083339,
+      "feed": "sip",
+      "kind": "sip_trades",
+      "management_request_id": "2025-06-13-JVA-management-01",
+      "opportunity_ids": [
+        "opportunity-584abfa60e5a82b205ac89afb352068295e49e833f930caf9d60018d1e1b694a"
+      ],
+      "request_id": "80530a6e11d6db93f43dde6efbdc7a2dd4d6c6131d2409329fc751a86d740d8d",
+      "resource": "sip_transactions",
+      "start_ns": 1749823200000000000,
+      "symbol": "JVA",
+      "trading_date": "2025-06-13"
+    },
+    {
+      "adjustment": "raw",
+      "asof": "2025-07-02",
+      "coverage_id": "2025-07-02-LIXT-management-01:raw_sip_1m_bars",
+      "end_exclusive": true,
+      "end_ns": 1751464988881827631,
+      "feed": "sip",
+      "kind": "session_1m_raw",
+      "management_request_id": "2025-07-02-LIXT-management-01",
+      "opportunity_ids": [
+        "opportunity-46c3267d535e9a46f9a9597d000b27cefa5f2c887e54eea3db1590c069a57a3e"
+      ],
+      "request_id": "d21003f0b3de6cfc8e030d206ce1f82cab8de4e96a510d2754e5dec45ff2f435",
+      "resource": "raw_sip_1m_bars",
+      "start_ns": 1751464800000000000,
+      "symbol": "LIXT",
+      "trading_date": "2025-07-02"
+    },
+    {
+      "adjustment": null,
+      "asof": "2025-07-02",
+      "coverage_id": "2025-07-02-LIXT-management-01:sip_transactions",
+      "end_exclusive": true,
+      "end_ns": 1751464988881827631,
+      "feed": "sip",
+      "kind": "sip_trades",
+      "management_request_id": "2025-07-02-LIXT-management-01",
+      "opportunity_ids": [
+        "opportunity-46c3267d535e9a46f9a9597d000b27cefa5f2c887e54eea3db1590c069a57a3e"
+      ],
+      "request_id": "0e484530c90bea2e755a9960e453a168f4e1a1dde6d9bc57ecbc75cfcea6bc84",
+      "resource": "sip_transactions",
+      "start_ns": 1751464800000000000,
+      "symbol": "LIXT",
+      "trading_date": "2025-07-02"
+    },
+    {
+      "adjustment": "raw",
+      "asof": "2025-07-07",
+      "coverage_id": "2025-07-07-MBIO-management-02:raw_sip_1m_bars",
+      "end_exclusive": true,
+      "end_ns": 1751896886113575281,
+      "feed": "sip",
+      "kind": "session_1m_raw",
+      "management_request_id": "2025-07-07-MBIO-management-02",
+      "opportunity_ids": [
+        "opportunity-739d06eb38f8da22341413545bd9c32de95d2c7a63731812cbd540b1414fa387",
+        "opportunity-83875cb541800ceed2a527f9e7059487b5c3b2ac5dc6572cfb0357e9fa752abe"
+      ],
+      "request_id": "b0841460f7372d0a1245adf7ed343c66dd97b666bf6b6d0e1bfbae18e2cae77c",
+      "resource": "raw_sip_1m_bars",
+      "start_ns": 1751896800000000000,
+      "symbol": "MBIO",
+      "trading_date": "2025-07-07"
+    },
+    {
+      "adjustment": null,
+      "asof": "2025-07-07",
+      "coverage_id": "2025-07-07-MBIO-management-02:sip_transactions",
+      "end_exclusive": true,
+      "end_ns": 1751896886113575281,
+      "feed": "sip",
+      "kind": "sip_trades",
+      "management_request_id": "2025-07-07-MBIO-management-02",
+      "opportunity_ids": [
+        "opportunity-739d06eb38f8da22341413545bd9c32de95d2c7a63731812cbd540b1414fa387",
+        "opportunity-83875cb541800ceed2a527f9e7059487b5c3b2ac5dc6572cfb0357e9fa752abe"
+      ],
+      "request_id": "c52c77a28adf0a72fd3d69bdc4743926136389a27039de0c5e4731da701a7a5e",
+      "resource": "sip_transactions",
+      "start_ns": 1751896800000000000,
+      "symbol": "MBIO",
+      "trading_date": "2025-07-07"
+    }
+  ],
+  "retrospective_inputs_loaded": false,
+  "reuse_audit_file_sha256": "4afb466b9137f9d6b36955cd0b6e6b4b8f28fcc3cddd088dd40eae22674023d5",
+  "schema_version": 1,
+  "separate_durable_attempt_ledger_before_network": true,
+  "source_normalizer": "unchanged_sealed_historical_micro_inputs_v01.normalized_row",
+  "source_order": "zero_based_file_line_ordinal_no_sort_or_deduplication",
+  "workflow_reruns_allowed": false
+}

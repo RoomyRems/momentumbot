@@ -1,0 +1,106 @@
+name: Sealed historical missing management input acquisition v0.1
+
+on:
+  push:
+    branches: [phase-3-historical-snapshot]
+    paths:
+      - research/strategy/sealed-historical-management-missing-input-acquisition-v0.1-execution.json
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: sealed-historical-management-input-acquisition-v01
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    env:
+      PYTHONPATH: src:scripts
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - name: Bind sole execution child to its tested parent
+        run: |
+          test "$GITHUB_EVENT_NAME" = push
+          test "$GITHUB_REF" = refs/heads/phase-3-historical-snapshot
+          test "$GITHUB_RUN_ATTEMPT" = 1
+          test "$(git diff --name-only HEAD^ HEAD)" = research/strategy/sealed-historical-management-missing-input-acquisition-v0.1-execution.json
+          test "$(git diff --diff-filter=A --name-only HEAD^ HEAD)" = research/strategy/sealed-historical-management-missing-input-acquisition-v0.1-execution.json
+          printf 'EXECUTION_CODE_COMMIT_SHA=%s\n' "$(git rev-parse HEAD^)" >> "$GITHUB_ENV"
+          printf 'EXECUTION_CODE_TREE_SHA=%s\n' "$(git show -s --format=%T HEAD^)" >> "$GITHUB_ENV"
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12.14"
+      - name: Install and retain the frozen Python environment
+        run: |
+          python -m venv .venv-management-capture
+          .venv-management-capture/bin/python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-execution-quote-v01.txt
+          .venv-management-capture/bin/python -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          .venv-management-capture/bin/python -m pip check
+          mkdir management-capture-preflight
+          .venv-management-capture/bin/python -m pip freeze --all > management-capture-preflight/pip-freeze.txt
+          .venv-management-capture/bin/python --version > management-capture-preflight/python-version.txt
+          cp requirements-sealed-execution-quote-v01.txt management-capture-preflight/requirements.txt
+      - name: Validate registration and exact execution child offline
+        run: .venv-management-capture/bin/python scripts/capture_sealed_historical_management_inputs_v01.py --validate-only --check-execution
+      - name: Validate undefined globals and complete adversarial capture tests
+        run: |
+          .venv-management-capture/bin/python - <<'PY'
+          from pathlib import Path
+          from check_recovery_entrypoints_v13 import undefined_globals
+          for name in ('scripts/capture_sealed_historical_management_inputs_v01.py', 'src/momentumbot/research/sealed_historical_management_capture_v01.py'):
+              missing = undefined_globals(Path(name).read_text(), name)
+              if missing:
+                  raise SystemExit(f'{name}: {sorted(missing)}')
+          PY
+          .venv-management-capture/bin/python -m unittest tests.test_sealed_historical_management_capture_v01 tests.test_sealed_historical_management_reuse_v01 tests.test_sealed_historical_micro_inputs_v01 -v
+          .venv-management-capture/bin/python -O -m unittest tests.test_sealed_historical_management_capture_v01 tests.test_sealed_historical_management_reuse_v01 tests.test_sealed_historical_micro_inputs_v01 -v
+      - name: Revalidate exact independently verified reuse outputs and frozen parents offline
+        run: .venv-management-capture/bin/python scripts/capture_sealed_historical_management_inputs_v01.py --verify-reuse > management-capture-preflight/source-validation.json
+      - name: Atomically consume this acquisition once
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method POST repos/RoomyRems/momentumbot/git/refs -f ref=refs/tags/sealed-historical-management-missing-input-acquisition-v0.1-consumed -f sha="$GITHUB_SHA" > management-capture-preflight/consumption-ref.json
+          .venv-management-capture/bin/python - <<'PY'
+          import os, json
+          from pathlib import Path
+          from momentumbot.research import sealed_historical_management_capture_v01 as m
+          ref = json.loads(Path('management-capture-preflight/consumption-ref.json').read_text())
+          if ref.get('ref') != m.CONSUMPTION_REF or ref.get('object', {}).get('sha') != os.environ['GITHUB_SHA']:
+              raise SystemExit('Durable consumption ref differs')
+          m.write_json(Path('management-capture-preflight/consumption.json'), m.consumption_payload(
+              m.frozen(Path(m.EXECUTION_PATH)), commit=os.environ['GITHUB_SHA'], run_id=os.environ['GITHUB_RUN_ID']))
+          PY
+      - name: Durably upload consumption before market-data access
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: sealed-historical-management-input-v01-consumption-${{ github.run_id }}-${{ github.run_attempt }}
+          path: management-capture-preflight
+          if-no-files-found: error
+          retention-days: 90
+      - name: Capture only the ten exact missing management resources
+        timeout-minutes: 15
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_MAIN_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_MAIN_API_SECRET }}
+        run: >-
+          .venv-management-capture/bin/python scripts/capture_sealed_historical_management_inputs_v01.py
+          --acquire --output management-input-capture
+          --consumption-marker management-capture-preflight/consumption.json
+          --source-receipt management-capture-preflight/source-validation.json
+      - name: Preserve complete or partial normalized input evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: sealed-historical-management-input-v01-capture-${{ github.run_id }}-${{ github.run_attempt }}
+          path: management-input-capture
+          if-no-files-found: ignore
+          retention-days: 90

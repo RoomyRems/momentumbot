@@ -1,6 +1,28 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: management source reuse independently verified
+## Current preparation: bounded missing management capture
+
+The isolated capture child binds independently verified reuse parent
+`813960e42a96edd40983bc3e414743c0bf67452d`. It implements only the existing ten
+bar/trade tail requests, with no automatic retries, separate pre-request
+accounting, hard compressed-byte limits, empty exhausted receipts and partial
+failure retention. Original captures, all 109 opportunities, 23 unavailable
+entry inputs, account seeds and policy remain unchanged.
+
+The capture contract is unarmed until a separately published execution child
+of tested code passes exact first-attempt provenance and durable consumption.
+The workflow uploads consumption evidence before exposing market-data
+credentials. Offline verification covers the complete retained archive and
+every normalized row. See [the capture stage](../research/sealed_historical_management_capture_v01.md).
+
+All 1,693 local tests passed with zero skips; 79 focused tests passed normally
+and optimized, including full synthetic capture-to-archive verification.
+Next: finish hosted validation, publish the sole execution child,
+capture once and independently verify the result. Complete management-source
+composition, executable exits, causal next-session valuation and historical
+account replay remain later dependencies.
+
+## Prior checkpoint: management source reuse independently verified
 
 The provider-free reuse stage binds account-input parent
 `cf729c27d3e458e4762ee1d60d48a6c57a25a5d8`. Both retained SIP/minute ZIPs,
