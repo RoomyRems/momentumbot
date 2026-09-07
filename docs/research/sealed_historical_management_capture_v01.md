@@ -89,3 +89,52 @@ unavailable entry inputs remain preserved. Management projection, executable
 exits, causal next-session valuation and account replay are separate later
 dependencies. Descriptive SIP evidence cannot close account positions or make
 portfolio financial metrics eligible.
+
+## Independently verified result — 2026-09-07
+
+Tested code `eead72443160b08291ec5016900e71b0dc64e6ef` passed all eight
+hosted workflows before the sole execution child
+`eeec1ea234214a9d4a449e774fe3fa29aefea025` was published. The dedicated
+[capture run](https://github.com/RoomyRems/momentumbot/actions/runs/34142720577)
+completed on attempt 1, with every preflight, consumption, capture and retention
+step successful. Its consumption tag now permanently binds that execution.
+
+All ten resources completed in 11 HTTP attempts, with no retries or blocked
+attempts. The 28,387 normalized records comprise 28,356 SIP trades and 31 raw
+minute bars, totaling 353,382 compressed bytes. No actual segment was empty;
+empty-segment behavior remains covered by deterministic tests.
+
+| Date | Symbol | Raw minute bars | SIP trades | HTTP attempts |
+|---|---|---:|---:|---:|
+| 2025-06-09 | TPST | 1 | 7 | 2 |
+| 2025-06-12 | XTIA | 12 | 7,649 | 2 |
+| 2025-06-13 | JVA | 12 | 225 | 2 |
+| 2025-07-02 | LIXT | 4 | 7,344 | 2 |
+| 2025-07-07 | MBIO | 2 | 13,131 | 3 |
+
+The retained capture artifact is `10026551595` (373,515-byte ZIP), SHA-256
+`dd6acf2844e69aa975a0274fe7813b3029cf7a6b6ef5d8830c322e17d436d9b6`.
+The consumption artifact is `10026547607` (4,586-byte ZIP), SHA-256
+`ddd88a57ed8ef12c9af3c08d7b03af0e6698dabf7bd3fdc4efc9bcd37b638e9b`.
+Both are retained for 90 days, with recorded expiry December 6, 2026.
+
+The primary offline verifier and a separate stdlib-only checker agree on
+every receipt, normalized record, original ordering, request bound, byte count
+and ledger total. The independent checker additionally verifies the retained
+28 capture files, six consumption files, exact external artifact metadata,
+execution parent/tree, first-attempt run and durable-consumption ordering.
+The [permanent audit](../../research/data-audits/sealed-historical-management-missing-input-v0.1-independent-verification-34142720577.json)
+embeds both results, independent checker source, source/file commitments,
+hosted steps, test summaries and protected-reference evidence.
+
+All 1,693 local tests passed without skips. Dedicated hosted preflight ran all
+79 focused tests normally and optimized without skips. Generic GitHub CI also
+passed 1,693 tests on both code and execution commits, with 51 optional-SDK
+skips in its intentionally smaller environment. Main, all eight earlier
+consumption tags, original source/capture ledgers, account seeds, policy and
+the 23 unavailable entry opportunities are unchanged.
+
+This completes missing-input capture, not management-source composition or
+backtesting. The next dependency is provider-free composition of the verified
+reused prefixes and these exact tails. No management projection, simulated
+fill, account session or backtest ran, and no transcript was accessed.

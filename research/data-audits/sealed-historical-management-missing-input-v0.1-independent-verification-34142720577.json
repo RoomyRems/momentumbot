@@ -1,0 +1,1187 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "account_runtime_input_gate_passed": false,
+  "account_seed_values_or_handoff_changed": false,
+  "acquisition_gate_passed": false,
+  "all_109_opportunities_preserved": true,
+  "artifact_type": "independently_verified_one_shot_missing_management_capture",
+  "automatic_retries_performed": 0,
+  "backtesting_executed": false,
+  "blocked_attempts": 0,
+  "broker_account_read": false,
+  "capture_artifact_id": 10026551595,
+  "capture_job_id": 101808046100,
+  "capture_zip_bytes": 373515,
+  "capture_zip_sha256": "dd6acf2844e69aa975a0274fe7813b3029cf7a6b6ef5d8830c322e17d436d9b6",
+  "code_commit_sha": "eead72443160b08291ec5016900e71b0dc64e6ef",
+  "code_tree_sha": "a7ca51751e9a065bea2149e13a8d43f319e2b6cc",
+  "consumption_artifact_id": 10026547607,
+  "consumption_zip_bytes": 4586,
+  "consumption_zip_sha256": "ddd88a57ed8ef12c9af3c08d7b03af0e6698dabf7bd3fdc4efc9bcd37b638e9b",
+  "content_sha256": "2c19f9d693d1b65338b938ad7d5adb382ed320ad20f18d347928b003e9952d23",
+  "contract_content_sha256": "80fe214b43c735328efa3313ec3ebd3c95a333ed36bb5b5c4ecb313c3c1f3513",
+  "contract_id": "sealed-historical-management-missing-input-acquisition-v0.1",
+  "descriptive_sip_exit_may_close_account_position": false,
+  "empty_exhausted_segments": 0,
+  "execution_commit_sha": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+  "execution_tree_sha": "669e5ec539af1d7b79b269fbcf302a93af9abe71",
+  "historical_execution_authorized": false,
+  "hosted_python_version": "3.12.14",
+  "hosted_validation": {
+    "capture_summary": [
+      "2026-09-07T16:19:54.9607496Z No broken requirements found.",
+      "2026-09-07T16:19:57.2464109Z {\"contract_id\": \"sealed-historical-management-missing-input-acquisition-v0.1\", \"contract_valid\": true, \"provider_calls\": 0}",
+      "2026-09-07T16:20:35.6461340Z Ran 79 tests in 37.054s",
+      "2026-09-07T16:20:35.6461726Z OK",
+      "2026-09-07T16:21:18.4490968Z Ran 79 tests in 37.549s",
+      "2026-09-07T16:21:18.4491299Z OK",
+      "2026-09-07T16:21:31.1891139Z {\"status\": \"complete\", \"logical_requests_completed\": 10, \"provider_attempts\": 11, \"normalized_compressed_bytes\": 353382}"
+    ],
+    "code_commit": "eead72443160b08291ec5016900e71b0dc64e6ef",
+    "code_focused_and_ci_jobs": [
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "id": 101807372504,
+            "logs_url": null,
+            "name": "validate",
+            "run_id": 34142508263,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install the frozen verification environment",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Verify frozen registration and audited reuse result offline",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Test transport boundaries and complete synthetic acquisition under normal and optimized Python",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 11,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 12,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 13,
+                "status": "completed"
+              }
+            ]
+          }
+        ],
+        "run_id": 34142508263
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "id": 101807372677,
+            "logs_url": null,
+            "name": "test",
+            "run_id": 34142508264,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@v4",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@v5",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install package",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run tests",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@v5",
+                "number": 11,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@v4",
+                "number": 12,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 13,
+                "status": "completed"
+              }
+            ]
+          }
+        ],
+        "run_id": 34142508264
+      }
+    ],
+    "code_log_summaries": [
+      {
+        "job_id": 101807372504,
+        "run_id": 34142508263,
+        "summary": [
+          "2026-09-07T16:16:51.0818488Z ##[group]GITHUB_TOKEN Permissions",
+          "2026-09-07T16:17:08.9432441Z No broken requirements found.",
+          "2026-09-07T16:17:10.8971791Z {\"contract_id\": \"sealed-historical-management-missing-input-acquisition-v0.1\", \"contract_valid\": true, \"provider_calls\": 0}",
+          "2026-09-07T16:17:54.7503998Z Ran 79 tests in 39.748s",
+          "2026-09-07T16:17:54.7504546Z OK",
+          "2026-09-07T16:18:39.2100119Z Ran 79 tests in 39.676s",
+          "2026-09-07T16:18:39.2100446Z OK"
+        ]
+      },
+      {
+        "job_id": 101807372677,
+        "run_id": 34142508264,
+        "summary": [
+          "2026-09-07T16:16:52.0072359Z ##[group]GITHUB_TOKEN Permissions",
+          "2026-09-07T16:18:27.8071261Z Ran 1693 tests in 80.729s",
+          "2026-09-07T16:18:27.8071720Z OK (skipped=51)"
+        ]
+      }
+    ],
+    "code_tree": "a7ca51751e9a065bea2149e13a8d43f319e2b6cc",
+    "code_workflow_runs": [
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_sha": "eead72443160b08291ec5016900e71b0dc64e6ef",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34142508379",
+        "id": 34142508379,
+        "name": "Sealed historical source acquisition v0.3",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_sha": "eead72443160b08291ec5016900e71b0dc64e6ef",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34142508244",
+        "id": 34142508244,
+        "name": "Sealed historical provider availability v0.1",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_sha": "eead72443160b08291ec5016900e71b0dc64e6ef",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34142508283",
+        "id": 34142508283,
+        "name": "Sealed historical walk-forward v0.1",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_sha": "eead72443160b08291ec5016900e71b0dc64e6ef",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34142508374",
+        "id": 34142508374,
+        "name": "Sealed historical provider availability repair v0.2",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_sha": "eead72443160b08291ec5016900e71b0dc64e6ef",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34142508293",
+        "id": 34142508293,
+        "name": "Sealed historical source acquisition v0.2",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_sha": "eead72443160b08291ec5016900e71b0dc64e6ef",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34142508343",
+        "id": 34142508343,
+        "name": "Sealed historical source acquisition v0.1",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_sha": "eead72443160b08291ec5016900e71b0dc64e6ef",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34142508264",
+        "id": 34142508264,
+        "name": "CI",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_sha": "eead72443160b08291ec5016900e71b0dc64e6ef",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34142508263",
+        "id": 34142508263,
+        "name": "Sealed historical management capture validation v0.1",
+        "run_attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "execution_ci_jobs": [
+      {
+        "conclusion": "success",
+        "id": 101808045137,
+        "logs_url": null,
+        "name": "test",
+        "run_id": 34142720380,
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-python@v5",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install package",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run tests",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Compile",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@v5",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 13,
+            "status": "completed"
+          }
+        ]
+      }
+    ],
+    "execution_ci_summary": [
+      "2026-09-07T16:21:11.3100527Z Ran 1693 tests in 80.450s",
+      "2026-09-07T16:21:11.3100818Z OK (skipped=51)"
+    ],
+    "execution_workflow_runs": [
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_sha": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34142720577",
+        "id": 34142720577,
+        "name": "Sealed historical missing management input acquisition v0.1",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_sha": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34142720380",
+        "id": 34142720380,
+        "name": "CI",
+        "run_attempt": 1,
+        "status": "completed"
+      }
+    ],
+    "protected_refs_after": {
+      "heads/main": "de24eb17316191da69d92e61f6843af25e9c22d0",
+      "tags/sealed-historical-execution-input-acquisition-v0.1-consumed": "5a375f86e951b1e9eeb6c010995c9b57025913b7",
+      "tags/sealed-historical-execution-input-acquisition-v0.2-consumed": "e2c250367895d209ec4706288a22655636298685",
+      "tags/sealed-historical-execution-input-acquisition-v0.3-consumed": "0c4010044ee8557136b3c119c6350e134bba46d2",
+      "tags/sealed-historical-execution-input-diagnostic-v0.1-consumed": "e1aece08a44ccf9add0157a1657d08a809687e85",
+      "tags/sealed-historical-execution-input-empty-diagnostic-v0.1-consumed": "8854bb2e63dc3961d98c5d8827f857ef85ccb341",
+      "tags/sealed-historical-execution-input-quote-v0.1-consumed": "dd295304dcc5e7cc0ebd300d094ab20636a72b92",
+      "tags/sealed-historical-management-missing-input-acquisition-v0.1-consumed": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+      "tags/sealed-historical-micro-input-acquisition-v0.1-consumed": "5cab2eb3aa2b73a2cbf1d57575519a7b99961e24",
+      "tags/sealed-historical-micro-session-input-acquisition-v0.2-consumed": "bf5863a7115abef9e22c4f527448cd9c20084f47"
+    },
+    "protected_refs_before": {
+      "heads/main": "de24eb17316191da69d92e61f6843af25e9c22d0",
+      "tags/sealed-historical-execution-input-acquisition-v0.1-consumed": "5a375f86e951b1e9eeb6c010995c9b57025913b7",
+      "tags/sealed-historical-execution-input-acquisition-v0.2-consumed": "e2c250367895d209ec4706288a22655636298685",
+      "tags/sealed-historical-execution-input-acquisition-v0.3-consumed": "0c4010044ee8557136b3c119c6350e134bba46d2",
+      "tags/sealed-historical-execution-input-diagnostic-v0.1-consumed": "e1aece08a44ccf9add0157a1657d08a809687e85",
+      "tags/sealed-historical-execution-input-empty-diagnostic-v0.1-consumed": "8854bb2e63dc3961d98c5d8827f857ef85ccb341",
+      "tags/sealed-historical-execution-input-quote-v0.1-consumed": "dd295304dcc5e7cc0ebd300d094ab20636a72b92",
+      "tags/sealed-historical-micro-input-acquisition-v0.1-consumed": "5cab2eb3aa2b73a2cbf1d57575519a7b99961e24",
+      "tags/sealed-historical-micro-session-input-acquisition-v0.2-consumed": "bf5863a7115abef9e22c4f527448cd9c20084f47"
+    }
+  },
+  "implementation_file_sha256": {
+    ".github/workflows/sealed-historical-management-capture-validation-v01.yml": "8b4c4631a3b555c5851696eb8ad1187109b87e8488f33ceb5836f2d37eb6860d",
+    ".github/workflows/sealed-historical-management-input-acquisition-v01.yml": "048e1d7d8e346d4b5e5835aade090f9de49a02674bcb790a4e58a4295fd89054",
+    "requirements-sealed-execution-quote-v01.txt": "03f4da335027e4c83bcf38e523c2e11aeaae49778f5bd6caa47e4703348b31b4",
+    "scripts/capture_sealed_historical_management_inputs_v01.py": "c8f6f8bd3368770a8311adbcf0aa4af9b99409dec12613be392322a975ed1693",
+    "scripts/run_offline_python_v13.py": "fd28ca7e4a27832721a890a1a41af36863a7f13568ca9e85e17c2d5f35e0627d",
+    "src/momentumbot/research/sealed_historical_management_capture_v01.py": "cfccb813c042089d9807e1e3fa16710befbb7a4211f6054319b77714dca95a20",
+    "tests/test_sealed_historical_management_capture_v01.py": "45b4510aedee154454ff5ca7da31cef4e04355a0a54e0bbdae7fea4667677231"
+  },
+  "incremental_provider_cost_usd": "0",
+  "independent_and_primary_verification_agree": true,
+  "independent_verification": {
+    "account_or_fill_simulation_executed": false,
+    "backtesting_executed": false,
+    "blocked_attempts": 0,
+    "capture_file_inventory": {
+      "capture-inventory.json": {
+        "bytes": 4717,
+        "sha256": "42792c202e6a419987787c12b7bce1f47e3af79bbe8f7dcf60a7d70d1b04a1c0"
+      },
+      "capture-report.json": {
+        "bytes": 6477,
+        "sha256": "963208ddf347578e49e1d9279e2e35df144753ec9a9c24c38dcfec0d64373099"
+      },
+      "consumption.json": {
+        "bytes": 427,
+        "sha256": "2bebf21fb323841ea103752a11a6fe4bff142f728e223e9dadb4f3fd6cb38da7"
+      },
+      "contract.json": {
+        "bytes": 11002,
+        "sha256": "8834c39bfb0bb4c7194a6abc994102ba17f58bfc52215da10611eef47a2e2099"
+      },
+      "dates/2025-06-09/TPST-session_1m_raw.jsonl.gz": {
+        "bytes": 110,
+        "sha256": "fe856aa4ba2a29e8f85026d462a13e56b50187e6e544277bc298899dcea999db"
+      },
+      "dates/2025-06-09/TPST-sip_trades.jsonl.gz": {
+        "bytes": 218,
+        "sha256": "659c658adc6ea1eacb63a91bc7de31e4ec76ba6b75282aa762ee595e4200857d"
+      },
+      "dates/2025-06-12/XTIA-session_1m_raw.jsonl.gz": {
+        "bytes": 394,
+        "sha256": "3450dfb05c0ec0ea422e2d1f3417e78dcb0b224f649d0a70256d3f583c17bfe8"
+      },
+      "dates/2025-06-12/XTIA-sip_trades.jsonl.gz": {
+        "bytes": 96095,
+        "sha256": "c1ee13676d80d49351733941cd14ab723989d6c23444860be302c1bc20c88ebe"
+      },
+      "dates/2025-06-13/JVA-session_1m_raw.jsonl.gz": {
+        "bytes": 348,
+        "sha256": "a82f69c33d336dae5580ca70056d68791d48d1e4281a964dd086ffd8ee6d661e"
+      },
+      "dates/2025-06-13/JVA-sip_trades.jsonl.gz": {
+        "bytes": 3326,
+        "sha256": "0e1ea4f339aee457769e38a8cb80ebf3c3e1f32841ce6fc0790964987b5f022d"
+      },
+      "dates/2025-07-02/LIXT-session_1m_raw.jsonl.gz": {
+        "bytes": 200,
+        "sha256": "fba3bc8ab03097ad9350edb3e89519d5157eea6e07cc13a7bb68912a53b60665"
+      },
+      "dates/2025-07-02/LIXT-sip_trades.jsonl.gz": {
+        "bytes": 92834,
+        "sha256": "032b3934d1adf404dd4b6d04cb62beaf14519b9c759a8cde1c5f465aaad7843a"
+      },
+      "dates/2025-07-07/MBIO-session_1m_raw.jsonl.gz": {
+        "bytes": 150,
+        "sha256": "5ab9e75ceb20b86452a0c73ad7ecdac38396256462e74e536fc75731851b0c0c"
+      },
+      "dates/2025-07-07/MBIO-sip_trades.jsonl.gz": {
+        "bytes": 159707,
+        "sha256": "b0b6938e0dbf468d8f9deb9b83ed9860e0851d8cef36d2e74bb857cbed87bb9e"
+      },
+      "execution.json": {
+        "bytes": 1125,
+        "sha256": "cbfe27d98cb1ef6a506e300755a18d3ef1e725a22243d6d02abcec4fa5162337"
+      },
+      "receipts/0173d0d7c0d556b79868fda49648699b5c18772564fa38c4f320e4ca5d5ce6c9.json": {
+        "bytes": 524,
+        "sha256": "07949c83f34430df2d7916e33257ebc34ab819bea63ea275d3313c72630f48bb"
+      },
+      "receipts/0e484530c90bea2e755a9960e453a168f4e1a1dde6d9bc57ecbc75cfcea6bc84.json": {
+        "bytes": 524,
+        "sha256": "ea6b5d264d66607e445d55f9305d46bbc114cad6ea88be3bea517ecde77cd121"
+      },
+      "receipts/60659cf1e032bbae0d3f03d6c3e1b287f37a543b12faaa15c9ea1ac271a15056.json": {
+        "bytes": 523,
+        "sha256": "564c276dabefa233c0d9ac360dada38c992b19e5daa4e9f893ed1a8ff761cca3"
+      },
+      "receipts/7fbfd90300d5e5428ff33b0b27b1f0a09e9bc1292fa4723a0b5a8dcf300243b6.json": {
+        "bytes": 524,
+        "sha256": "bc9347d412a05068ce0a35bc39ea3ec5368bde8813b188bd811033654ffe07fd"
+      },
+      "receipts/80530a6e11d6db93f43dde6efbdc7a2dd4d6c6131d2409329fc751a86d740d8d.json": {
+        "bytes": 521,
+        "sha256": "fcf17f7b5e9265318b1c35ee4f6affca398007708510d168f58fff7a957a4242"
+      },
+      "receipts/b0841460f7372d0a1245adf7ed343c66dd97b666bf6b6d0e1bfbae18e2cae77c.json": {
+        "bytes": 523,
+        "sha256": "02534c4780c2075c2f5311955c1e291240b32da02386a5c19bccc2a5f1e73151"
+      },
+      "receipts/bb401920c69f1ca3fe47a6d02e3eb5887f831318544fcc24ccf759995aaa73a9.json": {
+        "bytes": 523,
+        "sha256": "1aeef622e14f0f51970c5b9bbbddbf3f7cbbba8fb4124357074222399a7cdc11"
+      },
+      "receipts/c52c77a28adf0a72fd3d69bdc4743926136389a27039de0c5e4731da701a7a5e.json": {
+        "bytes": 526,
+        "sha256": "46d576baab035c6eb3ff28ffa2816acd46ae4d6a4b1896fa63f43716b92a77c7"
+      },
+      "receipts/d21003f0b3de6cfc8e030d206ce1f82cab8de4e96a510d2754e5dec45ff2f435.json": {
+        "bytes": 523,
+        "sha256": "3db5528778e5dfa93c3819c34dec2f0def2cb66fea0273b3c7d75fb3eec602aa"
+      },
+      "receipts/d2d97afd23db999e38af23eb0d0c3de74d1c72c304bef8671538317d49103732.json": {
+        "bytes": 519,
+        "sha256": "0c405ca6be07fbed41053968a5dd42d41d7b581d1df57fa7d8686308721b66bd"
+      },
+      "request-ledger.json": {
+        "bytes": 2011,
+        "sha256": "4692a5e088f064071573022823d16c51377593715f619416b995d25701e02693"
+      },
+      "requests.json": {
+        "bytes": 7288,
+        "sha256": "38db98d4331ff38c14b51a2a27e94963d40b53d449bdaa74145f7ae29aaf53d8"
+      },
+      "source-validation.json": {
+        "bytes": 2074,
+        "sha256": "824ec160e8dae7ac21c49cd22e9dd2cd7143b24fa2504091260978ce196b1704"
+      }
+    },
+    "capture_zip_sha256": "dd6acf2844e69aa975a0274fe7813b3029cf7a6b6ef5d8830c322e17d436d9b6",
+    "consumption_file_inventory": {
+      "consumption-ref.json": {
+        "bytes": 553,
+        "sha256": "757f3c7823a88f5c34dc15363fd696f88ca394fff71bd6c59e4538fab4aea3c2"
+      },
+      "consumption.json": {
+        "bytes": 427,
+        "sha256": "2bebf21fb323841ea103752a11a6fe4bff142f728e223e9dadb4f3fd6cb38da7"
+      },
+      "pip-freeze.txt": {
+        "bytes": 606,
+        "sha256": "0f96c5c0c34602fe1c4ab8cf6417968bcbfd592a823b69671aafec95001bf990"
+      },
+      "python-version.txt": {
+        "bytes": 15,
+        "sha256": "4c3569f5da09975434dd9fd9a91fadbc4367a91d8f3c3fab59e9241ab9ee4bd8"
+      },
+      "requirements.txt": {
+        "bytes": 3583,
+        "sha256": "03f4da335027e4c83bcf38e523c2e11aeaae49778f5bd6caa47e4703348b31b4"
+      },
+      "source-validation.json": {
+        "bytes": 1908,
+        "sha256": "efb9b0583c93c4451405ca97615f3a7b663cdece619cea1892c43aed1f892a68"
+      }
+    },
+    "consumption_zip_sha256": "ddd88a57ed8ef12c9af3c08d7b03af0e6698dabf7bd3fdc4efc9bcd37b638e9b",
+    "content_sha256": "9a60be73b09392d221aa19dc8ff5fc30f9562bbb1ceec39bf1816100aed22f90",
+    "empty_exhausted_segments": 0,
+    "execution_commit_sha": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+    "normalized_compressed_bytes": 353382,
+    "normalized_row_count": 28387,
+    "provider_attempts": 11,
+    "provider_calls_by_verifier": 0,
+    "receipts": [
+      {
+        "complete": true,
+        "empty_exhausted_segment": false,
+        "file_sha256": "fe856aa4ba2a29e8f85026d462a13e56b50187e6e544277bc298899dcea999db",
+        "logical_sha256": "b6ee5e0f376e1dda1f88ffad1c3f569c530013c3d87337f484273f649ac85e06",
+        "pages": 1,
+        "path": "dates/2025-06-09/TPST-session_1m_raw.jsonl.gz",
+        "record_count": 1,
+        "request_id": "60659cf1e032bbae0d3f03d6c3e1b287f37a543b12faaa15c9ea1ac271a15056",
+        "retained_bytes": 110
+      },
+      {
+        "complete": true,
+        "empty_exhausted_segment": false,
+        "file_sha256": "659c658adc6ea1eacb63a91bc7de31e4ec76ba6b75282aa762ee595e4200857d",
+        "logical_sha256": "e88c3a69ff501418f3a7c69875238928ffa678171595cd9d2a86a502b425f1d8",
+        "pages": 1,
+        "path": "dates/2025-06-09/TPST-sip_trades.jsonl.gz",
+        "record_count": 7,
+        "request_id": "d2d97afd23db999e38af23eb0d0c3de74d1c72c304bef8671538317d49103732",
+        "retained_bytes": 218
+      },
+      {
+        "complete": true,
+        "empty_exhausted_segment": false,
+        "file_sha256": "3450dfb05c0ec0ea422e2d1f3417e78dcb0b224f649d0a70256d3f583c17bfe8",
+        "logical_sha256": "09dce96d2a84c959df79f212080d39e77b581810ca87a2264819805bb1b55bde",
+        "pages": 1,
+        "path": "dates/2025-06-12/XTIA-session_1m_raw.jsonl.gz",
+        "record_count": 12,
+        "request_id": "0173d0d7c0d556b79868fda49648699b5c18772564fa38c4f320e4ca5d5ce6c9",
+        "retained_bytes": 394
+      },
+      {
+        "complete": true,
+        "empty_exhausted_segment": false,
+        "file_sha256": "c1ee13676d80d49351733941cd14ab723989d6c23444860be302c1bc20c88ebe",
+        "logical_sha256": "37ab04b4f8489c2e054975468287f01fe773903f703010b0f72032a27eb8d99c",
+        "pages": 1,
+        "path": "dates/2025-06-12/XTIA-sip_trades.jsonl.gz",
+        "record_count": 7649,
+        "request_id": "7fbfd90300d5e5428ff33b0b27b1f0a09e9bc1292fa4723a0b5a8dcf300243b6",
+        "retained_bytes": 96095
+      },
+      {
+        "complete": true,
+        "empty_exhausted_segment": false,
+        "file_sha256": "a82f69c33d336dae5580ca70056d68791d48d1e4281a964dd086ffd8ee6d661e",
+        "logical_sha256": "f6b554bb35b51aef958b0d6a4fa3b2d0f75c9f303fd8dcf8ea3020e94073e3f2",
+        "pages": 1,
+        "path": "dates/2025-06-13/JVA-session_1m_raw.jsonl.gz",
+        "record_count": 12,
+        "request_id": "bb401920c69f1ca3fe47a6d02e3eb5887f831318544fcc24ccf759995aaa73a9",
+        "retained_bytes": 348
+      },
+      {
+        "complete": true,
+        "empty_exhausted_segment": false,
+        "file_sha256": "0e1ea4f339aee457769e38a8cb80ebf3c3e1f32841ce6fc0790964987b5f022d",
+        "logical_sha256": "48399c23d7d45d64787e4a6133244b5646aa2697f392455210de0e7a5b02013f",
+        "pages": 1,
+        "path": "dates/2025-06-13/JVA-sip_trades.jsonl.gz",
+        "record_count": 225,
+        "request_id": "80530a6e11d6db93f43dde6efbdc7a2dd4d6c6131d2409329fc751a86d740d8d",
+        "retained_bytes": 3326
+      },
+      {
+        "complete": true,
+        "empty_exhausted_segment": false,
+        "file_sha256": "fba3bc8ab03097ad9350edb3e89519d5157eea6e07cc13a7bb68912a53b60665",
+        "logical_sha256": "77c2aed7505a6212e9f96c3022efcade69492334d28daada1b4799adcc2a4922",
+        "pages": 1,
+        "path": "dates/2025-07-02/LIXT-session_1m_raw.jsonl.gz",
+        "record_count": 4,
+        "request_id": "d21003f0b3de6cfc8e030d206ce1f82cab8de4e96a510d2754e5dec45ff2f435",
+        "retained_bytes": 200
+      },
+      {
+        "complete": true,
+        "empty_exhausted_segment": false,
+        "file_sha256": "032b3934d1adf404dd4b6d04cb62beaf14519b9c759a8cde1c5f465aaad7843a",
+        "logical_sha256": "83a25dd934c63beec6bc743b94214e5fc99ba8ed3698124d679b7867d7e58d8d",
+        "pages": 1,
+        "path": "dates/2025-07-02/LIXT-sip_trades.jsonl.gz",
+        "record_count": 7344,
+        "request_id": "0e484530c90bea2e755a9960e453a168f4e1a1dde6d9bc57ecbc75cfcea6bc84",
+        "retained_bytes": 92834
+      },
+      {
+        "complete": true,
+        "empty_exhausted_segment": false,
+        "file_sha256": "5ab9e75ceb20b86452a0c73ad7ecdac38396256462e74e536fc75731851b0c0c",
+        "logical_sha256": "5fca0a7096acf0419aed2023f47d99ed3bb292e9803d77a0c8492e299cfa783f",
+        "pages": 1,
+        "path": "dates/2025-07-07/MBIO-session_1m_raw.jsonl.gz",
+        "record_count": 2,
+        "request_id": "b0841460f7372d0a1245adf7ed343c66dd97b666bf6b6d0e1bfbae18e2cae77c",
+        "retained_bytes": 150
+      },
+      {
+        "complete": true,
+        "empty_exhausted_segment": false,
+        "file_sha256": "b0b6938e0dbf468d8f9deb9b83ed9860e0851d8cef36d2e74bb857cbed87bb9e",
+        "logical_sha256": "145293fd98359d8c714d3b61374d0b94c85bb66cf0f5bf5ddb71650feaded622",
+        "pages": 2,
+        "path": "dates/2025-07-07/MBIO-sip_trades.jsonl.gz",
+        "record_count": 13131,
+        "request_id": "c52c77a28adf0a72fd3d69bdc4743926136389a27039de0c5e4731da701a7a5e",
+        "retained_bytes": 159707
+      }
+    ],
+    "rows_by_kind": {
+      "session_1m_raw": 31,
+      "sip_trades": 28356
+    },
+    "run_attempt": 1,
+    "run_id": 34142720577,
+    "unavailable_entry_opportunities_preserved": 23,
+    "verification_passed": true,
+    "verified_capture_files": 28,
+    "verified_consumption_files": 6,
+    "verified_logical_requests": 10,
+    "verifier": "independent_stdlib_no_runtime_imports"
+  },
+  "independent_verifier_source": "\"\"\"Independent stdlib-only verifier of the consumed management-tail capture.\"\"\"\nimport argparse\nimport calendar\nfrom collections import Counter\nfrom datetime import datetime\nimport gzip\nimport hashlib\nimport json\nimport math\nfrom pathlib import Path, PurePosixPath\nimport re\nimport stat\nimport sys\nimport zipfile\n\n\ndef require(value, message):\n    if not value:\n        raise ValueError(message)\n\n\ndef canonical(value):\n    return json.dumps(value, sort_keys=True, separators=(\",\", \":\"), allow_nan=False).encode()\n\n\ndef sha(raw):\n    return hashlib.sha256(raw).hexdigest()\n\n\ndef parse(raw):\n    def pairs(items):\n        result = {}\n        for key, value in items:\n            require(key not in result, \"duplicate JSON key\")\n            result[key] = value\n        return result\n    return json.loads(raw, object_pairs_hook=pairs)\n\n\ndef sealed(raw):\n    value = parse(raw)\n    require(value[\"content_sha256\"] == sha(canonical({k: v for k, v in value.items() if k != \"content_sha256\"})), \"content seal\")\n    return value\n\n\ndef timestamp(value):\n    match = re.fullmatch(r\"(\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\d)(?:\\.(\\d{1,9}))?\\+00:00\", value)\n    require(match is not None, \"canonical UTC nanosecond timestamp\")\n    whole = datetime.strptime(match[1], \"%Y-%m-%dT%H:%M:%S\")\n    return calendar.timegm(whole.timetuple()) * 1_000_000_000 + int((match[2] or \"\").ljust(9, \"0\"))\n\n\ndef members(path, metadata, run):\n    raw = path.read_bytes()\n    require(metadata[\"size_in_bytes\"] == len(raw), \"artifact byte size\")\n    require(metadata[\"digest\"] == \"sha256:\" + sha(raw) and metadata[\"expired\"] is False, \"artifact digest or expiry\")\n    require(metadata[\"workflow_run\"][\"id\"] == run[\"id\"] and metadata[\"workflow_run\"][\"head_sha\"] == run[\"head_sha\"], \"artifact run identity\")\n    with zipfile.ZipFile(path) as archive:\n        names = archive.namelist()\n        require(len(names) == len(set(names)), \"duplicate ZIP members\")\n        for info in archive.infolist():\n            p = PurePosixPath(info.filename)\n            require(not p.is_absolute() and \"..\" not in p.parts and \"\\\\\" not in info.filename, \"unsafe archive path\")\n            require(not info.is_dir() and not info.flag_bits & 1 and not stat.S_ISLNK(info.external_attr >> 16), \"unsafe archive member\")\n        return {name: archive.read(name) for name in names}\n\n\ndef main():\n    parser = argparse.ArgumentParser()\n    parser.add_argument(\"--root\", type=Path, required=True)\n    parser.add_argument(\"--capture\", type=Path, required=True)\n    parser.add_argument(\"--consumption\", type=Path, required=True)\n    parser.add_argument(\"--metadata\", type=Path, required=True)\n    args = parser.parse_args()\n    def deny(event, arguments):\n        if event.startswith(\"socket.\") or event in {\"subprocess.Popen\", \"os.system\", \"os.exec\", \"os.fork\", \"os.posix_spawn\"}:\n            raise RuntimeError(\"independent verifier forbids external IO\")\n    sys.addaudithook(deny)\n    meta = parse(args.metadata.read_bytes())\n    run, job = meta[\"run\"], meta[\"job\"]\n    contract_path = \"research/strategy/sealed-historical-management-missing-input-acquisition-v0.1.json\"\n    contract = sealed((args.root / contract_path).read_bytes())\n    execution = sealed((args.root / contract_path.replace(\".json\", \"-execution.json\")).read_bytes())\n    require(run[\"head_sha\"] == meta[\"execution_commit\"][\"sha\"] and run[\"event\"] == \"push\"\n        and run[\"head_branch\"] == \"phase-3-historical-snapshot\" and run[\"run_attempt\"] == 1\n        and run[\"status\"] == \"completed\" and run[\"conclusion\"] == \"success\", \"exact first-attempt execution run\")\n    require(job[\"run_id\"] == run[\"id\"] and job[\"conclusion\"] == \"success\", \"exact capture job\")\n    require(all(s[\"conclusion\"] == \"success\" for s in job[\"steps\"]), \"capture job step failed or skipped\")\n    names = [s[\"name\"] for s in job[\"steps\"]]\n    require(names.index(\"Atomically consume this acquisition once\") < names.index(\"Durably upload consumption before market-data access\")\n        < names.index(\"Capture only the ten exact missing management resources\"), \"durable ordering\")\n    require(len(meta[\"execution_commit\"][\"parents\"]) == 1\n        and meta[\"execution_commit\"][\"parents\"][0][\"sha\"] == execution[\"code_commit_sha\"], \"execution parent\")\n    require(meta[\"code_commit\"][\"sha\"] == execution[\"code_commit_sha\"]\n        and meta[\"code_commit\"][\"tree\"][\"sha\"] == execution[\"code_tree_sha\"], \"tested code tree\")\n    require(meta[\"execution_commit\"][\"tree\"][\"sha\"] == run[\"head_commit\"][\"tree_id\"], \"execution tree\")\n    require(meta[\"consumption_ref\"][\"ref\"] == execution[\"consumption_ref\"]\n        and meta[\"consumption_ref\"][\"object\"][\"sha\"] == run[\"head_sha\"], \"immutable consumption reference\")\n    for name, expected in contract[\"implementation_file_sha256\"].items():\n        require(sha((args.root / name).read_bytes()) == expected, \"implementation pin: \" + name)\n    require(execution[\"contract_content_sha256\"] == contract[\"content_sha256\"], \"execution contract\")\n    requirements = sealed((args.root / contract[\"missing_requirements_path\"]).read_bytes())\n    requests = contract[\"requests\"]\n    require(canonical(requests) == canonical(requirements[\"requests\"]) and len(requests) == 10, \"exact ten frozen requests\")\n    require(sha(canonical(requests)) == contract[\"request_manifest_sha256\"], \"request manifest\")\n    capture = members(args.capture, meta[\"capture_artifact\"], run)\n    preflight = members(args.consumption, meta[\"consumption_artifact\"], run)\n    require(set(preflight) == {\"consumption-ref.json\", \"consumption.json\", \"source-validation.json\", \"pip-freeze.txt\", \"python-version.txt\", \"requirements.txt\"}, \"preflight file set\")\n    require(preflight[\"python-version.txt\"].strip() == b\"Python 3.12.14\", \"hosted Python version\")\n    require(preflight[\"requirements.txt\"] == (args.root / \"requirements-sealed-execution-quote-v01.txt\").read_bytes(), \"frozen package lock\")\n    require(parse(preflight[\"consumption-ref.json\"])[\"object\"][\"sha\"] == run[\"head_sha\"], \"pre-provider consumption\")\n    for name in (\"consumption.json\", \"source-validation.json\"):\n        require(canonical(sealed(capture[name])) == canonical(sealed(preflight[name])), \"preflight/capture identity\")\n    source_receipt = sealed(capture[\"source-validation.json\"])\n    prior_audit = \"research/data-audits/sealed-historical-management-source-reuse-v0.1-independent-verification.json\"\n    require(sha((args.root / prior_audit).read_bytes()) == contract[\"reuse_audit_file_sha256\"]\n        == source_receipt[\"reuse_audit_file_sha256\"], \"verified reuse audit bytes\")\n    audit = sealed((args.root / prior_audit).read_bytes())\n    require(canonical(audit[\"independent_verification\"][\"file_inventory\"])\n        == canonical(source_receipt[\"reuse_result_file_inventory\"]), \"reuse result inventory\")\n    for name, expected in source_receipt[\"reuse_result_file_inventory\"].items():\n        raw = (args.root / \"research/runtime/sealed-historical-management-source-reuse-v0.1\" / name).read_bytes()\n        require(len(raw) == expected[\"bytes\"] and sha(raw) == expected[\"sha256\"], \"exact committed reuse result\")\n    require(source_receipt[\"verified_reuse_result\"] is True\n        and source_receipt[\"original_source_archives_reopened_in_this_preflight\"] is False\n        and source_receipt[\"reuse_manifest_content_sha256\"] == audit[\"freeze_manifest_content_sha256\"], \"reuse preflight attestation\")\n    marker = sealed(capture[\"consumption.json\"])\n    require(marker[\"execution_commit_sha\"] == run[\"head_sha\"] and marker[\"workflow_run_id\"] == str(run[\"id\"])\n        and marker[\"workflow_run_attempt\"] == 1 and marker[\"execution_content_sha256\"] == execution[\"content_sha256\"], \"consumption seal identity\")\n    require(canonical(sealed(capture[\"contract.json\"])) == canonical(contract), \"captured contract\")\n    require(canonical(sealed(capture[\"execution.json\"])) == canonical(execution), \"captured execution\")\n    require(canonical(sealed(capture[\"requests.json\"])[\"requests\"]) == canonical(requests), \"captured request set\")\n    inventory = sealed(capture[\"capture-inventory.json\"])\n    require(set(inventory[\"files\"]) == set(capture) - {\"capture-inventory.json\"}, \"complete file inventory\")\n    for name, expected in inventory[\"files\"].items():\n        require(sha(capture[name]) == expected, \"member digest: \" + name)\n    report, ledger = sealed(capture[\"capture-report.json\"]), parse(capture[\"request-ledger.json\"])\n    require(report[\"status\"] == \"complete\" and report[\"logical_requests_completed\"] == 10\n        and inventory[\"complete\"] is True and len(capture) == 28, \"complete capture\")\n    receipts, expected_events, total_bytes = [], [], 0\n    by_kind = Counter()\n    for request in requests:\n        path = f\"dates/{request['trading_date']}/{request['symbol']}-{request['kind']}.jsonl.gz\"\n        receipt = sealed(capture[\"receipts/\" + request[\"request_id\"] + \".json\"])\n        compressed = capture[path]\n        raw = gzip.decompress(compressed)\n        require(receipt[\"path\"] == path and receipt[\"request_id\"] == request[\"request_id\"], \"receipt identity\")\n        require(receipt[\"file_sha256\"] == sha(compressed) and receipt[\"logical_sha256\"] == sha(raw), \"tape digests\")\n        lines = raw.splitlines(keepends=True)\n        require(len(lines) == receipt[\"record_count\"] and receipt[\"complete\"] is True\n            and receipt[\"empty_exhausted_segment\"] is (len(lines) == 0), \"exhausted receipt\")\n        require(type(receipt[\"pages\"]) is int and 1 <= receipt[\"pages\"] <= 512 and len(lines) <= receipt[\"pages\"] * 10_000, \"pagination bound\")\n        previous, tied = None, set()\n        for ordinal, line in enumerate(lines):\n            value = parse(line)\n            require(canonical(value) + b\"\\n\" == line and len(line) <= 1000, \"canonical row\")\n            stamp = timestamp(value[\"t\"])\n            require(request[\"start_ns\"] <= stamp < request[\"end_ns\"] and (previous is None or stamp >= previous), \"causal interval/order\")\n            if stamp != previous:\n                tied.clear()\n            require(line not in tied, \"repeated normalized record\")\n            tied.add(line)\n            if request[\"kind\"] == \"sip_trades\":\n                require(set(value) == {\"t\", \"p\", \"s\", \"i\", \"x\", \"z\", \"c\"}, \"trade schema\")\n                require(type(value[\"p\"]) is float and math.isfinite(value[\"p\"]) and value[\"p\"] > 0, \"trade price\")\n                require(all(type(value[k]) is int and value[k] >= 0 for k in (\"s\", \"i\")), \"trade integers\")\n                require(isinstance(value[\"x\"], str) and len(value[\"x\"]) == 1 and value[\"z\"] in {\"A\", \"B\", \"C\"}, \"exchange/tape\")\n                require(isinstance(value[\"c\"], list) and all(isinstance(c, str) and len(c) <= 2 for c in value[\"c\"]), \"trade conditions\")\n            else:\n                require(set(value) == {\"t\", \"o\", \"h\", \"l\", \"c\", \"v\", \"n\", \"vw\"}, \"bar schema\")\n                require(stamp % 60_000_000_000 == 0 and stamp != previous, \"minute identity\")\n                require(all(type(value[k]) is float and math.isfinite(value[k]) and value[k] > 0 for k in (\"o\", \"h\", \"l\", \"c\", \"vw\")), \"bar prices\")\n                require(all(type(value[k]) is int and value[k] >= 0 for k in (\"v\", \"n\")), \"bar integers\")\n                require(value[\"l\"] <= min(value[\"o\"], value[\"c\"]) <= max(value[\"o\"], value[\"c\"]) <= value[\"h\"], \"OHLC order\")\n            previous = stamp\n        require(receipt[\"retained_bytes\"] == len(compressed), \"compressed tape size\")\n        total_bytes += len(compressed)\n        by_kind[request[\"kind\"]] += len(lines)\n        receipts.append({k: v for k, v in receipt.items() if k != \"content_sha256\"})\n        for _ in range(receipt[\"pages\"]):\n            expected_events.append({\"attempt\": len(expected_events) + 1, \"request_id\": request[\"request_id\"]})\n    attempts = len(expected_events)\n    require(canonical(receipts) == canonical(report[\"receipts\"]), \"report receipts\")\n    require(ledger[\"attempt_events\"] == expected_events and ledger[\"by_request\"] == dict(Counter(e[\"request_id\"] for e in expected_events)), \"exact attempt accounting\")\n    require(ledger[\"by_host\"] == {\"data.alpaca.markets\": attempts} and ledger[\"total_attempts\"] == attempts\n        and inventory[\"provider_attempts\"] == attempts and ledger[\"blocked_attempts\"] == inventory[\"blocked_attempts\"] == 0\n        and attempts <= 512, \"provider attempt ceilings\")\n    require(total_bytes == report[\"normalized_compressed_bytes\"] and total_bytes <= 100_000_000, \"shared compressed-byte ceiling\")\n    for key in (\"backtesting_executed\", \"account_or_fill_simulation_executed\", \"management_projection_executed\", \"policy_changed\", \"retrospective_inputs_loaded\", \"portfolio_financial_metrics_eligible\"):\n        require(report[key] is False and inventory[key] is False, \"closed gate: \" + key)\n    result = {\"verification_passed\": True, \"verifier\": \"independent_stdlib_no_runtime_imports\",\n        \"execution_commit_sha\": run[\"head_sha\"], \"run_id\": run[\"id\"], \"run_attempt\": 1,\n        \"capture_zip_sha256\": sha(args.capture.read_bytes()), \"consumption_zip_sha256\": sha(args.consumption.read_bytes()),\n        \"verified_capture_files\": len(capture), \"verified_consumption_files\": len(preflight),\n        \"verified_logical_requests\": 10, \"normalized_row_count\": sum(by_kind.values()), \"rows_by_kind\": dict(by_kind),\n        \"empty_exhausted_segments\": sum(r[\"empty_exhausted_segment\"] for r in receipts),\n        \"provider_attempts\": attempts, \"blocked_attempts\": 0, \"normalized_compressed_bytes\": total_bytes,\n        \"receipts\": receipts, \"capture_file_inventory\": {n: {\"bytes\": len(b), \"sha256\": sha(b)} for n, b in capture.items()},\n        \"consumption_file_inventory\": {n: {\"bytes\": len(b), \"sha256\": sha(b)} for n, b in preflight.items()},\n        \"unavailable_entry_opportunities_preserved\": 23, \"provider_calls_by_verifier\": 0,\n        \"account_or_fill_simulation_executed\": False, \"backtesting_executed\": False}\n    print(json.dumps({**result, \"content_sha256\": sha(canonical(result))}, sort_keys=True, indent=2))\n\n\nif __name__ == \"__main__\":\n    main()\n",
+  "independent_verifier_source_sha256": "664973c1eb4a472c47814591f22b9220be121612529d73a6fca6521dfe2386e8",
+  "local_environment": {
+    "hash_locked_packages_verified": true,
+    "implementation": "CPython",
+    "package_versions": {
+      "PyYAML": "6.0.3",
+      "aiohappyeyeballs": "2.7.1",
+      "aiohttp": "3.14.3",
+      "aiosignal": "1.4.0",
+      "attrs": "26.1.0",
+      "certifi": "2026.7.22",
+      "charset_normalizer": "3.5.1",
+      "databento": "0.83.0",
+      "databento_dbn": "0.65.0",
+      "frozenlist": "1.8.0",
+      "idna": "3.19",
+      "multidict": "6.7.1",
+      "numpy": "2.3.5",
+      "packaging": "26.3",
+      "pandas": "2.2.3",
+      "pip": "26.2.1",
+      "propcache": "0.5.2",
+      "pyarrow": "25.0.1",
+      "python-dateutil": "2.9.0.post0",
+      "pytz": "2026.3.post1",
+      "requests": "2.34.2",
+      "setuptools": "84.0.0",
+      "six": "1.17.0",
+      "typing_extensions": "4.16.0",
+      "tzdata": "2026.3",
+      "urllib3": "2.7.0",
+      "wheel": "0.48.0",
+      "yarl": "1.24.5",
+      "zstandard": "0.25.0"
+    },
+    "python_version": "3.12.13",
+    "zlib_runtime_version": "1.3.2",
+    "zlib_version": "1.3.2"
+  },
+  "local_python_version": "3.12.13",
+  "local_validation": {
+    "full": {
+      "log_sha256": "2919cc4469d87fbf317eded31298159dfd96c6b6a6b1d34a62526c6672a6e7ae",
+      "passed": true,
+      "skipped": 0,
+      "summary": "Ran 1693 tests in 83.036s",
+      "test_count": 1693
+    },
+    "normal": {
+      "log_sha256": "b7ead57ecee8c7b01b14f7900bdb601d9630037ad11d6add85b489c8f7b2ec84",
+      "passed": true,
+      "skipped": 0,
+      "summary": "Ran 79 tests in 27.339s",
+      "test_count": 79
+    },
+    "optimized": {
+      "log_sha256": "3af9d3135dec2dea2922c7ace84916ec80c25dab92feef77337096c1238f688a",
+      "passed": true,
+      "skipped": 0,
+      "summary": "Ran 79 tests in 28.015s",
+      "test_count": 79
+    }
+  },
+  "management_input_gate_passed": false,
+  "management_projection_executed": false,
+  "management_source_composition_complete": false,
+  "missing_resource_capture_complete": true,
+  "monitor_state_changed": false,
+  "next_gate": "register_and_build_provider_free_composition_of_verified_reused_prefixes_and_exact_missing_tails",
+  "normalized_compressed_bytes": 353382,
+  "normalized_row_count": 28387,
+  "operation_metadata": {
+    "capture_artifact": {
+      "archive_download_url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/artifacts/10026551595/zip",
+      "created_at": "2026-09-07T16:21:32Z",
+      "digest": "sha256:dd6acf2844e69aa975a0274fe7813b3029cf7a6b6ef5d8830c322e17d436d9b6",
+      "expired": false,
+      "expires_at": "2026-12-06T16:19:31Z",
+      "id": 10026551595,
+      "name": "sealed-historical-management-input-v01-capture-34142720577-1",
+      "size_in_bytes": 373515,
+      "updated_at": "2026-09-07T16:21:32Z",
+      "url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/artifacts/10026551595",
+      "workflow_run": {
+        "head_branch": "phase-3-historical-snapshot",
+        "head_repository_id": 1332103865,
+        "head_sha": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+        "id": 34142720577,
+        "repository_id": 1332103865
+      }
+    },
+    "code_commit": {
+      "message": "Register tested one-shot capture for ten exact missing management resources",
+      "parents": [
+        {
+          "html_url": "https://github.com/RoomyRems/momentumbot/commit/813960e42a96edd40983bc3e414743c0bf67452d",
+          "sha": "813960e42a96edd40983bc3e414743c0bf67452d",
+          "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/813960e42a96edd40983bc3e414743c0bf67452d"
+        }
+      ],
+      "sha": "eead72443160b08291ec5016900e71b0dc64e6ef",
+      "tree": {
+        "sha": "a7ca51751e9a065bea2149e13a8d43f319e2b6cc",
+        "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/trees/a7ca51751e9a065bea2149e13a8d43f319e2b6cc"
+      },
+      "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/eead72443160b08291ec5016900e71b0dc64e6ef"
+    },
+    "consumption_artifact": {
+      "archive_download_url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/artifacts/10026547607/zip",
+      "created_at": "2026-09-07T16:21:23Z",
+      "digest": "sha256:ddd88a57ed8ef12c9af3c08d7b03af0e6698dabf7bd3fdc4efc9bcd37b638e9b",
+      "expired": false,
+      "expires_at": "2026-12-06T16:19:31Z",
+      "id": 10026547607,
+      "name": "sealed-historical-management-input-v01-consumption-34142720577-1",
+      "size_in_bytes": 4586,
+      "updated_at": "2026-09-07T16:21:23Z",
+      "url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/artifacts/10026547607",
+      "workflow_run": {
+        "head_branch": "phase-3-historical-snapshot",
+        "head_repository_id": 1332103865,
+        "head_sha": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+        "id": 34142720577,
+        "repository_id": 1332103865
+      }
+    },
+    "consumption_ref": {
+      "node_id": "REF_kwDOT2ZKudoATnJlZnMvdGFncy9zZWFsZWQtaGlzdG9yaWNhbC1tYW5hZ2VtZW50LW1pc3NpbmctaW5wdXQtYWNxdWlzaXRpb24tdjAuMS1jb25zdW1lZA",
+      "object": {
+        "sha": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+        "type": "commit",
+        "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/eeec1ea234214a9d4a449e774fe3fa29aefea025"
+      },
+      "ref": "refs/tags/sealed-historical-management-missing-input-acquisition-v0.1-consumed",
+      "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/refs/tags/sealed-historical-management-missing-input-acquisition-v0.1-consumed"
+    },
+    "execution_commit": {
+      "message": "Authorize one consumed capture of the ten frozen missing management resources",
+      "parents": [
+        {
+          "html_url": "https://github.com/RoomyRems/momentumbot/commit/eead72443160b08291ec5016900e71b0dc64e6ef",
+          "sha": "eead72443160b08291ec5016900e71b0dc64e6ef",
+          "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/eead72443160b08291ec5016900e71b0dc64e6ef"
+        }
+      ],
+      "sha": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+      "tree": {
+        "sha": "669e5ec539af1d7b79b269fbcf302a93af9abe71",
+        "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/trees/669e5ec539af1d7b79b269fbcf302a93af9abe71"
+      },
+      "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/eeec1ea234214a9d4a449e774fe3fa29aefea025"
+    },
+    "job": {
+      "conclusion": "success",
+      "id": 101808046100,
+      "logs_url": null,
+      "name": "capture",
+      "run_id": 34142720577,
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 2,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Bind sole execution child to its tested parent",
+          "number": 3,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+          "number": 4,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Install and retain the frozen Python environment",
+          "number": 5,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate registration and exact execution child offline",
+          "number": 6,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Validate undefined globals and complete adversarial capture tests",
+          "number": 7,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Revalidate exact independently verified reuse outputs and frozen parents offline",
+          "number": 8,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Atomically consume this acquisition once",
+          "number": 9,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Durably upload consumption before market-data access",
+          "number": 10,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Capture only the ten exact missing management resources",
+          "number": 11,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Preserve complete or partial normalized input evidence",
+          "number": 12,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+          "number": 23,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 24,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 25,
+          "status": "completed"
+        }
+      ]
+    },
+    "run": {
+      "conclusion": "success",
+      "created_at": "2026-09-07T16:19:31Z",
+      "event": "push",
+      "head_branch": "phase-3-historical-snapshot",
+      "head_commit": {
+        "author": {
+          "email": "168698529+RoomyRems@users.noreply.github.com",
+          "name": "RoomyRems"
+        },
+        "committer": {
+          "email": "168698529+RoomyRems@users.noreply.github.com",
+          "name": "RoomyRems"
+        },
+        "id": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+        "message": "Authorize one consumed capture of the ten frozen missing management resources",
+        "timestamp": "2026-09-07T16:19:27Z",
+        "tree_id": "669e5ec539af1d7b79b269fbcf302a93af9abe71"
+      },
+      "head_sha": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+      "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34142720577",
+      "id": 34142720577,
+      "name": "Sealed historical missing management input acquisition v0.1",
+      "path": ".github/workflows/sealed-historical-management-input-acquisition-v01.yml",
+      "run_attempt": 1,
+      "run_started_at": "2026-09-07T16:19:31Z",
+      "status": "completed",
+      "updated_at": "2026-09-07T16:21:34Z"
+    }
+  },
+  "original_source_ledger_changed": false,
+  "original_source_provider_request_count": 30522,
+  "paper_or_live_orders_authorized": false,
+  "parent_commit_sha": "813960e42a96edd40983bc3e414743c0bf67452d",
+  "parent_tree_sha": "49b7c0d4d71d5ce2adc452bfa3d64216903556cf",
+  "policy_changed": false,
+  "portfolio_financial_metrics_eligible": false,
+  "primary_verification": {
+    "account_or_fill_simulation_executed": false,
+    "account_runtime_input_gate_passed": false,
+    "acquisition_gate_passed": false,
+    "backtesting_executed": false,
+    "blocked_attempts": 0,
+    "broker_account_read": false,
+    "capture_zip_bytes": 373515,
+    "capture_zip_sha256": "dd6acf2844e69aa975a0274fe7813b3029cf7a6b6ef5d8830c322e17d436d9b6",
+    "content_sha256": "bd9fc3321be1c9af73ec2a4b387abd8ff855a17e48f14360a640cc78a095dea5",
+    "contract_id": "sealed-historical-management-missing-input-acquisition-v0.1",
+    "empty_exhausted_segments": 0,
+    "file_inventory": {
+      "capture-report.json": "963208ddf347578e49e1d9279e2e35df144753ec9a9c24c38dcfec0d64373099",
+      "consumption.json": "2bebf21fb323841ea103752a11a6fe4bff142f728e223e9dadb4f3fd6cb38da7",
+      "contract.json": "8834c39bfb0bb4c7194a6abc994102ba17f58bfc52215da10611eef47a2e2099",
+      "dates/2025-06-09/TPST-session_1m_raw.jsonl.gz": "fe856aa4ba2a29e8f85026d462a13e56b50187e6e544277bc298899dcea999db",
+      "dates/2025-06-09/TPST-sip_trades.jsonl.gz": "659c658adc6ea1eacb63a91bc7de31e4ec76ba6b75282aa762ee595e4200857d",
+      "dates/2025-06-12/XTIA-session_1m_raw.jsonl.gz": "3450dfb05c0ec0ea422e2d1f3417e78dcb0b224f649d0a70256d3f583c17bfe8",
+      "dates/2025-06-12/XTIA-sip_trades.jsonl.gz": "c1ee13676d80d49351733941cd14ab723989d6c23444860be302c1bc20c88ebe",
+      "dates/2025-06-13/JVA-session_1m_raw.jsonl.gz": "a82f69c33d336dae5580ca70056d68791d48d1e4281a964dd086ffd8ee6d661e",
+      "dates/2025-06-13/JVA-sip_trades.jsonl.gz": "0e1ea4f339aee457769e38a8cb80ebf3c3e1f32841ce6fc0790964987b5f022d",
+      "dates/2025-07-02/LIXT-session_1m_raw.jsonl.gz": "fba3bc8ab03097ad9350edb3e89519d5157eea6e07cc13a7bb68912a53b60665",
+      "dates/2025-07-02/LIXT-sip_trades.jsonl.gz": "032b3934d1adf404dd4b6d04cb62beaf14519b9c759a8cde1c5f465aaad7843a",
+      "dates/2025-07-07/MBIO-session_1m_raw.jsonl.gz": "5ab9e75ceb20b86452a0c73ad7ecdac38396256462e74e536fc75731851b0c0c",
+      "dates/2025-07-07/MBIO-sip_trades.jsonl.gz": "b0b6938e0dbf468d8f9deb9b83ed9860e0851d8cef36d2e74bb857cbed87bb9e",
+      "execution.json": "cbfe27d98cb1ef6a506e300755a18d3ef1e725a22243d6d02abcec4fa5162337",
+      "receipts/0173d0d7c0d556b79868fda49648699b5c18772564fa38c4f320e4ca5d5ce6c9.json": "07949c83f34430df2d7916e33257ebc34ab819bea63ea275d3313c72630f48bb",
+      "receipts/0e484530c90bea2e755a9960e453a168f4e1a1dde6d9bc57ecbc75cfcea6bc84.json": "ea6b5d264d66607e445d55f9305d46bbc114cad6ea88be3bea517ecde77cd121",
+      "receipts/60659cf1e032bbae0d3f03d6c3e1b287f37a543b12faaa15c9ea1ac271a15056.json": "564c276dabefa233c0d9ac360dada38c992b19e5daa4e9f893ed1a8ff761cca3",
+      "receipts/7fbfd90300d5e5428ff33b0b27b1f0a09e9bc1292fa4723a0b5a8dcf300243b6.json": "bc9347d412a05068ce0a35bc39ea3ec5368bde8813b188bd811033654ffe07fd",
+      "receipts/80530a6e11d6db93f43dde6efbdc7a2dd4d6c6131d2409329fc751a86d740d8d.json": "fcf17f7b5e9265318b1c35ee4f6affca398007708510d168f58fff7a957a4242",
+      "receipts/b0841460f7372d0a1245adf7ed343c66dd97b666bf6b6d0e1bfbae18e2cae77c.json": "02534c4780c2075c2f5311955c1e291240b32da02386a5c19bccc2a5f1e73151",
+      "receipts/bb401920c69f1ca3fe47a6d02e3eb5887f831318544fcc24ccf759995aaa73a9.json": "1aeef622e14f0f51970c5b9bbbddbf3f7cbbba8fb4124357074222399a7cdc11",
+      "receipts/c52c77a28adf0a72fd3d69bdc4743926136389a27039de0c5e4731da701a7a5e.json": "46d576baab035c6eb3ff28ffa2816acd46ae4d6a4b1896fa63f43716b92a77c7",
+      "receipts/d21003f0b3de6cfc8e030d206ce1f82cab8de4e96a510d2754e5dec45ff2f435.json": "3db5528778e5dfa93c3819c34dec2f0def2cb66fea0273b3c7d75fb3eec602aa",
+      "receipts/d2d97afd23db999e38af23eb0d0c3de74d1c72c304bef8671538317d49103732.json": "0c405ca6be07fbed41053968a5dd42d41d7b581d1df57fa7d8686308721b66bd",
+      "request-ledger.json": "4692a5e088f064071573022823d16c51377593715f619416b995d25701e02693",
+      "requests.json": "38db98d4331ff38c14b51a2a27e94963d40b53d449bdaa74145f7ae29aaf53d8",
+      "source-validation.json": "824ec160e8dae7ac21c49cd22e9dd2cd7143b24fa2504091260978ce196b1704"
+    },
+    "historical_execution_authorized": false,
+    "management_input_gate_passed": false,
+    "management_projection_executed": false,
+    "next_gate": "independently_verify_missing_capture_then_provider_free_management_source_composition",
+    "normalized_compressed_bytes": 353382,
+    "normalized_row_count": 28387,
+    "paper_or_live_orders_authorized": false,
+    "policy_changed": false,
+    "portfolio_financial_metrics_eligible": false,
+    "provenance": {
+      "code_commit_sha": "eead72443160b08291ec5016900e71b0dc64e6ef",
+      "code_tree_sha": "a7ca51751e9a065bea2149e13a8d43f319e2b6cc",
+      "consumption_marker_content_sha256": "3407bf3618eb445895b5c0822556b0f74da20ed3ef0de8f82905788c923b520f",
+      "execution_commit_sha": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+      "execution_content_sha256": "57ba3c88040125e83963f238d32a416fe5eaaf6143fb0ce41009085b9f644354",
+      "source_validation_content_sha256": "5603c5d54a9be3e6896ab6cea6a3ee4cd918d048d93613e41daa5846a16381fe",
+      "workflow_run_attempt": 1,
+      "workflow_run_id": "34142720577"
+    },
+    "provider_attempts": 11,
+    "provider_calls": 0,
+    "provider_purchase_authorized_usd": "0",
+    "receipts": [
+      {
+        "complete": true,
+        "empty_exhausted_segment": false,
+        "file_sha256": "fe856aa4ba2a29e8f85026d462a13e56b50187e6e544277bc298899dcea999db",
+        "logical_sha256": "b6ee5e0f376e1dda1f88ffad1c3f569c530013c3d87337f484273f649ac85e06",
+        "pages": 1,
+        "path": "dates/2025-06-09/TPST-session_1m_raw.jsonl.gz",
+        "record_count": 1,
+        "request_id": "60659cf1e032bbae0d3f03d6c3e1b287f37a543b12faaa15c9ea1ac271a15056",
+        "retained_bytes": 110
+      },
+      {
+        "complete": true,
+        "empty_exhausted_segment": false,
+        "file_sha256": "659c658adc6ea1eacb63a91bc7de31e4ec76ba6b75282aa762ee595e4200857d",
+        "logical_sha256": "e88c3a69ff501418f3a7c69875238928ffa678171595cd9d2a86a502b425f1d8",
+        "pages": 1,
+        "path": "dates/2025-06-09/TPST-sip_trades.jsonl.gz",
+        "record_count": 7,
+        "request_id": "d2d97afd23db999e38af23eb0d0c3de74d1c72c304bef8671538317d49103732",
+        "retained_bytes": 218
+      },
+      {
+        "complete": true,
+        "empty_exhausted_segment": false,
+        "file_sha256": "3450dfb05c0ec0ea422e2d1f3417e78dcb0b224f649d0a70256d3f583c17bfe8",
+        "logical_sha256": "09dce96d2a84c959df79f212080d39e77b581810ca87a2264819805bb1b55bde",
+        "pages": 1,
+        "path": "dates/2025-06-12/XTIA-session_1m_raw.jsonl.gz",
+        "record_count": 12,
+        "request_id": "0173d0d7c0d556b79868fda49648699b5c18772564fa38c4f320e4ca5d5ce6c9",
+        "retained_bytes": 394
+      },
+      {
+        "complete": true,
+        "empty_exhausted_segment": false,
+        "file_sha256": "c1ee13676d80d49351733941cd14ab723989d6c23444860be302c1bc20c88ebe",
+        "logical_sha256": "37ab04b4f8489c2e054975468287f01fe773903f703010b0f72032a27eb8d99c",
+        "pages": 1,
+        "path": "dates/2025-06-12/XTIA-sip_trades.jsonl.gz",
+        "record_count": 7649,
+        "request_id": "7fbfd90300d5e5428ff33b0b27b1f0a09e9bc1292fa4723a0b5a8dcf300243b6",
+        "retained_bytes": 96095
+      },
+      {
+        "complete": true,
+        "empty_exhausted_segment": false,
+        "file_sha256": "a82f69c33d336dae5580ca70056d68791d48d1e4281a964dd086ffd8ee6d661e",
+        "logical_sha256": "f6b554bb35b51aef958b0d6a4fa3b2d0f75c9f303fd8dcf8ea3020e94073e3f2",
+        "pages": 1,
+        "path": "dates/2025-06-13/JVA-session_1m_raw.jsonl.gz",
+        "record_count": 12,
+        "request_id": "bb401920c69f1ca3fe47a6d02e3eb5887f831318544fcc24ccf759995aaa73a9",
+        "retained_bytes": 348
+      },
+      {
+        "complete": true,
+        "empty_exhausted_segment": false,
+        "file_sha256": "0e1ea4f339aee457769e38a8cb80ebf3c3e1f32841ce6fc0790964987b5f022d",
+        "logical_sha256": "48399c23d7d45d64787e4a6133244b5646aa2697f392455210de0e7a5b02013f",
+        "pages": 1,
+        "path": "dates/2025-06-13/JVA-sip_trades.jsonl.gz",
+        "record_count": 225,
+        "request_id": "80530a6e11d6db93f43dde6efbdc7a2dd4d6c6131d2409329fc751a86d740d8d",
+        "retained_bytes": 3326
+      },
+      {
+        "complete": true,
+        "empty_exhausted_segment": false,
+        "file_sha256": "fba3bc8ab03097ad9350edb3e89519d5157eea6e07cc13a7bb68912a53b60665",
+        "logical_sha256": "77c2aed7505a6212e9f96c3022efcade69492334d28daada1b4799adcc2a4922",
+        "pages": 1,
+        "path": "dates/2025-07-02/LIXT-session_1m_raw.jsonl.gz",
+        "record_count": 4,
+        "request_id": "d21003f0b3de6cfc8e030d206ce1f82cab8de4e96a510d2754e5dec45ff2f435",
+        "retained_bytes": 200
+      },
+      {
+        "complete": true,
+        "empty_exhausted_segment": false,
+        "file_sha256": "032b3934d1adf404dd4b6d04cb62beaf14519b9c759a8cde1c5f465aaad7843a",
+        "logical_sha256": "83a25dd934c63beec6bc743b94214e5fc99ba8ed3698124d679b7867d7e58d8d",
+        "pages": 1,
+        "path": "dates/2025-07-02/LIXT-sip_trades.jsonl.gz",
+        "record_count": 7344,
+        "request_id": "0e484530c90bea2e755a9960e453a168f4e1a1dde6d9bc57ecbc75cfcea6bc84",
+        "retained_bytes": 92834
+      },
+      {
+        "complete": true,
+        "empty_exhausted_segment": false,
+        "file_sha256": "5ab9e75ceb20b86452a0c73ad7ecdac38396256462e74e536fc75731851b0c0c",
+        "logical_sha256": "5fca0a7096acf0419aed2023f47d99ed3bb292e9803d77a0c8492e299cfa783f",
+        "pages": 1,
+        "path": "dates/2025-07-07/MBIO-session_1m_raw.jsonl.gz",
+        "record_count": 2,
+        "request_id": "b0841460f7372d0a1245adf7ed343c66dd97b666bf6b6d0e1bfbae18e2cae77c",
+        "retained_bytes": 150
+      },
+      {
+        "complete": true,
+        "empty_exhausted_segment": false,
+        "file_sha256": "b0b6938e0dbf468d8f9deb9b83ed9860e0851d8cef36d2e74bb857cbed87bb9e",
+        "logical_sha256": "145293fd98359d8c714d3b61374d0b94c85bb66cf0f5bf5ddb71650feaded622",
+        "pages": 2,
+        "path": "dates/2025-07-07/MBIO-sip_trades.jsonl.gz",
+        "record_count": 13131,
+        "request_id": "c52c77a28adf0a72fd3d69bdc4743926136389a27039de0c5e4731da701a7a5e",
+        "retained_bytes": 159707
+      }
+    ],
+    "retrospective_inputs_loaded": false,
+    "schema_version": 1,
+    "unavailable_entry_opportunities_preserved": 23,
+    "verification_passed": true,
+    "verified_file_count": 28,
+    "verified_logical_requests": 10
+  },
+  "provider_attempts": 11,
+  "provider_calls": 0,
+  "provider_calls_by_verification": 0,
+  "provider_purchase_authorized_usd": "0",
+  "retained_micro_capture_ledgers_changed": false,
+  "retrospective_inputs_loaded": false,
+  "rows_by_kind": {
+    "session_1m_raw": 31,
+    "sip_trades": 28356
+  },
+  "run_attempt": 1,
+  "run_id": 34142720577,
+  "schema_version": 1,
+  "unavailable_entry_opportunities_preserved": 23,
+  "unavailable_is_inferred_no_trade_outcome": false,
+  "undefined_global_check_passed": true,
+  "verification_passed": true,
+  "verified_at_utc": "2026-09-07T16:25:20.050432+00:00",
+  "verified_capture_file_count": 28,
+  "verified_consumption_file_count": 6,
+  "verified_logical_request_count": 10,
+  "workflow_reruns_performed": 0
+}

@@ -1,6 +1,38 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current preparation: bounded missing management capture
+## Current checkpoint: missing management capture independently verified
+
+The one-shot capture completed all ten frozen management resources on execution
+`eeec1ea234214a9d4a449e774fe3fa29aefea025`, after tested parent
+`eead72443160b08291ec5016900e71b0dc64e6ef` passed all eight hosted workflows.
+Run `34142720577` completed on attempt 1 with every step successful and the
+new consumption tag permanently bound before market-data access.
+
+The capture used 11 HTTP attempts with no retries or blocked attempts. It
+retained 28,356 SIP trades and 31 raw minute bars (353,382 compressed bytes).
+The primary verifier and independent stdlib-only checker agree on all 28,387
+records and ten receipts. All 28 capture files and six consumption files passed
+byte, provenance, source-order, interval, pagination and ledger verification.
+
+Capture artifact `10026551595` has ZIP SHA-256
+`dd6acf2844e69aa975a0274fe7813b3029cf7a6b6ef5d8830c322e17d436d9b6`;
+consumption artifact `10026547607` has ZIP SHA-256
+`ddd88a57ed8ef12c9af3c08d7b03af0e6698dabf7bd3fdc4efc9bcd37b638e9b`.
+The [permanent audit](../../research/data-audits/sealed-historical-management-missing-input-v0.1-independent-verification-34142720577.json)
+contains both verifications, the independent checker and exact hosted evidence.
+
+All 1,693 local tests passed with zero skips, and 79 dedicated hosted tests
+passed normally and optimized. Generic CI passed on code and execution with
+51 optional-SDK skips. Main, all prior consumed references, original captures,
+the account seeds, strategy rules, all 109 opportunities and 23 unavailable
+entry inputs remain unchanged. No projection, account replay or backtest ran.
+
+Next: register and build provider-free composition of the verified reused
+prefixes and newly captured tails. Executable exits, causal next-session
+valuation and historical account replay remain later dependencies. See
+[the capture stage](../research/sealed_historical_management_capture_v01.md).
+
+## Prior preparation: bounded missing management capture
 
 The isolated capture child binds independently verified reuse parent
 `813960e42a96edd40983bc3e414743c0bf67452d`. It implements only the existing ten
