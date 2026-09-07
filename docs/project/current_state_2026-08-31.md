@@ -1,6 +1,37 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: causal runner and exact exit-input plan independently verified
+## Current checkpoint: XAGE source reuse verified and bounded exit quote registered
+
+The isolated `sealed-historical-management-exit-quote-v0.1` child binds the exact
+retained XAGE pair to the frozen runner plan. Both original acquisition ZIPs and
+the full frozen capture chain verified successfully. Independent stdlib checking
+also matched all original ZIP members and all 230,703 XAGE quote records plus
+four status records, preserving native order, original ordinals and exact bytes.
+The original request intervals contain the required common exit interval.
+
+The remaining 80 requests are unchanged: 40 quote/status pairs with at most
+160 metadata and HTTP calls. The child inherits the pinned metadata transport;
+all original entry references, 109 opportunities, 23 unavailable entries, 30 dates,
+12 account paths and 360 session dependencies remain unchanged. Source reuse
+proves integrity and interval containment; each future exit still requires its
+frozen availability and execution checks.
+
+All 1,888 local tests passed with zero skips, and 83 focused tests passed normally
+and optimized. The [registration audit](../../research/data-audits/sealed-historical-management-exit-quote-v0.1-registration-verification.json)
+retains source, implementation, test and independent verification commitments.
+
+The registration is unarmed. Metadata access requires a sole added execution
+record bound to successful first-attempt code CI and dedicated validation, then
+an atomic new consumed tag and durable consumption upload before credential use.
+Existing continued-work authorization covers that metadata-only step, with zero
+provider spend. No new source acquisition or historical replay has run here.
+
+Next: verify hosted code validation and execute the authorized one-shot metadata
+quote, then independently verify the retained quote artifacts. A separately
+registered acquisition child and the unresolved account/runtime integrations
+remain required. See [exit reuse and quote](../research/sealed_historical_management_exit_quote_v01.md).
+
+## Prior checkpoint: causal runner and exact exit-input plan independently verified
 
 Code `cd6e76e42dd91455da7ef4a8bb1aa571767f13e2` passed all eight hosted
 workflows on attempt 1. Dedicated run `34167219406`, job `101880533642`,

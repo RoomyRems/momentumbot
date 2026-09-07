@@ -1,0 +1,186 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "acquisition_gate_passed": false,
+  "all_exit_times_executable_inferred": false,
+  "archives": {
+    "consumption": {
+      "artifact_id": 10004656665,
+      "bytes": 1137522,
+      "file_count": 17,
+      "run_id": 34084113393,
+      "sha256": "105e3b93fb7be691d330e4e35451455352c5e64fc914ede3e7a253d4f769154a"
+    },
+    "result": {
+      "artifact_id": 10004782232,
+      "bytes": 13700990,
+      "file_count": 144,
+      "run_id": 34084113393,
+      "sha256": "1fe68f4e526caa6ce0ee8f8845248e5ef3039f3e3ffbce370020162add3b99d6"
+    }
+  },
+  "artifact_type": "exact_original_XAGE_pair_reuse_verification",
+  "complete_original_pair_bytes_verified": true,
+  "content_sha256": "1ac0688d646242a6dedbfbf4919bf645aa81400aba89bb782a66558929c19273",
+  "contract_id": "sealed-historical-management-exit-quote-v0.1",
+  "exit_input_plan_content_sha256": "e6123425e7363051b542da98efcbc4bcda148823715e2f3230509a7b2ab68115",
+  "frozen_verifier_confirmation": {
+    "acquisition_gate_passed": false,
+    "blocked_attempts": 0,
+    "content_sha256": "bad6f9b3fdc8197b2319fa57c2e6394353953fafab9e2d81fd01fcd6c0825fb0",
+    "file_count": 144,
+    "http_attempts": 195,
+    "inventory_content_sha256": "c92f1063eb260421df41f7797aa0ca95ce5a88528234045c5274e7488b642871",
+    "new_complete_count": 65,
+    "new_schema_row_counts": {
+      "mbp-1": 892085,
+      "status": 116
+    },
+    "new_unavailable_count": 0,
+    "normalized_bytes_including_parent": 262464208,
+    "parent_file_count": 79,
+    "report_content_sha256": "71b4048a0add1916ed78669c99cb7fb1127a5ecc2a6a6176f1976f8fa773f85a",
+    "report_file_sha256": "c30afea5d304701e57debd74348375b40de1d48edea5439e67b5a95bded15cce",
+    "request_evidence_complete": true,
+    "unattempted_count": 0,
+    "verification_passed": true
+  },
+  "historical_execution_authorized": false,
+  "native_record_order_and_original_ordinals_preserved": true,
+  "original_entry_availability_changed": false,
+  "original_group": {
+    "content_sha256": "ffd3c3abe3315741233e11132f00d185c0218d33360c24483e54dfdd305a49d6",
+    "group_id": "2025-07-15-XAGE-common-management-exit",
+    "members": [
+      {
+        "first_possible_exit_decision_ns": 1752580565409819826,
+        "last_covered_exit_decision_ns": 1752581524759819824,
+        "opportunity_id": "opportunity-33f6e9244826e885e6274bfb5fcf716e823cc4d0ec221e5d13f45feefa2d09ff",
+        "original_end_ns": 1752581525309819825,
+        "window_content_sha256": "bb2c01576f35c20865d31cf152d94317e79c5fe507d3512295ace549fd3baaab"
+      }
+    ],
+    "provider_request_authorized": false,
+    "request_content_sha256": [
+      "407885708bd3066a87c67cce7a2a4e69fb80510b403aca3e6268629c14f6b761",
+      "cf5394fa3c2e861d260d67740abd860b8bc686e278c33baf25f56fbd09ed1898"
+    ],
+    "requests": [
+      {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752586973628965063,
+        "request_id": "2025-07-15-XAGE-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1752580565209819825,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "XAGE"
+        ],
+        "trading_date": "2025-07-15"
+      },
+      {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752586973628965063,
+        "request_id": "2025-07-15-XAGE-status",
+        "schema": "status",
+        "start_ns": 1752537600000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "XAGE"
+        ],
+        "trading_date": "2025-07-15"
+      }
+    ],
+    "required_end_ns": 1752581525309819825,
+    "required_quote_start_ns": 1752580565209819825,
+    "source_bytes_verified": false,
+    "source_kind": "existing_entry_pair_reuse_requires_exact_byte_verification",
+    "symbol": "XAGE",
+    "trading_date": "2025-07-15"
+  },
+  "parent_commit_sha": "e360af9289cfbfcd3e94dc7ff78b77828fb7c253",
+  "parent_tree_sha": "f29475ce975895a92fcf3bd4aea0a9ba68371813",
+  "provider_calls": 0,
+  "required_intervals_contained": true,
+  "retrospective_inputs_loaded": false,
+  "runner_freeze_content_sha256": "77452867363127a9234ddbf1b27702d38b15477911454a448b680b6a9d6b1366",
+  "schema_version": 1,
+  "sources": [
+    {
+      "first_record_ts_recv_ns": 1752580565213244634,
+      "last_record_ts_recv_ns": 1752586973616239119,
+      "original_request_ordinal": 78,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752586973628965063,
+        "request_id": "2025-07-15-XAGE-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1752580565209819825,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "XAGE"
+        ],
+        "trading_date": "2025-07-15"
+      },
+      "source_evidence": {
+        "archive_sha256": "1fe68f4e526caa6ce0ee8f8845248e5ef3039f3e3ffbce370020162add3b99d6",
+        "classification": "complete",
+        "content_sha256": "308ca6fabfb86f31eff9ae5b32f8c3245f2d382cdee2dd481052db1bb743bcd7",
+        "receipt_file_sha256": "b1c58b2385894acb6daf86bef9f296f178327a87e966af99da53fc6f8df94781",
+        "receipt_path": "receipts/request-078.json",
+        "records_content_sha256": "9789265f470341d179266fd380ef83739d719c7a97d2ff4fc350d5da0736e66f",
+        "request_content_sha256": "407885708bd3066a87c67cce7a2a4e69fb80510b403aca3e6268629c14f6b761",
+        "request_id": "2025-07-15-XAGE-mbp-1",
+        "tape": {
+          "file_bytes": 3271372,
+          "file_sha256": "1a34d989fa016db497f30ad57153d26409c13bb9a106f0c6b558b2121717f1fe",
+          "normalized_bytes": 62621255,
+          "normalized_sha256": "8fd71193b14f94b3a9cb3ece681eaff686d48b142a7257884aee0734d3830d33",
+          "path": "tapes/request-078.jsonl.gz",
+          "row_count": 230703
+        },
+        "unavailable_code": null
+      }
+    },
+    {
+      "first_record_ts_recv_ns": 1752563106845487585,
+      "last_record_ts_recv_ns": 1752586200000235258,
+      "original_request_ordinal": 79,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752586973628965063,
+        "request_id": "2025-07-15-XAGE-status",
+        "schema": "status",
+        "start_ns": 1752537600000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "XAGE"
+        ],
+        "trading_date": "2025-07-15"
+      },
+      "source_evidence": {
+        "archive_sha256": "1fe68f4e526caa6ce0ee8f8845248e5ef3039f3e3ffbce370020162add3b99d6",
+        "classification": "complete",
+        "content_sha256": "3082902044cd80dcfb190dec6d90f4c57d652fc3d5a8f76f6f42d20d8d5e3b88",
+        "receipt_file_sha256": "fcc7f93de7b25a8eda746fbe9f3d2c679678b44c74ed71da2b55a780bce61ea3",
+        "receipt_path": "receipts/request-079.json",
+        "records_content_sha256": "ec20c737c67ed9b0390b555db32063746a2b24faad51d93f97a4f0799cd3add9",
+        "request_content_sha256": "cf5394fa3c2e861d260d67740abd860b8bc686e278c33baf25f56fbd09ed1898",
+        "request_id": "2025-07-15-XAGE-status",
+        "tape": {
+          "file_bytes": 143,
+          "file_sha256": "e2580ecd475fb60d9309857db51b1b7b2f5b28b55595916d04c4f6b9ac65eef3",
+          "normalized_bytes": 317,
+          "normalized_sha256": "30de2f7f4b4826af0b7aa959fdb28a9eb671f7b4dbad502b2d9578bf1c84a632",
+          "path": "tapes/request-079.jsonl.gz",
+          "row_count": 4
+        },
+        "unavailable_code": null
+      }
+    }
+  ],
+  "status_or_resting_quote_inferred": false
+}
