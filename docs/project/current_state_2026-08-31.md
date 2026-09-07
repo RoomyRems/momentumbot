@@ -130,6 +130,16 @@ validation must not be relaxed and the failed v0.1 remains immutable. The
 completed monitor remains paused. See the permanent failure section in
 `docs/research/sealed_historical_execution_acquisition_v01.md`.
 
+The next diagnostic is now registered under
+`docs/research/sealed_historical_execution_diagnostic_v01.md`. It binds only the
+failed GITS request and permits at most two fresh metadata calls plus one
+download, within that request's original byte/cost ceilings. It retains fixed
+validation codes, exact metadata observations and a bounded typed projection
+in original order while invoking the byte-pinned original validator. Diagnostic
+evidence is explicitly ineligible for runtime input. Exact-parent code checks
+and a separate durable consumption are required before execution. The original
+90-request acquisition and its failure remain immutable.
+
 ## Current state
 
 The prospective August 24–September 4 panel is terminally closed. Its five
