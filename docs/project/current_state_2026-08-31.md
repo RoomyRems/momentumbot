@@ -1,6 +1,16 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: entry binding and executable fill feedback
+## Current checkpoint: entry binding and fill feedback independently verified
+
+Code `a8947e5fdade9e80ddfba078e85f7318c112c4cb` passed all eight hosted
+workflows on attempt 1. Dedicated run `34165211737`, job `101874793249`,
+reconstructed all four registration metadata files and passed 131 focused tests
+normally and optimized. Generic CI passed all 1,820 tests with its 51
+optional-SDK skips; local full-suite verification had zero skips. The
+[permanent audit](../../research/data-audits/sealed-historical-management-fill-feedback-v0.1-independent-verification.json)
+retains local and hosted evidence, both independent verifications, ten
+reproducible synthetic vectors and the checker/generator sources. Main and all
+nine previously audited consumed references remain unchanged.
 
 An isolated child of `75cacb70c9fc6fcc1465b5a3f65d991bad0b45bb` registers
 `sealed-historical-management-fill-feedback-v0.1`. It recomputes entry sizing
@@ -20,7 +30,6 @@ quote rows or change the common source tape between attempts.
 
 All 1,820 local tests passed with zero skips. The 131-test focused group passed
 normally and optimized, including 53 new tests and 70 seeded synthetic paths.
-Hosted validation and its permanent audit are the remaining publication checks.
 
 The independent stdlib checker matches all four metadata files, original
 opportunity bounds, dates and account references, plus ten synthetic share
