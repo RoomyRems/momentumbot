@@ -2,6 +2,18 @@
 
 ## Latest development — 2026-09-07
 
+Historical execution/status acquisition v0.2 is now prepared against verified
+record-order adapter commit `45f24e880ef6cc1f3eadd490ca5aa59e5ee94c71`, tree
+`8f0727234c6d9634b6a789da04a4b19445ae7f41`. It retains the exact 90 requests,
+109 decisions and original quote ceilings. The frozen adapter preserves native
+fields and original record position. A successful capture must also reproduce
+the first GITS request's independently verified native content commitment.
+Its separate execution record and consumption ref require exact-parent CI and
+dedicated normal/optimized validation. All retained tapes, receipts and ledgers
+must pass complete verification; failed tape/receipt prefixes remain hashed,
+ineligible evidence. See `docs/research/sealed_historical_execution_acquisition_v02.md`.
+The code preparation itself performs no acquisition or account/fill simulation.
+
 The provider-free historical record-order adapter follows verified diagnostic
 checkpoint `726f00344ba061a1c6e71be64db7cd3b239eead0`. It preserves all 1,136
 GITS diagnostic records, including 175 distinct Trade/Cancel native-key ties,
