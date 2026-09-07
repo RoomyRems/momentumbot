@@ -1,0 +1,147 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "acquisition_executed": false,
+  "acquisition_gate_passed": false,
+  "artifact_type": "historical_remaining_input_acquisition_registration_audit",
+  "backtesting_executed": false,
+  "code_and_registration_file_sha256": {
+    ".github/workflows/sealed-historical-execution-input-acquisition-v03.yml": "8ce7bebd7a4a745ad72bf3913f1fed2f626a8608406f5b89f1b1b2e931f20b87",
+    "research/strategy/sealed-historical-execution-input-acquisition-v0.3.json": "1835692c703420dabb9d298ca38592b4e1ff15a133078eacaf28076bceb7b1bc",
+    "scripts/acquire_sealed_historical_execution_inputs_v03.py": "fd78031524d5a8f8a533b328d6ac876c2398a833525f7173ecf9ce1257cbc5eb",
+    "src/momentumbot/research/sealed_historical_execution_acquisition_v03.py": "cb75e8648fbd333aa578c4045c778377a9eddfba4cf4b2de9ed1cdd5367fa8a8",
+    "src/momentumbot/research/sealed_historical_execution_transport_v03.py": "75ea3711c628b4be7b1aa41ed72c207faea6519186967d9c8786fadfb6b3e226",
+    "tests/test_sealed_historical_execution_acquisition_v03.py": "96c3935ffb09262a2bab701125821ec734a98a8de1f429f6f305465a91b76176"
+  },
+  "content_sha256": "accb4087b78906ce32a17a4f7621f6aaace0f547ee8ad1bc5f7f34cbbaf65189",
+  "contract_content_sha256": "6440f6c8e262d59bb3b8b74f2409d85ea98323cbe7add54585833232e99c4777",
+  "contract_id": "sealed-historical-execution-input-acquisition-v0.3",
+  "focused_test_count": 142,
+  "full_test_count": 1587,
+  "hosted_execution_environment_required": "CPython 3.12.14 plus exact 29 hash-locked pins",
+  "immutable_refs_verified": {
+    "heads/main": "de24eb17316191da69d92e61f6843af25e9c22d0",
+    "tags/sealed-historical-execution-input-acquisition-v0.1-consumed": "5a375f86e951b1e9eeb6c010995c9b57025913b7",
+    "tags/sealed-historical-execution-input-acquisition-v0.2-consumed": "e2c250367895d209ec4706288a22655636298685",
+    "tags/sealed-historical-execution-input-diagnostic-v0.1-consumed": "e1aece08a44ccf9add0157a1657d08a809687e85",
+    "tags/sealed-historical-execution-input-empty-diagnostic-v0.1-consumed": "8854bb2e63dc3961d98c5d8827f857ef85ccb341",
+    "tags/sealed-historical-execution-input-quote-v0.1-consumed": "dd295304dcc5e7cc0ebd300d094ab20636a72b92",
+    "tags/sealed-historical-micro-input-acquisition-v0.1-consumed": "5cab2eb3aa2b73a2cbf1d57575519a7b99961e24",
+    "tags/sealed-historical-micro-session-input-acquisition-v0.2-consumed": "bf5863a7115abef9e22c4f527448cd9c20084f47"
+  },
+  "initial_full_suite_setup": "sparse_checkout_lacked_committed_regression_fixtures_restored_exact_parent_fixtures_then_full_suite_passed",
+  "local_environment": {
+    "package_versions": {
+      "PyYAML": "6.0.3",
+      "aiohappyeyeballs": "2.7.1",
+      "aiohttp": "3.14.3",
+      "aiosignal": "1.4.0",
+      "attrs": "26.1.0",
+      "certifi": "2026.7.22",
+      "charset_normalizer": "3.5.1",
+      "databento": "0.83.0",
+      "databento_dbn": "0.65.0",
+      "frozenlist": "1.8.0",
+      "idna": "3.19",
+      "multidict": "6.7.1",
+      "numpy": "2.3.5",
+      "packaging": "26.3",
+      "pandas": "2.2.3",
+      "pip": "26.2.1",
+      "propcache": "0.5.2",
+      "pyarrow": "25.0.1",
+      "python-dateutil": "2.9.0.post0",
+      "pytz": "2026.3.post1",
+      "requests": "2.34.2",
+      "setuptools": "84.0.0",
+      "six": "1.17.0",
+      "typing_extensions": "4.16.0",
+      "tzdata": "2026.3",
+      "urllib3": "2.7.0",
+      "wheel": "0.48.0",
+      "yarl": "1.24.5",
+      "zstandard": "0.25.0"
+    },
+    "python_version": "3.12.13"
+  },
+  "new_provider_calls": 0,
+  "new_test_count": 26,
+  "next_gate": "successful_exact_code_CI_and_dedicated_validation_then_sole_execution_child",
+  "parent_artifact_verification": {
+    "content_sha256": "b4634b97b356cd8376fec8f340906a2c97571b03634ad9c40ab87ea2e6769338",
+    "jva_diagnostic": {
+      "acquisition_gate_passed": false,
+      "blocked_attempts": 0,
+      "content_sha256": "8ceddd74026159afad7c7cbac68318e7fce938dbc81c5eb12babc4556db89a42",
+      "file_count": 17,
+      "http_attempts": 3,
+      "inventory_content_sha256": "a12933959d973c0bbe73b65e20c344422cb54bee357e26736adcd60202fff5c5",
+      "mapped_row_count": 0,
+      "native_record_count": 0,
+      "outcome": "metadata_only_exact_dbn_empty_before_mapping",
+      "report_content_sha256": "b7324d1e6f123a2adca163f8d8e609db6a173f200c36a180396b8dad734c7da7",
+      "report_file_sha256": "e106fdd8a2293294636d73eed94774ea37178ce259141ae0fe6983df1f593bf9",
+      "verification_passed": true
+    },
+    "new_provider_calls": 0,
+    "original_source_provider_requests": 30522,
+    "parent_v02": {
+      "account_or_fill_simulation_executed": false,
+      "acquisition_gate_passed": false,
+      "blocked_attempts": 0,
+      "capture_report_content_sha256": "62e20bfc72efe69c56811b49d320195da1e562f7195d2b04119e47c9284e9d6b",
+      "capture_report_file_sha256": "ddd6160e67f09420ff914c5db50b418fd60ec0fae615dfc32168eed87a69dd57",
+      "completed_request_count": 24,
+      "content_sha256": "e61cec581c8a91d62d48ddcb35cd1ea7ccf218bba4cb860090075bf4fcf7bfaa",
+      "contract_id": "sealed-historical-execution-input-acquisition-v0.2",
+      "date_count": 30,
+      "file_count": 62,
+      "http_attempts": 205,
+      "inventory_content_sha256": "ea257c7d8be77814da0ff8155849f34e3045c6742dabbc09a75b6e23383f4703",
+      "metadata_http_attempts": 180,
+      "native_key_adjacent_ties": 8239,
+      "next_gate": "independent_normalized_input_verification_then_provider_free_historical_capture_composition",
+      "normalized_bytes": 19983803,
+      "normalized_row_count": 73614,
+      "opportunity_count": 109,
+      "retained_tape_bytes": 1012291,
+      "schema_row_counts": {
+        "mbp-1": 73573,
+        "status": 41
+      },
+      "symbol_date_count": 45,
+      "timeseries_http_attempts": 25,
+      "verification_passed": true
+    }
+  },
+  "parent_commit_sha": "b0bd86a49cd04225ee88740f9cc10ece83e33ec7",
+  "parent_tree_sha": "d3efc3ef0719a3957759d1e3b13cb4ac8d97692e",
+  "request_evidence_complete": false,
+  "runtime_replay_executed": false,
+  "tests": [
+    {
+      "exit_code": 0,
+      "name": "focused",
+      "summary": [
+        "Ran 142 tests in 26.322s",
+        "OK"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "optimized",
+      "summary": [
+        "Ran 142 tests in 27.724s",
+        "OK"
+      ]
+    },
+    {
+      "exit_code": 0,
+      "name": "full",
+      "summary": [
+        "Ran 1587 tests in 48.834s",
+        "OK"
+      ]
+    }
+  ],
+  "undefined_name_validation_passed": true
+}

@@ -1,6 +1,14 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: JVA empty input independently diagnosed
+## Current preparation: remaining exact execution inputs v0.3
+
+The verified JVA checkpoint is the frozen parent of a separate 65-request
+acquisition. It preserves the 24 completed tapes, retains JVA as unavailable,
+and binds the original suffix without changing windows, dates or policies.
+Complete evidence classification never opens the acquisition/runtime gate.
+See [the v0.3 registration](../research/sealed_historical_execution_acquisition_v03.md).
+
+## Prior checkpoint: JVA empty input independently diagnosed
 
 [Diagnostic run 34079022132](https://github.com/RoomyRems/momentumbot/actions/runs/34079022132)
 completed once at `8854bb2e63dc3961d98c5d8827f857ef85ccb341` (push, attempt 1).
