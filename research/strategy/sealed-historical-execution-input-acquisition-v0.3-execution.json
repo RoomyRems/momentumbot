@@ -1,0 +1,45 @@
+{
+  "account_or_order_authority": false,
+  "authority": "user_authorized_continued_development_and_operational_steps_2026-09-06",
+  "branch": "phase-3-historical-snapshot",
+  "code_ci_run_id": "34083807483",
+  "code_commit_sha": "43318c208e4bf4ca287558192741ba767dd79072",
+  "code_tree_sha": "47a0fbfaddf505c589e7292df7b534ce23872325",
+  "code_validation_run_id": "34083807623",
+  "consumption_ref": "refs/tags/sealed-historical-execution-input-acquisition-v0.3-consumed",
+  "content_sha256": "267d83f4605a146609ab70f98d50399d1db041a042019da30148c7fdc8e548b9",
+  "contract_content_sha256": "6440f6c8e262d59bb3b8b74f2409d85ea98323cbe7add54585833232e99c4777",
+  "event": "push",
+  "execution_id": "sealed-historical-execution-input-acquisition-v0.3-execution",
+  "maximum_billable_bytes": 131758640,
+  "maximum_http_attempts": 195,
+  "maximum_quoted_cost_usd": "0.147390693429",
+  "parent_artifacts": {
+    "jva-empty-diagnostic.zip": {
+      "bytes": 45440,
+      "conclusion": "success",
+      "execution_commit_sha": "8854bb2e63dc3961d98c5d8827f857ef85ccb341",
+      "id": 10003079091,
+      "name": "sealed-historical-execution-empty-diagnostic-v01-result-34079022132-1",
+      "run_id": 34079022132,
+      "sha256": "246ab302c949f22af2907fecba9e024b0c30b6901c91446f4401fab5627e91ea",
+      "workflow_path": ".github/workflows/sealed-historical-execution-input-empty-diagnostic-v01.yml"
+    },
+    "parent-v02-result.zip": {
+      "bytes": 1082253,
+      "conclusion": "failure",
+      "execution_commit_sha": "e2c250367895d209ec4706288a22655636298685",
+      "id": 10002303908,
+      "name": "sealed-historical-execution-input-v02-result-34076412463-1",
+      "run_id": 34076412463,
+      "sha256": "2065c140c2c14bc7da14a22483934eb1631169a36a599e522e0b59c27d7ff6e9",
+      "workflow_path": ".github/workflows/sealed-historical-execution-input-acquisition-v02.yml"
+    }
+  },
+  "remaining_exact_acquisition_authorized": true,
+  "repository": "RoomyRems/momentumbot",
+  "request_list_sha256": "9f96fe77746cd08fbbb6174bb2bea8baa3529a0cf3d71ab036abbf01aa75acae",
+  "run_attempt": 1,
+  "workflow_file_sha256": "8ce7bebd7a4a745ad72bf3913f1fed2f626a8608406f5b89f1b1b2e931f20b87",
+  "workflow_path": ".github/workflows/sealed-historical-execution-input-acquisition-v03.yml"
+}
