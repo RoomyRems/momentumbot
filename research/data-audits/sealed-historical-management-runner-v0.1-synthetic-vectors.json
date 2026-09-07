@@ -1,0 +1,1106 @@
+{
+  "artifact_type": "synthetic_causal_orchestration_vectors",
+  "cases": [
+    {
+      "account_close_produced": false,
+      "case_type": "standard",
+      "complete_streams_verified": true,
+      "delayed_quote_ns": null,
+      "historical_runtime_authorized": false,
+      "management_streams": {
+        "raw_sip_1m_bars": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "sip_transactions": {
+          "rows": 2,
+          "sha256": "3c529291462123112a904c3eee1009e2abeb6a95d011173f5a569f7e4c27e53f"
+        }
+      },
+      "orders": [
+        {
+          "arrival_ts_ns": 1748610002100000000,
+          "cancel_ack_ts_ns": 1748610002450000000,
+          "cancel_requested_ts_ns": 1748610002350000000,
+          "capture_content_sha256": "f8ffb0603f5c79581ea597c281bb4080c085fdeadfa87486aed13b7d6f18173d",
+          "decision_ts_ns": 1748610002000000000,
+          "limit_price": "8.95",
+          "order_id": "exit-b5d763f6fa62dd0f8391fb9365d55747947dafc35eed3e1730c647fd34595dff",
+          "quantity": 1
+        }
+      ],
+      "quantity": 1,
+      "scenario_id": "l1-conservative-v0.1",
+      "state": {
+        "active_stop_price": 9.0,
+        "breakeven_active": false,
+        "clock_ns": 1748610959999999999,
+        "fills": [
+          {
+            "account_close_evidence": false,
+            "content_sha256": "1ad9a04f7b11e2755620d8cfa39350093f498f88bc9f71a2f8fb2963ab86a56c",
+            "entry_fill_id": "fill-a3978d8d62413ee3aaa85aaa9859d6b6bada6e10891305a37f150397bd38d156",
+            "executable_research_fill": true,
+            "fill_price": "9",
+            "fill_time_ns": 1748610002100000000,
+            "historical_producer_authenticated": false,
+            "order_id": "exit-b5d763f6fa62dd0f8391fb9365d55747947dafc35eed3e1730c647fd34595dff",
+            "quantity": 1,
+            "reason": "initial_stop",
+            "remaining_quantity": 0,
+            "source_record_index": 5,
+            "source_request_sha256": "4e8576a60723acfe38da9c063ba3d101041d5169fe12de494c64a35c0c589bcc"
+          }
+        ],
+        "latched_full_exit": "initial_stop",
+        "pending_order": false,
+        "remaining_quantity": 0,
+        "reserved_sell_quantity": 0,
+        "sold_quantity": 1,
+        "status": "closed_confirmed_shares",
+        "target_filled_quantity": 0,
+        "target_quantity": 0
+      },
+      "target_capacity": 0,
+      "terminal_capacity": 1
+    },
+    {
+      "account_close_produced": false,
+      "case_type": "standard",
+      "complete_streams_verified": true,
+      "delayed_quote_ns": null,
+      "historical_runtime_authorized": false,
+      "management_streams": {
+        "raw_sip_1m_bars": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "sip_transactions": {
+          "rows": 2,
+          "sha256": "3c529291462123112a904c3eee1009e2abeb6a95d011173f5a569f7e4c27e53f"
+        }
+      },
+      "orders": [
+        {
+          "arrival_ts_ns": 1748610001100000000,
+          "cancel_ack_ts_ns": 1748610001450000000,
+          "cancel_requested_ts_ns": 1748610001350000000,
+          "capture_content_sha256": "b8ca6d6d27119592b3216f75e4c3d34ce79395764537045a0ba0a4f5232ac8c3",
+          "decision_ts_ns": 1748610001000000000,
+          "limit_price": "11.95",
+          "order_id": "exit-9fe71d6b6cfcc97e52e71c7fa1be0ef33455583cf9e0dd54618e2e73b10ce586",
+          "quantity": 1
+        },
+        {
+          "arrival_ts_ns": 1748610002100000000,
+          "cancel_ack_ts_ns": 1748610002450000000,
+          "cancel_requested_ts_ns": 1748610002350000000,
+          "capture_content_sha256": "e20e6f3073af421324538c172a1227ce8887b57160660cc608de5956607552c9",
+          "decision_ts_ns": 1748610002000000000,
+          "limit_price": "8.95",
+          "order_id": "exit-4b61fe42a0a53bd37b6d57fb1aba1e863b36fb5316517769bfb5bef7fee80830",
+          "quantity": 2
+        }
+      ],
+      "quantity": 3,
+      "scenario_id": "l1-conservative-v0.1",
+      "state": {
+        "active_stop_price": 10.0,
+        "breakeven_active": true,
+        "clock_ns": 1748610959999999999,
+        "fills": [
+          {
+            "account_close_evidence": false,
+            "content_sha256": "e3669fbef2676c4630d70a7cd9f3890f0e8a76609a1debfb91cacf4bd3628a80",
+            "entry_fill_id": "fill-228472fd991cf508b77c4c446f82416bb40857279b12730559143025387c51a4",
+            "executable_research_fill": true,
+            "fill_price": "12",
+            "fill_time_ns": 1748610001100000000,
+            "historical_producer_authenticated": false,
+            "order_id": "exit-9fe71d6b6cfcc97e52e71c7fa1be0ef33455583cf9e0dd54618e2e73b10ce586",
+            "quantity": 1,
+            "reason": "first_target",
+            "remaining_quantity": 2,
+            "source_record_index": 3,
+            "source_request_sha256": "4e8576a60723acfe38da9c063ba3d101041d5169fe12de494c64a35c0c589bcc"
+          },
+          {
+            "account_close_evidence": false,
+            "content_sha256": "16c003b086eb2431063b0f95102ee7afd9bdbc499a2558f917358a2dd0d46897",
+            "entry_fill_id": "fill-228472fd991cf508b77c4c446f82416bb40857279b12730559143025387c51a4",
+            "executable_research_fill": true,
+            "fill_price": "9",
+            "fill_time_ns": 1748610002100000000,
+            "historical_producer_authenticated": false,
+            "order_id": "exit-4b61fe42a0a53bd37b6d57fb1aba1e863b36fb5316517769bfb5bef7fee80830",
+            "quantity": 2,
+            "reason": "breakeven_stop",
+            "remaining_quantity": 0,
+            "source_record_index": 5,
+            "source_request_sha256": "4e8576a60723acfe38da9c063ba3d101041d5169fe12de494c64a35c0c589bcc"
+          }
+        ],
+        "latched_full_exit": "breakeven_stop",
+        "pending_order": false,
+        "remaining_quantity": 0,
+        "reserved_sell_quantity": 0,
+        "sold_quantity": 3,
+        "status": "closed_confirmed_shares",
+        "target_filled_quantity": 1,
+        "target_quantity": 1
+      },
+      "target_capacity": 1,
+      "terminal_capacity": 2
+    },
+    {
+      "account_close_produced": false,
+      "case_type": "standard",
+      "complete_streams_verified": true,
+      "delayed_quote_ns": null,
+      "historical_runtime_authorized": false,
+      "management_streams": {
+        "raw_sip_1m_bars": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "sip_transactions": {
+          "rows": 2,
+          "sha256": "3c529291462123112a904c3eee1009e2abeb6a95d011173f5a569f7e4c27e53f"
+        }
+      },
+      "orders": [
+        {
+          "arrival_ts_ns": 1748610001100000000,
+          "cancel_ack_ts_ns": 1748610001450000000,
+          "cancel_requested_ts_ns": 1748610001350000000,
+          "capture_content_sha256": "649b8c4ad984c6c54c6537a4c01001a5651f57d325e56a2e22a828bda5f713b1",
+          "decision_ts_ns": 1748610001000000000,
+          "limit_price": "11.95",
+          "order_id": "exit-ba6cf021dd64f2320f0fcad1883f97430f5b0dd308fcddeebf90a8e2c4b7fb8e",
+          "quantity": 5
+        },
+        {
+          "arrival_ts_ns": 1748610002100000000,
+          "cancel_ack_ts_ns": 1748610002450000000,
+          "cancel_requested_ts_ns": 1748610002350000000,
+          "capture_content_sha256": "37016bc59acce01b30323bef48a268960ae92b2a33b7594536ac68b8ce963ff3",
+          "decision_ts_ns": 1748610002000000000,
+          "limit_price": "8.95",
+          "order_id": "exit-9218947b25cd5065e8bcfd953b7dc92024daffdbd0679150b73080808324f192",
+          "quantity": 8
+        }
+      ],
+      "quantity": 10,
+      "scenario_id": "l1-conservative-v0.1",
+      "state": {
+        "active_stop_price": 9.0,
+        "breakeven_active": false,
+        "clock_ns": 1748610959999999999,
+        "fills": [
+          {
+            "account_close_evidence": false,
+            "content_sha256": "35e043de2d57e59ced35cdfc9d5f47eff430ee25e502304faef96957865dd05f",
+            "entry_fill_id": "fill-670e80f15067423d26bc70a8f4a05fdef808f3b92786525d34262fdf7a3eb6fc",
+            "executable_research_fill": true,
+            "fill_price": "12",
+            "fill_time_ns": 1748610001100000000,
+            "historical_producer_authenticated": false,
+            "order_id": "exit-ba6cf021dd64f2320f0fcad1883f97430f5b0dd308fcddeebf90a8e2c4b7fb8e",
+            "quantity": 2,
+            "reason": "first_target",
+            "remaining_quantity": 8,
+            "source_record_index": 3,
+            "source_request_sha256": "4e8576a60723acfe38da9c063ba3d101041d5169fe12de494c64a35c0c589bcc"
+          },
+          {
+            "account_close_evidence": false,
+            "content_sha256": "663803fd46566faf2f7493d3c398349e45e7b0860f2ff23e44c6d1730aae1e18",
+            "entry_fill_id": "fill-670e80f15067423d26bc70a8f4a05fdef808f3b92786525d34262fdf7a3eb6fc",
+            "executable_research_fill": true,
+            "fill_price": "9",
+            "fill_time_ns": 1748610002100000000,
+            "historical_producer_authenticated": false,
+            "order_id": "exit-9218947b25cd5065e8bcfd953b7dc92024daffdbd0679150b73080808324f192",
+            "quantity": 3,
+            "reason": "initial_stop",
+            "remaining_quantity": 5,
+            "source_record_index": 5,
+            "source_request_sha256": "4e8576a60723acfe38da9c063ba3d101041d5169fe12de494c64a35c0c589bcc"
+          }
+        ],
+        "latched_full_exit": "initial_stop",
+        "pending_order": false,
+        "remaining_quantity": 5,
+        "reserved_sell_quantity": 0,
+        "sold_quantity": 5,
+        "status": "open_unresolved_exit_remainder",
+        "target_filled_quantity": 2,
+        "target_quantity": 5
+      },
+      "target_capacity": 2,
+      "terminal_capacity": 3
+    },
+    {
+      "account_close_produced": false,
+      "case_type": "standard",
+      "complete_streams_verified": true,
+      "delayed_quote_ns": null,
+      "historical_runtime_authorized": false,
+      "management_streams": {
+        "raw_sip_1m_bars": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "sip_transactions": {
+          "rows": 2,
+          "sha256": "3c529291462123112a904c3eee1009e2abeb6a95d011173f5a569f7e4c27e53f"
+        }
+      },
+      "orders": [
+        {
+          "arrival_ts_ns": 1748610001100000000,
+          "cancel_ack_ts_ns": 1748610001450000000,
+          "cancel_requested_ts_ns": 1748610001350000000,
+          "capture_content_sha256": "c59db371f6235d36309394ee520c90968198a009dcf315099d320d961e6c5ae9",
+          "decision_ts_ns": 1748610001000000000,
+          "limit_price": "11.95",
+          "order_id": "exit-4c2064e00ebbd8aae858911db3b6e5bb73606f3a22bcdb5f8c54c03a882773d8",
+          "quantity": 5
+        },
+        {
+          "arrival_ts_ns": 1748610002100000000,
+          "cancel_ack_ts_ns": 1748610002450000000,
+          "cancel_requested_ts_ns": 1748610002350000000,
+          "capture_content_sha256": "0579e2217f313a4b91305ae7eed9ce82523c1d79b22704b900532d34b9a93fb5",
+          "decision_ts_ns": 1748610002000000000,
+          "limit_price": "8.95",
+          "order_id": "exit-380530b9b5b264f63a6584a78871e3e3aa629046e6d2eeb51b47277db6091522",
+          "quantity": 10
+        }
+      ],
+      "quantity": 10,
+      "scenario_id": "l1-conservative-v0.1",
+      "state": {
+        "active_stop_price": 9.0,
+        "breakeven_active": false,
+        "clock_ns": 1748610959999999999,
+        "fills": [],
+        "latched_full_exit": "initial_stop",
+        "pending_order": false,
+        "remaining_quantity": 10,
+        "reserved_sell_quantity": 0,
+        "sold_quantity": 0,
+        "status": "open_unresolved_exit_remainder",
+        "target_filled_quantity": 0,
+        "target_quantity": 5
+      },
+      "target_capacity": 0,
+      "terminal_capacity": 0
+    },
+    {
+      "account_close_produced": false,
+      "case_type": "standard",
+      "complete_streams_verified": true,
+      "delayed_quote_ns": null,
+      "historical_runtime_authorized": false,
+      "management_streams": {
+        "raw_sip_1m_bars": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "sip_transactions": {
+          "rows": 2,
+          "sha256": "3c529291462123112a904c3eee1009e2abeb6a95d011173f5a569f7e4c27e53f"
+        }
+      },
+      "orders": [
+        {
+          "arrival_ts_ns": 1748610001100000000,
+          "cancel_ack_ts_ns": 1748610001450000000,
+          "cancel_requested_ts_ns": 1748610001350000000,
+          "capture_content_sha256": "b6449369f1a6d2263d56fdb8747876641e52212f34d66ea30231d2910fd6683a",
+          "decision_ts_ns": 1748610001000000000,
+          "limit_price": "11.95",
+          "order_id": "exit-be62533367856ce927047f589b8795ea99b5b191ba774bd365e4cf6b90e27010",
+          "quantity": 5
+        },
+        {
+          "arrival_ts_ns": 1748610002100000000,
+          "cancel_ack_ts_ns": 1748610002450000000,
+          "cancel_requested_ts_ns": 1748610002350000000,
+          "capture_content_sha256": "be27e50bc7325396382a96c4f9ec3a752b8fee6f47dcfcf04643e3b8bbdb3415",
+          "decision_ts_ns": 1748610002000000000,
+          "limit_price": "8.95",
+          "order_id": "exit-c4fd762c9793f7fae4c318cc7a3be592bcdd610e907e70adfe00e198aec69b64",
+          "quantity": 5
+        }
+      ],
+      "quantity": 10,
+      "scenario_id": "l1-conservative-v0.1",
+      "state": {
+        "active_stop_price": 10.0,
+        "breakeven_active": true,
+        "clock_ns": 1748610959999999999,
+        "fills": [
+          {
+            "account_close_evidence": false,
+            "content_sha256": "6fb91523b138bf133234c617cae7cfda0b8d19315d7795a3185b5599eaa698ca",
+            "entry_fill_id": "fill-670e80f15067423d26bc70a8f4a05fdef808f3b92786525d34262fdf7a3eb6fc",
+            "executable_research_fill": true,
+            "fill_price": "12",
+            "fill_time_ns": 1748610001100000000,
+            "historical_producer_authenticated": false,
+            "order_id": "exit-be62533367856ce927047f589b8795ea99b5b191ba774bd365e4cf6b90e27010",
+            "quantity": 5,
+            "reason": "first_target",
+            "remaining_quantity": 5,
+            "source_record_index": 3,
+            "source_request_sha256": "4e8576a60723acfe38da9c063ba3d101041d5169fe12de494c64a35c0c589bcc"
+          },
+          {
+            "account_close_evidence": false,
+            "content_sha256": "6c03b9205cf50663290e98a2966d1739f14c90a39ecfc0021346c0b0f7cad9b5",
+            "entry_fill_id": "fill-670e80f15067423d26bc70a8f4a05fdef808f3b92786525d34262fdf7a3eb6fc",
+            "executable_research_fill": true,
+            "fill_price": "9",
+            "fill_time_ns": 1748610002100000000,
+            "historical_producer_authenticated": false,
+            "order_id": "exit-c4fd762c9793f7fae4c318cc7a3be592bcdd610e907e70adfe00e198aec69b64",
+            "quantity": 5,
+            "reason": "breakeven_stop",
+            "remaining_quantity": 0,
+            "source_record_index": 5,
+            "source_request_sha256": "4e8576a60723acfe38da9c063ba3d101041d5169fe12de494c64a35c0c589bcc"
+          }
+        ],
+        "latched_full_exit": "breakeven_stop",
+        "pending_order": false,
+        "remaining_quantity": 0,
+        "reserved_sell_quantity": 0,
+        "sold_quantity": 10,
+        "status": "closed_confirmed_shares",
+        "target_filled_quantity": 5,
+        "target_quantity": 5
+      },
+      "target_capacity": 5,
+      "terminal_capacity": 5
+    },
+    {
+      "account_close_produced": false,
+      "case_type": "delayed_equal_time",
+      "complete_streams_verified": true,
+      "delayed_quote_ns": 200000000,
+      "historical_runtime_authorized": false,
+      "management_streams": {
+        "raw_sip_1m_bars": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "sip_transactions": {
+          "rows": 3,
+          "sha256": "c1fcf6e88e9971d71133a87e644573cf51e551415beee0d373e0dba68c6b77e6"
+        }
+      },
+      "orders": [
+        {
+          "arrival_ts_ns": 1748610001100000000,
+          "cancel_ack_ts_ns": 1748610001450000000,
+          "cancel_requested_ts_ns": 1748610001350000000,
+          "capture_content_sha256": "d70c0d4fcf42b2f8def61b217d69e496023f971e672fd6980becdf6e4c451626",
+          "decision_ts_ns": 1748610001000000000,
+          "limit_price": "11.95",
+          "order_id": "exit-be62533367856ce927047f589b8795ea99b5b191ba774bd365e4cf6b90e27010",
+          "quantity": 5
+        }
+      ],
+      "quantity": 10,
+      "scenario_id": "l1-conservative-v0.1",
+      "state": {
+        "active_stop_price": 10.0,
+        "breakeven_active": true,
+        "clock_ns": 1748610959999999999,
+        "fills": [
+          {
+            "account_close_evidence": false,
+            "content_sha256": "9025195fe578f9efc5cf492630ec7efc48223ca2ac578172c661bb74d77290e4",
+            "entry_fill_id": "fill-670e80f15067423d26bc70a8f4a05fdef808f3b92786525d34262fdf7a3eb6fc",
+            "executable_research_fill": true,
+            "fill_price": "12",
+            "fill_time_ns": 1748610001200000000,
+            "historical_producer_authenticated": false,
+            "order_id": "exit-be62533367856ce927047f589b8795ea99b5b191ba774bd365e4cf6b90e27010",
+            "quantity": 5,
+            "reason": "first_target",
+            "remaining_quantity": 5,
+            "source_record_index": 3,
+            "source_request_sha256": "4e8576a60723acfe38da9c063ba3d101041d5169fe12de494c64a35c0c589bcc"
+          }
+        ],
+        "latched_full_exit": null,
+        "pending_order": false,
+        "remaining_quantity": 5,
+        "reserved_sell_quantity": 0,
+        "sold_quantity": 5,
+        "status": "open",
+        "target_filled_quantity": 5,
+        "target_quantity": 5
+      },
+      "target_capacity": 5,
+      "terminal_capacity": 0
+    },
+    {
+      "account_close_produced": false,
+      "case_type": "completed_bar",
+      "complete_streams_verified": true,
+      "delayed_quote_ns": null,
+      "historical_runtime_authorized": false,
+      "management_streams": {
+        "raw_sip_1m_bars": {
+          "rows": 1,
+          "sha256": "bd8dfbb75601ce513d68d22ea6707fec6d0d159a3c117cec8d31d4f53eea593a"
+        },
+        "sip_transactions": {
+          "rows": 1,
+          "sha256": "936ace796663cb86857c1f0165cabd01331827f9ba2d049bfa3799a0071d4968"
+        }
+      },
+      "orders": [
+        {
+          "arrival_ts_ns": 1748610060100000000,
+          "cancel_ack_ts_ns": 1748610060450000000,
+          "cancel_requested_ts_ns": 1748610060350000000,
+          "capture_content_sha256": "6b5210c14373748d9cba80d70dd297c8a209caceb966467fde4d0e2842f38639",
+          "decision_ts_ns": 1748610060000000000,
+          "limit_price": "8.95",
+          "order_id": "exit-d6ac6ad6e2e16a2e32c4c9ed0512af2c7aa14a2459d1f849de5b44b1460bdcc0",
+          "quantity": 10
+        }
+      ],
+      "quantity": 10,
+      "scenario_id": "l1-conservative-v0.1",
+      "state": {
+        "active_stop_price": 9.0,
+        "breakeven_active": false,
+        "clock_ns": 1748610959999999999,
+        "fills": [
+          {
+            "account_close_evidence": false,
+            "content_sha256": "43c4822af44d19788bca8960c540f6ed32b77a8f56215cc30c1b29d7de05fee6",
+            "entry_fill_id": "fill-670e80f15067423d26bc70a8f4a05fdef808f3b92786525d34262fdf7a3eb6fc",
+            "executable_research_fill": true,
+            "fill_price": "9",
+            "fill_time_ns": 1748610060100000000,
+            "historical_producer_authenticated": false,
+            "order_id": "exit-d6ac6ad6e2e16a2e32c4c9ed0512af2c7aa14a2459d1f849de5b44b1460bdcc0",
+            "quantity": 10,
+            "reason": "first_red_candle",
+            "remaining_quantity": 0,
+            "source_record_index": 5,
+            "source_request_sha256": "4e8576a60723acfe38da9c063ba3d101041d5169fe12de494c64a35c0c589bcc"
+          }
+        ],
+        "latched_full_exit": "first_red_candle",
+        "pending_order": false,
+        "remaining_quantity": 0,
+        "reserved_sell_quantity": 0,
+        "sold_quantity": 10,
+        "status": "closed_confirmed_shares",
+        "target_filled_quantity": 0,
+        "target_quantity": 5
+      },
+      "target_capacity": 0,
+      "terminal_capacity": 10
+    },
+    {
+      "account_close_produced": false,
+      "case_type": "empty",
+      "complete_streams_verified": true,
+      "delayed_quote_ns": null,
+      "historical_runtime_authorized": false,
+      "management_streams": {
+        "raw_sip_1m_bars": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "sip_transactions": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "orders": [],
+      "quantity": 10,
+      "scenario_id": "l1-conservative-v0.1",
+      "state": {
+        "active_stop_price": 9.0,
+        "breakeven_active": false,
+        "clock_ns": 1748610959999999999,
+        "fills": [],
+        "latched_full_exit": null,
+        "pending_order": false,
+        "remaining_quantity": 10,
+        "reserved_sell_quantity": 0,
+        "sold_quantity": 0,
+        "status": "open",
+        "target_filled_quantity": 0,
+        "target_quantity": 5
+      },
+      "target_capacity": 0,
+      "terminal_capacity": 0
+    },
+    {
+      "account_close_produced": false,
+      "case_type": "standard",
+      "complete_streams_verified": true,
+      "delayed_quote_ns": null,
+      "historical_runtime_authorized": false,
+      "management_streams": {
+        "raw_sip_1m_bars": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "sip_transactions": {
+          "rows": 2,
+          "sha256": "3c529291462123112a904c3eee1009e2abeb6a95d011173f5a569f7e4c27e53f"
+        }
+      },
+      "orders": [
+        {
+          "arrival_ts_ns": 1748610002250000000,
+          "cancel_ack_ts_ns": 1748610002550000000,
+          "cancel_requested_ts_ns": 1748610002400000000,
+          "capture_content_sha256": "8131249693191443ae3e1f3d96446fb0dd7039d05e235191b252a828ca1c4077",
+          "decision_ts_ns": 1748610002000000000,
+          "limit_price": "8.98",
+          "order_id": "exit-0fe446806eac2981c952fba6f5195b2f6db289c7064279dee5d32e6140cbd7a9",
+          "quantity": 1
+        }
+      ],
+      "quantity": 1,
+      "scenario_id": "l1-stress-v0.1",
+      "state": {
+        "active_stop_price": 9.0,
+        "breakeven_active": false,
+        "clock_ns": 1748610959999999999,
+        "fills": [
+          {
+            "account_close_evidence": false,
+            "content_sha256": "3f7e6444701702bed730f31f193f59cb47420b4a8f6eed3668b8708b756d2c6a",
+            "entry_fill_id": "fill-a7809f4bf058eaa3d49296eef2fe399d6964083b9b39493bd02bbde765d598d9",
+            "executable_research_fill": true,
+            "fill_price": "9",
+            "fill_time_ns": 1748610002250000000,
+            "historical_producer_authenticated": false,
+            "order_id": "exit-0fe446806eac2981c952fba6f5195b2f6db289c7064279dee5d32e6140cbd7a9",
+            "quantity": 1,
+            "reason": "initial_stop",
+            "remaining_quantity": 0,
+            "source_record_index": 5,
+            "source_request_sha256": "4e8576a60723acfe38da9c063ba3d101041d5169fe12de494c64a35c0c589bcc"
+          }
+        ],
+        "latched_full_exit": "initial_stop",
+        "pending_order": false,
+        "remaining_quantity": 0,
+        "reserved_sell_quantity": 0,
+        "sold_quantity": 1,
+        "status": "closed_confirmed_shares",
+        "target_filled_quantity": 0,
+        "target_quantity": 0
+      },
+      "target_capacity": 0,
+      "terminal_capacity": 1
+    },
+    {
+      "account_close_produced": false,
+      "case_type": "standard",
+      "complete_streams_verified": true,
+      "delayed_quote_ns": null,
+      "historical_runtime_authorized": false,
+      "management_streams": {
+        "raw_sip_1m_bars": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "sip_transactions": {
+          "rows": 2,
+          "sha256": "3c529291462123112a904c3eee1009e2abeb6a95d011173f5a569f7e4c27e53f"
+        }
+      },
+      "orders": [
+        {
+          "arrival_ts_ns": 1748610001250000000,
+          "cancel_ack_ts_ns": 1748610001550000000,
+          "cancel_requested_ts_ns": 1748610001400000000,
+          "capture_content_sha256": "5d3f1a6107ed8516b0f0898270840e69f6ceef4a3f408a50931f8b414bc80609",
+          "decision_ts_ns": 1748610001000000000,
+          "limit_price": "11.98",
+          "order_id": "exit-7fe2c407184cf0bf1b82cba8f46d37f6110e760fd4473e954ab39975833126d7",
+          "quantity": 1
+        },
+        {
+          "arrival_ts_ns": 1748610002250000000,
+          "cancel_ack_ts_ns": 1748610002550000000,
+          "cancel_requested_ts_ns": 1748610002400000000,
+          "capture_content_sha256": "c268b84c8575a073e888ea4692ebfdf3bd308d7f40b9828ece17b60a3f34073a",
+          "decision_ts_ns": 1748610002000000000,
+          "limit_price": "8.98",
+          "order_id": "exit-f8f2b127f6a658874e073449acb82636001b2343cba12979d9f6dbdb4e2d2a03",
+          "quantity": 2
+        }
+      ],
+      "quantity": 3,
+      "scenario_id": "l1-stress-v0.1",
+      "state": {
+        "active_stop_price": 10.0,
+        "breakeven_active": true,
+        "clock_ns": 1748610959999999999,
+        "fills": [
+          {
+            "account_close_evidence": false,
+            "content_sha256": "d262104ad15f1b9f7b2bb9776941ffac195d7084d732935b79ef30758925f722",
+            "entry_fill_id": "fill-799e0d140baedcc68d0157daa8686519dec1e02c2602ed8e07169af8d632e429",
+            "executable_research_fill": true,
+            "fill_price": "12",
+            "fill_time_ns": 1748610001250000000,
+            "historical_producer_authenticated": false,
+            "order_id": "exit-7fe2c407184cf0bf1b82cba8f46d37f6110e760fd4473e954ab39975833126d7",
+            "quantity": 1,
+            "reason": "first_target",
+            "remaining_quantity": 2,
+            "source_record_index": 3,
+            "source_request_sha256": "4e8576a60723acfe38da9c063ba3d101041d5169fe12de494c64a35c0c589bcc"
+          },
+          {
+            "account_close_evidence": false,
+            "content_sha256": "c81f1755d2cbf32dc51e56918fbaa277b22e5089bf1688af60cde2326f15f0bf",
+            "entry_fill_id": "fill-799e0d140baedcc68d0157daa8686519dec1e02c2602ed8e07169af8d632e429",
+            "executable_research_fill": true,
+            "fill_price": "9",
+            "fill_time_ns": 1748610002250000000,
+            "historical_producer_authenticated": false,
+            "order_id": "exit-f8f2b127f6a658874e073449acb82636001b2343cba12979d9f6dbdb4e2d2a03",
+            "quantity": 2,
+            "reason": "breakeven_stop",
+            "remaining_quantity": 0,
+            "source_record_index": 5,
+            "source_request_sha256": "4e8576a60723acfe38da9c063ba3d101041d5169fe12de494c64a35c0c589bcc"
+          }
+        ],
+        "latched_full_exit": "breakeven_stop",
+        "pending_order": false,
+        "remaining_quantity": 0,
+        "reserved_sell_quantity": 0,
+        "sold_quantity": 3,
+        "status": "closed_confirmed_shares",
+        "target_filled_quantity": 1,
+        "target_quantity": 1
+      },
+      "target_capacity": 1,
+      "terminal_capacity": 2
+    },
+    {
+      "account_close_produced": false,
+      "case_type": "standard",
+      "complete_streams_verified": true,
+      "delayed_quote_ns": null,
+      "historical_runtime_authorized": false,
+      "management_streams": {
+        "raw_sip_1m_bars": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "sip_transactions": {
+          "rows": 2,
+          "sha256": "3c529291462123112a904c3eee1009e2abeb6a95d011173f5a569f7e4c27e53f"
+        }
+      },
+      "orders": [
+        {
+          "arrival_ts_ns": 1748610001250000000,
+          "cancel_ack_ts_ns": 1748610001550000000,
+          "cancel_requested_ts_ns": 1748610001400000000,
+          "capture_content_sha256": "fae1ea4203dd9863522b0dc10c23d1eff0a0432d0f440e9ae6cc7c5a3e5c6f0c",
+          "decision_ts_ns": 1748610001000000000,
+          "limit_price": "11.98",
+          "order_id": "exit-42383edc65a4cbcfa3aa1a2b8e9b894210bf954907803ce4407b6f45491b8cef",
+          "quantity": 5
+        },
+        {
+          "arrival_ts_ns": 1748610002250000000,
+          "cancel_ack_ts_ns": 1748610002550000000,
+          "cancel_requested_ts_ns": 1748610002400000000,
+          "capture_content_sha256": "182c04500ca6616ab5ffb00d79ce321225082c1aaf4d6d87cf6fadcb606bab68",
+          "decision_ts_ns": 1748610002000000000,
+          "limit_price": "8.98",
+          "order_id": "exit-130a26a56a75de95a272d18cab08860238b07a88588cf2210a75f4b7e73711b0",
+          "quantity": 8
+        }
+      ],
+      "quantity": 10,
+      "scenario_id": "l1-stress-v0.1",
+      "state": {
+        "active_stop_price": 9.0,
+        "breakeven_active": false,
+        "clock_ns": 1748610959999999999,
+        "fills": [
+          {
+            "account_close_evidence": false,
+            "content_sha256": "70dabffb14ee5298a2ee16bb51ec70898bf1c3915ada7217fde693c6462db06a",
+            "entry_fill_id": "fill-8477c557b7446022c2c2efe68058c655c36714064294c537b8ecf3e02b4726be",
+            "executable_research_fill": true,
+            "fill_price": "12",
+            "fill_time_ns": 1748610001250000000,
+            "historical_producer_authenticated": false,
+            "order_id": "exit-42383edc65a4cbcfa3aa1a2b8e9b894210bf954907803ce4407b6f45491b8cef",
+            "quantity": 2,
+            "reason": "first_target",
+            "remaining_quantity": 8,
+            "source_record_index": 3,
+            "source_request_sha256": "4e8576a60723acfe38da9c063ba3d101041d5169fe12de494c64a35c0c589bcc"
+          },
+          {
+            "account_close_evidence": false,
+            "content_sha256": "bbc436463cb042abeca9c6bcb0ea837400e16631f8ea6a2cad920d84a648dae9",
+            "entry_fill_id": "fill-8477c557b7446022c2c2efe68058c655c36714064294c537b8ecf3e02b4726be",
+            "executable_research_fill": true,
+            "fill_price": "9",
+            "fill_time_ns": 1748610002250000000,
+            "historical_producer_authenticated": false,
+            "order_id": "exit-130a26a56a75de95a272d18cab08860238b07a88588cf2210a75f4b7e73711b0",
+            "quantity": 3,
+            "reason": "initial_stop",
+            "remaining_quantity": 5,
+            "source_record_index": 5,
+            "source_request_sha256": "4e8576a60723acfe38da9c063ba3d101041d5169fe12de494c64a35c0c589bcc"
+          }
+        ],
+        "latched_full_exit": "initial_stop",
+        "pending_order": false,
+        "remaining_quantity": 5,
+        "reserved_sell_quantity": 0,
+        "sold_quantity": 5,
+        "status": "open_unresolved_exit_remainder",
+        "target_filled_quantity": 2,
+        "target_quantity": 5
+      },
+      "target_capacity": 2,
+      "terminal_capacity": 3
+    },
+    {
+      "account_close_produced": false,
+      "case_type": "standard",
+      "complete_streams_verified": true,
+      "delayed_quote_ns": null,
+      "historical_runtime_authorized": false,
+      "management_streams": {
+        "raw_sip_1m_bars": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "sip_transactions": {
+          "rows": 2,
+          "sha256": "3c529291462123112a904c3eee1009e2abeb6a95d011173f5a569f7e4c27e53f"
+        }
+      },
+      "orders": [
+        {
+          "arrival_ts_ns": 1748610001250000000,
+          "cancel_ack_ts_ns": 1748610001550000000,
+          "cancel_requested_ts_ns": 1748610001400000000,
+          "capture_content_sha256": "d2d43c54901fd0e08293f055670dd568add30258f97590f95c02131ab22ce54c",
+          "decision_ts_ns": 1748610001000000000,
+          "limit_price": "11.98",
+          "order_id": "exit-f3cc81db91998bf97d2e16e93a3d485dacf646e0e425b1b9f153bfddd9f98518",
+          "quantity": 5
+        },
+        {
+          "arrival_ts_ns": 1748610002250000000,
+          "cancel_ack_ts_ns": 1748610002550000000,
+          "cancel_requested_ts_ns": 1748610002400000000,
+          "capture_content_sha256": "80e144b151345e4315e7d9008b28604bba4c9e460010b73cae4a9e5bddd76ef6",
+          "decision_ts_ns": 1748610002000000000,
+          "limit_price": "8.98",
+          "order_id": "exit-684d70f51df7977ed5fef4c18797cbb2966edebde92aafa92e0ea36f13a22aeb",
+          "quantity": 10
+        }
+      ],
+      "quantity": 10,
+      "scenario_id": "l1-stress-v0.1",
+      "state": {
+        "active_stop_price": 9.0,
+        "breakeven_active": false,
+        "clock_ns": 1748610959999999999,
+        "fills": [],
+        "latched_full_exit": "initial_stop",
+        "pending_order": false,
+        "remaining_quantity": 10,
+        "reserved_sell_quantity": 0,
+        "sold_quantity": 0,
+        "status": "open_unresolved_exit_remainder",
+        "target_filled_quantity": 0,
+        "target_quantity": 5
+      },
+      "target_capacity": 0,
+      "terminal_capacity": 0
+    },
+    {
+      "account_close_produced": false,
+      "case_type": "standard",
+      "complete_streams_verified": true,
+      "delayed_quote_ns": null,
+      "historical_runtime_authorized": false,
+      "management_streams": {
+        "raw_sip_1m_bars": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "sip_transactions": {
+          "rows": 2,
+          "sha256": "3c529291462123112a904c3eee1009e2abeb6a95d011173f5a569f7e4c27e53f"
+        }
+      },
+      "orders": [
+        {
+          "arrival_ts_ns": 1748610001250000000,
+          "cancel_ack_ts_ns": 1748610001550000000,
+          "cancel_requested_ts_ns": 1748610001400000000,
+          "capture_content_sha256": "f4ffdf0924bff41e12b59509f9837aca6f77d69ba9e5edefc0734dd8f373bc5d",
+          "decision_ts_ns": 1748610001000000000,
+          "limit_price": "11.98",
+          "order_id": "exit-4b64e90061fcb3b3abb5d7438c13a62088f9d25e07575dcbeb983d13224e4a98",
+          "quantity": 5
+        },
+        {
+          "arrival_ts_ns": 1748610002250000000,
+          "cancel_ack_ts_ns": 1748610002550000000,
+          "cancel_requested_ts_ns": 1748610002400000000,
+          "capture_content_sha256": "243722e54092cc0725f80b78f39fabb19ac147cdf5e64ee097d2e001a67deba9",
+          "decision_ts_ns": 1748610002000000000,
+          "limit_price": "8.98",
+          "order_id": "exit-2bfbec9e8146cffa4d3413417de2eb87a5741e37a3e949af050842c8e70f8256",
+          "quantity": 5
+        }
+      ],
+      "quantity": 10,
+      "scenario_id": "l1-stress-v0.1",
+      "state": {
+        "active_stop_price": 10.0,
+        "breakeven_active": true,
+        "clock_ns": 1748610959999999999,
+        "fills": [
+          {
+            "account_close_evidence": false,
+            "content_sha256": "fa798594c3b66a01e27c0c0c14a72353c23144419c522dd846aa0351cbfd96ce",
+            "entry_fill_id": "fill-8477c557b7446022c2c2efe68058c655c36714064294c537b8ecf3e02b4726be",
+            "executable_research_fill": true,
+            "fill_price": "12",
+            "fill_time_ns": 1748610001250000000,
+            "historical_producer_authenticated": false,
+            "order_id": "exit-4b64e90061fcb3b3abb5d7438c13a62088f9d25e07575dcbeb983d13224e4a98",
+            "quantity": 5,
+            "reason": "first_target",
+            "remaining_quantity": 5,
+            "source_record_index": 3,
+            "source_request_sha256": "4e8576a60723acfe38da9c063ba3d101041d5169fe12de494c64a35c0c589bcc"
+          },
+          {
+            "account_close_evidence": false,
+            "content_sha256": "081f7bfef9dc1786904dcf01573f7b291adaa41af1057129e2489409818bbfc8",
+            "entry_fill_id": "fill-8477c557b7446022c2c2efe68058c655c36714064294c537b8ecf3e02b4726be",
+            "executable_research_fill": true,
+            "fill_price": "9",
+            "fill_time_ns": 1748610002250000000,
+            "historical_producer_authenticated": false,
+            "order_id": "exit-2bfbec9e8146cffa4d3413417de2eb87a5741e37a3e949af050842c8e70f8256",
+            "quantity": 5,
+            "reason": "breakeven_stop",
+            "remaining_quantity": 0,
+            "source_record_index": 5,
+            "source_request_sha256": "4e8576a60723acfe38da9c063ba3d101041d5169fe12de494c64a35c0c589bcc"
+          }
+        ],
+        "latched_full_exit": "breakeven_stop",
+        "pending_order": false,
+        "remaining_quantity": 0,
+        "reserved_sell_quantity": 0,
+        "sold_quantity": 10,
+        "status": "closed_confirmed_shares",
+        "target_filled_quantity": 5,
+        "target_quantity": 5
+      },
+      "target_capacity": 5,
+      "terminal_capacity": 5
+    },
+    {
+      "account_close_produced": false,
+      "case_type": "delayed_equal_time",
+      "complete_streams_verified": true,
+      "delayed_quote_ns": 300000000,
+      "historical_runtime_authorized": false,
+      "management_streams": {
+        "raw_sip_1m_bars": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "sip_transactions": {
+          "rows": 3,
+          "sha256": "fe1dd040185b6fd4e6f5e89d5540c3bb253045f17ecfe2b676c96017f99ea436"
+        }
+      },
+      "orders": [
+        {
+          "arrival_ts_ns": 1748610001250000000,
+          "cancel_ack_ts_ns": 1748610001550000000,
+          "cancel_requested_ts_ns": 1748610001400000000,
+          "capture_content_sha256": "ed00240524a6318147a03294e9cd80d5005442a9bd516d1cb9b97822642b1f39",
+          "decision_ts_ns": 1748610001000000000,
+          "limit_price": "11.98",
+          "order_id": "exit-4b64e90061fcb3b3abb5d7438c13a62088f9d25e07575dcbeb983d13224e4a98",
+          "quantity": 5
+        }
+      ],
+      "quantity": 10,
+      "scenario_id": "l1-stress-v0.1",
+      "state": {
+        "active_stop_price": 10.0,
+        "breakeven_active": true,
+        "clock_ns": 1748610959999999999,
+        "fills": [
+          {
+            "account_close_evidence": false,
+            "content_sha256": "6963d8f997eeef4da84b6077582c242915324f4f75f157fde1403a05423dc852",
+            "entry_fill_id": "fill-8477c557b7446022c2c2efe68058c655c36714064294c537b8ecf3e02b4726be",
+            "executable_research_fill": true,
+            "fill_price": "12",
+            "fill_time_ns": 1748610001300000000,
+            "historical_producer_authenticated": false,
+            "order_id": "exit-4b64e90061fcb3b3abb5d7438c13a62088f9d25e07575dcbeb983d13224e4a98",
+            "quantity": 5,
+            "reason": "first_target",
+            "remaining_quantity": 5,
+            "source_record_index": 3,
+            "source_request_sha256": "4e8576a60723acfe38da9c063ba3d101041d5169fe12de494c64a35c0c589bcc"
+          }
+        ],
+        "latched_full_exit": null,
+        "pending_order": false,
+        "remaining_quantity": 5,
+        "reserved_sell_quantity": 0,
+        "sold_quantity": 5,
+        "status": "open",
+        "target_filled_quantity": 5,
+        "target_quantity": 5
+      },
+      "target_capacity": 5,
+      "terminal_capacity": 0
+    },
+    {
+      "account_close_produced": false,
+      "case_type": "completed_bar",
+      "complete_streams_verified": true,
+      "delayed_quote_ns": null,
+      "historical_runtime_authorized": false,
+      "management_streams": {
+        "raw_sip_1m_bars": {
+          "rows": 1,
+          "sha256": "bd8dfbb75601ce513d68d22ea6707fec6d0d159a3c117cec8d31d4f53eea593a"
+        },
+        "sip_transactions": {
+          "rows": 1,
+          "sha256": "936ace796663cb86857c1f0165cabd01331827f9ba2d049bfa3799a0071d4968"
+        }
+      },
+      "orders": [
+        {
+          "arrival_ts_ns": 1748610060250000000,
+          "cancel_ack_ts_ns": 1748610060550000000,
+          "cancel_requested_ts_ns": 1748610060400000000,
+          "capture_content_sha256": "0dbd4fcea7cdce0e842c29f19873d753905bb28c958fc757ad3580b65dfe3a65",
+          "decision_ts_ns": 1748610060000000000,
+          "limit_price": "8.98",
+          "order_id": "exit-97df3ae28c13471a367ba8439ce0dd84d6df7d140283d4d2e0f73d83ac22b653",
+          "quantity": 10
+        }
+      ],
+      "quantity": 10,
+      "scenario_id": "l1-stress-v0.1",
+      "state": {
+        "active_stop_price": 9.0,
+        "breakeven_active": false,
+        "clock_ns": 1748610959999999999,
+        "fills": [
+          {
+            "account_close_evidence": false,
+            "content_sha256": "8829b5c100a9d7eeb1133a474e8c73b1d85961ab00f0b93dc746eb3fd54af8d5",
+            "entry_fill_id": "fill-8477c557b7446022c2c2efe68058c655c36714064294c537b8ecf3e02b4726be",
+            "executable_research_fill": true,
+            "fill_price": "9",
+            "fill_time_ns": 1748610060250000000,
+            "historical_producer_authenticated": false,
+            "order_id": "exit-97df3ae28c13471a367ba8439ce0dd84d6df7d140283d4d2e0f73d83ac22b653",
+            "quantity": 10,
+            "reason": "first_red_candle",
+            "remaining_quantity": 0,
+            "source_record_index": 5,
+            "source_request_sha256": "4e8576a60723acfe38da9c063ba3d101041d5169fe12de494c64a35c0c589bcc"
+          }
+        ],
+        "latched_full_exit": "first_red_candle",
+        "pending_order": false,
+        "remaining_quantity": 0,
+        "reserved_sell_quantity": 0,
+        "sold_quantity": 10,
+        "status": "closed_confirmed_shares",
+        "target_filled_quantity": 0,
+        "target_quantity": 5
+      },
+      "target_capacity": 0,
+      "terminal_capacity": 10
+    },
+    {
+      "account_close_produced": false,
+      "case_type": "empty",
+      "complete_streams_verified": true,
+      "delayed_quote_ns": null,
+      "historical_runtime_authorized": false,
+      "management_streams": {
+        "raw_sip_1m_bars": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "sip_transactions": {
+          "rows": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      },
+      "orders": [],
+      "quantity": 10,
+      "scenario_id": "l1-stress-v0.1",
+      "state": {
+        "active_stop_price": 9.0,
+        "breakeven_active": false,
+        "clock_ns": 1748610959999999999,
+        "fills": [],
+        "latched_full_exit": null,
+        "pending_order": false,
+        "remaining_quantity": 10,
+        "reserved_sell_quantity": 0,
+        "sold_quantity": 0,
+        "status": "open",
+        "target_filled_quantity": 0,
+        "target_quantity": 5
+      },
+      "target_capacity": 0,
+      "terminal_capacity": 0
+    }
+  ],
+  "content_sha256": "e535e2adeecbc77c51a4dd86d61deff0925ddeb019a3a750abfe93541a6add8f",
+  "contract_id": "sealed-historical-management-runner-v0.1",
+  "implementation_file_sha256": {
+    ".github/workflows/sealed-historical-management-runner-v01.yml": "b20e6b76514df394b85ee37135b4dd43165cb8c2df7ba02122e5947803cafd50",
+    "scripts/build_sealed_historical_management_runner_v01.py": "3e0542bc22cdfa156f4b9b08ee08f4ec7ae85773a8ba2e53aa73e39e1c6cba86",
+    "src/momentumbot/research/sealed_historical_management_runner_v01.py": "7f352ac748e57f9e3a3c59971a07de152e6063b783bcd4eb6b48723f8f904fc5",
+    "tests/test_sealed_historical_management_runner_v01.py": "d81119df620f327174779b0147204b7cad6714475771f18d70d487d8e46b93f5"
+  },
+  "synthetic_only": true
+}

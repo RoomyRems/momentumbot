@@ -1,6 +1,42 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: entry binding and fill feedback independently verified
+## Current checkpoint: causal position runner and exact common exit-input plan
+
+An isolated child of `d9e5a04b6f9f78ba09fc87c53be2e7b9aa359b89` registers
+`sealed-historical-management-runner-v0.1`. The streaming scheduler merges
+completed bars and ordered SIP prints with arrival, quote-receive and cancel
+feedback clocks. It reads no private future execution outcome. Complete source
+commitments are required before success; input failures preserve the last
+position and unresolved intent. No end-of-window liquidation is invented.
+
+The exact exit-input scope preserves all 109 opportunities and 23 unavailable
+entry inputs. The 86 available opportunities map to 41 symbol/date groups.
+One original pair, XAGE on 2025-07-15, covers its complete common interval and is
+a reuse candidate pending exact byte verification. The remaining 40 groups need
+80 bounded quote/status requests. The future metadata quote is capped at 160
+calls; no quote, cost estimate, acquisition or provider call ran here.
+
+The context resolver binds original opportunity, account slot and decision
+payload to the verified catalog. The mechanics runner does not authenticate a
+preceding account producer. All 30 dates, 12 paths, 360 slots, 744 references,
+once-only account seeds and preceding-close dependencies remain intact.
+The registration freeze content commitment is
+`77452867363127a9234ddbf1b27702d38b15477911454a448b680b6a9d6b1366`.
+
+All 1,865 local tests passed with zero skips. The 141-test focused group passed
+normally and optimized, including 45 new tests and 50 seeded synthetic paths.
+Independent stdlib verification matched every request and original account
+reference, plus 16 synthetic clock/share traces. Hosted validation and the
+permanent audit are the remaining publication checks.
+
+Historical execution remains blocked on exact exit/reuse verification,
+historical fees, sell-ledger reconciliation, causal next-session valuation,
+continuous account/order integration and an authorized execution child.
+Next: verify the exact retained XAGE common source and register the bounded
+metadata quote for the 80 remaining requests. See
+[position runner and common exit inputs](../research/sealed_historical_management_runner_v01.md).
+
+## Prior checkpoint: entry binding and fill feedback independently verified
 
 Code `a8947e5fdade9e80ddfba078e85f7318c112c4cb` passed all eight hosted
 workflows on attempt 1. Dedicated run `34165211737`, job `101874793249`,

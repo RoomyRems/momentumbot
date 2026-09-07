@@ -1,0 +1,4421 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "account_runtime_input_gate_passed": false,
+  "acquisition_gate_passed": false,
+  "backtesting_executed": false,
+  "billable_bytes": null,
+  "broker_account_read": false,
+  "common_symbol_date_count": 41,
+  "content_sha256": "e6123425e7363051b542da98efcbc4bcda148823715e2f3230509a7b2ab68115",
+  "contract_id": "sealed-historical-management-runner-v0.1",
+  "future_metadata_call_ceiling": 160,
+  "groups": [
+    {
+      "content_sha256": "a0665de1d4fe05ac956e7928ba9ae0aeffd7d8fcb16f9bf3b5dabf32279aeadf",
+      "group_id": "2025-05-30-GITS-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1748609843563881836,
+          "last_covered_exit_decision_ns": 1748610802913881834,
+          "opportunity_id": "opportunity-845d706023c2ff60c09c3004502568e4a1c0a0ca3461092d8139a3eca555c83d",
+          "original_end_ns": 1748610803463881835,
+          "window_content_sha256": "c396feeb777a3cd37ae4e58e21e20cd1326ef4e67c3c8def934203cc84d84316"
+        },
+        {
+          "first_possible_exit_decision_ns": 1748609843563881836,
+          "last_covered_exit_decision_ns": 1748610802913881834,
+          "opportunity_id": "opportunity-df22c6ea809d8a6fe62df2c0d36d14179d749fcc8c2d76cf31a39e93872a5e43",
+          "original_end_ns": 1748610803463881835,
+          "window_content_sha256": "e90ac864b29e246a0080b1fd8f4ac13f4d59bcc5bd13ff84f717fd1f0a7487e0"
+        },
+        {
+          "first_possible_exit_decision_ns": 1748609850299660996,
+          "last_covered_exit_decision_ns": 1748610809649660994,
+          "opportunity_id": "opportunity-0a454a0912337ad4fc144c2296ab8d39ad3b5c5121a5aa81594ad4fe1fa147cc",
+          "original_end_ns": 1748610810199660995,
+          "window_content_sha256": "8a1eb4784ada8824cbd29dfa03442072243f83cc64f6c9fb5ba1209de5927ac0"
+        },
+        {
+          "first_possible_exit_decision_ns": 1748609850299660996,
+          "last_covered_exit_decision_ns": 1748610809649660994,
+          "opportunity_id": "opportunity-34d7567e3ab012a2661b95dbd4b5959c601226e94169e9994481031cd3a2e505",
+          "original_end_ns": 1748610810199660995,
+          "window_content_sha256": "a70fd93251642b88396cc9876f0cea85c7a261883db7b582bb521a8b98acf459"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "e141b4b8a25c5bb816186f1b8d89a6d9292d2d1e4f3d9a6ac1efc9c08c5e71eb",
+        "9ca44e822638dd0cb6eac852fc2ff44c1bcbd5ba55966d412d3379b617bc928a"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1748610810199660995,
+          "request_id": "2025-05-30-GITS-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1748609843363881835,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "GITS"
+          ],
+          "trading_date": "2025-05-30"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1748610810199660995,
+          "request_id": "2025-05-30-GITS-status",
+          "schema": "status",
+          "start_ns": 1748563200000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "GITS"
+          ],
+          "trading_date": "2025-05-30"
+        }
+      ],
+      "required_end_ns": 1748610810199660995,
+      "required_quote_start_ns": 1748609843363881835,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "GITS",
+      "trading_date": "2025-05-30"
+    },
+    {
+      "content_sha256": "4a1a34d1ff15442a37b7ecc5dc0ef9c4c864cc141bb5d05228b15c21940e7e82",
+      "group_id": "2025-06-02-INM-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1748862268231368841,
+          "last_covered_exit_decision_ns": 1748863227581368839,
+          "opportunity_id": "opportunity-9da499eccdea418a538378b01e96ecda5c85cbc33665523b8aed578f849083b2",
+          "original_end_ns": 1748863228131368840,
+          "window_content_sha256": "8d49709f80e88593ba0e4c1db8bc114b44b52ab40ba697323a5e1a4029c20a64"
+        },
+        {
+          "first_possible_exit_decision_ns": 1748862290443383234,
+          "last_covered_exit_decision_ns": 1748863249793383232,
+          "opportunity_id": "opportunity-1c955ce8d44d20fd195e151877e94fb27188e1e8466c0e34f2657aca3403f7d6",
+          "original_end_ns": 1748863250343383233,
+          "window_content_sha256": "c88df8145453ee1ea6719237a7305674a1eb3f02604ce9f842e896419d18098c"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "782862b85c876bf5158a2aea22e817415e852fccd90ce0b911454b9ac6e8374a",
+        "ef5f384c1897c9f05a2328660dc7f9ee82d22703db10a6557ca15147ed1072bb"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1748863250343383233,
+          "request_id": "2025-06-02-INM-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1748862268031368840,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "INM"
+          ],
+          "trading_date": "2025-06-02"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1748863250343383233,
+          "request_id": "2025-06-02-INM-status",
+          "schema": "status",
+          "start_ns": 1748822400000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "INM"
+          ],
+          "trading_date": "2025-06-02"
+        }
+      ],
+      "required_end_ns": 1748863250343383233,
+      "required_quote_start_ns": 1748862268031368840,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "INM",
+      "trading_date": "2025-06-02"
+    },
+    {
+      "content_sha256": "627a188ad7d34a8f583d59c4eae0c24100460687eb376c91d8211316eabf02af",
+      "group_id": "2025-06-02-LYRA-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1748862530374801316,
+          "last_covered_exit_decision_ns": 1748863489724801314,
+          "opportunity_id": "opportunity-1973319292e190d2b60a1cbc7527099072457a4f14a689984f147c85badf1110",
+          "original_end_ns": 1748863490274801315,
+          "window_content_sha256": "342f0ab9676c0a8cc5a3f0f238ee8f93273586de96cc0bcf0b06352c459ea8e8"
+        },
+        {
+          "first_possible_exit_decision_ns": 1748863647037229086,
+          "last_covered_exit_decision_ns": 1748864606387229084,
+          "opportunity_id": "opportunity-4077b1e2cee693492ea62c82f6eaed508a799c62b74834047bd036b146c3c183",
+          "original_end_ns": 1748864606937229085,
+          "window_content_sha256": "5e59332f10c536ec3789053cad97996cadcfc5e67b6a9eb1389240e8c9a064e5"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "eb6c887685d5540905c3e604054b955e04e7393a378ff499d2c214da171af4ff",
+        "4ca6a82ebf0c05a8b9c81a712739a603d6ab40084637e9b11793287cb4279f2f"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1748864606937229085,
+          "request_id": "2025-06-02-LYRA-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1748862530174801315,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "LYRA"
+          ],
+          "trading_date": "2025-06-02"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1748864606937229085,
+          "request_id": "2025-06-02-LYRA-status",
+          "schema": "status",
+          "start_ns": 1748822400000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "LYRA"
+          ],
+          "trading_date": "2025-06-02"
+        }
+      ],
+      "required_end_ns": 1748864606937229085,
+      "required_quote_start_ns": 1748862530174801315,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "LYRA",
+      "trading_date": "2025-06-02"
+    },
+    {
+      "content_sha256": "66eeded6806635c76d7e5783f497f66a21d2ddbae154a175ee14e6660417a506",
+      "group_id": "2025-06-04-STSS-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1749036608988228166,
+          "last_covered_exit_decision_ns": 1749037568338228164,
+          "opportunity_id": "opportunity-252709f74518eae93a90fe7b63152c71374acf3416aa082393333c4a7375e784",
+          "original_end_ns": 1749037568888228165,
+          "window_content_sha256": "a05355eb5f06b9c47912baf6d0956860b44d218e08ca15002d290de8a72a8208"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "c02ffe7c10f5913b7ebef72db7060c0e8bcb0e2c97d5c9c8f34d197a9c1d0f4e",
+        "681a196d484dc060701ef06e0d6f0632f09ddc0a5f77d0d903053649ca3a3502"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1749037568888228165,
+          "request_id": "2025-06-04-STSS-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1749036608788228165,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "STSS"
+          ],
+          "trading_date": "2025-06-04"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1749037568888228165,
+          "request_id": "2025-06-04-STSS-status",
+          "schema": "status",
+          "start_ns": 1748995200000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "STSS"
+          ],
+          "trading_date": "2025-06-04"
+        }
+      ],
+      "required_end_ns": 1749037568888228165,
+      "required_quote_start_ns": 1749036608788228165,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "STSS",
+      "trading_date": "2025-06-04"
+    },
+    {
+      "content_sha256": "c904067f0135f2d26fecf467b4942dd64bfeab7249f3d77f79b77fd3ae8e8c6a",
+      "group_id": "2025-06-06-VERO-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1749211044678954511,
+          "last_covered_exit_decision_ns": 1749212004028954509,
+          "opportunity_id": "opportunity-7aaadd598e4d0d6de8f160c1dfd84efc92b0c060c48ad27fd5d22e8b60416cae",
+          "original_end_ns": 1749212004578954510,
+          "window_content_sha256": "d83fa58f7ba870753b500f3b36912283bdf7f76244e91487851183af6aa6b086"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "d96eb9674ad60c56af2ba93f51acc55dde38df36ac1b28fdf22bbf03c6b0ea29",
+        "d58eb96a4ee4a38c5ca25367826bb9bfb495db820d323940fa427b9dbb290687"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1749212004578954510,
+          "request_id": "2025-06-06-VERO-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1749211044478954510,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "VERO"
+          ],
+          "trading_date": "2025-06-06"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1749212004578954510,
+          "request_id": "2025-06-06-VERO-status",
+          "schema": "status",
+          "start_ns": 1749168000000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "VERO"
+          ],
+          "trading_date": "2025-06-06"
+        }
+      ],
+      "required_end_ns": 1749212004578954510,
+      "required_quote_start_ns": 1749211044478954510,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "VERO",
+      "trading_date": "2025-06-06"
+    },
+    {
+      "content_sha256": "a0172c5c288a1ba800539938116fc5f226716d367abf0885ba5da5ead0855bb3",
+      "group_id": "2025-06-09-SNPX-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1749474351896681808,
+          "last_covered_exit_decision_ns": 1749475311246681806,
+          "opportunity_id": "opportunity-2beacd0629c9fd5b7acae4797b4da47cd1e29254e4b7bd6c56f94fd5b3916c5c",
+          "original_end_ns": 1749475311796681807,
+          "window_content_sha256": "e057a749bafa263c89d4a5fc372051f2af71f9c8f996c34cc05671db7e06d53f"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "743273363e2399e77498c76141f3452b384b26aaf7c1a5c29fb468598c319e29",
+        "b2843722818254abf80dce18498ecf8953e52d07d2117783bf4e414c4c1006a9"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1749475311796681807,
+          "request_id": "2025-06-09-SNPX-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1749474351696681807,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "SNPX"
+          ],
+          "trading_date": "2025-06-09"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1749475311796681807,
+          "request_id": "2025-06-09-SNPX-status",
+          "schema": "status",
+          "start_ns": 1749427200000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "SNPX"
+          ],
+          "trading_date": "2025-06-09"
+        }
+      ],
+      "required_end_ns": 1749475311796681807,
+      "required_quote_start_ns": 1749474351696681807,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "SNPX",
+      "trading_date": "2025-06-09"
+    },
+    {
+      "content_sha256": "74a025119dea7f3bb0677e8fac6dc9d1a5f5f1d41b484f504973e95e8c378853",
+      "group_id": "2025-06-10-DPRO-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1749562259929503496,
+          "last_covered_exit_decision_ns": 1749563219279503494,
+          "opportunity_id": "opportunity-9c23836f6bd9f768a0458758a8166a28dde6144ef01bcc909f9d89557ecc3c53",
+          "original_end_ns": 1749563219829503495,
+          "window_content_sha256": "22b2d5f07887d53c61efdf5f9a9e80a983cc6f37dafe23147fa880ae8eadd584"
+        },
+        {
+          "first_possible_exit_decision_ns": 1749562260105336246,
+          "last_covered_exit_decision_ns": 1749563219455336244,
+          "opportunity_id": "opportunity-9ba5791514da0d6196f030161b0fb8f3a49c87462beb48aab42977cbc87ed153",
+          "original_end_ns": 1749563220005336245,
+          "window_content_sha256": "63e28df2649e33a948865c0475fdd4888b37f472e3f1724bea2419d93719a2d2"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "9d1fd29066d376e016465b8f7c896c5a966f31bd2f3caee7c4679644a5fe8911",
+        "d82bc4951100e7396a76be0ef81344d96a8b3d99d3979d576ed2e0539c44d291"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1749563220005336245,
+          "request_id": "2025-06-10-DPRO-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1749562259729503495,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "DPRO"
+          ],
+          "trading_date": "2025-06-10"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1749563220005336245,
+          "request_id": "2025-06-10-DPRO-status",
+          "schema": "status",
+          "start_ns": 1749513600000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "DPRO"
+          ],
+          "trading_date": "2025-06-10"
+        }
+      ],
+      "required_end_ns": 1749563220005336245,
+      "required_quote_start_ns": 1749562259729503495,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "DPRO",
+      "trading_date": "2025-06-10"
+    },
+    {
+      "content_sha256": "531b5dce7cc2785d489183a9fc229ab40e35ca4b3d8d4ce7d0b93c3d0921bda3",
+      "group_id": "2025-06-10-GELS-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1749556425182692670,
+          "last_covered_exit_decision_ns": 1749557384532692668,
+          "opportunity_id": "opportunity-722e8cb66690540a84758172a2e88340ec79a3d6c7db4baf404d6e49d205ceab",
+          "original_end_ns": 1749557385082692669,
+          "window_content_sha256": "c515789f13d937a67b024e19f5d53fb7000b77f6e6463522e49921809520e4d5"
+        },
+        {
+          "first_possible_exit_decision_ns": 1749556456422643138,
+          "last_covered_exit_decision_ns": 1749557415772643136,
+          "opportunity_id": "opportunity-f7526571e68f79a562f666b7495a17ba0efca1ab3ad4628871a89e54081c87ae",
+          "original_end_ns": 1749557416322643137,
+          "window_content_sha256": "cb48ac7dd2629cff331b5044e174fe15952da034c42581dca73fab898530b694"
+        },
+        {
+          "first_possible_exit_decision_ns": 1749556601687798246,
+          "last_covered_exit_decision_ns": 1749557561037798244,
+          "opportunity_id": "opportunity-4a6351d6f27ac7a4ea801517c4ae987c4c0463cbcda9fb0bf0a018e61433b65a",
+          "original_end_ns": 1749557561587798245,
+          "window_content_sha256": "c68b867e1cc1304fdfaf64728da10bc5f2e725a0ffdd2590a7d3ec5e6fd24519"
+        },
+        {
+          "first_possible_exit_decision_ns": 1749556610182832424,
+          "last_covered_exit_decision_ns": 1749557569532832422,
+          "opportunity_id": "opportunity-8e0421478e37658139d9cb910d5e601db2fffe80872b9f13d42bf514cf20df89",
+          "original_end_ns": 1749557570082832423,
+          "window_content_sha256": "03e03cdec4fc7fb12cd7e31debb23727de73d13b3ebc05e3dbc6e7a830038376"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "47cac44441c9c405e1336e5095c189a1e1a2e09ec0f59b09d07bd0b60d115d1f",
+        "b5faaa72d3d0f29fb787f54d04bdf4c004d771793e402d21f9fa5e937457811b"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1749557570082832423,
+          "request_id": "2025-06-10-GELS-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1749556424982692669,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "GELS"
+          ],
+          "trading_date": "2025-06-10"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1749557570082832423,
+          "request_id": "2025-06-10-GELS-status",
+          "schema": "status",
+          "start_ns": 1749513600000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "GELS"
+          ],
+          "trading_date": "2025-06-10"
+        }
+      ],
+      "required_end_ns": 1749557570082832423,
+      "required_quote_start_ns": 1749556424982692669,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "GELS",
+      "trading_date": "2025-06-10"
+    },
+    {
+      "content_sha256": "dcc37e7c1d81b4d6f6a934944ff682c8c1ab3367810a0bc3104af9556b1a5b95",
+      "group_id": "2025-06-11-HSDT-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1749640292409051286,
+          "last_covered_exit_decision_ns": 1749641251759051284,
+          "opportunity_id": "opportunity-4ca7e6df60d196bbd97e7529734ecaa31576fe86aca5d860036f0a6a799d2f77",
+          "original_end_ns": 1749641252309051285,
+          "window_content_sha256": "cd33a2b3046b9452b3e147f34cef4a0c0ef6f5c40211b8507e1a3819e63db52d"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "1437b8769b98a500edb40bc6feb46979023c194ae802b34128fe9a30315c79ad",
+        "163a0db747c3cb0a4f8492d0c3d609ec5595ab859e646e1e7f314555a161bc79"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1749641252309051285,
+          "request_id": "2025-06-11-HSDT-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1749640292209051285,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "HSDT"
+          ],
+          "trading_date": "2025-06-11"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1749641252309051285,
+          "request_id": "2025-06-11-HSDT-status",
+          "schema": "status",
+          "start_ns": 1749600000000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "HSDT"
+          ],
+          "trading_date": "2025-06-11"
+        }
+      ],
+      "required_end_ns": 1749641252309051285,
+      "required_quote_start_ns": 1749640292209051285,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "HSDT",
+      "trading_date": "2025-06-11"
+    },
+    {
+      "content_sha256": "a7329d4ee630ac7d7437f19c2b3814df722b34b341e1ec2982fa80e365f5e22e",
+      "group_id": "2025-06-12-XTIA-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1749735843694150999,
+          "last_covered_exit_decision_ns": 1749736803044150997,
+          "opportunity_id": "opportunity-aa63605a971ab2dffb8ab31233469eca322dcfbedbca9cfa0f4b5772e0fb8660",
+          "original_end_ns": 1749736803594150998,
+          "window_content_sha256": "516ab030d5ae02d2700064ad16f29b6b9210f148d4670b1cec2b1ded9524baee"
+        },
+        {
+          "first_possible_exit_decision_ns": 1749736500138644946,
+          "last_covered_exit_decision_ns": 1749737459488644944,
+          "opportunity_id": "opportunity-37019c1c2b7def2ac6c137b21064edcbf1b49f4ca48483c86f4234c6efd7d919",
+          "original_end_ns": 1749737460038644945,
+          "window_content_sha256": "3e8f15213a3ac541bc53c592bda0e5ad38eadcf19be66c7c3e95a2880423afec"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "44abf52a56200f989b6a2a866a22327dab5642c8951c2058490cc6d4314d9972",
+        "8858a8814a5c7ed503d398d08f1e1b3fc3d8ab313c15d7becb4378acee66a2e7"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1749737460038644945,
+          "request_id": "2025-06-12-XTIA-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1749735843494150998,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "XTIA"
+          ],
+          "trading_date": "2025-06-12"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1749737460038644945,
+          "request_id": "2025-06-12-XTIA-status",
+          "schema": "status",
+          "start_ns": 1749686400000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "XTIA"
+          ],
+          "trading_date": "2025-06-12"
+        }
+      ],
+      "required_end_ns": 1749737460038644945,
+      "required_quote_start_ns": 1749735843494150998,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "XTIA",
+      "trading_date": "2025-06-12"
+    },
+    {
+      "content_sha256": "ca5a575400ff046910da1ea1d253cbddedb65f28ffe11467009e71146db84f71",
+      "group_id": "2025-06-18-APVO-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1750248218500843886,
+          "last_covered_exit_decision_ns": 1750249177850843884,
+          "opportunity_id": "opportunity-44c3afe5eb388388a5a7a1d80dcc4c7630b0ed77b60bb3003be374528722067e",
+          "original_end_ns": 1750249178400843885,
+          "window_content_sha256": "8d0852ebfcd4cb2a8923f4b8e62bbdc604c569495ea63cb23222439e44c23584"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "6a77aa7b5be28839e5797a352edeefdec25ff029f3bd5a46e5dd257f762f891c",
+        "660acd4f120a57ad7446cf075f5715ebe60e3762fbae792337b2492787c3b218"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1750249178400843885,
+          "request_id": "2025-06-18-APVO-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1750248218300843885,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "APVO"
+          ],
+          "trading_date": "2025-06-18"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1750249178400843885,
+          "request_id": "2025-06-18-APVO-status",
+          "schema": "status",
+          "start_ns": 1750204800000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "APVO"
+          ],
+          "trading_date": "2025-06-18"
+        }
+      ],
+      "required_end_ns": 1750249178400843885,
+      "required_quote_start_ns": 1750248218300843885,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "APVO",
+      "trading_date": "2025-06-18"
+    },
+    {
+      "content_sha256": "072a1bdfd070e164077c3cc33bf09542c63bd0d6708e6fd93817502d5b6c96d5",
+      "group_id": "2025-06-18-RELI-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1750247278730846630,
+          "last_covered_exit_decision_ns": 1750248238080846628,
+          "opportunity_id": "opportunity-07652f1c50c69fa3b577fb1e331fa01fce57b4b2ca2df5af650a1347a1e31bc3",
+          "original_end_ns": 1750248238630846629,
+          "window_content_sha256": "16962bc6118e47a1de07dfe9172328feba65fcb24c31e057daae699039681906"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "dadcb8c4d79dbdaa5f6ed652b268f6840c5d4637430d5b40024f3500a733f262",
+        "8e85cd48328ca0497675a2de27cab8693219ce808a995380324d9a375ae30ab9"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1750248238630846629,
+          "request_id": "2025-06-18-RELI-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1750247278530846629,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "RELI"
+          ],
+          "trading_date": "2025-06-18"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1750248238630846629,
+          "request_id": "2025-06-18-RELI-status",
+          "schema": "status",
+          "start_ns": 1750204800000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "RELI"
+          ],
+          "trading_date": "2025-06-18"
+        }
+      ],
+      "required_end_ns": 1750248238630846629,
+      "required_quote_start_ns": 1750247278530846629,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "RELI",
+      "trading_date": "2025-06-18"
+    },
+    {
+      "content_sha256": "fdd196d8056a7a95379a3f9142ba031d87c8cf79350535830d97a5b93fc60279",
+      "group_id": "2025-06-23-HUSA-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1750676741445333695,
+          "last_covered_exit_decision_ns": 1750677700795333693,
+          "opportunity_id": "opportunity-7d2a54dde98cc4690a029d32e27eb7fabf1fcfb0de8d9b472a533a0786aa3867",
+          "original_end_ns": 1750677701345333694,
+          "window_content_sha256": "d7df15ba13654f652788054d3417efeeaf5ffbaaf38cc617ea2f6624c72487db"
+        },
+        {
+          "first_possible_exit_decision_ns": 1750685548536263028,
+          "last_covered_exit_decision_ns": 1750686507886263026,
+          "opportunity_id": "opportunity-9fff3ceb6b35e70fbb9a76619473d010a789668c4dd879959ec8378c053d67d6",
+          "original_end_ns": 1750686508436263027,
+          "window_content_sha256": "595b87540a5a4961ef3d32b6d59df2035b10984acfafc60550a9c7b3a484c0b7"
+        },
+        {
+          "first_possible_exit_decision_ns": 1750685800934591158,
+          "last_covered_exit_decision_ns": 1750686760284591156,
+          "opportunity_id": "opportunity-646c3e4d4997e1f2884d7d55dd494e406c3fdbdf7ac594cc327f57b97aafb079",
+          "original_end_ns": 1750686760834591157,
+          "window_content_sha256": "c5587f37e0f2ab1edc2c2d74da8b5cb7923affe7414544b5877a51b9242cabb1"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "41ce461995de5d3cbc94a6c24a68b47133ffe779487784c50debd3e366f797ac",
+        "178c47bccc5547898f1717aed969c3bbce8cd0f0d69a4be6615dba425546001e"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1750686760834591157,
+          "request_id": "2025-06-23-HUSA-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1750676741245333694,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "HUSA"
+          ],
+          "trading_date": "2025-06-23"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1750686760834591157,
+          "request_id": "2025-06-23-HUSA-status",
+          "schema": "status",
+          "start_ns": 1750636800000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "HUSA"
+          ],
+          "trading_date": "2025-06-23"
+        }
+      ],
+      "required_end_ns": 1750686760834591157,
+      "required_quote_start_ns": 1750676741245333694,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "HUSA",
+      "trading_date": "2025-06-23"
+    },
+    {
+      "content_sha256": "a1e2c61fe91a6168ebd80bfeadf48c42d5cd3fa670f97b4c52745a69df3be92b",
+      "group_id": "2025-06-24-INM-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1750765622950793752,
+          "last_covered_exit_decision_ns": 1750766582300793750,
+          "opportunity_id": "opportunity-f3b97394d6ba5b45625c5578b1b5794101c5acfa99cb031c3aafceb4d5b21068",
+          "original_end_ns": 1750766582850793751,
+          "window_content_sha256": "34ffc06f06807086e4bdbef01386b10a43b3fe8548874841c7d566829be0cd9c"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "ab8b42f23d2dcea6c98312c282c169065697c379cfe92ed8b639dd944c19b318",
+        "6f880eec57ca43adc80b35d0635c69cc61f6dfed32fc3c9f386a9299cc7f3528"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1750766582850793751,
+          "request_id": "2025-06-24-INM-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1750765622750793751,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "INM"
+          ],
+          "trading_date": "2025-06-24"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1750766582850793751,
+          "request_id": "2025-06-24-INM-status",
+          "schema": "status",
+          "start_ns": 1750723200000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "INM"
+          ],
+          "trading_date": "2025-06-24"
+        }
+      ],
+      "required_end_ns": 1750766582850793751,
+      "required_quote_start_ns": 1750765622750793751,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "INM",
+      "trading_date": "2025-06-24"
+    },
+    {
+      "content_sha256": "bd8a7bee85770064a6bfa7549022f3880d56de0b271ab25362a9706b5ea4f8d3",
+      "group_id": "2025-06-25-GCTK-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1750857889691554836,
+          "last_covered_exit_decision_ns": 1750858849041554834,
+          "opportunity_id": "opportunity-591b67f9945191a9b56666b4cd701ec288401c3ead3d05dbda9547cbab7fde70",
+          "original_end_ns": 1750858849591554835,
+          "window_content_sha256": "a2dee70074a384ce70e070b892eb6d3c06c0cc62e8976388bbc48b954c6cd312"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "ff7db98f7fb2eb1a75257e9b330d5cb97e2eef94ebf0cd56ba0958d3ca1e9243",
+        "6d23ce52b0459da62848a5ba84e1ae9c34e6c9fb45e5cb93057b513b03dff1c1"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1750858849591554835,
+          "request_id": "2025-06-25-GCTK-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1750857889491554835,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "GCTK"
+          ],
+          "trading_date": "2025-06-25"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1750858849591554835,
+          "request_id": "2025-06-25-GCTK-status",
+          "schema": "status",
+          "start_ns": 1750809600000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "GCTK"
+          ],
+          "trading_date": "2025-06-25"
+        }
+      ],
+      "required_end_ns": 1750858849591554835,
+      "required_quote_start_ns": 1750857889491554835,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "GCTK",
+      "trading_date": "2025-06-25"
+    },
+    {
+      "content_sha256": "509c9470d9b7571c1b5ca312947fbbf0d6618b1e016dc92072f72bc4ff8f38ef",
+      "group_id": "2025-06-26-CYN-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1750936554779090591,
+          "last_covered_exit_decision_ns": 1750937514129090589,
+          "opportunity_id": "opportunity-c477d6d99cf9025d3b1d085f25cfbdef23da4385667769c7e88f214b6d6baf9a",
+          "original_end_ns": 1750937514679090590,
+          "window_content_sha256": "7b55e87bf779a6bb77387a58ce502a6cd22439f9b9c6bb5cc6d08925bff7f01e"
+        },
+        {
+          "first_possible_exit_decision_ns": 1750936843775313329,
+          "last_covered_exit_decision_ns": 1750937803125313327,
+          "opportunity_id": "opportunity-b46f1461179b116a70181996f3475623b9a7c05f071d6eda97762f6d0b606753",
+          "original_end_ns": 1750937803675313328,
+          "window_content_sha256": "84a894101c008d67316c12eb9e24b28509f57f26d5d800133735234b032b5870"
+        },
+        {
+          "first_possible_exit_decision_ns": 1750938121440722233,
+          "last_covered_exit_decision_ns": 1750939080790722231,
+          "opportunity_id": "opportunity-7b17b9b4350ac1893828372598654d1ea72e73191146c727f18db7dd012ed90b",
+          "original_end_ns": 1750939081340722232,
+          "window_content_sha256": "cc07cfd6a6b4990409b8fa98cabb591a7f61b328cb8babec8f8fd6c45f130cf0"
+        },
+        {
+          "first_possible_exit_decision_ns": 1750938159103574499,
+          "last_covered_exit_decision_ns": 1750939118453574497,
+          "opportunity_id": "opportunity-bb5252cd620b13055c005c3e7f326ae77757dd4560f9df040f2928d5ca21d9bb",
+          "original_end_ns": 1750939119003574498,
+          "window_content_sha256": "fc76ce5ac3aea4e282b9d1de59457841bfc3594603f6a4c8b3fbb720db4c945a"
+        },
+        {
+          "first_possible_exit_decision_ns": 1750938160215952956,
+          "last_covered_exit_decision_ns": 1750939119565952954,
+          "opportunity_id": "opportunity-89aa37a3c63f15d78af700a249fdb10531f2926e74317eb68cb284fddc8fead5",
+          "original_end_ns": 1750939120115952955,
+          "window_content_sha256": "f111e661c502309bb85a948ab604d639024d5d94a82fe0b0748fdbd31784de8a"
+        },
+        {
+          "first_possible_exit_decision_ns": 1750938236791473153,
+          "last_covered_exit_decision_ns": 1750939196141473151,
+          "opportunity_id": "opportunity-a9a1f0e32a7aaabe58eacd500185b2c6b82593008f816456a0d6c4dac59009ef",
+          "original_end_ns": 1750939196691473152,
+          "window_content_sha256": "045847e006915a621bc5fa436272e0a472d3def1faae091141b127c943502ed2"
+        },
+        {
+          "first_possible_exit_decision_ns": 1750938242785067983,
+          "last_covered_exit_decision_ns": 1750939202135067981,
+          "opportunity_id": "opportunity-c061b0f53b05b1bc91477657b67a94a5130777717ebfeb08cce756ef00aa8cfd",
+          "original_end_ns": 1750939202685067982,
+          "window_content_sha256": "783183fc7c3832dffc74cf951a71aa1ed2f555b58f9130e72fcf96d3035334cc"
+        },
+        {
+          "first_possible_exit_decision_ns": 1750940340983087999,
+          "last_covered_exit_decision_ns": 1750941300333087997,
+          "opportunity_id": "opportunity-10d7d7b84f39328cb5ae9941ace31ef1042664a68bebdd5925ea392cc499b5e6",
+          "original_end_ns": 1750941300883087998,
+          "window_content_sha256": "57845debdf8970381f7dc5067243a829fe621ccf231e2dc9c5f8896a86f3149b"
+        },
+        {
+          "first_possible_exit_decision_ns": 1750942442931645008,
+          "last_covered_exit_decision_ns": 1750943402281645006,
+          "opportunity_id": "opportunity-ff82ada1d2d7786d9e7befee413e6b46719cd1037e1f5afb3e7a08135251211a",
+          "original_end_ns": 1750943402831645007,
+          "window_content_sha256": "f2a8c596f6c9f1f6e70d719a21994f7204469107d50602b8eba48e1dcf851e3c"
+        },
+        {
+          "first_possible_exit_decision_ns": 1750943864601733934,
+          "last_covered_exit_decision_ns": 1750944823951733932,
+          "opportunity_id": "opportunity-a0b87916f97de7d785f0a39a2b70df9bcb6a60861aaf2e2a9b6a323bbdcfaa82",
+          "original_end_ns": 1750944824501733933,
+          "window_content_sha256": "1976e203b6998cd7bb1700eb1643fc7ad94bb8d132ab801dc96457e303df961a"
+        },
+        {
+          "first_possible_exit_decision_ns": 1750943992545083212,
+          "last_covered_exit_decision_ns": 1750944951895083210,
+          "opportunity_id": "opportunity-d7c94da27db5d6d1f257a9dd43e76e6d3c74a697a5e90d8e2cc98f41a1a62a3f",
+          "original_end_ns": 1750944952445083211,
+          "window_content_sha256": "16aa194f7967d47cd89ade880858925e8d9a8d1a0bee42061510f480c1e62f55"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "5d74c6dc9e6f280651428c9d801548a7cb9cabf8dbacc99f11748226af7d798a",
+        "48a104888a23dd3347f1f94346e6b1f66e8476c1ae95b5bbd85542759ecde33b"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1750944952445083211,
+          "request_id": "2025-06-26-CYN-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1750936554579090590,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "CYN"
+          ],
+          "trading_date": "2025-06-26"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1750944952445083211,
+          "request_id": "2025-06-26-CYN-status",
+          "schema": "status",
+          "start_ns": 1750896000000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "CYN"
+          ],
+          "trading_date": "2025-06-26"
+        }
+      ],
+      "required_end_ns": 1750944952445083211,
+      "required_quote_start_ns": 1750936554579090590,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "CYN",
+      "trading_date": "2025-06-26"
+    },
+    {
+      "content_sha256": "e562ffb2cbcaa6bee88f1e89c2da12ff9c1229709aae40eb3deadde12c0e5a8e",
+      "group_id": "2025-06-27-BBLG-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1751022513995213361,
+          "last_covered_exit_decision_ns": 1751023473345213359,
+          "opportunity_id": "opportunity-a8ddfe12c54f8e0529922f02db1419fadef9378e8c7a005e5237e77cfed22385",
+          "original_end_ns": 1751023473895213360,
+          "window_content_sha256": "f0faa6ae3892b6e043f85e028e2940eeb8e26dca79d809bdf5ebc5a6873d5c09"
+        },
+        {
+          "first_possible_exit_decision_ns": 1751022559048937527,
+          "last_covered_exit_decision_ns": 1751023518398937525,
+          "opportunity_id": "opportunity-dd8b561408b6a0bc20252f74201c8e76a0ccc733441fce53511105cc96573b0d",
+          "original_end_ns": 1751023518948937526,
+          "window_content_sha256": "6f6e5d38c1345fe6b79e6e4c421a7fde5a3991b84d73b14a5be5a66563877d6c"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "9ad80c47c54a8e227e4cb3b57d6f960e759d91d10cb18d21dea1bfe35b1de332",
+        "e71fe41c406f0f7f8cf3b2a62e7294a342e7fd10dd008307069ad19e14406de5"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751023518948937526,
+          "request_id": "2025-06-27-BBLG-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1751022513795213360,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "BBLG"
+          ],
+          "trading_date": "2025-06-27"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751023518948937526,
+          "request_id": "2025-06-27-BBLG-status",
+          "schema": "status",
+          "start_ns": 1750982400000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "BBLG"
+          ],
+          "trading_date": "2025-06-27"
+        }
+      ],
+      "required_end_ns": 1751023518948937526,
+      "required_quote_start_ns": 1751022513795213360,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "BBLG",
+      "trading_date": "2025-06-27"
+    },
+    {
+      "content_sha256": "d25a77e04b669f01eedeb382ffb4cafc10b5bc189daa29b558f95bf9140abe8d",
+      "group_id": "2025-06-27-LCFY-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1751028254534543675,
+          "last_covered_exit_decision_ns": 1751029213884543673,
+          "opportunity_id": "opportunity-557a3a35cf39f0d9444b77ca1d9de0c932dbfe48d235bf7f3e81ded809cd1e6a",
+          "original_end_ns": 1751029214434543674,
+          "window_content_sha256": "f757e9810256120056d4d270a4dbf42fc29d1284bb949e38776f8c67c95f6761"
+        },
+        {
+          "first_possible_exit_decision_ns": 1751029541575389534,
+          "last_covered_exit_decision_ns": 1751030500925389532,
+          "opportunity_id": "opportunity-4987f32a6e58a92eeed2b12a2fc2dcbce3243056d80f9bd71cf28ef4ed668910",
+          "original_end_ns": 1751030501475389533,
+          "window_content_sha256": "47df8f063bce6fd661d3c5a53e2d721eccb97b8215456a29a361bb61bbdbb4e3"
+        },
+        {
+          "first_possible_exit_decision_ns": 1751029541575389534,
+          "last_covered_exit_decision_ns": 1751030500925389532,
+          "opportunity_id": "opportunity-b253a2bdb9eec02e5b78ab63594cbfcb7945704b54651e04f21da8be423ca981",
+          "original_end_ns": 1751030501475389533,
+          "window_content_sha256": "4d400dd70890f0d7d3ea3ee6276917f6353c69722756ccee79c2cb13f7ad9cca"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "86d35ddaed39733531c2b792d3c40a8effdb73ddc5d2c4715914b8cf14786caf",
+        "1b2529a14c9b21ed5a443ef6ca77320efac53bb936a3848434ca1944f8f87585"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751030501475389533,
+          "request_id": "2025-06-27-LCFY-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1751028254334543674,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "LCFY"
+          ],
+          "trading_date": "2025-06-27"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751030501475389533,
+          "request_id": "2025-06-27-LCFY-status",
+          "schema": "status",
+          "start_ns": 1750982400000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "LCFY"
+          ],
+          "trading_date": "2025-06-27"
+        }
+      ],
+      "required_end_ns": 1751030501475389533,
+      "required_quote_start_ns": 1751028254334543674,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "LCFY",
+      "trading_date": "2025-06-27"
+    },
+    {
+      "content_sha256": "a86359fd1cf3583c2644d1087cbdfddae2aac23370bce8af8db1883a22eb13de",
+      "group_id": "2025-07-01-CLRO-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1751367800535229559,
+          "last_covered_exit_decision_ns": 1751368759885229557,
+          "opportunity_id": "opportunity-f820eef2000f1d136c99c54cbad25348040b2f3c6dae8f204a8e65af2989deb9",
+          "original_end_ns": 1751368760435229558,
+          "window_content_sha256": "052a58300317fcff02c6362976139c71d21894237b2020f3c712930c8b7a066a"
+        },
+        {
+          "first_possible_exit_decision_ns": 1751367811706311011,
+          "last_covered_exit_decision_ns": 1751368771056311009,
+          "opportunity_id": "opportunity-2ca0a9667f6453f8780501a8fe9e5d06e5772e684de095f2d1e6f288ec742851",
+          "original_end_ns": 1751368771606311010,
+          "window_content_sha256": "4fdbdcef509edab8d3133949cd7f790794481921cce65472e9525f7f1a661415"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "6b26b2187d210a05893300bcacd6ef28792189135b8e490039f3a431ee9ff2d8",
+        "45e53af9955c53fe8ff987322e047e06172463f95ea4d71d10767031e72edda9"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751368771606311010,
+          "request_id": "2025-07-01-CLRO-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1751367800335229558,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "CLRO"
+          ],
+          "trading_date": "2025-07-01"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751368771606311010,
+          "request_id": "2025-07-01-CLRO-status",
+          "schema": "status",
+          "start_ns": 1751328000000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "CLRO"
+          ],
+          "trading_date": "2025-07-01"
+        }
+      ],
+      "required_end_ns": 1751368771606311010,
+      "required_quote_start_ns": 1751367800335229558,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "CLRO",
+      "trading_date": "2025-07-01"
+    },
+    {
+      "content_sha256": "86cdc49e0c872af4e95818609c44ed7380119f49d48f4316e7206717a8cf152f",
+      "group_id": "2025-07-01-GPUS-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1751368917868904511,
+          "last_covered_exit_decision_ns": 1751369877218904509,
+          "opportunity_id": "opportunity-a5c7bb3e02b05f02ccf1122c31177c17d19e16384d9d7dcfc120c24fd4950bb6",
+          "original_end_ns": 1751369877768904510,
+          "window_content_sha256": "bb950fd1d11a3c787cfff2e76267cff96c50353d58363b9913199d38adc69821"
+        },
+        {
+          "first_possible_exit_decision_ns": 1751368926877924111,
+          "last_covered_exit_decision_ns": 1751369886227924109,
+          "opportunity_id": "opportunity-c89d6df20f20732a2de2e6852c91eb848a0292d68a5ca47fa39b8204dd5b6dc3",
+          "original_end_ns": 1751369886777924110,
+          "window_content_sha256": "e61ecb04198724b59f5d3663d77b9cd4ac8bf60e484eef60b739a0308d83ad84"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "009127aefa10cfea8b000ce4f59f47f7eacb9165075b7fcdb1f2b97d3febe12e",
+        "425e0f3753af566b5af1806b308839885d12f5f610d5959c7f986a0fd4b68178"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751369886777924110,
+          "request_id": "2025-07-01-GPUS-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1751368917668904510,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "GPUS"
+          ],
+          "trading_date": "2025-07-01"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751369886777924110,
+          "request_id": "2025-07-01-GPUS-status",
+          "schema": "status",
+          "start_ns": 1751328000000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "GPUS"
+          ],
+          "trading_date": "2025-07-01"
+        }
+      ],
+      "required_end_ns": 1751369886777924110,
+      "required_quote_start_ns": 1751368917668904510,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "GPUS",
+      "trading_date": "2025-07-01"
+    },
+    {
+      "content_sha256": "68619784720b9bd20aae0ddc89151f9b47a4b326081af4bfa4d93341fcf240a1",
+      "group_id": "2025-07-01-TRNR-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1751372416308395999,
+          "last_covered_exit_decision_ns": 1751373375658395997,
+          "opportunity_id": "opportunity-876a66efd13231073d91dbb0d0200869c38ce6dd8322b10e580155e1b5100826",
+          "original_end_ns": 1751373376208395998,
+          "window_content_sha256": "baa5140765c2880e565ef7279b2debf2b2f849d76d6619dbebb515142ad82cca"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "ed7b559a9886151d7fef962ac846f9de17bc12e8a22bd4f9e505debf4f611cec",
+        "e4a0dd9852e87edcec66f490d88553e151035a8f963d88cdb9415d28d1ccdc80"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751373376208395998,
+          "request_id": "2025-07-01-TRNR-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1751372416108395998,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "TRNR"
+          ],
+          "trading_date": "2025-07-01"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751373376208395998,
+          "request_id": "2025-07-01-TRNR-status",
+          "schema": "status",
+          "start_ns": 1751328000000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "TRNR"
+          ],
+          "trading_date": "2025-07-01"
+        }
+      ],
+      "required_end_ns": 1751373376208395998,
+      "required_quote_start_ns": 1751372416108395998,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "TRNR",
+      "trading_date": "2025-07-01"
+    },
+    {
+      "content_sha256": "cfc32133a63386986918ea93e3ae11548a6555f83d43e6b6c77a8c74cacb54d1",
+      "group_id": "2025-07-02-CYN-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1751463769587731149,
+          "last_covered_exit_decision_ns": 1751464728937731147,
+          "opportunity_id": "opportunity-1753bfcb67e0459da3c2bf61b4080f5f75942d6582e2dde215a9642cd5b9702b",
+          "original_end_ns": 1751464729487731148,
+          "window_content_sha256": "e50f9049446a4d5e3a0ec4aef8426083047d24b1e11793534f55fa20aa25d6a9"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "1f1391b82cca3108c55b77606f5f773cdecf55052fe86f97a4d7b66e67ad5dd5",
+        "50bd97076405013557e35296c3f5fb3bac81728df832274c4bca0794472c5992"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751464729487731148,
+          "request_id": "2025-07-02-CYN-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1751463769387731148,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "CYN"
+          ],
+          "trading_date": "2025-07-02"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751464729487731148,
+          "request_id": "2025-07-02-CYN-status",
+          "schema": "status",
+          "start_ns": 1751414400000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "CYN"
+          ],
+          "trading_date": "2025-07-02"
+        }
+      ],
+      "required_end_ns": 1751464729487731148,
+      "required_quote_start_ns": 1751463769387731148,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "CYN",
+      "trading_date": "2025-07-02"
+    },
+    {
+      "content_sha256": "1542b267e91570246ac85fe658ee1810b0a7466d73db987ae9505275ab1b38bf",
+      "group_id": "2025-07-02-ELWS-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1751456891615784761,
+          "last_covered_exit_decision_ns": 1751457850965784759,
+          "opportunity_id": "opportunity-80e83bdc5481a489d4740a6bf0606fea19831c7fe54b15922674ed899dd98aba",
+          "original_end_ns": 1751457851515784760,
+          "window_content_sha256": "1270d009d122b11421c28a0de4e8aa598d227396e728c983ca23c237bab5f7d7"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "f8d808a0053a72e7d945c866cf4d9610f485ec1cffb7d8d30f06a153efaee822",
+        "b8442c4b857fd5e5db70f53cbdaa8c173fb38254f126c15e38b76976e6f5db6e"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751457851515784760,
+          "request_id": "2025-07-02-ELWS-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1751456891415784760,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "ELWS"
+          ],
+          "trading_date": "2025-07-02"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751457851515784760,
+          "request_id": "2025-07-02-ELWS-status",
+          "schema": "status",
+          "start_ns": 1751414400000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "ELWS"
+          ],
+          "trading_date": "2025-07-02"
+        }
+      ],
+      "required_end_ns": 1751457851515784760,
+      "required_quote_start_ns": 1751456891415784760,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "ELWS",
+      "trading_date": "2025-07-02"
+    },
+    {
+      "content_sha256": "ec9b4dda6e38b49909a73abfba8b60c3cf1a86e8ad6702184b2f92f5800f97c8",
+      "group_id": "2025-07-02-LIXT-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1751464028981827632,
+          "last_covered_exit_decision_ns": 1751464988331827630,
+          "opportunity_id": "opportunity-46c3267d535e9a46f9a9597d000b27cefa5f2c887e54eea3db1590c069a57a3e",
+          "original_end_ns": 1751464988881827631,
+          "window_content_sha256": "364b0ae6df425c84711a0ca9b9b3b5802ce973acc02d590c118159d372d5bd40"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "fe0c94fa0140c83b440df8966ac1bfb4d54e2aaa1a7cc660862a6758226b8676",
+        "97280d5fb7a49983cf5123036d97fa789d57d94b5be53fa6546212cb936b7dd7"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751464988881827631,
+          "request_id": "2025-07-02-LIXT-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1751464028781827631,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "LIXT"
+          ],
+          "trading_date": "2025-07-02"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751464988881827631,
+          "request_id": "2025-07-02-LIXT-status",
+          "schema": "status",
+          "start_ns": 1751414400000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "LIXT"
+          ],
+          "trading_date": "2025-07-02"
+        }
+      ],
+      "required_end_ns": 1751464988881827631,
+      "required_quote_start_ns": 1751464028781827631,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "LIXT",
+      "trading_date": "2025-07-02"
+    },
+    {
+      "content_sha256": "d35b1220077b93c7853a5489df5e9e9349b645a5b28b7a84382cf1f4b8811827",
+      "group_id": "2025-07-02-NTRB-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1751463289821991868,
+          "last_covered_exit_decision_ns": 1751464249171991866,
+          "opportunity_id": "opportunity-28e5b8cfa0a2cb3f7660a8c869f7066100a25d002e6635c7065556c0c78b84a7",
+          "original_end_ns": 1751464249721991867,
+          "window_content_sha256": "c1c1d7d6c55495f9ccf194862ef199675b7857b5b582c593c455bc475c75424f"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "ccb6690080edc1ea1f353aab595ee2a39677d08756281bb6f1d6a4918737b02b",
+        "7e3d05022c1d27f01346e03fb705557fc770cab89a95a70bfe12fd38eeeecc4b"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751464249721991867,
+          "request_id": "2025-07-02-NTRB-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1751463289621991867,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "NTRB"
+          ],
+          "trading_date": "2025-07-02"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751464249721991867,
+          "request_id": "2025-07-02-NTRB-status",
+          "schema": "status",
+          "start_ns": 1751414400000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "NTRB"
+          ],
+          "trading_date": "2025-07-02"
+        }
+      ],
+      "required_end_ns": 1751464249721991867,
+      "required_quote_start_ns": 1751463289621991867,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "NTRB",
+      "trading_date": "2025-07-02"
+    },
+    {
+      "content_sha256": "a32f5ae8d45e9e9366b726830a6f2ffc37c73410d9e2db7e2ec075bd97960591",
+      "group_id": "2025-07-07-CYCC-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1751893610668081707,
+          "last_covered_exit_decision_ns": 1751894570018081705,
+          "opportunity_id": "opportunity-b5f51d03ae46e2bfd44805ef8dd741c4400b734589fd62b4b8f8c02a565bd108",
+          "original_end_ns": 1751894570568081706,
+          "window_content_sha256": "7e5bc2c38ba1b27438eddf2d91c535ab73405fa81b890e902f3c196ced3e36fa"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "ac56f7b258d65830ecee3b7fc77aae3c0ee78ed1b71b0c4223c3682e149f6799",
+        "eb023e9e551e0d9b80634b267dbf5ac909feb15c960de50a276b4fe0e77f7f98"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751894570568081706,
+          "request_id": "2025-07-07-CYCC-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1751893610468081706,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "CYCC"
+          ],
+          "trading_date": "2025-07-07"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751894570568081706,
+          "request_id": "2025-07-07-CYCC-status",
+          "schema": "status",
+          "start_ns": 1751846400000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "CYCC"
+          ],
+          "trading_date": "2025-07-07"
+        }
+      ],
+      "required_end_ns": 1751894570568081706,
+      "required_quote_start_ns": 1751893610468081706,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "CYCC",
+      "trading_date": "2025-07-07"
+    },
+    {
+      "content_sha256": "6f8772631cfedf5b35e8604caf06d145096441feaabdc4fa6bbc347cf98abaf8",
+      "group_id": "2025-07-07-MBIO-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1751893273511038476,
+          "last_covered_exit_decision_ns": 1751894232861038474,
+          "opportunity_id": "opportunity-92633cb3065581024c010292a9de5ffda0085b79cd52adfa5f037e01ca05e695",
+          "original_end_ns": 1751894233411038475,
+          "window_content_sha256": "e777a74f26bf403a511eae81c3050cfc66f7320f1f398d1c41dcdfb64dfecde4"
+        },
+        {
+          "first_possible_exit_decision_ns": 1751895926213575282,
+          "last_covered_exit_decision_ns": 1751896885563575280,
+          "opportunity_id": "opportunity-739d06eb38f8da22341413545bd9c32de95d2c7a63731812cbd540b1414fa387",
+          "original_end_ns": 1751896886113575281,
+          "window_content_sha256": "6017cc11bb3ce37cc74126c461d1617290b574f4bab84e7995f7c4b34cb06faa"
+        },
+        {
+          "first_possible_exit_decision_ns": 1751895926213575282,
+          "last_covered_exit_decision_ns": 1751896885563575280,
+          "opportunity_id": "opportunity-83875cb541800ceed2a527f9e7059487b5c3b2ac5dc6572cfb0357e9fa752abe",
+          "original_end_ns": 1751896886113575281,
+          "window_content_sha256": "9a8d1daf391970122aa135ccba389b4960d5a1796f780b66c05285b18e7c13c6"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "c74aca1e7db60ae73e275799c8a910a56b42f1cc18e5091c230497896516a016",
+        "eb76aa684d163676dee699b4bfa968d9f1adcd14d517a5b6526c2fc746d6e2e5"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751896886113575281,
+          "request_id": "2025-07-07-MBIO-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1751893273311038475,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "MBIO"
+          ],
+          "trading_date": "2025-07-07"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751896886113575281,
+          "request_id": "2025-07-07-MBIO-status",
+          "schema": "status",
+          "start_ns": 1751846400000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "MBIO"
+          ],
+          "trading_date": "2025-07-07"
+        }
+      ],
+      "required_end_ns": 1751896886113575281,
+      "required_quote_start_ns": 1751893273311038475,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "MBIO",
+      "trading_date": "2025-07-07"
+    },
+    {
+      "content_sha256": "b78ea4203ca88fd39feb2b10e74a85a627ef615e4b4dc7ad28efbd85e769f305",
+      "group_id": "2025-07-08-IROH-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1751980303714703183,
+          "last_covered_exit_decision_ns": 1751981263064703181,
+          "opportunity_id": "opportunity-3a7d9c83b787c25f32f9eb28107aa999247a7f1cac5e7ff0c7743b4d411e2ca6",
+          "original_end_ns": 1751981263614703182,
+          "window_content_sha256": "74b2bb52354c849ba1bcc5fde675397ae81c4eacf9e6f568b3f31eb0f32141f4"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "d354d5987a99e0e20dcbfcd7919e964e58b05c63bb66f3270ad881aa0d6a0878",
+        "91903a5c669b9905d800349cc150efa116f7d770922c7320a106ad172e11a7e7"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751981263614703182,
+          "request_id": "2025-07-08-IROH-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1751980303514703182,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "IROH"
+          ],
+          "trading_date": "2025-07-08"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751981263614703182,
+          "request_id": "2025-07-08-IROH-status",
+          "schema": "status",
+          "start_ns": 1751932800000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "IROH"
+          ],
+          "trading_date": "2025-07-08"
+        }
+      ],
+      "required_end_ns": 1751981263614703182,
+      "required_quote_start_ns": 1751980303514703182,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "IROH",
+      "trading_date": "2025-07-08"
+    },
+    {
+      "content_sha256": "452a7b47431cb4651fbb736be5ece1695c8bd1fb764e88f66a6c47f052eeb18e",
+      "group_id": "2025-07-08-NDRA-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1751975204005033625,
+          "last_covered_exit_decision_ns": 1751976163355033623,
+          "opportunity_id": "opportunity-2dfae36064709995883e5e72267b61db8fbc4c54cbd194de07d1bd773bac7ac2",
+          "original_end_ns": 1751976163905033624,
+          "window_content_sha256": "5b9bedb6ff99b66412359e639820e040f26989c6553edccb25b0056de8135c06"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "ffc641465359084746fc054504f7a14fd332613dbbd1fc87f0c46bf68ff44f97",
+        "58d67b9f77eaf6cd434cc6414d5d0a0afcc253f8ce52ef0fc085f736e50f87b8"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751976163905033624,
+          "request_id": "2025-07-08-NDRA-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1751975203805033624,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "NDRA"
+          ],
+          "trading_date": "2025-07-08"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1751976163905033624,
+          "request_id": "2025-07-08-NDRA-status",
+          "schema": "status",
+          "start_ns": 1751932800000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "NDRA"
+          ],
+          "trading_date": "2025-07-08"
+        }
+      ],
+      "required_end_ns": 1751976163905033624,
+      "required_quote_start_ns": 1751975203805033624,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "NDRA",
+      "trading_date": "2025-07-08"
+    },
+    {
+      "content_sha256": "5ad52962df8c5d48c66d92213f1fb17bb0b93bab570ec5d956b660cb0334b207",
+      "group_id": "2025-07-10-DALN-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1752149197772330601,
+          "last_covered_exit_decision_ns": 1752150157122330599,
+          "opportunity_id": "opportunity-0e2e379d84608b215c3f1f99e9881a45cc3d61740f7d89664e14d1e5f0f2a2df",
+          "original_end_ns": 1752150157672330600,
+          "window_content_sha256": "3bc0b848534e3ae0f3f5b58ddfefd96b5aa9e07d540407c37a2b029e7f7d0458"
+        },
+        {
+          "first_possible_exit_decision_ns": 1752149201554315956,
+          "last_covered_exit_decision_ns": 1752150160904315954,
+          "opportunity_id": "opportunity-f5df05b6c29c968792d00b68d7a1f7421ea65238ea460d1036ea567bd5b484ee",
+          "original_end_ns": 1752150161454315955,
+          "window_content_sha256": "4522201962d16c6da0e3702fbf4b1343f3fa1d5ba299149aa7cef176a8368a0a"
+        },
+        {
+          "first_possible_exit_decision_ns": 1752149365860499208,
+          "last_covered_exit_decision_ns": 1752150325210499206,
+          "opportunity_id": "opportunity-7b5ab00a4b03e4046dc47bf763fd87739d5fa3ad0442c34c90535bd0bad5c04a",
+          "original_end_ns": 1752150325760499207,
+          "window_content_sha256": "214fcd1261f7fffece7f87f79e4d0b3c8e52deded0cc5ed34e03ddf1c4a82a18"
+        },
+        {
+          "first_possible_exit_decision_ns": 1752149404351277683,
+          "last_covered_exit_decision_ns": 1752150363701277681,
+          "opportunity_id": "opportunity-980f3cdbe8ac70f75d557e5281e6c3d84684b1b098d976f8d177149333df590c",
+          "original_end_ns": 1752150364251277682,
+          "window_content_sha256": "823a5ca13b8b3db666e3dd010542e82032d2a8f30bcfe10b20fe11b64979c0e0"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "43223a2608553c0ba2912e617483e879f7ff5bd3c24a08e3517338267e968583",
+        "9e5cfbce6cf8ac5237168f092eb2a180db204a22eb40718f8548ff03a265cbab"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752150364251277682,
+          "request_id": "2025-07-10-DALN-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1752149197572330600,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "DALN"
+          ],
+          "trading_date": "2025-07-10"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752150364251277682,
+          "request_id": "2025-07-10-DALN-status",
+          "schema": "status",
+          "start_ns": 1752105600000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "DALN"
+          ],
+          "trading_date": "2025-07-10"
+        }
+      ],
+      "required_end_ns": 1752150364251277682,
+      "required_quote_start_ns": 1752149197572330600,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "DALN",
+      "trading_date": "2025-07-10"
+    },
+    {
+      "content_sha256": "fb5f0ca66bf64009286d0dd93388c99757dd0ec01b3b83cbdc962d95481e1e7b",
+      "group_id": "2025-07-11-HOLO-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1752237882273547225,
+          "last_covered_exit_decision_ns": 1752238841623547223,
+          "opportunity_id": "opportunity-8b2d6776e126921fa9c54c8352bd8a0ab7b11ea6b53190ff8724be77a61bc0ee",
+          "original_end_ns": 1752238842173547224,
+          "window_content_sha256": "be148b57da5c1f96637ab9e3df95b805601b4211b91a72e1d707802ef7c91849"
+        },
+        {
+          "first_possible_exit_decision_ns": 1752237969746815628,
+          "last_covered_exit_decision_ns": 1752238929096815626,
+          "opportunity_id": "opportunity-b5a49fefe2c7c64e7efd043c368fec92eb9d3b59fbf38144da62f006b408452d",
+          "original_end_ns": 1752238929646815627,
+          "window_content_sha256": "f93c5c08c1c016087ab2f2ff3527be8cce64e287f4057e001ab180f205bf90e0"
+        },
+        {
+          "first_possible_exit_decision_ns": 1752238014279584998,
+          "last_covered_exit_decision_ns": 1752238973629584996,
+          "opportunity_id": "opportunity-28c7b00a41cd313d715c076721af4c23523d19a31209568584152a64b8860a2a",
+          "original_end_ns": 1752238974179584997,
+          "window_content_sha256": "7eca65c82242f219f55bd63649530e87c17b5e688111453c70a3b363969f70cc"
+        },
+        {
+          "first_possible_exit_decision_ns": 1752238022162476437,
+          "last_covered_exit_decision_ns": 1752238981512476435,
+          "opportunity_id": "opportunity-e869e7d21750ff3ebfa40b65bb2eb99f53e6d85fce1d7aa20bed4ebd06db6988",
+          "original_end_ns": 1752238982062476436,
+          "window_content_sha256": "4166d8bdc200ce210ac1e2ff8ba33dc193a639afccdb9499f6c40d2aa8ee1bb6"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "ff8cd4a748da189383e24914f4cbbe3e5f1f9e30187b48f2139b96d83d2e84c4",
+        "246d5b3a5bd4e25529ba9749549100e56a5940c5c2e1dcaf1065be22eb49ed4c"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752238982062476436,
+          "request_id": "2025-07-11-HOLO-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1752237882073547224,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "HOLO"
+          ],
+          "trading_date": "2025-07-11"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752238982062476436,
+          "request_id": "2025-07-11-HOLO-status",
+          "schema": "status",
+          "start_ns": 1752192000000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "HOLO"
+          ],
+          "trading_date": "2025-07-11"
+        }
+      ],
+      "required_end_ns": 1752238982062476436,
+      "required_quote_start_ns": 1752237882073547224,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "HOLO",
+      "trading_date": "2025-07-11"
+    },
+    {
+      "content_sha256": "a6c5ab8065b83c2a7ae4feb047f1ef2333e0fe687a5acf895f70642731966903",
+      "group_id": "2025-07-11-SGN-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1752231643093674401,
+          "last_covered_exit_decision_ns": 1752232602443674399,
+          "opportunity_id": "opportunity-f497c1a6f2d86b4242e80d270ee487ebd06482a9a7e45f197ae3faedb70f4ea5",
+          "original_end_ns": 1752232602993674400,
+          "window_content_sha256": "004f5c8caf7d71206279b62bb367873ca52219c19d5e48ff38a9505740f86410"
+        },
+        {
+          "first_possible_exit_decision_ns": 1752231681402204350,
+          "last_covered_exit_decision_ns": 1752232640752204348,
+          "opportunity_id": "opportunity-2007516d5f50db8d5d5ea4da0421debee1cec0c2445f99bef18a96112892dc19",
+          "original_end_ns": 1752232641302204349,
+          "window_content_sha256": "847e62080949e866201389226b23c290cfcb2f353bfe0ef8a5f739331b88c4a6"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "4e7c093932bf488ff8c1a262dea3090b470c5ae2050160321675044ca73da304",
+        "03d565a6ba50ffebaf9dd10a78d67ae855aa2d248a619da2004e97a37e026d20"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752232641302204349,
+          "request_id": "2025-07-11-SGN-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1752231642893674400,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "SGN"
+          ],
+          "trading_date": "2025-07-11"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752232641302204349,
+          "request_id": "2025-07-11-SGN-status",
+          "schema": "status",
+          "start_ns": 1752192000000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "SGN"
+          ],
+          "trading_date": "2025-07-11"
+        }
+      ],
+      "required_end_ns": 1752232641302204349,
+      "required_quote_start_ns": 1752231642893674400,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "SGN",
+      "trading_date": "2025-07-11"
+    },
+    {
+      "content_sha256": "529d3281e88032f852158604023913c810725dd48e1995805a54b7b21d31bb29",
+      "group_id": "2025-07-14-DARE-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1752494850177827402,
+          "last_covered_exit_decision_ns": 1752495809527827400,
+          "opportunity_id": "opportunity-38c5af3fa5d3447cce6f56d75da34824ed0fdb45eb93d787f50231294fa32817",
+          "original_end_ns": 1752495810077827401,
+          "window_content_sha256": "b132e09b5280884a001db22f243447ade14f1ae980bbdb531b1fe60352a92f6e"
+        },
+        {
+          "first_possible_exit_decision_ns": 1752494870167655586,
+          "last_covered_exit_decision_ns": 1752495829517655584,
+          "opportunity_id": "opportunity-be1532dbc68163427e21f5dac625c235642ecea8cd3306ec0e7f79b6da285cae",
+          "original_end_ns": 1752495830067655585,
+          "window_content_sha256": "b7330fbb46345ce38f9a76c1b53b523d169620fb9ea9f61f7d4d3894ae0c895e"
+        },
+        {
+          "first_possible_exit_decision_ns": 1752494881185731028,
+          "last_covered_exit_decision_ns": 1752495840535731026,
+          "opportunity_id": "opportunity-b8313ec508709f53ea247adc8044b3c5b8c58c110e340950e71c3331c943d348",
+          "original_end_ns": 1752495841085731027,
+          "window_content_sha256": "0f9df4aac3ebb1c3ea6973488fd3fd369f4c665eb3be18197fc034c6bec191b1"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "86315ae193db3ffb162b3039b8cadb2d3aef341fdc2c24619c68f9f77740bbdb",
+        "360e13149f42838ea756702c53ef5c15125faee368300292b299a6d4419fe877"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752495841085731027,
+          "request_id": "2025-07-14-DARE-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1752494849977827401,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "DARE"
+          ],
+          "trading_date": "2025-07-14"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752495841085731027,
+          "request_id": "2025-07-14-DARE-status",
+          "schema": "status",
+          "start_ns": 1752451200000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "DARE"
+          ],
+          "trading_date": "2025-07-14"
+        }
+      ],
+      "required_end_ns": 1752495841085731027,
+      "required_quote_start_ns": 1752494849977827401,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "DARE",
+      "trading_date": "2025-07-14"
+    },
+    {
+      "content_sha256": "be11a6c52b257c04eae54c6965bba65768e83e7fcb3f6ccbe1869a00376ba312",
+      "group_id": "2025-07-14-SONN-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1752490957692881655,
+          "last_covered_exit_decision_ns": 1752491917042881653,
+          "opportunity_id": "opportunity-99b8378d479af6b7b4886d0022c248f84356458ba59533999cc3d3404348e18b",
+          "original_end_ns": 1752491917592881654,
+          "window_content_sha256": "dc27fc1dd30acecd5e61aba86284c7e1c04af11e1d9781bee51e371539f7954f"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "9de2092c128e387ca306bd1230eb71ccad586ff429b5530265f94333da682754",
+        "dda8adda56c8ac35e281b34ea7920d3ccc1a84a9112e820fe23fcea59ec6cad2"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752491917592881654,
+          "request_id": "2025-07-14-SONN-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1752490957492881654,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "SONN"
+          ],
+          "trading_date": "2025-07-14"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752491917592881654,
+          "request_id": "2025-07-14-SONN-status",
+          "schema": "status",
+          "start_ns": 1752451200000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "SONN"
+          ],
+          "trading_date": "2025-07-14"
+        }
+      ],
+      "required_end_ns": 1752491917592881654,
+      "required_quote_start_ns": 1752490957492881654,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "SONN",
+      "trading_date": "2025-07-14"
+    },
+    {
+      "content_sha256": "61a79089e0b6ddf2c8e7ad5aa0de927965ecf3bddedc0aba5d498d5c4e67aaed",
+      "group_id": "2025-07-14-SQFT-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1752491967173430693,
+          "last_covered_exit_decision_ns": 1752492926523430691,
+          "opportunity_id": "opportunity-eaec04adcd932dd32c940082b2e68cd36f23a157d1810821e30b8f3e69ef3fd5",
+          "original_end_ns": 1752492927073430692,
+          "window_content_sha256": "63a5fa7c07797d0d303a7ba1def0568a8433265ebd2ba3a01ee268ff3e5a5bfa"
+        },
+        {
+          "first_possible_exit_decision_ns": 1752492115481671376,
+          "last_covered_exit_decision_ns": 1752493074831671374,
+          "opportunity_id": "opportunity-e0c2715bc029c3a6bc2c88e2dcf111b2f79120c9c48c13e919e4f1d3fe214125",
+          "original_end_ns": 1752493075381671375,
+          "window_content_sha256": "03fc5d2891406aaac6ab988cf79466f141961f99a4e4a2a4c131a1496aecd31e"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "f7b595e0738ea9e93474100439907c302fd4465c0e0cda1f83725d37df4882eb",
+        "1f6339fa44769fecd255f20d53841d15b87a0464e96587e5600bdfb25520f557"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752493075381671375,
+          "request_id": "2025-07-14-SQFT-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1752491966973430692,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "SQFT"
+          ],
+          "trading_date": "2025-07-14"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752493075381671375,
+          "request_id": "2025-07-14-SQFT-status",
+          "schema": "status",
+          "start_ns": 1752451200000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "SQFT"
+          ],
+          "trading_date": "2025-07-14"
+        }
+      ],
+      "required_end_ns": 1752493075381671375,
+      "required_quote_start_ns": 1752491966973430692,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "SQFT",
+      "trading_date": "2025-07-14"
+    },
+    {
+      "content_sha256": "ffd3c3abe3315741233e11132f00d185c0218d33360c24483e54dfdd305a49d6",
+      "group_id": "2025-07-15-XAGE-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1752580565409819826,
+          "last_covered_exit_decision_ns": 1752581524759819824,
+          "opportunity_id": "opportunity-33f6e9244826e885e6274bfb5fcf716e823cc4d0ec221e5d13f45feefa2d09ff",
+          "original_end_ns": 1752581525309819825,
+          "window_content_sha256": "bb2c01576f35c20865d31cf152d94317e79c5fe507d3512295ace549fd3baaab"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "407885708bd3066a87c67cce7a2a4e69fb80510b403aca3e6268629c14f6b761",
+        "cf5394fa3c2e861d260d67740abd860b8bc686e278c33baf25f56fbd09ed1898"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752586973628965063,
+          "request_id": "2025-07-15-XAGE-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1752580565209819825,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "XAGE"
+          ],
+          "trading_date": "2025-07-15"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752586973628965063,
+          "request_id": "2025-07-15-XAGE-status",
+          "schema": "status",
+          "start_ns": 1752537600000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "XAGE"
+          ],
+          "trading_date": "2025-07-15"
+        }
+      ],
+      "required_end_ns": 1752581525309819825,
+      "required_quote_start_ns": 1752580565209819825,
+      "source_bytes_verified": false,
+      "source_kind": "existing_entry_pair_reuse_requires_exact_byte_verification",
+      "symbol": "XAGE",
+      "trading_date": "2025-07-15"
+    },
+    {
+      "content_sha256": "c2d5f1ccea1c6b38a0ba104180cd4e052c73a0e2b29f417b6ba04074d0393324",
+      "group_id": "2025-07-16-BNRG-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1752669963454677565,
+          "last_covered_exit_decision_ns": 1752670922804677563,
+          "opportunity_id": "opportunity-b067608bdbe292c7991b16b77667a9ccf6bf5055e26e7170309102e916b792e0",
+          "original_end_ns": 1752670923354677564,
+          "window_content_sha256": "7eccfc9f9bbc9e87b8d38e987059bf1e1e8a9583d3f45606cff6f4baf20649f0"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "83b408c35aa8dd5f04e9f4b244169a8a834396345adfcca70c47a6f2e2729dfb",
+        "c6103dd8285ac4d54ff6f568511f2777cb784c595282b1b7f701ed5e0d95c364"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752670923354677564,
+          "request_id": "2025-07-16-BNRG-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1752669963254677564,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "BNRG"
+          ],
+          "trading_date": "2025-07-16"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752670923354677564,
+          "request_id": "2025-07-16-BNRG-status",
+          "schema": "status",
+          "start_ns": 1752624000000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "BNRG"
+          ],
+          "trading_date": "2025-07-16"
+        }
+      ],
+      "required_end_ns": 1752670923354677564,
+      "required_quote_start_ns": 1752669963254677564,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "BNRG",
+      "trading_date": "2025-07-16"
+    },
+    {
+      "content_sha256": "3e654e62d0752ec0b7f2f5df9f93d7602a2c6e223c07f0dde644f58253dffe7a",
+      "group_id": "2025-07-16-INBS-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1752673081532497265,
+          "last_covered_exit_decision_ns": 1752674040882497263,
+          "opportunity_id": "opportunity-d6972836c1cd558b8f1b8ebbfc9d034e858c6c01816060f9607a3b93204a6ecf",
+          "original_end_ns": 1752674041432497264,
+          "window_content_sha256": "1dfcb6b5eb33f06926f58ffb111b9478057ce4e9e921f803213cdb8fc9f5d3bd"
+        },
+        {
+          "first_possible_exit_decision_ns": 1752673129281616192,
+          "last_covered_exit_decision_ns": 1752674088631616190,
+          "opportunity_id": "opportunity-a2ea9144dc08cd0cbb70c6c1ff35b5a97c3dcabddc1440a231ce73e6b9b86908",
+          "original_end_ns": 1752674089181616191,
+          "window_content_sha256": "5053d780c46a8f49a072388c48fce729323567cc5a814b3efa4d870fa9aedfd0"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "1d040c91f21f90e67cbe3d898e21c4b8461e582b78c800f29863f59ae6b0d1cd",
+        "66d6c5f71dfc5c8b8c5ab6d8dfd7076b4a28a2577220f51203dd68e800978049"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752674089181616191,
+          "request_id": "2025-07-16-INBS-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1752673081332497264,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "INBS"
+          ],
+          "trading_date": "2025-07-16"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752674089181616191,
+          "request_id": "2025-07-16-INBS-status",
+          "schema": "status",
+          "start_ns": 1752624000000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "INBS"
+          ],
+          "trading_date": "2025-07-16"
+        }
+      ],
+      "required_end_ns": 1752674089181616191,
+      "required_quote_start_ns": 1752673081332497264,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "INBS",
+      "trading_date": "2025-07-16"
+    },
+    {
+      "content_sha256": "7605f8c12b48e610e6f608c49d1f88bbea1a54736e611337b259518ad4926bb6",
+      "group_id": "2025-07-16-NUWE-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1752663863927787071,
+          "last_covered_exit_decision_ns": 1752664823277787069,
+          "opportunity_id": "opportunity-71d73f73835df5f8291c00f998851a261912775252379a30e823fd68f20e31d3",
+          "original_end_ns": 1752664823827787070,
+          "window_content_sha256": "9b69fc22a988d25a233a2a169d183afa84cb890b6d719c528fd0a6dc139265f8"
+        },
+        {
+          "first_possible_exit_decision_ns": 1752672512635083835,
+          "last_covered_exit_decision_ns": 1752673471985083833,
+          "opportunity_id": "opportunity-1bc6f940dc8a9aaadf7b783b288fb1a2f1dbe3bc2730bc755492a0265b361ed3",
+          "original_end_ns": 1752673472535083834,
+          "window_content_sha256": "1cbedf732e8d49fdb2d9f4c7e2702dd528f440da11a159477b39212e6e6025f3"
+        },
+        {
+          "first_possible_exit_decision_ns": 1752673262942930875,
+          "last_covered_exit_decision_ns": 1752674222292930873,
+          "opportunity_id": "opportunity-dbee54390606c9d21bc5e3678d314a8b6845b7eb0bb92a7ae94f218f4f0e869e",
+          "original_end_ns": 1752674222842930874,
+          "window_content_sha256": "2f373b003873cd7c3e0278ca722e1a8f40b0f7b2e941a72781481dc725f16036"
+        },
+        {
+          "first_possible_exit_decision_ns": 1752673295839063549,
+          "last_covered_exit_decision_ns": 1752674255189063547,
+          "opportunity_id": "opportunity-c7b5fabbc1f5cb25106b3beebb76ac13115c57e5bef5aeca7b6aec1dcf4e6a00",
+          "original_end_ns": 1752674255739063548,
+          "window_content_sha256": "786fe4f18708e9f92163d2d98a8091c1855a235a2eb5c03db12487fadb234908"
+        },
+        {
+          "first_possible_exit_decision_ns": 1752673300137356270,
+          "last_covered_exit_decision_ns": 1752674259487356268,
+          "opportunity_id": "opportunity-2d47d74b1cc8301e8a73efce3800da3cf36f659392810bfe17c1e150d30004b6",
+          "original_end_ns": 1752674260037356269,
+          "window_content_sha256": "b3a00e498c58b3e3dddde3de0e5b03e09893bbb2ee7ac86cbfdbcea9ca277331"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "260990e476f600e4693e14cd3de183e52916a1a488ef949742b37cc08249db40",
+        "f708afc64287e025948e5edcf791c559a9acd2d9513fd5c3be2f944aa0e3b1b1"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752674260037356269,
+          "request_id": "2025-07-16-NUWE-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1752663863727787070,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "NUWE"
+          ],
+          "trading_date": "2025-07-16"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752674260037356269,
+          "request_id": "2025-07-16-NUWE-status",
+          "schema": "status",
+          "start_ns": 1752624000000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "NUWE"
+          ],
+          "trading_date": "2025-07-16"
+        }
+      ],
+      "required_end_ns": 1752674260037356269,
+      "required_quote_start_ns": 1752663863727787070,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "NUWE",
+      "trading_date": "2025-07-16"
+    },
+    {
+      "content_sha256": "477449715db0be0f40c3277b97692b157afde86129a4a47b5f78747b8a7a95ce",
+      "group_id": "2025-07-16-QLGN-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1752669616442347549,
+          "last_covered_exit_decision_ns": 1752670575792347547,
+          "opportunity_id": "opportunity-65fd198a0cb6b73920826c646a338f7d88367ffec9338407e57052ec8efa7b98",
+          "original_end_ns": 1752670576342347548,
+          "window_content_sha256": "ee546aeda9f9c5d7676e8cbe87fd1bc7a3dcbc065662b6491c5c33b39a33888c"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "1ef6fea32cb951ac46db07cd33895dbc1169f3424299f99020d369b3d9611b2d",
+        "c19b64d77462ccf67fca2972060dd3412dc4fbff7f32c35eaea62f2d2d5f30c4"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752670576342347548,
+          "request_id": "2025-07-16-QLGN-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1752669616242347548,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "QLGN"
+          ],
+          "trading_date": "2025-07-16"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752670576342347548,
+          "request_id": "2025-07-16-QLGN-status",
+          "schema": "status",
+          "start_ns": 1752624000000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "QLGN"
+          ],
+          "trading_date": "2025-07-16"
+        }
+      ],
+      "required_end_ns": 1752670576342347548,
+      "required_quote_start_ns": 1752669616242347548,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "QLGN",
+      "trading_date": "2025-07-16"
+    },
+    {
+      "content_sha256": "2237c94698fb8a13589f1419d8c600af6dca5fa25a55cf5d827c31478ff74d10",
+      "group_id": "2025-07-17-WINT-common-management-exit",
+      "members": [
+        {
+          "first_possible_exit_decision_ns": 1752759242469151326,
+          "last_covered_exit_decision_ns": 1752760201819151324,
+          "opportunity_id": "opportunity-6abef48adeb625f99032512b60b91232b96e29fd8f36d41f46344027e0131fac",
+          "original_end_ns": 1752760202369151325,
+          "window_content_sha256": "437041ac763d4bfb980999eea0ffcd9c026dde9d4cf20b4ef49e2df17ce1996c"
+        },
+        {
+          "first_possible_exit_decision_ns": 1752759263691527590,
+          "last_covered_exit_decision_ns": 1752760223041527588,
+          "opportunity_id": "opportunity-3d6017fa54e9c6bd811212ece5b3cf58d940f2f247b2eb009cbe7ca1ce94e73f",
+          "original_end_ns": 1752760223591527589,
+          "window_content_sha256": "dbd5287cca01f3c1978fd79b0de644af03ac1816c4d33e872a03e403f1a4ddc5"
+        }
+      ],
+      "provider_request_authorized": false,
+      "request_content_sha256": [
+        "6b0d943f6711f1b3fda79a35fce5ba0a92445c1f915a728eede7e58f93105318",
+        "bd9792d31ee5e9f8cc79f90fb4279a48b4547f1488312bbf30d7b9f4c6163ff8"
+      ],
+      "requests": [
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752760223591527589,
+          "request_id": "2025-07-17-WINT-mbp-1",
+          "schema": "mbp-1",
+          "start_ns": 1752759242269151325,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "WINT"
+          ],
+          "trading_date": "2025-07-17"
+        },
+        {
+          "dataset": "XNAS.ITCH",
+          "end_exclusive": true,
+          "end_ns": 1752760223591527589,
+          "request_id": "2025-07-17-WINT-status",
+          "schema": "status",
+          "start_ns": 1752710400000000000,
+          "stype_in": "raw_symbol",
+          "symbols": [
+            "WINT"
+          ],
+          "trading_date": "2025-07-17"
+        }
+      ],
+      "required_end_ns": 1752760223591527589,
+      "required_quote_start_ns": 1752759242269151325,
+      "source_bytes_verified": false,
+      "source_kind": "new_pair_requires_quote_and_acquisition",
+      "symbol": "WINT",
+      "trading_date": "2025-07-17"
+    }
+  ],
+  "historical_execution_authorized": false,
+  "management_input_gate_passed": false,
+  "management_projection_executed": false,
+  "metadata_quote_executed": false,
+  "new_request_count": 80,
+  "new_request_list_content_sha256": "973a926e063fda7ec76883dd4297b88c77a06af22fe3bc0618330e98e28825b4",
+  "new_requests": [
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1748610810199660995,
+      "request_id": "2025-05-30-GITS-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1748609843363881835,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "GITS"
+      ],
+      "trading_date": "2025-05-30"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1748610810199660995,
+      "request_id": "2025-05-30-GITS-status",
+      "schema": "status",
+      "start_ns": 1748563200000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "GITS"
+      ],
+      "trading_date": "2025-05-30"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1748863250343383233,
+      "request_id": "2025-06-02-INM-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1748862268031368840,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "INM"
+      ],
+      "trading_date": "2025-06-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1748863250343383233,
+      "request_id": "2025-06-02-INM-status",
+      "schema": "status",
+      "start_ns": 1748822400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "INM"
+      ],
+      "trading_date": "2025-06-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1748864606937229085,
+      "request_id": "2025-06-02-LYRA-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1748862530174801315,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "LYRA"
+      ],
+      "trading_date": "2025-06-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1748864606937229085,
+      "request_id": "2025-06-02-LYRA-status",
+      "schema": "status",
+      "start_ns": 1748822400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "LYRA"
+      ],
+      "trading_date": "2025-06-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749037568888228165,
+      "request_id": "2025-06-04-STSS-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1749036608788228165,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "STSS"
+      ],
+      "trading_date": "2025-06-04"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749037568888228165,
+      "request_id": "2025-06-04-STSS-status",
+      "schema": "status",
+      "start_ns": 1748995200000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "STSS"
+      ],
+      "trading_date": "2025-06-04"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749212004578954510,
+      "request_id": "2025-06-06-VERO-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1749211044478954510,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "VERO"
+      ],
+      "trading_date": "2025-06-06"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749212004578954510,
+      "request_id": "2025-06-06-VERO-status",
+      "schema": "status",
+      "start_ns": 1749168000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "VERO"
+      ],
+      "trading_date": "2025-06-06"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749475311796681807,
+      "request_id": "2025-06-09-SNPX-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1749474351696681807,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "SNPX"
+      ],
+      "trading_date": "2025-06-09"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749475311796681807,
+      "request_id": "2025-06-09-SNPX-status",
+      "schema": "status",
+      "start_ns": 1749427200000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "SNPX"
+      ],
+      "trading_date": "2025-06-09"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749563220005336245,
+      "request_id": "2025-06-10-DPRO-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1749562259729503495,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "DPRO"
+      ],
+      "trading_date": "2025-06-10"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749563220005336245,
+      "request_id": "2025-06-10-DPRO-status",
+      "schema": "status",
+      "start_ns": 1749513600000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "DPRO"
+      ],
+      "trading_date": "2025-06-10"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749557570082832423,
+      "request_id": "2025-06-10-GELS-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1749556424982692669,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "GELS"
+      ],
+      "trading_date": "2025-06-10"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749557570082832423,
+      "request_id": "2025-06-10-GELS-status",
+      "schema": "status",
+      "start_ns": 1749513600000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "GELS"
+      ],
+      "trading_date": "2025-06-10"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749641252309051285,
+      "request_id": "2025-06-11-HSDT-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1749640292209051285,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "HSDT"
+      ],
+      "trading_date": "2025-06-11"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749641252309051285,
+      "request_id": "2025-06-11-HSDT-status",
+      "schema": "status",
+      "start_ns": 1749600000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "HSDT"
+      ],
+      "trading_date": "2025-06-11"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749737460038644945,
+      "request_id": "2025-06-12-XTIA-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1749735843494150998,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "XTIA"
+      ],
+      "trading_date": "2025-06-12"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1749737460038644945,
+      "request_id": "2025-06-12-XTIA-status",
+      "schema": "status",
+      "start_ns": 1749686400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "XTIA"
+      ],
+      "trading_date": "2025-06-12"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750249178400843885,
+      "request_id": "2025-06-18-APVO-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1750248218300843885,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "APVO"
+      ],
+      "trading_date": "2025-06-18"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750249178400843885,
+      "request_id": "2025-06-18-APVO-status",
+      "schema": "status",
+      "start_ns": 1750204800000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "APVO"
+      ],
+      "trading_date": "2025-06-18"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750248238630846629,
+      "request_id": "2025-06-18-RELI-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1750247278530846629,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "RELI"
+      ],
+      "trading_date": "2025-06-18"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750248238630846629,
+      "request_id": "2025-06-18-RELI-status",
+      "schema": "status",
+      "start_ns": 1750204800000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "RELI"
+      ],
+      "trading_date": "2025-06-18"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750686760834591157,
+      "request_id": "2025-06-23-HUSA-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1750676741245333694,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "HUSA"
+      ],
+      "trading_date": "2025-06-23"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750686760834591157,
+      "request_id": "2025-06-23-HUSA-status",
+      "schema": "status",
+      "start_ns": 1750636800000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "HUSA"
+      ],
+      "trading_date": "2025-06-23"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750766582850793751,
+      "request_id": "2025-06-24-INM-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1750765622750793751,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "INM"
+      ],
+      "trading_date": "2025-06-24"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750766582850793751,
+      "request_id": "2025-06-24-INM-status",
+      "schema": "status",
+      "start_ns": 1750723200000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "INM"
+      ],
+      "trading_date": "2025-06-24"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750858849591554835,
+      "request_id": "2025-06-25-GCTK-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1750857889491554835,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "GCTK"
+      ],
+      "trading_date": "2025-06-25"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750858849591554835,
+      "request_id": "2025-06-25-GCTK-status",
+      "schema": "status",
+      "start_ns": 1750809600000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "GCTK"
+      ],
+      "trading_date": "2025-06-25"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750944952445083211,
+      "request_id": "2025-06-26-CYN-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1750936554579090590,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "CYN"
+      ],
+      "trading_date": "2025-06-26"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1750944952445083211,
+      "request_id": "2025-06-26-CYN-status",
+      "schema": "status",
+      "start_ns": 1750896000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "CYN"
+      ],
+      "trading_date": "2025-06-26"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751023518948937526,
+      "request_id": "2025-06-27-BBLG-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751022513795213360,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "BBLG"
+      ],
+      "trading_date": "2025-06-27"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751023518948937526,
+      "request_id": "2025-06-27-BBLG-status",
+      "schema": "status",
+      "start_ns": 1750982400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "BBLG"
+      ],
+      "trading_date": "2025-06-27"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751030501475389533,
+      "request_id": "2025-06-27-LCFY-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751028254334543674,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "LCFY"
+      ],
+      "trading_date": "2025-06-27"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751030501475389533,
+      "request_id": "2025-06-27-LCFY-status",
+      "schema": "status",
+      "start_ns": 1750982400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "LCFY"
+      ],
+      "trading_date": "2025-06-27"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751368771606311010,
+      "request_id": "2025-07-01-CLRO-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751367800335229558,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "CLRO"
+      ],
+      "trading_date": "2025-07-01"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751368771606311010,
+      "request_id": "2025-07-01-CLRO-status",
+      "schema": "status",
+      "start_ns": 1751328000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "CLRO"
+      ],
+      "trading_date": "2025-07-01"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751369886777924110,
+      "request_id": "2025-07-01-GPUS-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751368917668904510,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "GPUS"
+      ],
+      "trading_date": "2025-07-01"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751369886777924110,
+      "request_id": "2025-07-01-GPUS-status",
+      "schema": "status",
+      "start_ns": 1751328000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "GPUS"
+      ],
+      "trading_date": "2025-07-01"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751373376208395998,
+      "request_id": "2025-07-01-TRNR-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751372416108395998,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "TRNR"
+      ],
+      "trading_date": "2025-07-01"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751373376208395998,
+      "request_id": "2025-07-01-TRNR-status",
+      "schema": "status",
+      "start_ns": 1751328000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "TRNR"
+      ],
+      "trading_date": "2025-07-01"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751464729487731148,
+      "request_id": "2025-07-02-CYN-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751463769387731148,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "CYN"
+      ],
+      "trading_date": "2025-07-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751464729487731148,
+      "request_id": "2025-07-02-CYN-status",
+      "schema": "status",
+      "start_ns": 1751414400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "CYN"
+      ],
+      "trading_date": "2025-07-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751457851515784760,
+      "request_id": "2025-07-02-ELWS-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751456891415784760,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "ELWS"
+      ],
+      "trading_date": "2025-07-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751457851515784760,
+      "request_id": "2025-07-02-ELWS-status",
+      "schema": "status",
+      "start_ns": 1751414400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "ELWS"
+      ],
+      "trading_date": "2025-07-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751464988881827631,
+      "request_id": "2025-07-02-LIXT-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751464028781827631,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "LIXT"
+      ],
+      "trading_date": "2025-07-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751464988881827631,
+      "request_id": "2025-07-02-LIXT-status",
+      "schema": "status",
+      "start_ns": 1751414400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "LIXT"
+      ],
+      "trading_date": "2025-07-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751464249721991867,
+      "request_id": "2025-07-02-NTRB-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751463289621991867,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "NTRB"
+      ],
+      "trading_date": "2025-07-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751464249721991867,
+      "request_id": "2025-07-02-NTRB-status",
+      "schema": "status",
+      "start_ns": 1751414400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "NTRB"
+      ],
+      "trading_date": "2025-07-02"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751894570568081706,
+      "request_id": "2025-07-07-CYCC-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751893610468081706,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "CYCC"
+      ],
+      "trading_date": "2025-07-07"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751894570568081706,
+      "request_id": "2025-07-07-CYCC-status",
+      "schema": "status",
+      "start_ns": 1751846400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "CYCC"
+      ],
+      "trading_date": "2025-07-07"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751896886113575281,
+      "request_id": "2025-07-07-MBIO-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751893273311038475,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "MBIO"
+      ],
+      "trading_date": "2025-07-07"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751896886113575281,
+      "request_id": "2025-07-07-MBIO-status",
+      "schema": "status",
+      "start_ns": 1751846400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "MBIO"
+      ],
+      "trading_date": "2025-07-07"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751981263614703182,
+      "request_id": "2025-07-08-IROH-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751980303514703182,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "IROH"
+      ],
+      "trading_date": "2025-07-08"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751981263614703182,
+      "request_id": "2025-07-08-IROH-status",
+      "schema": "status",
+      "start_ns": 1751932800000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "IROH"
+      ],
+      "trading_date": "2025-07-08"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751976163905033624,
+      "request_id": "2025-07-08-NDRA-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1751975203805033624,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "NDRA"
+      ],
+      "trading_date": "2025-07-08"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1751976163905033624,
+      "request_id": "2025-07-08-NDRA-status",
+      "schema": "status",
+      "start_ns": 1751932800000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "NDRA"
+      ],
+      "trading_date": "2025-07-08"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752150364251277682,
+      "request_id": "2025-07-10-DALN-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752149197572330600,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "DALN"
+      ],
+      "trading_date": "2025-07-10"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752150364251277682,
+      "request_id": "2025-07-10-DALN-status",
+      "schema": "status",
+      "start_ns": 1752105600000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "DALN"
+      ],
+      "trading_date": "2025-07-10"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752238982062476436,
+      "request_id": "2025-07-11-HOLO-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752237882073547224,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "HOLO"
+      ],
+      "trading_date": "2025-07-11"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752238982062476436,
+      "request_id": "2025-07-11-HOLO-status",
+      "schema": "status",
+      "start_ns": 1752192000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "HOLO"
+      ],
+      "trading_date": "2025-07-11"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752232641302204349,
+      "request_id": "2025-07-11-SGN-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752231642893674400,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "SGN"
+      ],
+      "trading_date": "2025-07-11"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752232641302204349,
+      "request_id": "2025-07-11-SGN-status",
+      "schema": "status",
+      "start_ns": 1752192000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "SGN"
+      ],
+      "trading_date": "2025-07-11"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752495841085731027,
+      "request_id": "2025-07-14-DARE-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752494849977827401,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "DARE"
+      ],
+      "trading_date": "2025-07-14"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752495841085731027,
+      "request_id": "2025-07-14-DARE-status",
+      "schema": "status",
+      "start_ns": 1752451200000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "DARE"
+      ],
+      "trading_date": "2025-07-14"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752491917592881654,
+      "request_id": "2025-07-14-SONN-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752490957492881654,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "SONN"
+      ],
+      "trading_date": "2025-07-14"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752491917592881654,
+      "request_id": "2025-07-14-SONN-status",
+      "schema": "status",
+      "start_ns": 1752451200000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "SONN"
+      ],
+      "trading_date": "2025-07-14"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752493075381671375,
+      "request_id": "2025-07-14-SQFT-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752491966973430692,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "SQFT"
+      ],
+      "trading_date": "2025-07-14"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752493075381671375,
+      "request_id": "2025-07-14-SQFT-status",
+      "schema": "status",
+      "start_ns": 1752451200000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "SQFT"
+      ],
+      "trading_date": "2025-07-14"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752670923354677564,
+      "request_id": "2025-07-16-BNRG-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752669963254677564,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "BNRG"
+      ],
+      "trading_date": "2025-07-16"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752670923354677564,
+      "request_id": "2025-07-16-BNRG-status",
+      "schema": "status",
+      "start_ns": 1752624000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "BNRG"
+      ],
+      "trading_date": "2025-07-16"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752674089181616191,
+      "request_id": "2025-07-16-INBS-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752673081332497264,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "INBS"
+      ],
+      "trading_date": "2025-07-16"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752674089181616191,
+      "request_id": "2025-07-16-INBS-status",
+      "schema": "status",
+      "start_ns": 1752624000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "INBS"
+      ],
+      "trading_date": "2025-07-16"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752674260037356269,
+      "request_id": "2025-07-16-NUWE-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752663863727787070,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "NUWE"
+      ],
+      "trading_date": "2025-07-16"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752674260037356269,
+      "request_id": "2025-07-16-NUWE-status",
+      "schema": "status",
+      "start_ns": 1752624000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "NUWE"
+      ],
+      "trading_date": "2025-07-16"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752670576342347548,
+      "request_id": "2025-07-16-QLGN-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752669616242347548,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "QLGN"
+      ],
+      "trading_date": "2025-07-16"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752670576342347548,
+      "request_id": "2025-07-16-QLGN-status",
+      "schema": "status",
+      "start_ns": 1752624000000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "QLGN"
+      ],
+      "trading_date": "2025-07-16"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752760223591527589,
+      "request_id": "2025-07-17-WINT-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752759242269151325,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "WINT"
+      ],
+      "trading_date": "2025-07-17"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752760223591527589,
+      "request_id": "2025-07-17-WINT-status",
+      "schema": "status",
+      "start_ns": 1752710400000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "WINT"
+      ],
+      "trading_date": "2025-07-17"
+    }
+  ],
+  "opportunities": [
+    {
+      "availability_content_sha256": "1cdf143ae400b538ff0f57db2361e72d0d4c91089e89b3e0569480331a854a78",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-75998c7109068f86eeae11cdf8d07c671bc6571ba34cf12bfa4c5630db233dd0",
+      "window_content_sha256": "42bdb94f963c1221c9602182ba6215b1fdcd41155a34605c71bef6c7ef5c78f9"
+    },
+    {
+      "availability_content_sha256": "0a52c16208e6ccb408e703d1e26abab0d9463d4fbaeb54d282ff37d8d1799a20",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-91c2bf886fc686a13d8f6d185643bae7802169e8611e4e0c26373c483e694f95",
+      "window_content_sha256": "75f5402f39040903b3bf70ba89800ef4b073aa5de83706ad45b863c3ca6ef3a9"
+    },
+    {
+      "availability_content_sha256": "ba2867bc77ae42bdc9d7654e5407e37d42ae621f7541e9e36bd2b012916c9c99",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-05-30-GITS-common-management-exit",
+      "opportunity_id": "opportunity-845d706023c2ff60c09c3004502568e4a1c0a0ca3461092d8139a3eca555c83d",
+      "window_content_sha256": "c396feeb777a3cd37ae4e58e21e20cd1326ef4e67c3c8def934203cc84d84316"
+    },
+    {
+      "availability_content_sha256": "69000472abd4b62bb5d3d78d5f71c08defaa6708a2eb317220dfb564a8bb49aa",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-05-30-GITS-common-management-exit",
+      "opportunity_id": "opportunity-df22c6ea809d8a6fe62df2c0d36d14179d749fcc8c2d76cf31a39e93872a5e43",
+      "window_content_sha256": "e90ac864b29e246a0080b1fd8f4ac13f4d59bcc5bd13ff84f717fd1f0a7487e0"
+    },
+    {
+      "availability_content_sha256": "21351b920aece6ebbde0f41f7470e002189cac0740ab28e1f244c46f11150a07",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-05-30-GITS-common-management-exit",
+      "opportunity_id": "opportunity-0a454a0912337ad4fc144c2296ab8d39ad3b5c5121a5aa81594ad4fe1fa147cc",
+      "window_content_sha256": "8a1eb4784ada8824cbd29dfa03442072243f83cc64f6c9fb5ba1209de5927ac0"
+    },
+    {
+      "availability_content_sha256": "f9dabb5444ca4a5d12fbb5b4fce541aa85b37b54d570a97f8ba20bddbc4eadc8",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-05-30-GITS-common-management-exit",
+      "opportunity_id": "opportunity-34d7567e3ab012a2661b95dbd4b5959c601226e94169e9994481031cd3a2e505",
+      "window_content_sha256": "a70fd93251642b88396cc9876f0cea85c7a261883db7b582bb521a8b98acf459"
+    },
+    {
+      "availability_content_sha256": "75c54a3db15b72eddb9e759e06aa74c9f92037221bcb0ffa70b917ad052bd756",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-02-INM-common-management-exit",
+      "opportunity_id": "opportunity-9da499eccdea418a538378b01e96ecda5c85cbc33665523b8aed578f849083b2",
+      "window_content_sha256": "8d49709f80e88593ba0e4c1db8bc114b44b52ab40ba697323a5e1a4029c20a64"
+    },
+    {
+      "availability_content_sha256": "d08bbdd5f28b5e8d9432190efbee460c2befc94b00c49e7959bb24c358a90646",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-99c859420303ddd6d9ba1ef321293b0f9e070d0455ab9fbfb2cadf6e1ea041a8",
+      "window_content_sha256": "29df842164ada0574fdaf6d6370f96076e7af90a9cac19f2c470f34c813d0f37"
+    },
+    {
+      "availability_content_sha256": "f681cfe99f6c12350c2cd428f5b847f89d27da6e673a43af28ced4efd1aa3970",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-02-INM-common-management-exit",
+      "opportunity_id": "opportunity-1c955ce8d44d20fd195e151877e94fb27188e1e8466c0e34f2657aca3403f7d6",
+      "window_content_sha256": "c88df8145453ee1ea6719237a7305674a1eb3f02604ce9f842e896419d18098c"
+    },
+    {
+      "availability_content_sha256": "50b53fa5e530ed5665722ff8ae61f93f39256786145b337c72fa4cad83e6bd8a",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-02-LYRA-common-management-exit",
+      "opportunity_id": "opportunity-1973319292e190d2b60a1cbc7527099072457a4f14a689984f147c85badf1110",
+      "window_content_sha256": "342f0ab9676c0a8cc5a3f0f238ee8f93273586de96cc0bcf0b06352c459ea8e8"
+    },
+    {
+      "availability_content_sha256": "51debcee137750194267244d9a9218dbe5b1cd9745a21c2538a9ffc9bb219525",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-02-LYRA-common-management-exit",
+      "opportunity_id": "opportunity-4077b1e2cee693492ea62c82f6eaed508a799c62b74834047bd036b146c3c183",
+      "window_content_sha256": "5e59332f10c536ec3789053cad97996cadcfc5e67b6a9eb1389240e8c9a064e5"
+    },
+    {
+      "availability_content_sha256": "ec997bddde9e188410198f2ff3ef78db766d92964ec98132cf23f30524a1b401",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-04-STSS-common-management-exit",
+      "opportunity_id": "opportunity-252709f74518eae93a90fe7b63152c71374acf3416aa082393333c4a7375e784",
+      "window_content_sha256": "a05355eb5f06b9c47912baf6d0956860b44d218e08ca15002d290de8a72a8208"
+    },
+    {
+      "availability_content_sha256": "a1270cbe73f3687c1d5362644e2b87f7b9355b03fe9d2bf6b16e2ccdafce93d0",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-818996dddf4b7ead9cbe106131f0cf69f735082d08092a64914bfbfcca18fd8b",
+      "window_content_sha256": "d90e7e9a1ca301f099ae208d52a647572e7f9ad5b30e6f71ccbb5bcffd5ba311"
+    },
+    {
+      "availability_content_sha256": "221611ee8df52121c75c03ee73ffb5dbe3e51435a3e081ff1ec1c1fed245a84b",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-06-VERO-common-management-exit",
+      "opportunity_id": "opportunity-7aaadd598e4d0d6de8f160c1dfd84efc92b0c060c48ad27fd5d22e8b60416cae",
+      "window_content_sha256": "d83fa58f7ba870753b500f3b36912283bdf7f76244e91487851183af6aa6b086"
+    },
+    {
+      "availability_content_sha256": "96ce4001a044603a29cb95ee4fa10ba38f0e0d13e79f102b4f8f1b7b118f8009",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-c7f2ebbed9ef4dbb1696bf81011042e5971bdb5850e80d7245e9ea6994d7c213",
+      "window_content_sha256": "326b76334061979dbef0ccdc601cac1f1e037c7fbc1033f4f385ede5b8a694ec"
+    },
+    {
+      "availability_content_sha256": "f96c778927a6efb41c646942c96b3fec1956efd30db11218df427f45c3f295c8",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-09-SNPX-common-management-exit",
+      "opportunity_id": "opportunity-2beacd0629c9fd5b7acae4797b4da47cd1e29254e4b7bd6c56f94fd5b3916c5c",
+      "window_content_sha256": "e057a749bafa263c89d4a5fc372051f2af71f9c8f996c34cc05671db7e06d53f"
+    },
+    {
+      "availability_content_sha256": "50aacd86e7238143653462867434fc22c776b946a07356ce00622fc0af801b59",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-acc2da4e0ad7e272902cf5d550489b4a7efa9b6ffdaec0f62e364da3672f4908",
+      "window_content_sha256": "023022248f40b14d529d808b03b905eb1c4a444a386f25ec6e8e71538ce5c4c4"
+    },
+    {
+      "availability_content_sha256": "ac84b8534101a24ed5869c580e2b246ec1b03a8d9bc565ca8ef99cde2d4f8b48",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-ba711448d3fa0fce6dd148eed47f48b8e717c2fdbcb1dacb1edeb14e1310d300",
+      "window_content_sha256": "7c688cba8ff54c83f7ecf7f4218f7eedb10abe8e8bd0c6c524639c0ed73a9626"
+    },
+    {
+      "availability_content_sha256": "da5f6c00b40f4569bb5763fc79113999aa590b14e207633eaf4f914c4c619469",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-2f75d20ec9526bcfdc71cd11ae4bafb66d608160bc40d01a7365fdb51dd12889",
+      "window_content_sha256": "ffa8a5cb9f518f755bc0d5c8e0540cf80ea3b93fa5a8507ac847138977dcb32a"
+    },
+    {
+      "availability_content_sha256": "6f0687f01643929760f27768705b32b486f2f6d78c31e1e3ea17560349468ebb",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-7f9ffab8ba19748b90acf4fe3ffc7ef7f268c0c02bc4782c2db72bba407f2713",
+      "window_content_sha256": "943e1dea7d7d488befc97983717bcdbfe53791e08205d5d123ee80679feab3a3"
+    },
+    {
+      "availability_content_sha256": "fe243e17c6f977525e7e4d58c8d0d25ea509cd79dc30ff66207129be5a348f73",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-10-GELS-common-management-exit",
+      "opportunity_id": "opportunity-722e8cb66690540a84758172a2e88340ec79a3d6c7db4baf404d6e49d205ceab",
+      "window_content_sha256": "c515789f13d937a67b024e19f5d53fb7000b77f6e6463522e49921809520e4d5"
+    },
+    {
+      "availability_content_sha256": "f68fa572978649f21551fa554b87ce4b107e10221e84306c0e267a47841261a9",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-10-GELS-common-management-exit",
+      "opportunity_id": "opportunity-f7526571e68f79a562f666b7495a17ba0efca1ab3ad4628871a89e54081c87ae",
+      "window_content_sha256": "cb48ac7dd2629cff331b5044e174fe15952da034c42581dca73fab898530b694"
+    },
+    {
+      "availability_content_sha256": "a86268bcd70ecbb50976774585b437c8e0349639396b76d584b4b69eb1d6b5f1",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-10-GELS-common-management-exit",
+      "opportunity_id": "opportunity-4a6351d6f27ac7a4ea801517c4ae987c4c0463cbcda9fb0bf0a018e61433b65a",
+      "window_content_sha256": "c68b867e1cc1304fdfaf64728da10bc5f2e725a0ffdd2590a7d3ec5e6fd24519"
+    },
+    {
+      "availability_content_sha256": "7b3bba0c0d2164d09be339e82b1da84c6e96382821c2695b89d5ea5996648309",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-10-GELS-common-management-exit",
+      "opportunity_id": "opportunity-8e0421478e37658139d9cb910d5e601db2fffe80872b9f13d42bf514cf20df89",
+      "window_content_sha256": "03e03cdec4fc7fb12cd7e31debb23727de73d13b3ebc05e3dbc6e7a830038376"
+    },
+    {
+      "availability_content_sha256": "433059159471554975a511356f0136a2ac10492cb6fa2943476c73834fe02516",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-10-DPRO-common-management-exit",
+      "opportunity_id": "opportunity-9c23836f6bd9f768a0458758a8166a28dde6144ef01bcc909f9d89557ecc3c53",
+      "window_content_sha256": "22b2d5f07887d53c61efdf5f9a9e80a983cc6f37dafe23147fa880ae8eadd584"
+    },
+    {
+      "availability_content_sha256": "9d67f55f4685a8c90139c81e00fd10a48ff2ba83504ceca522050c08a50e1b79",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-10-DPRO-common-management-exit",
+      "opportunity_id": "opportunity-9ba5791514da0d6196f030161b0fb8f3a49c87462beb48aab42977cbc87ed153",
+      "window_content_sha256": "63e28df2649e33a948865c0475fdd4888b37f472e3f1724bea2419d93719a2d2"
+    },
+    {
+      "availability_content_sha256": "5b6685b2e319cb8ace88dfecee93952ee1327f7a69e15c881e5ba37d8fe7ee0b",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-fd9baebb29f5a217ce431b05a7e36c43d3063a64153a5eb31c9972db82eef81c",
+      "window_content_sha256": "1c46b785eed81cfddabebfe9177a419e270ce21852ecacf3f75f59964c2a2d82"
+    },
+    {
+      "availability_content_sha256": "4531aff321861917f9766998dc9fec461f24fa8bd9c1644f0e342c9b5011a981",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-11-HSDT-common-management-exit",
+      "opportunity_id": "opportunity-4ca7e6df60d196bbd97e7529734ecaa31576fe86aca5d860036f0a6a799d2f77",
+      "window_content_sha256": "cd33a2b3046b9452b3e147f34cef4a0c0ef6f5c40211b8507e1a3819e63db52d"
+    },
+    {
+      "availability_content_sha256": "d54c36025a7f7f21139043ca8b609e976b7ac15818f767eaafeea3ac56b915f4",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-12-XTIA-common-management-exit",
+      "opportunity_id": "opportunity-aa63605a971ab2dffb8ab31233469eca322dcfbedbca9cfa0f4b5772e0fb8660",
+      "window_content_sha256": "516ab030d5ae02d2700064ad16f29b6b9210f148d4670b1cec2b1ded9524baee"
+    },
+    {
+      "availability_content_sha256": "0a97e16bd8a410c657c44535c840857847eb852ec489f4bb509dad9a6c60e973",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-12-XTIA-common-management-exit",
+      "opportunity_id": "opportunity-37019c1c2b7def2ac6c137b21064edcbf1b49f4ca48483c86f4234c6efd7d919",
+      "window_content_sha256": "3e8f15213a3ac541bc53c592bda0e5ad38eadcf19be66c7c3e95a2880423afec"
+    },
+    {
+      "availability_content_sha256": "5b8008884162ec45bd159570bf2a8ca5d42f68428eb56425e587944cc27d9d04",
+      "entry_input_reason": "unavailable_exact_quote_request",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-584abfa60e5a82b205ac89afb352068295e49e833f930caf9d60018d1e1b694a",
+      "window_content_sha256": "bd6a4c6ca5f96e8c5b3b6a2c9a8fa283ee62c512f49d7d967e8af49b81ff9ed3"
+    },
+    {
+      "availability_content_sha256": "899b26f8048e3d1708774d42af658d801ba3dd681b6cd7946e705e63676ee09f",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-18-RELI-common-management-exit",
+      "opportunity_id": "opportunity-07652f1c50c69fa3b577fb1e331fa01fce57b4b2ca2df5af650a1347a1e31bc3",
+      "window_content_sha256": "16962bc6118e47a1de07dfe9172328feba65fcb24c31e057daae699039681906"
+    },
+    {
+      "availability_content_sha256": "a2b72c82c679fbabd699625bbdee7c48d4e6b5400cb18b695eff3b9e6bbadc15",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-18-APVO-common-management-exit",
+      "opportunity_id": "opportunity-44c3afe5eb388388a5a7a1d80dcc4c7630b0ed77b60bb3003be374528722067e",
+      "window_content_sha256": "8d0852ebfcd4cb2a8923f4b8e62bbdc604c569495ea63cb23222439e44c23584"
+    },
+    {
+      "availability_content_sha256": "2906a20e549f3ad51c674a220128035d9b29b37dced15291f3f89409d2a8aabf",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-23-HUSA-common-management-exit",
+      "opportunity_id": "opportunity-7d2a54dde98cc4690a029d32e27eb7fabf1fcfb0de8d9b472a533a0786aa3867",
+      "window_content_sha256": "d7df15ba13654f652788054d3417efeeaf5ffbaaf38cc617ea2f6624c72487db"
+    },
+    {
+      "availability_content_sha256": "e1c3b0ae78ed724462fa9f4b07438f7ef406e3ee8ff4ec37c85da03622195a4b",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-23-HUSA-common-management-exit",
+      "opportunity_id": "opportunity-9fff3ceb6b35e70fbb9a76619473d010a789668c4dd879959ec8378c053d67d6",
+      "window_content_sha256": "595b87540a5a4961ef3d32b6d59df2035b10984acfafc60550a9c7b3a484c0b7"
+    },
+    {
+      "availability_content_sha256": "a12f7ae15fedd3edbef1346c4c193f3480fc6382d06c77041344f7626536e13e",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-4d83ec12224b11e029521c1171423b31f2a1ad827d7409738dc05f44fcf4d569",
+      "window_content_sha256": "92eec184b8b2033a92782595113a0c29626c09bb8f0e7d2b901bc878ff0ecde5"
+    },
+    {
+      "availability_content_sha256": "757bbef420259bd62d328b8de304302b1d7ed8d47ff46a5b8716c15a306b0637",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-23-HUSA-common-management-exit",
+      "opportunity_id": "opportunity-646c3e4d4997e1f2884d7d55dd494e406c3fdbdf7ac594cc327f57b97aafb079",
+      "window_content_sha256": "c5587f37e0f2ab1edc2c2d74da8b5cb7923affe7414544b5877a51b9242cabb1"
+    },
+    {
+      "availability_content_sha256": "bb3d4bcabb6846bb06ce9caefd50b5ba01eccfefa260231f5bd67a68c9e3af86",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-4a97cda9ccdb46e3dc514ffe443ca44add31c44886c254029f98f25e34d69cad",
+      "window_content_sha256": "0228ef32b7d544b9beb60c56212b16dfdc780844c5985691d32d63b94c147bc4"
+    },
+    {
+      "availability_content_sha256": "e08b2544842a22ace500dbb4351415bef1fbf79df9a5dc777bdae46800b13e2a",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-24-INM-common-management-exit",
+      "opportunity_id": "opportunity-f3b97394d6ba5b45625c5578b1b5794101c5acfa99cb031c3aafceb4d5b21068",
+      "window_content_sha256": "34ffc06f06807086e4bdbef01386b10a43b3fe8548874841c7d566829be0cd9c"
+    },
+    {
+      "availability_content_sha256": "e3d8dcaaab5a33beae192e2df881f3b9ee4ee1c3873020be8d738746e5b347e0",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-25-GCTK-common-management-exit",
+      "opportunity_id": "opportunity-591b67f9945191a9b56666b4cd701ec288401c3ead3d05dbda9547cbab7fde70",
+      "window_content_sha256": "a2dee70074a384ce70e070b892eb6d3c06c0cc62e8976388bbc48b954c6cd312"
+    },
+    {
+      "availability_content_sha256": "fe0304133da7057392183ba697d7cd959af89158d46d0dae49b274769bca9a38",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-26-CYN-common-management-exit",
+      "opportunity_id": "opportunity-c477d6d99cf9025d3b1d085f25cfbdef23da4385667769c7e88f214b6d6baf9a",
+      "window_content_sha256": "7b55e87bf779a6bb77387a58ce502a6cd22439f9b9c6bb5cc6d08925bff7f01e"
+    },
+    {
+      "availability_content_sha256": "85c7c14155ca66fa8f919c3e94e3fbfac643c67942e347b3aef1fdeb2eadcfee",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-26-CYN-common-management-exit",
+      "opportunity_id": "opportunity-b46f1461179b116a70181996f3475623b9a7c05f071d6eda97762f6d0b606753",
+      "window_content_sha256": "84a894101c008d67316c12eb9e24b28509f57f26d5d800133735234b032b5870"
+    },
+    {
+      "availability_content_sha256": "e33f3eeb897f692666b7200dc15277c4b38451de79f7ae6bbadd6b16931d4aec",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-26-CYN-common-management-exit",
+      "opportunity_id": "opportunity-7b17b9b4350ac1893828372598654d1ea72e73191146c727f18db7dd012ed90b",
+      "window_content_sha256": "cc07cfd6a6b4990409b8fa98cabb591a7f61b328cb8babec8f8fd6c45f130cf0"
+    },
+    {
+      "availability_content_sha256": "50d6d8a453cce151e7bdbc28732e25c1921e12a3c48e9b91845f9b7abce09a02",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-26-CYN-common-management-exit",
+      "opportunity_id": "opportunity-bb5252cd620b13055c005c3e7f326ae77757dd4560f9df040f2928d5ca21d9bb",
+      "window_content_sha256": "fc76ce5ac3aea4e282b9d1de59457841bfc3594603f6a4c8b3fbb720db4c945a"
+    },
+    {
+      "availability_content_sha256": "38f7edecae8c697283c47b9849bb0042656e908dc71c0cd5fdd8be942ce79dea",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-26-CYN-common-management-exit",
+      "opportunity_id": "opportunity-89aa37a3c63f15d78af700a249fdb10531f2926e74317eb68cb284fddc8fead5",
+      "window_content_sha256": "f111e661c502309bb85a948ab604d639024d5d94a82fe0b0748fdbd31784de8a"
+    },
+    {
+      "availability_content_sha256": "258ee58409d9dc8c8f5fe17d3620f7855c1ee5fb51cb17d2316ee48041006880",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-26-CYN-common-management-exit",
+      "opportunity_id": "opportunity-a9a1f0e32a7aaabe58eacd500185b2c6b82593008f816456a0d6c4dac59009ef",
+      "window_content_sha256": "045847e006915a621bc5fa436272e0a472d3def1faae091141b127c943502ed2"
+    },
+    {
+      "availability_content_sha256": "61cc57f6b394c054684a2756ba72fddb63a29f800f5e3a3e08c60a7d529a7d83",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-26-CYN-common-management-exit",
+      "opportunity_id": "opportunity-c061b0f53b05b1bc91477657b67a94a5130777717ebfeb08cce756ef00aa8cfd",
+      "window_content_sha256": "783183fc7c3832dffc74cf951a71aa1ed2f555b58f9130e72fcf96d3035334cc"
+    },
+    {
+      "availability_content_sha256": "5024d94366a76250d505624ff3019d04f458ab76f0ac46d7084f0344a70cf378",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-26-CYN-common-management-exit",
+      "opportunity_id": "opportunity-10d7d7b84f39328cb5ae9941ace31ef1042664a68bebdd5925ea392cc499b5e6",
+      "window_content_sha256": "57845debdf8970381f7dc5067243a829fe621ccf231e2dc9c5f8896a86f3149b"
+    },
+    {
+      "availability_content_sha256": "bd448cbecf742d12472ab3d56e16781f38e561c43fdf9d547d6d550661eff340",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-26-CYN-common-management-exit",
+      "opportunity_id": "opportunity-ff82ada1d2d7786d9e7befee413e6b46719cd1037e1f5afb3e7a08135251211a",
+      "window_content_sha256": "f2a8c596f6c9f1f6e70d719a21994f7204469107d50602b8eba48e1dcf851e3c"
+    },
+    {
+      "availability_content_sha256": "f21b262176ac1dea330101bfbd63399ab189fe41eec0818e0913b41e876c01e7",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-26-CYN-common-management-exit",
+      "opportunity_id": "opportunity-a0b87916f97de7d785f0a39a2b70df9bcb6a60861aaf2e2a9b6a323bbdcfaa82",
+      "window_content_sha256": "1976e203b6998cd7bb1700eb1643fc7ad94bb8d132ab801dc96457e303df961a"
+    },
+    {
+      "availability_content_sha256": "5cf3d1c74ae3489b0c08f1d1587779017153f86db0340aca497d0cae71463827",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-26-CYN-common-management-exit",
+      "opportunity_id": "opportunity-d7c94da27db5d6d1f257a9dd43e76e6d3c74a697a5e90d8e2cc98f41a1a62a3f",
+      "window_content_sha256": "16aa194f7967d47cd89ade880858925e8d9a8d1a0bee42061510f480c1e62f55"
+    },
+    {
+      "availability_content_sha256": "e6d3c884f7093b1ad99cab81028530c8700a2c7a9738b27cfc72baf3015c6cc5",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-251fdc34ac3c0e026f6c3be9cdc524dd7dfe8ec8663c5febe9a881b46c532cd1",
+      "window_content_sha256": "6033c39c933a6be3a992d9d6ed9bcff1678fcb324db5b7877bf4f31e13ecbf06"
+    },
+    {
+      "availability_content_sha256": "839b6a09b7deff57812259026ce953fcdab9e8b4286da26427baa6757d3e66bf",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-db65a544ab923ed3190305150c9b9e706add3db2e932ca8d0d230a52400911cd",
+      "window_content_sha256": "89c5c71510232174e2f712197cd9c86466b235c0ad85e9bad47e6c013607afdc"
+    },
+    {
+      "availability_content_sha256": "03f44d1200ffa293c6288083a24a67013d701ebbe2a44d9302e118621dc16b01",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-320baaacb258c3a2bef8256f38cdd35ab628109a5fac297545bbf0f196d2aaf4",
+      "window_content_sha256": "ebb27360285f5975d5e2e8b3ff8d83af953251ae80b1bb729a0a1842a1cf8279"
+    },
+    {
+      "availability_content_sha256": "51666d41d2ede43219f0064cfbd8b6a1aa5bd39e64f530565cdcfd3b7fac9ad8",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-27-BBLG-common-management-exit",
+      "opportunity_id": "opportunity-a8ddfe12c54f8e0529922f02db1419fadef9378e8c7a005e5237e77cfed22385",
+      "window_content_sha256": "f0faa6ae3892b6e043f85e028e2940eeb8e26dca79d809bdf5ebc5a6873d5c09"
+    },
+    {
+      "availability_content_sha256": "0181ac378d65d6b448c35d8438abd3e8a8c895aec5e536a27d3f7fc99b467048",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-27-BBLG-common-management-exit",
+      "opportunity_id": "opportunity-dd8b561408b6a0bc20252f74201c8e76a0ccc733441fce53511105cc96573b0d",
+      "window_content_sha256": "6f6e5d38c1345fe6b79e6e4c421a7fde5a3991b84d73b14a5be5a66563877d6c"
+    },
+    {
+      "availability_content_sha256": "7fe4461c33d0f00652156e5f54bbac733f7a8c362fe9fd8b688052c77ad56ad9",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-27-LCFY-common-management-exit",
+      "opportunity_id": "opportunity-557a3a35cf39f0d9444b77ca1d9de0c932dbfe48d235bf7f3e81ded809cd1e6a",
+      "window_content_sha256": "f757e9810256120056d4d270a4dbf42fc29d1284bb949e38776f8c67c95f6761"
+    },
+    {
+      "availability_content_sha256": "229f66a7b2bd213d79ac0dd01e00920c16c78f93a02f2d1848a17fa83b8649f1",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-27-LCFY-common-management-exit",
+      "opportunity_id": "opportunity-4987f32a6e58a92eeed2b12a2fc2dcbce3243056d80f9bd71cf28ef4ed668910",
+      "window_content_sha256": "47df8f063bce6fd661d3c5a53e2d721eccb97b8215456a29a361bb61bbdbb4e3"
+    },
+    {
+      "availability_content_sha256": "12297c4a522017495f7de50346f2ca095d367dd2c5eaf4556acdead04b6cf88f",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-06-27-LCFY-common-management-exit",
+      "opportunity_id": "opportunity-b253a2bdb9eec02e5b78ab63594cbfcb7945704b54651e04f21da8be423ca981",
+      "window_content_sha256": "4d400dd70890f0d7d3ea3ee6276917f6353c69722756ccee79c2cb13f7ad9cca"
+    },
+    {
+      "availability_content_sha256": "7d4134556c029dd2062c967e79f56a79a844e7cf97e458f0c9dac755cdd031b9",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-01-CLRO-common-management-exit",
+      "opportunity_id": "opportunity-f820eef2000f1d136c99c54cbad25348040b2f3c6dae8f204a8e65af2989deb9",
+      "window_content_sha256": "052a58300317fcff02c6362976139c71d21894237b2020f3c712930c8b7a066a"
+    },
+    {
+      "availability_content_sha256": "c7a16c8c061760590008ae55515b47c39559be13646f99818d22d24cf0389e06",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-01-CLRO-common-management-exit",
+      "opportunity_id": "opportunity-2ca0a9667f6453f8780501a8fe9e5d06e5772e684de095f2d1e6f288ec742851",
+      "window_content_sha256": "4fdbdcef509edab8d3133949cd7f790794481921cce65472e9525f7f1a661415"
+    },
+    {
+      "availability_content_sha256": "ed26f21bba562eb65883fd47a66dc4453282c84836a87bae2aa4d6e181cbfa1e",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-01-GPUS-common-management-exit",
+      "opportunity_id": "opportunity-a5c7bb3e02b05f02ccf1122c31177c17d19e16384d9d7dcfc120c24fd4950bb6",
+      "window_content_sha256": "bb950fd1d11a3c787cfff2e76267cff96c50353d58363b9913199d38adc69821"
+    },
+    {
+      "availability_content_sha256": "23e611d5703465800108ad375009fe16e3b496e5a87ad68890852b33aca555aa",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-01-GPUS-common-management-exit",
+      "opportunity_id": "opportunity-c89d6df20f20732a2de2e6852c91eb848a0292d68a5ca47fa39b8204dd5b6dc3",
+      "window_content_sha256": "e61ecb04198724b59f5d3663d77b9cd4ac8bf60e484eef60b739a0308d83ad84"
+    },
+    {
+      "availability_content_sha256": "a64ecd9d8e70f196fdeacbbd54a275883418115406b972d2cf25534b48a19d3d",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-01-TRNR-common-management-exit",
+      "opportunity_id": "opportunity-876a66efd13231073d91dbb0d0200869c38ce6dd8322b10e580155e1b5100826",
+      "window_content_sha256": "baa5140765c2880e565ef7279b2debf2b2f849d76d6619dbebb515142ad82cca"
+    },
+    {
+      "availability_content_sha256": "2aaea29acff9ee1245be76cdd0cb5a98d7f541d4371743a06601c0afac0094db",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-02-ELWS-common-management-exit",
+      "opportunity_id": "opportunity-80e83bdc5481a489d4740a6bf0606fea19831c7fe54b15922674ed899dd98aba",
+      "window_content_sha256": "1270d009d122b11421c28a0de4e8aa598d227396e728c983ca23c237bab5f7d7"
+    },
+    {
+      "availability_content_sha256": "e515a139c312863fc292564d4665f09277aa991e557179969b6a7e59f73f1881",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-5bf58ed9dd087834a5d8afed7b6abac4374c793cb222f61736ee6ebc607d46c2",
+      "window_content_sha256": "0375bbdd2f3c4fe606c1e1928ca27dc322bdf959f4053171c939418891cb03a9"
+    },
+    {
+      "availability_content_sha256": "1131b3b9de755249a4e2eba1e9dae406dc127d4e15c70f915d2b9ede392c5b14",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-02-NTRB-common-management-exit",
+      "opportunity_id": "opportunity-28e5b8cfa0a2cb3f7660a8c869f7066100a25d002e6635c7065556c0c78b84a7",
+      "window_content_sha256": "c1c1d7d6c55495f9ccf194862ef199675b7857b5b582c593c455bc475c75424f"
+    },
+    {
+      "availability_content_sha256": "1b9c2461b707343a25322071eeb26bb8108d8bfe97644cb2f0384f38847b7df3",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-a0276724717eaf93a381d3342645be966a2e8d80b7b3cd7efd497db0e9910fdf",
+      "window_content_sha256": "51e52b8105bd92e9959dd115a7519928765559cb6665e3026fd43d27ebf6b1bf"
+    },
+    {
+      "availability_content_sha256": "4a03ba4cbade615ad101dbf56fb73e204a10b5ce3c7c9fae5c70476702c127af",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-2a86dcd2de0ebf20fd947a7e947ee803b783b9e1ff50c1d7253c1d78480f52e2",
+      "window_content_sha256": "40bd0ed56d0c45599f2801a7ce35d3fc2a4ed81c9d38457c1fa4f37c70a03c11"
+    },
+    {
+      "availability_content_sha256": "aa9c5575397e5fd5820db282ea70c2d6cd96298a58bfcf70677e1cf7248c9cd1",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-02-CYN-common-management-exit",
+      "opportunity_id": "opportunity-1753bfcb67e0459da3c2bf61b4080f5f75942d6582e2dde215a9642cd5b9702b",
+      "window_content_sha256": "e50f9049446a4d5e3a0ec4aef8426083047d24b1e11793534f55fa20aa25d6a9"
+    },
+    {
+      "availability_content_sha256": "614fa4db2e7d80df90217b092d007accf08d42461f192a67ee584e942ea6ffb9",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-02-LIXT-common-management-exit",
+      "opportunity_id": "opportunity-46c3267d535e9a46f9a9597d000b27cefa5f2c887e54eea3db1590c069a57a3e",
+      "window_content_sha256": "364b0ae6df425c84711a0ca9b9b3b5802ce973acc02d590c118159d372d5bd40"
+    },
+    {
+      "availability_content_sha256": "179e26c9966a2b7aeef2622788c4e4c035974a9eb563df7140d0c159510e8f6e",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-07-MBIO-common-management-exit",
+      "opportunity_id": "opportunity-92633cb3065581024c010292a9de5ffda0085b79cd52adfa5f037e01ca05e695",
+      "window_content_sha256": "e777a74f26bf403a511eae81c3050cfc66f7320f1f398d1c41dcdfb64dfecde4"
+    },
+    {
+      "availability_content_sha256": "03bcfb768c78a0391c7d3a0abac73f633d86cd381d059cda144ba5b8a2f41183",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-07-CYCC-common-management-exit",
+      "opportunity_id": "opportunity-b5f51d03ae46e2bfd44805ef8dd741c4400b734589fd62b4b8f8c02a565bd108",
+      "window_content_sha256": "7e5bc2c38ba1b27438eddf2d91c535ab73405fa81b890e902f3c196ced3e36fa"
+    },
+    {
+      "availability_content_sha256": "dcf31ac9d7d03ba908b4a4acc5aa88b5ea81070134c6a5e65a077144de6be845",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-07-MBIO-common-management-exit",
+      "opportunity_id": "opportunity-739d06eb38f8da22341413545bd9c32de95d2c7a63731812cbd540b1414fa387",
+      "window_content_sha256": "6017cc11bb3ce37cc74126c461d1617290b574f4bab84e7995f7c4b34cb06faa"
+    },
+    {
+      "availability_content_sha256": "f3d0e177c109c4bfff7d3232c49addfb8aabb22ac1662d28ed2f09e26ec2b615",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-07-MBIO-common-management-exit",
+      "opportunity_id": "opportunity-83875cb541800ceed2a527f9e7059487b5c3b2ac5dc6572cfb0357e9fa752abe",
+      "window_content_sha256": "9a8d1daf391970122aa135ccba389b4960d5a1796f780b66c05285b18e7c13c6"
+    },
+    {
+      "availability_content_sha256": "f9b33210e42a6beb39ffd881aee5cbfbb9c1f1a16f26bf1557d45c382687e383",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-08-NDRA-common-management-exit",
+      "opportunity_id": "opportunity-2dfae36064709995883e5e72267b61db8fbc4c54cbd194de07d1bd773bac7ac2",
+      "window_content_sha256": "5b9bedb6ff99b66412359e639820e040f26989c6553edccb25b0056de8135c06"
+    },
+    {
+      "availability_content_sha256": "3bc2aac583527f3b9517231fd4bfc8a394aa73eb67cfaa5fc6fb576d11c084a6",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-08-IROH-common-management-exit",
+      "opportunity_id": "opportunity-3a7d9c83b787c25f32f9eb28107aa999247a7f1cac5e7ff0c7743b4d411e2ca6",
+      "window_content_sha256": "74b2bb52354c849ba1bcc5fde675397ae81c4eacf9e6f568b3f31eb0f32141f4"
+    },
+    {
+      "availability_content_sha256": "8f40599014aca9c62151e99c7bafb82e0079bb3013e3777b49470501176c0472",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-10-DALN-common-management-exit",
+      "opportunity_id": "opportunity-0e2e379d84608b215c3f1f99e9881a45cc3d61740f7d89664e14d1e5f0f2a2df",
+      "window_content_sha256": "3bc0b848534e3ae0f3f5b58ddfefd96b5aa9e07d540407c37a2b029e7f7d0458"
+    },
+    {
+      "availability_content_sha256": "5208e851b454135579d81e4d23337d5c5fcbe5799bb6537ca056de738a8934f8",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-10-DALN-common-management-exit",
+      "opportunity_id": "opportunity-f5df05b6c29c968792d00b68d7a1f7421ea65238ea460d1036ea567bd5b484ee",
+      "window_content_sha256": "4522201962d16c6da0e3702fbf4b1343f3fa1d5ba299149aa7cef176a8368a0a"
+    },
+    {
+      "availability_content_sha256": "b40cc4772b913be0ee9ae242041abfddc6aed2849b8a462e21b64af553c7917d",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-10-DALN-common-management-exit",
+      "opportunity_id": "opportunity-7b5ab00a4b03e4046dc47bf763fd87739d5fa3ad0442c34c90535bd0bad5c04a",
+      "window_content_sha256": "214fcd1261f7fffece7f87f79e4d0b3c8e52deded0cc5ed34e03ddf1c4a82a18"
+    },
+    {
+      "availability_content_sha256": "ad77f84e55366df4802f1415a7eae983a2f4c11247cdc8f0c8a799a6ba33aa00",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-194603dafa0ad839cc2cdd508df6d476fc7404d0a04cea709145ed89ae95ead4",
+      "window_content_sha256": "19be3cc554bba6bc36bef0521bd0fe27571275661cc03350de4d446cfec00edc"
+    },
+    {
+      "availability_content_sha256": "3a5f87cc5b94cffd532ae142cc3b0b4cb20e5e2b873eb0f0d426d1f119eab101",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-10-DALN-common-management-exit",
+      "opportunity_id": "opportunity-980f3cdbe8ac70f75d557e5281e6c3d84684b1b098d976f8d177149333df590c",
+      "window_content_sha256": "823a5ca13b8b3db666e3dd010542e82032d2a8f30bcfe10b20fe11b64979c0e0"
+    },
+    {
+      "availability_content_sha256": "be299c4a420c96cf53e9d0cf4586a0a67cf14c75b88bcaf361227f41649d8f94",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-11-SGN-common-management-exit",
+      "opportunity_id": "opportunity-f497c1a6f2d86b4242e80d270ee487ebd06482a9a7e45f197ae3faedb70f4ea5",
+      "window_content_sha256": "004f5c8caf7d71206279b62bb367873ca52219c19d5e48ff38a9505740f86410"
+    },
+    {
+      "availability_content_sha256": "90f8f094dee14cd051d3ca29e6ca8e1b648bd5fb21a4d536eca4f4615ef5a742",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-11-SGN-common-management-exit",
+      "opportunity_id": "opportunity-2007516d5f50db8d5d5ea4da0421debee1cec0c2445f99bef18a96112892dc19",
+      "window_content_sha256": "847e62080949e866201389226b23c290cfcb2f353bfe0ef8a5f739331b88c4a6"
+    },
+    {
+      "availability_content_sha256": "06965ead15e8fbc161b10f3701c537a96f55cd4e7847734db64650d585651d22",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-11-HOLO-common-management-exit",
+      "opportunity_id": "opportunity-8b2d6776e126921fa9c54c8352bd8a0ab7b11ea6b53190ff8724be77a61bc0ee",
+      "window_content_sha256": "be148b57da5c1f96637ab9e3df95b805601b4211b91a72e1d707802ef7c91849"
+    },
+    {
+      "availability_content_sha256": "84bf9c221e6ef488384032f5a54918dc2e9034bbdcdd375ee47e27b76099706e",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-11-HOLO-common-management-exit",
+      "opportunity_id": "opportunity-b5a49fefe2c7c64e7efd043c368fec92eb9d3b59fbf38144da62f006b408452d",
+      "window_content_sha256": "f93c5c08c1c016087ab2f2ff3527be8cce64e287f4057e001ab180f205bf90e0"
+    },
+    {
+      "availability_content_sha256": "83f91a8cf4d694b31861c6f4836e89ff2baf0c5318a7839346313aa50ca910ed",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-11-HOLO-common-management-exit",
+      "opportunity_id": "opportunity-28c7b00a41cd313d715c076721af4c23523d19a31209568584152a64b8860a2a",
+      "window_content_sha256": "7eca65c82242f219f55bd63649530e87c17b5e688111453c70a3b363969f70cc"
+    },
+    {
+      "availability_content_sha256": "6773a3c58e0fdd4a3af35182974ca954fabc80a244a0953db31b10e5c983c179",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-11-HOLO-common-management-exit",
+      "opportunity_id": "opportunity-e869e7d21750ff3ebfa40b65bb2eb99f53e6d85fce1d7aa20bed4ebd06db6988",
+      "window_content_sha256": "4166d8bdc200ce210ac1e2ff8ba33dc193a639afccdb9499f6c40d2aa8ee1bb6"
+    },
+    {
+      "availability_content_sha256": "9ea645c26d794ac92d731ce15a9ee65a9509b85700d1618bc452fbf948c6470d",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-14-SONN-common-management-exit",
+      "opportunity_id": "opportunity-99b8378d479af6b7b4886d0022c248f84356458ba59533999cc3d3404348e18b",
+      "window_content_sha256": "dc27fc1dd30acecd5e61aba86284c7e1c04af11e1d9781bee51e371539f7954f"
+    },
+    {
+      "availability_content_sha256": "0fa46307c5c9057f7898b2870f9324d610c3a941c8312e8188c99b997de42821",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-67ca66e396fa42db1ae83b581c5811b95c28d094c0f83baa046f7741756f8d60",
+      "window_content_sha256": "5cb24342dd2e467a93c3e6b955b290ee46b2748fafcfdc079677c50df6d1e90d"
+    },
+    {
+      "availability_content_sha256": "4a339fbcafe45c6a55f4cd643f902bb091ea0080a92183b37428883586864ad1",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-14-SQFT-common-management-exit",
+      "opportunity_id": "opportunity-eaec04adcd932dd32c940082b2e68cd36f23a157d1810821e30b8f3e69ef3fd5",
+      "window_content_sha256": "63a5fa7c07797d0d303a7ba1def0568a8433265ebd2ba3a01ee268ff3e5a5bfa"
+    },
+    {
+      "availability_content_sha256": "24c24c339a8b6bbd3bff3ca7b685a571ce63705f834d873f41638fd930cf219d",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-14-SQFT-common-management-exit",
+      "opportunity_id": "opportunity-e0c2715bc029c3a6bc2c88e2dcf111b2f79120c9c48c13e919e4f1d3fe214125",
+      "window_content_sha256": "03fc5d2891406aaac6ab988cf79466f141961f99a4e4a2a4c131a1496aecd31e"
+    },
+    {
+      "availability_content_sha256": "82a81af4b11c1fb48b6490d81def2e9b3f2bb3cd30b6f1c4c96f8d09cae3162a",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-14-DARE-common-management-exit",
+      "opportunity_id": "opportunity-38c5af3fa5d3447cce6f56d75da34824ed0fdb45eb93d787f50231294fa32817",
+      "window_content_sha256": "b132e09b5280884a001db22f243447ade14f1ae980bbdb531b1fe60352a92f6e"
+    },
+    {
+      "availability_content_sha256": "23bae73c6b23a3cdfaa78b31ba7059c1c5f994a7191c2f8106e093f96b3fe8dd",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-14-DARE-common-management-exit",
+      "opportunity_id": "opportunity-be1532dbc68163427e21f5dac625c235642ecea8cd3306ec0e7f79b6da285cae",
+      "window_content_sha256": "b7330fbb46345ce38f9a76c1b53b523d169620fb9ea9f61f7d4d3894ae0c895e"
+    },
+    {
+      "availability_content_sha256": "6d032e0340ee6240617a10e801b6074522a54c65da53b5dde12ddb2ed91a4a53",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-14-DARE-common-management-exit",
+      "opportunity_id": "opportunity-b8313ec508709f53ea247adc8044b3c5b8c58c110e340950e71c3331c943d348",
+      "window_content_sha256": "0f9df4aac3ebb1c3ea6973488fd3fd369f4c665eb3be18197fc034c6bec191b1"
+    },
+    {
+      "availability_content_sha256": "d9fc3352867fe200c7dafc7dd7d90102aaf4076f0ebd5a002e0fdbcb75891c2c",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-15-XAGE-common-management-exit",
+      "opportunity_id": "opportunity-33f6e9244826e885e6274bfb5fcf716e823cc4d0ec221e5d13f45feefa2d09ff",
+      "window_content_sha256": "bb2c01576f35c20865d31cf152d94317e79c5fe507d3512295ace549fd3baaab"
+    },
+    {
+      "availability_content_sha256": "e8eaa203d69dd034fa8a04a834f3e52107404f9315d52838a283a93289758168",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-844e581823df4c1cf1c1ff4a83acabfef89ae4fa7df3c19491f31d89d8c729b7",
+      "window_content_sha256": "86198051cc80d5f2dd18cb01e31f5cb854231133c3dba857c92a7fce8da3ec22"
+    },
+    {
+      "availability_content_sha256": "3acc1f24fc4cfa10dedca8635c9c7aa4c17461c5c14baaeb42cafc3259144bbe",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-16-NUWE-common-management-exit",
+      "opportunity_id": "opportunity-71d73f73835df5f8291c00f998851a261912775252379a30e823fd68f20e31d3",
+      "window_content_sha256": "9b69fc22a988d25a233a2a169d183afa84cb890b6d719c528fd0a6dc139265f8"
+    },
+    {
+      "availability_content_sha256": "b97794f17c6c1ed231859fe134e0d25fce0cb61ec5dc5cac3e1f76c8539f8451",
+      "entry_input_reason": "unavailable_no_fresh_decision_quote",
+      "entry_input_status": "unavailable",
+      "group_id": null,
+      "opportunity_id": "opportunity-f447e89f2330dce21d74db57aeaf3c4986f5896ae5282f84c5be2fd7ccee09c5",
+      "window_content_sha256": "7fc396720bf0f6e4b76e01ebde0e069eafed75208d50b1c984b90376173a50ac"
+    },
+    {
+      "availability_content_sha256": "e7c335f2ce6c036b30668030658657009e5d8bffa43573b96cff0b26cc8ee1ba",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-16-QLGN-common-management-exit",
+      "opportunity_id": "opportunity-65fd198a0cb6b73920826c646a338f7d88367ffec9338407e57052ec8efa7b98",
+      "window_content_sha256": "ee546aeda9f9c5d7676e8cbe87fd1bc7a3dcbc065662b6491c5c33b39a33888c"
+    },
+    {
+      "availability_content_sha256": "955fc71681d3e611120485bb098f893dbeb85df8521a0090f299d6748d28e2ef",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-16-BNRG-common-management-exit",
+      "opportunity_id": "opportunity-b067608bdbe292c7991b16b77667a9ccf6bf5055e26e7170309102e916b792e0",
+      "window_content_sha256": "7eccfc9f9bbc9e87b8d38e987059bf1e1e8a9583d3f45606cff6f4baf20649f0"
+    },
+    {
+      "availability_content_sha256": "9ade3c0c1a3a950d3a07f3c40decb5dcefa29f2b0dc683ea6f15786c5a36579e",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-16-NUWE-common-management-exit",
+      "opportunity_id": "opportunity-1bc6f940dc8a9aaadf7b783b288fb1a2f1dbe3bc2730bc755492a0265b361ed3",
+      "window_content_sha256": "1cbedf732e8d49fdb2d9f4c7e2702dd528f440da11a159477b39212e6e6025f3"
+    },
+    {
+      "availability_content_sha256": "1ee74451b404275b1a11393dc5eab025f67c393cc74b0bc6afc403ee56313a27",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-16-INBS-common-management-exit",
+      "opportunity_id": "opportunity-d6972836c1cd558b8f1b8ebbfc9d034e858c6c01816060f9607a3b93204a6ecf",
+      "window_content_sha256": "1dfcb6b5eb33f06926f58ffb111b9478057ce4e9e921f803213cdb8fc9f5d3bd"
+    },
+    {
+      "availability_content_sha256": "4f22600bb48780ae6cfa10d3f70388b331f415bf53ed65550592b2241a281d9c",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-16-INBS-common-management-exit",
+      "opportunity_id": "opportunity-a2ea9144dc08cd0cbb70c6c1ff35b5a97c3dcabddc1440a231ce73e6b9b86908",
+      "window_content_sha256": "5053d780c46a8f49a072388c48fce729323567cc5a814b3efa4d870fa9aedfd0"
+    },
+    {
+      "availability_content_sha256": "03c2eb74925cc2f4bc6d401de8a7876d94cebca927d5187d71c26a548c4648a1",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-16-NUWE-common-management-exit",
+      "opportunity_id": "opportunity-dbee54390606c9d21bc5e3678d314a8b6845b7eb0bb92a7ae94f218f4f0e869e",
+      "window_content_sha256": "2f373b003873cd7c3e0278ca722e1a8f40b0f7b2e941a72781481dc725f16036"
+    },
+    {
+      "availability_content_sha256": "718b0847b59b4baf17a3474a0e72625eef499a536e314cc1616d38857278ebd1",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-16-NUWE-common-management-exit",
+      "opportunity_id": "opportunity-c7b5fabbc1f5cb25106b3beebb76ac13115c57e5bef5aeca7b6aec1dcf4e6a00",
+      "window_content_sha256": "786fe4f18708e9f92163d2d98a8091c1855a235a2eb5c03db12487fadb234908"
+    },
+    {
+      "availability_content_sha256": "8dcaf93af7411e202e1d8bb6832a932146e1143a7e2e323b9c18d3abebe48a34",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-16-NUWE-common-management-exit",
+      "opportunity_id": "opportunity-2d47d74b1cc8301e8a73efce3800da3cf36f659392810bfe17c1e150d30004b6",
+      "window_content_sha256": "b3a00e498c58b3e3dddde3de0e5b03e09893bbb2ee7ac86cbfdbcea9ca277331"
+    },
+    {
+      "availability_content_sha256": "c39e8d9ebb4a4b992da15a1011dec9fcd35ed88241dca8fa01e90b7af74cf34a",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-17-WINT-common-management-exit",
+      "opportunity_id": "opportunity-6abef48adeb625f99032512b60b91232b96e29fd8f36d41f46344027e0131fac",
+      "window_content_sha256": "437041ac763d4bfb980999eea0ffcd9c026dde9d4cf20b4ef49e2df17ce1996c"
+    },
+    {
+      "availability_content_sha256": "5e85df9830e3f290831c5fd0441e2dd0729edcb4eab67dffd404cbb5acc64cdc",
+      "entry_input_reason": "causal_reference_and_window_available",
+      "entry_input_status": "available",
+      "group_id": "2025-07-17-WINT-common-management-exit",
+      "opportunity_id": "opportunity-3d6017fa54e9c6bd811212ece5b3cf58d940f2f247b2eb009cbe7ca1ce94e73f",
+      "window_content_sha256": "dbd5287cca01f3c1978fd79b0de644af03ac1816c4d33e872a03e403f1a4ddc5"
+    }
+  ],
+  "paper_or_live_orders_authorized": false,
+  "policy_changed": false,
+  "portfolio_financial_metrics_eligible": false,
+  "provider_calls": 0,
+  "provider_purchase_authorized_usd": "0",
+  "quote_duration_ns": 70962736760683,
+  "quoted_cost_usd": null,
+  "retrospective_inputs_loaded": false,
+  "reuse_candidate_list_content_sha256": "52456c15fe99572819775d0874699e547b110dd8e3def5422107bf1e8e7f498b",
+  "reuse_candidate_request_count": 2,
+  "reuse_candidate_requests": [
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752586973628965063,
+      "request_id": "2025-07-15-XAGE-mbp-1",
+      "schema": "mbp-1",
+      "start_ns": 1752580565209819825,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "XAGE"
+      ],
+      "trading_date": "2025-07-15"
+    },
+    {
+      "dataset": "XNAS.ITCH",
+      "end_exclusive": true,
+      "end_ns": 1752586973628965063,
+      "request_id": "2025-07-15-XAGE-status",
+      "schema": "status",
+      "start_ns": 1752537600000000000,
+      "stype_in": "raw_symbol",
+      "symbols": [
+        "XAGE"
+      ],
+      "trading_date": "2025-07-15"
+    }
+  ]
+}

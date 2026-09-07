@@ -1,0 +1,41 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "account_runtime_input_gate_passed": false,
+  "acquisition_gate_passed": false,
+  "backtesting_executed": false,
+  "broker_account_read": false,
+  "content_sha256": "77452867363127a9234ddbf1b27702d38b15477911454a448b680b6a9d6b1366",
+  "contract_content_sha256": "e94f28e598a99ce65c348fc2222e7a7e17c342fd42e41a7893d5e5f152bac7a2",
+  "contract_id": "sealed-historical-management-runner-v0.1",
+  "document_content_sha256": {
+    "exit-input-request-plan.json": "e6123425e7363051b542da98efcbc4bcda148823715e2f3230509a7b2ab68115",
+    "readiness-report.json": "522e8bd5ac34868bee694b3b3ebd992370d714bb133a9221fb33ae1e0b1fa60a",
+    "runner-input-index.json": "cc1dec7dd599c08af8db2c8694d83b8e11146df265439de1ad8d7a44eab25a18"
+  },
+  "file_inventory": {
+    "exit-input-request-plan.json": {
+      "bytes": 176859,
+      "sha256": "562ed42e20c7021eecf384e3a22aed5f5ce25ae15926dd93072a0313d0e6f461"
+    },
+    "readiness-report.json": {
+      "bytes": 1865,
+      "sha256": "6b6c7f0f994bb84ebf491bb5c55a731c6fdfc2c1cfe0f41e00014f96cd7841e6"
+    },
+    "runner-input-index.json": {
+      "bytes": 2304,
+      "sha256": "0e3a628b8137b75d03cc9b717bf56922ef71d22d818050d0e396b0bda7239f80"
+    }
+  },
+  "historical_execution_authorized": false,
+  "management_input_gate_passed": false,
+  "management_projection_executed": false,
+  "next_gate": "verify_exact_existing_common_source_reuse_and_register_bounded_metadata_quote_for_remaining_exit_requests",
+  "paper_or_live_orders_authorized": false,
+  "parent_commit_sha": "d9e5a04b6f9f78ba09fc87c53be2e7b9aa359b89",
+  "parent_freeze_content_sha256": "3304832421b6a0ed963a93eba8fcbecaa85ebab6b77471bead7c16ff00c058d5",
+  "policy_changed": false,
+  "portfolio_financial_metrics_eligible": false,
+  "provider_calls": 0,
+  "provider_purchase_authorized_usd": "0",
+  "retrospective_inputs_loaded": false
+}
