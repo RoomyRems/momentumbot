@@ -1,6 +1,16 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current preparation: causal management mechanics and exit requirements
+## Current checkpoint: causal management mechanics independently verified
+
+Code `b9f76707d0c28c8620278866116e96270fb7cac9` passed all eight hosted
+workflows on attempt 1. Dedicated run `34150725855`, job `101832281987`,
+reconstructed all four registration metadata files offline and passed 90
+focused tests normally and optimized. Generic CI passed all 1,767 tests with
+its 51 optional-SDK skips. Local full-suite verification had zero skips.
+The [permanent audit](../../research/data-audits/sealed-historical-management-projection-v0.1-independent-verification.json)
+retains both verifications, test/environment evidence, hosted jobs and
+reproducible independent-checker sources. Main and all nine consumed tags
+remain unchanged.
 
 An isolated child of `f4a8d98b5ff780a4138ed4eb5628423891e4818d` registers
 the frozen fractional SIP management primitive with exact source lineage and
@@ -22,8 +32,11 @@ Every historical management, execution, account and financial-metric gate
 stays false. All 1,767 local tests passed with zero skips; 90 focused tests
 passed normally and optimized. Independent stdlib verification matched every
 opportunity field, nanosecond bound, date, availability reason and all 744
-references. Next: complete hosted checks, then bind verified entry receipts
-and register executable management feedback. See
+references. The registration freeze content commitment is
+`0fef2f3bf29a3439dfa07d58a8fa189294f533197f53d70bc7939e186280960d`.
+Next: bind verified confirmed-entry receipts and register executable management
+fill feedback before historical projection or exit-data capture. Both remain
+blocked; next-session valuation and account replay are later gates. See
 [causal management mechanics](../research/sealed_historical_management_projection_v01.md).
 
 ## Prior checkpoint: complete management inputs independently verified

@@ -142,4 +142,25 @@ profile/scenario references and availability reasons, the literal parent
 commitments and every closed runtime gate. The registration freeze content
 commitment is
 `0fef2f3bf29a3439dfa07d58a8fa189294f533197f53d70bc7939e186280960d`.
-Hosted verification is the remaining publication check.
+
+## Hosted result and permanent checkpoint
+
+Code `b9f76707d0c28c8620278866116e96270fb7cac9`, tree
+`0512952ca459823daf72a6b8a4c24a95021f919c`, passed all eight hosted
+workflows on their first attempt. Dedicated
+[run 34150725855](https://github.com/RoomyRems/momentumbot/actions/runs/34150725855),
+job `101832281987`, reproduced all four registration metadata files and their
+freeze commitment offline. All 90 focused tests passed normally and optimized.
+Generic [CI 34150725807](https://github.com/RoomyRems/momentumbot/actions/runs/34150725807)
+passed all 1,767 tests with its 51 optional-SDK skips.
+
+The [permanent audit](../../research/data-audits/sealed-historical-management-projection-v0.1-independent-verification.json)
+contains the primary/independent verification agreement, complete metadata
+inventory, local test-output hashes and counts, environment versions, static
+checks, hosted job evidence and reproducible checker sources. Its content
+commitment is
+`ea72aab660dfae240e5c37dbd967f39b34238a1bb4e56664f45cd0d97ee09fe9`.
+Main and all nine consumed references remain unchanged. Historical projections
+and actual executable-exit requests remain zero; no policy or account state
+was promoted. The next gate remains confirmed-entry binding and executable
+management feedback, not historical replay or financial evaluation.

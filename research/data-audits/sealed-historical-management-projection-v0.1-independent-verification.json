@@ -1,0 +1,1089 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "account_runtime_input_gate_passed": false,
+  "acquisition_gate_passed": false,
+  "actual_executable_exit_request_count": 0,
+  "all_original_opportunities_availability_and_account_dependencies_unchanged": true,
+  "artifact_type": "independently_verified_causal_management_mechanics_registration",
+  "backtesting_executed": false,
+  "broker_account_read": false,
+  "code_commit_sha": "b9f76707d0c28c8620278866116e96270fb7cac9",
+  "code_tree_sha": "0512952ca459823daf72a6b8a4c24a95021f919c",
+  "confirmed_entry_producer_and_executable_exit_integration_registered": false,
+  "content_sha256": "ea72aab660dfae240e5c37dbd967f39b34238a1bb4e56664f45cd0d97ee09fe9",
+  "contract_content_sha256": "5546c4bd0c3f62bb9f2da279d080d73635dbb64f8510cfea33891eb000ca19c1",
+  "contract_id": "sealed-historical-management-projection-v0.1",
+  "freeze_manifest_content_sha256": "0fef2f3bf29a3439dfa07d58a8fa189294f533197f53d70bc7939e186280960d",
+  "historical_execution_authorized": false,
+  "historical_projection_count": 0,
+  "hosted_validation": {
+    "ci_job_id": 101832282057,
+    "ci_log_evidence": [
+      "2026-09-07T18:13:16.4168533Z Successfully installed PyYAML-6.0.3 momentumbot-0.2.0 numpy-2.5.3 pandas-3.0.5 python-dateutil-2.9.0.post0 six-1.17.0",
+      "2026-09-07T18:14:49.2655361Z Ran 1767 tests in 90.323s",
+      "2026-09-07T18:14:49.2655877Z OK (skipped=51)"
+    ],
+    "code_commit_sha": "b9f76707d0c28c8620278866116e96270fb7cac9",
+    "dedicated_job_id": 101832281987,
+    "dedicated_log_evidence": [
+      "2026-09-07T18:13:22.0242616Z Successfully installed PyYAML-6.0.3 aiohappyeyeballs-2.7.1 aiohttp-3.14.3 aiosignal-1.4.0 attrs-26.1.0 certifi-2026.7.22 charset_normalizer-3.5.1 databento-0.83.0 databento_dbn-0.65.0 frozenlist-1.8.0 idna-3.19 multidict-6.7.1 numpy-2.3.5 packaging-26.3 pandas-2.2.3 propcache-0.5.2 pyarrow-25.0.1 python-dateutil-2.9.0.post0 pytz-2026.3.post1 requests-2.34.2 setuptools-84.0.0 six-1.17.0 typing_extensions-4.16.0 tzdata-2026.3 urllib3-2.7.0 wheel-0.48.0 yarl-1.24.5 zstandard-0.25.0",
+      "2026-09-07T18:13:23.2789926Z Successfully installed momentumbot-0.2.0",
+      "2026-09-07T18:13:23.5811204Z No broken requirements found.",
+      "2026-09-07T18:13:25.5268486Z   \"freeze_manifest_content_sha256\": \"0fef2f3bf29a3439dfa07d58a8fa189294f533197f53d70bc7939e186280960d\",",
+      "2026-09-07T18:13:25.5273796Z   \"verification_passed\": true",
+      "2026-09-07T18:13:25.6086185Z \u001b[36;1mfrom check_recovery_entrypoints_v13 import undefined_globals\u001b[0m",
+      "2026-09-07T18:13:25.6087753Z \u001b[36;1m    missing = undefined_globals(Path(name).read_text(), name)\u001b[0m",
+      "2026-09-07T18:13:37.8884988Z Ran 90 tests in 11.057s",
+      "2026-09-07T18:13:37.8885271Z OK",
+      "2026-09-07T18:13:53.7490773Z Ran 90 tests in 11.564s",
+      "2026-09-07T18:13:53.7491113Z OK"
+    ],
+    "jobs": [
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "id": 101832282057,
+            "logs_url": null,
+            "name": "test",
+            "run_id": 34150725807,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@v4",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@v5",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install package",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run tests",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@v5",
+                "number": 11,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@v4",
+                "number": 12,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 13,
+                "status": "completed"
+              }
+            ]
+          }
+        ],
+        "name": "CI",
+        "run_id": 34150725807
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "id": 101832282906,
+            "logs_url": null,
+            "name": "validate",
+            "run_id": 34150726062,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Validate frozen authorization without credentials",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run provider-free availability tests",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile availability entry points",
+                "number": 7,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "conclusion": "skipped",
+            "id": 101832380065,
+            "logs_url": null,
+            "name": "probe",
+            "run_id": 34150726062,
+            "status": "completed",
+            "steps": null
+          }
+        ],
+        "name": "Sealed historical provider availability v0.1",
+        "run_id": 34150726062
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "id": 101832282140,
+            "logs_url": null,
+            "name": "validate",
+            "run_id": 34150725818,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Validate frozen acquisition and parents without credentials",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run bounded-acquisition tests",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile acquisition entry points",
+                "number": 7,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "conclusion": "skipped",
+            "id": 101832357298,
+            "logs_url": null,
+            "name": "acquire",
+            "run_id": 34150725818,
+            "status": "completed",
+            "steps": null
+          }
+        ],
+        "name": "Sealed historical source acquisition v0.1",
+        "run_id": 34150725818
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "id": 101832281995,
+            "logs_url": null,
+            "name": "validate",
+            "run_id": 34150725800,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Validate frozen v0.3 repair and parents without credentials",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run bounded-acquisition tests",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile acquisition entry points",
+                "number": 7,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "conclusion": "skipped",
+            "id": 101832362910,
+            "logs_url": null,
+            "name": "acquire",
+            "run_id": 34150725800,
+            "status": "completed",
+            "steps": null
+          }
+        ],
+        "name": "Sealed historical source acquisition v0.3",
+        "run_id": 34150725800
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "id": 101832282290,
+            "logs_url": null,
+            "name": "validate",
+            "run_id": 34150725870,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Validate sealed manifests and selected dates",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run leakage and tamper tests",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile registration entry points",
+                "number": 7,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "status": "completed"
+              }
+            ]
+          }
+        ],
+        "name": "Sealed historical walk-forward v0.1",
+        "run_id": 34150725870
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "id": 101832282555,
+            "logs_url": null,
+            "name": "validate",
+            "run_id": 34150725847,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Validate frozen v0.2 repair and parents without credentials",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run bounded-acquisition tests",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile acquisition entry points",
+                "number": 7,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "conclusion": "skipped",
+            "id": 101832356271,
+            "logs_url": null,
+            "name": "acquire",
+            "run_id": 34150725847,
+            "status": "completed",
+            "steps": null
+          }
+        ],
+        "name": "Sealed historical source acquisition v0.2",
+        "run_id": 34150725847
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "id": 101832282473,
+            "logs_url": null,
+            "name": "validate",
+            "run_id": 34150725904,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Validate frozen repair without credentials",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run provider-free repair tests",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile repair entry points",
+                "number": 7,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "conclusion": "skipped",
+            "id": 101832354775,
+            "logs_url": null,
+            "name": "probe",
+            "run_id": 34150725904,
+            "status": "completed",
+            "steps": null
+          }
+        ],
+        "name": "Sealed historical provider availability repair v0.2",
+        "run_id": 34150725904
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "id": 101832281987,
+            "logs_url": null,
+            "name": "validate",
+            "run_id": 34150725855,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install hash-locked validation environment",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Reconstruct registration metadata offline",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Verify synthetic causal mechanics and frozen execution dependencies",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 11,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 12,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 13,
+                "status": "completed"
+              }
+            ]
+          }
+        ],
+        "name": "Sealed historical management mechanics v0.1",
+        "run_id": 34150725855
+      }
+    ],
+    "protected_refs_unchanged": {
+      "heads/main": "de24eb17316191da69d92e61f6843af25e9c22d0",
+      "tags/sealed-historical-execution-input-acquisition-v0.1-consumed": "5a375f86e951b1e9eeb6c010995c9b57025913b7",
+      "tags/sealed-historical-execution-input-acquisition-v0.2-consumed": "e2c250367895d209ec4706288a22655636298685",
+      "tags/sealed-historical-execution-input-acquisition-v0.3-consumed": "0c4010044ee8557136b3c119c6350e134bba46d2",
+      "tags/sealed-historical-execution-input-diagnostic-v0.1-consumed": "e1aece08a44ccf9add0157a1657d08a809687e85",
+      "tags/sealed-historical-execution-input-empty-diagnostic-v0.1-consumed": "8854bb2e63dc3961d98c5d8827f857ef85ccb341",
+      "tags/sealed-historical-execution-input-quote-v0.1-consumed": "dd295304dcc5e7cc0ebd300d094ab20636a72b92",
+      "tags/sealed-historical-management-missing-input-acquisition-v0.1-consumed": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+      "tags/sealed-historical-micro-input-acquisition-v0.1-consumed": "5cab2eb3aa2b73a2cbf1d57575519a7b99961e24",
+      "tags/sealed-historical-micro-session-input-acquisition-v0.2-consumed": "bf5863a7115abef9e22c4f527448cd9c20084f47"
+    },
+    "runs": [
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "b9f76707d0c28c8620278866116e96270fb7cac9",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34150725807",
+        "id": 34150725807,
+        "name": "CI",
+        "path": ".github/workflows/ci.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "b9f76707d0c28c8620278866116e96270fb7cac9",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34150726062",
+        "id": 34150726062,
+        "name": "Sealed historical provider availability v0.1",
+        "path": ".github/workflows/sealed-historical-provider-availability.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "b9f76707d0c28c8620278866116e96270fb7cac9",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34150725818",
+        "id": 34150725818,
+        "name": "Sealed historical source acquisition v0.1",
+        "path": ".github/workflows/sealed-historical-source-acquisition.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "b9f76707d0c28c8620278866116e96270fb7cac9",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34150725800",
+        "id": 34150725800,
+        "name": "Sealed historical source acquisition v0.3",
+        "path": ".github/workflows/sealed-historical-source-acquisition-v03.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "b9f76707d0c28c8620278866116e96270fb7cac9",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34150725870",
+        "id": 34150725870,
+        "name": "Sealed historical walk-forward v0.1",
+        "path": ".github/workflows/sealed-historical-walk-forward.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "b9f76707d0c28c8620278866116e96270fb7cac9",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34150725847",
+        "id": 34150725847,
+        "name": "Sealed historical source acquisition v0.2",
+        "path": ".github/workflows/sealed-historical-source-acquisition-v02.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "b9f76707d0c28c8620278866116e96270fb7cac9",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34150725904",
+        "id": 34150725904,
+        "name": "Sealed historical provider availability repair v0.2",
+        "path": ".github/workflows/sealed-historical-provider-availability-v02.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "b9f76707d0c28c8620278866116e96270fb7cac9",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34150725855",
+        "id": 34150725855,
+        "name": "Sealed historical management mechanics v0.1",
+        "path": ".github/workflows/sealed-historical-management-projection-v01.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      }
+    ]
+  },
+  "independent_and_primary_verification_agree": true,
+  "independent_verification": {
+    "all_744_profile_scenario_references_and_availability_reasons_verified": true,
+    "all_nanosecond_bounds_exact": true,
+    "all_original_opportunity_fields_and_dates_identical": true,
+    "all_runtime_gates_closed": true,
+    "checker": "verify_management_projection_independent.py",
+    "checker_sha256": "91c2db990181fb5ac789a2b4907830f98f2bd1e2be81d403e31625215ebddbbd",
+    "checker_uses_project_code": false,
+    "content_sha256": "6bbb2c319676e4f5d278e938588890b0060473d650ee097a5e6c8659182e1efb",
+    "contract_content_sha256": "5546c4bd0c3f62bb9f2da279d080d73635dbb64f8510cfea33891eb000ca19c1",
+    "counts": {
+      "account_paths": 12,
+      "available_entry_inputs": 86,
+      "dates": 30,
+      "no_decision_dates": 5,
+      "opportunities": 109,
+      "profile_scenario_opportunity_references": 744,
+      "session_slots": 360,
+      "unavailable_entry_inputs": 23
+    },
+    "file_inventory": {
+      "executable-exit-requirements.json": {
+        "bytes": 3488,
+        "sha256": "3aacf8c0c44769e6d30f60bac94a05db0d183c1881e928cf2200368788e0e919"
+      },
+      "freeze-manifest.json": {
+        "bytes": 1949,
+        "sha256": "cbce3252290ea89ae872d0bb13405030ce32a591b6fe18f1cdc214e206336665"
+      },
+      "projection-input-requirements.json": {
+        "bytes": 175176,
+        "sha256": "8b89b1ffd05de277bcff906140b5aeb142a823cce99260d9c967a8d1dc9e931f"
+      },
+      "readiness-report.json": {
+        "bytes": 1430,
+        "sha256": "827e9e1451cf3c05c6aa15b1144a67c9323b636ee318a39aeb74cff21817ac35"
+      }
+    },
+    "freeze_manifest_content_sha256": "0fef2f3bf29a3439dfa07d58a8fa189294f533197f53d70bc7939e186280960d",
+    "management_input_manifest_content_sha256": "df00c1aa3e66fbb3040e63df210ef71ead7518858f5bc3ff44fc59067eeb15de",
+    "source_tapes_or_retrospective_inputs_loaded": false,
+    "verification_passed": true
+  },
+  "local_validation": {
+    "all_passed": true,
+    "packages": {
+      "PyMuPDF": "1.26.6",
+      "PyYAML": "6.0.3",
+      "aiohappyeyeballs": "2.7.1",
+      "aiohttp": "3.14.3",
+      "aiosignal": "1.4.0",
+      "annotated-types": "0.8.0",
+      "artifact_tool_v2": "2.8.52",
+      "attrs": "26.1.0",
+      "certifi": "2026.7.22",
+      "cffi": "1.17.1",
+      "charset-normalizer": "3.5.1",
+      "contourpy": "1.3.3",
+      "cryptography": "46.0.0",
+      "cycler": "0.12.1",
+      "databento": "0.83.0",
+      "databento-dbn": "0.65.0",
+      "et_xmlfile": "2.0.0",
+      "fonttools": "4.61.1",
+      "frozenlist": "1.8.0",
+      "idna": "3.19",
+      "joblib": "1.5.3",
+      "kiwisolver": "1.4.9",
+      "lxml": "6.1.1",
+      "matplotlib": "3.10.8",
+      "multidict": "6.7.1",
+      "numpy": "2.3.5",
+      "openpyxl": "3.1.5",
+      "packaging": "26.3",
+      "pandas": "2.2.3",
+      "pdf2image": "1.17.0",
+      "pdfminer.six": "20251107",
+      "pdfplumber": "0.11.8",
+      "pillow": "12.3.0",
+      "pip": "26.2.1",
+      "propcache": "0.5.2",
+      "pyarrow": "25.0.1",
+      "pycparser": "2.23",
+      "pydantic": "2.13.4",
+      "pydantic_core": "2.46.4",
+      "pyhumps": "3.8.0",
+      "pyparsing": "3.3.2",
+      "pypdf": "6.10.0",
+      "pypdfium2": "5.3.0",
+      "python-dateutil": "2.9.0.post0",
+      "python-docx": "1.2.0",
+      "python-pptx": "1.0.2",
+      "pytz": "2026.3.post1",
+      "reportlab": "4.4.9",
+      "requests": "2.34.2",
+      "scikit-learn": "1.8.0",
+      "scipy": "1.17.0",
+      "seaborn": "0.13.2",
+      "setuptools": "84.0.0",
+      "six": "1.17.0",
+      "threadpoolctl": "3.6.0",
+      "typing-inspection": "0.4.4",
+      "typing_extensions": "4.16.0",
+      "tzdata": "2026.3",
+      "urllib3": "2.7.0",
+      "uv": "0.11.33",
+      "websockets": "16.0",
+      "wheel": "0.48.0",
+      "xlrd": "2.0.1",
+      "xlsxwriter": "3.2.9",
+      "yarl": "1.24.5",
+      "zstandard": "0.25.0"
+    },
+    "python_version": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]",
+    "results": [
+      {
+        "bytes": 17493,
+        "command": [
+          "/workspace/scratch/193af10e3424/quote-env/bin/python",
+          "-m",
+          "unittest",
+          "tests.test_sealed_historical_management_projection_v01",
+          "tests.test_prospective_management_window",
+          "tests.test_execution_realism",
+          "tests.test_sealed_historical_record_order_v01",
+          "-v"
+        ],
+        "exit_code": 0,
+        "name": "focused-normal",
+        "output_file": "management-projection-focused-normal.log",
+        "seconds": 8.513,
+        "sha256": "fb106b7b81dbfa060f811bf60bac338aded11dc37d8ae5186f7a91ad0627f947",
+        "skip_count": 0,
+        "tail": [
+          "test_strict_execution_streams_match_both_frozen_policies_and_sides (tests.test_sealed_historical_record_order_v01.RecordOrderTests.test_strict_execution_streams_match_both_frozen_policies_and_sides) ... ok",
+          "test_strict_stream_capture_is_identical_to_frozen_prospective_mechanics (tests.test_sealed_historical_record_order_v01.RecordOrderTests.test_strict_stream_capture_is_identical_to_frozen_prospective_mechanics) ... ok",
+          "test_unknown_initial_or_later_status_remains_unavailable (tests.test_sealed_historical_record_order_v01.RecordOrderTests.test_unknown_initial_or_later_status_remains_unavailable) ... ok",
+          "",
+          "----------------------------------------------------------------------",
+          "Ran 90 tests in 7.799s",
+          "",
+          "OK"
+        ],
+        "test_summary": [
+          "Ran 90 tests in 7.799s",
+          "OK"
+        ],
+        "tests_run": 90
+      },
+      {
+        "bytes": 17493,
+        "command": [
+          "/workspace/scratch/193af10e3424/quote-env/bin/python",
+          "-O",
+          "-m",
+          "unittest",
+          "tests.test_sealed_historical_management_projection_v01",
+          "tests.test_prospective_management_window",
+          "tests.test_execution_realism",
+          "tests.test_sealed_historical_record_order_v01",
+          "-v"
+        ],
+        "exit_code": 0,
+        "name": "focused-optimized",
+        "output_file": "management-projection-focused-optimized.log",
+        "seconds": 10.226,
+        "sha256": "a962d8d3a21624e44ec177558cbf420c3d7efed2455164b8bc0a973ef38cb213",
+        "skip_count": 0,
+        "tail": [
+          "test_strict_execution_streams_match_both_frozen_policies_and_sides (tests.test_sealed_historical_record_order_v01.RecordOrderTests.test_strict_execution_streams_match_both_frozen_policies_and_sides) ... ok",
+          "test_strict_stream_capture_is_identical_to_frozen_prospective_mechanics (tests.test_sealed_historical_record_order_v01.RecordOrderTests.test_strict_stream_capture_is_identical_to_frozen_prospective_mechanics) ... ok",
+          "test_unknown_initial_or_later_status_remains_unavailable (tests.test_sealed_historical_record_order_v01.RecordOrderTests.test_unknown_initial_or_later_status_remains_unavailable) ... ok",
+          "",
+          "----------------------------------------------------------------------",
+          "Ran 90 tests in 8.028s",
+          "",
+          "OK"
+        ],
+        "test_summary": [
+          "Ran 90 tests in 8.028s",
+          "OK"
+        ],
+        "tests_run": 90
+      },
+      {
+        "bytes": 377523,
+        "command": [
+          "/workspace/scratch/193af10e3424/quote-env/bin/python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ],
+        "exit_code": 0,
+        "name": "full-suite",
+        "output_file": "management-projection-full-suite.log",
+        "seconds": 87.686,
+        "sha256": "5a66b39f8f14ad1f08d051f8c68dcc5311af81071ec151dcd137a13e7787dbfa",
+        "skip_count": 0,
+        "tail": [
+          "  \"dates\": [",
+          "    \"2025-04-03\"",
+          "  ],",
+          "  \"phase\": \"freeze-snapshots\",",
+          "  \"policy_promotion_eligible\": false,",
+          "  \"provider_free_replay_exact\": true,",
+          "  \"source_input_artifact_id\": \"causal-scanner-source-inputs-v0.2\"",
+          "}"
+        ],
+        "test_summary": [
+          "Ran 1767 tests in 86.135s",
+          "OK"
+        ],
+        "tests_run": 1767
+      }
+    ]
+  },
+  "management_input_gate_passed": false,
+  "management_projection_executed": false,
+  "new_test_count": 43,
+  "next_gate": "register_confirmed_entry_binding_and_executable_management_fill_feedback_before_historical_projection_or_exit_capture",
+  "paper_or_live_orders_authorized": false,
+  "parent_commit_sha": "f4a8d98b5ff780a4138ed4eb5628423891e4818d",
+  "parent_management_input_manifest_content_sha256": "df00c1aa3e66fbb3040e63df210ef71ead7518858f5bc3ff44fc59067eeb15de",
+  "policy_changed": false,
+  "portfolio_financial_metrics_eligible": false,
+  "post_terminal_red_metadata_omitted_without_leg_changes": true,
+  "primary_verification": {
+    "account_or_fill_simulation_executed": false,
+    "account_runtime_input_gate_passed": false,
+    "acquisition_gate_passed": false,
+    "backtesting_executed": false,
+    "broker_account_read": false,
+    "content_sha256": "e37913a65655be27b7838e2c7a0cf74aa1b516ecbd103641b2e6236b92d0851e",
+    "contract_id": "sealed-historical-management-projection-v0.1",
+    "file_inventory": {
+      "executable-exit-requirements.json": {
+        "bytes": 3488,
+        "sha256": "3aacf8c0c44769e6d30f60bac94a05db0d183c1881e928cf2200368788e0e919"
+      },
+      "freeze-manifest.json": {
+        "bytes": 1949,
+        "sha256": "cbce3252290ea89ae872d0bb13405030ce32a591b6fe18f1cdc214e206336665"
+      },
+      "projection-input-requirements.json": {
+        "bytes": 175176,
+        "sha256": "8b89b1ffd05de277bcff906140b5aeb142a823cce99260d9c967a8d1dc9e931f"
+      },
+      "readiness-report.json": {
+        "bytes": 1430,
+        "sha256": "827e9e1451cf3c05c6aa15b1144a67c9323b636ee318a39aeb74cff21817ac35"
+      }
+    },
+    "freeze_manifest_content_sha256": "0fef2f3bf29a3439dfa07d58a8fa189294f533197f53d70bc7939e186280960d",
+    "historical_execution_authorized": false,
+    "management_input_gate_passed": false,
+    "management_projection_executed": false,
+    "paper_or_live_orders_authorized": false,
+    "policy_changed": false,
+    "portfolio_financial_metrics_eligible": false,
+    "provider_calls": 0,
+    "provider_purchase_authorized_usd": "0",
+    "retrospective_inputs_loaded": false,
+    "verification_passed": true
+  },
+  "provider_calls": 0,
+  "provider_purchase_authorized_usd": "0",
+  "reproducible_evidence_sources": {
+    "record_management_projection_audit.py": {
+      "sha256": "562ecee61091a3f59ab48448b0ec000d3abf626bc4d3183f8b4d96b0f485609e",
+      "source": "\"\"\"Emit a permanent mechanics checkpoint from exact local and hosted evidence.\"\"\"\nimport hashlib\nimport json\nfrom pathlib import Path\nimport re\nimport subprocess\n\nfrom momentumbot.research import sealed_historical_management_projection_v01 as m\nfrom check_recovery_entrypoints_v13 import undefined_globals\n\nROOT = Path('/workspace/scratch/2d76267c92e1/momentumbot')\nEVIDENCE = ROOT.parent\nCODE = 'b9f76707d0c28c8620278866116e96270fb7cac9'\n\n\ndef check(value, message):\n    if not value:\n        raise ValueError(message)\n\n\nif __name__ == '__main__':\n    local = json.loads((EVIDENCE / 'management-projection-local-tests.json').read_text())\n    independent = m.frozen(EVIDENCE / 'management-projection-independent-verification.json')\n    hosted = json.loads((EVIDENCE / 'management-projection-hosted-evidence.json').read_text())\n    primary = m.verify_bundle(ROOT, ROOT / m.OUTPUT_PATH)\n    check(primary['freeze_manifest_content_sha256'] == independent['freeze_manifest_content_sha256'], 'verifiers disagree')\n    check(primary['file_inventory'] == independent['file_inventory'], 'file verifiers disagree')\n    check(subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip() == CODE, 'code HEAD differs')\n    for row in local['results']:\n        raw = (EVIDENCE / row['output_file']).read_bytes()\n        check(hashlib.sha256(raw).hexdigest() == row['sha256'] and len(raw) == row['bytes'], 'local evidence bytes differ')\n        check(row['exit_code'] == 0, 'local test failure')\n        count = re.search(rb'^Ran (\\d+) tests in ([\\d.]+)s$', raw, re.M)\n        check(count is not None, 'test count missing')\n        row['tests_run'] = int(count[1])\n        row['test_summary'] = [line.decode() for line in raw.splitlines() if re.match(rb'^(Ran \\d+ tests in |OK|FAILED)', line)]\n        row['skip_count'] = sum(b' ... skipped ' in line for line in raw.splitlines())\n        check(row['tests_run'] == (1767 if row['name'] == 'full-suite' else 90), 'local test count differs')\n        check(row['skip_count'] == 0, 'unexpected local skipped test')\n    check(len(hosted['runs']) == 8 and all(r['head_sha'] == CODE and r['conclusion'] == 'success'\n        and r['status'] == 'completed' and r['run_attempt'] == 1 for r in hosted['runs']), 'eight first-attempt hosted successes required')\n    for record in hosted['jobs']:\n        check(record['run_id'] in {r['id'] for r in hosted['runs']}, 'job run binding differs')\n        check(all(j['conclusion'] in ('success', 'skipped') for j in record['jobs']), 'hosted job failure')\n    check(any('Ran 90 tests' in line for line in hosted['dedicated_log_evidence']), 'dedicated test count missing')\n    check(sum('Ran 90 tests' in line for line in hosted['dedicated_log_evidence']) == 2, 'normal and optimized dedicated runs required')\n    check(any('0fef2f3bf29a3439dfa07d58a8fa189294f533197f53d70bc7939e186280960d' in line for line in hosted['dedicated_log_evidence']), 'hosted metadata freeze differs')\n    check(any('Ran 1767 tests' in line for line in hosted['ci_log_evidence']), 'hosted suite count differs')\n    check(any('OK (skipped=51)' in line for line in hosted['ci_log_evidence']), 'hosted optional SDK skip count differs')\n    static = {p: sorted(undefined_globals((ROOT / p).read_text(), p)) for p in (m.MODULE_PATH, m.SCRIPT_PATH)}\n    check(not any(static.values()), 'undefined globals found')\n    source_paths = [EVIDENCE / 'verify_management_projection_independent.py', EVIDENCE / 'run_management_projection_checks.py', Path(__file__)]\n    sources = {p.name: {'sha256': hashlib.sha256(p.read_bytes()).hexdigest(), 'source': p.read_text()} for p in source_paths}\n    check(sources[independent['checker']]['sha256'] == independent['checker_sha256'], 'independent checker changed')\n    result = m.seal({'schema_version': 1, 'artifact_type': 'independently_verified_causal_management_mechanics_registration',\n        'contract_id': m.CONTRACT_ID, 'verification_passed': True, 'independent_and_primary_verification_agree': True,\n        'code_commit_sha': CODE, 'code_tree_sha': '0512952ca459823daf72a6b8a4c24a95021f919c',\n        'parent_commit_sha': m.PARENT_COMMIT, 'contract_content_sha256': m.frozen(ROOT / m.CONTRACT_PATH)['content_sha256'],\n        'freeze_manifest_content_sha256': primary['freeze_manifest_content_sha256'],\n        'parent_management_input_manifest_content_sha256': m.INPUT_MANIFEST_SHA256,\n        'primary_verification': primary, 'independent_verification': independent,\n        'local_validation': local, 'static_undefined_globals': static, 'hosted_validation': hosted,\n        'reproducible_evidence_sources': sources, 'new_test_count': 43, 'seeded_synthetic_parity_cases': 120,\n        'synthetic_tests_are_not_historical_execution': True, 'historical_projection_count': 0,\n        'actual_executable_exit_request_count': 0, 'all_original_opportunities_availability_and_account_dependencies_unchanged': True,\n        'source_captures_consumption_and_account_seeds_modified': False,\n        'post_terminal_red_metadata_omitted_without_leg_changes': True,\n        'confirmed_entry_producer_and_executable_exit_integration_registered': False,\n        'next_gate': m.NEXT_GATE, **m.BOUNDARY})\n    print(json.dumps(result, indent=2, sort_keys=True, allow_nan=False))\n"
+    },
+    "run_management_projection_checks.py": {
+      "sha256": "1a2f06ff85f50d83ba12ea255b28e0f910086f89818fad3431a8a34e1a36cc16",
+      "source": "\"\"\"Capture complete verification output before a single durable evidence write.\"\"\"\nfrom concurrent.futures import ThreadPoolExecutor\nimport hashlib\nimport importlib.metadata\nimport json\nimport os\nfrom pathlib import Path\nimport subprocess\nimport sys\nimport time\n\nROOT = Path('/workspace/scratch/2d76267c92e1/momentumbot')\nOUT = Path('/workspace/scratch/2d76267c92e1')\nENV = {**os.environ, 'PYTHONPATH': 'src:scripts', 'PYTHONDONTWRITEBYTECODE': '1'}\nFOCUSED = ['tests.test_sealed_historical_management_projection_v01', 'tests.test_prospective_management_window',\n           'tests.test_execution_realism', 'tests.test_sealed_historical_record_order_v01']\nCOMMANDS = {\n    'focused-normal': [sys.executable, '-m', 'unittest', *FOCUSED, '-v'],\n    'focused-optimized': [sys.executable, '-O', '-m', 'unittest', *FOCUSED, '-v'],\n    'full-suite': [sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-v'],\n}\n\n\ndef write_once(path, raw):\n    with path.open('xb') as handle:\n        if handle.write(raw) != len(raw):\n            raise OSError('short evidence write')\n        handle.flush()\n        os.fsync(handle.fileno())\n\n\ndef run(item):\n    name, command = item\n    started = time.monotonic()\n    result = subprocess.run(command, cwd=ROOT, env=ENV, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)\n    path = OUT / ('management-projection-' + name + '.log')\n    write_once(path, result.stdout)\n    record = {'name': name, 'command': command, 'exit_code': result.returncode,\n              'seconds': round(time.monotonic() - started, 3), 'output_file': path.name,\n              'sha256': hashlib.sha256(result.stdout).hexdigest(), 'bytes': len(result.stdout),\n              'tail': result.stdout.decode(errors='replace').splitlines()[-8:]}\n    print(json.dumps(record), flush=True)\n    return record\n\n\nif __name__ == '__main__':\n    with ThreadPoolExecutor(max_workers=3) as pool:\n        records = list(pool.map(run, COMMANDS.items()))\n    report = {'python_version': sys.version, 'packages': dict(sorted((d.metadata['Name'], d.version)\n        for d in importlib.metadata.distributions())), 'results': records,\n        'all_passed': all(r['exit_code'] == 0 for r in records)}\n    write_once(OUT / 'management-projection-local-tests.json', (json.dumps(report, indent=2, sort_keys=True) + '\\n').encode())\n    if not report['all_passed']:\n        raise SystemExit(1)\n"
+    },
+    "verify_management_projection_independent.py": {
+      "sha256": "91c2db990181fb5ac789a2b4907830f98f2bd1e2be81d403e31625215ebddbbd",
+      "source": "\"\"\"Stdlib-only, literal-parent check of the four mechanics registration files.\"\"\"\nimport hashlib\nimport json\nimport os\nfrom pathlib import Path\n\nROOT = Path('/workspace/scratch/2d76267c92e1/momentumbot')\nID = 'sealed-historical-management-projection-v0.1'\nBASE = ROOT / 'research/runtime' / ID\nPRIOR = ROOT / 'research/runtime/sealed-historical-management-inputs-v0.1'\nMANIFEST = 'df00c1aa3e66fbb3040e63df210ef71ead7518858f5bc3ff44fc59067eeb15de'\n\n\ndef digest(raw):\n    return hashlib.sha256(raw).hexdigest()\n\n\ndef fingerprint(value):\n    return digest(json.dumps(value, allow_nan=False, ensure_ascii=True, sort_keys=True, separators=(',', ':')).encode())\n\n\ndef check(value, message):\n    if not value:\n        raise ValueError(message)\n\n\ndef pairs(values):\n    result = {}\n    for key, value in values:\n        check(key not in result, 'duplicate JSON key')\n        result[key] = value\n    return result\n\n\ndef read(path):\n    check(path.is_file() and not path.is_symlink(), 'regular file required')\n    value = json.loads(path.read_bytes(), object_pairs_hook=pairs)\n    check(value['content_sha256'] == fingerprint({k: v for k, v in value.items() if k != 'content_sha256'}), 'content hash differs')\n    return value\n\n\nif __name__ == '__main__':\n    registration = read(ROOT / 'research/strategy' / (ID + '.json'))\n    check(registration['parent_commit_sha'] == 'f4a8d98b5ff780a4138ed4eb5628423891e4818d', 'parent commit differs')\n    check(registration['parent_tree_sha'] == 'bf3e9dfe4c2d89f5f482f2d0701d8499d6508858', 'parent tree differs')\n    check(digest((PRIOR / 'opportunity-input-index.json').read_bytes()) == '53272c4ce081c6b0684c95fd1332c64cc883d79e16bdd5cb4f797baab6cbae3b', 'literal opportunity parent differs')\n    check(digest((PRIOR / 'freeze-manifest.json').read_bytes()) == '8ac5bcdbc13f5d9f9c09ade2b6f550c6336bacaa620001c8555bd910d3e827b7', 'literal manifest parent differs')\n    check(digest((ROOT / 'research/data-audits/sealed-historical-management-inputs-v0.1-independent-verification.json').read_bytes()) == '386d8406c10714091b7a66e62c97604bf96ee08bb36138354546757f18deb5f7', 'literal audit parent differs')\n    for path, sha in {**registration['frozen_parent_file_sha256'], **registration['implementation_file_sha256']}.items():\n        check(digest((ROOT / path).read_bytes()) == sha, 'pinned file differs: ' + path)\n    check(read(PRIOR / 'freeze-manifest.json')['content_sha256'] == MANIFEST, 'prior content commitment differs')\n    names = {'projection-input-requirements.json', 'executable-exit-requirements.json', 'readiness-report.json', 'freeze-manifest.json'}\n    check({p.name for p in BASE.iterdir()} == names, 'four-file inventory differs')\n    docs = {name: read(BASE / name) for name in names}\n    freeze = docs['freeze-manifest.json']\n    inventory = {name: {'bytes': (BASE / name).stat().st_size, 'sha256': digest((BASE / name).read_bytes())} for name in names}\n    check(fingerprint(freeze['file_inventory']) == fingerprint({k: v for k, v in inventory.items() if k != 'freeze-manifest.json'}), 'file receipt differs')\n    check(freeze['contract_content_sha256'] == registration['content_sha256'], 'contract binding differs')\n    for name, expected in freeze['document_content_sha256'].items():\n        check(docs[name]['content_sha256'] == expected, 'document binding differs')\n    original = read(PRIOR / 'opportunity-input-index.json')\n    current = docs['projection-input-requirements.json']\n    check(fingerprint(current['opportunity_windows']) == fingerprint(original['opportunity_windows']), 'full original opportunity identities or bounds differ')\n    check(fingerprint(current['dates']) == fingerprint(original['dates']), 'all original dates differ')\n    windows = current['opportunity_windows']\n    by_id = {w['opportunity']['opportunity_id']: w for w in windows}\n    check(len(by_id) == len(windows) == 109, 'opportunity identity count differs')\n    for w in windows:\n        decision = w['opportunity']['decision_ts_ns']\n        check(type(decision) is int and all(type(w[k]) is int for k in ('start_ns', 'signal_end_ns', 'end_ns')), 'integer nanosecond precision lost')\n        check(w['start_ns'] == decision // 60_000_000_000 * 60_000_000_000, 'minute envelope start differs')\n        check(w['signal_end_ns'] == decision + 900_000_000_000 and w['end_ns'] == decision + 960_000_000_000, 'signal/tail envelope differs')\n    plan_path = ROOT / 'research/runtime/sealed-historical-account-management-inputs-v0.1/account-session-input-plan.json'\n    check(digest(plan_path.read_bytes()) == '8ca638578e7957c88f4314e0768a3c379ee0bd1278bd6d8c8e9caa2144f05108', 'literal account path plan differs')\n    plan = read(plan_path)\n    check(current['account_session_plan_content_sha256'] == plan['content_sha256'], 'account dependency binding differs')\n    sessions = [s for path in plan['paths'] for s in path['sessions']]\n    refs = [r for s in sessions for r in s['opportunity_inputs']]\n    for r in refs:\n        w = by_id[r['opportunity_id']]\n        check(r['input_status'] == w['entry_input_status'] and r['reason'] == w['entry_input_reason'], 'availability or unavailable reason changed')\n        check(r['availability_content_sha256'] == w['availability_content_sha256'], 'availability commitment differs')\n    counts = {'opportunities': len(windows), 'available_entry_inputs': sum(w['entry_input_status'] == 'available' for w in windows),\n        'unavailable_entry_inputs': sum(w['entry_input_status'] == 'unavailable' for w in windows), 'dates': len(current['dates']),\n        'no_decision_dates': sum(d['opportunity_count'] == 0 for d in current['dates']), 'account_paths': len(plan['paths']),\n        'session_slots': len(sessions), 'profile_scenario_opportunity_references': len(refs)}\n    expected_counts = {'opportunities': 109, 'available_entry_inputs': 86, 'unavailable_entry_inputs': 23, 'dates': 30,\n        'no_decision_dates': 5, 'account_paths': 12, 'session_slots': 360, 'profile_scenario_opportunity_references': 744}\n    check(fingerprint(counts) == fingerprint(expected_counts) == fingerprint(current['counts']) == fingerprint(docs['readiness-report.json']['counts']), 'population differs')\n    closed = ('account_or_fill_simulation_executed', 'account_runtime_input_gate_passed', 'acquisition_gate_passed',\n        'backtesting_executed', 'broker_account_read', 'historical_execution_authorized', 'management_input_gate_passed',\n        'management_projection_executed', 'paper_or_live_orders_authorized', 'policy_changed',\n        'portfolio_financial_metrics_eligible', 'retrospective_inputs_loaded')\n    for document in [registration, *docs.values()]:\n        check(all(document[k] is False for k in closed), 'a closed runtime gate changed')\n        check(type(document['provider_calls']) is int and document['provider_calls'] == 0, 'provider count differs')\n        check(document['provider_purchase_authorized_usd'] == '0', 'purchase gate differs')\n    requirements = docs['executable-exit-requirements.json']\n    check(requirements['quote_start_offset_ns'] == -100_000_000 and requirements['quote_end_exclusive_offset_ns'] == 550_000_001, 'exact conditional capture bounds differ')\n    check(requirements['content_sha256'] == registration['exit_requirements_content_sha256'], 'requirements binding differs')\n    check(requirements['actual_request_count'] == 0 and requirements['exit_execution_implementation_registered'] is False, 'executable exit gate changed')\n    result = {'verification_passed': True, 'checker': Path(__file__).name, 'checker_sha256': digest(Path(__file__).read_bytes()),\n        'checker_uses_project_code': False, 'contract_content_sha256': registration['content_sha256'],\n        'freeze_manifest_content_sha256': freeze['content_sha256'], 'management_input_manifest_content_sha256': MANIFEST,\n        'file_inventory': inventory, 'counts': counts, 'all_original_opportunity_fields_and_dates_identical': True,\n        'all_744_profile_scenario_references_and_availability_reasons_verified': True,\n        'all_nanosecond_bounds_exact': True, 'all_runtime_gates_closed': True,\n        'source_tapes_or_retrospective_inputs_loaded': False}\n    result['content_sha256'] = fingerprint(result)\n    raw = (json.dumps(result, indent=2, sort_keys=True) + '\\n').encode()\n    target = ROOT.parent / 'management-projection-independent-verification.json'\n    with target.open('xb') as handle:\n        check(handle.write(raw) == len(raw), 'short independent evidence write')\n        handle.flush()\n        os.fsync(handle.fileno())\n    print(raw.decode(), end='')\n"
+    }
+  },
+  "retrospective_inputs_loaded": false,
+  "schema_version": 1,
+  "seeded_synthetic_parity_cases": 120,
+  "source_captures_consumption_and_account_seeds_modified": false,
+  "static_undefined_globals": {
+    "scripts/build_sealed_historical_management_projection_v01.py": [],
+    "src/momentumbot/research/sealed_historical_management_projection_v01.py": []
+  },
+  "synthetic_tests_are_not_historical_execution": true,
+  "verification_passed": true
+}
