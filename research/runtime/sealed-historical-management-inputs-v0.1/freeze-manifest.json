@@ -1,0 +1,502 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "account_runtime_input_gate_passed": false,
+  "acquisition_gate_passed": false,
+  "backtesting_executed": false,
+  "broker_account_read": false,
+  "content_sha256": "df00c1aa3e66fbb3040e63df210ef71ead7518858f5bc3ff44fc59067eeb15de",
+  "contract_content_sha256": "e63afba5941ffd4cc2ad423e085cb4ce0304be13ec70ebd8abff06d3c764dcec",
+  "contract_id": "sealed-historical-management-inputs-v0.1",
+  "document_content_sha256": {
+    "management-input-manifest.json": "2d93a792bed5d3c682bd5622503096b4e034eae20ca9a0d35dfbc8268f7e2cf2",
+    "opportunity-input-index.json": "a892f4531aa99712e4c8e0a6bdf3612b080888e276dad54740900b4c6c138d18",
+    "readiness-report.json": "dbeb791e6fab6788117a496ee9be8edc427b252189f4a6b1c59d0075aa96b517",
+    "source-verification.json": "b1f588da658d4c383fd607a486465c9dfc90f9f6ff36a36b1b04b250635f5136"
+  },
+  "file_inventory": {
+    "management-input-manifest.json": {
+      "bytes": 321858,
+      "sha256": "e4f1c62804a442f5718f87e18109509171b37a0bfe8810d08ba6cdb668e4d57e"
+    },
+    "opportunity-input-index.json": {
+      "bytes": 174658,
+      "sha256": "53272c4ce081c6b0684c95fd1332c64cc883d79e16bdd5cb4f797baab6cbae3b"
+    },
+    "readiness-report.json": {
+      "bytes": 7856,
+      "sha256": "8e3f936c90211ab52c14044ede577e409d6ac4bc595532fc2c74d9ec66169064"
+    },
+    "source-verification.json": {
+      "bytes": 2771,
+      "sha256": "37169a1dc11db3804cff698569524b5287b01b8154df2f5e9c6fff598a948b2d"
+    },
+    "tapes/2025-05-30-GITS-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 527,
+      "sha256": "04a51c5165aaac4761958aa2048448234491f736bf81e065d002d9af9210d78d"
+    },
+    "tapes/2025-05-30-GITS-management-01-sip_trades.jsonl.gz": {
+      "bytes": 1024084,
+      "sha256": "6e10520209da3817ae645afd2b4bb3a120fa489c79b4cb80d32bbcaeb241d15f"
+    },
+    "tapes/2025-06-02-INM-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 493,
+      "sha256": "128c5cb991f9cfcaf19eaf991f1b8cc241290c364d18d600d0e3baa041502e6f"
+    },
+    "tapes/2025-06-02-INM-management-01-sip_trades.jsonl.gz": {
+      "bytes": 372793,
+      "sha256": "760fe29cffd59a143b18250c89c07f3c84750663410d4587bf3783682b0c9c06"
+    },
+    "tapes/2025-06-02-LYRA-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 586,
+      "sha256": "a5606909866bd91678099e7ae93ac2406acf1ddfdb5ce669f67017c988ed022a"
+    },
+    "tapes/2025-06-02-LYRA-management-01-sip_trades.jsonl.gz": {
+      "bytes": 716424,
+      "sha256": "c7540a8203ac408274cea1e9361084d7dee7cb043579e5a5241e052296e03deb"
+    },
+    "tapes/2025-06-02-LYRA-management-02-session_1m_raw.jsonl.gz": {
+      "bytes": 568,
+      "sha256": "32ca717a852e406d248277a4b905ca559c6498d694a8c1e148c9a9dfe2f7458a"
+    },
+    "tapes/2025-06-02-LYRA-management-02-sip_trades.jsonl.gz": {
+      "bytes": 352321,
+      "sha256": "fb9ed09519023b46815e3dbce13d3aa150b524410f584077ce4f96181739427a"
+    },
+    "tapes/2025-06-04-STSS-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 515,
+      "sha256": "deb934d49322e89f85435c5b2d65660fccde17cd20d61c2bd86e5f872d6bdca2"
+    },
+    "tapes/2025-06-04-STSS-management-01-sip_trades.jsonl.gz": {
+      "bytes": 577062,
+      "sha256": "4ce5c91b3787f3b77f5c2b276ed0cafd5aff0716daabdc11d2e582965b1a2eff"
+    },
+    "tapes/2025-06-06-RENT-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 173,
+      "sha256": "afa43b0001fbc284696334a9226d06472b03a451cf81190e888a70c85d093de5"
+    },
+    "tapes/2025-06-06-RENT-management-01-sip_trades.jsonl.gz": {
+      "bytes": 714,
+      "sha256": "f7584b5493d890c69503bf9d103d13c57e1ee73d361f55aa8f929421412b26e4"
+    },
+    "tapes/2025-06-06-VERO-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 528,
+      "sha256": "d5b74bdc89c482d69dc3578689fe4ab716c800f0bf71a436d2d38aa1e78dacd0"
+    },
+    "tapes/2025-06-06-VERO-management-01-sip_trades.jsonl.gz": {
+      "bytes": 792180,
+      "sha256": "9e239adff39d2f81a4b2c669e4fedfbf9c893e2bd8c3e2309adea7137a6a0308"
+    },
+    "tapes/2025-06-09-SNPX-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 520,
+      "sha256": "c279eee580d6a15e03c950cd976b5318ba4039f6dd432e928633dc4fa5dd659c"
+    },
+    "tapes/2025-06-09-SNPX-management-01-sip_trades.jsonl.gz": {
+      "bytes": 646664,
+      "sha256": "7adea258cc3f9b3f0a67d208517f80b1385224e6752a328ab4eb964e3a7fb18f"
+    },
+    "tapes/2025-06-09-TPST-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 483,
+      "sha256": "b4c0c906b4267d741f4bf765139d387b060f3cc7478852b439a46c77f46ee0f1"
+    },
+    "tapes/2025-06-09-TPST-management-01-sip_trades.jsonl.gz": {
+      "bytes": 21986,
+      "sha256": "38d7773e6e56dd63af3303576ab78cee8630ea7b6667b1259ba22c8fd9ccf010"
+    },
+    "tapes/2025-06-09-TPST-management-02-session_1m_raw.jsonl.gz": {
+      "bytes": 543,
+      "sha256": "c7d25c0d1d35e6659dc8852a8cef9f2755f426369468c9042af7ad12fbc4d96c"
+    },
+    "tapes/2025-06-09-TPST-management-02-sip_trades.jsonl.gz": {
+      "bytes": 47239,
+      "sha256": "a053326b6766573d802005521dbdec935e8068af42535c77b9491c531f6ea2bf"
+    },
+    "tapes/2025-06-10-DPRO-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 540,
+      "sha256": "0209339d99d73bef35595dadd0395aecf1d84d257d5fa3d15169c92917b49911"
+    },
+    "tapes/2025-06-10-DPRO-management-01-sip_trades.jsonl.gz": {
+      "bytes": 86463,
+      "sha256": "1bc53fa895913f7cfaf45ff13f1583a702fbf073bffb5b7e1dd8102ea0cf97ac"
+    },
+    "tapes/2025-06-10-GELS-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 614,
+      "sha256": "bb85c635ddd3bfbd17dfd8f16e0f052e58397868da4749269138fab112f38c91"
+    },
+    "tapes/2025-06-10-GELS-management-01-sip_trades.jsonl.gz": {
+      "bytes": 1042745,
+      "sha256": "18479c4ab8f713e1b1b4d72c5dc3fa8ab70970080ee381b77106bca1370f56d0"
+    },
+    "tapes/2025-06-11-HSDT-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 519,
+      "sha256": "a6430015a27b8ca1d59fd49c4f74c84633eedc491f870558c56153fc3ac1769c"
+    },
+    "tapes/2025-06-11-HSDT-management-01-sip_trades.jsonl.gz": {
+      "bytes": 739221,
+      "sha256": "e3df83fbb57d7f833be9b357e10ee00c45feeb4a91b07b5ccbeebedfdb329fb7"
+    },
+    "tapes/2025-06-12-XTIA-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 820,
+      "sha256": "72129340158745eb7f608fb4be476f3890f8cb9dbe5419d13b6c8db3d4c99b7c"
+    },
+    "tapes/2025-06-12-XTIA-management-01-sip_trades.jsonl.gz": {
+      "bytes": 479592,
+      "sha256": "94bf2ab817a0dfc409619524cab306c5461140f16c2bde4d859761c0a27da303"
+    },
+    "tapes/2025-06-13-JVA-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 461,
+      "sha256": "8356cdf8d3f5c2905dcec37f5a5383235ad78f3d4d74ae024dc3bd08d52f4276"
+    },
+    "tapes/2025-06-13-JVA-management-01-sip_trades.jsonl.gz": {
+      "bytes": 4870,
+      "sha256": "a8f68442e3d70a6420688d6ae83f2306a8dd42d7faa308ccd3b03e178977138c"
+    },
+    "tapes/2025-06-18-APVO-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 537,
+      "sha256": "ffc3fe9e89218b7c2b3339994ad8f817b8c20369e119499bf06d316b0647d4d4"
+    },
+    "tapes/2025-06-18-APVO-management-01-sip_trades.jsonl.gz": {
+      "bytes": 891308,
+      "sha256": "d280265817b9b271db0137038cf90b1873cf6eb413cfbcbaa7d7f35b0e7fd9da"
+    },
+    "tapes/2025-06-18-RELI-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 525,
+      "sha256": "28cc9a3b626f65a202a3baede30dbd24eb74afbec6a9219cf340bf4a5963020c"
+    },
+    "tapes/2025-06-18-RELI-management-01-sip_trades.jsonl.gz": {
+      "bytes": 782346,
+      "sha256": "91146c7f32550265d0f9751d5836b394387183509d8ef65b2e44d82e740eaf73"
+    },
+    "tapes/2025-06-23-HUSA-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 509,
+      "sha256": "9c70ef038df024837016932a808242b6dcee5f5778be3e0f5aa4bd9fce9f0239"
+    },
+    "tapes/2025-06-23-HUSA-management-01-sip_trades.jsonl.gz": {
+      "bytes": 45854,
+      "sha256": "3d456aec4e3cc2e8412876a416c2aa67d49237aa70e1950715891441d55bd8cf"
+    },
+    "tapes/2025-06-23-HUSA-management-02-session_1m_raw.jsonl.gz": {
+      "bytes": 657,
+      "sha256": "991f1579dac995361a0df8373399bc03e23617010ef312adb7cfbf170a4b535e"
+    },
+    "tapes/2025-06-23-HUSA-management-02-sip_trades.jsonl.gz": {
+      "bytes": 380717,
+      "sha256": "a1c02b3cbc0c9085bd43d71a23d1ed3e9be26330b83f7e05a84a92995961fca2"
+    },
+    "tapes/2025-06-24-INM-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 561,
+      "sha256": "71866eea02d0e37b9a83f1dc8c695175fb0989b8e785c3fb07ee4b405f392888"
+    },
+    "tapes/2025-06-24-INM-management-01-sip_trades.jsonl.gz": {
+      "bytes": 1786073,
+      "sha256": "ab3a4d0f848d6382101912fd27914b3baf88e98b1c81eddbb1ff6a0f6113f817"
+    },
+    "tapes/2025-06-25-GCTK-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 381,
+      "sha256": "36fd3eeffccc8d3e35161aef92e6f5f68278d8df65c5099ea7a31e9c40141603"
+    },
+    "tapes/2025-06-25-GCTK-management-01-sip_trades.jsonl.gz": {
+      "bytes": 694290,
+      "sha256": "8baa7a04d6e40884bb9e36b034df47abf08186a94019723f813fca649c952022"
+    },
+    "tapes/2025-06-26-CYN-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 650,
+      "sha256": "87db324fdcc72436b73cbcf1f0b0b81325fc732e87f14e49fdd125b97de2be1e"
+    },
+    "tapes/2025-06-26-CYN-management-01-sip_trades.jsonl.gz": {
+      "bytes": 1046821,
+      "sha256": "8287f8bdf7c7a0824f6a06fc5e9ae47034e8cb161ac02ccac0c8c22a3baab8d9"
+    },
+    "tapes/2025-06-26-CYN-management-02-session_1m_raw.jsonl.gz": {
+      "bytes": 568,
+      "sha256": "53a4fe250ed37eadb95d7d5c3b211c5efb692b685911b2ad1e9768f0209f8a68"
+    },
+    "tapes/2025-06-26-CYN-management-02-sip_trades.jsonl.gz": {
+      "bytes": 985388,
+      "sha256": "de8ed5f2894edfd1642d5e5627f703f632e9f6a77711ba9f517a0bab18700434"
+    },
+    "tapes/2025-06-26-CYN-management-03-session_1m_raw.jsonl.gz": {
+      "bytes": 517,
+      "sha256": "06cc8e2dd8c8a55a746ff7864b3e940e563dfbe7eeb07a6053358d3619153e9d"
+    },
+    "tapes/2025-06-26-CYN-management-03-sip_trades.jsonl.gz": {
+      "bytes": 495247,
+      "sha256": "c4448ed76d475cde00ccb3702876e3dc82322ff3e664872b22c343e69c385eb8"
+    },
+    "tapes/2025-06-26-CYN-management-04-session_1m_raw.jsonl.gz": {
+      "bytes": 551,
+      "sha256": "ca0a203db3344947fba51d9eb2c6c495a418671beed73fc5c27ce9e63f0bcfd1"
+    },
+    "tapes/2025-06-26-CYN-management-04-sip_trades.jsonl.gz": {
+      "bytes": 969656,
+      "sha256": "1a488ea6a8de3c2797b06e8550ed774639608405d44b728fe4bda2e27e77e5c2"
+    },
+    "tapes/2025-06-26-CYN-management-05-session_1m_raw.jsonl.gz": {
+      "bytes": 466,
+      "sha256": "daa8911695c45683c337993889f164f4145d0816ccb514c88f9e0954de9eff9a"
+    },
+    "tapes/2025-06-26-CYN-management-05-sip_trades.jsonl.gz": {
+      "bytes": 890473,
+      "sha256": "4379c90fd66bb7cf4a081d769e556ed69ce8e33fbbf8e747dbc77fd7bf139908"
+    },
+    "tapes/2025-06-26-LIVE-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 414,
+      "sha256": "4f80eb050e9de532a82c6aa686efd30ca824d9092d1626bd24d1f10b92c78746"
+    },
+    "tapes/2025-06-26-LIVE-management-01-sip_trades.jsonl.gz": {
+      "bytes": 6109,
+      "sha256": "20003255bdd7ca5954dbbb8d479e55a5fd8290372d905aa50251604f6efa624a"
+    },
+    "tapes/2025-06-27-BBLG-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 563,
+      "sha256": "024436a0cffa02870ec1038237e25e7354d1c04c677ed047a6ded9e9e2372bf8"
+    },
+    "tapes/2025-06-27-BBLG-management-01-sip_trades.jsonl.gz": {
+      "bytes": 1067932,
+      "sha256": "8ee90f7de53fa8b37c29c9a711be0ed96e9ac08358c3c6ff7cd2b7d0af097d56"
+    },
+    "tapes/2025-06-27-LCFY-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 550,
+      "sha256": "c4eea4d586f4be583fc70c9bf69b9b46ababb9286fedec9eec5719b614a05d14"
+    },
+    "tapes/2025-06-27-LCFY-management-01-sip_trades.jsonl.gz": {
+      "bytes": 1205977,
+      "sha256": "cb10a0c77b25ec5ab31f8f56c95427d7f106fb9269fc112f6e942399fc969199"
+    },
+    "tapes/2025-06-27-LCFY-management-02-session_1m_raw.jsonl.gz": {
+      "bytes": 582,
+      "sha256": "ac6e58cb3c66c680893974940af0967385a787c11676eb6128b9dfd7cd3db3c5"
+    },
+    "tapes/2025-06-27-LCFY-management-02-sip_trades.jsonl.gz": {
+      "bytes": 1746611,
+      "sha256": "05aa4766b27af049813ba3469475f26ee8b309610810925317fc86fc22b80c63"
+    },
+    "tapes/2025-07-01-CLRO-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 562,
+      "sha256": "cc154e4b2420650656991224b21096b7240b4553151cc791890eb4c2cedc1225"
+    },
+    "tapes/2025-07-01-CLRO-management-01-sip_trades.jsonl.gz": {
+      "bytes": 905046,
+      "sha256": "0566a52ab662f610078ec8a34fffb239785f585e7803d0352bda59e293b21543"
+    },
+    "tapes/2025-07-01-GPUS-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 538,
+      "sha256": "458233e431455e20ec49c5da4b7adcbdf6f9b2e76e9a8774e99da3953c7328e6"
+    },
+    "tapes/2025-07-01-GPUS-management-01-sip_trades.jsonl.gz": {
+      "bytes": 1449542,
+      "sha256": "018094267ddbaafad646c7afdf4bf4d0d7025b81f0bac1790df60dea0998305e"
+    },
+    "tapes/2025-07-01-TRNR-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 573,
+      "sha256": "1224d530ba2d8eb884323be165b79f77599602421d7f4603fbbafe2252e726ff"
+    },
+    "tapes/2025-07-01-TRNR-management-01-sip_trades.jsonl.gz": {
+      "bytes": 1031639,
+      "sha256": "c4d2f46eeb55fb81f46f4384f1a7008dc3c0fca128348f7c5a44c62fd6819b2f"
+    },
+    "tapes/2025-07-02-CYN-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 535,
+      "sha256": "a7b3fbed17a2fc2247368da76c3c4f71a1f5b7978fadcf483d372dce9bb6b18a"
+    },
+    "tapes/2025-07-02-CYN-management-01-sip_trades.jsonl.gz": {
+      "bytes": 298127,
+      "sha256": "787ec6d27abfd897a46eafef79a207a65d656f28e175ed9f4c5b01055907e7c1"
+    },
+    "tapes/2025-07-02-ELWS-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 503,
+      "sha256": "ad1aa02e6cf34a47258f8b53d83e428aa4db38071bc47faae078633ec6a465f2"
+    },
+    "tapes/2025-07-02-ELWS-management-01-sip_trades.jsonl.gz": {
+      "bytes": 829201,
+      "sha256": "82b7a128163da744d62aef26570e74c0b8abfc33c9eeca6b292bb29ecdd02411"
+    },
+    "tapes/2025-07-02-LIXT-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 320,
+      "sha256": "a750bb84b1a04a6a9a8fd50665efe4dfa3bcbd4e83f1a1b2aadc72cb56ff23f4"
+    },
+    "tapes/2025-07-02-LIXT-management-01-sip_trades.jsonl.gz": {
+      "bytes": 312587,
+      "sha256": "57ef30f18d0ed69891a0dcfdcbd1516ada33b0f084b82664b3fd695ed2ec1dda"
+    },
+    "tapes/2025-07-02-NTRB-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 559,
+      "sha256": "4d55c20f6cb9079abdba829903087169bf94bedfedcb065a1f4426b9ecfdc1fb"
+    },
+    "tapes/2025-07-02-NTRB-management-01-sip_trades.jsonl.gz": {
+      "bytes": 52154,
+      "sha256": "6da0cc0925baa07637f341462bf72c42dd8cec127d9adedafd5f8afeb7af19c4"
+    },
+    "tapes/2025-07-07-CYCC-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 536,
+      "sha256": "83bd1f2ef252cf7d4659c1e3e838dbbe72429b96c374b83c97e840b322ca3c37"
+    },
+    "tapes/2025-07-07-CYCC-management-01-sip_trades.jsonl.gz": {
+      "bytes": 439540,
+      "sha256": "043dc0a116b955acc1363fca9e3a239771f4e4f5ce32a44fcef6840e05f9f912"
+    },
+    "tapes/2025-07-07-MBIO-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 541,
+      "sha256": "2719f28f841e100c70513101cb48a348b911156b430f76623faaa12f498a8951"
+    },
+    "tapes/2025-07-07-MBIO-management-01-sip_trades.jsonl.gz": {
+      "bytes": 1501934,
+      "sha256": "975b31e51b5035b792d0ea865d7254add804acafd669c0c030ec34d5cafe4f3a"
+    },
+    "tapes/2025-07-07-MBIO-management-02-session_1m_raw.jsonl.gz": {
+      "bytes": 567,
+      "sha256": "8b6536bcfc02994e164270830015741ec2aa7a110f7f8496dcde3ac775d17324"
+    },
+    "tapes/2025-07-07-MBIO-management-02-sip_trades.jsonl.gz": {
+      "bytes": 2074810,
+      "sha256": "8cefa444dc0cdac064d59caf205d006ddbbb15155b59d917896ee8b724ac5955"
+    },
+    "tapes/2025-07-08-IROH-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 555,
+      "sha256": "8d975bcd7612fa003df36bfef35a91618d73d4febd6a4690d5f48aa2c27dca74"
+    },
+    "tapes/2025-07-08-IROH-management-01-sip_trades.jsonl.gz": {
+      "bytes": 403766,
+      "sha256": "f7c74e20609b858e15333a3d1648f81fda3b89fae896233b36b4984436ca7d86"
+    },
+    "tapes/2025-07-08-NDRA-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 551,
+      "sha256": "6981ae57399bc0e37d6d75eac11ef551ffa4e6eacac1acf4ae29c5d23a5ba1f6"
+    },
+    "tapes/2025-07-08-NDRA-management-01-sip_trades.jsonl.gz": {
+      "bytes": 1846713,
+      "sha256": "f152156d22732bbd47d60a981df5795f4238e851401a3332ad1d3d1c7fd41483"
+    },
+    "tapes/2025-07-10-DALN-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 559,
+      "sha256": "9e35871ec70c78899e8c75398c7bafc3512e07757487a757f10a7c5e2e8d328b"
+    },
+    "tapes/2025-07-10-DALN-management-01-sip_trades.jsonl.gz": {
+      "bytes": 157289,
+      "sha256": "a5a1c36671c404c1b72c135d5bcaf5ddcc8e218b1511eb266c6da8d7b4a4df78"
+    },
+    "tapes/2025-07-11-HOLO-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 615,
+      "sha256": "07564e1899413f846b404181b437bff644321c9a4f5e031c7d1c87652c68b2a2"
+    },
+    "tapes/2025-07-11-HOLO-management-01-sip_trades.jsonl.gz": {
+      "bytes": 1024185,
+      "sha256": "6ae31650baee626b4c3ca47e434b143f277f71d8c0ba2e85fc673a4d8da1f6e7"
+    },
+    "tapes/2025-07-11-SGN-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 541,
+      "sha256": "b174a09b92dc8716ee749da294656b37742e460211d75deac159626c0faf5c92"
+    },
+    "tapes/2025-07-11-SGN-management-01-sip_trades.jsonl.gz": {
+      "bytes": 1268811,
+      "sha256": "ec535c2a5148ad732eaed3500ce19abdf9ceeaa205942599f734e630bb6bc15a"
+    },
+    "tapes/2025-07-14-DARE-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 579,
+      "sha256": "5f6efaaa94169fdcc35937af98c63381119e9115b960fb507a14fea3f3654b21"
+    },
+    "tapes/2025-07-14-DARE-management-01-sip_trades.jsonl.gz": {
+      "bytes": 1357894,
+      "sha256": "f4a4ef1f1503f1ff2404cddbcd0aeb0e5fc11ab255b21070038cd6ee595b8a70"
+    },
+    "tapes/2025-07-14-SONN-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 693,
+      "sha256": "502cf954130f29d5d5f3d54ae4780d7a5e7504300e29baf26ca2bb38084ccb10"
+    },
+    "tapes/2025-07-14-SONN-management-01-sip_trades.jsonl.gz": {
+      "bytes": 346729,
+      "sha256": "de58fc07b00fe532ba2ce95bafda10f0ddbb70d7db3e4b9f054b45369ae1525e"
+    },
+    "tapes/2025-07-14-SQFT-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 583,
+      "sha256": "11f29e5c74443f5a61d5b87eb0a478008b550b7f64ae131638705f072e0abc14"
+    },
+    "tapes/2025-07-14-SQFT-management-01-sip_trades.jsonl.gz": {
+      "bytes": 1145944,
+      "sha256": "472cf1f0c71ce4ff45556a33e02dfd881fd8ef59cfc4f2bc32336989daf097bc"
+    },
+    "tapes/2025-07-15-XAGE-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 537,
+      "sha256": "dbe6cb0f47dea87afe644a0006c6d90950c3dfa87ce17698588d072c389df384"
+    },
+    "tapes/2025-07-15-XAGE-management-01-sip_trades.jsonl.gz": {
+      "bytes": 1502084,
+      "sha256": "730a8167a3c20422103d2e9ef130f11d383c81cc4c32f95f0aff3e3663d5730b"
+    },
+    "tapes/2025-07-15-XAGE-management-02-session_1m_raw.jsonl.gz": {
+      "bytes": 564,
+      "sha256": "1c81051f746df7ca3bc1a5b094260ed5201169e96e141405e23bf6de7cd518bf"
+    },
+    "tapes/2025-07-15-XAGE-management-02-sip_trades.jsonl.gz": {
+      "bytes": 1576238,
+      "sha256": "238692db0ba8c91d847d87e714cae9a02f51acf299b95371bf34c822dccbca52"
+    },
+    "tapes/2025-07-16-BNRG-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 509,
+      "sha256": "b553e6a4c1b81b65680979fd278da55cc82f6b626941c2138ec2c4eb3d7372ff"
+    },
+    "tapes/2025-07-16-BNRG-management-01-sip_trades.jsonl.gz": {
+      "bytes": 430188,
+      "sha256": "3f20180d431a3e8f07ff67a8e49decd3326e5803d62b3d63d12eaab4411c1411"
+    },
+    "tapes/2025-07-16-INBS-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 458,
+      "sha256": "8ee3676e405460d2fb2f4913f0a0f234a454a22c41438954f7212c15651308ba"
+    },
+    "tapes/2025-07-16-INBS-management-01-sip_trades.jsonl.gz": {
+      "bytes": 5121,
+      "sha256": "f475153d326b96cafe4d5e5bedc80a4263cc828c3c0b2bb0cfaccc5f520de990"
+    },
+    "tapes/2025-07-16-NUWE-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 632,
+      "sha256": "23bb9f088aedac3f823570214d208f42fc9aab1dfe64d810b7900f3ee6879040"
+    },
+    "tapes/2025-07-16-NUWE-management-01-sip_trades.jsonl.gz": {
+      "bytes": 824068,
+      "sha256": "4442064a0e77453c8e8324e66bf4184b39ca9de535fd34bc65d6c8c01682832e"
+    },
+    "tapes/2025-07-16-NUWE-management-02-session_1m_raw.jsonl.gz": {
+      "bytes": 621,
+      "sha256": "4fb7dd610397ead34eace30067e47a0727bf614cd25346198ac7698259e4b546"
+    },
+    "tapes/2025-07-16-NUWE-management-02-sip_trades.jsonl.gz": {
+      "bytes": 1363278,
+      "sha256": "8d93f75c7834e59a5935b9742172aa8209ed2ac8e83f55accbd5bd596b900450"
+    },
+    "tapes/2025-07-16-QLGN-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 532,
+      "sha256": "352fc447ac0fb1a1f40bec25d9c17f8f7bad6aacdfdb2a7307a6f46ea5766182"
+    },
+    "tapes/2025-07-16-QLGN-management-01-sip_trades.jsonl.gz": {
+      "bytes": 565662,
+      "sha256": "5911e2d7034cd9075096233bf786ac9da3f9024b03c040165a62b8044dd83f1b"
+    },
+    "tapes/2025-07-17-WINT-management-01-session_1m_raw.jsonl.gz": {
+      "bytes": 505,
+      "sha256": "e62be8520876a31bab93f7a51a242532ab01ceb4a210c4c35b8e695efeb4e573"
+    },
+    "tapes/2025-07-17-WINT-management-01-sip_trades.jsonl.gz": {
+      "bytes": 819202,
+      "sha256": "0157a4724dabf4779de01efc8e55e3fa778ff6f7d2c7c1759f86d651c548cbd0"
+    }
+  },
+  "historical_execution_authorized": false,
+  "implementation_file_sha256": {
+    ".github/workflows/sealed-historical-management-inputs-v01.yml": "901c1ff445d1bf8d199ca1e8cf3b56b00bbccc3df9cf7d34a008cbc2209d3328",
+    "research/strategy/sealed-historical-management-inputs-v0.1.json": "bfdada0f93a3152dc0c561592dbaaa37e89a1c6d19b86af011344a57145d1227",
+    "scripts/build_sealed_historical_management_inputs_v01.py": "8660a96c805db7fae5e0fdfd0e99e29464b5d697d20a497d7131be6d728180d3",
+    "src/momentumbot/research/sealed_historical_management_inputs_v01.py": "4731af34014e2403f08f75b1cede71628e18fcc2d01a335a7dd26dc95c9face2",
+    "tests/test_sealed_historical_management_inputs_v01.py": "cd75516acd1fd73af49663d8cbae4eec27c28fa6967e9c15fdf5269cfd49c2ba"
+  },
+  "management_input_gate_passed": false,
+  "management_projection_executed": false,
+  "next_gate": "register_causal_management_projection_and_executable_exit_dependencies_against_verified_inputs",
+  "normalized_tapes": 112,
+  "paper_or_live_orders_authorized": false,
+  "parent_commit_sha": "536226a134aa9863130205b954065f24c89ce599",
+  "parent_tree_sha": "f0bc8b58e6c5988849b97717993390b42a1d19ce",
+  "policy_changed": false,
+  "portfolio_financial_metrics_eligible": false,
+  "provider_calls": 0,
+  "provider_purchase_authorized_usd": "0",
+  "retrospective_inputs_loaded": false
+}

@@ -1,0 +1,60 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "account_runtime_input_gate_passed": false,
+  "acquisition_gate_passed": false,
+  "all_source_archives_verified": true,
+  "backtesting_executed": false,
+  "broker_account_read": false,
+  "content_sha256": "b1f588da658d4c383fd607a486465c9dfc90f9f6ff36a36b1b04b250635f5136",
+  "contract_id": "sealed-historical-management-inputs-v0.1",
+  "historical_execution_authorized": false,
+  "management_input_gate_passed": false,
+  "management_projection_executed": false,
+  "missing_tail_verification_content_sha256": "bd9fc3321be1c9af73ec2a4b387abd8ff855a17e48f14360a640cc78a095dea5",
+  "normalization_verified_before_composition": true,
+  "original_reuse_reconstruction_content_sha256": "1c15fe7e187885fc8d5d4fd7ef87e902415bebbf20605da59a1b476a729bafdd",
+  "paper_or_live_orders_authorized": false,
+  "policy_changed": false,
+  "portfolio_financial_metrics_eligible": false,
+  "provider_calls": 0,
+  "provider_purchase_authorized_usd": "0",
+  "retrospective_inputs_loaded": false,
+  "source_captures_modified": false,
+  "sources": {
+    "missing_tails": {
+      "artifact_id": 10026551595,
+      "execution_commit_sha": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+      "file_count": 28,
+      "prior_audit_content_sha256": "2c19f9d693d1b65338b938ad7d5adb382ed320ad20f18d347928b003e9952d23",
+      "provider_attempts": 11,
+      "record_count": 28387,
+      "run_id": 34142720577,
+      "zip_sha256": "dd6acf2844e69aa975a0274fe7813b3029cf7a6b6ef5d8830c322e17d436d9b6"
+    },
+    "original_bars": {
+      "artifact_id": 9995587996,
+      "file_count": 348,
+      "inventory_file_sha256": "cc489fcf61690c020586ed43c48ed277ca4829834235b5b59620c5839526c4d7",
+      "prior_audit_content_sha256": "cd501d099993ec66d69ac548d72c401d858ac5ffc2740eda69b4fe7ed45f301a",
+      "provider_attempts": 170,
+      "record_count": 29554,
+      "report_file_sha256": "ebd2f02b3df83fbc5cb45b8fee86120e278c3a41c8a1d07e87e972bef6c26b9d",
+      "run_id": 34054580516,
+      "zip_sha256": "d689f493c10996bee7eddde68d62812e7850fc322caa2d530d33a97c84878e3f"
+    },
+    "original_sip": {
+      "artifact_id": 9995887799,
+      "file_count": 688,
+      "inventory_file_sha256": "b9706f87d3509be57c620fe9f583441350fdaf1683f2b149eacdb2f4be6d6be7",
+      "prior_audit_content_sha256": "b1223860fc3f1aaeb37743680c97c9bdd18b3ab7cb0f51f6ddafb4b616b9f1f2",
+      "provider_attempts": 2264,
+      "record_count": 20048752,
+      "report_file_sha256": "9d9301ae407540d2d391080d0974868f2c594c807c8722809fbac7c5a72da8a3",
+      "run_id": 34053730042,
+      "zip_sha256": "d31eac851c1246ce23025e9518562ed3f41b8f818d42b8de707a6d86d307be99"
+    }
+  },
+  "verified_source_file_count": 1064,
+  "verified_source_row_count": 20106693,
+  "verified_source_tape_count": 520
+}

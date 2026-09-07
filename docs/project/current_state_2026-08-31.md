@@ -1,6 +1,33 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: missing management capture independently verified
+## Current preparation: management composition locally verified
+
+The provider-free child binds audited parent
+`536226a134aa9863130205b954065f24c89ce599`. It composes 112 real bar/trade
+tapes for all 56 frozen windows from the exact original sources and ten
+captured tails. Canonical source bytes and original ordinals are preserved;
+the input-only reader enforces each opportunity's own boundaries.
+
+Two local streaming-write candidates were rejected before publication: the
+first by the independent checker and the second by the strengthened pre-freeze
+guard. Finalized single-write, flush/fsync output now passes both verifiers.
+Every composed row was matched byte-for-byte to independently selected source
+intervals and original ordinals. All 1,064 source files, 520 tapes and
+20,106,693 logical source rows were checked; all 117 output files agree.
+
+The complete population is 3,654,215 SIP prints and 975 raw minute bars,
+43,461,101 compressed tape bytes and 43,991,068 total bundle bytes. The frozen
+manifest content commitment is
+`df00c1aa3e66fbb3040e63df210ef71ead7518858f5bc3ff44fc59067eeb15de`.
+Source captures, all 109 opportunities and 23 unavailable entry inputs remain
+unchanged. No projection, account replay or backtest ran.
+
+Next: finish hosted exact-byte reconstruction, then freeze the permanent
+composition audit. Executable exits,
+causal next-session valuation and account replay remain later dependencies.
+See [complete management inputs](../research/sealed_historical_management_inputs_v01.md).
+
+## Prior checkpoint: missing management capture independently verified
 
 The one-shot capture completed all ten frozen management resources on execution
 `eeec1ea234214a9d4a449e774fe3fa29aefea025`, after tested parent
