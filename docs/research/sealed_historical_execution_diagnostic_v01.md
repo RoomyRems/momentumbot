@@ -66,3 +66,78 @@ The consumed v0.1 code/workflow, source/Micro evidence, original ledger, all
 30 dates, 109 decisions and frozen strategy/account/execution policies remain
 unchanged. Retrospective inputs and account/fill/backtest/order activity remain
 outside this operation.
+
+## Independently verified diagnostic result
+
+Code commit `11199261330a7741a98db18baf1fccd8ffad6366`, tree
+`a6e10e1942ff648f2af826a9430c0c7b4047c7a5`, passed CI `34069695831` and dedicated
+validation `34069695891`. The 48 focused tests passed normally and optimized;
+all 1,497 repository tests passed locally. Hosted CI passed with nine optional
+SDK skips, with the diagnostic's actual SDK cases covered by dedicated tests.
+
+Sole execution child `e1aece08a44ccf9add0157a1657d08a809687e85`, tree
+`dde17cae3ff2e70e6324779cec7c37a7c332e6c7`, ran as research push attempt 1 in
+[run 34069896968](https://github.com/RoomyRems/momentumbot/actions/runs/34069896968).
+Every job/step passed, including durable consumption before provider access.
+Both fresh metadata results matched the original first-request ceilings.
+The separate ledger contains exactly three HTTP attempts: two metadata and one
+time series, all HTTP 200, zero blocked attempts, no retries or redirects.
+
+Independent downloads verified all 12 consumption and 14 result members:
+
+| Evidence | Artifact | ZIP SHA-256 |
+|---|---|---|
+| Consumption | [10000118853](https://github.com/RoomyRems/momentumbot/actions/runs/34069896968/artifacts/10000118853) | `249be484755a1ce07c29a00591c4a02c3a4ff949d319e5ecfa05e12e900b668a` |
+| Diagnostic | [10000122082](https://github.com/RoomyRems/momentumbot/actions/runs/34069896968/artifacts/10000122082) | `5626dd395c5bc4af329721d768bc1c1f2f8ad5fb02df7833aa5dc581c11fc3d7` |
+
+Report file/content SHA-256 values are
+`9b54e2bc2ad973deee06d2c29233ea49a69f8b84d20953e0c2f6b81e847587e9` /
+`731aa0610130c484b42b81c607e03ab990dbe865373f8c5ac937c1347b6463f3`.
+The 1,136-row projection has file SHA-256
+`1ba1571113bee4577785dbd7c4b880cac6043c67eef03f0c9f26eae67f3802e4`
+and canonical content commitment
+`9f4fd81be871d19dc12ed28df03d0586d31a129a6c598e2ba50d1c4aad9ffa1c`.
+All 29 dependency versions matched the retained lock and hosted CPython 3.12.14.
+
+The 21,788-byte DBN is byte-identical to the failed parent:
+`be5e196dc30d08ecc9b9140bafe160a77aeec5347b14bcb9f4cbcb6f436b1dc9`.
+Exact metadata, symbol mapping, required fields, integer values and request
+bounds all pass for every row. The rejecting check is `_quote_events`' strict
+`(ts_recv_ns, sequence, symbol)` ordering requirement. There are 175 adjacent
+equal-key pairs, with no backward receive timestamps or venue sequences.
+Every pair is a Trade followed by a Cancel and has different book values.
+These are not identical records that can be deleted without losing evidence.
+
+The first rejected row is zero-based index 3. Both it and index 2 have receive
+timestamp `1748609823147876033`, sequence `24205646`, symbol `GITS` and event
+timestamp `1748609823147706896`. The Trade row has ask size 554; the following
+Cancel row has ask size 54. Independent reconstruction from all projected
+fields reproduces the original normalizer output hash and the strict-key
+failure, without changing any values or ordering.
+
+Databento documents that a Nasdaq message can expand into multiple normalized
+records sharing its venue sequence, and that MBP-1 carries trades and book
+updates. The observed Trade/Cancel pattern is consistent with that documented
+normalization. This interpretation supports the measured byte-level diagnosis;
+it does not establish a new execution policy.
+[Nasdaq normalization](https://databento.com/docs/venues-and-datasets/xnas-itch),
+[MBP-1 fields](https://databento.com/docs/schemas-and-data-formats/mbp-1).
+
+The precise next dependency is a separately versioned historical record-order
+representation that retains the native sequence and original stream ordinal.
+Its tests must cover the acquisition validator, historical capture validation
+and `execution_realism._validate_quote_stream`, all of which currently assume
+strict receive-time/sequence uniqueness. No timestamp/sequence rewriting,
+deduplication, provider-record sorting or in-place validator relaxation can
+resolve the dependency safely. Existing equal-time quote/status ambiguity,
+unusable-book rules, latency/fill assumptions and all strategy/account limits
+must retain their registered behavior before a new bounded acquisition starts.
+The diagnostic projection cannot substitute for complete 90-request inputs.
+
+The original failed run remains attempt 1. Main and prior consumed refs were
+rechecked unchanged. Source/Micro evidence, the 109 decisions, 30 dates and
+original 30,522-request ledger remain frozen. No runtime input, account/fill
+simulation, backtest, order or retrospective activity occurred.
+
+Permanent report, observation and independent audit are retained under
+`research/data-audits/sealed-historical-execution-input-diagnostic-v0.1-*-34069896968.json`.

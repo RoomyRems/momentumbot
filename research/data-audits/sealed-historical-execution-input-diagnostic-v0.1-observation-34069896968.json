@@ -1,0 +1,80 @@
+{
+  "content_sha256": "66383e9976d854997b6f03e0d0e83d11e7289a5ac14f19d78c27847f1c07765b",
+  "frame": {
+    "mapping_passed": true,
+    "missing_required_fields": [],
+    "projected_fields": [
+      "symbol",
+      "ts_recv",
+      "sequence",
+      "bid_px_00",
+      "bid_sz_00",
+      "ask_px_00",
+      "ask_sz_00",
+      "ts_event",
+      "instrument_id",
+      "publisher_id",
+      "flags",
+      "action",
+      "side",
+      "depth"
+    ],
+    "row_count": 1136
+  },
+  "metadata": {
+    "dataset": {
+      "kind": "text",
+      "value": "xnas.itch"
+    },
+    "end": {
+      "expected_ns": 1748609850749660996,
+      "interpreted_ns": 1748609850749660996,
+      "raw": {
+        "kind": "integer",
+        "value": 1748609850749660996
+      }
+    },
+    "schema": {
+      "kind": "text",
+      "value": "mbp-1"
+    },
+    "start": {
+      "expected_ns": 1748609823047734566,
+      "interpreted_ns": 1748609823047734566,
+      "raw": {
+        "kind": "integer",
+        "value": 1748609823047734566
+      }
+    },
+    "stype_in": {
+      "kind": "text",
+      "value": "raw-symbol"
+    },
+    "symbols_match": true
+  },
+  "normalization_code": "quote_order_not_strict",
+  "normalization_passed": false,
+  "normalized_content_sha256": "d0d7742a17bf95201e157917f62e5f1a50372e3186ecda087b82891a4e9050c5",
+  "normalized_row_count": 1136,
+  "normalizer_layer_passed": true,
+  "order_observation": {
+    "first": {
+      "current_key": [
+        1748609823147876033,
+        24205646,
+        "GITS"
+      ],
+      "equal_key": true,
+      "previous_key": [
+        1748609823147876033,
+        24205646,
+        "GITS"
+      ],
+      "row_index": 3
+    },
+    "non_strict_adjacent_count": 175
+  },
+  "projection_content_sha256": "9f4fd81be871d19dc12ed28df03d0586d31a129a6c598e2ba50d1c4aad9ffa1c",
+  "projection_row_count": 1136,
+  "runtime_input_eligible": false
+}

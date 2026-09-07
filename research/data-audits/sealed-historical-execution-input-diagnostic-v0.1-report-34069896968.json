@@ -1,0 +1,150 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "acquisition_gate_passed": false,
+  "actual_billing_known": false,
+  "artifact_type": "historical_execution_input_normalization_diagnostic",
+  "backtesting_executed": false,
+  "blocked_attempts": 0,
+  "consumed_parent_rerun": false,
+  "content_sha256": "731aa0610130c484b42b81c607e03ab990dbe865373f8c5ac937c1347b6463f3",
+  "contract_content_sha256": "cce5376c3ceeab6ac55b754b18d2c63bc135eaeadd556c47ed56bcd2406a095d",
+  "contract_id": "sealed-historical-execution-input-diagnostic-v0.1",
+  "diagnostic_evidence_complete": true,
+  "ephemeral_dbn_sha256": "be5e196dc30d08ecc9b9140bafe160a77aeec5347b14bcb9f4cbcb6f436b1dc9",
+  "error": null,
+  "failure_zip_sha256": "90d9a52c04acbf3482a716e08ba4f66cb1e0a601ceb76fbb22de02a9ae424285",
+  "http_attempts": 3,
+  "next_gate": "independent_diagnosis_then_separately_versioned_normalization_child_if_supported",
+  "observation": {
+    "content_sha256": "66383e9976d854997b6f03e0d0e83d11e7289a5ac14f19d78c27847f1c07765b",
+    "frame": {
+      "mapping_passed": true,
+      "missing_required_fields": [],
+      "projected_fields": [
+        "symbol",
+        "ts_recv",
+        "sequence",
+        "bid_px_00",
+        "bid_sz_00",
+        "ask_px_00",
+        "ask_sz_00",
+        "ts_event",
+        "instrument_id",
+        "publisher_id",
+        "flags",
+        "action",
+        "side",
+        "depth"
+      ],
+      "row_count": 1136
+    },
+    "metadata": {
+      "dataset": {
+        "kind": "text",
+        "value": "xnas.itch"
+      },
+      "end": {
+        "expected_ns": 1748609850749660996,
+        "interpreted_ns": 1748609850749660996,
+        "raw": {
+          "kind": "integer",
+          "value": 1748609850749660996
+        }
+      },
+      "schema": {
+        "kind": "text",
+        "value": "mbp-1"
+      },
+      "start": {
+        "expected_ns": 1748609823047734566,
+        "interpreted_ns": 1748609823047734566,
+        "raw": {
+          "kind": "integer",
+          "value": 1748609823047734566
+        }
+      },
+      "stype_in": {
+        "kind": "text",
+        "value": "raw-symbol"
+      },
+      "symbols_match": true
+    },
+    "normalization_code": "quote_order_not_strict",
+    "normalization_passed": false,
+    "normalized_content_sha256": "d0d7742a17bf95201e157917f62e5f1a50372e3186ecda087b82891a4e9050c5",
+    "normalized_row_count": 1136,
+    "normalizer_layer_passed": true,
+    "order_observation": {
+      "first": {
+        "current_key": [
+          1748609823147876033,
+          24205646,
+          "GITS"
+        ],
+        "equal_key": true,
+        "previous_key": [
+          1748609823147876033,
+          24205646,
+          "GITS"
+        ],
+        "row_index": 3
+      },
+      "non_strict_adjacent_count": 175
+    },
+    "projection_content_sha256": "9f4fd81be871d19dc12ed28df03d0586d31a129a6c598e2ba50d1c4aad9ffa1c",
+    "projection_row_count": 1136,
+    "runtime_input_eligible": false
+  },
+  "policy_changed": false,
+  "projection": {
+    "file_bytes": 23481,
+    "file_sha256": "1ba1571113bee4577785dbd7c4b880cac6043c67eef03f0c9f26eae67f3802e4",
+    "row_count": 1136,
+    "runtime_input_eligible": false,
+    "uncompressed_bytes": 741316,
+    "uncompressed_sha256": "5724f3999b2840826608eba48849ca7ecdbfa0fc9d3dc37b29545ece356483d6"
+  },
+  "provenance": {
+    "code_commit_sha": "11199261330a7741a98db18baf1fccd8ffad6366",
+    "code_tree_sha": "a6e10e1942ff648f2af826a9430c0c7b4047c7a5",
+    "consumption_content_sha256": "d00b42e02a3535be914cfbd032cbb9e1a2110ea5980a5edbbe70f7ea382828f7",
+    "execution_commit_sha": "e1aece08a44ccf9add0157a1657d08a809687e85",
+    "execution_content_sha256": "2e2d296fb1fd2ade7951b2361dd95ef456d5d449ab29919b7b036dc168877e02",
+    "workflow_run_attempt": 1,
+    "workflow_run_id": "34069896968"
+  },
+  "raw_dbn_retained": false,
+  "raw_temp_directory_removed": true,
+  "request_content_sha256": "be03937b8eb8af38764d3203fbeebd7f360eeacfd21e92ae0d14e3f4ebf8ab9a",
+  "requote": {
+    "blocked_attempts": 0,
+    "calls": [
+      {
+        "error": null,
+        "method": "get_billable_size",
+        "ordinal": 1,
+        "request_content_sha256": "be03937b8eb8af38764d3203fbeebd7f360eeacfd21e92ae0d14e3f4ebf8ab9a",
+        "status": "success",
+        "value": 1975840
+      },
+      {
+        "error": null,
+        "method": "get_cost",
+        "ordinal": 2,
+        "request_content_sha256": "be03937b8eb8af38764d3203fbeebd7f360eeacfd21e92ae0d14e3f4ebf8ab9a",
+        "status": "success",
+        "value": "0.002208173275"
+      }
+    ],
+    "content_sha256": "43dbc264f31944fd739bc92e383e802a7ade73d2a85e764e0415193be8d2d924",
+    "contract_id": "sealed-historical-execution-input-diagnostic-v0.1",
+    "http_attempts": 2,
+    "maximum_billable_bytes": 1975840,
+    "maximum_quoted_cost_usd": "0.002208173275",
+    "preflight_passed": true,
+    "request_content_sha256": "be03937b8eb8af38764d3203fbeebd7f360eeacfd21e92ae0d14e3f4ebf8ab9a"
+  },
+  "retrospective_inputs_loaded": false,
+  "runtime_input_eligible": false,
+  "same_dbn_bytes_as_failed_parent": true
+}

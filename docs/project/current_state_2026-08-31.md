@@ -140,6 +140,25 @@ evidence is explicitly ineligible for runtime input. Exact-parent code checks
 and a separate durable consumption are required before execution. The original
 90-request acquisition and its failure remain immutable.
 
+That diagnostic completed once as run `34069896968`, attempt 1, at execution
+commit `e1aece08a44ccf9add0157a1657d08a809687e85`. Independent verification passed
+both ZIPs, all 26 files, all 1,136 projected rows, three exact provider attempts,
+zero blocked attempts and the pinned environment. The DBN hash is identical
+to the original failed response. All metadata and first-layer normalization
+checks pass; `_quote_events` rejects 175 adjacent equal receive-time/sequence
+keys. Every pair is a distinct Trade/Cancel book update, with no timestamp or
+sequence reversals. Deleting either record would lose evidence.
+
+Result artifact `10000122082` has ZIP SHA-256
+`5626dd395c5bc4af329721d768bc1c1f2f8ad5fb02df7833aa5dc581c11fc3d7`.
+The diagnostic is not an eligible input capture. The next dependency is a
+separately versioned historical record-order adapter preserving native venue
+sequence and stream ordinal, with unchanged downstream ambiguity and execution
+policies proved before any new acquisition. The original consumed failure,
+main, source/Micro evidence and every policy remain unchanged. See
+`docs/research/sealed_historical_execution_diagnostic_v01.md` and its permanent
+independent audit. No account/fill simulation or backtest has started.
+
 ## Current state
 
 The prospective August 24–September 4 panel is terminally closed. Its five
