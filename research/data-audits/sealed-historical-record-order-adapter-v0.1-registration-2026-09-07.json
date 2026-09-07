@@ -1,0 +1,99 @@
+{
+  "artifact_type": "historical_record_order_adapter_development_registration",
+  "content_sha256": "3d5d1f4fb1da2b1a5b7341578e5f3cc935a59b9b8ca7cc48f3a61d877d829a04",
+  "contract_content_sha256": "d66a2ff55dbba8497567ac3ffa0694272a30135b2e11710d683626e95291c0e9",
+  "diagnostic_rows_verified": 1136,
+  "distinct_native_key_pairs_retained": 175,
+  "file_sha256": {
+    ".github/workflows/sealed-historical-record-order-v01.yml": "698a0dffea091f7eb3a7954b28dfd0ea672aee23bc750e9c51f176f7fc86aa69",
+    "research/data-audits/sealed-historical-record-order-adapter-v0.1-offline-verification-2026-09-07.json": "ea6b8061ebd64aa316d3eeeea9e1f90185546b85d6c12c08d1556b266e493904",
+    "research/strategy/sealed-historical-record-order-adapter-v0.1.json": "06587aa36944e7ebc5b39ae8bc278cb39f287900755257b7c9a460b17b497797",
+    "scripts/validate_sealed_historical_record_order_v01.py": "81a5174873ffe6258495f9b890411f43e1d299ff6358409e95e76197e57a17ce",
+    "src/momentumbot/research/sealed_historical_record_order_registration_v01.py": "4fed4b93ee0bd5fbe2767134b5b007a2e18ed151f1b3d9617241103630fee4da",
+    "src/momentumbot/research/sealed_historical_record_order_v01.py": "407e02fc6fe908e26715fac2799f0debf356e96336b640e795b50287762dec6b",
+    "tests/fixtures/sealed_historical_record_order_v01_gits.json": "a3b36b51b768a93ada4821d693cebc3225f7a0ee338e1a962adf240a5c022473",
+    "tests/test_sealed_historical_record_order_v01.py": "5eaa62e66c24cd212e30f110785b9499009bc36fa91091f71576875c188530f2"
+  },
+  "historical_input_gate_passed": false,
+  "historical_strategy_or_account_execution": false,
+  "initial_checkout_validation": {
+    "errors": 23,
+    "failures": 1,
+    "log_sha256": "1262594aff7634bc84c8aeb4a39224485b045ba5f44c9b77bbe293b3f5337e9a",
+    "resolution": "restore_unchanged_committed_regression_dependencies_then_pass_the_unmodified_full_suite",
+    "status": "incomplete_sparse_checkout",
+    "tests_attempted": 1514
+  },
+  "local_environment": {
+    "bootstrap_difference": {
+      "pip": {
+        "expected": "26.2.1",
+        "observed": "25.0.1"
+      }
+    },
+    "cpython": "3.12.13",
+    "hosted_validation_requires_all_29_hash_locked_versions": true,
+    "hosted_validation_requires_cpython": "3.12.14",
+    "package_versions": {
+      "PyYAML": "6.0.3",
+      "aiohappyeyeballs": "2.7.1",
+      "aiohttp": "3.14.3",
+      "aiosignal": "1.4.0",
+      "attrs": "26.1.0",
+      "certifi": "2026.7.22",
+      "charset_normalizer": "3.5.1",
+      "databento": "0.83.0",
+      "databento_dbn": "0.65.0",
+      "frozenlist": "1.8.0",
+      "idna": "3.19",
+      "multidict": "6.7.1",
+      "numpy": "2.3.5",
+      "packaging": "26.3",
+      "pandas": "2.2.3",
+      "pip": "25.0.1",
+      "propcache": "0.5.2",
+      "pyarrow": "25.0.1",
+      "python-dateutil": "2.9.0.post0",
+      "pytz": "2026.3.post1",
+      "requests": "2.34.2",
+      "setuptools": "84.0.0",
+      "six": "1.17.0",
+      "typing_extensions": "4.16.0",
+      "tzdata": "2026.3",
+      "urllib3": "2.7.0",
+      "wheel": "0.48.0",
+      "yarl": "1.24.5",
+      "zstandard": "0.25.0"
+    },
+    "requirements_sha256": "03f4da335027e4c83bcf38e523c2e11aeaae49778f5bd6caa47e4703348b31b4"
+  },
+  "new_consumption_records": 0,
+  "next_gate": "separately_registered_bounded_acquisition_child_then_independent_complete_input_verification",
+  "offline_verification_content_sha256": "0de8afbcad725c6d80f6ed9b6f6d9c54b62ec7b35d7dcc38dff24942919b8683",
+  "old_consumed_operations_repeated": false,
+  "parent_commit_sha": "726f00344ba061a1c6e71be64db7cd3b239eead0",
+  "parent_tree_sha": "ddd901f72c45d5b48a0b1460469ee1e0ceb8c4c9",
+  "provider_calls": 0,
+  "schema_version": 1,
+  "strategy_account_execution_policies_changed": false,
+  "validation": {
+    "focused_normal": {
+      "log_sha256": "39341ad6dc3201044818b3f2f92fd08dc42ac80ceead284fcdaeeb2c154b8245",
+      "passed": true,
+      "seconds": "3.353",
+      "test_count": 79
+    },
+    "focused_optimized": {
+      "log_sha256": "c83eccd8a85220e137d54f73f33441417c073214b2ac5f46937e5ae19753c96a",
+      "passed": true,
+      "seconds": "5.618",
+      "test_count": 79
+    },
+    "repository_full": {
+      "log_sha256": "2630efb8bd72e9d48f3688377ad343c018047f48b18b91d050236722dabe1a75",
+      "passed": true,
+      "seconds": "58.639",
+      "test_count": 1520
+    }
+  }
+}

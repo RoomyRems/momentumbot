@@ -1,5 +1,24 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Latest development — 2026-09-07
+
+The provider-free historical record-order adapter follows verified diagnostic
+checkpoint `726f00344ba061a1c6e71be64db7cd3b239eead0`. It preserves all 1,136
+GITS diagnostic records, including 175 distinct Trade/Cancel native-key ties,
+with an exact request hash and original zero-based record position. Native
+timestamps, sequence numbers, prices and sizes remain unchanged. The frozen
+capture loop and execution mechanics are structurally checked; only provenance
+and the ordering validator differ. Synthetic tests cover causal ambiguity,
+both execution scenarios, and the actual pinned SDK. See
+`docs/research/sealed_historical_record_order_v01.md` and its registration audit.
+
+The diagnostic fixture remains ineligible for runtime inputs. No new acquisition
+or historical account/fill simulation is executed by this adapter validation.
+The next gate is a separately registered bounded acquisition child for the
+unchanged 90 requests, followed by independent complete input verification.
+The consumed failed acquisition and diagnostic, original source ledger, frozen
+scanner/Micro output, policies and main dispatcher remain unchanged.
+
 ## Latest continuation — 2026-09-06
 
 Final source-freeze run `34039993297` and artifact `9993250947` passed independent
