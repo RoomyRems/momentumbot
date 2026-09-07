@@ -1,6 +1,34 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current preparation: provider-free opportunity input availability
+## Current checkpoint: opportunity availability independently verified
+
+Registration `d0c5c993973f7e04e9e97bca98795fb576a94799` passed exact-commit
+[CI](https://github.com/RoomyRems/momentumbot/actions/runs/34090713573) and
+[pinned validation](https://github.com/RoomyRems/momentumbot/actions/runs/34090713599).
+The provider-free composition retained all 109 opportunities across 30 dates:
+86 have a usable causal reference/window, 22 lack a usable quote in the frozen
+inclusive 100 ms pre-decision window, and JVA retains its missing exact quote
+request. There are no halted references or unknown-status windows among the
+108 composed captures. No threshold or source window changed.
+
+The output contains 30 compressed date documents and one manifest, preserving
+7,623 quote occurrences with original request ordinals and all five no-decision
+dates. The manifest content commitment is
+`9fd935aa16caef6a823ab6a44c4f7e864e47231cf7189b7feb4069ac179bb6d4`.
+Complete source reconstruction reproduced every output byte. An independent
+stdlib verifier checked all 965,815 source rows, all 109 classifications and all
+31 output files. The permanent audit is
+`research/data-audits/sealed-historical-execution-input-availability-v0.1-independent-verification.json`.
+The result is frozen under `research/runtime/sealed-historical-execution-availability-v0.1/`.
+
+All 23 unavailable opportunities remain unavailable inputs, not inferred
+no-trade outcomes. All acquisition/execution/account/management gates remain
+false. No provider request, Micro replay, fill/account simulation, retrospective
+input access or backtest ran. The next dependency remains separately registered
+historical account and management input resolution while preserving these
+unavailable opportunities and the frozen policy.
+
+## Prior preparation: provider-free opportunity input availability
 
 The availability v0.1 child is registered against verified parent
 `24aaa19c50a39bce43ef9491f7630e2a81e330f8`. It binds both exact acquisition

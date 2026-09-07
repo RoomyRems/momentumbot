@@ -1,0 +1,1112 @@
+{
+  "account_input_gate_passed": false,
+  "account_or_fill_simulation_executed": false,
+  "acquisition_gate_passed": false,
+  "all_109_opportunities_classified": true,
+  "all_opportunity_inputs_available": false,
+  "artifact_type": "independently_verified_historical_opportunity_input_availability",
+  "backtesting_executed": false,
+  "code_commit_sha": "d0c5c993973f7e04e9e97bca98795fb576a94799",
+  "code_tree_sha": "12b5294f1f063d9da12942bfd398ddf4b824e533",
+  "content_sha256": "52c616971f23b45e3c65b1629c3863a318e3e91021d89d0823d8c3f294beaa36",
+  "contract_content_sha256": "e72d85a2cfab45fe6e1407cb47d954be3e80a5bf7c6d828d6f0958f49d725f34",
+  "contract_id": "sealed-historical-execution-input-availability-v0.1",
+  "explicit_no_decision_dates": [
+    "2025-06-03",
+    "2025-06-05",
+    "2025-06-16",
+    "2025-06-17",
+    "2025-06-20"
+  ],
+  "full_source_reconstruction": {
+    "account_input_gate_passed": false,
+    "account_or_fill_simulation_executed": false,
+    "acquisition_gate_passed": false,
+    "all_109_opportunities_classified": true,
+    "backtesting_executed": false,
+    "content_sha256": "7a69bc823c11668ec86a3fb2cee76a860946932f81e2846763568d134bb0770a",
+    "contract_id": "sealed-historical-execution-input-availability-v0.1",
+    "file_count": 31,
+    "file_inventory": {
+      "dates/2025-05-30.json.gz": {
+        "bytes": 13227,
+        "sha256": "7020f19d4d7cd9ed12986ef5112afd95177273d723b3619eaca8b79acce43eb9"
+      },
+      "dates/2025-06-02.json.gz": {
+        "bytes": 11759,
+        "sha256": "a615276c5078f89bb7cc701d936e57cc8f33867a38848071b378dd0e74b787ff"
+      },
+      "dates/2025-06-03.json.gz": {
+        "bytes": 784,
+        "sha256": "7f5c811be0b90c98a9bd1d17a0a08b033cbf7dee2735f3d609e85bc265d5d41d"
+      },
+      "dates/2025-06-04.json.gz": {
+        "bytes": 2749,
+        "sha256": "a118e5f3f394e22b3aea1ca13a12e4497dcebadc99ec3d56bb8295962f9be296"
+      },
+      "dates/2025-06-05.json.gz": {
+        "bytes": 785,
+        "sha256": "a546d51d3abfdef38d1a955a80fbab96db26c220438f645177eb2ab5d2e3bdb9"
+      },
+      "dates/2025-06-06.json.gz": {
+        "bytes": 5363,
+        "sha256": "a07b06d7ea18f98be3a6ab4406286d1b19243790e1c77df3951ee9087fd8768f"
+      },
+      "dates/2025-06-09.json.gz": {
+        "bytes": 5125,
+        "sha256": "5838f92103a8f247ee7a8b7bc3b6ea24027af43a605600bfa201165780a2aadf"
+      },
+      "dates/2025-06-10.json.gz": {
+        "bytes": 17413,
+        "sha256": "3778f0077cdfbd74d0a2f2256f5fd4aaaca1987af3f126a9056ab40672456082"
+      },
+      "dates/2025-06-11.json.gz": {
+        "bytes": 6813,
+        "sha256": "6d5098e07a1b9daa6e379da7c4c600be53c7954ee981d6f30a524ab69d94ed4b"
+      },
+      "dates/2025-06-12.json.gz": {
+        "bytes": 3801,
+        "sha256": "b3543299f6a74a962de288b5442d515c807d37f4a567c9e2cad7022c2fdcd6fb"
+      },
+      "dates/2025-06-13.json.gz": {
+        "bytes": 1448,
+        "sha256": "d050b7744aa35bb56870808633a7b7939a03c8613e874dd6a714caaf1195cf0b"
+      },
+      "dates/2025-06-16.json.gz": {
+        "bytes": 784,
+        "sha256": "7d274627a8e0ac9492b0435023a2ed54ab23563f6f5cd45d160f3e83f45b566f"
+      },
+      "dates/2025-06-17.json.gz": {
+        "bytes": 786,
+        "sha256": "29d59399b9692988ab157918911ded98d064564a79578f2b5497da589ff6cc9b"
+      },
+      "dates/2025-06-18.json.gz": {
+        "bytes": 5200,
+        "sha256": "856ae58e14d93dce760d3dcf37e3efe262dc2b29f0c11de9c2f1267fd2d6b83a"
+      },
+      "dates/2025-06-20.json.gz": {
+        "bytes": 783,
+        "sha256": "6082f05966c3569f222420910ccd9f2fcb26aacad53fbc2adbb356aa2f8e9abb"
+      },
+      "dates/2025-06-23.json.gz": {
+        "bytes": 4209,
+        "sha256": "348c57267ec3416d74724abf74084f1ba93443a16610fe899c789e07ffaa7eb7"
+      },
+      "dates/2025-06-24.json.gz": {
+        "bytes": 7986,
+        "sha256": "edb68e939064322c3465d30fd7fb68476b060566af0f39b0ad74298e43ef7c67"
+      },
+      "dates/2025-06-25.json.gz": {
+        "bytes": 6441,
+        "sha256": "c1ca90f5f0767958375d097a3ddbe7f3da1cd3a34dd61de03609dd036943b698"
+      },
+      "dates/2025-06-26.json.gz": {
+        "bytes": 30132,
+        "sha256": "138dd1ef11ab43451393e56afe516d941a69f06a5b9c62e3ab40b5370e160e7b"
+      },
+      "dates/2025-06-27.json.gz": {
+        "bytes": 12827,
+        "sha256": "5ce5c50c5be9efc4f83280a7e285b5e4269fcf26007e53f990e7dbd5a8e0be2a"
+      },
+      "dates/2025-07-01.json.gz": {
+        "bytes": 14862,
+        "sha256": "e3bc139d5c3a096801ca091806f14f3d0e5bb01358b4689130d2da55d0c5ad20"
+      },
+      "dates/2025-07-02.json.gz": {
+        "bytes": 9150,
+        "sha256": "983e506f17b520a2737eca9b760d918386c194e4189fe574e012b1f8ab0cca7c"
+      },
+      "dates/2025-07-07.json.gz": {
+        "bytes": 11596,
+        "sha256": "eae6660ace9b77c2e571de2b535be00113973c6a6cd19ca7e27b9d02c635e423"
+      },
+      "dates/2025-07-08.json.gz": {
+        "bytes": 10562,
+        "sha256": "49493d77e7cde39234605f97c42336dbd9b8cb28bd3d84237cdd0208e0d85e5c"
+      },
+      "dates/2025-07-10.json.gz": {
+        "bytes": 4973,
+        "sha256": "38403836f754fb8b5ce29b84d27c9746cce33e4f9a5c71a53b66a269dfc76b88"
+      },
+      "dates/2025-07-11.json.gz": {
+        "bytes": 21257,
+        "sha256": "13eb9aca86d171f780daaf047e93311df0370ced781f6c5fc13cc5c155dbdfe5"
+      },
+      "dates/2025-07-14.json.gz": {
+        "bytes": 13760,
+        "sha256": "ab0d55cf2ba41b1eda9e91ddf42479f810a905d9b5c128b96e2d4b2143a72949"
+      },
+      "dates/2025-07-15.json.gz": {
+        "bytes": 8124,
+        "sha256": "c8b08240a97792faba8a3ead49432ac9b7effc89b093d6fe916450d843e820a9"
+      },
+      "dates/2025-07-16.json.gz": {
+        "bytes": 18648,
+        "sha256": "9d9a94c195f60af3f35ed094ae34fbfd6e369bfa68f1b0e7e92e38ea939fe6b3"
+      },
+      "dates/2025-07-17.json.gz": {
+        "bytes": 7508,
+        "sha256": "71367f86e2cfbdb35000417b44a98e1ee44f876712947c7ab57e84b47a062151"
+      },
+      "manifest.json": {
+        "bytes": 101644,
+        "sha256": "6ed576e70dee9f439fdd2a1773f89931e6de23a73ea56e1ff1d9c81650bc8380"
+      }
+    },
+    "historical_execution_authorized": false,
+    "management_input_gate_passed": false,
+    "manifest_content_sha256": "9fd935aa16caef6a823ab6a44c4f7e864e47231cf7189b7feb4069ac179bb6d4",
+    "manifest_file_sha256": "6ed576e70dee9f439fdd2a1773f89931e6de23a73ea56e1ff1d9c81650bc8380",
+    "micro_reexecuted": false,
+    "paper_or_live_orders_authorized": false,
+    "policy_changed": false,
+    "provider_calls": 0,
+    "provider_purchase_authorized_usd": "0",
+    "request_evidence_complete": true,
+    "retrospective_inputs_loaded": false,
+    "runtime_input_eligible": false,
+    "summary": {
+      "input_status_counts": {
+        "available": 86,
+        "halted": 0,
+        "unavailable": 23
+      },
+      "opportunity_count": 109,
+      "quote_occurrence_count": 7623,
+      "reason_counts": {
+        "causal_reference_and_window_available": 86,
+        "known_halted_decision_reference": 0,
+        "unavailable_exact_quote_request": 1,
+        "unavailable_exact_status_request": 0,
+        "unavailable_no_fresh_decision_quote": 22,
+        "unavailable_status_not_causally_known": 0
+      }
+    },
+    "verification_passed": true
+  },
+  "full_source_reconstruction_identical": true,
+  "historical_execution_authorized": false,
+  "hosted_ci_skipped_optional_sdk_tests": 51,
+  "hosted_ci_test_count": 1610,
+  "hosted_code_checks": [
+    {
+      "conclusion": "success",
+      "created_at": "2026-09-07T06:24:48Z",
+      "event": "push",
+      "head_sha": "d0c5c993973f7e04e9e97bca98795fb576a94799",
+      "id": 34090713599,
+      "name": "Sealed historical execution availability v0.1 validation",
+      "run_attempt": 1,
+      "status": "completed",
+      "updated_at": "2026-09-07T06:25:30Z",
+      "url": "https://github.com/RoomyRems/momentumbot/actions/runs/34090713599"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-09-07T06:24:48Z",
+      "event": "push",
+      "head_sha": "d0c5c993973f7e04e9e97bca98795fb576a94799",
+      "id": 34090713573,
+      "name": "CI",
+      "run_attempt": 1,
+      "status": "completed",
+      "updated_at": "2026-09-07T06:25:39Z",
+      "url": "https://github.com/RoomyRems/momentumbot/actions/runs/34090713573"
+    }
+  ],
+  "hosted_pinned_focused_skips": 0,
+  "hosted_pinned_focused_test_count_each_mode": 81,
+  "hosted_pinned_validation_python": "3.12.14",
+  "implementation_file_sha256": {
+    ".github/workflows/sealed-historical-execution-availability-v01.yml": "da123110e7bb5a3d1c632ca32b82a69f21b5dcedf17488f31e769dd8e73c2922",
+    "research/strategy/sealed-historical-execution-input-availability-v0.1.json": "c7ab0f91782b11b7944946e3edea3d105e44b757058929a7f2e5cb3c12159f31",
+    "scripts/compose_sealed_historical_execution_availability_v01.py": "38c4d77819735ddce2eaee0d59ef34acead7113502e9f36d07325181b3b784be",
+    "src/momentumbot/research/sealed_historical_execution_availability_v01.py": "ef541e915e75c10641c57e42cd4a62fbb66b472c6b40a02d4c2ad85d6dbedb37"
+  },
+  "independent_verification": {
+    "boundary": {
+      "account_input_gate_passed": false,
+      "account_or_fill_simulation_executed": false,
+      "acquisition_gate_passed": false,
+      "backtesting_executed": false,
+      "historical_execution_authorized": false,
+      "management_input_gate_passed": false,
+      "micro_reexecuted": false,
+      "paper_or_live_orders_authorized": false,
+      "policy_changed": false,
+      "provider_calls": 0,
+      "provider_purchase_authorized_usd": "0",
+      "retrospective_inputs_loaded": false,
+      "runtime_input_eligible": false
+    },
+    "content_sha256": "71d46a4259d0273c9039db9164f046565dc9ad1d5ee70866cfb26c1bb6a6be19",
+    "date_count": 30,
+    "explicit_no_decision_dates": [
+      "2025-06-03",
+      "2025-06-05",
+      "2025-06-16",
+      "2025-06-17",
+      "2025-06-20"
+    ],
+    "file_count": 31,
+    "file_inventory": {
+      "dates/2025-05-30.json.gz": {
+        "bytes": 13227,
+        "sha256": "7020f19d4d7cd9ed12986ef5112afd95177273d723b3619eaca8b79acce43eb9"
+      },
+      "dates/2025-06-02.json.gz": {
+        "bytes": 11759,
+        "sha256": "a615276c5078f89bb7cc701d936e57cc8f33867a38848071b378dd0e74b787ff"
+      },
+      "dates/2025-06-03.json.gz": {
+        "bytes": 784,
+        "sha256": "7f5c811be0b90c98a9bd1d17a0a08b033cbf7dee2735f3d609e85bc265d5d41d"
+      },
+      "dates/2025-06-04.json.gz": {
+        "bytes": 2749,
+        "sha256": "a118e5f3f394e22b3aea1ca13a12e4497dcebadc99ec3d56bb8295962f9be296"
+      },
+      "dates/2025-06-05.json.gz": {
+        "bytes": 785,
+        "sha256": "a546d51d3abfdef38d1a955a80fbab96db26c220438f645177eb2ab5d2e3bdb9"
+      },
+      "dates/2025-06-06.json.gz": {
+        "bytes": 5363,
+        "sha256": "a07b06d7ea18f98be3a6ab4406286d1b19243790e1c77df3951ee9087fd8768f"
+      },
+      "dates/2025-06-09.json.gz": {
+        "bytes": 5125,
+        "sha256": "5838f92103a8f247ee7a8b7bc3b6ea24027af43a605600bfa201165780a2aadf"
+      },
+      "dates/2025-06-10.json.gz": {
+        "bytes": 17413,
+        "sha256": "3778f0077cdfbd74d0a2f2256f5fd4aaaca1987af3f126a9056ab40672456082"
+      },
+      "dates/2025-06-11.json.gz": {
+        "bytes": 6813,
+        "sha256": "6d5098e07a1b9daa6e379da7c4c600be53c7954ee981d6f30a524ab69d94ed4b"
+      },
+      "dates/2025-06-12.json.gz": {
+        "bytes": 3801,
+        "sha256": "b3543299f6a74a962de288b5442d515c807d37f4a567c9e2cad7022c2fdcd6fb"
+      },
+      "dates/2025-06-13.json.gz": {
+        "bytes": 1448,
+        "sha256": "d050b7744aa35bb56870808633a7b7939a03c8613e874dd6a714caaf1195cf0b"
+      },
+      "dates/2025-06-16.json.gz": {
+        "bytes": 784,
+        "sha256": "7d274627a8e0ac9492b0435023a2ed54ab23563f6f5cd45d160f3e83f45b566f"
+      },
+      "dates/2025-06-17.json.gz": {
+        "bytes": 786,
+        "sha256": "29d59399b9692988ab157918911ded98d064564a79578f2b5497da589ff6cc9b"
+      },
+      "dates/2025-06-18.json.gz": {
+        "bytes": 5200,
+        "sha256": "856ae58e14d93dce760d3dcf37e3efe262dc2b29f0c11de9c2f1267fd2d6b83a"
+      },
+      "dates/2025-06-20.json.gz": {
+        "bytes": 783,
+        "sha256": "6082f05966c3569f222420910ccd9f2fcb26aacad53fbc2adbb356aa2f8e9abb"
+      },
+      "dates/2025-06-23.json.gz": {
+        "bytes": 4209,
+        "sha256": "348c57267ec3416d74724abf74084f1ba93443a16610fe899c789e07ffaa7eb7"
+      },
+      "dates/2025-06-24.json.gz": {
+        "bytes": 7986,
+        "sha256": "edb68e939064322c3465d30fd7fb68476b060566af0f39b0ad74298e43ef7c67"
+      },
+      "dates/2025-06-25.json.gz": {
+        "bytes": 6441,
+        "sha256": "c1ca90f5f0767958375d097a3ddbe7f3da1cd3a34dd61de03609dd036943b698"
+      },
+      "dates/2025-06-26.json.gz": {
+        "bytes": 30132,
+        "sha256": "138dd1ef11ab43451393e56afe516d941a69f06a5b9c62e3ab40b5370e160e7b"
+      },
+      "dates/2025-06-27.json.gz": {
+        "bytes": 12827,
+        "sha256": "5ce5c50c5be9efc4f83280a7e285b5e4269fcf26007e53f990e7dbd5a8e0be2a"
+      },
+      "dates/2025-07-01.json.gz": {
+        "bytes": 14862,
+        "sha256": "e3bc139d5c3a096801ca091806f14f3d0e5bb01358b4689130d2da55d0c5ad20"
+      },
+      "dates/2025-07-02.json.gz": {
+        "bytes": 9150,
+        "sha256": "983e506f17b520a2737eca9b760d918386c194e4189fe574e012b1f8ab0cca7c"
+      },
+      "dates/2025-07-07.json.gz": {
+        "bytes": 11596,
+        "sha256": "eae6660ace9b77c2e571de2b535be00113973c6a6cd19ca7e27b9d02c635e423"
+      },
+      "dates/2025-07-08.json.gz": {
+        "bytes": 10562,
+        "sha256": "49493d77e7cde39234605f97c42336dbd9b8cb28bd3d84237cdd0208e0d85e5c"
+      },
+      "dates/2025-07-10.json.gz": {
+        "bytes": 4973,
+        "sha256": "38403836f754fb8b5ce29b84d27c9746cce33e4f9a5c71a53b66a269dfc76b88"
+      },
+      "dates/2025-07-11.json.gz": {
+        "bytes": 21257,
+        "sha256": "13eb9aca86d171f780daaf047e93311df0370ced781f6c5fc13cc5c155dbdfe5"
+      },
+      "dates/2025-07-14.json.gz": {
+        "bytes": 13760,
+        "sha256": "ab0d55cf2ba41b1eda9e91ddf42479f810a905d9b5c128b96e2d4b2143a72949"
+      },
+      "dates/2025-07-15.json.gz": {
+        "bytes": 8124,
+        "sha256": "c8b08240a97792faba8a3ead49432ac9b7effc89b093d6fe916450d843e820a9"
+      },
+      "dates/2025-07-16.json.gz": {
+        "bytes": 18648,
+        "sha256": "9d9a94c195f60af3f35ed094ae34fbfd6e369bfa68f1b0e7e92e38ea939fe6b3"
+      },
+      "dates/2025-07-17.json.gz": {
+        "bytes": 7508,
+        "sha256": "71367f86e2cfbdb35000417b44a98e1ee44f876712947c7ab57e84b47a062151"
+      },
+      "manifest.json": {
+        "bytes": 101644,
+        "sha256": "6ed576e70dee9f439fdd2a1773f89931e6de23a73ea56e1ff1d9c81650bc8380"
+      }
+    },
+    "input_status_counts": {
+      "available": 86,
+      "unavailable": 23
+    },
+    "manifest_content_sha256": "9fd935aa16caef6a823ab6a44c4f7e864e47231cf7189b7feb4069ac179bb6d4",
+    "opportunity_count": 109,
+    "profile_input_status_counts": {
+      "current-general-2026": {
+        "available": 78,
+        "unavailable": 21
+      },
+      "current-small-account-2026": {
+        "available": 19,
+        "unavailable": 6
+      }
+    },
+    "python_version": "3.12.13 (main, Aug  7 2026, 02:25:39) [Clang 22.1.3 ]",
+    "quote_occurrence_count": 7623,
+    "reason_counts": {
+      "causal_reference_and_window_available": 86,
+      "unavailable_exact_quote_request": 1,
+      "unavailable_no_fresh_decision_quote": 22
+    },
+    "source_row_counts": {
+      "mbp-1": 965658,
+      "status": 157
+    },
+    "verification_passed": true,
+    "verifier": "independent_stdlib_no_runtime_imports"
+  },
+  "independent_verifier_source": "\"\"\"Independent stdlib inspection of sealed availability; never imports runtime.\"\"\"\nimport bisect\nfrom collections import Counter\nfrom decimal import Decimal\nimport gzip\nimport hashlib\nimport io\nimport json\nfrom pathlib import Path\nimport sys\nimport zipfile\n\n\ndef deny(event, args):\n    if event.startswith('socket.') or event in {'subprocess.Popen', 'os.system', 'os.posix_spawn', 'os.posix_spawnp', 'os.exec', 'os.fork', 'os.forkpty'}:\n        raise RuntimeError('independent verification forbids network/process I/O')\n\n\nsys.addaudithook(deny)\nROOT = Path('/workspace/scratch/2d76267c92e1/momentumbot')\nOUT = ROOT / 'research/runtime/sealed-historical-execution-availability-v0.1'\nSOURCE = Path('/workspace/scratch/193af10e3424/execution-v03-evidence')\nPLAN = ROOT / 'research/runtime/sealed-historical-execution-input-plan-v0.1'\n\n\ndef sha(raw):\n    return hashlib.sha256(raw).hexdigest()\n\n\ndef fp(value):\n    return sha(json.dumps(value, sort_keys=True, separators=(',', ':'), allow_nan=False).encode())\n\n\ndef check(ok, label):\n    if not ok:\n        raise ValueError(label)\n\n\ndef seals(value):\n    if isinstance(value, dict):\n        if 'content_sha256' in value:\n            check(value['content_sha256'] == fp({k: v for k, v in value.items() if k != 'content_sha256'}), 'content seal')\n        for member in value.values():\n            seals(member)\n    elif isinstance(value, list):\n        for member in value:\n            seals(member)\n\n\ndef document(raw):\n    value = json.loads(raw)\n    seals(value)\n    return value\n\n\nmanifest = document((OUT / 'manifest.json').read_bytes())\nopportunities = document((PLAN / 'opportunity-manifest.json').read_bytes())\nrequests = document((PLAN / 'request-manifest.json').read_bytes())['requests']\ncheck(opportunities['content_sha256'] == '63924c9c67afe46cb02e927b22b7c5204c63dfc2d65f50125d36892c2620925e', 'exact opportunity commitment')\ncheck(fp(requests) == '4515172de55e48d42f1312b5b298dd2c126fccea700b39417cf600221d76e8ce', 'exact requests')\ncheck(manifest['opportunity_manifest_content_sha256'] == opportunities['content_sha256'], 'output source identity')\nfor path, expected in manifest['implementation_file_sha256'].items():\n    check(sha((ROOT / path).read_bytes()) == expected, 'implementation bytes')\nraw = (SOURCE / 'result-34084113393-1.zip').read_bytes()\ncheck(sha(raw) == '1fe68f4e526caa6ce0ee8f8845248e5ef3039f3e3ffbce370020162add3b99d6', 'exact result ZIP')\nconsumption = (SOURCE / 'consumption-34084113393-1.zip').read_bytes()\ncheck(sha(consumption) == '105e3b93fb7be691d330e4e35451455352c5e64fc914ede3e7a253d4f769154a', 'exact consumption ZIP')\nresult = zipfile.ZipFile(io.BytesIO(raw))\nprefix_raw = result.read('parent-v02-result.zip')\ncheck(sha(prefix_raw) == '2065c140c2c14bc7da14a22483934eb1631169a36a599e522e0b59c27d7ff6e9', 'exact prefix ZIP')\ncheck(sha(result.read('jva-empty-diagnostic.zip')) == '246ab302c949f22af2907fecba9e024b0c30b6901c91446f4401fab5627e91ea', 'exact unavailable diagnostic ZIP')\nprefix = zipfile.ZipFile(io.BytesIO(prefix_raw))\nsource_records, source_hashes, row_counts = {}, {}, Counter()\nfor i, request in enumerate(requests):\n    evidence = manifest['request_evidence'][i]\n    rid = request['request_id']\n    check(evidence['request_id'] == rid and evidence['request_content_sha256'] == fp(request), 'request evidence binding')\n    if i == 24:\n        check(rid == '2025-06-13-JVA-mbp-1' and evidence['classification'] == 'unavailable' and evidence['tape'] is None, 'JVA unavailable')\n        source_records[rid] = None\n        continue\n    archive = prefix if i < 24 else result\n    receipt_bytes = archive.read(f'receipts/request-{i:03d}.json')\n    receipt = document(receipt_bytes)\n    check(receipt['request'] == request, 'receipt request')\n    check(sha(receipt_bytes) == evidence['receipt_file_sha256'], 'receipt bytes')\n    tape = receipt['completion']['tape']\n    check(tape == evidence['tape'] and evidence['classification'] == 'complete', 'complete tape evidence')\n    compressed = archive.read(tape['path'])\n    check(sha(compressed) == tape['file_sha256'] and len(compressed) == tape['file_bytes'], 'compressed tape')\n    normalized = gzip.decompress(compressed)\n    check(sha(normalized) == tape['normalized_sha256'] and len(normalized) == tape['normalized_bytes'], 'normalized tape')\n    rows = [json.loads(line) for line in normalized.splitlines()]\n    check(len(rows) == tape['row_count'], 'tape count')\n    check(fp(rows) == evidence['records_content_sha256'], 'record evidence')\n    source_records[rid], source_hashes[rid] = rows, fp(rows)\n    row_counts[request['schema']] += len(rows)\ncheck(dict(row_counts) == {'mbp-1': 965658, 'status': 157}, 'full source population')\nindex = {r['request_id']: r for r in requests}\nreason_counts, state_counts, profiles = Counter(), Counter(), {}\nall_opportunities, no_decisions, occurrences = [], [], 0\ninventory = {'manifest.json': {'sha256': sha((OUT / 'manifest.json').read_bytes()), 'bytes': (OUT / 'manifest.json').stat().st_size}}\nboundary = document((ROOT / 'research/strategy/sealed-historical-execution-input-availability-v0.1.json').read_bytes())['boundary']\nfor key, value in boundary.items():\n    check(manifest[key] == value, 'manifest closed gate')\nfor day in opportunities['dates']:\n    date = day['trading_date']\n    filename = f'dates/{date}.json.gz'\n    compressed = (OUT / filename).read_bytes()\n    inventory[filename] = {'sha256': sha(compressed), 'bytes': len(compressed)}\n    check(inventory[filename] == manifest['date_file_inventory'][filename], 'date physical inventory')\n    payload = document(gzip.decompress(compressed))\n    check(payload['source_date'] == day and payload['content_sha256'] == manifest['date_content_sha256'][date], 'source date')\n    wanted = [o for o in opportunities['opportunities'] if o['trading_date'] == date]\n    check([r['opportunity'] for r in payload['opportunities']] == wanted, 'complete ordered daily opportunities')\n    if not wanted:\n        no_decisions.append(date)\n        check(payload['date_status'] == 'not_applicable_no_micro_decisions', 'explicit no-decision date')\n    for key, value in boundary.items():\n        check(payload[key] == value, 'date closed gate')\n    for item in payload['opportunities']:\n        op = item['opportunity']\n        all_opportunities.append(op)\n        stem = f\"{date}-{op['symbol']}\"\n        qr, sr = index[stem + '-mbp-1'], index[stem + '-status']\n        quotes, statuses = source_records[qr['request_id']], source_records[sr['request_id']]\n        t = op['decision_ts_ns']\n        start, end = t - 100_000_000, t + 550_000_000\n        expected_reference = None\n        if quotes is None:\n            reason, state = 'unavailable_exact_quote_request', 'unavailable'\n            check(op['opportunity_id'] == 'opportunity-584abfa60e5a82b205ac89afb352068295e49e833f930caf9d60018d1e1b694a', 'unavailable opportunity identity')\n            check(item['capture'] is None, 'unavailable capture absent')\n        else:\n            cap = item['capture']\n            check(cap['window_start_ns'] == start and cap['window_end_ns'] == end, 'window bounds')\n            check(cap['quote_tape_content_sha256'] == source_hashes[qr['request_id']] and cap['status_tape_content_sha256'] == source_hashes[sr['request_id']], 'capture source tapes')\n            times = [s['ts_recv_ns'] for s in statuses]\n            initial_index = bisect.bisect_right(times, start) - 1\n            initial = None if initial_index < 0 else statuses[initial_index]\n            known = initial is not None and initial['is_trading'] in ('Y', 'N')\n            known = known and all(s['is_trading'] != '~' for s in statuses if start < s['ts_recv_ns'] <= end)\n            check(cap['status_coverage_complete'] == known, 'independent status coverage')\n            kept = []\n            inside = [q for q in quotes if start <= q['ts_recv_ns'] <= end]\n            for q in inside:\n                k = bisect.bisect_right(times, q['ts_recv_ns']) - 1\n                if (not known or not 0 < q['bid_px_nanos'] < q['ask_px_nanos'] < 2**63 - 1\n                    or q['bid_size'] <= 0 or q['ask_size'] <= 0 or q['ts_recv_ns'] in times\n                    or k < 0 or statuses[k]['is_trading'] == '~'):\n                    continue\n                kept.append({'symbol': q['symbol'], 'ts_recv_ns': q['ts_recv_ns'], 'sequence': q['sequence'],\n                    'source_request_sha256': q['source_request_sha256'], 'source_record_index': q['source_record_index'],\n                    'bid_price': format(Decimal(q['bid_px_nanos']) / 1_000_000_000, 'f'),\n                    'ask_price': format(Decimal(q['ask_px_nanos']) / 1_000_000_000, 'f'),\n                    'bid_size': q['bid_size'], 'ask_size': q['ask_size'], 'halted': statuses[k]['is_trading'] != 'Y',\n                    'status_ts_recv_ns': statuses[k]['ts_recv_ns'], 'status_record_index': k, 'status_action': statuses[k]['action']})\n            check(cap['quotes'] == kept, 'independent complete quote projection')\n            check(cap['usable_quote_count'] == len(kept) and cap['unusable_or_status_unknown_quote_count'] == len(inside) - len(kept), 'complete quote counts')\n            candidates = [q for q in kept if start <= q['ts_recv_ns'] <= t]\n            expected_reference = candidates[-1] if candidates else None\n            if not known:\n                reason, state = 'unavailable_status_not_causally_known', 'unavailable'\n            elif expected_reference is None:\n                reason, state = 'unavailable_no_fresh_decision_quote', 'unavailable'\n            elif expected_reference['halted']:\n                reason, state = 'known_halted_decision_reference', 'halted'\n            else:\n                reason, state = 'causal_reference_and_window_available', 'available'\n            occurrences += len(kept)\n        check(item['reason'] == reason and item['input_status'] == state, 'independent classification')\n        check(item['decision_reference'] == expected_reference, 'independent fresh reference')\n        check(item['decision_reference_age_ns'] == (None if expected_reference is None else t - expected_reference['ts_recv_ns']), 'reference age')\n        for key, value in boundary.items():\n            check(item[key] == value, 'opportunity closed gate')\n        reason_counts[reason] += 1\n        state_counts[state] += 1\n        for profile in op['eligible_strategy_profile_ids']:\n            profiles.setdefault(profile, Counter())[state] += 1\ncheck(all_opportunities == opportunities['opportunities'] and len(all_opportunities) == 109, 'all opportunities in original order')\ncheck(no_decisions == manifest['explicit_no_decision_dates'] and len(no_decisions) == 5, 'all no-decision dates')\ncheck(set(inventory) == {p.relative_to(OUT).as_posix() for p in OUT.rglob('*') if p.is_file()}, 'all output files')\ncheck(len(inventory) == 31, '31 output files')\ncheck(all(v == reason_counts[k] for k, v in manifest['summary']['reason_counts'].items()), 'reason summary')\ncheck(all(v == state_counts[k] for k, v in manifest['summary']['input_status_counts'].items()), 'status summary')\ncheck(occurrences == manifest['summary']['quote_occurrence_count'], 'quote occurrence summary')\nreport = {'verification_passed': True, 'verifier': 'independent_stdlib_no_runtime_imports',\n    'python_version': sys.version, 'file_count': len(inventory), 'file_inventory': inventory,\n    'source_row_counts': dict(row_counts), 'opportunity_count': len(all_opportunities),\n    'date_count': 30, 'explicit_no_decision_dates': no_decisions,\n    'manifest_content_sha256': manifest['content_sha256'], 'reason_counts': dict(reason_counts),\n    'input_status_counts': dict(state_counts), 'profile_input_status_counts': {p: dict(c) for p, c in profiles.items()},\n    'quote_occurrence_count': occurrences, 'boundary': boundary}\nreport['content_sha256'] = fp(report)\nprint(json.dumps(report, indent=2, sort_keys=True))\n",
+  "independent_verifier_source_sha256": "307dd83c9bf6459885643cbf8a4c5adb4e83d284b4329998af90f8bb3d5b6e6f",
+  "local_environment": {
+    "hash_locked_packages_verified": true,
+    "implementation": "CPython",
+    "package_versions": {
+      "PyYAML": "6.0.3",
+      "aiohappyeyeballs": "2.7.1",
+      "aiohttp": "3.14.3",
+      "aiosignal": "1.4.0",
+      "attrs": "26.1.0",
+      "certifi": "2026.7.22",
+      "charset_normalizer": "3.5.1",
+      "databento": "0.83.0",
+      "databento_dbn": "0.65.0",
+      "frozenlist": "1.8.0",
+      "idna": "3.19",
+      "multidict": "6.7.1",
+      "numpy": "2.3.5",
+      "packaging": "26.3",
+      "pandas": "2.2.3",
+      "pip": "26.2.1",
+      "propcache": "0.5.2",
+      "pyarrow": "25.0.1",
+      "python-dateutil": "2.9.0.post0",
+      "pytz": "2026.3.post1",
+      "requests": "2.34.2",
+      "setuptools": "84.0.0",
+      "six": "1.17.0",
+      "typing_extensions": "4.16.0",
+      "tzdata": "2026.3",
+      "urllib3": "2.7.0",
+      "wheel": "0.48.0",
+      "yarl": "1.24.5",
+      "zstandard": "0.25.0"
+    },
+    "python_version": "3.12.13",
+    "zlib_runtime_version": "1.3.2",
+    "zlib_version": "1.3.2"
+  },
+  "local_validation": {
+    "focused_tests_normal": 81,
+    "focused_tests_optimized": 81,
+    "full_suite_skips": 0,
+    "full_suite_tests": 1610,
+    "log_inventory": {
+      "availability-full.log": {
+        "bytes": 346425,
+        "file_sha256": "373240bc72860da292ea312ddf4224922fad0104ab9f51ab304e80ab83b31807"
+      },
+      "availability-normal.log": {
+        "bytes": 16481,
+        "file_sha256": "35c069456b466362b205caa27df00ceaca0c4a408d2dcd6def905549295452e3"
+      },
+      "availability-optimized.log": {
+        "bytes": 16481,
+        "file_sha256": "a417746921f8250fb0f5e228e8ee9aff15bcc81779da9c4559032d25b67d3521"
+      }
+    },
+    "offline_registration_rederived": true,
+    "undefined_globals": []
+  },
+  "management_input_gate_passed": false,
+  "manifest_content_sha256": "9fd935aa16caef6a823ab6a44c4f7e864e47231cf7189b7feb4069ac179bb6d4",
+  "manifest_file_sha256": "6ed576e70dee9f439fdd2a1773f89931e6de23a73ea56e1ff1d9c81650bc8380",
+  "micro_reexecuted": false,
+  "monitor_state_changed": false,
+  "next_gate": "registered_historical_account_and_management_input_resolution_preserving_all_unavailable_opportunities",
+  "no_account_day_resets_applied": true,
+  "original_source_ledger_changed": false,
+  "original_source_provider_request_count": 30522,
+  "paper_or_live_orders_authorized": false,
+  "parent_commit_sha": "24aaa19c50a39bce43ef9491f7630e2a81e330f8",
+  "parent_tree_sha": "fe4e82282cf50eeb855937f27a6222e80fd2aec6",
+  "policy_changed": false,
+  "profile_decision_counts": {
+    "current-general-2026": 99,
+    "current-small-account-2026": 25
+  },
+  "profile_input_status_counts": {
+    "current-general-2026": {
+      "available": 78,
+      "unavailable": 21
+    },
+    "current-small-account-2026": {
+      "available": 19,
+      "unavailable": 6
+    }
+  },
+  "protected_refs_verified_after_composition": {
+    "heads/main": "de24eb17316191da69d92e61f6843af25e9c22d0",
+    "tags/sealed-historical-execution-input-acquisition-v0.1-consumed": "5a375f86e951b1e9eeb6c010995c9b57025913b7",
+    "tags/sealed-historical-execution-input-acquisition-v0.2-consumed": "e2c250367895d209ec4706288a22655636298685",
+    "tags/sealed-historical-execution-input-acquisition-v0.3-consumed": "0c4010044ee8557136b3c119c6350e134bba46d2",
+    "tags/sealed-historical-execution-input-diagnostic-v0.1-consumed": "e1aece08a44ccf9add0157a1657d08a809687e85",
+    "tags/sealed-historical-execution-input-empty-diagnostic-v0.1-consumed": "8854bb2e63dc3961d98c5d8827f857ef85ccb341",
+    "tags/sealed-historical-execution-input-quote-v0.1-consumed": "dd295304dcc5e7cc0ebd300d094ab20636a72b92",
+    "tags/sealed-historical-micro-input-acquisition-v0.1-consumed": "5cab2eb3aa2b73a2cbf1d57575519a7b99961e24",
+    "tags/sealed-historical-micro-session-input-acquisition-v0.2-consumed": "bf5863a7115abef9e22c4f527448cd9c20084f47"
+  },
+  "provider_calls": 0,
+  "provider_purchase_authorized_usd": "0",
+  "request_evidence_complete": true,
+  "retained_complete_tape_count": 89,
+  "retained_unavailable_request_count": 1,
+  "retrospective_inputs_loaded": false,
+  "runtime_input_eligible": false,
+  "runtime_output_bytes": 360499,
+  "runtime_output_file_count": 31,
+  "runtime_output_root": "research/runtime/sealed-historical-execution-availability-v0.1",
+  "schema_version": 1,
+  "source_artifacts": {
+    "consumption": {
+      "artifact_id": 10004656665,
+      "bytes": 1137522,
+      "file_count": 17,
+      "run_id": 34084113393,
+      "sha256": "105e3b93fb7be691d330e4e35451455352c5e64fc914ede3e7a253d4f769154a"
+    },
+    "result": {
+      "artifact_id": 10004782232,
+      "bytes": 13700990,
+      "file_count": 144,
+      "run_id": 34084113393,
+      "sha256": "1fe68f4e526caa6ce0ee8f8845248e5ef3039f3e3ffbce370020162add3b99d6"
+    }
+  },
+  "source_capture_verification": {
+    "acquisition_gate_passed": false,
+    "blocked_attempts": 0,
+    "content_sha256": "bad6f9b3fdc8197b2319fa57c2e6394353953fafab9e2d81fd01fcd6c0825fb0",
+    "file_count": 144,
+    "http_attempts": 195,
+    "inventory_content_sha256": "c92f1063eb260421df41f7797aa0ca95ce5a88528234045c5274e7488b642871",
+    "new_complete_count": 65,
+    "new_schema_row_counts": {
+      "mbp-1": 892085,
+      "status": 116
+    },
+    "new_unavailable_count": 0,
+    "normalized_bytes_including_parent": 262464208,
+    "parent_file_count": 79,
+    "report_content_sha256": "71b4048a0add1916ed78669c99cb7fb1127a5ecc2a6a6176f1976f8fa773f85a",
+    "report_file_sha256": "c30afea5d304701e57debd74348375b40de1d48edea5439e67b5a95bded15cce",
+    "request_evidence_complete": true,
+    "unattempted_count": 0,
+    "verification_passed": true
+  },
+  "summary": {
+    "input_status_counts": {
+      "available": 86,
+      "halted": 0,
+      "unavailable": 23
+    },
+    "opportunity_count": 109,
+    "quote_occurrence_count": 7623,
+    "reason_counts": {
+      "causal_reference_and_window_available": 86,
+      "known_halted_decision_reference": 0,
+      "unavailable_exact_quote_request": 1,
+      "unavailable_exact_status_request": 0,
+      "unavailable_no_fresh_decision_quote": 22,
+      "unavailable_status_not_causally_known": 0
+    }
+  },
+  "unavailable_is_inferred_no_trade_outcome": false,
+  "unavailable_opportunities": [
+    {
+      "capture_content_sha256": "124cfad5cb347f0a210ad545340efcd3eb77b8426184b0a0d36360593b2ca8c2",
+      "input_row_content_sha256": "1cdf143ae400b538ff0f57db2361e72d0d4c91089e89b3e0569480331a854a78",
+      "opportunity": {
+        "activation_id": "activation-8e1741ad7ab81e3533133d7fe36197ce4474ab313981cfb9aac21343f44ffd26",
+        "candidate_qualified_ts_ns": 1748609400000000000,
+        "decision_ts_ns": 1748609823147734566,
+        "eligible_strategy_profile_ids": [
+          "current-small-account-2026"
+        ],
+        "micro_runtime_content_sha256": "296defd79861b147c77e2af0614f8de05175d468ee881f55b2552a5167bb7ecc",
+        "opportunity_id": "opportunity-75998c7109068f86eeae11cdf8d07c671bc6571ba34cf12bfa4c5630db233dd0",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-71500655ca85abd239c392782ff5964c0bfdc8d1830935b0d6dfac44cfa59aa2",
+        "source_date_content_sha256": "025fe7f040f58c71331458cb28d722f084d522f2c07e3294ef818639fc77ac4c",
+        "source_decision_content_sha256": "064f081c79737d20396cbda34030d56d37699fe24a21edf721e530a7f6cc0de7",
+        "symbol": "GITS",
+        "trading_date": "2025-05-30"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 61
+    },
+    {
+      "capture_content_sha256": "390ee6ee1a8968077f3a914861b6c7d385ec142b5351effb197405b64bedabff",
+      "input_row_content_sha256": "0a52c16208e6ccb408e703d1e26abab0d9463d4fbaeb54d282ff37d8d1799a20",
+      "opportunity": {
+        "activation_id": "activation-bbb7295b4cef4c360af9f80912fdc459e07e3d8b61af2c404fdeea18e99f1ce0",
+        "candidate_qualified_ts_ns": 1748609460000000000,
+        "decision_ts_ns": 1748609823147734566,
+        "eligible_strategy_profile_ids": [
+          "current-general-2026"
+        ],
+        "micro_runtime_content_sha256": "cb00af5d425404f41a2a718ff98706b2302cb6261c8d932b45176b3e6c91ad93",
+        "opportunity_id": "opportunity-91c2bf886fc686a13d8f6d185643bae7802169e8611e4e0c26373c483e694f95",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-a3e997d0f2e7ddb8372f029e5179ee12ae501f7465d8d2d1277dc053690d61fb",
+        "source_date_content_sha256": "025fe7f040f58c71331458cb28d722f084d522f2c07e3294ef818639fc77ac4c",
+        "source_decision_content_sha256": "3b17498faab71dd3b064498beb45b4f93b0529b14f25d17a5e96b5d14ca4d1fe",
+        "symbol": "GITS",
+        "trading_date": "2025-05-30"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 61
+    },
+    {
+      "capture_content_sha256": "34eff11f779149c7a0a61e666d0e4883eb2d4f1410bf704020b50cdfe1d56d76",
+      "input_row_content_sha256": "d08bbdd5f28b5e8d9432190efbee460c2befc94b00c49e7959bb24c358a90646",
+      "opportunity": {
+        "activation_id": "activation-9ae2547b63bbc3d0e9ffc28ac07579867b738776327799a17223af5aaadfa50b",
+        "candidate_qualified_ts_ns": 1748862060000000000,
+        "decision_ts_ns": 1748862270168107726,
+        "eligible_strategy_profile_ids": [
+          "current-general-2026",
+          "current-small-account-2026"
+        ],
+        "micro_runtime_content_sha256": "8736c1848844d0a6b5847faf7c871e043d8ecf13fc29d71d936c268eb51d600f",
+        "opportunity_id": "opportunity-99c859420303ddd6d9ba1ef321293b0f9e070d0455ab9fbfb2cadf6e1ea041a8",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-42cae4f87057abe0bbb7cd1b8a22a85749b7f1cffd49132401a32c4bc660f034",
+        "source_date_content_sha256": "f8cb6b62214da2846b417a892999e08d089134f060fd1028283145b9bfcade7b",
+        "source_decision_content_sha256": "30ae8c01d74461e15ded00ad09cea49c49fee892b817284ade5ac267550579ce",
+        "symbol": "INM",
+        "trading_date": "2025-06-02"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 75
+    },
+    {
+      "capture_content_sha256": "3dd15f10e00d4c14073a1a8042caa2614f3dcae717b0c8a705b86aea89991114",
+      "input_row_content_sha256": "a1270cbe73f3687c1d5362644e2b87f7b9355b03fe9d2bf6b16e2ccdafce93d0",
+      "opportunity": {
+        "activation_id": "activation-aa144cb54ee2a3d5ffa5f55ec71a54cd7c92bea4dbc277ea2240488938b0b9e5",
+        "candidate_qualified_ts_ns": 1749207960000000000,
+        "decision_ts_ns": 1749208887441912251,
+        "eligible_strategy_profile_ids": [
+          "current-general-2026"
+        ],
+        "micro_runtime_content_sha256": "7c5ea67880c7950a099b9d5063b20029c2a31f0efb0dc4139261462e0234e954",
+        "opportunity_id": "opportunity-818996dddf4b7ead9cbe106131f0cf69f735082d08092a64914bfbfcca18fd8b",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-e1eb374d01a7c0588010296552429ab532f6adb94ef22000ac82b25776c9ddef",
+        "source_date_content_sha256": "10b26cf7994704a7a1f93ff9095c9c770a9390f8c525550e1a025afb4ce0ccb7",
+        "source_decision_content_sha256": "b6592aef5ba86d95da775f441537ed4db06bcd27cd061216fa1da1350d775541",
+        "symbol": "RENT",
+        "trading_date": "2025-06-06"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 3
+    },
+    {
+      "capture_content_sha256": "9618f57a517e2ba6c821e32ed303e6917c9fd1cc0f2c24a995d90587eded226e",
+      "input_row_content_sha256": "96ce4001a044603a29cb95ee4fa10ba38f0e0d13e79f102b4f8f1b7b118f8009",
+      "opportunity": {
+        "activation_id": "activation-d53fad5b35b53f0f362394172d819fe486baadf2918ac56e116861a5e90cc037",
+        "candidate_qualified_ts_ns": 1749209640000000000,
+        "decision_ts_ns": 1749211064075872641,
+        "eligible_strategy_profile_ids": [
+          "current-general-2026",
+          "current-small-account-2026"
+        ],
+        "micro_runtime_content_sha256": "4ff7cf169e619799db31bd09a9e17ff3d0ff1c4b82d8afdaf112ab471c016f86",
+        "opportunity_id": "opportunity-c7f2ebbed9ef4dbb1696bf81011042e5971bdb5850e80d7245e9ea6994d7c213",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-5a33007841a76c14998db18c7a5b6aab001b734f83009e9c929aab1f9feb70ee",
+        "source_date_content_sha256": "10b26cf7994704a7a1f93ff9095c9c770a9390f8c525550e1a025afb4ce0ccb7",
+        "source_decision_content_sha256": "5d5b571222c522cf5ddcbef735b9b28e6c8c745739f41850ac78174bb7039fdf",
+        "symbol": "VERO",
+        "trading_date": "2025-06-06"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 15
+    },
+    {
+      "capture_content_sha256": "acec790ed1592bc6be849b8129526465587690600dfb6f8fe18c8f2f3563c185",
+      "input_row_content_sha256": "50aacd86e7238143653462867434fc22c776b946a07356ce00622fc0af801b59",
+      "opportunity": {
+        "activation_id": "activation-db39fb0483d91e88daae6ee2a5c984b10c3ba87f7bd0feb81422e237d0e3a96a",
+        "candidate_qualified_ts_ns": 1749470940000000000,
+        "decision_ts_ns": 1749475048705419945,
+        "eligible_strategy_profile_ids": [
+          "current-general-2026"
+        ],
+        "micro_runtime_content_sha256": "b58405e0a81b787b29b2819f13743454a61916f92e422050ac71a1707bbb684d",
+        "opportunity_id": "opportunity-acc2da4e0ad7e272902cf5d550489b4a7efa9b6ffdaec0f62e364da3672f4908",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-6a3bf29b2c7eefe237521b598d4beb1015267ccff964d706818ba0c9f1b557b8",
+        "source_date_content_sha256": "bada3d4bcf3b15068523814aa2057483e80e49e84dc1bb9673e62d416119991b",
+        "source_decision_content_sha256": "1b0cac27471d56df935e3f8fe6ad33cc329de05c7eebf9fe291dbb70df2a0e80",
+        "symbol": "TPST",
+        "trading_date": "2025-06-09"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 0
+    },
+    {
+      "capture_content_sha256": "c72f0aef939b2fbd37bc362c94cc9f429b297ed97b37b03a5ffcd80176f6d2a8",
+      "input_row_content_sha256": "ac84b8534101a24ed5869c580e2b246ec1b03a8d9bc565ca8ef99cde2d4f8b48",
+      "opportunity": {
+        "activation_id": "activation-db39fb0483d91e88daae6ee2a5c984b10c3ba87f7bd0feb81422e237d0e3a96a",
+        "candidate_qualified_ts_ns": 1749470940000000000,
+        "decision_ts_ns": 1749476631470756595,
+        "eligible_strategy_profile_ids": [
+          "current-general-2026"
+        ],
+        "micro_runtime_content_sha256": "72ec6eccd8ddbf653377914ec8d25cb557ec2bbe54e577cbc4e0a70265210c24",
+        "opportunity_id": "opportunity-ba711448d3fa0fce6dd148eed47f48b8e717c2fdbcb1dacb1edeb14e1310d300",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-f2113e49ac1dfae94726c94acd403b88153753d88cd1a1a55392802dafc837c1",
+        "source_date_content_sha256": "bada3d4bcf3b15068523814aa2057483e80e49e84dc1bb9673e62d416119991b",
+        "source_decision_content_sha256": "3609ec445132ee3f4f31aafc3898581c8d39f56306d9799ac5f38bda8dc5457d",
+        "symbol": "TPST",
+        "trading_date": "2025-06-09"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 9
+    },
+    {
+      "capture_content_sha256": "3a024f9df72204ce1347b39517aef0bb3b4059a4e14bb4fb6d84ccd06d504ae0",
+      "input_row_content_sha256": "da5f6c00b40f4569bb5763fc79113999aa590b14e207633eaf4f914c4c619469",
+      "opportunity": {
+        "activation_id": "activation-db39fb0483d91e88daae6ee2a5c984b10c3ba87f7bd0feb81422e237d0e3a96a",
+        "candidate_qualified_ts_ns": 1749470940000000000,
+        "decision_ts_ns": 1749476640946767019,
+        "eligible_strategy_profile_ids": [
+          "current-general-2026"
+        ],
+        "micro_runtime_content_sha256": "9a297b33e1cdb043123cb591c8a71a265628502a3616a9446eaf9fcc3b3e5359",
+        "opportunity_id": "opportunity-2f75d20ec9526bcfdc71cd11ae4bafb66d608160bc40d01a7365fdb51dd12889",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-a749a33b6b690f5dd389b9960084a9418f9d9bf9a9b4c63e0f36e7c1400ca3dd",
+        "source_date_content_sha256": "bada3d4bcf3b15068523814aa2057483e80e49e84dc1bb9673e62d416119991b",
+        "source_decision_content_sha256": "4de93823edead8fc5c3131731f9485690e096029bcf82cfa728bbe1b01f4e07e",
+        "symbol": "TPST",
+        "trading_date": "2025-06-09"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 8
+    },
+    {
+      "capture_content_sha256": "d99aa89872a995d3ecb72b8156dd8e62e6319ae3380d7a44f32c80cdca619062",
+      "input_row_content_sha256": "6f0687f01643929760f27768705b32b486f2f6d78c31e1e3ea17560349468ebb",
+      "opportunity": {
+        "activation_id": "activation-622e25461881fa3b03c2e70ea026ce3e6518f131b9331df42b8621785171addf",
+        "candidate_qualified_ts_ns": 1749555540000000000,
+        "decision_ts_ns": 1749556417931330811,
+        "eligible_strategy_profile_ids": [
+          "current-general-2026"
+        ],
+        "micro_runtime_content_sha256": "4a11531224c76c58fc32dab6639e2ffe2c64dc5165120893748750635867025f",
+        "opportunity_id": "opportunity-7f9ffab8ba19748b90acf4fe3ffc7ef7f268c0c02bc4782c2db72bba407f2713",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-d1656fada17e0af66456a89a4b6f83c6777e14dc73fac2ce5b3dd3da55d2927d",
+        "source_date_content_sha256": "9d107626507a041cf7559087c0afec712f2c4eed3593a56e08f1728586459c0f",
+        "source_decision_content_sha256": "e8342694d4aec9de76c3905f76193237646e5d4bfcae529891e227a1d0a02cdb",
+        "symbol": "GELS",
+        "trading_date": "2025-06-10"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 12
+    },
+    {
+      "capture_content_sha256": "f4dc05b275987e6f1859026bfa9949db5f699ab5e46328d37d6d3347da024de6",
+      "input_row_content_sha256": "5b6685b2e319cb8ace88dfecee93952ee1327f7a69e15c881e5ba37d8fe7ee0b",
+      "opportunity": {
+        "activation_id": "activation-e4c34a804c93ded85f56e530906f568c44226e43f642a64c650b3af5b9c7726c",
+        "candidate_qualified_ts_ns": 1749640080000000000,
+        "decision_ts_ns": 1749640253632450572,
+        "eligible_strategy_profile_ids": [
+          "current-small-account-2026"
+        ],
+        "micro_runtime_content_sha256": "1ccd3a9b759d72d2f9553f52048c4a0c19e7715ae322da240edbaa6a7716fc2a",
+        "opportunity_id": "opportunity-fd9baebb29f5a217ce431b05a7e36c43d3063a64153a5eb31c9972db82eef81c",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-2910e26a3f256e071cc6711d34a6c3ff1262079f70ba59b0a7235cbf8a1e0852",
+        "source_date_content_sha256": "1775e3426f2362cd81a0855bb41dd1d6b393d4ccbca8ae3ab5e099cfecbee25b",
+        "source_decision_content_sha256": "4e92ab4376d3ff51d3f412aecb8bf6b2b2b782b06a48a88894a60095d420643a",
+        "symbol": "HSDT",
+        "trading_date": "2025-06-11"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 55
+    },
+    {
+      "capture_content_sha256": null,
+      "input_row_content_sha256": "5b8008884162ec45bd159570bf2a8ca5d42f68428eb56425e587944cc27d9d04",
+      "opportunity": {
+        "activation_id": "activation-80c98e16f7600be990d26cb4dbeed9826cf5f8bdec9f12c54376a13ceef8e775",
+        "candidate_qualified_ts_ns": 1749819360000000000,
+        "decision_ts_ns": 1749822929842083339,
+        "eligible_strategy_profile_ids": [
+          "current-general-2026"
+        ],
+        "micro_runtime_content_sha256": "6f06f3893306b5e9eca5b2bdb364e10e8e5b866d030a488cc3d0a39b9c2a97e5",
+        "opportunity_id": "opportunity-584abfa60e5a82b205ac89afb352068295e49e833f930caf9d60018d1e1b694a",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-587e277c58a95d8d0177f34ad80c5db4d039755f528cb22149cce5ebe9e464d7",
+        "source_date_content_sha256": "bffdb6af8084a68430d4bd5e439f2d049e22372363250982e4f9ef0e59775239",
+        "source_decision_content_sha256": "ebf88115b34c740266dcae60f6b38d40d1249caa9dcaced6545ac39967feea9b",
+        "symbol": "JVA",
+        "trading_date": "2025-06-13"
+      },
+      "reason": "unavailable_exact_quote_request",
+      "unusable_or_status_unknown_quote_count": null,
+      "window_quote_count": null
+    },
+    {
+      "capture_content_sha256": "66fe13c3693aa464510ecc728eaffab6d34ab6df98a12bb4206360c65b63be39",
+      "input_row_content_sha256": "a12f7ae15fedd3edbef1346c4c193f3480fc6382d06c77041344f7626536e13e",
+      "opportunity": {
+        "activation_id": "activation-b456c5946dce6bd4f5b565514cc6d4f4de792267e37d9f503a8619f6d1fcb9b5",
+        "candidate_qualified_ts_ns": 1750676400000000000,
+        "decision_ts_ns": 1750685604457978144,
+        "eligible_strategy_profile_ids": [
+          "current-general-2026"
+        ],
+        "micro_runtime_content_sha256": "2db9b67d95072ce4fa564746166de7f095a7d93458f095f407f41652e1f242af",
+        "opportunity_id": "opportunity-4d83ec12224b11e029521c1171423b31f2a1ad827d7409738dc05f44fcf4d569",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-dc808849f4296f6953ac93ebc503b5501c4f1c60b2735a1b4cb84eb26e1150eb",
+        "source_date_content_sha256": "020b2adabe64969c3602ddbf32c5d8a6d238790eea838eb08bc033a161cbda85",
+        "source_decision_content_sha256": "d699ca42e3e77b8750c84b5ea41c8fed422cd7ff04a9146169f0a27890fdbde0",
+        "symbol": "HUSA",
+        "trading_date": "2025-06-23"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 0
+    },
+    {
+      "capture_content_sha256": "a6e6fd4db2befc1987baa2e9aa4c3f86a53f73492073a2539e08090209bb9d14",
+      "input_row_content_sha256": "bb3d4bcabb6846bb06ce9caefd50b5ba01eccfefa260231f5bd67a68c9e3af86",
+      "opportunity": {
+        "activation_id": "activation-cf5c7397a776cca7b7900f296dc4395870af79574153690f9130e1f156dc5561",
+        "candidate_qualified_ts_ns": 1750763040000000000,
+        "decision_ts_ns": 1750765616728932160,
+        "eligible_strategy_profile_ids": [
+          "current-general-2026",
+          "current-small-account-2026"
+        ],
+        "micro_runtime_content_sha256": "799aae1a6067a1a75a06abddcc151ff1c39a313d3b3f5cfbbb82f94ff6d46045",
+        "opportunity_id": "opportunity-4a97cda9ccdb46e3dc514ffe443ca44add31c44886c254029f98f25e34d69cad",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-0cd812a8e71ad5d09689cdd6c312bd79fe594cbe054c4d6477963d2e3baec506",
+        "source_date_content_sha256": "1140b8785a32493af991b6bb726850df54375ec0de3c96846afbae6ef4884e10",
+        "source_decision_content_sha256": "4ab68041b11d100f18250a9f3f26a078c45378cabffef1e9249a750554516bfb",
+        "symbol": "INM",
+        "trading_date": "2025-06-24"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 76
+    },
+    {
+      "capture_content_sha256": "eec7a345c1c0415c29aa7b9b24ec9b3892859f672da8e9d8aa5f98832bdbe72a",
+      "input_row_content_sha256": "e6d3c884f7093b1ad99cab81028530c8700a2c7a9738b27cfc72baf3015c6cc5",
+      "opportunity": {
+        "activation_id": "activation-cd29eab16a5cbb9965812300522fdda703a9b30c66879a973fc77cb792d753b2",
+        "candidate_qualified_ts_ns": 1750940640000000000,
+        "decision_ts_ns": 1750944839859964368,
+        "eligible_strategy_profile_ids": [
+          "current-general-2026"
+        ],
+        "micro_runtime_content_sha256": "e078c13ffd8d1ddbb8059caba74c4dba0876c94bc891d118b7d44c30d2118a98",
+        "opportunity_id": "opportunity-251fdc34ac3c0e026f6c3be9cdc524dd7dfe8ec8663c5febe9a881b46c532cd1",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-bc0a77e7ac203ecf30bbda22c7b3fa02407d76431ac6540b1ea61b503eb453ff",
+        "source_date_content_sha256": "b1f1699a8d70827a8856f80f446aa28931aaeedec7e2fe6aa1f4e254ba4e6752",
+        "source_decision_content_sha256": "2bed2e17e3872b6bde64688a5c39846d7236d3b96feac6429e19ee70c77344f1",
+        "symbol": "LIVE",
+        "trading_date": "2025-06-26"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 0
+    },
+    {
+      "capture_content_sha256": "b6d6aa98b9221ccf3b8bacf3f603138ddddabf35567ae676265333ae7e4ff0e2",
+      "input_row_content_sha256": "839b6a09b7deff57812259026ce953fcdab9e8b4286da26427baa6757d3e66bf",
+      "opportunity": {
+        "activation_id": "activation-cd29eab16a5cbb9965812300522fdda703a9b30c66879a973fc77cb792d753b2",
+        "candidate_qualified_ts_ns": 1750940640000000000,
+        "decision_ts_ns": 1750944900572313405,
+        "eligible_strategy_profile_ids": [
+          "current-general-2026"
+        ],
+        "micro_runtime_content_sha256": "f99f3328884907cd29f03bfe436d99f6c2d26af2a1c2f7bd0b5f955806e41bfe",
+        "opportunity_id": "opportunity-db65a544ab923ed3190305150c9b9e706add3db2e932ca8d0d230a52400911cd",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-5dcfb1dc848528951d7be69bcff058d735e302fc38b8c9b89f816884b9d4acff",
+        "source_date_content_sha256": "b1f1699a8d70827a8856f80f446aa28931aaeedec7e2fe6aa1f4e254ba4e6752",
+        "source_decision_content_sha256": "0c97d35aff4834024900e829bba4c118aabf3948629077643cbae41944c9d4a7",
+        "symbol": "LIVE",
+        "trading_date": "2025-06-26"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 0
+    },
+    {
+      "capture_content_sha256": "d34e054626984c99c21dfabe23c7086fa4a933da22165b2c580f1c0532320c54",
+      "input_row_content_sha256": "03f44d1200ffa293c6288083a24a67013d701ebbe2a44d9302e118621dc16b01",
+      "opportunity": {
+        "activation_id": "activation-cd29eab16a5cbb9965812300522fdda703a9b30c66879a973fc77cb792d753b2",
+        "candidate_qualified_ts_ns": 1750940640000000000,
+        "decision_ts_ns": 1750944917595441349,
+        "eligible_strategy_profile_ids": [
+          "current-general-2026"
+        ],
+        "micro_runtime_content_sha256": "7f960e6c7f0218225c4538e77be7bec7a1973e82534a6ed71c3f9df90d742ab8",
+        "opportunity_id": "opportunity-320baaacb258c3a2bef8256f38cdd35ab628109a5fac297545bbf0f196d2aaf4",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-d8e35c67eea1a2f28b44b913ec4d90355fef2ccaf64212af0d26654fb1c612f4",
+        "source_date_content_sha256": "b1f1699a8d70827a8856f80f446aa28931aaeedec7e2fe6aa1f4e254ba4e6752",
+        "source_decision_content_sha256": "dd31a9f2993829c8f0498a381249269017032a61419b8201820a7eaea0d334c9",
+        "symbol": "LIVE",
+        "trading_date": "2025-06-26"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 0
+    },
+    {
+      "capture_content_sha256": "3fb1b770e17162cd6b9027d2110f7a75132b68db401b1b3cd2624f6dc49ff648",
+      "input_row_content_sha256": "e515a139c312863fc292564d4665f09277aa991e557179969b6a7e59f73f1881",
+      "opportunity": {
+        "activation_id": "activation-0e69c5b36f5260e50116c988159dba5aecb15ce8685b5c9d7c24cd3e9918f285",
+        "candidate_qualified_ts_ns": 1751458020000000000,
+        "decision_ts_ns": 1751463278029648206,
+        "eligible_strategy_profile_ids": [
+          "current-general-2026"
+        ],
+        "micro_runtime_content_sha256": "ec8087ea1a5c00cbd86cd05dd7b67701e3b92cf05aca174965764140fff62766",
+        "opportunity_id": "opportunity-5bf58ed9dd087834a5d8afed7b6abac4374c793cb222f61736ee6ebc607d46c2",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-01322f746191db7de2e6120e2fa92772cb26a413e8341606c9edb5e13acb3174",
+        "source_date_content_sha256": "4ae32027a03596e782a97afd639ca11fdd9f9c9ff2e86e5bf4fa17cd34e300c0",
+        "source_decision_content_sha256": "d3a7b97fa0f2cbc3425ad6a9d9433ec965c29d3acb7c094abe3638b7a37419be",
+        "symbol": "NTRB",
+        "trading_date": "2025-07-02"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 0
+    },
+    {
+      "capture_content_sha256": "d9075a5f2589903bde99818bab0dd6c19335d46307ac89d9339b9374d05469b9",
+      "input_row_content_sha256": "1b9c2461b707343a25322071eeb26bb8108d8bfe97644cb2f0384f38847b7df3",
+      "opportunity": {
+        "activation_id": "activation-0e69c5b36f5260e50116c988159dba5aecb15ce8685b5c9d7c24cd3e9918f285",
+        "candidate_qualified_ts_ns": 1751458020000000000,
+        "decision_ts_ns": 1751463293475581081,
+        "eligible_strategy_profile_ids": [
+          "current-general-2026"
+        ],
+        "micro_runtime_content_sha256": "d62c648c536d5963d60b9a0b412627f8fce8b8d6420787227aaa7289c9cd4f99",
+        "opportunity_id": "opportunity-a0276724717eaf93a381d3342645be966a2e8d80b7b3cd7efd497db0e9910fdf",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-b2f9d0cdcc70df9a78255e38d8c0e5d3ece109cc3dfa2853ebe73d64dcd7ee06",
+        "source_date_content_sha256": "4ae32027a03596e782a97afd639ca11fdd9f9c9ff2e86e5bf4fa17cd34e300c0",
+        "source_decision_content_sha256": "c537272d31e46ccdf0e9f3e204cf30cb3eff88793e8fc343fefb4f880a24f4ae",
+        "symbol": "NTRB",
+        "trading_date": "2025-07-02"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 0
+    },
+    {
+      "capture_content_sha256": "a25eac1836746952507d8cb7a2c62268130dcb8d51da925ff23b47b9577d823a",
+      "input_row_content_sha256": "4a03ba4cbade615ad101dbf56fb73e204a10b5ce3c7c9fae5c70476702c127af",
+      "opportunity": {
+        "activation_id": "activation-0e69c5b36f5260e50116c988159dba5aecb15ce8685b5c9d7c24cd3e9918f285",
+        "candidate_qualified_ts_ns": 1751458020000000000,
+        "decision_ts_ns": 1751463301077644742,
+        "eligible_strategy_profile_ids": [
+          "current-general-2026"
+        ],
+        "micro_runtime_content_sha256": "d55ed479920776d5fac0f4ebdc8d57559f196a82211830125682bb99d93a910f",
+        "opportunity_id": "opportunity-2a86dcd2de0ebf20fd947a7e947ee803b783b9e1ff50c1d7253c1d78480f52e2",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-20d28fe9ccf3ff7b7085e2b57d37a0854a858b606e7f3fc9a292035f3c60966e",
+        "source_date_content_sha256": "4ae32027a03596e782a97afd639ca11fdd9f9c9ff2e86e5bf4fa17cd34e300c0",
+        "source_decision_content_sha256": "3c78b7c5e9d3bee2e41235aa69c9d6e8b49a4e151f316e11fa77724849084339",
+        "symbol": "NTRB",
+        "trading_date": "2025-07-02"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 5
+    },
+    {
+      "capture_content_sha256": "6336c724abe931b0f66731b422a3c6b703beb30983bc405018146944307f77cd",
+      "input_row_content_sha256": "ad77f84e55366df4802f1415a7eae983a2f4c11247cdc8f0c8a799a6ba33aa00",
+      "opportunity": {
+        "activation_id": "activation-329c5c89be60e0b87c9ea4db3061595d513596979803435d87e5a1e35ccd4208",
+        "candidate_qualified_ts_ns": 1752148980000000000,
+        "decision_ts_ns": 1752149371115898449,
+        "eligible_strategy_profile_ids": [
+          "current-general-2026"
+        ],
+        "micro_runtime_content_sha256": "6574ca7f08bf76e62c3f6bdab99a67b8dce003f327c7557f2b191aacbecd5e48",
+        "opportunity_id": "opportunity-194603dafa0ad839cc2cdd508df6d476fc7404d0a04cea709145ed89ae95ead4",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-2ead3e1c0d3b8a797dfc7fe1fc494ebf1c46f06d89250a7ad30d29d1208834e2",
+        "source_date_content_sha256": "3fa1f3efccf48cb60eccf2287ed9993c01bb7599fac1792687a57611748cb94f",
+        "source_decision_content_sha256": "57565004f732acc6dbc3aa4f2befeb019ac3616087044ebac0235f93df6ab771",
+        "symbol": "DALN",
+        "trading_date": "2025-07-10"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 24
+    },
+    {
+      "capture_content_sha256": "c3bc28031708f234ef819d2d1b7b30803abbe488661d220465565d87de5d7868",
+      "input_row_content_sha256": "0fa46307c5c9057f7898b2870f9324d610c3a941c8312e8188c99b997de42821",
+      "opportunity": {
+        "activation_id": "activation-34940134913e7f8a4cdc34fd5151d4ec129d610ba9f036ba0c30fde7f7a656e0",
+        "candidate_qualified_ts_ns": 1752490800000000000,
+        "decision_ts_ns": 1752491381023393168,
+        "eligible_strategy_profile_ids": [
+          "current-general-2026"
+        ],
+        "micro_runtime_content_sha256": "a32b84ad25bba094550bddfd47331ebe082d18462c557d8400e7e69403768ca5",
+        "opportunity_id": "opportunity-67ca66e396fa42db1ae83b581c5811b95c28d094c0f83baa046f7741756f8d60",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-93ca0818759e82a62250a5ce12e656d7f6fc6bbad812aa0f6c52b0ce7dae1c3f",
+        "source_date_content_sha256": "1ef77087d23a98549122a73ecddd7a340e99a9e701a3dca0aa138a189819b52d",
+        "source_decision_content_sha256": "b3354c5d3e18d31bfab8c821a81df5d4ea8071ff987f4de8209a790c2df86690",
+        "symbol": "SONN",
+        "trading_date": "2025-07-14"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 41
+    },
+    {
+      "capture_content_sha256": "68e99e2c6bcd85ddae64f50aa25fbda9cd085cdcb5a9f5182f71521e99ad3808",
+      "input_row_content_sha256": "e8eaa203d69dd034fa8a04a834f3e52107404f9315d52838a283a93289758168",
+      "opportunity": {
+        "activation_id": "activation-c9cf9c328eb4b45320a1e87eb0dc10a6a6bb300610138d8e62e67e62755c2e12",
+        "candidate_qualified_ts_ns": 1752577200000000000,
+        "decision_ts_ns": 1752586973078965062,
+        "eligible_strategy_profile_ids": [
+          "current-general-2026",
+          "current-small-account-2026"
+        ],
+        "micro_runtime_content_sha256": "a37cdc0d600f0209d27950b76a419bfdc8a869144058ee06f07c4f320fa0292b",
+        "opportunity_id": "opportunity-844e581823df4c1cf1c1ff4a83acabfef89ae4fa7df3c19491f31d89d8c729b7",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-70b47ac4ca00cbbe32d0046dd2a572ebe06ae655fbfd3c21762d348f314ec5bd",
+        "source_date_content_sha256": "2fe26049f82017ab8bac3696447d2f08aa3f596722454796b43bde3baae3f2ee",
+        "source_decision_content_sha256": "c42ad0eb88a726fc9c1513fa91bd29da8d7e371d62fbd535e67236dbd15ff9ff",
+        "symbol": "XAGE",
+        "trading_date": "2025-07-15"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 68
+    },
+    {
+      "capture_content_sha256": "0da2ee1b3179a6bf46c43d94e0cdfc41ceeed762e7c3de744979a2fc715147aa",
+      "input_row_content_sha256": "b97794f17c6c1ed231859fe134e0d25fce0cb61ec5dc5cac3e1f76c8539f8451",
+      "opportunity": {
+        "activation_id": "activation-aed3189f50de979b039f8a025f2eb17fc1cd48e2795ef9802577028f1c81f25a",
+        "candidate_qualified_ts_ns": 1752663600000000000,
+        "decision_ts_ns": 1752664114312400176,
+        "eligible_strategy_profile_ids": [
+          "current-general-2026"
+        ],
+        "micro_runtime_content_sha256": "2a3f76a28b31ea534d03c09eb25458acd3a8ca26c0417c095b0a3cb96ceb84fb",
+        "opportunity_id": "opportunity-f447e89f2330dce21d74db57aeaf3c4986f5896ae5282f84c5be2fd7ccee09c5",
+        "panel_id": "sealed-historical-walk-forward-v0.1",
+        "plan_id": "plan-10b4254eb66aa176cb79fa770781db7b9b3c17841609afab14e157c1b2544561",
+        "source_date_content_sha256": "47dd72c9eba1df697291fac3a09a5fa05bcf9a68e56e3d6bf46a887175ad34ef",
+        "source_decision_content_sha256": "5ab28010ad62b769ccaed2825636d79da28b395d6c673f32dc6f43084cb5b666",
+        "symbol": "NUWE",
+        "trading_date": "2025-07-16"
+      },
+      "reason": "unavailable_no_fresh_decision_quote",
+      "unusable_or_status_unknown_quote_count": 0,
+      "window_quote_count": 34
+    }
+  ],
+  "verification_passed": true,
+  "verified_at_utc": "2026-09-07T06:30:59.887418+00:00",
+  "write_once_composition_completed": true
+}

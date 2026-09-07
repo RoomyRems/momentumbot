@@ -76,3 +76,53 @@ The next dependency is separately registered historical account and management
 input resolution, preserving every unavailable opportunity. Any later account
 runtime must carry state across the full 30 dates for each frozen account,
 horizon and scenario; it cannot reset accounts daily or infer unavailable trades.
+
+## Independently verified result — 2026-09-07
+
+Code registration `d0c5c993973f7e04e9e97bca98795fb576a94799`, tree
+`12b5294f1f063d9da12942bfd398ddf4b824e533`, passed
+[CI 34090713573](https://github.com/RoomyRems/momentumbot/actions/runs/34090713573)
+and [pinned validation 34090713599](https://github.com/RoomyRems/momentumbot/actions/runs/34090713599)
+before the single local offline composition. Both hosted runs completed on push
+attempt 1. Dedicated validation passed 81 tests in each mode with zero skips;
+the broad hosted CI passed 1,610 tests with 51 optional SDK skips. The full local
+suite passed all 1,610 tests with zero skips.
+
+The output retains every frozen opportunity:
+
+| Input classification | Opportunities |
+|---|---:|
+| Usable causal reference and window | 86 |
+| No usable quote in the inclusive 100 ms before the decision | 22 |
+| Confirmed missing exact JVA quote request | 1 |
+| Known halted reference | 0 |
+| Unknown causal status | 0 |
+
+The general profile has 78 available and 21 unavailable decisions; the small
+account profile has 19 available and six unavailable decisions. Profile counts
+overlap because 15 opportunities belong to both profiles. No missing reference
+was filled from a later quote or an older resting quote. These classifications
+describe input availability and are not trade or performance results.
+
+All 108 composed windows have known status coverage. There are 7,623 retained
+quote occurrences, preserving original request ordinals, across 30 compressed
+date files. The five no-decision dates remain June 3, 5, 16, 17 and 20, 2025.
+The 31 output files total 360,499 bytes. Manifest content SHA-256:
+`9fd935aa16caef6a823ab6a44c4f7e864e47231cf7189b7feb4069ac179bb6d4`.
+
+Full reconstruction from the original ZIPs reproduced every output byte. A
+separate stdlib verifier imported no runtime code and independently checked
+source tape bytes, quote selection, causal status, decision references, all
+identities, summary counts and the entire physical inventory. Its source and
+results are retained in
+`research/data-audits/sealed-historical-execution-input-availability-v0.1-independent-verification.json`.
+The local operation used CPython 3.12.13, zlib 1.3.2 and all 29 hash-locked
+package versions; hosted preparation used CPython 3.12.14. Both local verification
+processes denied network and subprocess I/O.
+
+The nine protected parent refs, original 30,522-request source ledger and all
+retained acquisition artifacts remain unchanged. The monitor was not changed.
+All 23 unavailable inputs are explicitly listed in the audit for the next
+registered input-resolution stage. Acquisition, historical execution, account,
+management and trading gates remain false. No Micro replay, order/fill simulation,
+account execution, retrospective access or backtest ran.
