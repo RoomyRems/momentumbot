@@ -1,0 +1,89 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "acquisition_gate_passed": false,
+  "artifact_type": "provider_free_exact_empty_input_diagnostic_registration",
+  "backtesting_executed": false,
+  "consumed_parent_rerun": false,
+  "content_sha256": "985a61765cc27d4925f035134a2abe7b9ad2455c4efce5e162080e6ef61fe330",
+  "contract_content_sha256": "2524c5ad371e0c17e51b0a409844ea504b107931bbfe5e972c467613484ec2f7",
+  "contract_id": "sealed-historical-execution-input-empty-diagnostic-v0.1",
+  "date": "2026-09-07",
+  "documented_provider_semantics": {
+    "inference": "possible_explanation_requires_separate_native_DBN_diagnosis_not_proof_of_original_response",
+    "metadata_estimates_may_overreport_non_ten_minute_ranges": true,
+    "sources": [
+      "https://databento.com/docs/api-reference-historical/metadata/metadata-get-billable-size",
+      "https://databento.com/docs/api-reference-historical/timeseries/timeseries-get-range",
+      "https://databento.com/docs/schemas-and-data-formats/mbp-1"
+    ]
+  },
+  "exact_parent_artifact_files_verified": 62,
+  "failure_artifact_id": 10002303908,
+  "failure_audit_content_sha256": "865695c78f182cb8699cd33a54093eea50b4b0540857997f8daaaa05138dead2",
+  "failure_report_content_sha256": "62e20bfc72efe69c56811b49d320195da1e562f7195d2b04119e47c9284e9d6b",
+  "failure_run_id": 34076412463,
+  "failure_zip_sha256": "2065c140c2c14bc7da14a22483934eb1631169a36a599e522e0b59c27d7ff6e9",
+  "hypothesis": "positive_sub_ten_minute_metadata_estimate_can_accompany_metadata_only_exact_DBN",
+  "immutable_refs": {
+    "heads/main": "de24eb17316191da69d92e61f6843af25e9c22d0",
+    "tags/sealed-historical-execution-input-acquisition-v0.1-consumed": "5a375f86e951b1e9eeb6c010995c9b57025913b7",
+    "tags/sealed-historical-execution-input-acquisition-v0.2-consumed": "e2c250367895d209ec4706288a22655636298685",
+    "tags/sealed-historical-execution-input-diagnostic-v0.1-consumed": "e1aece08a44ccf9add0157a1657d08a809687e85",
+    "tags/sealed-historical-execution-input-quote-v0.1-consumed": "dd295304dcc5e7cc0ebd300d094ab20636a72b92",
+    "tags/sealed-historical-micro-input-acquisition-v0.1-consumed": "5cab2eb3aa2b73a2cbf1d57575519a7b99961e24",
+    "tags/sealed-historical-micro-session-input-acquisition-v0.2-consumed": "bf5863a7115abef9e22c4f527448cd9c20084f47"
+  },
+  "local_validation": {
+    "failures": 0,
+    "focused_normal_tests": 97,
+    "focused_optimized_tests": 97,
+    "hosted_environment_required_before_consumption": "CPython3.12.14_all29_hash_locked_pins",
+    "logs": {
+      "focused": {
+        "file_sha256": "9b6423da06d5ba018d87ae280499e8f2ef84f6ae441e6bc4c9e2a31c93e7400d"
+      },
+      "focused-optimized": {
+        "file_sha256": "430840c93a4e2e473bb1949ff1f3930a43c902f33f3441b00140a04d97352717"
+      },
+      "full-suite": {
+        "file_sha256": "05fd41153b1212021d3288731ac164038483c593ee623d5edac5ce01c5eee3ac"
+      }
+    },
+    "python_version": "3.12.13",
+    "repository_tests": 1561,
+    "undefined_names": 0
+  },
+  "next_gate": "exact_published_code_CI_and_validation_then_sole_separately_consumed_diagnostic",
+  "original_source_provider_request_total": 30522,
+  "parent_commit_sha": "36375ab2d627e98b864aba3c91157efe55e2203c",
+  "parent_tree_sha": "764c0a1880f0d4ec32120b27af04bb2fd146368a",
+  "policy_changed": false,
+  "provider_calls": 0,
+  "registered_http_attempt_ceiling": 3,
+  "request": {
+    "dataset": "XNAS.ITCH",
+    "end_exclusive": true,
+    "end_ns": 1749822930392083340,
+    "request_id": "2025-06-13-JVA-mbp-1",
+    "schema": "mbp-1",
+    "start_ns": 1749822929742083339,
+    "stype_in": "raw_symbol",
+    "symbols": [
+      "JVA"
+    ],
+    "trading_date": "2025-06-13"
+  },
+  "request_content_sha256": "5e0ef1993dac42f58332997b14179cc1097ec37fc51f1cdcb703f9617a505d6b",
+  "retrospective_inputs_loaded": false,
+  "runtime_input_eligible": false,
+  "schema_version": 1,
+  "source_file_sha256": {
+    ".github/workflows/sealed-historical-execution-input-empty-diagnostic-v01.yml": "0a2e636a50782d3b7650f0781b20632ebfda7c2d2bc69b7d0ca6fd8e1b29e255",
+    "docs/research/sealed_historical_execution_empty_diagnostic_v01.md": "28121c9473c508ac27014e68a40122251727e5588fbe8f43ae5a1a0a37a637df",
+    "research/strategy/sealed-historical-execution-input-empty-diagnostic-v0.1.json": "eff4879dd429f8eaee4e459d105f6ac388083522f0b40732a174d4ecec33430a",
+    "scripts/diagnose_sealed_historical_execution_empty_input_v01.py": "64d22a54bf1b868d377e9d0886a15dab847af5e0b44a64fcb3232731c716e83c",
+    "src/momentumbot/research/sealed_historical_execution_empty_diagnostic_transport_v01.py": "73a803c86d9c3b6d087d466703fef2aeffb9e504e0d091625ab2d1ac2f3dc3a8",
+    "src/momentumbot/research/sealed_historical_execution_empty_diagnostic_v01.py": "c638fe8c2580eed70790a399e71afea5cc3246aa3ad7b33c9e92a4573cd14219",
+    "tests/test_sealed_historical_execution_empty_diagnostic_v01.py": "0bcc080c6d086fa4f73c3fc05459847f6e7d4e9fe3e25bf5bd7744c005554ffb"
+  }
+}

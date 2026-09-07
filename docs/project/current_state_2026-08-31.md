@@ -1,5 +1,16 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current prepared step: exact JVA empty-input diagnosis
+
+A separate `sealed-historical-execution-input-empty-diagnostic-v0.1` is registered
+against the permanent v0.2 failure at checkpoint `36375ab2d627e98b864aba3c91157efe55e2203c`.
+It compares native DBN records, mapped fields and the unchanged v0.2 normalizer
+for the exact missing JVA request. Its three-call ceiling, fresh quote limits,
+first-attempt execution child and durable independent consumption are mandatory.
+The acquisition remains failed and downstream execution inputs remain incomplete.
+See [the diagnostic registration](../research/sealed_historical_execution_empty_diagnostic_v01.md).
+
+
 ## Latest development — 2026-09-07
 
 The separately consumed v0.2 acquisition ended in a verified input-availability
