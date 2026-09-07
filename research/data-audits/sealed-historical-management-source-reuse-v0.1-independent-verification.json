@@ -1,0 +1,384 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "account_runtime_input_gate_passed": false,
+  "acquisition_gate_passed": false,
+  "all_109_opportunities_preserved": true,
+  "all_management_sources_complete": false,
+  "all_original_source_members_verified": 1036,
+  "all_original_source_rows_verified": 20078306,
+  "all_original_source_tapes_verified": 510,
+  "artifact_type": "independent_verification_of_historical_management_source_reuse",
+  "backtesting_executed": false,
+  "broker_account_read": false,
+  "content_sha256": "92ebe9ed3f3ce0eb432314589a745ddf8a2945f7e77c572a421877e6bcc44bf5",
+  "contract_content_sha256": "f1c73517c2cb9d6a24849d777cb4dca2ae81d442c91ac02ff4162a9bb6b859f1",
+  "contract_id": "sealed-historical-management-source-reuse-v0.1",
+  "descriptive_sip_exit_may_close_account_position": false,
+  "exact_missing_logical_resources": 10,
+  "freeze_manifest_content_sha256": "b8364219670b5f618334e18a8c9f8f9759e96d8ee64f608fc1ddd1ed076b57de",
+  "full_management_request_envelopes": 51,
+  "full_source_reconstruction": {
+    "account_or_fill_simulation_executed": false,
+    "account_runtime_input_gate_passed": false,
+    "acquisition_gate_passed": false,
+    "backtesting_executed": false,
+    "broker_account_read": false,
+    "content_sha256": "1c15fe7e187885fc8d5d4fd7ef87e902415bebbf20605da59a1b476a729bafdd",
+    "file_inventory": {
+      "freeze-manifest.json": {
+        "bytes": 2822,
+        "sha256": "89e765d9cf0ee40193eb1f9549674f1d534dde717c4e702bfd1b62ed906617cf"
+      },
+      "missing-input-requests.json": {
+        "bytes": 9482,
+        "sha256": "766db7ba2ce21961121b699af72610de60733756e0c7ddee62f6623f0af2329c"
+      },
+      "readiness-report.json": {
+        "bytes": 7681,
+        "sha256": "b392b650a142f5bd2bbec64092994a6d6c5069e968c55d7be8b7dbbc094c48b9"
+      },
+      "reuse-coverage.json": {
+        "bytes": 184294,
+        "sha256": "46f24690bb7a0211c3a50e1b48dad265717e4dea60524af12d22750bdacfd6e5"
+      },
+      "source-verification.json": {
+        "bytes": 125022,
+        "sha256": "c16f8e5df097cc9a0ca1d4df37986b498b8354952e6cb3d70d94cbd01a9fb017"
+      }
+    },
+    "freeze_manifest_content_sha256": "b8364219670b5f618334e18a8c9f8f9759e96d8ee64f608fc1ddd1ed076b57de",
+    "historical_execution_authorized": false,
+    "management_input_gate_passed": false,
+    "management_projection_executed": false,
+    "paper_or_live_orders_authorized": false,
+    "policy_changed": false,
+    "portfolio_financial_metrics_eligible": false,
+    "provider_calls": 0,
+    "provider_purchase_authorized_usd": "0",
+    "readiness": {
+      "account_or_fill_simulation_executed": false,
+      "account_runtime_input_gate_passed": false,
+      "acquisition_gate_passed": false,
+      "all_management_sources_complete": false,
+      "backtesting_executed": false,
+      "broker_account_read": false,
+      "content_sha256": "9e2170078a99723663f8a9b0b6b92489c4605421f941a42d19d8d14005b190a7",
+      "contract_id": "sealed-historical-management-source-reuse-v0.1",
+      "full_envelope_window_count": 51,
+      "fully_covered_resource_count": 102,
+      "historical_execution_authorized": false,
+      "logical_resource_count": 112,
+      "management_input_gate_passed": false,
+      "management_projection_executed": false,
+      "merged_window_count": 56,
+      "missing_capture_executed": false,
+      "missing_logical_request_count": 10,
+      "next_gate": "implement_and_validate_separately_consumed_capture_for_exact_10_missing_management_resources",
+      "paper_or_live_orders_authorized": false,
+      "partial_envelope_window_count": 5,
+      "partially_covered_resource_count": 10,
+      "policy_changed": false,
+      "portfolio_financial_metrics_eligible": false,
+      "provider_calls": 0,
+      "provider_purchase_authorized_usd": "0",
+      "retrospective_inputs_loaded": false,
+      "selected_record_counts": {
+        "raw_sip_1m_bars": 944,
+        "sip_transactions": 3625859
+      },
+      "source_reuse_verification_passed": true,
+      "unavailable_entry_opportunities": [
+        {
+          "availability_content_sha256": "1cdf143ae400b538ff0f57db2361e72d0d4c91089e89b3e0569480331a854a78",
+          "opportunity_id": "opportunity-75998c7109068f86eeae11cdf8d07c671bc6571ba34cf12bfa4c5630db233dd0",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "0a52c16208e6ccb408e703d1e26abab0d9463d4fbaeb54d282ff37d8d1799a20",
+          "opportunity_id": "opportunity-91c2bf886fc686a13d8f6d185643bae7802169e8611e4e0c26373c483e694f95",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "d08bbdd5f28b5e8d9432190efbee460c2befc94b00c49e7959bb24c358a90646",
+          "opportunity_id": "opportunity-99c859420303ddd6d9ba1ef321293b0f9e070d0455ab9fbfb2cadf6e1ea041a8",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "a1270cbe73f3687c1d5362644e2b87f7b9355b03fe9d2bf6b16e2ccdafce93d0",
+          "opportunity_id": "opportunity-818996dddf4b7ead9cbe106131f0cf69f735082d08092a64914bfbfcca18fd8b",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "96ce4001a044603a29cb95ee4fa10ba38f0e0d13e79f102b4f8f1b7b118f8009",
+          "opportunity_id": "opportunity-c7f2ebbed9ef4dbb1696bf81011042e5971bdb5850e80d7245e9ea6994d7c213",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "50aacd86e7238143653462867434fc22c776b946a07356ce00622fc0af801b59",
+          "opportunity_id": "opportunity-acc2da4e0ad7e272902cf5d550489b4a7efa9b6ffdaec0f62e364da3672f4908",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "ac84b8534101a24ed5869c580e2b246ec1b03a8d9bc565ca8ef99cde2d4f8b48",
+          "opportunity_id": "opportunity-ba711448d3fa0fce6dd148eed47f48b8e717c2fdbcb1dacb1edeb14e1310d300",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "da5f6c00b40f4569bb5763fc79113999aa590b14e207633eaf4f914c4c619469",
+          "opportunity_id": "opportunity-2f75d20ec9526bcfdc71cd11ae4bafb66d608160bc40d01a7365fdb51dd12889",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "6f0687f01643929760f27768705b32b486f2f6d78c31e1e3ea17560349468ebb",
+          "opportunity_id": "opportunity-7f9ffab8ba19748b90acf4fe3ffc7ef7f268c0c02bc4782c2db72bba407f2713",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "5b6685b2e319cb8ace88dfecee93952ee1327f7a69e15c881e5ba37d8fe7ee0b",
+          "opportunity_id": "opportunity-fd9baebb29f5a217ce431b05a7e36c43d3063a64153a5eb31c9972db82eef81c",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "5b8008884162ec45bd159570bf2a8ca5d42f68428eb56425e587944cc27d9d04",
+          "opportunity_id": "opportunity-584abfa60e5a82b205ac89afb352068295e49e833f930caf9d60018d1e1b694a",
+          "reason": "unavailable_exact_quote_request"
+        },
+        {
+          "availability_content_sha256": "a12f7ae15fedd3edbef1346c4c193f3480fc6382d06c77041344f7626536e13e",
+          "opportunity_id": "opportunity-4d83ec12224b11e029521c1171423b31f2a1ad827d7409738dc05f44fcf4d569",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "bb3d4bcabb6846bb06ce9caefd50b5ba01eccfefa260231f5bd67a68c9e3af86",
+          "opportunity_id": "opportunity-4a97cda9ccdb46e3dc514ffe443ca44add31c44886c254029f98f25e34d69cad",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "e6d3c884f7093b1ad99cab81028530c8700a2c7a9738b27cfc72baf3015c6cc5",
+          "opportunity_id": "opportunity-251fdc34ac3c0e026f6c3be9cdc524dd7dfe8ec8663c5febe9a881b46c532cd1",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "839b6a09b7deff57812259026ce953fcdab9e8b4286da26427baa6757d3e66bf",
+          "opportunity_id": "opportunity-db65a544ab923ed3190305150c9b9e706add3db2e932ca8d0d230a52400911cd",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "03f44d1200ffa293c6288083a24a67013d701ebbe2a44d9302e118621dc16b01",
+          "opportunity_id": "opportunity-320baaacb258c3a2bef8256f38cdd35ab628109a5fac297545bbf0f196d2aaf4",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "e515a139c312863fc292564d4665f09277aa991e557179969b6a7e59f73f1881",
+          "opportunity_id": "opportunity-5bf58ed9dd087834a5d8afed7b6abac4374c793cb222f61736ee6ebc607d46c2",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "1b9c2461b707343a25322071eeb26bb8108d8bfe97644cb2f0384f38847b7df3",
+          "opportunity_id": "opportunity-a0276724717eaf93a381d3342645be966a2e8d80b7b3cd7efd497db0e9910fdf",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "4a03ba4cbade615ad101dbf56fb73e204a10b5ce3c7c9fae5c70476702c127af",
+          "opportunity_id": "opportunity-2a86dcd2de0ebf20fd947a7e947ee803b783b9e1ff50c1d7253c1d78480f52e2",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "ad77f84e55366df4802f1415a7eae983a2f4c11247cdc8f0c8a799a6ba33aa00",
+          "opportunity_id": "opportunity-194603dafa0ad839cc2cdd508df6d476fc7404d0a04cea709145ed89ae95ead4",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "0fa46307c5c9057f7898b2870f9324d610c3a941c8312e8188c99b997de42821",
+          "opportunity_id": "opportunity-67ca66e396fa42db1ae83b581c5811b95c28d094c0f83baa046f7741756f8d60",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "e8eaa203d69dd034fa8a04a834f3e52107404f9315d52838a283a93289758168",
+          "opportunity_id": "opportunity-844e581823df4c1cf1c1ff4a83acabfef89ae4fa7df3c19491f31d89d8c729b7",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "b97794f17c6c1ed231859fe134e0d25fce0cb61ec5dc5cac3e1f76c8539f8451",
+          "opportunity_id": "opportunity-f447e89f2330dce21d74db57aeaf3c4986f5896ae5282f84c5be2fd7ccee09c5",
+          "reason": "unavailable_no_fresh_decision_quote"
+        }
+      ]
+    },
+    "retrospective_inputs_loaded": false,
+    "verification_passed": true
+  },
+  "full_source_reconstruction_identical": true,
+  "historical_execution_authorized": false,
+  "implementation_file_sha256": {
+    ".github/workflows/sealed-historical-management-reuse-v01.yml": "00e21c58bf6a179c6bcdce39508ee2090d601c19e0c89bdb8b4e78e4cf78e917",
+    "research/strategy/sealed-historical-management-missing-inputs-v0.1.json": "766db7ba2ce21961121b699af72610de60733756e0c7ddee62f6623f0af2329c",
+    "research/strategy/sealed-historical-management-source-reuse-v0.1.json": "886252c51542a950f7e5be957c1080332ac4bab5216b2d3cb84cd81fd38df33c",
+    "scripts/verify_sealed_historical_management_reuse_v01.py": "1ae9db7002e2845c57dea1e847726bb5a900ff482372071ea0fba5d28c44476f",
+    "src/momentumbot/research/sealed_historical_management_reuse_v01.py": "475c46ef4ea9a5bb86d176568bc683ad9d9a67e00385d92e968277316f876d5e"
+  },
+  "independent_verification": {
+    "account_or_fill_simulation_executed": false,
+    "all_source_files_verified": 1036,
+    "all_source_rows_verified": 20078306,
+    "all_source_tapes_verified": 510,
+    "backtesting_executed": false,
+    "complete_management_window_envelopes": 51,
+    "content_sha256": "5825145860735f022550c74e0a9d82b7b0f038fedcb0587c4719413565cf7657",
+    "contract_content_sha256": "f1c73517c2cb9d6a24849d777cb4dca2ae81d442c91ac02ff4162a9bb6b859f1",
+    "exact_missing_resource_requests": 10,
+    "file_inventory": {
+      "freeze-manifest.json": {
+        "bytes": 2822,
+        "sha256": "89e765d9cf0ee40193eb1f9549674f1d534dde717c4e702bfd1b62ed906617cf"
+      },
+      "missing-input-requests.json": {
+        "bytes": 9482,
+        "sha256": "766db7ba2ce21961121b699af72610de60733756e0c7ddee62f6623f0af2329c"
+      },
+      "readiness-report.json": {
+        "bytes": 7681,
+        "sha256": "b392b650a142f5bd2bbec64092994a6d6c5069e968c55d7be8b7dbbc094c48b9"
+      },
+      "reuse-coverage.json": {
+        "bytes": 184294,
+        "sha256": "46f24690bb7a0211c3a50e1b48dad265717e4dea60524af12d22750bdacfd6e5"
+      },
+      "source-verification.json": {
+        "bytes": 125022,
+        "sha256": "c16f8e5df097cc9a0ca1d4df37986b498b8354952e6cb3d70d94cbd01a9fb017"
+      }
+    },
+    "freeze_manifest_content_sha256": "b8364219670b5f618334e18a8c9f8f9759e96d8ee64f608fc1ddd1ed076b57de",
+    "management_projection_executed": false,
+    "partial_management_window_envelopes": 5,
+    "provider_calls": 0,
+    "retrospective_inputs_loaded": false,
+    "source_summary": {
+      "raw_sip_1m_bars": {
+        "selected_record_count": 944,
+        "source_record_count": 29554,
+        "verified_file_count": 348,
+        "verified_tape_count": 170,
+        "zip_sha256": "d689f493c10996bee7eddde68d62812e7850fc322caa2d530d33a97c84878e3f"
+      },
+      "sip_transactions": {
+        "selected_record_count": 3625859,
+        "source_record_count": 20048752,
+        "verified_file_count": 688,
+        "verified_tape_count": 340,
+        "zip_sha256": "d31eac851c1246ce23025e9518562ed3f41b8f818d42b8de707a6d86d307be99"
+      }
+    },
+    "unavailable_entry_opportunities_preserved": 23,
+    "verification_passed": true,
+    "verifier": "independent_stdlib_no_runtime_imports"
+  },
+  "independent_verifier_source": "\"\"\"Independent stdlib verification of exact management-source coverage evidence.\"\"\"\nfrom collections import defaultdict\nfrom datetime import datetime, timezone\nimport gzip\nimport hashlib\nimport json\nimport math\nfrom pathlib import Path, PurePosixPath\nimport re\nimport stat\nimport sys\nimport zipfile\n\n\ndef deny(event, args):\n    if event.startswith('socket.') or event in {'subprocess.Popen', 'os.system', 'os.posix_spawn', 'os.posix_spawnp', 'os.exec', 'os.fork', 'os.forkpty'}:\n        raise RuntimeError('independent verification forbids external I/O')\n\n\nsys.addaudithook(deny)\nBASE = Path('/workspace/scratch/2d76267c92e1')\nROOT = BASE / 'momentumbot'\nOUT = ROOT / 'research/runtime/sealed-historical-management-source-reuse-v0.1'\nSOURCE = BASE / 'management-source-evidence'\nSTAMP = re.compile(br'\"t\":\"([^\"\\\\]+)\"')\nISO = re.compile(r'^(\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\d)(?:\\.(\\d{1,9}))?(Z|[+-]\\d\\d:\\d\\d)$')\n\n\ndef check(value, label):\n    if not value:\n        raise ValueError(label)\n\n\ndef sha(raw):\n    return hashlib.sha256(raw).hexdigest()\n\n\ndef fp(value):\n    return sha(json.dumps(value, sort_keys=True, separators=(',', ':'), allow_nan=False).encode())\n\n\ndef parse(raw):\n    def pairs(items):\n        value = {}\n        for key, child in items:\n            check(key not in value, 'duplicate JSON key')\n            value[key] = child\n        return value\n    return json.loads(raw, object_pairs_hook=pairs)\n\n\ndef sealed(raw):\n    value = parse(raw)\n    check(value['content_sha256'] == fp({k: v for k, v in value.items() if k != 'content_sha256'}), 'content seal')\n    return value\n\n\ndef ns(text):\n    match = ISO.fullmatch(text)\n    check(match is not None, 'aware nanosecond timestamp')\n    head, fraction, offset = match.groups()\n    dt = datetime.fromisoformat(head + ('+00:00' if offset == 'Z' else offset))\n    delta = dt.astimezone(timezone.utc) - datetime(1970, 1, 1, tzinfo=timezone.utc)\n    return (delta.days * 86400 + delta.seconds) * 1_000_000_000 + int((fraction or '').ljust(9, '0'))\n\n\ndef validate_selected(row, raw, request):\n    check(ns(request['start_inclusive']) <= ns(row['t']) < ns(request['end_exclusive']), 'source row bounds')\n    def number(key, integer=False, positive=False):\n        value = row[key]\n        check(type(value) is (int if integer else float) and math.isfinite(value)\n              and value >= 0 and (not positive or value > 0), 'source numeric field')\n    if request['kind'] == 'sip_trades':\n        check(set(row) == {'t', 'p', 's', 'x', 'z', 'c', 'i'}, 'exact trade fields')\n        number('p', positive=True); number('s', integer=True); number('i', integer=True)\n        check(row['z'] in {'A', 'B', 'C'} and isinstance(row['x'], str) and len(row['x']) == 1, 'trade tape and exchange')\n        check(isinstance(row['c'], list) and all(isinstance(c, str) and len(c) <= 2 for c in row['c']), 'trade conditions')\n    else:\n        check(set(row) == {'t', 'o', 'h', 'l', 'c', 'v', 'n', 'vw'}, 'exact bar fields')\n        for key in ('o', 'h', 'l', 'c', 'vw'): number(key, positive=True)\n        for key in ('v', 'n'): number(key, integer=True)\n        check(row['l'] <= min(row['o'], row['c']) <= max(row['o'], row['c']) <= row['h'], 'bar ordering')\n    check(raw == (json.dumps(row, sort_keys=True, separators=(',', ':'), allow_nan=False) + '\\n').encode(), 'canonical retained row')\n\n\ncontract = sealed((ROOT / 'research/strategy/sealed-historical-management-source-reuse-v0.1.json').read_bytes())\ncheck(contract['content_sha256'] == 'f1c73517c2cb9d6a24849d777cb4dca2ae81d442c91ac02ff4162a9bb6b859f1', 'registered contract')\nfor name, expected in contract['frozen_parent_file_sha256'].items():\n    check(sha((ROOT / name).read_bytes()) == expected, 'exact parent bytes')\ndocuments = {p.name: sealed(p.read_bytes()) for p in OUT.iterdir()}\ncheck(set(documents) == {'source-verification.json', 'reuse-coverage.json', 'missing-input-requests.json', 'readiness-report.json', 'freeze-manifest.json'}, 'exact five outputs')\ninventory = {p.name: {'bytes': p.stat().st_size, 'sha256': sha(p.read_bytes())} for p in OUT.iterdir()}\nmanifest = documents['freeze-manifest.json']\ncheck(manifest['file_inventory'] == {k: v for k, v in inventory.items() if k != 'freeze-manifest.json'}, 'output inventory')\nfor name, expected in manifest['document_content_sha256'].items(): check(documents[name]['content_sha256'] == expected, 'document commitment')\nfor name, expected in manifest['implementation_file_sha256'].items(): check(sha((ROOT / name).read_bytes()) == expected, 'implementation commitment')\ncheck(manifest['contract_content_sha256'] == contract['content_sha256'], 'contract binding')\nmanagement = sealed((ROOT / 'research/runtime/sealed-historical-account-management-inputs-v0.1/management-request-manifest.json').read_bytes())\ncheck(documents['reuse-coverage.json']['management_request_manifest_content_sha256'] == management['content_sha256'], 'exact frozen management requests')\nobserved = {r['coverage_id']: r for r in documents['reuse-coverage.json']['resources']}\ncheck(len(observed) == 112, '112 resources')\nmissing_expected, source_summary = [], {}\ntotal_files = total_tapes = total_rows = 0\nsource_specs = [\n    ('sip_transactions', 'micro-inputs-34053730042.zip', 'sealed-historical-micro-input-v0.1-independent-verification-34053730042.json', 'sip_trades', 'capture_'),\n    ('raw_sip_1m_bars', 'micro-session-inputs-34054580516.zip', 'sealed-historical-micro-session-input-v0.2-independent-verification-34054580516.json', 'session_1m_raw', ''),\n]\nfor resource, filename, audit_name, kind, prefix in source_specs:\n    audit = sealed((ROOT / 'research/data-audits' / audit_name).read_bytes())\n    p = SOURCE / filename\n    check(sha(p.read_bytes()) == audit['capture_zip_sha256'], 'exact source ZIP')\n    proof = documents['source-verification.json']['sources'][resource]\n    check(proof['content_sha256'] == fp({k: v for k, v in proof.items() if k != 'content_sha256'}), 'source proof seal')\n    with zipfile.ZipFile(p) as archive:\n        names = archive.namelist()\n        check(len(names) == len(set(names)) == audit['verified_file_count'], 'source member population')\n        actual = {}\n        for info in archive.infolist():\n            name = info.filename; path = PurePosixPath(name)\n            check(not path.is_absolute() and '..' not in path.parts and path.as_posix() == name and '\\\\' not in name\n                  and not info.is_dir() and not stat.S_ISLNK(info.external_attr >> 16), 'safe source member')\n            actual[name] = sha(archive.read(name))\n        prior_inventory = sealed(archive.read('capture-inventory.json'))\n        report = sealed(archive.read('capture-report.json'))\n        check(actual['capture-inventory.json'] == audit[prefix + 'inventory_file_sha256'], 'pinned source inventory')\n        check(actual['capture-report.json'] == audit[prefix + 'report_file_sha256'], 'pinned source report')\n        check(prior_inventory['files'] == {k: v for k, v in actual.items() if k != 'capture-inventory.json'}, 'every source member')\n        check(fp(actual) == proof['member_file_inventory_sha256'], 'source inventory proof')\n        ledger = parse(archive.read('request-ledger.json'))\n        check(ledger['total_attempts'] == audit['provider_attempts'] and ledger['blocked_attempts'] == 0, 'unchanged source ledger')\n        check(report['status'] == 'complete' and prior_inventory['complete'] is True, 'complete source query')\n        requests = sealed(archive.read('requests.json'))['requests']\n        receipt_index = {r['request_id']: r for r in report['receipts']}\n        check(len(receipt_index) == len(requests) == audit['verified_tape_count'], 'all original receipts')\n        by_pair = {(r['trading_date'], r['symbol']): r for r in requests if r['kind'] == kind}\n        selectors = defaultdict(list)\n        for target in management['requests']:\n            request = by_pair[target['trading_date'], target['symbol']]\n            lower, upper = target['start_ns'], target['end_ns']\n            source_start, source_end = ns(request['start_inclusive']), ns(request['end_exclusive'])\n            # An independent boundary partition, rather than the runtime merger.\n            cuts = sorted({lower, upper, max(lower, min(upper, source_start)), max(lower, min(upper, source_end))})\n            covered, missing = [], []\n            for left, right in zip(cuts, cuts[1:]):\n                if left == right: continue\n                (covered if source_start <= left and right <= source_end else missing).append([left, right])\n            cid = target['request_id'] + ':' + resource\n            value = observed[cid]\n            expected = {'coverage_id': cid, 'management_request_id': target['request_id'], 'resource': resource,\n                'trading_date': target['trading_date'], 'symbol': target['symbol'], 'required_start_ns': lower,\n                'required_end_ns': upper, 'source_request_id': request['request_id'], 'covered_intervals': covered,\n                'missing_intervals': missing, 'coverage_status': 'full_request_envelope' if not missing else 'partial_request_envelope',\n                'opportunity_ids': target['opportunity_ids']}\n            check({k: v for k, v in value.items() if k != 'selection_evidence'} == expected, 'independent interval partition')\n            selectors[request['request_id']].append(value)\n            for left, right in missing:\n                body = {'coverage_id': cid, 'management_request_id': target['request_id'], 'resource': resource,\n                    'kind': kind, 'trading_date': target['trading_date'], 'symbol': target['symbol'],\n                    'asof': target['trading_date'], 'feed': 'sip', 'adjustment': 'raw' if kind == 'session_1m_raw' else None,\n                    'start_ns': left, 'end_ns': right, 'end_exclusive': True, 'opportunity_ids': target['opportunity_ids']}\n                missing_expected.append({**body, 'request_id': fp(body)})\n        tape_proofs, selected_count, source_count = [], 0, 0\n        for n, request in enumerate(requests, 1):\n            check(request['request_id'] == fp({k: v for k, v in request.items() if k != 'request_id'}), 'source request content identity')\n            receipt = receipt_index[request['request_id']]\n            individual = sealed(archive.read('receipts/' + request['request_id'] + '.json'))\n            check({k: v for k, v in individual.items() if k != 'content_sha256'} == receipt, 'individual receipt')\n            check(receipt['complete'] is True and receipt['file_sha256'] == actual[receipt['path']]\n                  and archive.getinfo(receipt['path']).file_size == receipt['retained_bytes'], 'source tape receipt')\n            picks = selectors[request['request_id']]\n            state = {v['coverage_id']: [hashlib.sha256(), 0, None, None] for v in picks}\n            h, count, tail = hashlib.sha256(), 0, b''\n            with archive.open(receipt['path']) as member, gzip.GzipFile(fileobj=member) as tape:\n                if not picks:\n                    for block in iter(lambda: tape.read(1024 * 1024), b''):\n                        h.update(block); count += block.count(b'\\n'); tail = block[-1:]\n                else:\n                    previous = None\n                    for ordinal, raw in enumerate(tape):\n                        h.update(raw); count += 1; tail = raw[-1:]\n                        match = STAMP.search(raw); check(match is not None, 'source timestamp retained')\n                        ts = ns(match.group(1).decode())\n                        check(previous is None or previous <= ts, 'stable source order'); previous = ts\n                        matching = [p for p in picks if any(a <= ts < b for a, b in p['covered_intervals'])]\n                        if not matching: continue\n                        validate_selected(parse(raw), raw, request)\n                        for selection in matching:\n                            item = state[selection['coverage_id']]\n                            item[0].update(str(ordinal).encode() + b':' + raw); item[1] += 1\n                            if item[2] is None: item[2] = ordinal\n                            item[3] = ordinal\n            check(count == receipt['record_count'] and tail == b'\\n' and h.hexdigest() == receipt['logical_sha256'], 'full logical source tape')\n            tape_proofs.append({'request_id': request['request_id'], 'record_count': count, 'logical_sha256': h.hexdigest()})\n            source_count += count\n            for cid, item in state.items():\n                expected = {'coverage_id': cid, 'selected_record_count': item[1], 'selected_records_sha256': item[0].hexdigest(),\n                    'first_source_record_ordinal': item[2], 'last_source_record_ordinal': item[3], 'source_request_id': request['request_id'],\n                    'source_tape_file_sha256': receipt['file_sha256'], 'source_tape_logical_sha256': receipt['logical_sha256'],\n                    'source_tape_record_count': count, 'normalization_verified': True, 'management_trade_eligibility_filter_applied': False}\n                check(observed[cid]['selection_evidence'] == expected, 'exact independently normalized selection')\n                selected_count += item[1]\n            if n % 40 == 0 or n == len(requests):\n                print(json.dumps({'resource': resource, 'verified_tapes': n, 'total_tapes': len(requests)}), file=sys.stderr, flush=True)\n        check(source_count == audit['normalized_row_count'] == proof['record_count'], 'complete source row count')\n        check(tape_proofs == proof['tape_proofs'], 'all tape evidence')\n        check(selected_count == proof['selected_records_normalized_again'], 'normalization count')\n        source_summary[resource] = {'source_record_count': source_count, 'selected_record_count': selected_count,\n            'verified_file_count': len(names), 'verified_tape_count': len(requests), 'zip_sha256': audit['capture_zip_sha256']}\n        total_files += len(names); total_tapes += len(requests); total_rows += source_count\nmissing = documents['missing-input-requests.json']\ncheck(missing == sealed((ROOT / 'research/strategy/sealed-historical-management-missing-inputs-v0.1.json').read_bytes()), 'exact registered missing capture')\ncheck(sorted(missing_expected, key=lambda x: x['request_id']) == sorted(missing['requests'], key=lambda x: x['request_id']), 'exact missing requests')\ncheck(len(missing_expected) == 10 and len({r['management_request_id'] for r in missing_expected}) == 5, 'ten resources across five tails')\nready = documents['readiness-report.json']\ncheck((ready['full_envelope_window_count'], ready['partial_envelope_window_count'], ready['fully_covered_resource_count'], ready['partially_covered_resource_count']) == (51, 5, 102, 10), 'coverage dimensions')\nold_ready = sealed((ROOT / 'research/runtime/sealed-historical-account-management-inputs-v0.1/readiness-report.json').read_bytes())\ncheck(ready['unavailable_entry_opportunities'] == old_ready['unavailable_opportunities'] and len(ready['unavailable_entry_opportunities']) == 23, 'all unavailable entry inputs unchanged')\nfor document in documents.values():\n    for key, expected in {k: v for k, v in contract.items() if k in old_ready and k in ('provider_calls', 'provider_purchase_authorized_usd', 'broker_account_read', 'account_or_fill_simulation_executed', 'management_projection_executed', 'backtesting_executed', 'retrospective_inputs_loaded', 'policy_changed', 'acquisition_gate_passed', 'historical_execution_authorized', 'account_runtime_input_gate_passed', 'management_input_gate_passed', 'portfolio_financial_metrics_eligible', 'paper_or_live_orders_authorized')}.items():\n        check(document[key] == expected, 'closed boundary')\nresult = {'verification_passed': True, 'verifier': 'independent_stdlib_no_runtime_imports',\n    'contract_content_sha256': contract['content_sha256'], 'freeze_manifest_content_sha256': manifest['content_sha256'],\n    'file_inventory': inventory, 'source_summary': source_summary, 'all_source_files_verified': total_files,\n    'all_source_tapes_verified': total_tapes, 'all_source_rows_verified': total_rows,\n    'complete_management_window_envelopes': 51, 'partial_management_window_envelopes': 5,\n    'exact_missing_resource_requests': 10, 'unavailable_entry_opportunities_preserved': 23,\n    'provider_calls': 0, 'account_or_fill_simulation_executed': False, 'management_projection_executed': False,\n    'retrospective_inputs_loaded': False, 'backtesting_executed': False}\nresult['content_sha256'] = fp(result)\nprint(json.dumps(result, indent=2, sort_keys=True))\n",
+  "independent_verifier_source_sha256": "b30415a74965e84983fe37885fb91180bbf731371dd21785e5e458b5c091f318",
+  "local_environment": {
+    "hash_locked_packages_verified": true,
+    "implementation": "CPython",
+    "package_versions": {
+      "PyYAML": "6.0.3",
+      "aiohappyeyeballs": "2.7.1",
+      "aiohttp": "3.14.3",
+      "aiosignal": "1.4.0",
+      "attrs": "26.1.0",
+      "certifi": "2026.7.22",
+      "charset_normalizer": "3.5.1",
+      "databento": "0.83.0",
+      "databento_dbn": "0.65.0",
+      "frozenlist": "1.8.0",
+      "idna": "3.19",
+      "multidict": "6.7.1",
+      "numpy": "2.3.5",
+      "packaging": "26.3",
+      "pandas": "2.2.3",
+      "pip": "26.2.1",
+      "propcache": "0.5.2",
+      "pyarrow": "25.0.1",
+      "python-dateutil": "2.9.0.post0",
+      "pytz": "2026.3.post1",
+      "requests": "2.34.2",
+      "setuptools": "84.0.0",
+      "six": "1.17.0",
+      "typing_extensions": "4.16.0",
+      "tzdata": "2026.3",
+      "urllib3": "2.7.0",
+      "wheel": "0.48.0",
+      "yarl": "1.24.5",
+      "zstandard": "0.25.0"
+    },
+    "python_version": "3.12.13",
+    "zlib_runtime_version": "1.3.2",
+    "zlib_version": "1.3.2"
+  },
+  "local_validation": {
+    "full": {
+      "log_sha256": "4fd9e66d7876dfbe09bd476c5c18cb205caf323be8b11e89a688d040d451fe6c",
+      "passed": true,
+      "skipped": 0,
+      "summary": "Ran 1655 tests in 65.090s",
+      "test_count": 1655
+    },
+    "normal": {
+      "log_sha256": "988659cd7d085d3c0243e8d9664dba55fd7ba787cfbc13402cc79470a17911cf",
+      "passed": true,
+      "skipped": 0,
+      "summary": "Ran 75 tests in 14.327s",
+      "test_count": 75
+    },
+    "optimized": {
+      "log_sha256": "a110395119ab6fdf647e7e4a5627b798795bb9561a2c724ea4d92eb10631b3ab",
+      "passed": true,
+      "skipped": 0,
+      "summary": "Ran 75 tests in 14.081s",
+      "test_count": 75
+    }
+  },
+  "management_input_gate_passed": false,
+  "management_projection_executed": false,
+  "missing_capture_contract_content_sha256": "ed224ffa83aabe742b3f4a2534076050a4ba96825b0b93ca770754f562a6e82e",
+  "missing_capture_executed": false,
+  "missing_capture_implementation_present": false,
+  "monitor_state_changed": false,
+  "next_gate": "implement_and_validate_separately_consumed_capture_for_exact_10_missing_management_resources",
+  "original_source_ledger_changed": false,
+  "original_source_provider_request_count": 30522,
+  "paper_or_live_orders_authorized": false,
+  "parent_commit_sha": "cf729c27d3e458e4762ee1d60d48a6c57a25a5d8",
+  "parent_tree_sha": "c3ca04d647c9f6126dd4b88601c011f46cc6825d",
+  "partial_management_request_envelopes": 5,
+  "policy_changed": false,
+  "portfolio_financial_metrics_eligible": false,
+  "protected_refs_verified_after_composition": {
+    "heads/main": "de24eb17316191da69d92e61f6843af25e9c22d0",
+    "heads/phase-3-historical-snapshot": "cf729c27d3e458e4762ee1d60d48a6c57a25a5d8",
+    "tags/sealed-historical-execution-input-acquisition-v0.1-consumed": "5a375f86e951b1e9eeb6c010995c9b57025913b7",
+    "tags/sealed-historical-execution-input-acquisition-v0.2-consumed": "e2c250367895d209ec4706288a22655636298685",
+    "tags/sealed-historical-execution-input-acquisition-v0.3-consumed": "0c4010044ee8557136b3c119c6350e134bba46d2",
+    "tags/sealed-historical-execution-input-diagnostic-v0.1-consumed": "e1aece08a44ccf9add0157a1657d08a809687e85",
+    "tags/sealed-historical-execution-input-empty-diagnostic-v0.1-consumed": "8854bb2e63dc3961d98c5d8827f857ef85ccb341",
+    "tags/sealed-historical-execution-input-quote-v0.1-consumed": "dd295304dcc5e7cc0ebd300d094ab20636a72b92",
+    "tags/sealed-historical-micro-input-acquisition-v0.1-consumed": "5cab2eb3aa2b73a2cbf1d57575519a7b99961e24",
+    "tags/sealed-historical-micro-session-input-acquisition-v0.2-consumed": "bf5863a7115abef9e22c4f527448cd9c20084f47"
+  },
+  "protected_refs_verified_at_utc": "2026-09-07T15:00:39.174Z",
+  "provider_calls": 0,
+  "provider_purchase_authorized_usd": "0",
+  "retained_micro_capture_ledgers_changed": false,
+  "retrospective_inputs_loaded": false,
+  "runtime_output_bytes": 329301,
+  "runtime_output_file_count": 5,
+  "runtime_output_root": "research/runtime/sealed-historical-management-source-reuse-v0.1",
+  "schema_version": 1,
+  "selected_raw_minute_rows_normalized_again": 944,
+  "selected_sip_rows_normalized_again": 3625859,
+  "unavailable_entry_opportunities_preserved": 23,
+  "unavailable_is_inferred_no_trade_outcome": false,
+  "undefined_global_check_passed": true,
+  "verification_passed": true,
+  "verified_at_utc": "2026-09-07T15:02:57.251111+00:00",
+  "write_once_composition_completed": true
+}

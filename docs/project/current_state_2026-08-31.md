@@ -1,6 +1,39 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: approved account inputs independently verified
+## Current checkpoint: management source reuse independently verified
+
+The provider-free reuse stage binds account-input parent
+`cf729c27d3e458e4762ee1d60d48a6c57a25a5d8`. Both retained SIP/minute ZIPs,
+all 1,036 files, 510 tapes and 20,078,306 logical source rows passed verification.
+The selected 3,625,859 SIP prints and 944 raw minute bars reproduce the unchanged
+normalization and retain original source ordering. Independent stdlib verification
+agrees with complete source reconstruction on all five output files (329,301 bytes).
+
+The existing request envelopes fully cover 51 of the 56 management windows.
+Five retain exact missing tails after 10:00 New York time: TPST on June 9,
+XTIA on June 12, JVA on June 13, LIXT on July 2 and MBIO on July 7. Their ten
+bar/trade resources are registered under
+`research/strategy/sealed-historical-management-missing-inputs-v0.1.json`.
+No completed capture is repeated or changed. All 109 opportunities and 23
+unavailable entry inputs remain bound to the account-input parent.
+
+The frozen reuse manifest content commitment is
+`b8364219670b5f618334e18a8c9f8f9759e96d8ee64f608fc1ddd1ed076b57de`.
+The permanent audit is
+`research/data-audits/sealed-historical-management-source-reuse-v0.1-independent-verification.json`.
+All 1,655 repository tests passed locally with zero skips; 75 focused tests
+passed normally and optimized. No new market-data request, account simulation,
+management projection or backtest ran. Main and consumed references are unchanged.
+
+Next: implement and validate the separately consumed bounded capture for those
+exact ten missing resources, then independently verify and compose the complete
+management inputs. The registered ceilings are 512 HTTP attempts and 100 MB of
+normalized compressed data, with no automatic retries or incremental provider
+purchase. The requirements are unarmed; no capture transport or execution child
+is present. Executable exits, causal next-session valuation and account replay
+remain later dependencies. See [the reuse stage](../research/sealed_historical_management_reuse_v01.md).
+
+## Prior checkpoint: approved account inputs independently verified
 
 The user approved hypothetical $30,000 main and $2,000 small starting equity,
 equal buying power and continuous state across the exact 30 historical sessions.

@@ -1,0 +1,150 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "account_runtime_input_gate_passed": false,
+  "acquisition_gate_passed": false,
+  "all_management_sources_complete": false,
+  "backtesting_executed": false,
+  "broker_account_read": false,
+  "content_sha256": "9e2170078a99723663f8a9b0b6b92489c4605421f941a42d19d8d14005b190a7",
+  "contract_id": "sealed-historical-management-source-reuse-v0.1",
+  "full_envelope_window_count": 51,
+  "fully_covered_resource_count": 102,
+  "historical_execution_authorized": false,
+  "logical_resource_count": 112,
+  "management_input_gate_passed": false,
+  "management_projection_executed": false,
+  "merged_window_count": 56,
+  "missing_capture_executed": false,
+  "missing_logical_request_count": 10,
+  "next_gate": "implement_and_validate_separately_consumed_capture_for_exact_10_missing_management_resources",
+  "paper_or_live_orders_authorized": false,
+  "partial_envelope_window_count": 5,
+  "partially_covered_resource_count": 10,
+  "policy_changed": false,
+  "portfolio_financial_metrics_eligible": false,
+  "provider_calls": 0,
+  "provider_purchase_authorized_usd": "0",
+  "retrospective_inputs_loaded": false,
+  "selected_record_counts": {
+    "raw_sip_1m_bars": 944,
+    "sip_transactions": 3625859
+  },
+  "source_reuse_verification_passed": true,
+  "unavailable_entry_opportunities": [
+    {
+      "availability_content_sha256": "1cdf143ae400b538ff0f57db2361e72d0d4c91089e89b3e0569480331a854a78",
+      "opportunity_id": "opportunity-75998c7109068f86eeae11cdf8d07c671bc6571ba34cf12bfa4c5630db233dd0",
+      "reason": "unavailable_no_fresh_decision_quote"
+    },
+    {
+      "availability_content_sha256": "0a52c16208e6ccb408e703d1e26abab0d9463d4fbaeb54d282ff37d8d1799a20",
+      "opportunity_id": "opportunity-91c2bf886fc686a13d8f6d185643bae7802169e8611e4e0c26373c483e694f95",
+      "reason": "unavailable_no_fresh_decision_quote"
+    },
+    {
+      "availability_content_sha256": "d08bbdd5f28b5e8d9432190efbee460c2befc94b00c49e7959bb24c358a90646",
+      "opportunity_id": "opportunity-99c859420303ddd6d9ba1ef321293b0f9e070d0455ab9fbfb2cadf6e1ea041a8",
+      "reason": "unavailable_no_fresh_decision_quote"
+    },
+    {
+      "availability_content_sha256": "a1270cbe73f3687c1d5362644e2b87f7b9355b03fe9d2bf6b16e2ccdafce93d0",
+      "opportunity_id": "opportunity-818996dddf4b7ead9cbe106131f0cf69f735082d08092a64914bfbfcca18fd8b",
+      "reason": "unavailable_no_fresh_decision_quote"
+    },
+    {
+      "availability_content_sha256": "96ce4001a044603a29cb95ee4fa10ba38f0e0d13e79f102b4f8f1b7b118f8009",
+      "opportunity_id": "opportunity-c7f2ebbed9ef4dbb1696bf81011042e5971bdb5850e80d7245e9ea6994d7c213",
+      "reason": "unavailable_no_fresh_decision_quote"
+    },
+    {
+      "availability_content_sha256": "50aacd86e7238143653462867434fc22c776b946a07356ce00622fc0af801b59",
+      "opportunity_id": "opportunity-acc2da4e0ad7e272902cf5d550489b4a7efa9b6ffdaec0f62e364da3672f4908",
+      "reason": "unavailable_no_fresh_decision_quote"
+    },
+    {
+      "availability_content_sha256": "ac84b8534101a24ed5869c580e2b246ec1b03a8d9bc565ca8ef99cde2d4f8b48",
+      "opportunity_id": "opportunity-ba711448d3fa0fce6dd148eed47f48b8e717c2fdbcb1dacb1edeb14e1310d300",
+      "reason": "unavailable_no_fresh_decision_quote"
+    },
+    {
+      "availability_content_sha256": "da5f6c00b40f4569bb5763fc79113999aa590b14e207633eaf4f914c4c619469",
+      "opportunity_id": "opportunity-2f75d20ec9526bcfdc71cd11ae4bafb66d608160bc40d01a7365fdb51dd12889",
+      "reason": "unavailable_no_fresh_decision_quote"
+    },
+    {
+      "availability_content_sha256": "6f0687f01643929760f27768705b32b486f2f6d78c31e1e3ea17560349468ebb",
+      "opportunity_id": "opportunity-7f9ffab8ba19748b90acf4fe3ffc7ef7f268c0c02bc4782c2db72bba407f2713",
+      "reason": "unavailable_no_fresh_decision_quote"
+    },
+    {
+      "availability_content_sha256": "5b6685b2e319cb8ace88dfecee93952ee1327f7a69e15c881e5ba37d8fe7ee0b",
+      "opportunity_id": "opportunity-fd9baebb29f5a217ce431b05a7e36c43d3063a64153a5eb31c9972db82eef81c",
+      "reason": "unavailable_no_fresh_decision_quote"
+    },
+    {
+      "availability_content_sha256": "5b8008884162ec45bd159570bf2a8ca5d42f68428eb56425e587944cc27d9d04",
+      "opportunity_id": "opportunity-584abfa60e5a82b205ac89afb352068295e49e833f930caf9d60018d1e1b694a",
+      "reason": "unavailable_exact_quote_request"
+    },
+    {
+      "availability_content_sha256": "a12f7ae15fedd3edbef1346c4c193f3480fc6382d06c77041344f7626536e13e",
+      "opportunity_id": "opportunity-4d83ec12224b11e029521c1171423b31f2a1ad827d7409738dc05f44fcf4d569",
+      "reason": "unavailable_no_fresh_decision_quote"
+    },
+    {
+      "availability_content_sha256": "bb3d4bcabb6846bb06ce9caefd50b5ba01eccfefa260231f5bd67a68c9e3af86",
+      "opportunity_id": "opportunity-4a97cda9ccdb46e3dc514ffe443ca44add31c44886c254029f98f25e34d69cad",
+      "reason": "unavailable_no_fresh_decision_quote"
+    },
+    {
+      "availability_content_sha256": "e6d3c884f7093b1ad99cab81028530c8700a2c7a9738b27cfc72baf3015c6cc5",
+      "opportunity_id": "opportunity-251fdc34ac3c0e026f6c3be9cdc524dd7dfe8ec8663c5febe9a881b46c532cd1",
+      "reason": "unavailable_no_fresh_decision_quote"
+    },
+    {
+      "availability_content_sha256": "839b6a09b7deff57812259026ce953fcdab9e8b4286da26427baa6757d3e66bf",
+      "opportunity_id": "opportunity-db65a544ab923ed3190305150c9b9e706add3db2e932ca8d0d230a52400911cd",
+      "reason": "unavailable_no_fresh_decision_quote"
+    },
+    {
+      "availability_content_sha256": "03f44d1200ffa293c6288083a24a67013d701ebbe2a44d9302e118621dc16b01",
+      "opportunity_id": "opportunity-320baaacb258c3a2bef8256f38cdd35ab628109a5fac297545bbf0f196d2aaf4",
+      "reason": "unavailable_no_fresh_decision_quote"
+    },
+    {
+      "availability_content_sha256": "e515a139c312863fc292564d4665f09277aa991e557179969b6a7e59f73f1881",
+      "opportunity_id": "opportunity-5bf58ed9dd087834a5d8afed7b6abac4374c793cb222f61736ee6ebc607d46c2",
+      "reason": "unavailable_no_fresh_decision_quote"
+    },
+    {
+      "availability_content_sha256": "1b9c2461b707343a25322071eeb26bb8108d8bfe97644cb2f0384f38847b7df3",
+      "opportunity_id": "opportunity-a0276724717eaf93a381d3342645be966a2e8d80b7b3cd7efd497db0e9910fdf",
+      "reason": "unavailable_no_fresh_decision_quote"
+    },
+    {
+      "availability_content_sha256": "4a03ba4cbade615ad101dbf56fb73e204a10b5ce3c7c9fae5c70476702c127af",
+      "opportunity_id": "opportunity-2a86dcd2de0ebf20fd947a7e947ee803b783b9e1ff50c1d7253c1d78480f52e2",
+      "reason": "unavailable_no_fresh_decision_quote"
+    },
+    {
+      "availability_content_sha256": "ad77f84e55366df4802f1415a7eae983a2f4c11247cdc8f0c8a799a6ba33aa00",
+      "opportunity_id": "opportunity-194603dafa0ad839cc2cdd508df6d476fc7404d0a04cea709145ed89ae95ead4",
+      "reason": "unavailable_no_fresh_decision_quote"
+    },
+    {
+      "availability_content_sha256": "0fa46307c5c9057f7898b2870f9324d610c3a941c8312e8188c99b997de42821",
+      "opportunity_id": "opportunity-67ca66e396fa42db1ae83b581c5811b95c28d094c0f83baa046f7741756f8d60",
+      "reason": "unavailable_no_fresh_decision_quote"
+    },
+    {
+      "availability_content_sha256": "e8eaa203d69dd034fa8a04a834f3e52107404f9315d52838a283a93289758168",
+      "opportunity_id": "opportunity-844e581823df4c1cf1c1ff4a83acabfef89ae4fa7df3c19491f31d89d8c729b7",
+      "reason": "unavailable_no_fresh_decision_quote"
+    },
+    {
+      "availability_content_sha256": "b97794f17c6c1ed231859fe134e0d25fce0cb61ec5dc5cac3e1f76c8539f8451",
+      "opportunity_id": "opportunity-f447e89f2330dce21d74db57aeaf3c4986f5896ae5282f84c5be2fd7ccee09c5",
+      "reason": "unavailable_no_fresh_decision_quote"
+    }
+  ]
+}

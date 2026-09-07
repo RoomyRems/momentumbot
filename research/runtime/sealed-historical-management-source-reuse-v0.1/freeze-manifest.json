@@ -1,0 +1,53 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "account_runtime_input_gate_passed": false,
+  "acquisition_gate_passed": false,
+  "backtesting_executed": false,
+  "broker_account_read": false,
+  "content_sha256": "b8364219670b5f618334e18a8c9f8f9759e96d8ee64f608fc1ddd1ed076b57de",
+  "contract_content_sha256": "f1c73517c2cb9d6a24849d777cb4dca2ae81d442c91ac02ff4162a9bb6b859f1",
+  "contract_id": "sealed-historical-management-source-reuse-v0.1",
+  "document_content_sha256": {
+    "missing-input-requests.json": "ed224ffa83aabe742b3f4a2534076050a4ba96825b0b93ca770754f562a6e82e",
+    "readiness-report.json": "9e2170078a99723663f8a9b0b6b92489c4605421f941a42d19d8d14005b190a7",
+    "reuse-coverage.json": "93dc80cedf7f61414adcebd29996f419e032739a5a1cbef5e2d6bfa7fdbf4921",
+    "source-verification.json": "8d047063c4ee637311e51bd34989143600b880e6f28be33bbd1e41e7dc7e6b9b"
+  },
+  "file_inventory": {
+    "missing-input-requests.json": {
+      "bytes": 9482,
+      "sha256": "766db7ba2ce21961121b699af72610de60733756e0c7ddee62f6623f0af2329c"
+    },
+    "readiness-report.json": {
+      "bytes": 7681,
+      "sha256": "b392b650a142f5bd2bbec64092994a6d6c5069e968c55d7be8b7dbbc094c48b9"
+    },
+    "reuse-coverage.json": {
+      "bytes": 184294,
+      "sha256": "46f24690bb7a0211c3a50e1b48dad265717e4dea60524af12d22750bdacfd6e5"
+    },
+    "source-verification.json": {
+      "bytes": 125022,
+      "sha256": "c16f8e5df097cc9a0ca1d4df37986b498b8354952e6cb3d70d94cbd01a9fb017"
+    }
+  },
+  "historical_execution_authorized": false,
+  "implementation_file_sha256": {
+    ".github/workflows/sealed-historical-management-reuse-v01.yml": "00e21c58bf6a179c6bcdce39508ee2090d601c19e0c89bdb8b4e78e4cf78e917",
+    "research/strategy/sealed-historical-management-missing-inputs-v0.1.json": "766db7ba2ce21961121b699af72610de60733756e0c7ddee62f6623f0af2329c",
+    "research/strategy/sealed-historical-management-source-reuse-v0.1.json": "886252c51542a950f7e5be957c1080332ac4bab5216b2d3cb84cd81fd38df33c",
+    "scripts/verify_sealed_historical_management_reuse_v01.py": "1ae9db7002e2845c57dea1e847726bb5a900ff482372071ea0fba5d28c44476f",
+    "src/momentumbot/research/sealed_historical_management_reuse_v01.py": "475c46ef4ea9a5bb86d176568bc683ad9d9a67e00385d92e968277316f876d5e"
+  },
+  "management_input_gate_passed": false,
+  "management_projection_executed": false,
+  "next_gate": "implement_and_validate_separately_consumed_capture_for_exact_10_missing_management_resources",
+  "paper_or_live_orders_authorized": false,
+  "parent_commit_sha": "cf729c27d3e458e4762ee1d60d48a6c57a25a5d8",
+  "parent_tree_sha": "c3ca04d647c9f6126dd4b88601c011f46cc6825d",
+  "policy_changed": false,
+  "portfolio_financial_metrics_eligible": false,
+  "provider_calls": 0,
+  "provider_purchase_authorized_usd": "0",
+  "retrospective_inputs_loaded": false
+}
