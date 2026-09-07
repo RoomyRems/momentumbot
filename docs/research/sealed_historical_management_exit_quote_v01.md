@@ -80,3 +80,20 @@ durable one-shot consumption. Historical execution remains blocked on complete
 exit tapes, authenticated account-state production, historical fees and sell-ledger
 reconciliation, causal next-session valuation, continuous account/order integration
 and a separately authorized historical execution child.
+
+## Verified operational result
+
+Execution `fde309481843b7c2613d9a673f888f488a1ee795`, run `34169338681`,
+completed successfully on attempt 1. All 80 requests were quoted through exactly
+160 metadata calls and HTTP attempts, with no blocked attempts or retries.
+The verified quote is **209,898,320 billable bytes for $0.234732925899 USD**.
+Both verifiers checked the complete result and consumption ZIPs, every quote
+value, full request/call order, byte inventory and exact successful code parent.
+See the [permanent operational audit](../../research/data-audits/sealed-historical-management-exit-quote-v0.1-independent-verification-34169338681.json) and
+[unchanged provider quote report](../../research/data-audits/sealed-historical-management-exit-quote-v0.1-report-34169338681.json).
+
+All 1,888 local tests passed with zero skips; the 83 focused tests passed normally
+and optimized locally and in the dedicated hosted environment. All eight code
+workflows and both execution workflows passed on their first attempt. Main and
+the 14 prior consumed references stayed unchanged; the new quote reference is
+permanently consumed. No time-series acquisition, account replay or backtest ran.

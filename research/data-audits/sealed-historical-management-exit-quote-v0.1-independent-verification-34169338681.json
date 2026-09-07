@@ -1,0 +1,1486 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "artifact_metadata": [
+    {
+      "archive_download_url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/artifacts/10035254551/zip",
+      "created_at": "2026-09-07T23:18:13Z",
+      "digest": "sha256:993e5d6a17512c5383ee2f23a298db3a22e68dc73eefb624e5f675a39bf38b65",
+      "expired": false,
+      "expires_at": "2026-12-06T23:14:08Z",
+      "id": 10035254551,
+      "name": "sealed-historical-management-exit-quote-v01-result-34169338681-1",
+      "node_id": "MDg6QXJ0aWZhY3QxMDAzNTI1NDU1MQ==",
+      "size_in_bytes": 23885,
+      "updated_at": "2026-09-07T23:18:13Z",
+      "url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/artifacts/10035254551",
+      "workflow_run": {
+        "head_branch": "phase-3-historical-snapshot",
+        "head_repository_id": 1332103865,
+        "head_sha": "fde309481843b7c2613d9a673f888f488a1ee795",
+        "id": 34169338681,
+        "repository_id": 1332103865
+      }
+    },
+    {
+      "archive_download_url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/artifacts/10035216510/zip",
+      "created_at": "2026-09-07T23:16:00Z",
+      "digest": "sha256:2eecb6ddaa076ade83de301989365ce9d6d23fe5b4ae42636a2f2659a9ef655c",
+      "expired": false,
+      "expires_at": "2026-12-06T23:14:08Z",
+      "id": 10035216510,
+      "name": "sealed-historical-management-exit-quote-v01-consumption-34169338681-1",
+      "node_id": "MDg6QXJ0aWZhY3QxMDAzNTIxNjUxMA==",
+      "size_in_bytes": 14586,
+      "updated_at": "2026-09-07T23:16:00Z",
+      "url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/artifacts/10035216510",
+      "workflow_run": {
+        "head_branch": "phase-3-historical-snapshot",
+        "head_repository_id": 1332103865,
+        "head_sha": "fde309481843b7c2613d9a673f888f488a1ee795",
+        "id": 34169338681,
+        "repository_id": 1332103865
+      }
+    }
+  ],
+  "artifact_type": "independently_verified_management_exit_metadata_quote_and_exact_XAGE_reuse",
+  "backtesting_executed": false,
+  "blocked_attempts": 0,
+  "code_commit_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+  "code_tree_sha": "5d994fbbf1bb382fdecd5ee69095f4d3ee870b32",
+  "common_symbol_date_count": 41,
+  "content_sha256": "517e9a44a9d82b02d7eac75a75b45098e79f43832dc75aa2b3d611c209912c6a",
+  "contract_content_sha256": "a2d233a7018fdda2ef5f40efff85698c3bc9de0d397b4d227f81493604c276b8",
+  "contract_id": "sealed-historical-management-exit-quote-v0.1",
+  "execution_commit_sha": "fde309481843b7c2613d9a673f888f488a1ee795",
+  "execution_content_sha256": "2299424a24362f395aa10dfd2541dff35ad0d5b4c8e59a97a47d0766381d1222",
+  "execution_tree_sha": "18ccebe5b92ef5c5c3e309d989c8b0642c3ed8dd",
+  "frozen_runner_dependency_declarations": {
+    "causal_next_session_valuation_verified": false,
+    "continuous_account_order_and_scarcity_integration_verified": false,
+    "exact_exit_tapes_verified": false,
+    "existing_common_source_reuse_bytes_verified": false,
+    "historical_account_state_producer_verified": false,
+    "historical_execution_child_authorized": false,
+    "historical_fee_and_sell_ledger_integration_verified": false
+  },
+  "historical_execution_authorized": false,
+  "hosted_code_validation": {
+    "ci_job_id": 101885777545,
+    "code_commit_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+    "code_tree_sha": "5d994fbbf1bb382fdecd5ee69095f4d3ee870b32",
+    "dedicated_job_id": 101885778086,
+    "jobs": [
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+            "id": 101885777545,
+            "name": "test",
+            "run_id": 34169076945,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@v4",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@v5",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install package",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run tests",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@v5",
+                "number": 11,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@v4",
+                "number": 12,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 13,
+                "status": "completed"
+              }
+            ]
+          }
+        ],
+        "name": "CI",
+        "run_id": 34169076945
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+            "id": 101885777516,
+            "name": "validate",
+            "run_id": 34169076941,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Validate sealed manifests and selected dates",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run leakage and tamper tests",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile registration entry points",
+                "number": 7,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "status": "completed"
+              }
+            ]
+          }
+        ],
+        "name": "Sealed historical walk-forward v0.1",
+        "run_id": 34169076941
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+            "id": 101885777506,
+            "name": "validate",
+            "run_id": 34169076935,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Validate frozen authorization without credentials",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run provider-free availability tests",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile availability entry points",
+                "number": 7,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "conclusion": "skipped",
+            "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+            "id": 101885834280,
+            "name": "probe",
+            "run_id": 34169076935,
+            "status": "completed",
+            "steps": []
+          }
+        ],
+        "name": "Sealed historical provider availability v0.1",
+        "run_id": 34169076935
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+            "id": 101885777730,
+            "name": "validate",
+            "run_id": 34169076934,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Validate frozen v0.2 repair and parents without credentials",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run bounded-acquisition tests",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile acquisition entry points",
+                "number": 7,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "conclusion": "skipped",
+            "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+            "id": 101885829356,
+            "name": "acquire",
+            "run_id": 34169076934,
+            "status": "completed",
+            "steps": []
+          }
+        ],
+        "name": "Sealed historical source acquisition v0.2",
+        "run_id": 34169076934
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+            "id": 101885778690,
+            "name": "validate",
+            "run_id": 34169077158,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Validate frozen v0.3 repair and parents without credentials",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run bounded-acquisition tests",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile acquisition entry points",
+                "number": 7,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "conclusion": "skipped",
+            "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+            "id": 101885829256,
+            "name": "acquire",
+            "run_id": 34169077158,
+            "status": "completed",
+            "steps": []
+          }
+        ],
+        "name": "Sealed historical source acquisition v0.3",
+        "run_id": 34169077158
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+            "id": 101885778246,
+            "name": "validate",
+            "run_id": 34169077012,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Validate frozen acquisition and parents without credentials",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run bounded-acquisition tests",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile acquisition entry points",
+                "number": 7,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "conclusion": "skipped",
+            "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+            "id": 101885830246,
+            "name": "acquire",
+            "run_id": 34169077012,
+            "status": "completed",
+            "steps": []
+          }
+        ],
+        "name": "Sealed historical source acquisition v0.1",
+        "run_id": 34169077012
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+            "id": 101885777839,
+            "name": "validate",
+            "run_id": 34169076991,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Validate frozen repair without credentials",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run provider-free repair tests",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile repair entry points",
+                "number": 7,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "conclusion": "skipped",
+            "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+            "id": 101885827433,
+            "name": "probe",
+            "run_id": 34169076991,
+            "status": "completed",
+            "steps": []
+          }
+        ],
+        "name": "Sealed historical provider availability repair v0.2",
+        "run_id": 34169076991
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+            "id": 101885778086,
+            "name": "validate",
+            "run_id": 34169077069,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Detect only the sole added execution record",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install hash-locked metadata environment without credentials",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Verify exact parent and metadata-only tests normally and optimized",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 11,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 12,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 13,
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "conclusion": "skipped",
+            "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+            "id": 101885994814,
+            "name": "quote",
+            "run_id": 34169077069,
+            "status": "completed",
+            "steps": []
+          }
+        ],
+        "name": "Sealed historical management exit metadata quote v0.1",
+        "run_id": 34169077069
+      }
+    ],
+    "runs": [
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34169076945",
+        "id": 34169076945,
+        "name": "CI",
+        "path": ".github/workflows/ci.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34169076941",
+        "id": 34169076941,
+        "name": "Sealed historical walk-forward v0.1",
+        "path": ".github/workflows/sealed-historical-walk-forward.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34169076935",
+        "id": 34169076935,
+        "name": "Sealed historical provider availability v0.1",
+        "path": ".github/workflows/sealed-historical-provider-availability.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34169076934",
+        "id": 34169076934,
+        "name": "Sealed historical source acquisition v0.2",
+        "path": ".github/workflows/sealed-historical-source-acquisition-v02.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34169077158",
+        "id": 34169077158,
+        "name": "Sealed historical source acquisition v0.3",
+        "path": ".github/workflows/sealed-historical-source-acquisition-v03.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34169077012",
+        "id": 34169077012,
+        "name": "Sealed historical source acquisition v0.1",
+        "path": ".github/workflows/sealed-historical-source-acquisition.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34169076991",
+        "id": 34169076991,
+        "name": "Sealed historical provider availability repair v0.2",
+        "path": ".github/workflows/sealed-historical-provider-availability-v02.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34169077069",
+        "id": 34169077069,
+        "name": "Sealed historical management exit metadata quote v0.1",
+        "path": ".github/workflows/sealed-historical-management-exit-quote-v01.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      }
+    ]
+  },
+  "hosted_execution_validation": {
+    "execution_commit_sha": "fde309481843b7c2613d9a673f888f488a1ee795",
+    "jobs": [
+      {
+        "conclusion": "success",
+        "head_sha": "fde309481843b7c2613d9a673f888f488a1ee795",
+        "id": 101886508235,
+        "name": "test",
+        "run_id": 34169338641,
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-python@v5",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install package",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run tests",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Compile",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@v5",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 13,
+            "status": "completed"
+          }
+        ]
+      },
+      {
+        "conclusion": "success",
+        "head_sha": "fde309481843b7c2613d9a673f888f488a1ee795",
+        "id": 101886508425,
+        "name": "validate",
+        "run_id": 34169338681,
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Detect only the sole added execution record",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install hash-locked metadata environment without credentials",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Verify exact parent and metadata-only tests normally and optimized",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "number": 12,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 13,
+            "status": "completed"
+          }
+        ]
+      },
+      {
+        "conclusion": "success",
+        "head_sha": "fde309481843b7c2613d9a673f888f488a1ee795",
+        "id": 101886739907,
+        "name": "quote",
+        "run_id": 34169338681,
+        "status": "completed",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Bind exact first-attempt execution child",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install and retain the exact locked environment",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Validate execution and every parent byte offline",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Verify successful CI and dedicated validation at the exact code parent",
+            "number": 7,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Atomically consume the metadata quote once",
+            "number": 8,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Durably upload consumption before metadata access",
+            "number": 9,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Quote only the exact 160 bounded metadata calls",
+            "number": 10,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Retain sanitized complete or partial quote evidence",
+            "number": 11,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+            "number": 21,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "number": 22,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 23,
+            "status": "completed"
+          }
+        ]
+      }
+    ],
+    "runs": [
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "fde309481843b7c2613d9a673f888f488a1ee795",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34169338641",
+        "id": 34169338641,
+        "name": "CI",
+        "path": ".github/workflows/ci.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "fde309481843b7c2613d9a673f888f488a1ee795",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34169338681",
+        "id": 34169338681,
+        "name": "Sealed historical management exit metadata quote v0.1",
+        "path": ".github/workflows/sealed-historical-management-exit-quote-v01.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      }
+    ]
+  },
+  "hosted_logs": {
+    "exit-quote-hosted-ci.log": {
+      "bytes": 445090,
+      "sha256": "81ebb4e80904d9ee1f8d182f9d64e4d700100e40172afecc51b45cf4836a33b9",
+      "summary": [
+        "2026-09-07T23:11:51.4830706Z Ran 1888 tests in 122.102s",
+        "2026-09-07T23:11:51.4831106Z OK (skipped=54)"
+      ]
+    },
+    "exit-quote-hosted-dedicated.log": {
+      "bytes": 68842,
+      "sha256": "955eee3039125c5422f633b2bfb9f22f948ae0586bd7793397226374f1dc2688",
+      "summary": [
+        "2026-09-07T23:10:17.5186543Z Ran 83 tests in 23.328s",
+        "2026-09-07T23:10:17.5187231Z OK",
+        "2026-09-07T23:10:17.5187949Z {\"status\": \"complete\", \"metadata_calls\": 160, \"http_attempts\": 160, \"available_requests\": 80, \"total_quoted_cost_usd\": \"0.80\"}",
+        "2026-09-07T23:10:17.5189143Z {\"status\": \"blocked\", \"metadata_calls\": 0, \"http_attempts\": 0, \"available_requests\": 0, \"total_quoted_cost_usd\": null}",
+        "2026-09-07T23:10:46.0182366Z Ran 83 tests in 23.848s",
+        "2026-09-07T23:10:46.0182693Z OK",
+        "2026-09-07T23:10:46.0183369Z {\"status\": \"complete\", \"metadata_calls\": 160, \"http_attempts\": 160, \"available_requests\": 80, \"total_quoted_cost_usd\": \"0.80\"}",
+        "2026-09-07T23:10:46.0184881Z {\"status\": \"blocked\", \"metadata_calls\": 0, \"http_attempts\": 0, \"available_requests\": 0, \"total_quoted_cost_usd\": null}"
+      ]
+    },
+    "exit-quote-hosted-execution-ci.log": {
+      "bytes": 445094,
+      "sha256": "9caf5e1859f3d1222bf38d14ce9ea1f8d7fff67d29abc8e0ff528ff3d2cb7d90",
+      "summary": [
+        "2026-09-07T23:16:27.9192249Z Ran 1888 tests in 118.984s",
+        "2026-09-07T23:16:27.9192570Z OK (skipped=54)"
+      ]
+    },
+    "exit-quote-hosted-operation.log": {
+      "bytes": 40925,
+      "sha256": "a8e11b4d9af4f18e0c5e56c51244b3aef19be2a1cb664cb9c129a4736e2c4fa1",
+      "summary": [
+        "2026-09-07T23:18:12.5053522Z {\"status\": \"complete\", \"metadata_calls\": 160, \"http_attempts\": 160, \"available_requests\": 80, \"total_quoted_cost_usd\": \"0.234732925899\"}"
+      ]
+    }
+  },
+  "http_attempts": 160,
+  "independent_quote_verification": {
+    "acquisition_authorized": false,
+    "archives": {
+      "consumption": {
+        "bytes": 14586,
+        "file_count": 10,
+        "files": {
+          "code_ci_run_id.json": {
+            "bytes": 13622,
+            "sha256": "9ecc34b76c72a40bc1bf43e10fec94cbbb1d054eff58302694617fc0d39dc819"
+          },
+          "code_validation_run_id.json": {
+            "bytes": 13712,
+            "sha256": "133869a28e458b4c830a6f8de8de495e2aaff64d79e050cd975801e8168b4958"
+          },
+          "consumption-ref.json": {
+            "bytes": 503,
+            "sha256": "af994f020811bb9258ae036365b1761fd1fa8e7d0be6551cc06f41416624bfa6"
+          },
+          "consumption.json": {
+            "bytes": 412,
+            "sha256": "22c25edcd42c129973422aff2fe2c3533584040b66d213e63c5d22ab3babe182"
+          },
+          "contract.json": {
+            "bytes": 4122,
+            "sha256": "e4698c20ccf5b78195ea1d2a713de1c6d4d0a1e0c624b8b7e3e446441a1b899e"
+          },
+          "execution.json": {
+            "bytes": 1238,
+            "sha256": "26876f023f4256a8b6136103417cd7a162f743b5c53e6e887e7f7ba24d74e706"
+          },
+          "pip-freeze.txt": {
+            "bytes": 606,
+            "sha256": "089b399370c650df337044e57f639ce36061e819b593712fd369adc66220acc2"
+          },
+          "request-manifest.json": {
+            "bytes": 27146,
+            "sha256": "56bfcdad0176dcff5f86881cbadbb7ac005b8c23cfaaa49a5a7956d266e25ba3"
+          },
+          "requirements-sealed-execution-quote-v01.txt": {
+            "bytes": 3583,
+            "sha256": "03f4da335027e4c83bcf38e523c2e11aeaae49778f5bd6caa47e4703348b31b4"
+          },
+          "xage-reuse.json": {
+            "bytes": 7403,
+            "sha256": "799d8664916eb89f713dec276134400e87434251ff97ea5c0b0a29219983e75b"
+          }
+        },
+        "sha256": "2eecb6ddaa076ade83de301989365ce9d6d23fe5b4ae42636a2f2659a9ef655c"
+      },
+      "result": {
+        "bytes": 23885,
+        "file_count": 9,
+        "files": {
+          "consumption.json": {
+            "bytes": 412,
+            "sha256": "22c25edcd42c129973422aff2fe2c3533584040b66d213e63c5d22ab3babe182"
+          },
+          "contract.json": {
+            "bytes": 4122,
+            "sha256": "e4698c20ccf5b78195ea1d2a713de1c6d4d0a1e0c624b8b7e3e446441a1b899e"
+          },
+          "execution.json": {
+            "bytes": 1238,
+            "sha256": "26876f023f4256a8b6136103417cd7a162f743b5c53e6e887e7f7ba24d74e706"
+          },
+          "http-ledger.json": {
+            "bytes": 26512,
+            "sha256": "a2249970baa3b5bfd5f36be260b21c8efa397b2d4279de7fd85c4424e14e7f61"
+          },
+          "metadata-ledger.json": {
+            "bytes": 46020,
+            "sha256": "b1deb55b3c866f26d229a437ad3704814958f2f456904e53eda2a897b5d0efeb"
+          },
+          "quote-inventory.json": {
+            "bytes": 1563,
+            "sha256": "34486781cf2e6ef0163cbb49ad0b0dfe35297baa62420215ccbf636af3873178"
+          },
+          "quote-report.json": {
+            "bytes": 67598,
+            "sha256": "85c4989a32ddb325ea70e280a43bdc31cc6e8e5f82eb41a10586901ee388196a"
+          },
+          "request-manifest.json": {
+            "bytes": 27146,
+            "sha256": "56bfcdad0176dcff5f86881cbadbb7ac005b8c23cfaaa49a5a7956d266e25ba3"
+          },
+          "xage-reuse.json": {
+            "bytes": 7403,
+            "sha256": "799d8664916eb89f713dec276134400e87434251ff97ea5c0b0a29219983e75b"
+          }
+        },
+        "sha256": "993e5d6a17512c5383ee2f23a298db3a22e68dc73eefb624e5f675a39bf38b65"
+      }
+    },
+    "content_sha256": "bf09d2049a5562b1c16ea3be8f9deb87819b95b920af9610345ed79bb87c2512",
+    "http_attempts": 160,
+    "metadata_calls": 160,
+    "metadata_quote_gate_passed": true,
+    "mode": "quote",
+    "provenance": {
+      "code_commit_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+      "code_tree_sha": "5d994fbbf1bb382fdecd5ee69095f4d3ee870b32",
+      "consumption_content_sha256": "323ff4eeb19e851f93ec824fa3926c8b9f4deca19a46b49f4b48a2109ae315cd",
+      "execution_commit_sha": "fde309481843b7c2613d9a673f888f488a1ee795",
+      "execution_content_sha256": "2299424a24362f395aa10dfd2541dff35ad0d5b4c8e59a97a47d0766381d1222",
+      "reuse_evidence_file_sha256": "799d8664916eb89f713dec276134400e87434251ff97ea5c0b0a29219983e75b",
+      "workflow_run_attempt": 1,
+      "workflow_run_id": "34169338681"
+    },
+    "quote_report_content_sha256": "ad28f542b6497b6a63e6d4a5aa50d15092f2b8e2472474beecde8e884f11812d",
+    "request_count": 80,
+    "total_billable_size_bytes": 209898320,
+    "total_quoted_cost_usd": "0.234732925899",
+    "verification_passed": true
+  },
+  "metadata_call_count": 160,
+  "metadata_quote_gate_passed": true,
+  "new_consumed_ref": "refs/tags/sealed-historical-management-exit-quote-v0.1-consumed",
+  "new_request_count": 80,
+  "next_gate": "registered_quote_bound_bounded_acquisition_child_for_exact_80_management_exit_requests",
+  "opportunity_count": 109,
+  "policy_changed": false,
+  "primary_quote_verification": {
+    "content_sha256": "d3b599f78131da85e59726bab1488fdc0704443a871da377ab0386b80a1bc9c4",
+    "file_inventory": {
+      "consumption.json": {
+        "bytes": 412,
+        "sha256": "22c25edcd42c129973422aff2fe2c3533584040b66d213e63c5d22ab3babe182"
+      },
+      "contract.json": {
+        "bytes": 4122,
+        "sha256": "e4698c20ccf5b78195ea1d2a713de1c6d4d0a1e0c624b8b7e3e446441a1b899e"
+      },
+      "execution.json": {
+        "bytes": 1238,
+        "sha256": "26876f023f4256a8b6136103417cd7a162f743b5c53e6e887e7f7ba24d74e706"
+      },
+      "http-ledger.json": {
+        "bytes": 26512,
+        "sha256": "a2249970baa3b5bfd5f36be260b21c8efa397b2d4279de7fd85c4424e14e7f61"
+      },
+      "metadata-ledger.json": {
+        "bytes": 46020,
+        "sha256": "b1deb55b3c866f26d229a437ad3704814958f2f456904e53eda2a897b5d0efeb"
+      },
+      "quote-inventory.json": {
+        "bytes": 1563,
+        "sha256": "34486781cf2e6ef0163cbb49ad0b0dfe35297baa62420215ccbf636af3873178"
+      },
+      "quote-report.json": {
+        "bytes": 67598,
+        "sha256": "85c4989a32ddb325ea70e280a43bdc31cc6e8e5f82eb41a10586901ee388196a"
+      },
+      "request-manifest.json": {
+        "bytes": 27146,
+        "sha256": "56bfcdad0176dcff5f86881cbadbb7ac005b8c23cfaaa49a5a7956d266e25ba3"
+      },
+      "xage-reuse.json": {
+        "bytes": 7403,
+        "sha256": "799d8664916eb89f713dec276134400e87434251ff97ea5c0b0a29219983e75b"
+      }
+    },
+    "historical_execution_authorized": false,
+    "http_attempts": 160,
+    "metadata_calls": 160,
+    "metadata_quote_gate_passed": true,
+    "provenance": {
+      "code_commit_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+      "code_tree_sha": "5d994fbbf1bb382fdecd5ee69095f4d3ee870b32",
+      "consumption_content_sha256": "323ff4eeb19e851f93ec824fa3926c8b9f4deca19a46b49f4b48a2109ae315cd",
+      "execution_commit_sha": "fde309481843b7c2613d9a673f888f488a1ee795",
+      "execution_content_sha256": "2299424a24362f395aa10dfd2541dff35ad0d5b4c8e59a97a47d0766381d1222",
+      "reuse_evidence_file_sha256": "799d8664916eb89f713dec276134400e87434251ff97ea5c0b0a29219983e75b",
+      "workflow_run_attempt": 1,
+      "workflow_run_id": "34169338681"
+    },
+    "quote_inventory_content_sha256": "dc7f5850933d850f451da0560f66740b4f4326579a11b3cd8411ba12d4504771",
+    "quote_report_content_sha256": "ad28f542b6497b6a63e6d4a5aa50d15092f2b8e2472474beecde8e884f11812d",
+    "quote_report_file_sha256": "85c4989a32ddb325ea70e280a43bdc31cc6e8e5f82eb41a10586901ee388196a",
+    "time_series_acquisition_executed": false,
+    "total_billable_size_bytes": 209898320,
+    "total_quoted_cost_usd": "0.234732925899",
+    "verification_passed": true
+  },
+  "protected_refs_after": {
+    "historical_consumed_refs": [
+      {
+        "node_id": "REF_kwDOT2ZKudoARXJlZnMvdGFncy9zZWFsZWQtaGlzdG9yaWNhbC1leGVjdXRpb24taW5wdXQtYWNxdWlzaXRpb24tdjAuMS1jb25zdW1lZA",
+        "object": {
+          "sha": "5a375f86e951b1e9eeb6c010995c9b57025913b7",
+          "type": "commit",
+          "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/5a375f86e951b1e9eeb6c010995c9b57025913b7"
+        },
+        "ref": "refs/tags/sealed-historical-execution-input-acquisition-v0.1-consumed",
+        "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/refs/tags/sealed-historical-execution-input-acquisition-v0.1-consumed"
+      },
+      {
+        "node_id": "REF_kwDOT2ZKudoARXJlZnMvdGFncy9zZWFsZWQtaGlzdG9yaWNhbC1leGVjdXRpb24taW5wdXQtYWNxdWlzaXRpb24tdjAuMi1jb25zdW1lZA",
+        "object": {
+          "sha": "e2c250367895d209ec4706288a22655636298685",
+          "type": "commit",
+          "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/e2c250367895d209ec4706288a22655636298685"
+        },
+        "ref": "refs/tags/sealed-historical-execution-input-acquisition-v0.2-consumed",
+        "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/refs/tags/sealed-historical-execution-input-acquisition-v0.2-consumed"
+      },
+      {
+        "node_id": "REF_kwDOT2ZKudoARXJlZnMvdGFncy9zZWFsZWQtaGlzdG9yaWNhbC1leGVjdXRpb24taW5wdXQtYWNxdWlzaXRpb24tdjAuMy1jb25zdW1lZA",
+        "object": {
+          "sha": "0c4010044ee8557136b3c119c6350e134bba46d2",
+          "type": "commit",
+          "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/0c4010044ee8557136b3c119c6350e134bba46d2"
+        },
+        "ref": "refs/tags/sealed-historical-execution-input-acquisition-v0.3-consumed",
+        "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/refs/tags/sealed-historical-execution-input-acquisition-v0.3-consumed"
+      },
+      {
+        "node_id": "REF_kwDOT2ZKudoARHJlZnMvdGFncy9zZWFsZWQtaGlzdG9yaWNhbC1leGVjdXRpb24taW5wdXQtZGlhZ25vc3RpYy12MC4xLWNvbnN1bWVk",
+        "object": {
+          "sha": "e1aece08a44ccf9add0157a1657d08a809687e85",
+          "type": "commit",
+          "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/e1aece08a44ccf9add0157a1657d08a809687e85"
+        },
+        "ref": "refs/tags/sealed-historical-execution-input-diagnostic-v0.1-consumed",
+        "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/refs/tags/sealed-historical-execution-input-diagnostic-v0.1-consumed"
+      },
+      {
+        "node_id": "REF_kwDOT2ZKudoASnJlZnMvdGFncy9zZWFsZWQtaGlzdG9yaWNhbC1leGVjdXRpb24taW5wdXQtZW1wdHktZGlhZ25vc3RpYy12MC4xLWNvbnN1bWVk",
+        "object": {
+          "sha": "8854bb2e63dc3961d98c5d8827f857ef85ccb341",
+          "type": "commit",
+          "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/8854bb2e63dc3961d98c5d8827f857ef85ccb341"
+        },
+        "ref": "refs/tags/sealed-historical-execution-input-empty-diagnostic-v0.1-consumed",
+        "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/refs/tags/sealed-historical-execution-input-empty-diagnostic-v0.1-consumed"
+      },
+      {
+        "node_id": "REF_kwDOT2ZKudoAP3JlZnMvdGFncy9zZWFsZWQtaGlzdG9yaWNhbC1leGVjdXRpb24taW5wdXQtcXVvdGUtdjAuMS1jb25zdW1lZA",
+        "object": {
+          "sha": "dd295304dcc5e7cc0ebd300d094ab20636a72b92",
+          "type": "commit",
+          "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/dd295304dcc5e7cc0ebd300d094ab20636a72b92"
+        },
+        "ref": "refs/tags/sealed-historical-execution-input-quote-v0.1-consumed",
+        "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/refs/tags/sealed-historical-execution-input-quote-v0.1-consumed"
+      },
+      {
+        "node_id": "REF_kwDOT2ZKudoAP3JlZnMvdGFncy9zZWFsZWQtaGlzdG9yaWNhbC1tYW5hZ2VtZW50LWV4aXQtcXVvdGUtdjAuMS1jb25zdW1lZA",
+        "object": {
+          "sha": "fde309481843b7c2613d9a673f888f488a1ee795",
+          "type": "commit",
+          "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/fde309481843b7c2613d9a673f888f488a1ee795"
+        },
+        "ref": "refs/tags/sealed-historical-management-exit-quote-v0.1-consumed",
+        "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/refs/tags/sealed-historical-management-exit-quote-v0.1-consumed"
+      },
+      {
+        "node_id": "REF_kwDOT2ZKudoATnJlZnMvdGFncy9zZWFsZWQtaGlzdG9yaWNhbC1tYW5hZ2VtZW50LW1pc3NpbmctaW5wdXQtYWNxdWlzaXRpb24tdjAuMS1jb25zdW1lZA",
+        "object": {
+          "sha": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+          "type": "commit",
+          "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/eeec1ea234214a9d4a449e774fe3fa29aefea025"
+        },
+        "ref": "refs/tags/sealed-historical-management-missing-input-acquisition-v0.1-consumed",
+        "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/refs/tags/sealed-historical-management-missing-input-acquisition-v0.1-consumed"
+      },
+      {
+        "node_id": "REF_kwDOT2ZKudoAQXJlZnMvdGFncy9zZWFsZWQtaGlzdG9yaWNhbC1taWNyby1pbnB1dC1hY3F1aXNpdGlvbi12MC4xLWNvbnN1bWVk",
+        "object": {
+          "sha": "5cab2eb3aa2b73a2cbf1d57575519a7b99961e24",
+          "type": "commit",
+          "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/5cab2eb3aa2b73a2cbf1d57575519a7b99961e24"
+        },
+        "ref": "refs/tags/sealed-historical-micro-input-acquisition-v0.1-consumed",
+        "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/refs/tags/sealed-historical-micro-input-acquisition-v0.1-consumed"
+      },
+      {
+        "node_id": "REF_kwDOT2ZKudoASXJlZnMvdGFncy9zZWFsZWQtaGlzdG9yaWNhbC1taWNyby1zZXNzaW9uLWlucHV0LWFjcXVpc2l0aW9uLXYwLjItY29uc3VtZWQ",
+        "object": {
+          "sha": "bf5863a7115abef9e22c4f527448cd9c20084f47",
+          "type": "commit",
+          "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/bf5863a7115abef9e22c4f527448cd9c20084f47"
+        },
+        "ref": "refs/tags/sealed-historical-micro-session-input-acquisition-v0.2-consumed",
+        "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/refs/tags/sealed-historical-micro-session-input-acquisition-v0.2-consumed"
+      },
+      {
+        "node_id": "REF_kwDOT2ZKudoAfHJlZnMvdGFncy9zZWFsZWQtaGlzdG9yaWNhbC1zb3VyY2UtYWNxdWlzaXRpb24tdjA0LWNvbnN1bWVkLWJiZTUxZjQ0ODNhNzNmOTJiMWY1OGM5ZjZjMjA4NWQ4YTQ3NTA1MzQ2YzJkMzQwZmJlNTljMDQyMWYzZjMxYjc",
+        "object": {
+          "sha": "ae55aabd3963a9d2764b19a759efd271c723a83a",
+          "type": "commit",
+          "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/ae55aabd3963a9d2764b19a759efd271c723a83a"
+        },
+        "ref": "refs/tags/sealed-historical-source-acquisition-v04-consumed-bbe51f4483a73f92b1f58c9f6c2085d8a47505346c2d340fbe59c0421f3f31b7",
+        "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/refs/tags/sealed-historical-source-acquisition-v04-consumed-bbe51f4483a73f92b1f58c9f6c2085d8a47505346c2d340fbe59c0421f3f31b7"
+      },
+      {
+        "node_id": "REF_kwDOT2ZKudoAfHJlZnMvdGFncy9zZWFsZWQtaGlzdG9yaWNhbC1zb3VyY2UtYWNxdWlzaXRpb24tdjA1LWNvbnN1bWVkLTIzYWQ5OTc4Mzc0OTBjMTRjMjAwYzEwYjM0YzgyODVkYjdiMThkZGViY2ExMzFlNjI5OWE4Y2Q3MGIzYmJjNDk",
+        "object": {
+          "sha": "12d3c08dcfa042f785c6e35060916cfbd47a1df8",
+          "type": "commit",
+          "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/12d3c08dcfa042f785c6e35060916cfbd47a1df8"
+        },
+        "ref": "refs/tags/sealed-historical-source-acquisition-v05-consumed-23ad997837490c14c200c10b34c8285db7b18ddebca131e6299a8cd70b3bbc49",
+        "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/refs/tags/sealed-historical-source-acquisition-v05-consumed-23ad997837490c14c200c10b34c8285db7b18ddebca131e6299a8cd70b3bbc49"
+      },
+      {
+        "node_id": "REF_kwDOT2ZKudoAfHJlZnMvdGFncy9zZWFsZWQtaGlzdG9yaWNhbC1zb3VyY2UtYWNxdWlzaXRpb24tdjA2LWNvbnN1bWVkLTAzNDNlZmZmOGNlYjQ5YjdjM2FlMmU1ODkwMjljZjRjZjBiMDJkNzJjMTk2MWY4NTgwNzkxM2Y2NzM4NTIwMmU",
+        "object": {
+          "sha": "0d231ffecb6d4104aad53dec0b7499a16d8943f6",
+          "type": "commit",
+          "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/0d231ffecb6d4104aad53dec0b7499a16d8943f6"
+        },
+        "ref": "refs/tags/sealed-historical-source-acquisition-v06-consumed-0343efff8ceb49b7c3ae2e589029cf4cf0b02d72c1961f85807913f67385202e",
+        "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/refs/tags/sealed-historical-source-acquisition-v06-consumed-0343efff8ceb49b7c3ae2e589029cf4cf0b02d72c1961f85807913f67385202e"
+      },
+      {
+        "node_id": "REF_kwDOT2ZKudoAfHJlZnMvdGFncy9zZWFsZWQtaGlzdG9yaWNhbC1zb3VyY2UtYWNxdWlzaXRpb24tdjA5LWNvbnN1bWVkLTQ0N2MxMWIwOTIwNmI0YzE5Y2NhZGU2YzFhYWU3MGNlNWJiMTdlNGE0ODNkYjZmOTU4MWQxNGVlM2Y1Zjg2MmY",
+        "object": {
+          "sha": "92d8b4deceae5c2bb6edfb10016a0e05c33c8bfa",
+          "type": "commit",
+          "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/92d8b4deceae5c2bb6edfb10016a0e05c33c8bfa"
+        },
+        "ref": "refs/tags/sealed-historical-source-acquisition-v09-consumed-447c11b09206b4c19ccade6c1aae70ce5bb17e4a483db6f9581d14ee3f5f862f",
+        "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/refs/tags/sealed-historical-source-acquisition-v09-consumed-447c11b09206b4c19ccade6c1aae70ce5bb17e4a483db6f9581d14ee3f5f862f"
+      },
+      {
+        "node_id": "REF_kwDOT2ZKudoAfHJlZnMvdGFncy9zZWFsZWQtaGlzdG9yaWNhbC1zb3VyY2UtYWNxdWlzaXRpb24tdjEwLWNvbnN1bWVkLWE2NTE5NzU0MTQ3YzM5MjczYTI1YjJlYTgxOGIxOTA2ZGZhOTNlYTUwMThlZGFjODMxZTJhMGE3MDUyNDYzYzc",
+        "object": {
+          "sha": "652db5675a35b6f455aa0d924aa50428dd995280",
+          "type": "commit",
+          "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/652db5675a35b6f455aa0d924aa50428dd995280"
+        },
+        "ref": "refs/tags/sealed-historical-source-acquisition-v10-consumed-a6519754147c39273a25b2ea818b1906dfa93ea5018edac831e2a0a7052463c7",
+        "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/refs/tags/sealed-historical-source-acquisition-v10-consumed-a6519754147c39273a25b2ea818b1906dfa93ea5018edac831e2a0a7052463c7"
+      }
+    ],
+    "main": {
+      "node_id": "REF_kwDOT2ZKua9yZWZzL2hlYWRzL21haW4",
+      "object": {
+        "sha": "de24eb17316191da69d92e61f6843af25e9c22d0",
+        "type": "commit",
+        "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/de24eb17316191da69d92e61f6843af25e9c22d0"
+      },
+      "ref": "refs/heads/main",
+      "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/refs/heads/main"
+    }
+  },
+  "provider_spend_authorized_usd": "0",
+  "quote_report_content_sha256": "ad28f542b6497b6a63e6d4a5aa50d15092f2b8e2472474beecde8e884f11812d",
+  "quote_report_file_sha256": "85c4989a32ddb325ea70e280a43bdc31cc6e8e5f82eb41a10586901ee388196a",
+  "quote_report_path": "research/data-audits/sealed-historical-management-exit-quote-v0.1-report-34169338681.json",
+  "quote_workflow_run_attempt": 1,
+  "quote_workflow_run_id": 34169338681,
+  "registration_audit_file_sha256": "9c326c45ca79a65f6dbc6346fccbf3270536e3687ecda9a2a6a636ba5afa3fca",
+  "request_list_content_sha256": "973a926e063fda7ec76883dd4297b88c77a06af22fe3bc0618330e98e28825b4",
+  "resolved_in_this_child": {
+    "exact_exit_tapes_verified": false,
+    "existing_common_source_reuse_bytes_verified": true,
+    "remaining_exit_metadata_quote_independently_verified": true
+  },
+  "retained_consumed_ref_count_unchanged": 14,
+  "retrospective_inputs_loaded": false,
+  "reuse_evidence_file_sha256": "799d8664916eb89f713dec276134400e87434251ff97ea5c0b0a29219983e75b",
+  "schema_version": 1,
+  "time_series_acquisition_executed": false,
+  "total_billable_size_bytes": 209898320,
+  "total_quoted_cost_usd": "0.234732925899",
+  "unavailable_entry_count": 23,
+  "verified_reuse_request_count": 2
+}

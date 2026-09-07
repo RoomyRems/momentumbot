@@ -1,0 +1,2206 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "artifact_type": "historical_management_exit_input_metadata_quote",
+  "automatic_retry_attempted": false,
+  "available_request_count": 80,
+  "backtesting_executed": false,
+  "blocked_attempts": 0,
+  "calls": [
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 1,
+      "request_content_sha256": "e141b4b8a25c5bb816186f1b8d89a6d9292d2d1e4f3d9a6ac1efc9c08c5e71eb",
+      "request_id": "2025-05-30-GITS-mbp-1",
+      "status": "success",
+      "value": 5618400
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 2,
+      "request_content_sha256": "e141b4b8a25c5bb816186f1b8d89a6d9292d2d1e4f3d9a6ac1efc9c08c5e71eb",
+      "request_id": "2025-05-30-GITS-mbp-1",
+      "status": "success",
+      "value": "0.006279051304"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 3,
+      "request_content_sha256": "9ca44e822638dd0cb6eac852fc2ff44c1bcbd5ba55966d412d3379b617bc928a",
+      "request_id": "2025-05-30-GITS-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 4,
+      "request_content_sha256": "9ca44e822638dd0cb6eac852fc2ff44c1bcbd5ba55966d412d3379b617bc928a",
+      "request_id": "2025-05-30-GITS-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 5,
+      "request_content_sha256": "782862b85c876bf5158a2aea22e817415e852fccd90ce0b911454b9ac6e8374a",
+      "request_id": "2025-06-02-INM-mbp-1",
+      "status": "success",
+      "value": 3974800
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 6,
+      "request_content_sha256": "782862b85c876bf5158a2aea22e817415e852fccd90ce0b911454b9ac6e8374a",
+      "request_id": "2025-06-02-INM-mbp-1",
+      "status": "success",
+      "value": "0.004442185164"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 7,
+      "request_content_sha256": "ef5f384c1897c9f05a2328660dc7f9ee82d22703db10a6557ca15147ed1072bb",
+      "request_id": "2025-06-02-INM-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 8,
+      "request_content_sha256": "ef5f384c1897c9f05a2328660dc7f9ee82d22703db10a6557ca15147ed1072bb",
+      "request_id": "2025-06-02-INM-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 9,
+      "request_content_sha256": "eb6c887685d5540905c3e604054b955e04e7393a378ff499d2c214da171af4ff",
+      "request_id": "2025-06-02-LYRA-mbp-1",
+      "status": "success",
+      "value": 4006080
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 10,
+      "request_content_sha256": "eb6c887685d5540905c3e604054b955e04e7393a378ff499d2c214da171af4ff",
+      "request_id": "2025-06-02-LYRA-mbp-1",
+      "status": "success",
+      "value": "0.004477143288"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 11,
+      "request_content_sha256": "4ca6a82ebf0c05a8b9c81a712739a603d6ab40084637e9b11793287cb4279f2f",
+      "request_id": "2025-06-02-LYRA-status",
+      "status": "success",
+      "value": 320
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 12,
+      "request_content_sha256": "4ca6a82ebf0c05a8b9c81a712739a603d6ab40084637e9b11793287cb4279f2f",
+      "request_id": "2025-06-02-LYRA-status",
+      "status": "success",
+      "value": "0.000004768372"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 13,
+      "request_content_sha256": "c02ffe7c10f5913b7ebef72db7060c0e8bcb0e2c97d5c9c8f34d197a9c1d0f4e",
+      "request_id": "2025-06-04-STSS-mbp-1",
+      "status": "success",
+      "value": 1329600
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 14,
+      "request_content_sha256": "c02ffe7c10f5913b7ebef72db7060c0e8bcb0e2c97d5c9c8f34d197a9c1d0f4e",
+      "request_id": "2025-06-04-STSS-mbp-1",
+      "status": "success",
+      "value": "0.001485943794"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 15,
+      "request_content_sha256": "681a196d484dc060701ef06e0d6f0632f09ddc0a5f77d0d903053649ca3a3502",
+      "request_id": "2025-06-04-STSS-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 16,
+      "request_content_sha256": "681a196d484dc060701ef06e0d6f0632f09ddc0a5f77d0d903053649ca3a3502",
+      "request_id": "2025-06-04-STSS-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 17,
+      "request_content_sha256": "d96eb9674ad60c56af2ba93f51acc55dde38df36ac1b28fdf22bbf03c6b0ea29",
+      "request_id": "2025-06-06-VERO-mbp-1",
+      "status": "success",
+      "value": 1911600
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 18,
+      "request_content_sha256": "d96eb9674ad60c56af2ba93f51acc55dde38df36ac1b28fdf22bbf03c6b0ea29",
+      "request_id": "2025-06-06-VERO-mbp-1",
+      "status": "success",
+      "value": "0.00213637948"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 19,
+      "request_content_sha256": "d58eb96a4ee4a38c5ca25367826bb9bfb495db820d323940fa427b9dbb290687",
+      "request_id": "2025-06-06-VERO-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 20,
+      "request_content_sha256": "d58eb96a4ee4a38c5ca25367826bb9bfb495db820d323940fa427b9dbb290687",
+      "request_id": "2025-06-06-VERO-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 21,
+      "request_content_sha256": "743273363e2399e77498c76141f3452b384b26aaf7c1a5c29fb468598c319e29",
+      "request_id": "2025-06-09-SNPX-mbp-1",
+      "status": "success",
+      "value": 4124240
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 22,
+      "request_content_sha256": "743273363e2399e77498c76141f3452b384b26aaf7c1a5c29fb468598c319e29",
+      "request_id": "2025-06-09-SNPX-mbp-1",
+      "status": "success",
+      "value": "0.004609197378"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 23,
+      "request_content_sha256": "b2843722818254abf80dce18498ecf8953e52d07d2117783bf4e414c4c1006a9",
+      "request_id": "2025-06-09-SNPX-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 24,
+      "request_content_sha256": "b2843722818254abf80dce18498ecf8953e52d07d2117783bf4e414c4c1006a9",
+      "request_id": "2025-06-09-SNPX-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 25,
+      "request_content_sha256": "9d1fd29066d376e016465b8f7c896c5a966f31bd2f3caee7c4679644a5fe8911",
+      "request_id": "2025-06-10-DPRO-mbp-1",
+      "status": "success",
+      "value": 529200
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 26,
+      "request_content_sha256": "9d1fd29066d376e016465b8f7c896c5a966f31bd2f3caee7c4679644a5fe8911",
+      "request_id": "2025-06-10-DPRO-mbp-1",
+      "status": "success",
+      "value": "0.000591427088"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 27,
+      "request_content_sha256": "d82bc4951100e7396a76be0ef81344d96a8b3d99d3979d576ed2e0539c44d291",
+      "request_id": "2025-06-10-DPRO-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 28,
+      "request_content_sha256": "d82bc4951100e7396a76be0ef81344d96a8b3d99d3979d576ed2e0539c44d291",
+      "request_id": "2025-06-10-DPRO-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 29,
+      "request_content_sha256": "47cac44441c9c405e1336e5095c189a1e1a2e09ec0f59b09d07bd0b60d115d1f",
+      "request_id": "2025-06-10-GELS-mbp-1",
+      "status": "success",
+      "value": 5769840
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 30,
+      "request_content_sha256": "47cac44441c9c405e1336e5095c189a1e1a2e09ec0f59b09d07bd0b60d115d1f",
+      "request_id": "2025-06-10-GELS-mbp-1",
+      "status": "success",
+      "value": "0.006448298693"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 31,
+      "request_content_sha256": "b5faaa72d3d0f29fb787f54d04bdf4c004d771793e402d21f9fa5e937457811b",
+      "request_id": "2025-06-10-GELS-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 32,
+      "request_content_sha256": "b5faaa72d3d0f29fb787f54d04bdf4c004d771793e402d21f9fa5e937457811b",
+      "request_id": "2025-06-10-GELS-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 33,
+      "request_content_sha256": "1437b8769b98a500edb40bc6feb46979023c194ae802b34128fe9a30315c79ad",
+      "request_id": "2025-06-11-HSDT-mbp-1",
+      "status": "success",
+      "value": 6555520
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 34,
+      "request_content_sha256": "1437b8769b98a500edb40bc6feb46979023c194ae802b34128fe9a30315c79ad",
+      "request_id": "2025-06-11-HSDT-mbp-1",
+      "status": "success",
+      "value": "0.007326364517"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 35,
+      "request_content_sha256": "163a0db747c3cb0a4f8492d0c3d609ec5595ab859e646e1e7f314555a161bc79",
+      "request_id": "2025-06-11-HSDT-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 36,
+      "request_content_sha256": "163a0db747c3cb0a4f8492d0c3d609ec5595ab859e646e1e7f314555a161bc79",
+      "request_id": "2025-06-11-HSDT-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 37,
+      "request_content_sha256": "44abf52a56200f989b6a2a866a22327dab5642c8951c2058490cc6d4314d9972",
+      "request_id": "2025-06-12-XTIA-mbp-1",
+      "status": "success",
+      "value": 2813680
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 38,
+      "request_content_sha256": "44abf52a56200f989b6a2a866a22327dab5642c8951c2058490cc6d4314d9972",
+      "request_id": "2025-06-12-XTIA-mbp-1",
+      "status": "success",
+      "value": "0.003144532442"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 39,
+      "request_content_sha256": "8858a8814a5c7ed503d398d08f1e1b3fc3d8ab313c15d7becb4378acee66a2e7",
+      "request_id": "2025-06-12-XTIA-status",
+      "status": "success",
+      "value": 240
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 40,
+      "request_content_sha256": "8858a8814a5c7ed503d398d08f1e1b3fc3d8ab313c15d7becb4378acee66a2e7",
+      "request_id": "2025-06-12-XTIA-status",
+      "status": "success",
+      "value": "0.000003576279"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 41,
+      "request_content_sha256": "6a77aa7b5be28839e5797a352edeefdec25ff029f3bd5a46e5dd257f762f891c",
+      "request_id": "2025-06-18-APVO-mbp-1",
+      "status": "success",
+      "value": 3337840
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 42,
+      "request_content_sha256": "6a77aa7b5be28839e5797a352edeefdec25ff029f3bd5a46e5dd257f762f891c",
+      "request_id": "2025-06-18-APVO-mbp-1",
+      "status": "success",
+      "value": "0.003730326891"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 43,
+      "request_content_sha256": "660acd4f120a57ad7446cf075f5715ebe60e3762fbae792337b2492787c3b218",
+      "request_id": "2025-06-18-APVO-status",
+      "status": "success",
+      "value": 480
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 44,
+      "request_content_sha256": "660acd4f120a57ad7446cf075f5715ebe60e3762fbae792337b2492787c3b218",
+      "request_id": "2025-06-18-APVO-status",
+      "status": "success",
+      "value": "0.000007152557"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 45,
+      "request_content_sha256": "dadcb8c4d79dbdaa5f6ed652b268f6840c5d4637430d5b40024f3500a733f262",
+      "request_id": "2025-06-18-RELI-mbp-1",
+      "status": "success",
+      "value": 5663680
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 46,
+      "request_content_sha256": "dadcb8c4d79dbdaa5f6ed652b268f6840c5d4637430d5b40024f3500a733f262",
+      "request_id": "2025-06-18-RELI-mbp-1",
+      "status": "success",
+      "value": "0.006329655647"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 47,
+      "request_content_sha256": "8e85cd48328ca0497675a2de27cab8693219ce808a995380324d9a375ae30ab9",
+      "request_id": "2025-06-18-RELI-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 48,
+      "request_content_sha256": "8e85cd48328ca0497675a2de27cab8693219ce808a995380324d9a375ae30ab9",
+      "request_id": "2025-06-18-RELI-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 49,
+      "request_content_sha256": "41ce461995de5d3cbc94a6c24a68b47133ffe779487784c50debd3e366f797ac",
+      "request_id": "2025-06-23-HUSA-mbp-1",
+      "status": "success",
+      "value": 913280
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 50,
+      "request_content_sha256": "41ce461995de5d3cbc94a6c24a68b47133ffe779487784c50debd3e366f797ac",
+      "request_id": "2025-06-23-HUSA-mbp-1",
+      "status": "success",
+      "value": "0.001020669937"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 51,
+      "request_content_sha256": "178c47bccc5547898f1717aed969c3bbce8cd0f0d69a4be6615dba425546001e",
+      "request_id": "2025-06-23-HUSA-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 52,
+      "request_content_sha256": "178c47bccc5547898f1717aed969c3bbce8cd0f0d69a4be6615dba425546001e",
+      "request_id": "2025-06-23-HUSA-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 53,
+      "request_content_sha256": "ab8b42f23d2dcea6c98312c282c169065697c379cfe92ed8b639dd944c19b318",
+      "request_id": "2025-06-24-INM-mbp-1",
+      "status": "success",
+      "value": 10122560
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 54,
+      "request_content_sha256": "ab8b42f23d2dcea6c98312c282c169065697c379cfe92ed8b639dd944c19b318",
+      "request_id": "2025-06-24-INM-mbp-1",
+      "status": "success",
+      "value": "0.011312842369"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 55,
+      "request_content_sha256": "6f880eec57ca43adc80b35d0635c69cc61f6dfed32fc3c9f386a9299cc7f3528",
+      "request_id": "2025-06-24-INM-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 56,
+      "request_content_sha256": "6f880eec57ca43adc80b35d0635c69cc61f6dfed32fc3c9f386a9299cc7f3528",
+      "request_id": "2025-06-24-INM-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 57,
+      "request_content_sha256": "ff7db98f7fb2eb1a75257e9b330d5cb97e2eef94ebf0cd56ba0958d3ca1e9243",
+      "request_id": "2025-06-25-GCTK-mbp-1",
+      "status": "success",
+      "value": 2823120
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 58,
+      "request_content_sha256": "ff7db98f7fb2eb1a75257e9b330d5cb97e2eef94ebf0cd56ba0958d3ca1e9243",
+      "request_id": "2025-06-25-GCTK-mbp-1",
+      "status": "success",
+      "value": "0.003155082464"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 59,
+      "request_content_sha256": "6d23ce52b0459da62848a5ba84e1ae9c34e6c9fb45e5cb93057b513b03dff1c1",
+      "request_id": "2025-06-25-GCTK-status",
+      "status": "success",
+      "value": 320
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 60,
+      "request_content_sha256": "6d23ce52b0459da62848a5ba84e1ae9c34e6c9fb45e5cb93057b513b03dff1c1",
+      "request_id": "2025-06-25-GCTK-status",
+      "status": "success",
+      "value": "0.000004768372"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 61,
+      "request_content_sha256": "5d74c6dc9e6f280651428c9d801548a7cb9cabf8dbacc99f11748226af7d798a",
+      "request_id": "2025-06-26-CYN-mbp-1",
+      "status": "success",
+      "value": 21792080
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 62,
+      "request_content_sha256": "5d74c6dc9e6f280651428c9d801548a7cb9cabf8dbacc99f11748226af7d798a",
+      "request_id": "2025-06-26-CYN-mbp-1",
+      "status": "success",
+      "value": "0.024354547262"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 63,
+      "request_content_sha256": "48a104888a23dd3347f1f94346e6b1f66e8476c1ae95b5bbd85542759ecde33b",
+      "request_id": "2025-06-26-CYN-status",
+      "status": "success",
+      "value": 1440
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 64,
+      "request_content_sha256": "48a104888a23dd3347f1f94346e6b1f66e8476c1ae95b5bbd85542759ecde33b",
+      "request_id": "2025-06-26-CYN-status",
+      "status": "success",
+      "value": "0.000021457672"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 65,
+      "request_content_sha256": "9ad80c47c54a8e227e4cb3b57d6f960e759d91d10cb18d21dea1bfe35b1de332",
+      "request_id": "2025-06-27-BBLG-mbp-1",
+      "status": "success",
+      "value": 5873120
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 66,
+      "request_content_sha256": "9ad80c47c54a8e227e4cb3b57d6f960e759d91d10cb18d21dea1bfe35b1de332",
+      "request_id": "2025-06-27-BBLG-mbp-1",
+      "status": "success",
+      "value": "0.006563723087"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 67,
+      "request_content_sha256": "e71fe41c406f0f7f8cf3b2a62e7294a342e7fd10dd008307069ad19e14406de5",
+      "request_id": "2025-06-27-BBLG-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 68,
+      "request_content_sha256": "e71fe41c406f0f7f8cf3b2a62e7294a342e7fd10dd008307069ad19e14406de5",
+      "request_id": "2025-06-27-BBLG-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 69,
+      "request_content_sha256": "86d35ddaed39733531c2b792d3c40a8effdb73ddc5d2c4715914b8cf14786caf",
+      "request_id": "2025-06-27-LCFY-mbp-1",
+      "status": "success",
+      "value": 11062160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 70,
+      "request_content_sha256": "86d35ddaed39733531c2b792d3c40a8effdb73ddc5d2c4715914b8cf14786caf",
+      "request_id": "2025-06-27-LCFY-mbp-1",
+      "status": "success",
+      "value": "0.012362927198"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 71,
+      "request_content_sha256": "1b2529a14c9b21ed5a443ef6ca77320efac53bb936a3848434ca1944f8f87585",
+      "request_id": "2025-06-27-LCFY-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 72,
+      "request_content_sha256": "1b2529a14c9b21ed5a443ef6ca77320efac53bb936a3848434ca1944f8f87585",
+      "request_id": "2025-06-27-LCFY-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 73,
+      "request_content_sha256": "6b26b2187d210a05893300bcacd6ef28792189135b8e490039f3a431ee9ff2d8",
+      "request_id": "2025-07-01-CLRO-mbp-1",
+      "status": "success",
+      "value": 3356640
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 74,
+      "request_content_sha256": "6b26b2187d210a05893300bcacd6ef28792189135b8e490039f3a431ee9ff2d8",
+      "request_id": "2025-07-01-CLRO-mbp-1",
+      "status": "success",
+      "value": "0.003751337528"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 75,
+      "request_content_sha256": "45e53af9955c53fe8ff987322e047e06172463f95ea4d71d10767031e72edda9",
+      "request_id": "2025-07-01-CLRO-status",
+      "status": "success",
+      "value": 320
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 76,
+      "request_content_sha256": "45e53af9955c53fe8ff987322e047e06172463f95ea4d71d10767031e72edda9",
+      "request_id": "2025-07-01-CLRO-status",
+      "status": "success",
+      "value": "0.000004768372"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 77,
+      "request_content_sha256": "009127aefa10cfea8b000ce4f59f47f7eacb9165075b7fcdb1f2b97d3febe12e",
+      "request_id": "2025-07-01-GPUS-mbp-1",
+      "status": "success",
+      "value": 10226800
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 78,
+      "request_content_sha256": "009127aefa10cfea8b000ce4f59f47f7eacb9165075b7fcdb1f2b97d3febe12e",
+      "request_id": "2025-07-01-GPUS-mbp-1",
+      "status": "success",
+      "value": "0.011429339647"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 79,
+      "request_content_sha256": "425e0f3753af566b5af1806b308839885d12f5f610d5959c7f986a0fd4b68178",
+      "request_id": "2025-07-01-GPUS-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 80,
+      "request_content_sha256": "425e0f3753af566b5af1806b308839885d12f5f610d5959c7f986a0fd4b68178",
+      "request_id": "2025-07-01-GPUS-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 81,
+      "request_content_sha256": "ed7b559a9886151d7fef962ac846f9de17bc12e8a22bd4f9e505debf4f611cec",
+      "request_id": "2025-07-01-TRNR-mbp-1",
+      "status": "success",
+      "value": 2900640
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 82,
+      "request_content_sha256": "ed7b559a9886151d7fef962ac846f9de17bc12e8a22bd4f9e505debf4f611cec",
+      "request_id": "2025-07-01-TRNR-mbp-1",
+      "status": "success",
+      "value": "0.003241717815"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 83,
+      "request_content_sha256": "e4a0dd9852e87edcec66f490d88553e151035a8f963d88cdb9415d28d1ccdc80",
+      "request_id": "2025-07-01-TRNR-status",
+      "status": "success",
+      "value": 360
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 84,
+      "request_content_sha256": "e4a0dd9852e87edcec66f490d88553e151035a8f963d88cdb9415d28d1ccdc80",
+      "request_id": "2025-07-01-TRNR-status",
+      "status": "success",
+      "value": "0.000005364418"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 85,
+      "request_content_sha256": "1f1391b82cca3108c55b77606f5f773cdecf55052fe86f97a4d7b66e67ad5dd5",
+      "request_id": "2025-07-02-CYN-mbp-1",
+      "status": "success",
+      "value": 1550640
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 86,
+      "request_content_sha256": "1f1391b82cca3108c55b77606f5f773cdecf55052fe86f97a4d7b66e67ad5dd5",
+      "request_id": "2025-07-02-CYN-mbp-1",
+      "status": "success",
+      "value": "0.001732975245"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 87,
+      "request_content_sha256": "50bd97076405013557e35296c3f5fb3bac81728df832274c4bca0794472c5992",
+      "request_id": "2025-07-02-CYN-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 88,
+      "request_content_sha256": "50bd97076405013557e35296c3f5fb3bac81728df832274c4bca0794472c5992",
+      "request_id": "2025-07-02-CYN-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 89,
+      "request_content_sha256": "f8d808a0053a72e7d945c866cf4d9610f485ec1cffb7d8d30f06a153efaee822",
+      "request_id": "2025-07-02-ELWS-mbp-1",
+      "status": "success",
+      "value": 3161600
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 90,
+      "request_content_sha256": "f8d808a0053a72e7d945c866cf4d9610f485ec1cffb7d8d30f06a153efaee822",
+      "request_id": "2025-07-02-ELWS-mbp-1",
+      "status": "success",
+      "value": "0.003533363342"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 91,
+      "request_content_sha256": "b8442c4b857fd5e5db70f53cbdaa8c173fb38254f126c15e38b76976e6f5db6e",
+      "request_id": "2025-07-02-ELWS-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 92,
+      "request_content_sha256": "b8442c4b857fd5e5db70f53cbdaa8c173fb38254f126c15e38b76976e6f5db6e",
+      "request_id": "2025-07-02-ELWS-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 93,
+      "request_content_sha256": "fe0c94fa0140c83b440df8966ac1bfb4d54e2aaa1a7cc660862a6758226b8676",
+      "request_id": "2025-07-02-LIXT-mbp-1",
+      "status": "success",
+      "value": 2588480
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 94,
+      "request_content_sha256": "fe0c94fa0140c83b440df8966ac1bfb4d54e2aaa1a7cc660862a6758226b8676",
+      "request_id": "2025-07-02-LIXT-mbp-1",
+      "status": "success",
+      "value": "0.00289285183"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 95,
+      "request_content_sha256": "97280d5fb7a49983cf5123036d97fa789d57d94b5be53fa6546212cb936b7dd7",
+      "request_id": "2025-07-02-LIXT-status",
+      "status": "success",
+      "value": 400
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 96,
+      "request_content_sha256": "97280d5fb7a49983cf5123036d97fa789d57d94b5be53fa6546212cb936b7dd7",
+      "request_id": "2025-07-02-LIXT-status",
+      "status": "success",
+      "value": "0.000005960464"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 97,
+      "request_content_sha256": "ccb6690080edc1ea1f353aab595ee2a39677d08756281bb6f1d6a4918737b02b",
+      "request_id": "2025-07-02-NTRB-mbp-1",
+      "status": "success",
+      "value": 334720
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 98,
+      "request_content_sha256": "ccb6690080edc1ea1f353aab595ee2a39677d08756281bb6f1d6a4918737b02b",
+      "request_id": "2025-07-02-NTRB-mbp-1",
+      "status": "success",
+      "value": "0.000374078751"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 99,
+      "request_content_sha256": "7e3d05022c1d27f01346e03fb705557fc770cab89a95a70bfe12fd38eeeecc4b",
+      "request_id": "2025-07-02-NTRB-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 100,
+      "request_content_sha256": "7e3d05022c1d27f01346e03fb705557fc770cab89a95a70bfe12fd38eeeecc4b",
+      "request_id": "2025-07-02-NTRB-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 101,
+      "request_content_sha256": "ac56f7b258d65830ecee3b7fc77aae3c0ee78ed1b71b0c4223c3682e149f6799",
+      "request_id": "2025-07-07-CYCC-mbp-1",
+      "status": "success",
+      "value": 2217200
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 102,
+      "request_content_sha256": "ac56f7b258d65830ecee3b7fc77aae3c0ee78ed1b71b0c4223c3682e149f6799",
+      "request_id": "2025-07-07-CYCC-mbp-1",
+      "status": "success",
+      "value": "0.002477914095"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 103,
+      "request_content_sha256": "eb023e9e551e0d9b80634b267dbf5ac909feb15c960de50a276b4fe0e77f7f98",
+      "request_id": "2025-07-07-CYCC-status",
+      "status": "success",
+      "value": 360
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 104,
+      "request_content_sha256": "eb023e9e551e0d9b80634b267dbf5ac909feb15c960de50a276b4fe0e77f7f98",
+      "request_id": "2025-07-07-CYCC-status",
+      "status": "success",
+      "value": "0.000005364418"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 105,
+      "request_content_sha256": "c74aca1e7db60ae73e275799c8a910a56b42f1cc18e5091c230497896516a016",
+      "request_id": "2025-07-07-MBIO-mbp-1",
+      "status": "success",
+      "value": 28873120
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 106,
+      "request_content_sha256": "c74aca1e7db60ae73e275799c8a910a56b42f1cc18e5091c230497896516a016",
+      "request_id": "2025-07-07-MBIO-mbp-1",
+      "status": "success",
+      "value": "0.032268226147"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 107,
+      "request_content_sha256": "eb76aa684d163676dee699b4bfa968d9f1adcd14d517a5b6526c2fc746d6e2e5",
+      "request_id": "2025-07-07-MBIO-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 108,
+      "request_content_sha256": "eb76aa684d163676dee699b4bfa968d9f1adcd14d517a5b6526c2fc746d6e2e5",
+      "request_id": "2025-07-07-MBIO-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 109,
+      "request_content_sha256": "d354d5987a99e0e20dcbfcd7919e964e58b05c63bb66f3270ad881aa0d6a0878",
+      "request_id": "2025-07-08-IROH-mbp-1",
+      "status": "success",
+      "value": 1131440
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 110,
+      "request_content_sha256": "d354d5987a99e0e20dcbfcd7919e964e58b05c63bb66f3270ad881aa0d6a0878",
+      "request_id": "2025-07-08-IROH-mbp-1",
+      "status": "success",
+      "value": "0.001264482737"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 111,
+      "request_content_sha256": "91903a5c669b9905d800349cc150efa116f7d770922c7320a106ad172e11a7e7",
+      "request_id": "2025-07-08-IROH-status",
+      "status": "success",
+      "value": 400
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 112,
+      "request_content_sha256": "91903a5c669b9905d800349cc150efa116f7d770922c7320a106ad172e11a7e7",
+      "request_id": "2025-07-08-IROH-status",
+      "status": "success",
+      "value": "0.000005960464"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 113,
+      "request_content_sha256": "ffc641465359084746fc054504f7a14fd332613dbbd1fc87f0c46bf68ff44f97",
+      "request_id": "2025-07-08-NDRA-mbp-1",
+      "status": "success",
+      "value": 6439040
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 114,
+      "request_content_sha256": "ffc641465359084746fc054504f7a14fd332613dbbd1fc87f0c46bf68ff44f97",
+      "request_id": "2025-07-08-NDRA-mbp-1",
+      "status": "success",
+      "value": "0.007196187973"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 115,
+      "request_content_sha256": "58d67b9f77eaf6cd434cc6414d5d0a0afcc253f8ce52ef0fc085f736e50f87b8",
+      "request_id": "2025-07-08-NDRA-status",
+      "status": "success",
+      "value": 240
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 116,
+      "request_content_sha256": "58d67b9f77eaf6cd434cc6414d5d0a0afcc253f8ce52ef0fc085f736e50f87b8",
+      "request_id": "2025-07-08-NDRA-status",
+      "status": "success",
+      "value": "0.000003576279"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 117,
+      "request_content_sha256": "43223a2608553c0ba2912e617483e879f7ff5bd3c24a08e3517338267e968583",
+      "request_id": "2025-07-10-DALN-mbp-1",
+      "status": "success",
+      "value": 1357840
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 118,
+      "request_content_sha256": "43223a2608553c0ba2912e617483e879f7ff5bd3c24a08e3517338267e968583",
+      "request_id": "2025-07-10-DALN-mbp-1",
+      "status": "success",
+      "value": "0.001517504454"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 119,
+      "request_content_sha256": "9e5cfbce6cf8ac5237168f092eb2a180db204a22eb40718f8548ff03a265cbab",
+      "request_id": "2025-07-10-DALN-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 120,
+      "request_content_sha256": "9e5cfbce6cf8ac5237168f092eb2a180db204a22eb40718f8548ff03a265cbab",
+      "request_id": "2025-07-10-DALN-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 121,
+      "request_content_sha256": "ff8cd4a748da189383e24914f4cbbe3e5f1f9e30187b48f2139b96d83d2e84c4",
+      "request_id": "2025-07-11-HOLO-mbp-1",
+      "status": "success",
+      "value": 4209760
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 122,
+      "request_content_sha256": "ff8cd4a748da189383e24914f4cbbe3e5f1f9e30187b48f2139b96d83d2e84c4",
+      "request_id": "2025-07-11-HOLO-mbp-1",
+      "status": "success",
+      "value": "0.004704773426"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 123,
+      "request_content_sha256": "246d5b3a5bd4e25529ba9749549100e56a5940c5c2e1dcaf1065be22eb49ed4c",
+      "request_id": "2025-07-11-HOLO-status",
+      "status": "success",
+      "value": 320
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 124,
+      "request_content_sha256": "246d5b3a5bd4e25529ba9749549100e56a5940c5c2e1dcaf1065be22eb49ed4c",
+      "request_id": "2025-07-11-HOLO-status",
+      "status": "success",
+      "value": "0.000004768372"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 125,
+      "request_content_sha256": "4e7c093932bf488ff8c1a262dea3090b470c5ae2050160321675044ca73da304",
+      "request_id": "2025-07-11-SGN-mbp-1",
+      "status": "success",
+      "value": 10553520
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 126,
+      "request_content_sha256": "4e7c093932bf488ff8c1a262dea3090b470c5ae2050160321675044ca73da304",
+      "request_id": "2025-07-11-SGN-mbp-1",
+      "status": "success",
+      "value": "0.011794477701"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 127,
+      "request_content_sha256": "03d565a6ba50ffebaf9dd10a78d67ae855aa2d248a619da2004e97a37e026d20",
+      "request_id": "2025-07-11-SGN-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 128,
+      "request_content_sha256": "03d565a6ba50ffebaf9dd10a78d67ae855aa2d248a619da2004e97a37e026d20",
+      "request_id": "2025-07-11-SGN-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 129,
+      "request_content_sha256": "86315ae193db3ffb162b3039b8cadb2d3aef341fdc2c24619c68f9f77740bbdb",
+      "request_id": "2025-07-14-DARE-mbp-1",
+      "status": "success",
+      "value": 5853200
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 130,
+      "request_content_sha256": "86315ae193db3ffb162b3039b8cadb2d3aef341fdc2c24619c68f9f77740bbdb",
+      "request_id": "2025-07-14-DARE-mbp-1",
+      "status": "success",
+      "value": "0.006541460752"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 131,
+      "request_content_sha256": "360e13149f42838ea756702c53ef5c15125faee368300292b299a6d4419fe877",
+      "request_id": "2025-07-14-DARE-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 132,
+      "request_content_sha256": "360e13149f42838ea756702c53ef5c15125faee368300292b299a6d4419fe877",
+      "request_id": "2025-07-14-DARE-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 133,
+      "request_content_sha256": "9de2092c128e387ca306bd1230eb71ccad586ff429b5530265f94333da682754",
+      "request_id": "2025-07-14-SONN-mbp-1",
+      "status": "success",
+      "value": 1294480
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 134,
+      "request_content_sha256": "9de2092c128e387ca306bd1230eb71ccad586ff429b5530265f94333da682754",
+      "request_id": "2025-07-14-SONN-mbp-1",
+      "status": "success",
+      "value": "0.001446694136"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 135,
+      "request_content_sha256": "dda8adda56c8ac35e281b34ea7920d3ccc1a84a9112e820fe23fcea59ec6cad2",
+      "request_id": "2025-07-14-SONN-status",
+      "status": "success",
+      "value": 560
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 136,
+      "request_content_sha256": "dda8adda56c8ac35e281b34ea7920d3ccc1a84a9112e820fe23fcea59ec6cad2",
+      "request_id": "2025-07-14-SONN-status",
+      "status": "success",
+      "value": "0.00000834465"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 137,
+      "request_content_sha256": "f7b595e0738ea9e93474100439907c302fd4465c0e0cda1f83725d37df4882eb",
+      "request_id": "2025-07-14-SQFT-mbp-1",
+      "status": "success",
+      "value": 4117360
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 138,
+      "request_content_sha256": "f7b595e0738ea9e93474100439907c302fd4465c0e0cda1f83725d37df4882eb",
+      "request_id": "2025-07-14-SQFT-mbp-1",
+      "status": "success",
+      "value": "0.004601508379"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 139,
+      "request_content_sha256": "1f6339fa44769fecd255f20d53841d15b87a0464e96587e5600bdfb25520f557",
+      "request_id": "2025-07-14-SQFT-status",
+      "status": "success",
+      "value": 880
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 140,
+      "request_content_sha256": "1f6339fa44769fecd255f20d53841d15b87a0464e96587e5600bdfb25520f557",
+      "request_id": "2025-07-14-SQFT-status",
+      "status": "success",
+      "value": "0.000013113022"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 141,
+      "request_content_sha256": "83b408c35aa8dd5f04e9f4b244169a8a834396345adfcca70c47a6f2e2729dfb",
+      "request_id": "2025-07-16-BNRG-mbp-1",
+      "status": "success",
+      "value": 3236400
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 142,
+      "request_content_sha256": "83b408c35aa8dd5f04e9f4b244169a8a834396345adfcca70c47a6f2e2729dfb",
+      "request_id": "2025-07-16-BNRG-mbp-1",
+      "status": "success",
+      "value": "0.003616958857"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 143,
+      "request_content_sha256": "c6103dd8285ac4d54ff6f568511f2777cb784c595282b1b7f701ed5e0d95c364",
+      "request_id": "2025-07-16-BNRG-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 144,
+      "request_content_sha256": "c6103dd8285ac4d54ff6f568511f2777cb784c595282b1b7f701ed5e0d95c364",
+      "request_id": "2025-07-16-BNRG-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 145,
+      "request_content_sha256": "1d040c91f21f90e67cbe3d898e21c4b8461e582b78c800f29863f59ae6b0d1cd",
+      "request_id": "2025-07-16-INBS-mbp-1",
+      "status": "success",
+      "value": 57040
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 146,
+      "request_content_sha256": "1d040c91f21f90e67cbe3d898e21c4b8461e582b78c800f29863f59ae6b0d1cd",
+      "request_id": "2025-07-16-INBS-mbp-1",
+      "status": "success",
+      "value": "0.000063747168"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 147,
+      "request_content_sha256": "66d6c5f71dfc5c8b8c5ab6d8dfd7076b4a28a2577220f51203dd68e800978049",
+      "request_id": "2025-07-16-INBS-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 148,
+      "request_content_sha256": "66d6c5f71dfc5c8b8c5ab6d8dfd7076b4a28a2577220f51203dd68e800978049",
+      "request_id": "2025-07-16-INBS-status",
+      "status": "success",
+      "value": "0.000002384186"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 149,
+      "request_content_sha256": "260990e476f600e4693e14cd3de183e52916a1a488ef949742b37cc08249db40",
+      "request_id": "2025-07-16-NUWE-mbp-1",
+      "status": "success",
+      "value": 9807520
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 150,
+      "request_content_sha256": "260990e476f600e4693e14cd3de183e52916a1a488ef949742b37cc08249db40",
+      "request_id": "2025-07-16-NUWE-mbp-1",
+      "status": "success",
+      "value": "0.010960757732"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 151,
+      "request_content_sha256": "f708afc64287e025948e5edcf791c559a9acd2d9513fd5c3be2f944aa0e3b1b1",
+      "request_id": "2025-07-16-NUWE-status",
+      "status": "success",
+      "value": 320
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 152,
+      "request_content_sha256": "f708afc64287e025948e5edcf791c559a9acd2d9513fd5c3be2f944aa0e3b1b1",
+      "request_id": "2025-07-16-NUWE-status",
+      "status": "success",
+      "value": "0.000004768372"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 153,
+      "request_content_sha256": "1ef6fea32cb951ac46db07cd33895dbc1169f3424299f99020d369b3d9611b2d",
+      "request_id": "2025-07-16-QLGN-mbp-1",
+      "status": "success",
+      "value": 1191520
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 154,
+      "request_content_sha256": "1ef6fea32cb951ac46db07cd33895dbc1169f3424299f99020d369b3d9611b2d",
+      "request_id": "2025-07-16-QLGN-mbp-1",
+      "status": "success",
+      "value": "0.001331627369"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 155,
+      "request_content_sha256": "c19b64d77462ccf67fca2972060dd3412dc4fbff7f32c35eaea62f2d2d5f30c4",
+      "request_id": "2025-07-16-QLGN-status",
+      "status": "success",
+      "value": 320
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 156,
+      "request_content_sha256": "c19b64d77462ccf67fca2972060dd3412dc4fbff7f32c35eaea62f2d2d5f30c4",
+      "request_id": "2025-07-16-QLGN-status",
+      "status": "success",
+      "value": "0.000004768372"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 157,
+      "request_content_sha256": "6b0d943f6711f1b3fda79a35fce5ba0a92445c1f915a728eede7e58f93105318",
+      "request_id": "2025-07-17-WINT-mbp-1",
+      "status": "success",
+      "value": 7207440
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 158,
+      "request_content_sha256": "6b0d943f6711f1b3fda79a35fce5ba0a92445c1f915a728eede7e58f93105318",
+      "request_id": "2025-07-17-WINT-mbp-1",
+      "status": "success",
+      "value": "0.008054941893"
+    },
+    {
+      "error": null,
+      "method": "get_billable_size",
+      "ordinal": 159,
+      "request_content_sha256": "bd9792d31ee5e9f8cc79f90fb4279a48b4547f1488312bbf30d7b9f4c6163ff8",
+      "request_id": "2025-07-17-WINT-status",
+      "status": "success",
+      "value": 160
+    },
+    {
+      "error": null,
+      "method": "get_cost",
+      "ordinal": 160,
+      "request_content_sha256": "bd9792d31ee5e9f8cc79f90fb4279a48b4547f1488312bbf30d7b9f4c6163ff8",
+      "request_id": "2025-07-17-WINT-status",
+      "status": "success",
+      "value": "0.000002384186"
+    }
+  ],
+  "complete_request_count": 80,
+  "content_sha256": "ad28f542b6497b6a63e6d4a5aa50d15092f2b8e2472474beecde8e884f11812d",
+  "contract_content_sha256": "a2d233a7018fdda2ef5f40efff85698c3bc9de0d397b4d227f81493604c276b8",
+  "contract_id": "sealed-historical-management-exit-quote-v0.1",
+  "download_authorized_by_this_artifact": false,
+  "exit_input_plan_content_sha256": "e6123425e7363051b542da98efcbc4bcda148823715e2f3230509a7b2ab68115",
+  "http_attempts": 160,
+  "maximum_metadata_calls": 160,
+  "metadata_call_count": 160,
+  "metadata_quote_gate_passed": true,
+  "policy_changed": false,
+  "preflight_error": null,
+  "provenance": {
+    "code_commit_sha": "ee4016ad7cf4c9fcb4b7acace42a4c429fc05339",
+    "code_tree_sha": "5d994fbbf1bb382fdecd5ee69095f4d3ee870b32",
+    "consumption_content_sha256": "323ff4eeb19e851f93ec824fa3926c8b9f4deca19a46b49f4b48a2109ae315cd",
+    "execution_commit_sha": "fde309481843b7c2613d9a673f888f488a1ee795",
+    "execution_content_sha256": "2299424a24362f395aa10dfd2541dff35ad0d5b4c8e59a97a47d0766381d1222",
+    "reuse_evidence_file_sha256": "799d8664916eb89f713dec276134400e87434251ff97ea5c0b0a29219983e75b",
+    "workflow_run_attempt": 1,
+    "workflow_run_id": "34169338681"
+  },
+  "provider_credential_or_error_text_persisted": false,
+  "quote_rows": [
+    {
+      "available": true,
+      "billable_size_bytes": 5618400,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.006279051304",
+      "request_id": "2025-05-30-GITS-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-05-30-GITS-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 3974800,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.004442185164",
+      "request_id": "2025-06-02-INM-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-06-02-INM-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 4006080,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.004477143288",
+      "request_id": "2025-06-02-LYRA-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 320,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000004768372",
+      "request_id": "2025-06-02-LYRA-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 1329600,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.001485943794",
+      "request_id": "2025-06-04-STSS-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-06-04-STSS-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 1911600,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.00213637948",
+      "request_id": "2025-06-06-VERO-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-06-06-VERO-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 4124240,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.004609197378",
+      "request_id": "2025-06-09-SNPX-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-06-09-SNPX-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 529200,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000591427088",
+      "request_id": "2025-06-10-DPRO-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-06-10-DPRO-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 5769840,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.006448298693",
+      "request_id": "2025-06-10-GELS-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-06-10-GELS-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 6555520,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.007326364517",
+      "request_id": "2025-06-11-HSDT-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-06-11-HSDT-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 2813680,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.003144532442",
+      "request_id": "2025-06-12-XTIA-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 240,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000003576279",
+      "request_id": "2025-06-12-XTIA-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 3337840,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.003730326891",
+      "request_id": "2025-06-18-APVO-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 480,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000007152557",
+      "request_id": "2025-06-18-APVO-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 5663680,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.006329655647",
+      "request_id": "2025-06-18-RELI-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-06-18-RELI-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 913280,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.001020669937",
+      "request_id": "2025-06-23-HUSA-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-06-23-HUSA-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 10122560,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.011312842369",
+      "request_id": "2025-06-24-INM-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-06-24-INM-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 2823120,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.003155082464",
+      "request_id": "2025-06-25-GCTK-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 320,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000004768372",
+      "request_id": "2025-06-25-GCTK-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 21792080,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.024354547262",
+      "request_id": "2025-06-26-CYN-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 1440,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000021457672",
+      "request_id": "2025-06-26-CYN-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 5873120,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.006563723087",
+      "request_id": "2025-06-27-BBLG-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-06-27-BBLG-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 11062160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.012362927198",
+      "request_id": "2025-06-27-LCFY-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-06-27-LCFY-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 3356640,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.003751337528",
+      "request_id": "2025-07-01-CLRO-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 320,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000004768372",
+      "request_id": "2025-07-01-CLRO-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 10226800,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.011429339647",
+      "request_id": "2025-07-01-GPUS-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-07-01-GPUS-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 2900640,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.003241717815",
+      "request_id": "2025-07-01-TRNR-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 360,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000005364418",
+      "request_id": "2025-07-01-TRNR-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 1550640,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.001732975245",
+      "request_id": "2025-07-02-CYN-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-07-02-CYN-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 3161600,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.003533363342",
+      "request_id": "2025-07-02-ELWS-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-07-02-ELWS-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 2588480,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.00289285183",
+      "request_id": "2025-07-02-LIXT-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 400,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000005960464",
+      "request_id": "2025-07-02-LIXT-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 334720,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000374078751",
+      "request_id": "2025-07-02-NTRB-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-07-02-NTRB-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 2217200,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.002477914095",
+      "request_id": "2025-07-07-CYCC-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 360,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000005364418",
+      "request_id": "2025-07-07-CYCC-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 28873120,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.032268226147",
+      "request_id": "2025-07-07-MBIO-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-07-07-MBIO-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 1131440,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.001264482737",
+      "request_id": "2025-07-08-IROH-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 400,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000005960464",
+      "request_id": "2025-07-08-IROH-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 6439040,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.007196187973",
+      "request_id": "2025-07-08-NDRA-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 240,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000003576279",
+      "request_id": "2025-07-08-NDRA-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 1357840,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.001517504454",
+      "request_id": "2025-07-10-DALN-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-07-10-DALN-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 4209760,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.004704773426",
+      "request_id": "2025-07-11-HOLO-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 320,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000004768372",
+      "request_id": "2025-07-11-HOLO-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 10553520,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.011794477701",
+      "request_id": "2025-07-11-SGN-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-07-11-SGN-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 5853200,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.006541460752",
+      "request_id": "2025-07-14-DARE-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-07-14-DARE-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 1294480,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.001446694136",
+      "request_id": "2025-07-14-SONN-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 560,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.00000834465",
+      "request_id": "2025-07-14-SONN-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 4117360,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.004601508379",
+      "request_id": "2025-07-14-SQFT-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 880,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000013113022",
+      "request_id": "2025-07-14-SQFT-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 3236400,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.003616958857",
+      "request_id": "2025-07-16-BNRG-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-07-16-BNRG-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 57040,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000063747168",
+      "request_id": "2025-07-16-INBS-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-07-16-INBS-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 9807520,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.010960757732",
+      "request_id": "2025-07-16-NUWE-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 320,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000004768372",
+      "request_id": "2025-07-16-NUWE-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 1191520,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.001331627369",
+      "request_id": "2025-07-16-QLGN-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 320,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000004768372",
+      "request_id": "2025-07-16-QLGN-status",
+      "schema": "status",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 7207440,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.008054941893",
+      "request_id": "2025-07-17-WINT-mbp-1",
+      "schema": "mbp-1",
+      "status": "available"
+    },
+    {
+      "available": true,
+      "billable_size_bytes": 160,
+      "quote_complete": true,
+      "quoted_cost_usd": "0.000002384186",
+      "request_id": "2025-07-17-WINT-status",
+      "schema": "status",
+      "status": "available"
+    }
+  ],
+  "request_count": 80,
+  "request_list_content_sha256": "973a926e063fda7ec76883dd4297b88c77a06af22fe3bc0618330e98e28825b4",
+  "request_substitution_attempted": false,
+  "retrospective_inputs_loaded": false,
+  "reuse_evidence_file_sha256": "799d8664916eb89f713dec276134400e87434251ff97ea5c0b0a29219983e75b",
+  "schema_version": 1,
+  "sdk_version": "0.83.0",
+  "status": "complete",
+  "timeseries_acquired": false,
+  "total_billable_size_bytes": 209898320,
+  "total_quoted_cost_usd": "0.234732925899"
+}

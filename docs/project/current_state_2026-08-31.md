@@ -1,35 +1,42 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: XAGE source reuse verified and bounded exit quote registered
+## Current checkpoint: XAGE reuse and management exit metadata quote independently verified
 
-The isolated `sealed-historical-management-exit-quote-v0.1` child binds the exact
-retained XAGE pair to the frozen runner plan. Both original acquisition ZIPs and
-the full frozen capture chain verified successfully. Independent stdlib checking
-also matched all original ZIP members and all 230,703 XAGE quote records plus
-four status records, preserving native order, original ordinals and exact bytes.
-The original request intervals contain the required common exit interval.
+The one-shot exit quote completed on attempt 1 in run `34169338681`, execution
+`fde309481843b7c2613d9a673f888f488a1ee795`. All 80 requests returned nonzero
+billable size and a cost, using exactly 160 metadata calls and 160 HTTP attempts,
+with zero blocked attempts or retries. Total quoted size is **209,898,320 bytes**
+and total quoted cost is **$0.234732925899 USD**. No time-series data was acquired.
 
-The remaining 80 requests are unchanged: 40 quote/status pairs with at most
-160 metadata and HTTP calls. The child inherits the pinned metadata transport;
-all original entry references, 109 opportunities, 23 unavailable entries, 30 dates,
-12 account paths and 360 session dependencies remain unchanged. Source reuse
-proves integrity and interval containment; each future exit still requires its
-frozen availability and execution checks.
+The frozen report verifier and independent stdlib checker agree on every request,
+size, cost, call order, HTTP attempt, exact file inventory and consumption/code
+provenance. The [permanent audit](../../research/data-audits/sealed-historical-management-exit-quote-v0.1-independent-verification-34169338681.json) and
+[exact quote report](../../research/data-audits/sealed-historical-management-exit-quote-v0.1-report-34169338681.json) retain the result and artifact commitments.
+The new consumed reference points to the exact execution commit; main and all
+14 prior consumed references remain unchanged.
 
-All 1,888 local tests passed with zero skips, and 83 focused tests passed normally
-and optimized. The [registration audit](../../research/data-audits/sealed-historical-management-exit-quote-v0.1-registration-verification.json)
-retains source, implementation, test and independent verification commitments.
+The retained XAGE pair is fully verified: both original acquisition ZIPs, the
+complete frozen capture chain, 230,703 quote records and four status records.
+Compressed and normalized bytes, native order and original ordinals match their
+receipts, and the original intervals contain the registered common exit interval.
+Reuse does not infer fresh executable quotes or status at every future exit.
 
-The registration is unarmed. Metadata access requires a sole added execution
-record bound to successful first-attempt code CI and dedicated validation, then
-an atomic new consumed tag and durable consumption upload before credential use.
-Existing continued-work authorization covers that metadata-only step, with zero
-provider spend. No new source acquisition or historical replay has run here.
+Code `ee4016ad7cf4c9fcb4b7acace42a4c429fc05339` passed all eight hosted
+workflows on attempt 1. Dedicated run `34169077069` passed 83 tests normally
+and optimized with zero skips. Local full verification passed 1,888 tests with
+zero skips; hosted CI passed the same suite with 54 optional-SDK skips. Both
+execution workflows also passed on attempt 1.
 
-Next: verify hosted code validation and execute the authorized one-shot metadata
-quote, then independently verify the retained quote artifacts. A separately
-registered acquisition child and the unresolved account/runtime integrations
-remain required. See [exit reuse and quote](../research/sealed_historical_management_exit_quote_v01.md).
+All 109 original opportunities, 23 unavailable entry inputs, 30 dates, 12 account
+paths and 360 session dependencies remain unchanged. The remaining source scope
+is still the same 80 requests across 40 groups, plus the one verified XAGE pair.
+The quote authorizes no purchase, historical replay or account simulation.
+
+Next: register a separately consumed acquisition child for the exact 80 requests,
+bound to this verified quote and hard size/cost re-quote ceilings. Historical fees,
+sell-ledger reconciliation, authenticated account-state production, causal
+next-session valuation, continuous account/order integration and the historical
+execution child remain unresolved. See [exit reuse and quote](../research/sealed_historical_management_exit_quote_v01.md).
 
 ## Prior checkpoint: causal runner and exact exit-input plan independently verified
 
