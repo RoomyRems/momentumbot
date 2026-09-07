@@ -1,12 +1,31 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current preparation: remaining exact execution inputs v0.3
+## Current checkpoint: remaining execution inputs independently verified
 
-The verified JVA checkpoint is the frozen parent of a separate 65-request
-acquisition. It preserves the 24 completed tapes, retains JVA as unavailable,
-and binds the original suffix without changing windows, dates or policies.
-Complete evidence classification never opens the acquisition/runtime gate.
-See [the v0.3 registration](../research/sealed_historical_execution_acquisition_v03.md).
+[Run 34084113393](https://github.com/RoomyRems/momentumbot/actions/runs/34084113393)
+completed once as push attempt 1 at `0c4010044ee8557136b3c119c6350e134bba46d2`.
+All 65 previously unattempted requests produced complete tapes: 892,085 MBP-1
+rows and 116 status rows. Independent verification passed both GitHub ZIPs,
+all 161 outer archive members, both embedded parent archives and every one of
+their 79 files. The 195-attempt separate ledger has zero blocked attempts.
+
+Together with the immutable parent, there are 89 complete tapes and 965,815
+normalized rows. The exact JVA quote request remains unavailable through the
+verified metadata-only diagnostic. All 90 requests now have retained evidence,
+with no unattempted requests. The acquisition and runtime input gates remain
+false. All 109 decisions, 45 symbol/date pairs and 30 sessions remain bound.
+
+Code checkpoint `43318c208e4bf4ca287558192741ba767dd79072` passed 142 focused
+tests normally and optimized plus all 1,587 repository tests locally. Hosted
+CI and dedicated pinned-environment validation also passed. Main, all consumed
+parents and the original 30,522-request source ledger remain unchanged.
+No account/fill simulation or backtesting ran. The monitor remains paused.
+
+Next dependency: register provider-free per-opportunity input availability and
+quote-window composition bound to these exact artifacts, retaining JVA's
+unavailable opportunity and all existing input/quote/account gates. No missing
+input may become a zero-trigger or substituted result. See
+[the permanent v0.3 result](../research/sealed_historical_execution_acquisition_v03.md#independently-verified-result--2026-09-07).
 
 ## Prior checkpoint: JVA empty input independently diagnosed
 

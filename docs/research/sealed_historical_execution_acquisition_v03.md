@@ -74,3 +74,62 @@ Local preparation passed 142 focused tests normally and optimized, all 1,587
 repository tests, and undefined-name validation. All 29 locked dependencies
 match; the local interpreter is CPython 3.12.13. Exact hosted CPython 3.12.14
 validation remains a required gate before the sole execution child.
+
+## Independently verified result — 2026-09-07
+
+[Run 34084113393](https://github.com/RoomyRems/momentumbot/actions/runs/34084113393)
+completed successfully as research push attempt 1 at execution
+`0c4010044ee8557136b3c119c6350e134bba46d2`, tree
+`cf89a983dc3939daf41011c7ec98a6720a4c6923`. Code parent
+`43318c208e4bf4ca287558192741ba767dd79072` has tree
+`47a0fbfaddf505c589e7292df7b534ce23872325`.
+
+| Retained evidence | GitHub artifact | Measured ZIP SHA-256 |
+|---|---|---|
+| Consumption, 17 files | [10004656665](https://github.com/RoomyRems/momentumbot/actions/runs/34084113393/artifacts/10004656665) | `105e3b93fb7be691d330e4e35451455352c5e64fc914ede3e7a253d4f769154a` |
+| Result, 144 files | [10004782232](https://github.com/RoomyRems/momentumbot/actions/runs/34084113393/artifacts/10004782232) | `1fe68f4e526caa6ce0ee8f8845248e5ef3039f3e3ffbce370020162add3b99d6` |
+
+The capture report file hash is
+`c30afea5d304701e57debd74348375b40de1d48edea5439e67b5a95bded15cce`;
+its content hash is
+`71b4048a0add1916ed78669c99cb7fb1127a5ecc2a6a6176f1976f8fa773f85a`.
+Inventory content is
+`c92f1063eb260421df41f7797aa0ca95ce5a88528234045c5274e7488b642871`.
+
+The independent stdlib verifier and the frozen verifier agree on all 144 result
+members, 65 new tapes and receipts, 892,085 MBP-1 rows and 116 status rows.
+There are no new unavailable requests and none left unattempted. Both parent
+ZIPs and all 79 embedded files remain byte-identical. Including the 24 parent
+tapes, all 89 complete tapes contain 965,815 normalized rows and 262,464,208
+normalized bytes. Native quote ties retain their original request ordinals.
+
+All 130 metadata checks and 65 downloads completed: 195 provider attempts,
+zero blocked attempts, retries or redirects. Fresh quote totals were unchanged
+at 131,758,640 billable bytes and USD 0.147390693429; actual billing is unknown.
+Consumption was finalized before the sole provider step. CPython 3.12.14 and
+all 29 hash-locked dependencies matched. All nine protected refs, including the
+new consumption ref, verified after capture. The original source ledger remains
+30,522 requests (Alpaca 28,831; SEC 1,328; Massive 363).
+
+All 142 focused tests passed normally and optimized, including 26 new tests.
+All 1,587 tests passed locally without SDK skips. Hosted CI also passed with
+51 SDK-dependent skips: 47 were covered in this exact dedicated run and four
+unchanged diagnostic tests were covered by the previously verified locked
+validation run 34078724334. The execution child's CI also passed. No consumed
+workflow was rerun.
+
+The one unavailable input remains `2025-06-13-JVA-mbp-1`, affecting frozen
+opportunity `opportunity-584abfa60e5a82b205ac89afb352068295e49e833f930caf9d60018d1e1b694a`.
+Its quote window and the verified empty response remain immutable.
+`request_evidence_complete=true`; `acquisition_gate_passed=false` and
+`runtime_input_eligible=false`. No account/fill simulation, backtesting, policy
+change or retrospective activity occurred. The completed monitor is paused.
+The next development dependency is the registered provider-free per-opportunity
+availability and quote-window composition, preserving all unavailable outcomes
+and the existing quote/account gates.
+
+Permanent evidence is in
+`research/data-audits/sealed-historical-execution-input-acquisition-v0.3-independent-verification-34084113393.json`,
+with exact report and inventory copies beside it. The audit includes every
+measured file hash, full reproducible independent-verifier source, all job/step
+outcomes, sanitized log excerpts and the frozen remaining dependency.
