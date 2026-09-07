@@ -1,6 +1,26 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current prepared step: exact JVA empty-input diagnosis
+## Current checkpoint: JVA empty input independently diagnosed
+
+[Diagnostic run 34079022132](https://github.com/RoomyRems/momentumbot/actions/runs/34079022132)
+completed once at `8854bb2e63dc3961d98c5d8827f857ef85ccb341` (push, attempt 1).
+Both artifact ZIPs and all 30 retained files passed independent verification.
+The exact 99-byte DBN matches the original v0.2 failure: valid JVA mapping,
+zero native events, zero mapped rows. The unchanged normalizer correctly returns
+`empty_exact_request`; no records were lost in mapping or normalization.
+
+The separate ledger is three HTTP attempts, zero blocked attempts. All seven
+protected parent refs, the original 30,522-request source ledger, and the 24
+completed v0.2 tapes / 73,614 rows remain unchanged. Validation passed 97 focused
+tests normally and optimized and 1,561 repository tests. The monitor is paused.
+
+Next dependency: separately register missing-input handling for the confirmed
+empty request and the 65 unattempted requests, preserving exact windows and
+explicit unavailability. Acquisition/quote gates remain closed. No account/fill
+simulation or backtesting has run. See [the permanent diagnostic result](../research/sealed_historical_execution_empty_diagnostic_v01.md#independently-verified-result--2026-09-07).
+
+
+## Prior preparation: exact JVA empty-input diagnosis
 
 A separate `sealed-historical-execution-input-empty-diagnostic-v0.1` is registered
 against the permanent v0.2 failure at checkpoint `36375ab2d627e98b864aba3c91157efe55e2203c`.

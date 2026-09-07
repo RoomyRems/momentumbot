@@ -1,0 +1,83 @@
+{
+  "compression": "zstd",
+  "content_sha256": "fd8d9398a608a4c19b9d10904a5c3971c1de4618be812c9fb776db00489e28e1",
+  "decoded_v3_record_bytes_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "decoding_complete": true,
+  "decompressed_bytes": 206,
+  "decompressed_sha256": "1b64761dbac98f9ec45a54707dc9a673b1fefcd6f96d6795ab59dd1b3b2d244b",
+  "metadata": {
+    "dataset": {
+      "kind": "text",
+      "value": "XNAS.ITCH"
+    },
+    "decoded_metadata_encoded_sha256": "c9b6c49cb8fd9c92dc1f151721804ddfe08285981aae92d4383e0c0be01c27ad",
+    "end": {
+      "kind": "integer",
+      "value": 1749822930392083340
+    },
+    "exact_request_metadata": true,
+    "limit": {
+      "kind": "null"
+    },
+    "mapping_interval_count": 1,
+    "mappings": [
+      {
+        "intervals": [
+          {
+            "end_date": "2025-06-14",
+            "instrument_id": 9236,
+            "start_date": "2025-06-13",
+            "symbol": {
+              "kind": "other_text",
+              "length": 4,
+              "sha256": "86c69827423d611ffbab65c1c45e23ef717326285c9ce9f4893c7c4604c39045"
+            }
+          }
+        ],
+        "raw_symbol": {
+          "kind": "text",
+          "value": "JVA"
+        }
+      }
+    ],
+    "not_found": [],
+    "partial": [],
+    "schema": {
+      "kind": "integer",
+      "value": 1
+    },
+    "start": {
+      "kind": "integer",
+      "value": 1749822929742083339
+    },
+    "stype_in": {
+      "kind": "integer",
+      "value": 1
+    },
+    "stype_out": {
+      "kind": "integer",
+      "value": 0
+    },
+    "symbols": [
+      {
+        "kind": "text",
+        "value": "JVA"
+      }
+    ],
+    "ts_out": {
+      "kind": "boolean",
+      "value": false
+    },
+    "version": {
+      "kind": "integer",
+      "value": 3
+    }
+  },
+  "native_mbp1_count": 0,
+  "native_record_count": 0,
+  "projection_content_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "record_types": {},
+  "runtime_input_eligible": false,
+  "wire_bytes": 99,
+  "wire_sha256": "ae2ff3b0dd1be78d948ac39bda9de49eafef668e1678f92128aff6f1b227519f"
+}
