@@ -1,0 +1,408 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "account_paths": 12,
+  "account_reset_between_dates": false,
+  "account_runtime_input_gate_passed": false,
+  "account_state_handoff_verifies_transport_only": true,
+  "acquisition_gate_passed": false,
+  "all_109_opportunities_preserved": true,
+  "approved_initial_equity_and_equal_buying_power_usd": {
+    "main_account": "30000.00",
+    "small_account": "2000.00"
+  },
+  "artifact_type": "independent_verification_of_historical_account_and_management_input_plan",
+  "backtesting_executed": false,
+  "broker_account_read": false,
+  "content_sha256": "0f001b64bcd43f513703e38415eeae751f29a1889a8986c63289b4dcc41b2477",
+  "contract_content_sha256": "45ad1346c1be4846d5bd785e1221fd73caed4e77b177317a2291460bc69508ed",
+  "contract_id": "sealed-historical-account-management-inputs-v0.1",
+  "descriptive_sip_exit_may_close_account_position": false,
+  "freeze_manifest_content_sha256": "9c72aa77268795153ec12ebf5d3b3d2d11defada69325e867f3af814ad8e75f3",
+  "frozen_parent_file_count": 19,
+  "frozen_prior_availability_file_count": 31,
+  "full_source_reconstruction": {
+    "account_or_fill_simulation_executed": false,
+    "account_runtime_input_gate_passed": false,
+    "acquisition_gate_passed": false,
+    "backtesting_executed": false,
+    "broker_account_read": false,
+    "content_sha256": "49eff5180882ed374322c02158baab4ca2d51f861ded730a06e558d256c6d016",
+    "contract_id": "sealed-historical-account-management-inputs-v0.1",
+    "file_count": 5,
+    "file_inventory": {
+      "account-seeds.json": {
+        "bytes": 3123,
+        "sha256": "2579ee6d763001e57494a6e6739b9c3142ba31fde77549b59a6907e05ef47ec1"
+      },
+      "account-session-input-plan.json": {
+        "bytes": 658144,
+        "sha256": "8ca638578e7957c88f4314e0768a3c379ee0bd1278bd6d8c8e9caa2144f05108"
+      },
+      "freeze-manifest.json": {
+        "bytes": 2794,
+        "sha256": "eed7aa35e74e16e6904ad01fd3bb930792add7825133103a967e1568d7a5a54f"
+      },
+      "management-request-manifest.json": {
+        "bytes": 185659,
+        "sha256": "d493f770de187454d08a631a3b183cbc616fa302fbac9bd51c67be8ed6316379"
+      },
+      "readiness-report.json": {
+        "bytes": 8254,
+        "sha256": "c5876e9fa08e09cfb33e57e35938856a16e160bebf3f98fc6640a772875a50b3"
+      }
+    },
+    "freeze_manifest_content_sha256": "9c72aa77268795153ec12ebf5d3b3d2d11defada69325e867f3af814ad8e75f3",
+    "historical_execution_authorized": false,
+    "management_input_gate_passed": false,
+    "management_projection_executed": false,
+    "paper_or_live_orders_authorized": false,
+    "policy_changed": false,
+    "portfolio_financial_metrics_eligible": false,
+    "provider_calls": 0,
+    "provider_purchase_authorized_usd": "0",
+    "readiness": {
+      "account_or_fill_simulation_executed": false,
+      "account_paths": 12,
+      "account_runtime_input_gate_passed": false,
+      "account_seed_inputs_registered": true,
+      "account_state_handoff_implemented": true,
+      "acquisition_gate_passed": false,
+      "availability_summary": {
+        "input_status_counts": {
+          "available": 86,
+          "halted": 0,
+          "unavailable": 23
+        },
+        "opportunity_count": 109,
+        "quote_occurrence_count": 7623,
+        "reason_counts": {
+          "causal_reference_and_window_available": 86,
+          "known_halted_decision_reference": 0,
+          "unavailable_exact_quote_request": 1,
+          "unavailable_exact_status_request": 0,
+          "unavailable_no_fresh_decision_quote": 22,
+          "unavailable_status_not_causally_known": 0
+        }
+      },
+      "backtesting_executed": false,
+      "broker_account_read": false,
+      "content_sha256": "ea88f9d746b7fec6cd1eaf0c92ec8227ac1342208ad3936fd45fd14b271c667d",
+      "contract_id": "sealed-historical-account-management-inputs-v0.1",
+      "descriptive_sip_exit_may_close_account_position": false,
+      "exit_execution_implementation_registered": false,
+      "historical_execution_authorized": false,
+      "later_session_state": "requires_frozen_prior_close_and_causal_session_start_valuation",
+      "management_input_gate_passed": false,
+      "management_logical_resource_requests": 112,
+      "management_projection_executed": false,
+      "management_source_reuse_or_capture_verified": false,
+      "merged_management_windows": 56,
+      "next_gate": "verify_retained_management_source_reuse_and_register_bounded_missing_input_capture",
+      "once_only_seed_slots": 12,
+      "paper_or_live_orders_authorized": false,
+      "policy_changed": false,
+      "portfolio_financial_metrics_eligible": false,
+      "prior_close_dependency_slots": 348,
+      "provider_calls": 0,
+      "provider_purchase_authorized_usd": "0",
+      "retrospective_inputs_loaded": false,
+      "session_input_slots": 360,
+      "unavailable_opportunities": [
+        {
+          "availability_content_sha256": "1cdf143ae400b538ff0f57db2361e72d0d4c91089e89b3e0569480331a854a78",
+          "opportunity_id": "opportunity-75998c7109068f86eeae11cdf8d07c671bc6571ba34cf12bfa4c5630db233dd0",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "0a52c16208e6ccb408e703d1e26abab0d9463d4fbaeb54d282ff37d8d1799a20",
+          "opportunity_id": "opportunity-91c2bf886fc686a13d8f6d185643bae7802169e8611e4e0c26373c483e694f95",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "d08bbdd5f28b5e8d9432190efbee460c2befc94b00c49e7959bb24c358a90646",
+          "opportunity_id": "opportunity-99c859420303ddd6d9ba1ef321293b0f9e070d0455ab9fbfb2cadf6e1ea041a8",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "a1270cbe73f3687c1d5362644e2b87f7b9355b03fe9d2bf6b16e2ccdafce93d0",
+          "opportunity_id": "opportunity-818996dddf4b7ead9cbe106131f0cf69f735082d08092a64914bfbfcca18fd8b",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "96ce4001a044603a29cb95ee4fa10ba38f0e0d13e79f102b4f8f1b7b118f8009",
+          "opportunity_id": "opportunity-c7f2ebbed9ef4dbb1696bf81011042e5971bdb5850e80d7245e9ea6994d7c213",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "50aacd86e7238143653462867434fc22c776b946a07356ce00622fc0af801b59",
+          "opportunity_id": "opportunity-acc2da4e0ad7e272902cf5d550489b4a7efa9b6ffdaec0f62e364da3672f4908",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "ac84b8534101a24ed5869c580e2b246ec1b03a8d9bc565ca8ef99cde2d4f8b48",
+          "opportunity_id": "opportunity-ba711448d3fa0fce6dd148eed47f48b8e717c2fdbcb1dacb1edeb14e1310d300",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "da5f6c00b40f4569bb5763fc79113999aa590b14e207633eaf4f914c4c619469",
+          "opportunity_id": "opportunity-2f75d20ec9526bcfdc71cd11ae4bafb66d608160bc40d01a7365fdb51dd12889",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "6f0687f01643929760f27768705b32b486f2f6d78c31e1e3ea17560349468ebb",
+          "opportunity_id": "opportunity-7f9ffab8ba19748b90acf4fe3ffc7ef7f268c0c02bc4782c2db72bba407f2713",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "5b6685b2e319cb8ace88dfecee93952ee1327f7a69e15c881e5ba37d8fe7ee0b",
+          "opportunity_id": "opportunity-fd9baebb29f5a217ce431b05a7e36c43d3063a64153a5eb31c9972db82eef81c",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "5b8008884162ec45bd159570bf2a8ca5d42f68428eb56425e587944cc27d9d04",
+          "opportunity_id": "opportunity-584abfa60e5a82b205ac89afb352068295e49e833f930caf9d60018d1e1b694a",
+          "reason": "unavailable_exact_quote_request"
+        },
+        {
+          "availability_content_sha256": "a12f7ae15fedd3edbef1346c4c193f3480fc6382d06c77041344f7626536e13e",
+          "opportunity_id": "opportunity-4d83ec12224b11e029521c1171423b31f2a1ad827d7409738dc05f44fcf4d569",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "bb3d4bcabb6846bb06ce9caefd50b5ba01eccfefa260231f5bd67a68c9e3af86",
+          "opportunity_id": "opportunity-4a97cda9ccdb46e3dc514ffe443ca44add31c44886c254029f98f25e34d69cad",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "e6d3c884f7093b1ad99cab81028530c8700a2c7a9738b27cfc72baf3015c6cc5",
+          "opportunity_id": "opportunity-251fdc34ac3c0e026f6c3be9cdc524dd7dfe8ec8663c5febe9a881b46c532cd1",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "839b6a09b7deff57812259026ce953fcdab9e8b4286da26427baa6757d3e66bf",
+          "opportunity_id": "opportunity-db65a544ab923ed3190305150c9b9e706add3db2e932ca8d0d230a52400911cd",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "03f44d1200ffa293c6288083a24a67013d701ebbe2a44d9302e118621dc16b01",
+          "opportunity_id": "opportunity-320baaacb258c3a2bef8256f38cdd35ab628109a5fac297545bbf0f196d2aaf4",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "e515a139c312863fc292564d4665f09277aa991e557179969b6a7e59f73f1881",
+          "opportunity_id": "opportunity-5bf58ed9dd087834a5d8afed7b6abac4374c793cb222f61736ee6ebc607d46c2",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "1b9c2461b707343a25322071eeb26bb8108d8bfe97644cb2f0384f38847b7df3",
+          "opportunity_id": "opportunity-a0276724717eaf93a381d3342645be966a2e8d80b7b3cd7efd497db0e9910fdf",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "4a03ba4cbade615ad101dbf56fb73e204a10b5ce3c7c9fae5c70476702c127af",
+          "opportunity_id": "opportunity-2a86dcd2de0ebf20fd947a7e947ee803b783b9e1ff50c1d7253c1d78480f52e2",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "ad77f84e55366df4802f1415a7eae983a2f4c11247cdc8f0c8a799a6ba33aa00",
+          "opportunity_id": "opportunity-194603dafa0ad839cc2cdd508df6d476fc7404d0a04cea709145ed89ae95ead4",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "0fa46307c5c9057f7898b2870f9324d610c3a941c8312e8188c99b997de42821",
+          "opportunity_id": "opportunity-67ca66e396fa42db1ae83b581c5811b95c28d094c0f83baa046f7741756f8d60",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "e8eaa203d69dd034fa8a04a834f3e52107404f9315d52838a283a93289758168",
+          "opportunity_id": "opportunity-844e581823df4c1cf1c1ff4a83acabfef89ae4fa7df3c19491f31d89d8c729b7",
+          "reason": "unavailable_no_fresh_decision_quote"
+        },
+        {
+          "availability_content_sha256": "b97794f17c6c1ed231859fe134e0d25fce0cb61ec5dc5cac3e1f76c8539f8451",
+          "opportunity_id": "opportunity-f447e89f2330dce21d74db57aeaf3c4986f5896ae5282f84c5be2fd7ccee09c5",
+          "reason": "unavailable_no_fresh_decision_quote"
+        }
+      ]
+    },
+    "retrospective_inputs_loaded": false,
+    "verification_passed": true
+  },
+  "full_source_reconstruction_identical": true,
+  "historical_execution_authorized": false,
+  "implementation_file_sha256": {
+    ".github/workflows/sealed-historical-account-inputs-v01.yml": "67b8d897d44e39e72dc1c588b4fabd66e0ffb25b401db678d7161b4b8f55f33b",
+    "research/strategy/sealed-historical-account-management-inputs-v0.1.json": "222fcf457971657e3705a53dee6d8dcf8ede26770fa905cad4a101c39a2aca2b",
+    "scripts/build_sealed_historical_account_inputs_v01.py": "307cabdde121cc56d61fa4486194791e6ed50482789bb4d51cb371cfc3ea0a90",
+    "src/momentumbot/research/sealed_historical_account_inputs_v01.py": "b7a28487807dd5d841a205d6ab74429fb3ed5f0f74b345712c57579e360228dd"
+  },
+  "independent_verification": {
+    "account_seed_values": {
+      "main_account": "30000.00",
+      "small_account": "2000.00"
+    },
+    "boundary": {
+      "account_or_fill_simulation_executed": false,
+      "account_runtime_input_gate_passed": false,
+      "acquisition_gate_passed": false,
+      "backtesting_executed": false,
+      "broker_account_read": false,
+      "historical_execution_authorized": false,
+      "management_input_gate_passed": false,
+      "management_projection_executed": false,
+      "paper_or_live_orders_authorized": false,
+      "policy_changed": false,
+      "portfolio_financial_metrics_eligible": false,
+      "provider_calls": 0,
+      "provider_purchase_authorized_usd": "0",
+      "retrospective_inputs_loaded": false
+    },
+    "content_sha256": "21cefa59044dcd0c06d417f0c8eabf46c204b0a61b9fa8776c8cf99b6a2a1a3b",
+    "contract_content_sha256": "45ad1346c1be4846d5bd785e1221fd73caed4e77b177317a2291460bc69508ed",
+    "file_count": 5,
+    "file_inventory": {
+      "account-seeds.json": {
+        "bytes": 3123,
+        "sha256": "2579ee6d763001e57494a6e6739b9c3142ba31fde77549b59a6907e05ef47ec1"
+      },
+      "account-session-input-plan.json": {
+        "bytes": 658144,
+        "sha256": "8ca638578e7957c88f4314e0768a3c379ee0bd1278bd6d8c8e9caa2144f05108"
+      },
+      "freeze-manifest.json": {
+        "bytes": 2794,
+        "sha256": "eed7aa35e74e16e6904ad01fd3bb930792add7825133103a967e1568d7a5a54f"
+      },
+      "management-request-manifest.json": {
+        "bytes": 185659,
+        "sha256": "d493f770de187454d08a631a3b183cbc616fa302fbac9bd51c67be8ed6316379"
+      },
+      "readiness-report.json": {
+        "bytes": 8254,
+        "sha256": "c5876e9fa08e09cfb33e57e35938856a16e160bebf3f98fc6640a772875a50b3"
+      }
+    },
+    "freeze_manifest_content_sha256": "9c72aa77268795153ec12ebf5d3b3d2d11defada69325e867f3af814ad8e75f3",
+    "logical_resource_request_count": 112,
+    "merged_management_window_count": 56,
+    "panel_counts": {
+      "opportunity_references": 744,
+      "prior_closes": 348,
+      "seeds": 12,
+      "slots": 360,
+      "unavailable_references": 162,
+      "zero_decision_slots": 60
+    },
+    "unavailable_opportunity_count": 23,
+    "verification_passed": true,
+    "verifier": "independent_stdlib_no_runtime_imports"
+  },
+  "independent_verifier_source": "\"\"\"Independently verify static account/management inputs without runtime imports.\"\"\"\nfrom collections import Counter, defaultdict\nimport gzip\nimport hashlib\nimport json\nfrom pathlib import Path\nimport sys\n\n\ndef deny(event, args):\n    if event.startswith('socket.') or event in {'subprocess.Popen', 'os.system', 'os.posix_spawn', 'os.posix_spawnp', 'os.exec', 'os.fork', 'os.forkpty'}:\n        raise RuntimeError('independent planner verification forbids external I/O')\n\n\nsys.addaudithook(deny)\nROOT = Path('/workspace/scratch/2d76267c92e1/momentumbot')\nOUT = ROOT / 'research/runtime/sealed-historical-account-management-inputs-v0.1'\nCONTRACT_ID = 'sealed-historical-account-management-inputs-v0.1'\n\n\ndef sha(raw):\n    return hashlib.sha256(raw).hexdigest()\n\n\ndef fp(value):\n    return sha(json.dumps(value, sort_keys=True, separators=(',', ':'), allow_nan=False).encode())\n\n\ndef check(ok, label):\n    if not ok: raise ValueError(label)\n\n\ndef seals(value):\n    if isinstance(value, dict):\n        if 'content_sha256' in value:\n            check(value['content_sha256'] == fp({k: v for k, v in value.items() if k != 'content_sha256'}), 'content seal')\n        for child in value.values(): seals(child)\n    elif isinstance(value, list):\n        for child in value: seals(child)\n\n\ndef doc(path):\n    value = json.loads(path.read_bytes())\n    seals(value)\n    return value\n\n\ncontract = doc(ROOT / f'research/strategy/{CONTRACT_ID}.json')\nfor name, expected in contract['frozen_parent_file_sha256'].items():\n    check(sha((ROOT / name).read_bytes()) == expected, 'frozen parent bytes')\ndocuments = {p.name: doc(p) for p in OUT.iterdir()}\ncheck(set(documents) == {'account-seeds.json', 'account-session-input-plan.json', 'management-request-manifest.json', 'readiness-report.json', 'freeze-manifest.json'}, 'exact output population')\nmanifest = documents['freeze-manifest.json']\ninventory = {p.name: {'bytes': p.stat().st_size, 'sha256': sha(p.read_bytes())} for p in OUT.iterdir()}\ncheck(manifest['file_inventory'] == {k: v for k, v in inventory.items() if k != 'freeze-manifest.json'}, 'physical inventory')\nfor name, expected in manifest['implementation_file_sha256'].items():\n    check(sha((ROOT / name).read_bytes()) == expected, 'implementation bytes')\nfor name, expected in manifest['document_content_sha256'].items():\n    check(documents[name]['content_sha256'] == expected, 'document commitments')\ncheck(manifest['contract_content_sha256'] == contract['content_sha256'], 'contract identity')\ndates = contract['dates']\ncheck(dates == doc(ROOT / 'research/strategy/sealed-historical-walk-forward-v0.1.json')['sampling_contract']['selected_dates'], 'original dates')\nopp_manifest = doc(ROOT / 'research/runtime/sealed-historical-execution-input-plan-v0.1/opportunity-manifest.json')\nops = opp_manifest['opportunities']\nold_root = ROOT / 'research/runtime/sealed-historical-execution-availability-v0.1'\nold_manifest = doc(old_root / 'manifest.json')\ncheck(old_manifest['content_sha256'] == '9fd935aa16caef6a823ab6a44c4f7e864e47231cf7189b7feb4069ac179bb6d4', 'exact availability parent')\nstates = {}\nfor date in dates:\n    path = old_root / f'dates/{date}.json.gz'\n    check(sha(path.read_bytes()) == old_manifest['date_file_inventory'][f'dates/{date}.json.gz']['sha256'], 'original availability date bytes')\n    day = json.loads(gzip.decompress(path.read_bytes())); seals(day)\n    states.update({row['opportunity']['opportunity_id']: row for row in day['opportunities']})\nseeds = {v['account_key']: v for v in documents['account-seeds.json']['seeds']}\ncheck(set(seeds) == {'main_account', 'small_account'}, 'both approved accounts')\nfor account, equity in [('main_account', '30000.00'), ('small_account', '2000.00')]:\n    seed = seeds[account]\n    check(seed['equity_usd'] == seed['buying_power_usd'] == equity, 'approved money')\n    check(seed['effective_trading_date'] == dates[0] and seed['hypothetical'] and not seed['broker_snapshot_claim'], 'seed semantics')\n    constraints = seed['first_session_frozen_constraints']\n    check(constraints['max_total_open_risk'] == float(equity) * .0025, 'unchanged initial risk')\n    check(constraints['max_total_open_notional'] == float(equity) * .5, 'unchanged initial notional')\n    check(constraints['max_daily_loss_dollars'] == float(equity) * .01, 'unchanged daily loss')\nexpected_paths = {f'{account}-{h}s-{scenario}' for account in seeds for h in (1, 5, 10) for scenario in ('l1-conservative-v0.1', 'l1-stress-v0.1')}\nplan = documents['account-session-input-plan.json']\ncheck({p['path_id'] for p in plan['paths']} == expected_paths and len(plan['paths']) == 12, '12 unique paths')\ncounts = Counter()\nfor path in plan['paths']:\n    previous = None\n    check([slot['trading_date'] for slot in path['sessions']] == dates, 'all 30 ordered sessions')\n    for i, slot in enumerate(path['sessions']):\n        account = slot['account_key']\n        path_id = f\"{account}-{slot['behavioral_horizon_seconds']}s-{slot['execution_scenario_id']}\"\n        check(slot['path_id'] == path_id == path['path_id'], 'path identity')\n        expected_id = 'session-' + fp({'contract_id': CONTRACT_ID, 'path_id': path_id, 'trading_date': dates[i]})\n        check(slot['session_id'] == expected_id and slot['session_index'] == i and slot['previous_session_id'] == previous, 'immediate predecessor')\n        check(slot['seed_applied'] is (i == 0) and slot['seed_content_sha256'] == seeds[account]['content_sha256'], 'exactly once seed')\n        check(slot['state_source'] == ('approved_initial_seed' if i == 0 else 'exact_previous_session_close_required'), 'state dependency')\n        profile = 'current-general-2026' if account == 'main_account' else 'current-small-account-2026'\n        selected = [op for op in ops if op['trading_date'] == dates[i] and profile in op['eligible_strategy_profile_ids']]\n        expected_refs = [{'opportunity_id': op['opportunity_id'], 'availability_content_sha256': states[op['opportunity_id']]['content_sha256'], 'input_status': states[op['opportunity_id']]['input_status'], 'reason': states[op['opportunity_id']]['reason']} for op in selected]\n        check(slot['opportunity_inputs'] == expected_refs, 'all account/profile opportunity references')\n        missing = sum(ref['input_status'] == 'unavailable' for ref in expected_refs)\n        check(slot['unavailable_opportunity_count'] == missing, 'unavailable references')\n        zero = not any(op['trading_date'] == dates[i] for op in ops)\n        check(slot['source_date_has_no_micro_decisions'] is zero, 'explicit zero-decision date')\n        check(slot['later_session_balances_inferred'] is False and slot['runtime_executed'] is False, 'no invented runtime')\n        counts.update({'slots': 1, 'seeds': i == 0, 'prior_closes': i > 0, 'opportunity_references': len(expected_refs), 'unavailable_references': missing, 'zero_decision_slots': zero})\n        previous = expected_id\ncheck(dict(counts) == {'slots': 360, 'seeds': 12, 'prior_closes': 348, 'opportunity_references': 744, 'unavailable_references': 162, 'zero_decision_slots': 60}, 'complete panel dimensions')\nrequests = documents['management-request-manifest.json']\ngrouped = defaultdict(list)\nfor op in ops: grouped[(op['trading_date'], op['symbol'])].append(op)\nexpected_requests = []\nfor (date, symbol), members in sorted(grouped.items()):\n    merged = []\n    for op in sorted(members, key=lambda o: (o['decision_ts_ns'], o['opportunity_id'])):\n        ts = op['decision_ts_ns']\n        start, end = ts // 60_000_000_000 * 60_000_000_000, ts + 960_000_000_000\n        if merged and start <= merged[-1]['end_ns']:\n            merged[-1]['end_ns'] = max(merged[-1]['end_ns'], end)\n            merged[-1]['opportunity_ids'].append(op['opportunity_id'])\n        else:\n            merged.append({'request_id': f'{date}-{symbol}-management-{len(merged)+1:02d}', 'trading_date': date, 'symbol': symbol,\n                'start_ns': start, 'end_ns': end, 'end_exclusive': True, 'feed': 'sip', 'bar_timeframe': '1Min',\n                'bar_adjustment': 'raw', 'symbol_asof': date, 'opportunity_ids': [op['opportunity_id']]})\n    expected_requests.extend(merged)\ncheck(requests['requests'] == expected_requests, 'independent merged request derivation')\ncheck(len(expected_requests) == requests['merged_window_count'] == 56 and requests['logical_resource_request_count'] == 112, '56 windows and 112 resources')\nlookup = {oid: req['request_id'] for req in expected_requests for oid in req['opportunity_ids']}\ncheck(len(lookup) == 109, 'all opportunities mapped')\ncheck([w['opportunity'] for w in requests['opportunity_windows']] == ops, 'original management identities')\nfor window, op in zip(requests['opportunity_windows'], ops, strict=True):\n    state = states[op['opportunity_id']]\n    ts = op['decision_ts_ns']\n    check(window == {'opportunity': op, 'request_id': lookup[op['opportunity_id']], 'start_ns': ts // 60_000_000_000 * 60_000_000_000,\n        'signal_end_ns': ts + 900_000_000_000, 'end_ns': ts + 960_000_000_000,\n        'entry_input_status': state['input_status'], 'entry_input_reason': state['reason'], 'availability_content_sha256': state['content_sha256']}, 'exact per-opportunity window')\nreadiness = documents['readiness-report.json']\ncheck({v['opportunity_id'] for v in readiness['unavailable_opportunities']} == {oid for oid, v in states.items() if v['input_status'] == 'unavailable'}, '23 preserved unavailable inputs')\nfor payload in documents.values():\n    for key, value in contract['boundary'].items():\n        check(payload[key] == value, 'all closed boundaries preserved')\nreport = {'verification_passed': True, 'verifier': 'independent_stdlib_no_runtime_imports',\n    'contract_content_sha256': contract['content_sha256'], 'freeze_manifest_content_sha256': manifest['content_sha256'],\n    'file_count': len(inventory), 'file_inventory': inventory, 'panel_counts': dict(counts),\n    'merged_management_window_count': 56, 'logical_resource_request_count': 112,\n    'unavailable_opportunity_count': 23, 'account_seed_values': {'main_account': '30000.00', 'small_account': '2000.00'},\n    'boundary': contract['boundary']}\nreport['content_sha256'] = fp(report)\nprint(json.dumps(report, indent=2, sort_keys=True))\n",
+  "independent_verifier_source_sha256": "b2248936c2e6ca91563f2fafc788b2999f29d4918005ad3c48b580677ad0963f",
+  "later_session_valuation_and_daily_risk_validation_required": true,
+  "local_environment": {
+    "hash_locked_packages_verified": true,
+    "implementation": "CPython",
+    "package_versions": {
+      "PyYAML": "6.0.3",
+      "aiohappyeyeballs": "2.7.1",
+      "aiohttp": "3.14.3",
+      "aiosignal": "1.4.0",
+      "attrs": "26.1.0",
+      "certifi": "2026.7.22",
+      "charset_normalizer": "3.5.1",
+      "databento": "0.83.0",
+      "databento_dbn": "0.65.0",
+      "frozenlist": "1.8.0",
+      "idna": "3.19",
+      "multidict": "6.7.1",
+      "numpy": "2.3.5",
+      "packaging": "26.3",
+      "pandas": "2.2.3",
+      "pip": "26.2.1",
+      "propcache": "0.5.2",
+      "pyarrow": "25.0.1",
+      "python-dateutil": "2.9.0.post0",
+      "pytz": "2026.3.post1",
+      "requests": "2.34.2",
+      "setuptools": "84.0.0",
+      "six": "1.17.0",
+      "typing_extensions": "4.16.0",
+      "tzdata": "2026.3",
+      "urllib3": "2.7.0",
+      "wheel": "0.48.0",
+      "yarl": "1.24.5",
+      "zstandard": "0.25.0"
+    },
+    "python_version": "3.12.13",
+    "zlib_runtime_version": "1.3.2",
+    "zlib_version": "1.3.2"
+  },
+  "local_validation": {
+    "full": {
+      "log_sha256": "cecc8eed1baeae35019914e9872db610df2db5ed96588b8b6e5c1e1c980b562e",
+      "passed": true,
+      "skipped": 0,
+      "summary": "Ran 1632 tests in 54.543s",
+      "test_count": 1632
+    },
+    "normal": {
+      "log_sha256": "9792c5e0e0221a07ee7d811598adc2aad575b4bb7404e9cb1ac3a779276716d7",
+      "passed": true,
+      "skipped": 0,
+      "summary": "Ran 72 tests in 5.841s",
+      "test_count": 72
+    },
+    "optimized": {
+      "log_sha256": "79d03de84e860ac3ecd33b1737d9036100f86296c84693787b091242f136293a",
+      "passed": true,
+      "skipped": 0,
+      "summary": "Ran 72 tests in 5.852s",
+      "test_count": 72
+    }
+  },
+  "management_input_gate_passed": false,
+  "management_logical_resource_request_count": 112,
+  "management_merged_window_count": 56,
+  "management_projection_executed": false,
+  "management_source_reuse_or_capture_verified": false,
+  "monitor_state_changed": false,
+  "next_gate": "verify_retained_management_source_reuse_and_register_bounded_missing_input_capture",
+  "once_only_seed_slots": 12,
+  "original_source_ledger_changed": false,
+  "paper_or_live_orders_authorized": false,
+  "parent_commit_sha": "1f7c83b11d6fa26f600cbe37c16c9eed14fb7bb2",
+  "parent_tree_sha": "dcf71e6bc1df1f7c10f2c38b2a9a4258c1f5431f",
+  "policy_changed": false,
+  "portfolio_financial_metrics_eligible": false,
+  "prior_close_dependency_slots": 348,
+  "protected_refs_verified_after_composition": {
+    "heads/main": "de24eb17316191da69d92e61f6843af25e9c22d0",
+    "heads/phase-3-historical-snapshot": "1f7c83b11d6fa26f600cbe37c16c9eed14fb7bb2",
+    "tags/sealed-historical-execution-input-acquisition-v0.1-consumed": "5a375f86e951b1e9eeb6c010995c9b57025913b7",
+    "tags/sealed-historical-execution-input-acquisition-v0.2-consumed": "e2c250367895d209ec4706288a22655636298685",
+    "tags/sealed-historical-execution-input-acquisition-v0.3-consumed": "0c4010044ee8557136b3c119c6350e134bba46d2",
+    "tags/sealed-historical-execution-input-diagnostic-v0.1-consumed": "e1aece08a44ccf9add0157a1657d08a809687e85",
+    "tags/sealed-historical-execution-input-empty-diagnostic-v0.1-consumed": "8854bb2e63dc3961d98c5d8827f857ef85ccb341",
+    "tags/sealed-historical-execution-input-quote-v0.1-consumed": "dd295304dcc5e7cc0ebd300d094ab20636a72b92",
+    "tags/sealed-historical-micro-input-acquisition-v0.1-consumed": "5cab2eb3aa2b73a2cbf1d57575519a7b99961e24",
+    "tags/sealed-historical-micro-session-input-acquisition-v0.2-consumed": "bf5863a7115abef9e22c4f527448cd9c20084f47"
+  },
+  "protected_refs_verified_at_utc": "2026-09-07T14:23:34.204Z",
+  "provider_calls": 0,
+  "provider_purchase_authorized_usd": "0",
+  "retrospective_inputs_loaded": false,
+  "runtime_output_bytes": 857974,
+  "runtime_output_file_count": 5,
+  "runtime_output_root": "research/runtime/sealed-historical-account-management-inputs-v0.1",
+  "schema_version": 1,
+  "seed_application": "first_registered_date_only_for_each_independent_account_horizon_scenario_path",
+  "session_input_slots": 360,
+  "source_execution_verified_by_handoff": false,
+  "unavailable_is_inferred_no_trade_outcome": false,
+  "unavailable_opportunity_count": 23,
+  "undefined_global_check_passed": true,
+  "verification_passed": true,
+  "verified_at_utc": "2026-09-07T14:24:25.454637+00:00",
+  "write_once_composition_completed": true
+}

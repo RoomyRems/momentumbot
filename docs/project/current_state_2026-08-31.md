@@ -1,6 +1,35 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: opportunity availability independently verified
+## Current checkpoint: approved account inputs independently verified
+
+The user approved hypothetical $30,000 main and $2,000 small starting equity,
+equal buying power and continuous state across the exact 30 historical sessions.
+The new account/management-input child binds verified parent
+`1f7c83b11d6fa26f600cbe37c16c9eed14fb7bb2` and registers these values once per
+independent path. It builds 12 paths and 360 session-input slots: 12 initial seeds
+and 348 exact prior-close dependencies. Later dates cannot silently reset capital,
+drop positions, discard unresolved state or infer a fresh valuation.
+
+All 109 opportunities are retained, with the original 86 available and 23
+unavailable classifications. The unchanged management merger defines 56 windows
+and 112 logical bar/trade resources, preserving exact nanosecond bounds, the
+15-minute signal window and the 60-second observation tail. These are input
+requirements; no additional provider calls or historical account replay ran.
+
+All 1,632 repository tests passed locally with zero skips; the 72 focused tests
+also passed normally and optimized. Full reconstruction and an independent
+stdlib checker reproduced the five frozen files (857,974 bytes). The manifest
+content commitment is
+`9c72aa77268795153ec12ebf5d3b3d2d11defada69325e867f3af814ad8e75f3`.
+The permanent audit is
+`research/data-audits/sealed-historical-account-management-inputs-v0.1-independent-verification.json`.
+
+The next dependency is verifying retained management-source reuse and registering any bounded
+missing-input capture. Descriptive SIP exits cannot close an account position
+or make portfolio returns eligible. All existing execution and data gates remain
+false. See [the account input stage](../research/sealed_historical_account_inputs_v01.md).
+
+## Prior checkpoint: opportunity availability independently verified
 
 Registration `d0c5c993973f7e04e9e97bca98795fb576a94799` passed exact-commit
 [CI](https://github.com/RoomyRems/momentumbot/actions/runs/34090713573) and

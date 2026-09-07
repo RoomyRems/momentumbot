@@ -1,0 +1,137 @@
+{
+  "account_reset_between_dates": false,
+  "account_seed_source": "explicit_user_approval_in_current_conversation_2026-09-07",
+  "artifact_type": "registered_historical_account_and_management_input_plan",
+  "boundary": {
+    "account_or_fill_simulation_executed": false,
+    "account_runtime_input_gate_passed": false,
+    "acquisition_gate_passed": false,
+    "backtesting_executed": false,
+    "broker_account_read": false,
+    "historical_execution_authorized": false,
+    "management_input_gate_passed": false,
+    "management_projection_executed": false,
+    "paper_or_live_orders_authorized": false,
+    "policy_changed": false,
+    "portfolio_financial_metrics_eligible": false,
+    "provider_calls": 0,
+    "provider_purchase_authorized_usd": "0",
+    "retrospective_inputs_loaded": false
+  },
+  "content_sha256": "45ad1346c1be4846d5bd785e1221fd73caed4e77b177317a2291460bc69508ed",
+  "contract_id": "sealed-historical-account-management-inputs-v0.1",
+  "dates": [
+    "2025-05-30",
+    "2025-06-02",
+    "2025-06-03",
+    "2025-06-04",
+    "2025-06-05",
+    "2025-06-06",
+    "2025-06-09",
+    "2025-06-10",
+    "2025-06-11",
+    "2025-06-12",
+    "2025-06-13",
+    "2025-06-16",
+    "2025-06-17",
+    "2025-06-18",
+    "2025-06-20",
+    "2025-06-23",
+    "2025-06-24",
+    "2025-06-25",
+    "2025-06-26",
+    "2025-06-27",
+    "2025-07-01",
+    "2025-07-02",
+    "2025-07-07",
+    "2025-07-08",
+    "2025-07-10",
+    "2025-07-11",
+    "2025-07-14",
+    "2025-07-15",
+    "2025-07-16",
+    "2025-07-17"
+  ],
+  "execution_observation_tail_seconds": 60,
+  "frozen_parent_file_sha256": {
+    "requirements-sealed-execution-quote-v01.txt": "03f4da335027e4c83bcf38e523c2e11aeaae49778f5bd6caa47e4703348b31b4",
+    "research/data-audits/sealed-historical-execution-input-availability-v0.1-independent-verification.json": "f5f1369adc03d908ca6fed0a934798f20829427277be0442ecc5f991371a0e34",
+    "research/runtime/sealed-historical-execution-availability-v0.1/manifest.json": "6ed576e70dee9f439fdd2a1773f89931e6de23a73ea56e1ff1d9c81650bc8380",
+    "research/strategy/paper-account-scarcity-policy-v0.1.json": "12c968d873cb459a9e65181b3bb2533b110006eddd9bf95b0def38a085c5a8fa",
+    "research/strategy/prospective-management-execution-v0.1.json": "3760a73d4cc5d209098b75d555fb1f1a4ebcd7c0ecc428b1a16c39c2055008f8",
+    "research/strategy/prospective-management-window-capture-v0.1.json": "dd42ad3b7e826e8893f63809d6c9804ac0efbfae708992e5c5bd4c0220ee5ae7",
+    "research/strategy/sealed-historical-execution-input-availability-v0.1.json": "c7ab0f91782b11b7944946e3edea3d105e44b757058929a7f2e5cb3c12159f31",
+    "research/strategy/sealed-historical-walk-forward-v0.1.json": "063df5e36210386a7c25890963ace5a7b2a70fdafb07f9103c5d402c69b195e2",
+    "scripts/run_offline_python_v13.py": "fd28ca7e4a27832721a890a1a41af36863a7f13568ca9e85e17c2d5f35e0627d",
+    "src/momentumbot/models.py": "efa4857a1fa92d24896b750b7df4846abd952fafd966f046054e0aad21325a82",
+    "src/momentumbot/research/account_priority_policy.py": "3c0254bcd06425670e7158fb6c2be44edaa6c6f4b74c045798148f9d43e250d7",
+    "src/momentumbot/research/campaign_portfolio.py": "5e8b5fb8e42cc739b8337bb544b811e57ccda2df5e7f46ca65ef5a30472149c4",
+    "src/momentumbot/research/prospective_account_evaluation.py": "56ccebf7725ef04a797e4b5dead0ecd091ef9e9866290bf6e67b90283a9dd3bd",
+    "src/momentumbot/research/prospective_management_window.py": "bc431e578c7c85e1c72c72eda60ff212cf128cd5fd52cae3dcbed1bcc36523e8",
+    "src/momentumbot/research/sealed_historical_execution_availability_v01.py": "ef541e915e75c10641c57e42cd4a62fbb66b472c6b40a02d4c2ad85d6dbedb37",
+    "src/momentumbot/research/sealed_historical_execution_inputs_v01.py": "f100c220ed4fe5a6511d854599d8ed1494aaf554540a4fcabf6646f856b2a40f",
+    "src/momentumbot/research/sealed_historical_execution_quote_v01.py": "be5d81c039ba0256b2622ea65d2f966f56fa2f9a87b77f2e39485d92c6464383",
+    "src/momentumbot/research/sealed_historical_record_order_v01.py": "407e02fc6fe908e26715fac2799f0debf356e96336b640e795b50287762dec6b",
+    "src/momentumbot/research/trade_management_shadow.py": "9309593b839a4260bd6ef8d34d1eec5c905128dcf502218032cb7c0f142af180"
+  },
+  "handoff": "exact_prior_close_hash_same_path_immediately_previous_registered_date_complete_state_preserved",
+  "handoff_verifies_execution_or_valuation": false,
+  "historical_broker_snapshot_claim": false,
+  "horizons_and_scenarios": [
+    [
+      1,
+      "l1-conservative-v0.1"
+    ],
+    [
+      1,
+      "l1-stress-v0.1"
+    ],
+    [
+      5,
+      "l1-conservative-v0.1"
+    ],
+    [
+      5,
+      "l1-stress-v0.1"
+    ],
+    [
+      10,
+      "l1-conservative-v0.1"
+    ],
+    [
+      10,
+      "l1-stress-v0.1"
+    ]
+  ],
+  "hypothesis": "approved_once_only_seeds_and_frozen_management_windows_define_inputs_without_reset_or_substitution",
+  "later_session_equity_or_risk_limits_inferred": false,
+  "management_merge": "unchanged_prospective_management_window_merge_mechanics",
+  "management_population": "all_109_frozen_opportunities_including_all_23_unavailable_inputs",
+  "management_request_end_exclusive": true,
+  "management_signal_window_seconds": 900,
+  "management_source": {
+    "bar_adjustment": "raw",
+    "bar_timeframe": "1Min",
+    "feed": "sip",
+    "provider": "Alpaca",
+    "symbol_asof": "exact_trading_date"
+  },
+  "management_transaction_projection_may_close_account_positions": false,
+  "management_window_before_source_start": "floor_decision_to_UTC_minute",
+  "management_window_extension_or_end_of_data_liquidation": false,
+  "missing_or_unresolved_prior_state": "remain_unavailable_never_reseed_or_assume_flat",
+  "next_gate": "verify_retained_management_source_reuse_and_register_bounded_missing_input_capture",
+  "parent_commit_sha": "1f7c83b11d6fa26f600cbe37c16c9eed14fb7bb2",
+  "parent_tree_sha": "dcf71e6bc1df1f7c10f2c38b2a9a4258c1f5431f",
+  "path_count": 12,
+  "retained_source_reuse": "requires_separate_full_artifact_and_normalization_coverage_verification_before_acquisition",
+  "schema_version": 1,
+  "seed_application": "first_registered_date_only_for_each_independent_account_horizon_scenario_path",
+  "session_input_slot_count": 360,
+  "session_local_risk_state": "future_runtime_must_apply_unchanged_daily_policy_without_erasing_carried_account_state",
+  "user_approval_scope": "hypothetical_balances_equal_buying_power_and_continuous_state_across_all_30_sessions",
+  "user_approved_seed_equity_and_buying_power_usd": {
+    "main_account": "30000.00",
+    "small_account": "2000.00"
+  }
+}

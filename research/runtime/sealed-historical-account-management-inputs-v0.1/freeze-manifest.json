@@ -1,0 +1,53 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "account_runtime_input_gate_passed": false,
+  "acquisition_gate_passed": false,
+  "availability_manifest_content_sha256": "9fd935aa16caef6a823ab6a44c4f7e864e47231cf7189b7feb4069ac179bb6d4",
+  "backtesting_executed": false,
+  "broker_account_read": false,
+  "content_sha256": "9c72aa77268795153ec12ebf5d3b3d2d11defada69325e867f3af814ad8e75f3",
+  "contract_content_sha256": "45ad1346c1be4846d5bd785e1221fd73caed4e77b177317a2291460bc69508ed",
+  "contract_id": "sealed-historical-account-management-inputs-v0.1",
+  "document_content_sha256": {
+    "account-seeds.json": "6e1a9415374d1dfc8194dd347fda0a710bd5a5b2188c17c5a5b3a70f53a343b4",
+    "account-session-input-plan.json": "e96684bf3141b92bb503ea7d858293b17301363bda051258716a82622d3ec322",
+    "management-request-manifest.json": "b5ad27e6793b55faf2f86618357f1d70253fb98eb219364c04f82725c69a2b8f",
+    "readiness-report.json": "ea88f9d746b7fec6cd1eaf0c92ec8227ac1342208ad3936fd45fd14b271c667d"
+  },
+  "file_inventory": {
+    "account-seeds.json": {
+      "bytes": 3123,
+      "sha256": "2579ee6d763001e57494a6e6739b9c3142ba31fde77549b59a6907e05ef47ec1"
+    },
+    "account-session-input-plan.json": {
+      "bytes": 658144,
+      "sha256": "8ca638578e7957c88f4314e0768a3c379ee0bd1278bd6d8c8e9caa2144f05108"
+    },
+    "management-request-manifest.json": {
+      "bytes": 185659,
+      "sha256": "d493f770de187454d08a631a3b183cbc616fa302fbac9bd51c67be8ed6316379"
+    },
+    "readiness-report.json": {
+      "bytes": 8254,
+      "sha256": "c5876e9fa08e09cfb33e57e35938856a16e160bebf3f98fc6640a772875a50b3"
+    }
+  },
+  "historical_execution_authorized": false,
+  "implementation_file_sha256": {
+    ".github/workflows/sealed-historical-account-inputs-v01.yml": "67b8d897d44e39e72dc1c588b4fabd66e0ffb25b401db678d7161b4b8f55f33b",
+    "research/strategy/sealed-historical-account-management-inputs-v0.1.json": "222fcf457971657e3705a53dee6d8dcf8ede26770fa905cad4a101c39a2aca2b",
+    "scripts/build_sealed_historical_account_inputs_v01.py": "307cabdde121cc56d61fa4486194791e6ed50482789bb4d51cb371cfc3ea0a90",
+    "src/momentumbot/research/sealed_historical_account_inputs_v01.py": "b7a28487807dd5d841a205d6ab74429fb3ed5f0f74b345712c57579e360228dd"
+  },
+  "management_input_gate_passed": false,
+  "management_projection_executed": false,
+  "next_gate": "verify_retained_management_source_reuse_and_register_bounded_missing_input_capture",
+  "paper_or_live_orders_authorized": false,
+  "parent_commit_sha": "1f7c83b11d6fa26f600cbe37c16c9eed14fb7bb2",
+  "parent_tree_sha": "dcf71e6bc1df1f7c10f2c38b2a9a4258c1f5431f",
+  "policy_changed": false,
+  "portfolio_financial_metrics_eligible": false,
+  "provider_calls": 0,
+  "provider_purchase_authorized_usd": "0",
+  "retrospective_inputs_loaded": false
+}
