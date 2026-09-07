@@ -1,6 +1,16 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: causal position runner and exact common exit-input plan
+## Current checkpoint: causal runner and exact exit-input plan independently verified
+
+Code `cd6e76e42dd91455da7ef4a8bb1aa571767f13e2` passed all eight hosted
+workflows on attempt 1. Dedicated run `34167219406`, job `101880533642`,
+reconstructed all four metadata files and passed 141 focused tests normally and
+optimized. Generic CI passed 1,865 tests with its 51 optional-SDK skips; local
+full-suite verification had zero skips. The
+[permanent audit](../../research/data-audits/sealed-historical-management-runner-v0.1-independent-verification.json)
+retains exact local/hosted evidence, both verifiers, 16 reproducible synthetic
+traces and the independent checker/generator sources. Main and all 14 retained
+historical consumed references remain unchanged.
 
 An isolated child of `d9e5a04b6f9f78ba09fc87c53be2e7b9aa359b89` registers
 `sealed-historical-management-runner-v0.1`. The streaming scheduler merges
@@ -26,8 +36,7 @@ The registration freeze content commitment is
 All 1,865 local tests passed with zero skips. The 141-test focused group passed
 normally and optimized, including 45 new tests and 50 seeded synthetic paths.
 Independent stdlib verification matched every request and original account
-reference, plus 16 synthetic clock/share traces. Hosted validation and the
-permanent audit are the remaining publication checks.
+reference, plus 16 synthetic clock/share traces.
 
 Historical execution remains blocked on exact exit/reuse verification,
 historical fees, sell-ledger reconciliation, causal next-session valuation,

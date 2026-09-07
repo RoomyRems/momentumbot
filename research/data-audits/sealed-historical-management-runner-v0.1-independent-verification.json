@@ -1,0 +1,1114 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "account_replay_executed": false,
+  "account_runtime_input_gate_passed": false,
+  "acquisition_gate_passed": false,
+  "all_original_opportunities_availability_and_account_dependencies_unchanged": true,
+  "artifact_type": "independently_verified_position_runner_and_exact_exit_input_registration",
+  "backtesting_executed": false,
+  "broker_account_read": false,
+  "code_commit_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+  "code_tree_sha": "4ba7ef8bacf4e87367aa89c7911b361f9a92adf6",
+  "common_symbol_date_count": 41,
+  "content_sha256": "3c766d14010cc1789450988d852057bf58d3db4982d5447a0718590817b40789",
+  "contract_content_sha256": "e94f28e598a99ce65c348fc2222e7a7e17c342fd42e41a7893d5e5f152bac7a2",
+  "contract_id": "sealed-historical-management-runner-v0.1",
+  "freeze_manifest_content_sha256": "77452867363127a9234ddbf1b27702d38b15477911454a448b680b6a9d6b1366",
+  "future_metadata_call_ceiling": 160,
+  "historical_entry_or_exit_count": 0,
+  "historical_execution_authorized": false,
+  "historical_runtime_activation_ready": false,
+  "historical_runtime_dependencies": {
+    "causal_next_session_valuation_verified": false,
+    "continuous_account_order_and_scarcity_integration_verified": false,
+    "exact_exit_tapes_verified": false,
+    "existing_common_source_reuse_bytes_verified": false,
+    "historical_account_state_producer_verified": false,
+    "historical_execution_child_authorized": false,
+    "historical_fee_and_sell_ledger_integration_verified": false
+  },
+  "hosted_validation": {
+    "ci_job_id": 101880533457,
+    "code_commit_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+    "code_tree_sha": "4ba7ef8bacf4e87367aa89c7911b361f9a92adf6",
+    "dedicated_job_id": 101880533642,
+    "jobs": [
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "head_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+            "id": 101880533457,
+            "name": "test",
+            "run_id": 34167219324,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@v4",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@v5",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install package",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run tests",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@v5",
+                "number": 11,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@v4",
+                "number": 12,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 13,
+                "status": "completed"
+              }
+            ]
+          }
+        ],
+        "name": "CI",
+        "run_id": 34167219324
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "head_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+            "id": 101880533642,
+            "name": "validate",
+            "run_id": 34167219406,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install hash-locked validation environment",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Reconstruct runner and exact exit input registration offline",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Verify causal orchestration and frozen fill mechanics",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 11,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 12,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 13,
+                "status": "completed"
+              }
+            ]
+          }
+        ],
+        "name": "Sealed historical management runner v0.1",
+        "run_id": 34167219406
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "head_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+            "id": 101880533527,
+            "name": "validate",
+            "run_id": 34167219284,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Validate frozen v0.3 repair and parents without credentials",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run bounded-acquisition tests",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile acquisition entry points",
+                "number": 7,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "conclusion": "skipped",
+            "head_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+            "id": 101880590449,
+            "name": "acquire",
+            "run_id": 34167219284,
+            "status": "completed",
+            "steps": []
+          }
+        ],
+        "name": "Sealed historical source acquisition v0.3",
+        "run_id": 34167219284
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "head_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+            "id": 101880533187,
+            "name": "validate",
+            "run_id": 34167219266,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Validate frozen v0.2 repair and parents without credentials",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run bounded-acquisition tests",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile acquisition entry points",
+                "number": 7,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "conclusion": "skipped",
+            "head_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+            "id": 101880591851,
+            "name": "acquire",
+            "run_id": 34167219266,
+            "status": "completed",
+            "steps": []
+          }
+        ],
+        "name": "Sealed historical source acquisition v0.2",
+        "run_id": 34167219266
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "head_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+            "id": 101880533576,
+            "name": "validate",
+            "run_id": 34167219393,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Validate frozen authorization without credentials",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run provider-free availability tests",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile availability entry points",
+                "number": 7,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "conclusion": "skipped",
+            "head_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+            "id": 101880586578,
+            "name": "probe",
+            "run_id": 34167219393,
+            "status": "completed",
+            "steps": []
+          }
+        ],
+        "name": "Sealed historical provider availability v0.1",
+        "run_id": 34167219393
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "head_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+            "id": 101880533124,
+            "name": "validate",
+            "run_id": 34167219263,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Validate sealed manifests and selected dates",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run leakage and tamper tests",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile registration entry points",
+                "number": 7,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "status": "completed"
+              }
+            ]
+          }
+        ],
+        "name": "Sealed historical walk-forward v0.1",
+        "run_id": 34167219263
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "head_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+            "id": 101880533220,
+            "name": "validate",
+            "run_id": 34167219257,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Validate frozen acquisition and parents without credentials",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run bounded-acquisition tests",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile acquisition entry points",
+                "number": 7,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "conclusion": "skipped",
+            "head_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+            "id": 101880585861,
+            "name": "acquire",
+            "run_id": 34167219257,
+            "status": "completed",
+            "steps": []
+          }
+        ],
+        "name": "Sealed historical source acquisition v0.1",
+        "run_id": 34167219257
+      },
+      {
+        "jobs": [
+          {
+            "conclusion": "success",
+            "head_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+            "id": 101880533212,
+            "name": "validate",
+            "run_id": 34167219271,
+            "status": "completed",
+            "steps": [
+              {
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Validate frozen repair without credentials",
+                "number": 5,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Run provider-free repair tests",
+                "number": 6,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Compile repair entry points",
+                "number": 7,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "status": "completed"
+              },
+              {
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "conclusion": "skipped",
+            "head_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+            "id": 101880595731,
+            "name": "probe",
+            "run_id": 34167219271,
+            "status": "completed",
+            "steps": []
+          }
+        ],
+        "name": "Sealed historical provider availability repair v0.2",
+        "run_id": 34167219271
+      }
+    ],
+    "log_evidence": {
+      "ci": [
+        "2026-09-07T22:36:13.8953946Z Successfully installed PyYAML-6.0.3 momentumbot-0.2.0 numpy-2.5.3 pandas-3.0.5 python-dateutil-2.9.0.post0 six-1.17.0",
+        "2026-09-07T22:38:10.8263430Z Ran 1865 tests in 114.428s",
+        "2026-09-07T22:38:10.8263914Z OK (skipped=51)"
+      ],
+      "dedicated": [
+        "2026-09-07T22:36:19.4758866Z Successfully installed PyYAML-6.0.3 aiohappyeyeballs-2.7.1 aiohttp-3.14.3 aiosignal-1.4.0 attrs-26.1.0 certifi-2026.7.22 charset_normalizer-3.5.1 databento-0.83.0 databento_dbn-0.65.0 frozenlist-1.8.0 idna-3.19 multidict-6.7.1 numpy-2.3.5 packaging-26.3 pandas-2.2.3 propcache-0.5.2 pyarrow-25.0.1 python-dateutil-2.9.0.post0 pytz-2026.3.post1 requests-2.34.2 setuptools-84.0.0 six-1.17.0 typing_extensions-4.16.0 tzdata-2026.3 urllib3-2.7.0 wheel-0.48.0 yarl-1.24.5 zstandard-0.25.0",
+        "2026-09-07T22:36:20.7101568Z Successfully installed momentumbot-0.2.0",
+        "2026-09-07T22:36:21.0120429Z No broken requirements found.",
+        "2026-09-07T22:36:23.0727994Z   \"freeze_manifest_content_sha256\": \"77452867363127a9234ddbf1b27702d38b15477911454a448b680b6a9d6b1366\",",
+        "2026-09-07T22:36:23.0733365Z   \"verification_passed\": true",
+        "2026-09-07T22:37:02.8234215Z Ran 141 tests in 38.428s",
+        "2026-09-07T22:37:02.8234832Z OK",
+        "2026-09-07T22:37:46.7459549Z Ran 141 tests in 38.460s",
+        "2026-09-07T22:37:46.7459782Z OK"
+      ]
+    },
+    "protected_refs": {
+      "heads/main": "de24eb17316191da69d92e61f6843af25e9c22d0",
+      "tags/sealed-historical-execution-input-acquisition-v0.1-consumed": "5a375f86e951b1e9eeb6c010995c9b57025913b7",
+      "tags/sealed-historical-execution-input-acquisition-v0.2-consumed": "e2c250367895d209ec4706288a22655636298685",
+      "tags/sealed-historical-execution-input-acquisition-v0.3-consumed": "0c4010044ee8557136b3c119c6350e134bba46d2",
+      "tags/sealed-historical-execution-input-diagnostic-v0.1-consumed": "e1aece08a44ccf9add0157a1657d08a809687e85",
+      "tags/sealed-historical-execution-input-empty-diagnostic-v0.1-consumed": "8854bb2e63dc3961d98c5d8827f857ef85ccb341",
+      "tags/sealed-historical-execution-input-quote-v0.1-consumed": "dd295304dcc5e7cc0ebd300d094ab20636a72b92",
+      "tags/sealed-historical-management-missing-input-acquisition-v0.1-consumed": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+      "tags/sealed-historical-micro-input-acquisition-v0.1-consumed": "5cab2eb3aa2b73a2cbf1d57575519a7b99961e24",
+      "tags/sealed-historical-micro-session-input-acquisition-v0.2-consumed": "bf5863a7115abef9e22c4f527448cd9c20084f47",
+      "tags/sealed-historical-source-acquisition-v04-consumed-bbe51f4483a73f92b1f58c9f6c2085d8a47505346c2d340fbe59c0421f3f31b7": "ae55aabd3963a9d2764b19a759efd271c723a83a",
+      "tags/sealed-historical-source-acquisition-v05-consumed-23ad997837490c14c200c10b34c8285db7b18ddebca131e6299a8cd70b3bbc49": "12d3c08dcfa042f785c6e35060916cfbd47a1df8",
+      "tags/sealed-historical-source-acquisition-v06-consumed-0343efff8ceb49b7c3ae2e589029cf4cf0b02d72c1961f85807913f67385202e": "0d231ffecb6d4104aad53dec0b7499a16d8943f6",
+      "tags/sealed-historical-source-acquisition-v09-consumed-447c11b09206b4c19ccade6c1aae70ce5bb17e4a483db6f9581d14ee3f5f862f": "92d8b4deceae5c2bb6edfb10016a0e05c33c8bfa",
+      "tags/sealed-historical-source-acquisition-v10-consumed-a6519754147c39273a25b2ea818b1906dfa93ea5018edac831e2a0a7052463c7": "652db5675a35b6f455aa0d924aa50428dd995280"
+    },
+    "runs": [
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34167219284",
+        "id": 34167219284,
+        "name": "Sealed historical source acquisition v0.3",
+        "path": ".github/workflows/sealed-historical-source-acquisition-v03.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34167219266",
+        "id": 34167219266,
+        "name": "Sealed historical source acquisition v0.2",
+        "path": ".github/workflows/sealed-historical-source-acquisition-v02.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34167219393",
+        "id": 34167219393,
+        "name": "Sealed historical provider availability v0.1",
+        "path": ".github/workflows/sealed-historical-provider-availability.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34167219263",
+        "id": 34167219263,
+        "name": "Sealed historical walk-forward v0.1",
+        "path": ".github/workflows/sealed-historical-walk-forward.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34167219257",
+        "id": 34167219257,
+        "name": "Sealed historical source acquisition v0.1",
+        "path": ".github/workflows/sealed-historical-source-acquisition.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34167219271",
+        "id": 34167219271,
+        "name": "Sealed historical provider availability repair v0.2",
+        "path": ".github/workflows/sealed-historical-provider-availability-v02.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34167219406",
+        "id": 34167219406,
+        "name": "Sealed historical management runner v0.1",
+        "path": ".github/workflows/sealed-historical-management-runner-v01.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      },
+      {
+        "conclusion": "success",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "cd6e76e42dd91455da7ef4a8bb1aa571767f13e2",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34167219324",
+        "id": 34167219324,
+        "name": "CI",
+        "path": ".github/workflows/ci.yml",
+        "run_attempt": 1,
+        "status": "completed"
+      }
+    ]
+  },
+  "independent_and_primary_verification_agree": true,
+  "independent_synthetic_clock_and_share_cases": 16,
+  "independent_verification": {
+    "all_original_opportunity_fields_and_account_dependencies_match": true,
+    "common_symbol_date_count": 41,
+    "content_sha256": "0c81f17f94f520994bfef794273b96af6b9072d46d33d648bb4f25598b10af3e",
+    "counts": {
+      "account_paths": 12,
+      "available_entry_inputs": 86,
+      "dates": 30,
+      "no_decision_dates": 5,
+      "opportunities": 109,
+      "profile_scenario_opportunity_references": 744,
+      "session_slots": 360,
+      "unavailable_entry_inputs": 23
+    },
+    "file_inventory": {
+      "exit-input-request-plan.json": {
+        "bytes": 176859,
+        "sha256": "562ed42e20c7021eecf384e3a22aed5f5ce25ae15926dd93072a0313d0e6f461"
+      },
+      "freeze-manifest.json": {
+        "bytes": 1889,
+        "sha256": "22bc2086ac5d1fe78f8a72604ac00d6d60ea690e3c8394e6ed64b530dcd82720"
+      },
+      "readiness-report.json": {
+        "bytes": 1865,
+        "sha256": "6b6c7f0f994bb84ebf491bb5c55a731c6fdfc2c1cfe0f41e00014f96cd7841e6"
+      },
+      "runner-input-index.json": {
+        "bytes": 2304,
+        "sha256": "0e3a628b8137b75d03cc9b717bf56922ef71d22d818050d0e396b0bda7239f80"
+      }
+    },
+    "freeze_manifest_content_sha256": "77452867363127a9234ddbf1b27702d38b15477911454a448b680b6a9d6b1366",
+    "historical_runtime_authorized": false,
+    "independent_stdlib_only": true,
+    "new_request_count": 80,
+    "new_request_list_content_sha256": "973a926e063fda7ec76883dd4297b88c77a06af22fe3bc0618330e98e28825b4",
+    "project_runtime_imports": false,
+    "provider_calls": 0,
+    "reuse_candidate": {
+      "exact_bytes_verified": false,
+      "symbol": "XAGE",
+      "trading_date": "2025-07-15"
+    },
+    "reuse_candidate_request_count": 2,
+    "synthetic_clock_and_arithmetic_cases": 16,
+    "synthetic_vectors_content_sha256": "e535e2adeecbc77c51a4dd86d61deff0925ddeb019a3a750abfe93541a6add8f",
+    "verification_passed": true
+  },
+  "local_validation": {
+    "all_passed": true,
+    "environment": {
+      "both_verifiers_match": true,
+      "packages": {
+        "PyMuPDF": "1.26.6",
+        "PyYAML": "6.0.3",
+        "aiohappyeyeballs": "2.7.1",
+        "aiohttp": "3.14.3",
+        "aiosignal": "1.4.0",
+        "annotated-types": "0.8.0",
+        "artifact_tool_v2": "2.8.52",
+        "attrs": "26.1.0",
+        "certifi": "2026.7.22",
+        "cffi": "1.17.1",
+        "charset-normalizer": "3.4.4",
+        "contourpy": "1.3.3",
+        "cryptography": "46.0.0",
+        "cycler": "0.12.1",
+        "databento": "0.83.0",
+        "databento-dbn": "0.65.0",
+        "et_xmlfile": "2.0.0",
+        "fonttools": "4.61.1",
+        "frozenlist": "1.8.0",
+        "idna": "3.19",
+        "joblib": "1.5.3",
+        "kiwisolver": "1.4.9",
+        "lxml": "6.1.1",
+        "matplotlib": "3.10.8",
+        "multidict": "6.7.1",
+        "numpy": "2.3.5",
+        "openpyxl": "3.1.5",
+        "packaging": "26.3",
+        "pandas": "2.2.3",
+        "pdf2image": "1.17.0",
+        "pdfminer.six": "20251107",
+        "pdfplumber": "0.11.8",
+        "pillow": "12.3.0",
+        "pip": "26.2.1",
+        "propcache": "0.5.2",
+        "pyarrow": "25.0.1",
+        "pycparser": "2.23",
+        "pydantic": "2.13.4",
+        "pydantic_core": "2.46.4",
+        "pyhumps": "3.8.0",
+        "pyparsing": "3.3.2",
+        "pypdf": "6.10.0",
+        "pypdfium2": "5.3.0",
+        "python-dateutil": "2.9.0.post0",
+        "python-docx": "1.2.0",
+        "python-pptx": "1.0.2",
+        "pytz": "2026.3.post1",
+        "reportlab": "4.4.9",
+        "requests": "2.34.2",
+        "scikit-learn": "1.8.0",
+        "scipy": "1.17.0",
+        "seaborn": "0.13.2",
+        "setuptools": "84.0.0",
+        "six": "1.17.0",
+        "threadpoolctl": "3.6.0",
+        "typing-inspection": "0.4.4",
+        "typing_extensions": "4.16.0",
+        "tzdata": "2026.3",
+        "urllib3": "2.7.0",
+        "uv": "0.11.33",
+        "websockets": "16.0",
+        "wheel": "0.48.0",
+        "xlrd": "2.0.1",
+        "xlsxwriter": "3.2.9",
+        "yarl": "1.24.5",
+        "zstandard": "0.25.0"
+      },
+      "platform": "Linux-6.18.35-x86_64-with-glibc2.39",
+      "python": "3.12.13",
+      "static_undefined_globals": {
+        "scripts/build_sealed_historical_management_runner_v01.py": [],
+        "src/momentumbot/research/sealed_historical_management_runner_v01.py": []
+      },
+      "vectors_reproduce_every_byte": true
+    },
+    "results": [
+      {
+        "command": [
+          "/workspace/scratch/193af10e3424/quote-env/bin/python",
+          "-m",
+          "unittest",
+          "tests.test_sealed_historical_management_runner_v01",
+          "tests.test_sealed_historical_management_fill_feedback_v01",
+          "tests.test_sealed_historical_management_projection_v01",
+          "-v"
+        ],
+        "elapsed_seconds": 24.869,
+        "exit_code": 0,
+        "log_bytes": 27876,
+        "log_sha256": "c316f31763a92ddfc73fde23969fc903eea2043bfbc0873511455333d7fdb50b",
+        "name": "runner-focused",
+        "skipped": 0,
+        "summary": [
+          "Ran 141 tests in 24.268s",
+          "OK"
+        ],
+        "tests": 141
+      },
+      {
+        "command": [
+          "/workspace/scratch/193af10e3424/quote-env/bin/python",
+          "-O",
+          "-m",
+          "unittest",
+          "tests.test_sealed_historical_management_runner_v01",
+          "tests.test_sealed_historical_management_fill_feedback_v01",
+          "tests.test_sealed_historical_management_projection_v01",
+          "-v"
+        ],
+        "elapsed_seconds": 25.706,
+        "exit_code": 0,
+        "log_bytes": 27876,
+        "log_sha256": "7d7e26b2c45b2369e95867ab3f9a5b91e0db2207a82e0931caede57a4e53660f",
+        "name": "runner-optimized",
+        "skipped": 0,
+        "summary": [
+          "Ran 141 tests in 24.022s",
+          "OK"
+        ],
+        "tests": 141
+      },
+      {
+        "command": [
+          "/workspace/scratch/193af10e3424/quote-env/bin/python",
+          "-m",
+          "unittest",
+          "discover",
+          "-s",
+          "tests",
+          "-v"
+        ],
+        "elapsed_seconds": 107.621,
+        "exit_code": 0,
+        "log_bytes": 396459,
+        "log_sha256": "c4bc8c942c131797563599bd03b9274cd7951d18437e1beb072e00c2d232541d",
+        "name": "runner-full",
+        "skipped": 0,
+        "summary": [
+          "Ran 1865 tests in 106.660s",
+          "OK"
+        ],
+        "tests": 1865
+      }
+    ]
+  },
+  "management_input_gate_passed": false,
+  "management_projection_executed": false,
+  "metadata_quote_executed": false,
+  "new_exact_exit_request_count": 80,
+  "new_test_count": 45,
+  "next_gate": "verify_exact_existing_common_source_reuse_and_register_bounded_metadata_quote_for_remaining_exit_requests",
+  "paper_or_live_orders_authorized": false,
+  "parent_commit_sha": "d9e5a04b6f9f78ba09fc87c53be2e7b9aa359b89",
+  "policy_changed": false,
+  "portfolio_financial_metrics_eligible": false,
+  "primary_verification": {
+    "account_or_fill_simulation_executed": false,
+    "account_runtime_input_gate_passed": false,
+    "acquisition_gate_passed": false,
+    "backtesting_executed": false,
+    "broker_account_read": false,
+    "content_sha256": "5080975bab3f5a5eaa1a79a6b395e6d9f7939133c053e7d32ca153aca64a8df1",
+    "contract_id": "sealed-historical-management-runner-v0.1",
+    "file_inventory": {
+      "exit-input-request-plan.json": {
+        "bytes": 176859,
+        "sha256": "562ed42e20c7021eecf384e3a22aed5f5ce25ae15926dd93072a0313d0e6f461"
+      },
+      "freeze-manifest.json": {
+        "bytes": 1889,
+        "sha256": "22bc2086ac5d1fe78f8a72604ac00d6d60ea690e3c8394e6ed64b530dcd82720"
+      },
+      "readiness-report.json": {
+        "bytes": 1865,
+        "sha256": "6b6c7f0f994bb84ebf491bb5c55a731c6fdfc2c1cfe0f41e00014f96cd7841e6"
+      },
+      "runner-input-index.json": {
+        "bytes": 2304,
+        "sha256": "0e3a628b8137b75d03cc9b717bf56922ef71d22d818050d0e396b0bda7239f80"
+      }
+    },
+    "freeze_manifest_content_sha256": "77452867363127a9234ddbf1b27702d38b15477911454a448b680b6a9d6b1366",
+    "historical_execution_authorized": false,
+    "management_input_gate_passed": false,
+    "management_projection_executed": false,
+    "paper_or_live_orders_authorized": false,
+    "policy_changed": false,
+    "portfolio_financial_metrics_eligible": false,
+    "provider_calls": 0,
+    "provider_purchase_authorized_usd": "0",
+    "retrospective_inputs_loaded": false,
+    "verification_passed": true
+  },
+  "provider_calls": 0,
+  "provider_purchase_authorized_usd": "0",
+  "quoted_cost_usd": null,
+  "reproducible_evidence_sources": {
+    "generate-runner-vectors.py": {
+      "bytes": 2847,
+      "sha256": "05ed0d951ae808f0feac19be56ba15efab1199bf8c1ac1ca458d6e857a7dca74",
+      "source": "\"\"\"Reproduce synthetic orchestration traces, never historical source records.\"\"\"\nimport json\nfrom pathlib import Path\nimport sys\n\nfrom momentumbot.research import sealed_historical_management_runner_v01 as m\nfrom tests.test_sealed_historical_management_runner_v01 import arguments, repin, move_final_quotes, record, minute_bar, BASE, SECOND\n\nroot = Path.cwd()\ncases = []\nfields = ('remaining_quantity', 'sold_quantity', 'target_quantity', 'target_filled_quantity', 'reserved_sell_quantity',\n    'breakeven_active', 'active_stop_price', 'latched_full_exit', 'pending_order', 'status', 'clock_ns', 'fills')\n\ndef append(args, case_type, q, target_capacity, terminal_capacity, delayed=None):\n    result = m.run_position_mechanics(**args)\n    cases.append({'case_type': case_type, 'scenario_id': args['entry_arguments']['slot']['execution_scenario_id'],\n        'quantity': q, 'target_capacity': target_capacity, 'terminal_capacity': terminal_capacity, 'delayed_quote_ns': delayed,\n        'orders': result['orders'], 'state': {k: result['final_state'][k] for k in fields},\n        'management_streams': result['management_streams'], 'complete_streams_verified': result['complete_streams_verified'],\n        'historical_runtime_authorized': result['historical_runtime_authorized'], 'account_close_produced': result['account_close_produced']})\n\nfor scenario in m.feedback.SCENARIOS:\n    for q, target, terminal in ((1, 0, 1), (3, 1, 2), (10, 2, 3), (10, 0, 0), (10, 5, 5)):\n        append(arguments(quantity=q, scenario=scenario, target_fill=target, final_fill=terminal), 'standard', q, target, terminal)\n    delayed = 200_000_000 if scenario == 'l1-conservative-v0.1' else 300_000_000\n    a = arguments(scenario=scenario, trades=[record(SECOND, 12), record(SECOND + delayed, 9.5, 1), record(2 * SECOND, 11, 2)])\n    a['exit_tape']['quote_records'][3]['ts_recv_ns'] = BASE + SECOND + delayed\n    repin(a)\n    append(a, 'delayed_equal_time', 10, 5, 0, delayed)\n    a = arguments(scenario=scenario, bars=[minute_bar()], trades=[record(60 * SECOND, 11)], final_fill=10)\n    move_final_quotes(a, 60 * SECOND)\n    append(a, 'completed_bar', 10, 0, 10)\n    append(arguments(scenario=scenario, trades=[]), 'empty', 10, 0, 0)\n\ndocument = m.seal({'contract_id': m.CONTRACT_ID, 'artifact_type': 'synthetic_causal_orchestration_vectors',\n    'synthetic_only': True, 'implementation_file_sha256': m.expected_contract(root)['implementation_file_sha256'], 'cases': cases})\noutput = Path(sys.argv[1]) if len(sys.argv) > 1 else root / 'research/data-audits/sealed-historical-management-runner-v0.1-synthetic-vectors.json'\nwith output.open('xb') as f:\n    raw = m.accounts._bytes(document)\n    if f.write(raw) != len(raw): raise RuntimeError('short vector write')\nprint(json.dumps({'content_sha256': document['content_sha256'], 'cases': len(cases), 'bytes': len(raw)}))\n"
+    },
+    "record-runner-audit.py": {
+      "bytes": 7553,
+      "sha256": "87c77c285a94816a15a38e60a08fc394ca2098bb347c62ff6c64fbd95333c6ef",
+      "source": "\"\"\"Freeze complete local, independent and hosted registration evidence.\"\"\"\nfrom pathlib import Path\nimport hashlib\nimport json\nimport sys\n\nroot, evidence = (Path(p).resolve() for p in sys.argv[1:3])\ncid = 'sealed-historical-management-runner-v0.1'\n\ndef read(path): return json.loads(path.read_bytes())\ndef digest(value): return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(',', ':'), allow_nan=False).encode()).hexdigest()\ndef check(condition, reason):\n    if not condition: raise ValueError(reason)\ndef file_evidence(path):\n    raw = path.read_bytes()\n    return {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()}\n\ncontract = read(root / 'research/strategy' / (cid + '.json'))\nprimary = read(evidence / 'runner-primary.json')\nindependent = read(evidence / 'runner-independent-final.json')\nhosted = read(evidence / 'runner-hosted.json')\nenvironment = read(evidence / 'runner-environment.json')\ncheck(primary['verification_passed'] and independent['verification_passed'], 'both verifiers pass')\ncheck(primary['file_inventory'] == independent['file_inventory'] and primary['freeze_manifest_content_sha256'] == independent['freeze_manifest_content_sha256'], 'every metadata byte and freeze agrees')\ncheck(len(hosted['runs']) == 8, 'all eight code workflows retained')\nfor run in hosted['runs']:\n    check(run['head_sha'] == hosted['code_commit_sha'] and run['head_branch'] == 'phase-3-historical-snapshot', 'exact hosted code identity')\n    check(run['status'] == 'completed' and run['conclusion'] == 'success' and run['run_attempt'] == 1, 'first-attempt hosted success')\ncheck({r['id'] for r in hosted['runs']} == {j['run_id'] for j in hosted['jobs']}, 'complete job inventory')\nfor item in hosted['jobs']:\n    for job in item['jobs']:\n        check(job['status'] == 'completed', 'terminal job evidence')\n        if job['name'] in ('acquire', 'probe'):\n            check(job['conclusion'] == 'skipped' and not job['steps'], 'provider jobs never executed')\n        else:\n            check(job['conclusion'] == 'success' and all(s['conclusion'] == 'success' for s in job['steps']), 'every validation step passed')\nold = read(root / 'research/data-audits/sealed-historical-management-fill-feedback-v0.1-independent-verification.json')\ncheck(hosted['protected_refs'] == old['hosted_validation']['protected_refs'], 'main and all retained consumed references unchanged')\nlogs = hosted['log_evidence']\ncheck(any('Ran 1865 tests' in line for line in logs['ci']) and any('OK (skipped=51)' in line for line in logs['ci']), 'hosted full-suite evidence')\ncheck(sum('Ran 141 tests' in line for line in logs['dedicated']) == 2, 'normal and optimized hosted tests')\ncheck(any(primary['freeze_manifest_content_sha256'] in line for line in logs['dedicated']), 'hosted reconstructed exact freeze')\nlocal = []\nfor name, count in (('runner-focused', 141), ('runner-optimized', 141), ('runner-full', 1865)):\n    report = read(evidence / (name + '.json'))\n    check(report['exit_code'] == 0 and 'OK' in report['summary'] and any(('Ran ' + str(count) + ' tests') in s for s in report['summary']), 'local success/count')\n    raw = (evidence / (name + '.log')).read_bytes()\n    check(len(raw) == report['log_bytes'] and hashlib.sha256(raw).hexdigest() == report['log_sha256'], 'complete local log commitment')\n    local.append({'name': name, 'tests': count, 'skipped': 0, **report})\ncheck(not any(environment['static_undefined_globals'].values()) and environment['both_verifiers_match'] and environment['vectors_reproduce_every_byte'], 'static and independent verification')\nvector_path = root / 'research/data-audits' / (cid + '-synthetic-vectors.json')\ncheck(vector_path.read_bytes() == (evidence / 'runner-vectors-reproduced.json').read_bytes(), 'every synthetic vector byte reproduces')\ncheck(read(vector_path)['content_sha256'] == independent['synthetic_vectors_content_sha256'], 'independent oracle binding')\nsources = {name: {'source': (evidence / name).read_text(), **file_evidence(evidence / name)}\n    for name in ('verify-runner-independent.py', 'generate-runner-vectors.py', 'run-runner-validation.py', 'record-runner-audit.py')}\nboundary = ('account_or_fill_simulation_executed', 'account_runtime_input_gate_passed', 'acquisition_gate_passed', 'backtesting_executed', 'broker_account_read', 'historical_execution_authorized', 'management_input_gate_passed', 'management_projection_executed', 'paper_or_live_orders_authorized', 'policy_changed', 'portfolio_financial_metrics_eligible', 'retrospective_inputs_loaded', 'provider_calls', 'provider_purchase_authorized_usd')\naudit = {'schema_version': 1, 'contract_id': cid, 'artifact_type': 'independently_verified_position_runner_and_exact_exit_input_registration',\n    'verification_passed': True, 'parent_commit_sha': contract['parent_commit_sha'],\n    'code_commit_sha': hosted['code_commit_sha'], 'code_tree_sha': hosted['code_tree_sha'],\n    'contract_content_sha256': contract['content_sha256'], 'freeze_manifest_content_sha256': primary['freeze_manifest_content_sha256'],\n    'primary_verification': primary, 'independent_verification': independent, 'independent_and_primary_verification_agree': True,\n    'local_validation': {'all_passed': True, 'results': local, 'environment': environment}, 'hosted_validation': hosted,\n    'new_test_count': 45, 'seeded_synthetic_paths': 50, 'independent_synthetic_clock_and_share_cases': 16,\n    'synthetic_vectors': {'path': str(vector_path.relative_to(root)), 'content_sha256': read(vector_path)['content_sha256'], 'every_byte_reproduced': True, **file_evidence(vector_path)},\n    'reproducible_evidence_sources': sources,\n    'reproduction': ['Extract the embedded checker and generator sources.',\n        'From the registered code checkpoint, run PYTHONPATH=.:src:scripts python generate-runner-vectors.py /an/absent/output.json and compare every byte to the committed vectors.',\n        'Run python verify-runner-independent.py /repo /an/absent/output.json; it uses only stdlib and denies external I/O.',\n        'Run the documented CLI --verify to independently reconstruct all four registration metadata files.'],\n    'common_symbol_date_count': 41, 'new_exact_exit_request_count': 80, 'reuse_candidate_request_count': 2,\n    'reuse_candidate': {'trading_date': '2025-07-15', 'symbol': 'XAGE', 'interval_containment_verified': True, 'exact_retained_bytes_verified': False},\n    'future_metadata_call_ceiling': 160, 'quoted_cost_usd': None, 'metadata_quote_executed': False,\n    'source_tapes_or_retrospective_inputs_loaded': False, 'historical_entry_or_exit_count': 0,\n    'historical_runtime_activation_ready': False, 'historical_runtime_dependencies': contract['historical_runtime_dependencies'],\n    'sell_fills_applied_to_account_ledger': False, 'account_replay_executed': False,\n    'all_original_opportunities_availability_and_account_dependencies_unchanged': True,\n    'source_captures_consumption_and_account_seeds_modified': False, 'synthetic_tests_are_not_historical_execution': True,\n    'next_gate': contract['next_gate'], **{name: contract[name] for name in boundary}}\naudit['content_sha256'] = digest(audit)\noutput = root / 'research/data-audits' / (cid + '-independent-verification.json')\nraw = (json.dumps(audit, indent=2, sort_keys=True, allow_nan=False) + '\\n').encode()\nwith output.open('xb') as f: check(f.write(raw) == len(raw), 'complete audit write')\ncheck(output.read_bytes() == raw, 'audit byte readback')\nprint(json.dumps({'path': str(output), 'content_sha256': audit['content_sha256'], **file_evidence(output)}))\n"
+    },
+    "run-runner-validation.py": {
+      "bytes": 1410,
+      "sha256": "40af02676296e188fb5f39a4e830bf2619a655de344a274abcc9c3af338f91c4",
+      "source": "from pathlib import Path\nimport hashlib\nimport json\nimport os\nimport subprocess\nimport sys\nimport time\n\nlabel, mode = sys.argv[1:3]\nroot = Path('/workspace/scratch/2d76267c92e1/momentumbot')\nout = Path('/workspace/scratch/b3ce0ef3e0fa')\npython = '/workspace/scratch/193af10e3424/quote-env/bin/python'\ncmd = [python]\nif mode == 'optimized': cmd.append('-O')\ncmd += ['-m', 'unittest']\nif mode == 'full': cmd += ['discover', '-s', 'tests', '-v']\nelse: cmd += ['tests.test_sealed_historical_management_runner_v01', 'tests.test_sealed_historical_management_fill_feedback_v01', 'tests.test_sealed_historical_management_projection_v01', '-v']\nenv = dict(os.environ); env['PYTHONPATH'] = 'src:scripts'\nstart = time.perf_counter()\nr = subprocess.run(cmd, cwd=root, env=env, capture_output=True)\nraw = r.stdout + b'\\n' + r.stderr\nwith (out / (label + '.log')).open('xb') as f:\n    if f.write(raw) != len(raw): raise RuntimeError('short log write')\n    f.flush(); os.fsync(f.fileno())\nreport = {'command': cmd, 'exit_code': r.returncode, 'elapsed_seconds': round(time.perf_counter() - start, 3),\n    'log_sha256': hashlib.sha256(raw).hexdigest(), 'log_bytes': len(raw),\n    'summary': [s for s in raw.decode().splitlines() if s.startswith(('Ran ', 'OK', 'FAILED', 'ERROR:', 'FAIL:'))]}\nwith (out / (label + '.json')).open('x') as f: json.dump(report, f, indent=2)\nprint(json.dumps(report))\nraise SystemExit(r.returncode)\n"
+    },
+    "verify-runner-independent.py": {
+      "bytes": 13820,
+      "sha256": "37dfe4a4a697764f7578c6d30ed442c0039430650436378efdae92da6c1c011f",
+      "source": "\"\"\"Stdlib-only interval/population and synthetic-clock oracle; no project imports.\"\"\"\nfrom collections import defaultdict\nfrom datetime import datetime, timezone\nimport hashlib\nimport json\nfrom pathlib import Path\nimport sys\n\ndef deny(event, args):\n    if event.startswith(('socket.', 'subprocess.', 'urllib.', 'http.client.')) or event in {'os.system', 'os.exec', 'os.fork', 'os.posix_spawn'}:\n        raise RuntimeError('external I/O denied')\nsys.addaudithook(deny)\nroot, vector_path = (Path(v).resolve() for v in sys.argv[1:3])\ncid = 'sealed-historical-management-runner-v0.1'\n\ndef digest(value):\n    return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(',', ':'), allow_nan=False).encode()).hexdigest()\n\ndef check(value, reason):\n    if not value: raise ValueError(reason)\n\ndef read(path):\n    check(path.is_file() and not path.is_symlink(), 'regular file required')\n    value = json.loads(path.read_bytes())\n    if 'content_sha256' in value:\n        check(value['content_sha256'] == digest({k: v for k, v in value.items() if k != 'content_sha256'}), 'logical commitment: ' + str(path))\n    return value\n\ncontract = read(root / 'research/strategy' / (cid + '.json'))\ncheck(contract['parent_commit_sha'] == 'd9e5a04b6f9f78ba09fc87c53be2e7b9aa359b89', 'literal parent commit')\ncheck(contract['parent_tree_sha'] == 'c2414072ebc4776a1ee795561b660230d5a30ccc', 'literal parent tree')\ncheck(contract['parent_freeze_content_sha256'] == '3304832421b6a0ed963a93eba8fcbecaa85ebab6b77471bead7c16ff00c058d5', 'literal parent freeze')\nliteral_pins = {\n    'research/runtime/sealed-historical-management-projection-v0.1/projection-input-requirements.json': '8b89b1ffd05de277bcff906140b5aeb142a823cce99260d9c967a8d1dc9e931f',\n    'research/runtime/sealed-historical-account-management-inputs-v0.1/account-session-input-plan.json': '8ca638578e7957c88f4314e0768a3c379ee0bd1278bd6d8c8e9caa2144f05108',\n    'research/runtime/sealed-historical-execution-input-plan-v0.1/request-manifest.json': 'ee0701cfbe81bfb546c1fb2d2573cf824b434d3a34ff6f1dffdd8cec5435a2e3',\n    'research/data-audits/sealed-historical-management-fill-feedback-v0.1-independent-verification.json': '0356a6ddbb0f51f6f07de6de823d0f20134d2c1b345b708f1e0cee95d7be5a77'}\nfor name, expected in literal_pins.items():\n    check(contract['frozen_parent_file_sha256'][name] == expected, 'literal ancestor identity')\nfor section in ('frozen_parent_file_sha256', 'implementation_file_sha256'):\n    for name, expected in contract[section].items():\n        p = root / name\n        check(not p.is_symlink() and hashlib.sha256(p.read_bytes()).hexdigest() == expected, 'registered file hash: ' + name)\nout = root / 'research/runtime' / cid\ncheck({p.name for p in out.iterdir()} == {'exit-input-request-plan.json', 'runner-input-index.json', 'readiness-report.json', 'freeze-manifest.json'}, 'exact four metadata files')\ndocs = {p.name: read(p) for p in out.iterdir()}\nmanifest = docs['freeze-manifest.json']\nfor name, expected in manifest['file_inventory'].items():\n    raw = (out / name).read_bytes()\n    check(expected == {'bytes': len(raw), 'sha256': hashlib.sha256(raw).hexdigest()}, 'metadata byte commitment')\n    check(manifest['document_content_sha256'][name] == docs[name]['content_sha256'], 'document identity')\ncheck(manifest['contract_content_sha256'] == contract['content_sha256'], 'implementation registration binding')\nprior = read(root / 'research/runtime/sealed-historical-management-projection-v0.1/projection-input-requirements.json')\naccounts = read(root / 'research/runtime/sealed-historical-account-management-inputs-v0.1/account-session-input-plan.json')\nold_requests = read(root / 'research/runtime/sealed-historical-execution-input-plan-v0.1/request-manifest.json')['requests']\nold = {(r['trading_date'], r['symbols'][0], r['schema']): r for r in old_requests}\nwindows = prior['opportunity_windows']\nplan, index, readiness = (docs[n] for n in ('exit-input-request-plan.json', 'runner-input-index.json', 'readiness-report.json'))\nexpected_members = defaultdict(list)\nretained = []\nfor w in windows:\n    op = w['opportunity']; group_id = None\n    check((w['start_ns'], w['signal_end_ns'], w['end_ns']) == (op['decision_ts_ns'] // 60_000_000_000 * 60_000_000_000, op['decision_ts_ns'] + 900_000_000_000, op['decision_ts_ns'] + 960_000_000_000), 'original window bounds')\n    if w['entry_input_status'] == 'available':\n        group_id = op['trading_date'] + '-' + op['symbol'] + '-common-management-exit'\n        expected_members[(op['trading_date'], op['symbol'])].append(w)\n    retained.append({'opportunity_id': op['opportunity_id'], 'window_content_sha256': digest(w), 'entry_input_status': w['entry_input_status'],\n        'entry_input_reason': w['entry_input_reason'], 'availability_content_sha256': w['availability_content_sha256'], 'group_id': group_id})\ncheck(plan['opportunities'] == retained, 'all original opportunity identities/reasons retained')\nnew_requests, reused_requests, expected_groups = [], [], []\nfor (day, symbol), members in sorted(expected_members.items()):\n    start = min(w['opportunity']['decision_ts_ns'] for w in members) - 100_000_000\n    end = max(w['end_ns'] for w in members)\n    midnight = (datetime.fromisoformat(day).replace(tzinfo=timezone.utc) - datetime(1970, 1, 1, tzinfo=timezone.utc)).days * 86_400_000_000_000\n    required = [{'request_id': f'{day}-{symbol}-{schema}', 'trading_date': day, 'dataset': 'XNAS.ITCH', 'schema': schema, 'symbols': [symbol],\n        'stype_in': 'raw_symbol', 'start_ns': first, 'end_ns': end, 'end_exclusive': True} for schema, first in [('mbp-1', start), ('status', midnight)]]\n    old_pair = [old[(day, symbol, schema)] for schema in ('mbp-1', 'status')]\n    reuse = old_pair[0]['start_ns'] <= start and old_pair[1]['start_ns'] == midnight and old_pair[0]['end_ns'] == old_pair[1]['end_ns'] and old_pair[0]['end_ns'] >= end\n    selected = old_pair if reuse else required\n    (reused_requests if reuse else new_requests).extend(selected)\n    group = {'group_id': day + '-' + symbol + '-common-management-exit', 'trading_date': day, 'symbol': symbol,\n        'required_quote_start_ns': start, 'required_end_ns': end,\n        'source_kind': 'existing_entry_pair_reuse_requires_exact_byte_verification' if reuse else 'new_pair_requires_quote_and_acquisition',\n        'requests': selected, 'request_content_sha256': [digest(r) for r in selected], 'source_bytes_verified': False, 'provider_request_authorized': False,\n        'members': [{'opportunity_id': w['opportunity']['opportunity_id'], 'window_content_sha256': digest(w),\n            'first_possible_exit_decision_ns': w['opportunity']['decision_ts_ns'] + 100_000_001,\n            'last_covered_exit_decision_ns': w['end_ns'] - 550_000_001, 'original_end_ns': w['end_ns']} for w in members]}\n    group['content_sha256'] = digest(group); expected_groups.append(group)\ncheck(plan['groups'] == expected_groups, 'every independently derived group/member/boundary')\ncheck(plan['new_requests'] == new_requests and len(new_requests) == 80, 'exact 80 new request fields/order')\ncheck(plan['reuse_candidate_requests'] == reused_requests and len(reused_requests) == 2, 'exact retained pair')\ncheck({(r['trading_date'], r['symbols'][0]) for r in reused_requests} == {('2025-07-15', 'XAGE')}, 'only exact XAGE reuse candidate')\ncheck(plan['new_request_list_content_sha256'] == digest(new_requests) and plan['reuse_candidate_list_content_sha256'] == digest(reused_requests), 'request list commitments')\ncheck(plan['quote_duration_ns'] == sum(r['end_ns'] - r['start_ns'] for r in new_requests if r['schema'] == 'mbp-1'), 'exact quote duration')\ncheck(plan['future_metadata_call_ceiling'] == 160 and plan['billable_bytes'] is None and plan['quoted_cost_usd'] is None, 'future quote bound not a quote result')\nslots = [s for p in accounts['paths'] for s in p['sessions']]\ncheck(len(windows) == 109 and len(expected_groups) == 41 and len(retained) == 109 and sum(r['group_id'] is None for r in retained) == 23, 'complete opportunity population')\ncheck(len(prior['dates']) == 30 and len(accounts['paths']) == 12 and len(slots) == 360 and sum(len(s['opportunity_inputs']) for s in slots) == 744, 'complete account population')\ncheck(sum(r['input_status'] == 'unavailable' for s in slots for r in s['opportunity_inputs']) == 162 and sum(s['seed_applied'] for s in slots) == 12, 'all unavailable references and once-only seeds')\nfor path in accounts['paths']:\n    previous = None\n    for slot in path['sessions']:\n        check(slot['previous_session_id'] == previous, 'unbroken preceding-close chain')\n        previous = slot['session_id']\ncheck(index['original_windows_content_sha256'] == digest(windows) and index['original_dates_content_sha256'] == digest(prior['dates']) and index['session_slots_content_sha256'] == digest(slots), 'all original field commitments')\ncheck(index['original_account_plan_content_sha256'] == accounts['content_sha256'] and index['exit_input_plan_content_sha256'] == plan['content_sha256'], 'source plan bindings')\ncheck(index['counts'] == readiness['counts'] == prior['counts'], 'original counts')\nclosed = ('account_or_fill_simulation_executed', 'account_runtime_input_gate_passed', 'acquisition_gate_passed', 'backtesting_executed', 'broker_account_read', 'historical_execution_authorized', 'management_input_gate_passed', 'management_projection_executed', 'paper_or_live_orders_authorized', 'policy_changed', 'portfolio_financial_metrics_eligible', 'retrospective_inputs_loaded')\nfor d in (contract, *docs.values()):\n    check(all(d[k] is False for k in closed) and d['provider_calls'] == 0 and d['provider_purchase_authorized_usd'] == '0', 'historical/provider gates closed')\ncheck(all(v is False for v in contract['historical_runtime_dependencies'].values()) and not readiness['historical_runtime_activation_ready'], 'activation dependencies unresolved')\n\nvectors = read(vector_path)\ncheck(vectors['synthetic_only'] is True and vectors['implementation_file_sha256'] == contract['implementation_file_sha256'], 'synthetic code identity')\ncheck(len(vectors['cases']) == 16, 'all 16 synthetic oracle traces')\nbase = 1748610000000000000\nfor case in vectors['cases']:\n    q, kind, state = case['quantity'], case['case_type'], case['state']\n    arrival = 100_000_000 if case['scenario_id'] == 'l1-conservative-v0.1' else 250_000_000\n    target = min(q // 2, case['target_capacity']) if kind in ('standard', 'delayed_equal_time') else 0\n    terminal = min(q - target, case['terminal_capacity']) if kind in ('standard', 'completed_bar') else 0\n    expected_fills = []\n    if target:\n        expected_fills.append((target, '12', base + 1_000_000_000 + (case['delayed_quote_ns'] or arrival), 'first_target'))\n    if terminal:\n        expected_fills.append((terminal, '9', base + (60_000_000_000 if kind == 'completed_bar' else 2_000_000_000) + arrival,\n            'first_red_candle' if kind == 'completed_bar' else 'initial_stop' if q // 2 == 0 or target != q // 2 else 'breakeven_stop'))\n    check([(f['quantity'], f['fill_price'], f['fill_time_ns'], f['reason']) for f in state['fills']] == expected_fills, 'independent executable fill price/clock/reason oracle')\n    check(state['remaining_quantity'] == q - target - terminal and state['sold_quantity'] == target + terminal, 'share arithmetic')\n    check(state['target_quantity'] == q // 2 and state['target_filled_quantity'] == target, 'fixed tranche')\n    check(state['breakeven_active'] == bool(q // 2 and target == q // 2), 'confirmed target feedback')\n    check(state['reserved_sell_quantity'] == 0 and not state['pending_order'] and state['clock_ns'] == base + 960_000_000_000 - 1, 'cancel and original end clock')\n    expected_status = 'closed_confirmed_shares' if q == target + terminal else 'open_unresolved_exit_remainder' if kind in ('standard', 'completed_bar') else 'open'\n    check(state['status'] == expected_status, 'explicit closed or unresolved remainder')\n    check(len({(f['source_request_sha256'], f['source_record_index']) for f in state['fills']}) == len(state['fills']), 'no repeated source liquidity')\n    decisions = ([base + 1_000_000_000] if q // 2 else []) + [base + 2_000_000_000] if kind == 'standard' else [base + 1_000_000_000] if kind == 'delayed_equal_time' else [base + 60_000_000_000] if kind == 'completed_bar' else []\n    check([o['decision_ts_ns'] for o in case['orders']] == decisions, 'independent equal-time/order oracle')\n    if kind == 'delayed_equal_time': check(state['latched_full_exit'] is None, 'equal-time print precedes delayed target fill')\n    check(case['complete_streams_verified'] and not case['historical_runtime_authorized'] and not case['account_close_produced'], 'synthetic result boundary')\n    for fill in state['fills']: check(fill['content_sha256'] == digest({k: v for k, v in fill.items() if k != 'content_sha256'}), 'fill receipt commitment')\nresult = {'verification_passed': True, 'independent_stdlib_only': True, 'project_runtime_imports': False,\n    'counts': prior['counts'], 'common_symbol_date_count': 41, 'new_request_count': 80, 'reuse_candidate_request_count': 2,\n    'reuse_candidate': {'trading_date': '2025-07-15', 'symbol': 'XAGE', 'exact_bytes_verified': False},\n    'all_original_opportunity_fields_and_account_dependencies_match': True, 'synthetic_clock_and_arithmetic_cases': 16,\n    'synthetic_vectors_content_sha256': vectors['content_sha256'], 'new_request_list_content_sha256': digest(new_requests),\n    'freeze_manifest_content_sha256': manifest['content_sha256'],\n    'file_inventory': {p.name: {'bytes': p.stat().st_size, 'sha256': hashlib.sha256(p.read_bytes()).hexdigest()} for p in sorted(out.iterdir())},\n    'historical_runtime_authorized': False, 'provider_calls': 0}\nresult['content_sha256'] = digest(result)\nprint(json.dumps(result, indent=2, sort_keys=True))\n"
+    }
+  },
+  "reproduction": [
+    "Extract the embedded checker and generator sources.",
+    "From the registered code checkpoint, run PYTHONPATH=.:src:scripts python generate-runner-vectors.py /an/absent/output.json and compare every byte to the committed vectors.",
+    "Run python verify-runner-independent.py /repo /an/absent/output.json; it uses only stdlib and denies external I/O.",
+    "Run the documented CLI --verify to independently reconstruct all four registration metadata files."
+  ],
+  "retrospective_inputs_loaded": false,
+  "reuse_candidate": {
+    "exact_retained_bytes_verified": false,
+    "interval_containment_verified": true,
+    "symbol": "XAGE",
+    "trading_date": "2025-07-15"
+  },
+  "reuse_candidate_request_count": 2,
+  "schema_version": 1,
+  "seeded_synthetic_paths": 50,
+  "sell_fills_applied_to_account_ledger": false,
+  "source_captures_consumption_and_account_seeds_modified": false,
+  "source_tapes_or_retrospective_inputs_loaded": false,
+  "synthetic_tests_are_not_historical_execution": true,
+  "synthetic_vectors": {
+    "bytes": 43837,
+    "content_sha256": "e535e2adeecbc77c51a4dd86d61deff0925ddeb019a3a750abfe93541a6add8f",
+    "every_byte_reproduced": true,
+    "path": "research/data-audits/sealed-historical-management-runner-v0.1-synthetic-vectors.json",
+    "sha256": "0e213efeb93e3610e1b33b972035d7ea62cddccca93a42c99ff3ea5cb68fe05f"
+  },
+  "verification_passed": true
+}
