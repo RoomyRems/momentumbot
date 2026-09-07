@@ -1,0 +1,41 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "account_runtime_input_gate_passed": false,
+  "acquisition_gate_passed": false,
+  "backtesting_executed": false,
+  "broker_account_read": false,
+  "content_sha256": "3304832421b6a0ed963a93eba8fcbecaa85ebab6b77471bead7c16ff00c058d5",
+  "contract_content_sha256": "0e240741759878fcabaaa35c8c0e1d4f06ed05ce006644160ce88ce56a11ec8e",
+  "contract_id": "sealed-historical-management-fill-feedback-v0.1",
+  "document_content_sha256": {
+    "entry-binding-requirements.json": "ff689ba3d7b94cc6e037bf12adc25c7bdbf3c5575fb7827bc52e6481665fe39a",
+    "fill-feedback-mechanics.json": "d0fdc8424464794b2413263b2edf06077b96c5644b1d52fd5511a0a55980a9ee",
+    "readiness-report.json": "8916ced50db84c77cec1217493b4fdae895342df166da3ad05db7bdb5bb9e63b"
+  },
+  "file_inventory": {
+    "entry-binding-requirements.json": {
+      "bytes": 2647,
+      "sha256": "274a0a384ee9f682711c73aff23d46d561e9f99b08a317729edb700b087e7110"
+    },
+    "fill-feedback-mechanics.json": {
+      "bytes": 2492,
+      "sha256": "1804798cb77e4ba36938d6d1c3f2201719f039bed2b247784c902b64814317f4"
+    },
+    "readiness-report.json": {
+      "bytes": 1493,
+      "sha256": "ae1e94aca391f80b356837d6b48dba62dbb8f852e79610b958707dabfe789d53"
+    }
+  },
+  "historical_execution_authorized": false,
+  "management_input_gate_passed": false,
+  "management_projection_executed": false,
+  "next_gate": "register_historical_entry_management_runner_and_exact_exit_evidence_with_historical_fees_and_causal_valuation_dependencies",
+  "paper_or_live_orders_authorized": false,
+  "parent_commit_sha": "75cacb70c9fc6fcc1465b5a3f65d991bad0b45bb",
+  "parent_registration_freeze_content_sha256": "0fef2f3bf29a3439dfa07d58a8fa189294f533197f53d70bc7939e186280960d",
+  "policy_changed": false,
+  "portfolio_financial_metrics_eligible": false,
+  "provider_calls": 0,
+  "provider_purchase_authorized_usd": "0",
+  "retrospective_inputs_loaded": false
+}

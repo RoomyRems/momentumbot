@@ -1,0 +1,43 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "account_runtime_input_gate_passed": false,
+  "acquisition_gate_passed": false,
+  "backtesting_executed": false,
+  "broker_account_read": false,
+  "content_sha256": "d0fdc8424464794b2413263b2edf06077b96c5644b1d52fd5511a0a55980a9ee",
+  "contract_id": "sealed-historical-management-fill-feedback-v0.1",
+  "frozen_execution_requirements_content_sha256": "ea48eb5f782959898a1bd12351425eaf2b4b300f06b7d096da93b436531e9b62",
+  "historical_execution_authorized": false,
+  "management_input_gate_passed": false,
+  "management_projection_executed": false,
+  "mechanics": {
+    "breakeven": "only_after_entire_intended_target_tranche_is_confirmed_filled",
+    "clock": "bar_close_before_SIP_print_before_equal_time_fill_and_cancel_feedback",
+    "competing_exit": "latch_stop_or_red_during_target_attempt_submit_remaining_only_on_next_eligible_print_after_ack",
+    "entry_binding": "recompute_frozen_L1_fill_and_accept_in_copied_frozen_pre_entry_ledger",
+    "entry_clock": "all_SIP_prints_at_or_before_entry_fill_are_excluded",
+    "external_trust": "caller_pins_context_tape_and_pre_ledger_but_historical_producer_authentication_is_not_supplied",
+    "fees": "no_2026_defaults_historical_schedule_and_cash_integration_required",
+    "full_exit_attempts": "one_marketable_limit_attempt_no_automatic_retry_partial_remainder_stays_open_unresolved",
+    "liquidity": "all_sells_use_one_pinned_complete_tape_original_row_identity_cannot_be_spent_twice",
+    "one_share": "no_target_order_or_breakeven_only_original_stop_or_completed_red",
+    "pending_order": "reserve_all_requested_shares_until_fill_then_cancel_acknowledgement",
+    "signal_price": "eligible_SIP_event_time_proxy_with_original_completed_bar_timing_not_measured_receive_latency",
+    "signal_priority": [
+      "active_stop",
+      "latched_full_exit_or_completed_first_red",
+      "first_target"
+    ],
+    "single_entry_only": true,
+    "source_bounds": "unchanged_original_opportunity_not_merged_extension",
+    "target_attempts": "one_marketable_limit_attempt_no_automatic_retry",
+    "target_quantity": "floor_confirmed_entry_shares_divided_by_two",
+    "terminal_status": "confirmed_share_closure_only_not_account_close_or_financial_eligibility"
+  },
+  "paper_or_live_orders_authorized": false,
+  "policy_changed": false,
+  "portfolio_financial_metrics_eligible": false,
+  "provider_calls": 0,
+  "provider_purchase_authorized_usd": "0",
+  "retrospective_inputs_loaded": false
+}

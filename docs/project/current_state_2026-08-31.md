@@ -1,6 +1,42 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: causal management mechanics independently verified
+## Current checkpoint: entry binding and executable fill feedback
+
+An isolated child of `75cacb70c9fc6fcc1465b5a3f65d991bad0b45bb` registers
+`sealed-historical-management-fill-feedback-v0.1`. It recomputes entry sizing
+and L1 execution against pinned evidence, accepts the fill through a copied
+frozen ledger, and binds the resulting quantity, price, time and source ordinal.
+Caller pins verify mechanics; historical producer authentication remains a
+separate dependency.
+
+The single-position reducer conserves whole shares across partial fills and
+pending cancellations. Breakeven activates only after the complete intended
+target tranche fills. Stop/red signals during pending target execution are
+latched, and equal-time market events precede fill feedback. One-share handling,
+one target attempt, one terminal attempt, and no automatic retries are explicit
+engineering conventions. Unfilled terminal shares remain open and unresolved.
+Executable sells use the frozen bid-side L1 policies and cannot reuse consumed
+quote rows or change the common source tape between attempts.
+
+All 1,820 local tests passed with zero skips. The 131-test focused group passed
+normally and optimized, including 53 new tests and 70 seeded synthetic paths.
+Hosted validation and its permanent audit are the remaining publication checks.
+
+The independent stdlib checker matches all four metadata files, original
+opportunity bounds, dates and account references, plus ten synthetic share
+accounting cases. All 109 opportunities, 23 unavailable entry inputs, 30 dates,
+12 paths, 360 session slots, 744 references and once-only account seeds remain
+unchanged. The freeze content commitment is
+`3304832421b6a0ed963a93eba8fcbecaa85ebab6b77471bead7c16ff00c058d5`.
+
+No historical entry/exit runner, account replay, source-tape access, provider
+request, purchase or retrospective input access runs in this stage. Share
+closure does not supply an account close or financial metric. Next: register
+the historical runner and exact common exit-evidence scope, preserving the
+historical-fee, causal valuation, sell-ledger and continuous-account dependencies.
+See [entry binding and fill feedback](../research/sealed_historical_management_fill_feedback_v01.md).
+
+## Prior checkpoint: causal management mechanics independently verified
 
 Code `b9f76707d0c28c8620278866116e96270fb7cac9` passed all eight hosted
 workflows on attempt 1. Dedicated run `34150725855`, job `101832281987`,
