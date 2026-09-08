@@ -86,5 +86,53 @@ remain prohibited from runtime. Comparison requires its separate gate after
 the runtime artifact is frozen. No provider or brokerage access is part of
 this workflow.
 
-The outcome and local/hosted verification commitments will be recorded here
-after the registered first execution is frozen.
+## First historical outcome: preserved failure
+
+Code `9bf91fc289ee13f507027921ab025fd012a49d76` and registration freeze
+`964a95b484843110f266a5a121232d11b55d0a5819a1381bd0bb982ba6df7352`
+were fixed before original execution. All 2,200 local tests passed with no
+skips; the 94 focused tests passed normally and optimized. The first runtime is
+`28c745a20e6669a831ce6b9e09028e01a0c480bc1d88055c33b218ca9d88d56d`.
+The registration and implementation remained unchanged after source access.
+
+All 12 paths recorded one entry on May 30, 2025, then failed at an executable
+exit reference. Their remaining 348 slots retain blocked prior state. All 744
+opportunity references, including 162 unavailable references, remain present.
+There are no completed paths or recorded sell fills. Open shares, cash, basis,
+campaigns and the unsubmitted exit intent remain in the frozen state chain.
+The 12 entries belong to independent alternative account paths, not one account.
+
+The shared first-red exit signal occurs at `2025-05-30T12:59:00.004678509Z`.
+The original GITS quote/status pair is complete and status indicates trading.
+Its most recent quote is **195.672387 ms** old, outside the fixed **100 ms**
+pre-decision reference interval. The first later quote arrives **215.595306 ms**
+after the signal. That future quote cannot authorize the earlier decision.
+The first run keeps the unsubmitted intent and blocks further account execution;
+it does not relax freshness or invent a fill.
+
+The independent account checker rejects all six stress paths on exact open-risk
+equality. The frozen float ledger reports `(3.55 - 3.35) * 2` as
+`0.39999999999999947`, while exact decimal arithmetic gives `0.40`.
+The difference is `-5.3E-16` dollars. Six conservative paths pass their individual
+chronology/accounting checks, including the preserved failure and blocked carry;
+overall account verification remains **failed**. No tolerance was introduced.
+
+GitHub run `34242953306`, job `102117537897`, reproduced the runtime on attempt 1
+and failed at the same independent risk check. Its 94 tests passed both normally
+and optimized, with zero skips. General CI `34242953568` passed 2,200 tests with
+73 existing optional-SDK skips; five other validation workflows passed.
+The dedicated failure is retained, with no rerun or rewritten registration.
+
+Artifact `10063300049` is 926,112 bytes with ZIP SHA-256
+`d7c80c8af2b8c30a1af47e4686322527dd8a46f5e0b2b1ce2bc61039c3ced996`.
+Its runtime, freeze manifest and attempt receipt all match local bytes exactly.
+The [failure audit](../../research/data-audits/sealed-historical-account-replay-v0.1-first-runtime-failure.json)
+retains the complete metadata, failed checker output, source diagnostic,
+per-path accounting checks and exact preserved-state comparisons.
+
+Next: an isolated decimal risk-projection repair with nonbinary-cent regression
+vectors, followed by explicit causal handling of an unsubmitted exit awaiting a
+fresh reference within the existing windows and order-attempt ceilings. This
+failed parent, its source evidence and its strategy/risk/fee limits stay frozen.
+Financial evaluation, retrospective comparison and policy promotion remain
+closed. No provider or brokerage account or Ross attachment was accessed.

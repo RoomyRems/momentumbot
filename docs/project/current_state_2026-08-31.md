@@ -1,6 +1,47 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: original historical source binding independently verified
+## Current checkpoint: first original historical account replay frozen; independent audit failed
+
+The isolated original-account activation is implemented at code
+`9bf91fc289ee13f507027921ab025fd012a49d76`. Registration freeze
+`964a95b484843110f266a5a121232d11b55d0a5819a1381bd0bb982ba6df7352`
+preceded source access. All 2,200 local tests passed with zero skips, and 94
+focused tests passed normally and optimized. The first historical runtime is
+`28c745a20e6669a831ce6b9e09028e01a0c480bc1d88055c33b218ca9d88d56d`.
+
+All 12 account paths recorded an entry on the first date, then stopped at an
+unavailable fresh exit reference. The remaining 348 slots are explicitly
+blocked. All 744 original opportunity references and 162 unavailable references
+remain present, with no reseeding or inferred liquidation. No path is complete.
+The shared GITS exit signal's latest prior quote is 195.672387 ms old against
+the frozen 100 ms limit; the next quote arrives 215.595306 ms later. Original
+source coverage is complete, but the decision-time reference is unavailable.
+
+The independent checker also rejects six stress paths: the frozen float ledger
+records open risk as `0.39999999999999947` instead of exact `0.40`. Six
+conservative paths pass their individual checks, including their preserved
+failure state. Overall independent account verification is failed. Keep this
+first result immutable; do not weaken the checker or use later quotes at an
+earlier decision time.
+
+Dedicated GitHub run `34242953306` reproduced the exact runtime and failed at
+the same risk check on attempt 1. Its 94 tests passed normally and optimized.
+CI run `34242953568` passed 2,200 tests with its existing 73 optional-SDK skips;
+five other validations passed. Artifact `10063300049` is 926,112 bytes, ZIP SHA
+`d7c80c8af2b8c30a1af47e4686322527dd8a46f5e0b2b1ce2bc61039c3ced996`.
+All three downloaded files match local bytes. No historical replay rerun or
+post-outcome implementation change occurred.
+
+Next: isolated decimal open-risk projection repair, then registration of causal
+handling for an unsubmitted exit waiting for a fresh reference within original
+windows and existing attempt ceilings. Preserve all dates, paths, source and
+availability identities, seeds, strategy, risk and fee rules. Financial metrics,
+retrospective comparison and policy promotion remain closed. Ross attachments
+remain unopened. See the [component](../research/sealed_historical_account_replay_v01.md),
+[failure audit](../../research/data-audits/sealed-historical-account-replay-v0.1-first-runtime-failure.json)
+and [project progress](progress_2026-09-08.md).
+
+## Prior checkpoint: original historical source binding independently verified
 
 The isolated child of `b10c8e675161c22658633d70e07960781c405cd3` binds the exact five
 retained source archives to the account-input boundary. It preserves original

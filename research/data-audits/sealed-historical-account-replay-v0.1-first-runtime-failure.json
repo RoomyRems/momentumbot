@@ -1,0 +1,1642 @@
+{
+  "artifact_type": "preserved_first_historical_runtime_and_independent_verification_failure",
+  "brokerage_account_accessed": false,
+  "code_commit_sha": "9bf91fc289ee13f507027921ab025fd012a49d76",
+  "code_tree_sha": "5a046b3b5d5da4f163133353b2cad4bf3d193d64",
+  "content_sha256": "527b906985682eca8ff4b90c82445e4af3074e0ad0cc441061c220b6b92a7024",
+  "contract_content_sha256": "b46038fa6aab9ddc49be569eb9cef05e2c3df5eec2a262db0481bc4188dca839",
+  "contract_id": "sealed-historical-account-replay-v0.1",
+  "development_failures_before_original_execution": [
+    {
+      "cause": "child close hashes differ from parent wrapper identities",
+      "failures": 2,
+      "resolution": "translate only preceding wrapper hashes; retain exact account/event equality",
+      "stage": "synthetic_state_parity"
+    },
+    {
+      "cause": "canonical JSON comparator was passed a set",
+      "failures": 1,
+      "resolution": "sorted exact inventory names; superseded draft registration retained",
+      "stage": "registration_reconstruction"
+    }
+  ],
+  "exit_reference_diagnostic": {
+    "actual_decision_reference_available": false,
+    "capture": {
+      "acquisition_gate_passed": false,
+      "adapter_contract_id": "sealed-historical-record-order-adapter-v0.1",
+      "capture_status": "complete",
+      "content_sha256": "76c302a386298e70bc04bc955ecd68d07aee3b18b6373da6b0e894601ee4f03d",
+      "decision_ts_ns": 1748609940004678509,
+      "historical_execution_authorized": false,
+      "initial_status": {
+        "action": 1,
+        "is_trading": "Y",
+        "record_index": 2,
+        "ts_recv_ns": 1748592000000339764
+      },
+      "opportunity_id": "opportunity-df22c6ea809d8a6fe62df2c0d36d14179d749fcc8c2d76cf31a39e93872a5e43",
+      "quote_source_request_sha256": "e141b4b8a25c5bb816186f1b8d89a6d9292d2d1e4f3d9a6ac1efc9c08c5e71eb",
+      "quote_tape_content_sha256": "05c4801538ea8f830148a6375bf641238a3f857b46d74b86ce409868c0efb107",
+      "quotes": [
+        {
+          "ask_price": "3.66",
+          "ask_size": 62,
+          "bid_price": "3.58",
+          "bid_size": 213,
+          "halted": false,
+          "sequence": 24430105,
+          "source_record_index": 3066,
+          "source_request_sha256": "e141b4b8a25c5bb816186f1b8d89a6d9292d2d1e4f3d9a6ac1efc9c08c5e71eb",
+          "status_action": 1,
+          "status_record_index": 2,
+          "status_ts_recv_ns": 1748592000000339764,
+          "symbol": "GITS",
+          "ts_recv_ns": 1748609940220273815
+        },
+        {
+          "ask_price": "3.63",
+          "ask_size": 2,
+          "bid_price": "3.58",
+          "bid_size": 213,
+          "halted": false,
+          "sequence": 24430298,
+          "source_record_index": 3067,
+          "source_request_sha256": "e141b4b8a25c5bb816186f1b8d89a6d9292d2d1e4f3d9a6ac1efc9c08c5e71eb",
+          "status_action": 1,
+          "status_record_index": 2,
+          "status_ts_recv_ns": 1748592000000339764,
+          "symbol": "GITS",
+          "ts_recv_ns": 1748609940373583755
+        },
+        {
+          "ask_price": "3.63",
+          "ask_size": 37,
+          "bid_price": "3.58",
+          "bid_size": 213,
+          "halted": false,
+          "sequence": 24430300,
+          "source_record_index": 3068,
+          "source_request_sha256": "e141b4b8a25c5bb816186f1b8d89a6d9292d2d1e4f3d9a6ac1efc9c08c5e71eb",
+          "status_action": 1,
+          "status_record_index": 2,
+          "status_ts_recv_ns": 1748592000000339764,
+          "symbol": "GITS",
+          "ts_recv_ns": 1748609940373610363
+        }
+      ],
+      "status_changes": [],
+      "status_coverage_complete": true,
+      "status_source_request_sha256": "9ca44e822638dd0cb6eac852fc2ff44c1bcbd5ba55966d412d3379b617bc928a",
+      "status_tape_content_sha256": "e4f357dac3e59ade781934802420a15258d33137a6cec76bd24914fa9708e26e",
+      "symbol": "GITS",
+      "trading_date": "2025-05-30",
+      "unusable_or_status_unknown_quote_count": 0,
+      "usable_quote_count": 3,
+      "window_end_ns": 1748609940554678509,
+      "window_start_ns": 1748609939904678509
+    },
+    "content_sha256": "82e729605ff08da5a76f0f474a0034aebca710b5d2d5398e63e7ad3b37e7d902",
+    "decision_ns": 1748609940004678509,
+    "diagnosis": "Complete original source pair; no reference within the frozen pre-decision freshness interval. Later quotes cannot authorize the earlier signal. Runtime preserves an unsubmitted exit intent.",
+    "diagnostic_only": true,
+    "execution_tape_content_sha256": "959e7bd27e223d6aa64fb3d480d42d3c3b9155fa7da1f37565580955d6a25e73",
+    "first_after_decision_delay_ns": 215595306,
+    "first_raw_quote_after": {
+      "source_record_index": 3066,
+      "source_request_sha256": "e141b4b8a25c5bb816186f1b8d89a6d9292d2d1e4f3d9a6ac1efc9c08c5e71eb",
+      "ts_recv_ns": 1748609940220273815
+    },
+    "initial_status_is_trading": "Y",
+    "latest_raw_quote_before": {
+      "source_record_index": 3065,
+      "source_request_sha256": "e141b4b8a25c5bb816186f1b8d89a6d9292d2d1e4f3d9a6ac1efc9c08c5e71eb",
+      "ts_recv_ns": 1748609939809006122
+    },
+    "opportunity_id": "opportunity-df22c6ea809d8a6fe62df2c0d36d14179d749fcc8c2d76cf31a39e93872a5e43",
+    "prior_quote_age_ns": 195672387,
+    "projected_quote_count": 3,
+    "projected_quotes": [
+      {
+        "ask_price": "3.66",
+        "bid_price": "3.58",
+        "halted": false,
+        "source_record_index": 3066,
+        "source_request_sha256": "e141b4b8a25c5bb816186f1b8d89a6d9292d2d1e4f3d9a6ac1efc9c08c5e71eb",
+        "ts_recv_ns": 1748609940220273815
+      },
+      {
+        "ask_price": "3.63",
+        "bid_price": "3.58",
+        "halted": false,
+        "source_record_index": 3067,
+        "source_request_sha256": "e141b4b8a25c5bb816186f1b8d89a6d9292d2d1e4f3d9a6ac1efc9c08c5e71eb",
+        "ts_recv_ns": 1748609940373583755
+      },
+      {
+        "ask_price": "3.63",
+        "bid_price": "3.58",
+        "halted": false,
+        "source_record_index": 3068,
+        "source_request_sha256": "e141b4b8a25c5bb816186f1b8d89a6d9292d2d1e4f3d9a6ac1efc9c08c5e71eb",
+        "ts_recv_ns": 1748609940373610363
+      }
+    ],
+    "raw_status_records": [
+      {
+        "action": 7,
+        "is_trading": "N",
+        "symbol": "GITS",
+        "ts_recv_ns": 1748588746373295607
+      },
+      {
+        "action": 14,
+        "is_trading": "N",
+        "symbol": "GITS",
+        "ts_recv_ns": 1748588746373304755
+      },
+      {
+        "action": 1,
+        "is_trading": "Y",
+        "symbol": "GITS",
+        "ts_recv_ns": 1748592000000339764
+      }
+    ],
+    "registered_pre_decision_freshness_ns": 100000000,
+    "runtime_content_sha256": "28c745a20e6669a831ce6b9e09028e01a0c480bc1d88055c33b218ca9d88d56d",
+    "source_or_policy_changed": false,
+    "superseded_presentation_note": "Raw quotes use a different record class from projected top-of-book events. Only their actual receive timestamps and source identities are recorded here; absent Python attributes are not missing source fields."
+  },
+  "financial_metrics_eligible": false,
+  "first_independent_failure_log": "Traceback (most recent call last):\n  File \"/workspace/scratch/2d76267c92e1/momentumbot/scripts/verify_sealed_historical_account_replay_v01.py\", line 218, in <module>\n    raise SystemExit(main())\n                     ^^^^^^\n  File \"/workspace/scratch/2d76267c92e1/momentumbot/scripts/verify_sealed_historical_account_replay_v01.py\", line 210, in main\n    result = verify(Path(__file__).resolve().parents[1], args.runtime_root, args.binding_root, args.expected_runtime_sha256)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/2d76267c92e1/momentumbot/scripts/verify_sealed_historical_account_replay_v01.py\", line 189, in verify\n    counts.append({\"path_id\": path[\"path_id\"], **verify_path(program, path, manifest)})\n                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/2d76267c92e1/momentumbot/scripts/verify_sealed_historical_account_replay_v01.py\", line 99, in verify_path\n    account_state(snapshot)\n  File \"/workspace/scratch/2d76267c92e1/momentumbot/scripts/verify_sealed_historical_account_continuity_v01.py\", line 133, in account_state\n    require(Decimal(str(ledger[\"total_open_risk\"])) == expected_risk, \"confirmed stop risk differs\")\n  File \"/workspace/scratch/2d76267c92e1/momentumbot/scripts/verify_sealed_historical_management_fee_reconciliation_v01.py\", line 37, in require\n    raise ValueError(message)\nValueError: confirmed stop risk differs\n",
+  "hosted_artifact_verification": {
+    "artifact_id": 10063300049,
+    "files": [
+      {
+        "bytes": 9508841,
+        "local_bytes_identical": true,
+        "member": "account-replay/account-replay.json",
+        "sha256": "58508258633b3ee959ecfa701c5e2489932513e058851b30c178a12b2e699869"
+      },
+      {
+        "bytes": 1013,
+        "local_bytes_identical": true,
+        "member": "account-replay/freeze-manifest.json",
+        "sha256": "758c4f3cad53230f9cb64cd15aa9c1d94a3e92b5ec2a028f033ccf0b83aaa0a0"
+      },
+      {
+        "bytes": 1718,
+        "local_bytes_identical": true,
+        "member": "account-replay-attempt.json",
+        "sha256": "b0d914a5acc56fa101e69bdab935e1e7534f496022f334c8546644a702ac309e"
+      }
+    ],
+    "independent_account_verification_passed": false,
+    "runtime_bytes_reproduced": true,
+    "zip_bytes": 926112,
+    "zip_sha256": "d7c80c8af2b8c30a1af47e4686322527dd8a46f5e0b2b1ce2bc61039c3ced996"
+  },
+  "hosted_metadata": {
+    "artifacts": [
+      {
+        "archive_download_url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/artifacts/10063300049/zip",
+        "created_at": "2026-09-08T15:22:18Z",
+        "digest": "sha256:d7c80c8af2b8c30a1af47e4686322527dd8a46f5e0b2b1ce2bc61039c3ced996",
+        "expired": false,
+        "expires_at": "2026-12-07T15:09:40Z",
+        "id": 10063300049,
+        "name": "sealed-historical-account-replay-v01-34242953306-1",
+        "node_id": "MDg6QXJ0aWZhY3QxMDA2MzMwMDA0OQ==",
+        "size_in_bytes": 926112,
+        "updated_at": "2026-09-08T15:22:18Z",
+        "url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/artifacts/10063300049",
+        "workflow_run": {
+          "head_branch": "phase-3-historical-snapshot",
+          "head_repository_id": 1332103865,
+          "head_sha": "9bf91fc289ee13f507027921ab025fd012a49d76",
+          "id": 34242953306,
+          "repository_id": 1332103865
+        }
+      }
+    ],
+    "ci_jobs": [
+      {
+        "completed_at": "2026-09-08T15:14:17Z",
+        "conclusion": "success",
+        "id": 102117535935,
+        "name": "test",
+        "run_id": 34242953568,
+        "started_at": "2026-09-08T15:09:42Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completed_at": "2026-09-08T15:09:44Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "started_at": "2026-09-08T15:09:43Z",
+            "status": "completed"
+          },
+          {
+            "completed_at": "2026-09-08T15:09:45Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@v4",
+            "number": 2,
+            "started_at": "2026-09-08T15:09:44Z",
+            "status": "completed"
+          },
+          {
+            "completed_at": "2026-09-08T15:09:45Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-python@v5",
+            "number": 3,
+            "started_at": "2026-09-08T15:09:45Z",
+            "status": "completed"
+          },
+          {
+            "completed_at": "2026-09-08T15:09:58Z",
+            "conclusion": "success",
+            "name": "Install package",
+            "number": 4,
+            "started_at": "2026-09-08T15:09:45Z",
+            "status": "completed"
+          },
+          {
+            "completed_at": "2026-09-08T15:14:14Z",
+            "conclusion": "success",
+            "name": "Run tests",
+            "number": 5,
+            "started_at": "2026-09-08T15:09:58Z",
+            "status": "completed"
+          },
+          {
+            "completed_at": "2026-09-08T15:14:14Z",
+            "conclusion": "success",
+            "name": "Compile",
+            "number": 6,
+            "started_at": "2026-09-08T15:14:14Z",
+            "status": "completed"
+          },
+          {
+            "completed_at": "2026-09-08T15:14:14Z",
+            "conclusion": "success",
+            "name": "Post Run actions/setup-python@v5",
+            "number": 11,
+            "started_at": "2026-09-08T15:14:14Z",
+            "status": "completed"
+          },
+          {
+            "completed_at": "2026-09-08T15:14:15Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@v4",
+            "number": 12,
+            "started_at": "2026-09-08T15:14:14Z",
+            "status": "completed"
+          },
+          {
+            "completed_at": "2026-09-08T15:14:15Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 13,
+            "started_at": "2026-09-08T15:14:15Z",
+            "status": "completed"
+          }
+        ]
+      }
+    ],
+    "ci_log": {
+      "job_id": 102117535935,
+      "skips": [
+        73
+      ],
+      "tests": [
+        {
+          "seconds": "252.330",
+          "tests": 2200
+        }
+      ]
+    },
+    "code_commit": "9bf91fc289ee13f507027921ab025fd012a49d76",
+    "code_tree": "5a046b3b5d5da4f163133353b2cad4bf3d193d64",
+    "dedicated_jobs": [
+      {
+        "check_run_url": "https://api.github.com/repos/RoomyRems/momentumbot/check-runs/102117537897",
+        "completed_at": "2026-09-08T15:22:20Z",
+        "conclusion": "failure",
+        "created_at": "2026-09-08T15:09:40Z",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "9bf91fc289ee13f507027921ab025fd012a49d76",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34242953306/job/102117537897",
+        "id": 102117537897,
+        "labels": [
+          "ubuntu-24.04"
+        ],
+        "name": "validate",
+        "node_id": "CR_kwDOT2ZKuc8AAAAXxq34aQ",
+        "run_attempt": 1,
+        "run_id": 34242953306,
+        "run_url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/runs/34242953306",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions",
+        "runner_id": 1000001452,
+        "runner_name": "GitHub Actions 1000001452",
+        "started_at": "2026-09-08T15:09:43Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completed_at": "2026-09-08T15:09:45Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "started_at": "2026-09-08T15:09:44Z",
+            "status": "completed"
+          },
+          {
+            "completed_at": "2026-09-08T15:09:47Z",
+            "conclusion": "success",
+            "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "number": 2,
+            "started_at": "2026-09-08T15:09:45Z",
+            "status": "completed"
+          },
+          {
+            "completed_at": "2026-09-08T15:09:47Z",
+            "conclusion": "success",
+            "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+            "number": 3,
+            "started_at": "2026-09-08T15:09:47Z",
+            "status": "completed"
+          },
+          {
+            "completed_at": "2026-09-08T15:10:01Z",
+            "conclusion": "success",
+            "name": "Install hash-locked validation environment",
+            "number": 4,
+            "started_at": "2026-09-08T15:09:47Z",
+            "status": "completed"
+          },
+          {
+            "completed_at": "2026-09-08T15:12:04Z",
+            "conclusion": "success",
+            "name": "Verify frozen registration and component mechanics offline",
+            "number": 5,
+            "started_at": "2026-09-08T15:10:01Z",
+            "status": "completed"
+          },
+          {
+            "completed_at": "2026-09-08T15:12:16Z",
+            "conclusion": "success",
+            "name": "Download only immutable original evidence and verified binding",
+            "number": 6,
+            "started_at": "2026-09-08T15:12:04Z",
+            "status": "completed"
+          },
+          {
+            "completed_at": "2026-09-08T15:22:15Z",
+            "conclusion": "success",
+            "name": "Execute all original account paths offline with explicit blocked continuation",
+            "number": 7,
+            "started_at": "2026-09-08T15:12:16Z",
+            "status": "completed"
+          },
+          {
+            "completed_at": "2026-09-08T15:22:17Z",
+            "conclusion": "failure",
+            "name": "Independently verify original chronology, accounting and carry",
+            "number": 8,
+            "started_at": "2026-09-08T15:22:15Z",
+            "status": "completed"
+          },
+          {
+            "completed_at": "2026-09-08T15:22:18Z",
+            "conclusion": "success",
+            "name": "Retain runtime, independent check and any failed attempt",
+            "number": 9,
+            "started_at": "2026-09-08T15:22:17Z",
+            "status": "completed"
+          },
+          {
+            "completed_at": "2026-09-08T15:22:18Z",
+            "conclusion": "skipped",
+            "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+            "number": 17,
+            "started_at": "2026-09-08T15:22:18Z",
+            "status": "completed"
+          },
+          {
+            "completed_at": "2026-09-08T15:22:18Z",
+            "conclusion": "success",
+            "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "number": 18,
+            "started_at": "2026-09-08T15:22:18Z",
+            "status": "completed"
+          },
+          {
+            "completed_at": "2026-09-08T15:22:18Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 19,
+            "started_at": "2026-09-08T15:22:18Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/jobs/102117537897",
+        "workflow_name": "Sealed historical account replay v0.1"
+      }
+    ],
+    "dedicated_log": {
+      "failure_lines": [
+        "2026-09-08T15:22:15.8627558Z {\"financial_metrics_eligible\": false, \"paths\": 12, \"runtime_content_sha256\": \"28c745a20e6669a831ce6b9e09028e01a0c480bc1d88055c33b218ca9d88d56d\", \"sessions\": 360}",
+        "2026-09-08T15:22:17.0968193Z ValueError: confirmed stop risk differs"
+      ],
+      "job_id": 102117537897,
+      "skips": [
+        0,
+        0
+      ],
+      "tests": [
+        {
+          "seconds": "55.898",
+          "tests": 94
+        },
+        {
+          "seconds": "56.023",
+          "tests": 94
+        }
+      ]
+    },
+    "local_tests": {
+      "replay-focused-normal-01": {
+        "seconds": "54.788",
+        "skips": 0,
+        "tests": 94
+      },
+      "replay-focused-optimized-01": {
+        "seconds": "59.162",
+        "skips": 0,
+        "tests": 94
+      },
+      "replay-full-suite-01": {
+        "seconds": "262.886",
+        "skips": 0,
+        "tests": 2200
+      }
+    },
+    "runs": [
+      {
+        "conclusion": "success",
+        "created_at": "2026-09-08T15:09:39Z",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "9bf91fc289ee13f507027921ab025fd012a49d76",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34242953303",
+        "id": 34242953303,
+        "name": "Sealed historical source acquisition v0.2",
+        "path": ".github/workflows/sealed-historical-source-acquisition-v02.yml",
+        "run_attempt": 1,
+        "status": "completed",
+        "updated_at": "2026-09-08T15:09:59Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-09-08T15:09:39Z",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "9bf91fc289ee13f507027921ab025fd012a49d76",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34242953286",
+        "id": 34242953286,
+        "name": "Sealed historical provider availability v0.1",
+        "path": ".github/workflows/sealed-historical-provider-availability.yml",
+        "run_attempt": 1,
+        "status": "completed",
+        "updated_at": "2026-09-08T15:10:01Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-09-08T15:09:39Z",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "9bf91fc289ee13f507027921ab025fd012a49d76",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34242953309",
+        "id": 34242953309,
+        "name": "Sealed historical provider availability repair v0.2",
+        "path": ".github/workflows/sealed-historical-provider-availability-v02.yml",
+        "run_attempt": 1,
+        "status": "completed",
+        "updated_at": "2026-09-08T15:10:00Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-09-08T15:09:39Z",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "9bf91fc289ee13f507027921ab025fd012a49d76",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34242953172",
+        "id": 34242953172,
+        "name": "Sealed historical source acquisition v0.3",
+        "path": ".github/workflows/sealed-historical-source-acquisition-v03.yml",
+        "run_attempt": 1,
+        "status": "completed",
+        "updated_at": "2026-09-08T15:10:01Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-09-08T15:09:39Z",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "9bf91fc289ee13f507027921ab025fd012a49d76",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34242953289",
+        "id": 34242953289,
+        "name": "Sealed historical source acquisition v0.1",
+        "path": ".github/workflows/sealed-historical-source-acquisition.yml",
+        "run_attempt": 1,
+        "status": "completed",
+        "updated_at": "2026-09-08T15:10:41Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-09-08T15:09:39Z",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "9bf91fc289ee13f507027921ab025fd012a49d76",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34242953568",
+        "id": 34242953568,
+        "name": "CI",
+        "path": ".github/workflows/ci.yml",
+        "run_attempt": 1,
+        "status": "completed",
+        "updated_at": "2026-09-08T15:14:18Z"
+      },
+      {
+        "conclusion": "failure",
+        "created_at": "2026-09-08T15:09:39Z",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "9bf91fc289ee13f507027921ab025fd012a49d76",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34242953306",
+        "id": 34242953306,
+        "name": "Sealed historical account replay v0.1",
+        "path": ".github/workflows/sealed-historical-account-replay-v01.yml",
+        "run_attempt": 1,
+        "status": "completed",
+        "updated_at": "2026-09-08T15:22:21Z"
+      }
+    ]
+  },
+  "independent_account_verification_passed": false,
+  "independent_path_diagnostic": {
+    "content_sha256": "2be4d882912b2968ce9922897059c7a5bd8e89171ca92b001d1adcb0888b2aee",
+    "contract_id": "sealed-historical-account-replay-v0.1",
+    "diagnostic_only": true,
+    "financial_metrics_eligible": false,
+    "overall_independent_verification_passed": false,
+    "paths": [
+      {
+        "counts": {
+          "blocked_sessions": 29,
+          "completed_streams": 0,
+          "confirmed_entries": 1,
+          "confirmed_fills": 1,
+          "confirmed_sells": 0,
+          "events": 4,
+          "executed_sessions": 1,
+          "input_failure_sessions": 1,
+          "opportunity_references": 99,
+          "sessions": 30,
+          "unavailable_references": 21
+        },
+        "path_id": "main_account-1s-l1-conservative-v0.1",
+        "verification_passed": true
+      },
+      {
+        "error": "confirmed stop risk differs",
+        "error_type": "ValueError",
+        "path_id": "main_account-1s-l1-stress-v0.1",
+        "verification_passed": false
+      },
+      {
+        "counts": {
+          "blocked_sessions": 29,
+          "completed_streams": 0,
+          "confirmed_entries": 1,
+          "confirmed_fills": 1,
+          "confirmed_sells": 0,
+          "events": 4,
+          "executed_sessions": 1,
+          "input_failure_sessions": 1,
+          "opportunity_references": 99,
+          "sessions": 30,
+          "unavailable_references": 21
+        },
+        "path_id": "main_account-5s-l1-conservative-v0.1",
+        "verification_passed": true
+      },
+      {
+        "error": "confirmed stop risk differs",
+        "error_type": "ValueError",
+        "path_id": "main_account-5s-l1-stress-v0.1",
+        "verification_passed": false
+      },
+      {
+        "counts": {
+          "blocked_sessions": 29,
+          "completed_streams": 0,
+          "confirmed_entries": 1,
+          "confirmed_fills": 1,
+          "confirmed_sells": 0,
+          "events": 4,
+          "executed_sessions": 1,
+          "input_failure_sessions": 1,
+          "opportunity_references": 99,
+          "sessions": 30,
+          "unavailable_references": 21
+        },
+        "path_id": "main_account-10s-l1-conservative-v0.1",
+        "verification_passed": true
+      },
+      {
+        "error": "confirmed stop risk differs",
+        "error_type": "ValueError",
+        "path_id": "main_account-10s-l1-stress-v0.1",
+        "verification_passed": false
+      },
+      {
+        "counts": {
+          "blocked_sessions": 29,
+          "completed_streams": 0,
+          "confirmed_entries": 1,
+          "confirmed_fills": 1,
+          "confirmed_sells": 0,
+          "events": 4,
+          "executed_sessions": 1,
+          "input_failure_sessions": 1,
+          "opportunity_references": 25,
+          "sessions": 30,
+          "unavailable_references": 6
+        },
+        "path_id": "small_account-1s-l1-conservative-v0.1",
+        "verification_passed": true
+      },
+      {
+        "error": "confirmed stop risk differs",
+        "error_type": "ValueError",
+        "path_id": "small_account-1s-l1-stress-v0.1",
+        "verification_passed": false
+      },
+      {
+        "counts": {
+          "blocked_sessions": 29,
+          "completed_streams": 0,
+          "confirmed_entries": 1,
+          "confirmed_fills": 1,
+          "confirmed_sells": 0,
+          "events": 4,
+          "executed_sessions": 1,
+          "input_failure_sessions": 1,
+          "opportunity_references": 25,
+          "sessions": 30,
+          "unavailable_references": 6
+        },
+        "path_id": "small_account-5s-l1-conservative-v0.1",
+        "verification_passed": true
+      },
+      {
+        "error": "confirmed stop risk differs",
+        "error_type": "ValueError",
+        "path_id": "small_account-5s-l1-stress-v0.1",
+        "verification_passed": false
+      },
+      {
+        "counts": {
+          "blocked_sessions": 29,
+          "completed_streams": 0,
+          "confirmed_entries": 1,
+          "confirmed_fills": 1,
+          "confirmed_sells": 0,
+          "events": 4,
+          "executed_sessions": 1,
+          "input_failure_sessions": 1,
+          "opportunity_references": 25,
+          "sessions": 30,
+          "unavailable_references": 6
+        },
+        "path_id": "small_account-10s-l1-conservative-v0.1",
+        "verification_passed": true
+      },
+      {
+        "error": "confirmed stop risk differs",
+        "error_type": "ValueError",
+        "path_id": "small_account-10s-l1-stress-v0.1",
+        "verification_passed": false
+      }
+    ],
+    "runtime_content_sha256": "28c745a20e6669a831ce6b9e09028e01a0c480bc1d88055c33b218ca9d88d56d"
+  },
+  "local_tests": {
+    "replay-focused-normal-01": {
+      "seconds": "54.788",
+      "skips": 0,
+      "tests": 94
+    },
+    "replay-focused-optimized-01": {
+      "seconds": "59.162",
+      "skips": 0,
+      "tests": 94
+    },
+    "replay-full-suite-01": {
+      "seconds": "262.886",
+      "skips": 0,
+      "tests": 2200
+    }
+  },
+  "next_development": [
+    "isolated decimal open-risk projection repair with nonbinary-cent regression vectors, preserving this failed parent",
+    "register causal handling of an unsubmitted exit awaiting a fresh reference within original windows and existing attempt ceilings",
+    "replay only the registered child and retain all original population and blocked carry evidence"
+  ],
+  "no_freshness_relaxation_or_future_quote_used": true,
+  "no_reseed_liquidation_overnight_window_or_retry_inferred": true,
+  "no_runtime_code_or_source_changes_after_first_execution": true,
+  "open_risk_diagnostic": [
+    {
+      "difference": "0.00",
+      "entry_price": "3.6",
+      "exact_decimal_open_risk": "9.00",
+      "exact_match": true,
+      "frozen_ledger_open_risk": "9.0",
+      "path_id": "main_account-1s-l1-conservative-v0.1",
+      "quantity": 36,
+      "stop_price": "3.35"
+    },
+    {
+      "difference": "-5.3E-16",
+      "entry_price": "3.55",
+      "exact_decimal_open_risk": "0.40",
+      "exact_match": false,
+      "frozen_ledger_open_risk": "0.39999999999999947",
+      "path_id": "main_account-1s-l1-stress-v0.1",
+      "quantity": 2,
+      "stop_price": "3.35"
+    },
+    {
+      "difference": "0.00",
+      "entry_price": "3.6",
+      "exact_decimal_open_risk": "9.00",
+      "exact_match": true,
+      "frozen_ledger_open_risk": "9.0",
+      "path_id": "main_account-5s-l1-conservative-v0.1",
+      "quantity": 36,
+      "stop_price": "3.35"
+    },
+    {
+      "difference": "-5.3E-16",
+      "entry_price": "3.55",
+      "exact_decimal_open_risk": "0.40",
+      "exact_match": false,
+      "frozen_ledger_open_risk": "0.39999999999999947",
+      "path_id": "main_account-5s-l1-stress-v0.1",
+      "quantity": 2,
+      "stop_price": "3.35"
+    },
+    {
+      "difference": "0.00",
+      "entry_price": "3.6",
+      "exact_decimal_open_risk": "9.00",
+      "exact_match": true,
+      "frozen_ledger_open_risk": "9.0",
+      "path_id": "main_account-10s-l1-conservative-v0.1",
+      "quantity": 36,
+      "stop_price": "3.35"
+    },
+    {
+      "difference": "-5.3E-16",
+      "entry_price": "3.55",
+      "exact_decimal_open_risk": "0.40",
+      "exact_match": false,
+      "frozen_ledger_open_risk": "0.39999999999999947",
+      "path_id": "main_account-10s-l1-stress-v0.1",
+      "quantity": 2,
+      "stop_price": "3.35"
+    },
+    {
+      "difference": "0.00",
+      "entry_price": "3.6",
+      "exact_decimal_open_risk": "4.75",
+      "exact_match": true,
+      "frozen_ledger_open_risk": "4.75",
+      "path_id": "small_account-1s-l1-conservative-v0.1",
+      "quantity": 19,
+      "stop_price": "3.35"
+    },
+    {
+      "difference": "-5.3E-16",
+      "entry_price": "3.55",
+      "exact_decimal_open_risk": "0.40",
+      "exact_match": false,
+      "frozen_ledger_open_risk": "0.39999999999999947",
+      "path_id": "small_account-1s-l1-stress-v0.1",
+      "quantity": 2,
+      "stop_price": "3.35"
+    },
+    {
+      "difference": "0.00",
+      "entry_price": "3.6",
+      "exact_decimal_open_risk": "4.75",
+      "exact_match": true,
+      "frozen_ledger_open_risk": "4.75",
+      "path_id": "small_account-5s-l1-conservative-v0.1",
+      "quantity": 19,
+      "stop_price": "3.35"
+    },
+    {
+      "difference": "-5.3E-16",
+      "entry_price": "3.55",
+      "exact_decimal_open_risk": "0.40",
+      "exact_match": false,
+      "frozen_ledger_open_risk": "0.39999999999999947",
+      "path_id": "small_account-5s-l1-stress-v0.1",
+      "quantity": 2,
+      "stop_price": "3.35"
+    },
+    {
+      "difference": "0.00",
+      "entry_price": "3.6",
+      "exact_decimal_open_risk": "4.75",
+      "exact_match": true,
+      "frozen_ledger_open_risk": "4.75",
+      "path_id": "small_account-10s-l1-conservative-v0.1",
+      "quantity": 19,
+      "stop_price": "3.35"
+    },
+    {
+      "difference": "-5.3E-16",
+      "entry_price": "3.55",
+      "exact_decimal_open_risk": "0.40",
+      "exact_match": false,
+      "frozen_ledger_open_risk": "0.39999999999999947",
+      "path_id": "small_account-10s-l1-stress-v0.1",
+      "quantity": 2,
+      "stop_price": "3.35"
+    }
+  ],
+  "panel": {
+    "complete_paths": 0,
+    "disposition_counts": {
+      "blocked_capacity": 12,
+      "blocked_prior_state": 558,
+      "entry_submitted": 12,
+      "unavailable_input": 162
+    },
+    "opportunity_references": 744,
+    "original_dates": 30,
+    "original_opportunities": 109,
+    "paths": 12,
+    "recorded_entry_fills": 12,
+    "recorded_sell_fills": 0,
+    "seed_application_count": 12,
+    "session_slots": 360,
+    "status_counts": {
+      "blocked_prior_state": 348,
+      "input_failure": 12
+    },
+    "unavailable_references": 162,
+    "unavailable_unique_entries": 23
+  },
+  "parent_commit_sha": "72a67b193ed44b3e9ee39d6bbb67ceb27c5c6248",
+  "parent_tree_sha": "b9f306c34b2d8c331d321baabbcc2f40c58f7b4b",
+  "paths": [
+    {
+      "all_29_blocked_closes_preserve_money_positions_orders_campaigns": true,
+      "first_session_date": "2025-05-30",
+      "journal_fills": 1,
+      "last_close_content_sha256": "39e9b307a92a9c44b6913c14ca0fb82b8fb213bca200f92ffb9cdf2039de8800",
+      "path_complete": false,
+      "path_id": "main_account-1s-l1-conservative-v0.1",
+      "pending_order_count": 0,
+      "recorded_entries": 1,
+      "recorded_sells": 0,
+      "retained_position_quantity": 36,
+      "runtime_failure": {
+        "blocks_next_session": true,
+        "error": "fresh nonhalted decision reference unavailable",
+        "error_type": "ValueError",
+        "kind": "chronological_input_failure",
+        "stage": "executable_exit_evidence"
+      },
+      "seed_application_count": 1,
+      "status_counts": {
+        "blocked_prior_state": 29,
+        "input_failure": 1
+      },
+      "unsubmitted_exit_intent": {
+        "content_sha256": "c31353bc6ad8aa9e339a4b832dd41db71e64b66cb8fd5d70679f78dac167ba8e",
+        "decision_ts_ns": 1748609940004678509,
+        "entry_content_sha256": "12dd5cfa53c4c7e0775722923b7061915cd888f61ed86b826e497b63daf42165",
+        "opportunity_id": "opportunity-df22c6ea809d8a6fe62df2c0d36d14179d749fcc8c2d76cf31a39e93872a5e43",
+        "path_id": "main_account-1s-l1-conservative-v0.1",
+        "quantity": 36,
+        "reason": "first_red_candle",
+        "red_signal": {
+          "evidence": {
+            "composed_record_ordinal": 1,
+            "record_content_sha256": "8c83b2d37b2f7ef006e5747dec0762cdb778f76b8f57647141c41cbd11121424",
+            "resource": "raw_sip_1m_bars",
+            "source_artifact_id": 9995587996,
+            "source_record_ordinal": 23,
+            "source_request_id": "d537916c4e5423d250159e907cbac9024368d950ed63952125f1cdafb5eeaab6",
+            "timestamp_ns": 1748609880000000000
+          },
+          "signal_ts_ns": 1748609940000000000
+        },
+        "scenario_id": "l1-conservative-v0.1",
+        "session_id": "session-d8c37746c10e8f02fcb03f0ef92bc90c9afb9047dd147038be91b305540a82c3",
+        "trade_evidence": {
+          "composed_record_ordinal": 20069,
+          "record_content_sha256": "51281b4b9a94e5f7c29d3a6f3480e9fd699ef7e26d132a65cdde66f54b5e4a56",
+          "resource": "sip_transactions",
+          "source_artifact_id": 9995887799,
+          "source_record_ordinal": 89428,
+          "source_request_id": "ca32e1ac5c618596e2ebdb0efdf26124a717257916a4bf91461446833fb6b548",
+          "timestamp_ns": 1748609940004678509
+        }
+      }
+    },
+    {
+      "all_29_blocked_closes_preserve_money_positions_orders_campaigns": true,
+      "first_session_date": "2025-05-30",
+      "journal_fills": 1,
+      "last_close_content_sha256": "f735d82ed2b74a79e6c09d5a4d56527c8871d6e5590697aa9bfd497ba9b7c2f2",
+      "path_complete": false,
+      "path_id": "main_account-1s-l1-stress-v0.1",
+      "pending_order_count": 0,
+      "recorded_entries": 1,
+      "recorded_sells": 0,
+      "retained_position_quantity": 2,
+      "runtime_failure": {
+        "blocks_next_session": true,
+        "error": "fresh nonhalted decision reference unavailable",
+        "error_type": "ValueError",
+        "kind": "chronological_input_failure",
+        "stage": "executable_exit_evidence"
+      },
+      "seed_application_count": 1,
+      "status_counts": {
+        "blocked_prior_state": 29,
+        "input_failure": 1
+      },
+      "unsubmitted_exit_intent": {
+        "content_sha256": "6c3ab82aa8e620989ebd5fbb9f8a70a71fd749ac2e1c828fefde71b9a8cc9817",
+        "decision_ts_ns": 1748609940004678509,
+        "entry_content_sha256": "57fd53b46fa14d3aa0201345df39627b48a5f04b96181ccaa70e9e87a47499f7",
+        "opportunity_id": "opportunity-df22c6ea809d8a6fe62df2c0d36d14179d749fcc8c2d76cf31a39e93872a5e43",
+        "path_id": "main_account-1s-l1-stress-v0.1",
+        "quantity": 2,
+        "reason": "first_red_candle",
+        "red_signal": {
+          "evidence": {
+            "composed_record_ordinal": 1,
+            "record_content_sha256": "8c83b2d37b2f7ef006e5747dec0762cdb778f76b8f57647141c41cbd11121424",
+            "resource": "raw_sip_1m_bars",
+            "source_artifact_id": 9995587996,
+            "source_record_ordinal": 23,
+            "source_request_id": "d537916c4e5423d250159e907cbac9024368d950ed63952125f1cdafb5eeaab6",
+            "timestamp_ns": 1748609880000000000
+          },
+          "signal_ts_ns": 1748609940000000000
+        },
+        "scenario_id": "l1-stress-v0.1",
+        "session_id": "session-d8842f4517b49f4750bfebfc2caae51046275754ffc901a1876aeecc34424219",
+        "trade_evidence": {
+          "composed_record_ordinal": 20069,
+          "record_content_sha256": "51281b4b9a94e5f7c29d3a6f3480e9fd699ef7e26d132a65cdde66f54b5e4a56",
+          "resource": "sip_transactions",
+          "source_artifact_id": 9995887799,
+          "source_record_ordinal": 89428,
+          "source_request_id": "ca32e1ac5c618596e2ebdb0efdf26124a717257916a4bf91461446833fb6b548",
+          "timestamp_ns": 1748609940004678509
+        }
+      }
+    },
+    {
+      "all_29_blocked_closes_preserve_money_positions_orders_campaigns": true,
+      "first_session_date": "2025-05-30",
+      "journal_fills": 1,
+      "last_close_content_sha256": "cb7d372e8cd6e2b193a26ee8ae9f3549c68aa83b9ebda9a8ad8ff62dff3db426",
+      "path_complete": false,
+      "path_id": "main_account-5s-l1-conservative-v0.1",
+      "pending_order_count": 0,
+      "recorded_entries": 1,
+      "recorded_sells": 0,
+      "retained_position_quantity": 36,
+      "runtime_failure": {
+        "blocks_next_session": true,
+        "error": "fresh nonhalted decision reference unavailable",
+        "error_type": "ValueError",
+        "kind": "chronological_input_failure",
+        "stage": "executable_exit_evidence"
+      },
+      "seed_application_count": 1,
+      "status_counts": {
+        "blocked_prior_state": 29,
+        "input_failure": 1
+      },
+      "unsubmitted_exit_intent": {
+        "content_sha256": "32f33bb09f78cc6bf507e24ef6e631094905e9e5a2a29a401e5191d3c4c85763",
+        "decision_ts_ns": 1748609940004678509,
+        "entry_content_sha256": "9cdd8b5ed9ab70b6984a432319b3d6c218bf362692bb4f6a339b0537fd79af64",
+        "opportunity_id": "opportunity-df22c6ea809d8a6fe62df2c0d36d14179d749fcc8c2d76cf31a39e93872a5e43",
+        "path_id": "main_account-5s-l1-conservative-v0.1",
+        "quantity": 36,
+        "reason": "first_red_candle",
+        "red_signal": {
+          "evidence": {
+            "composed_record_ordinal": 1,
+            "record_content_sha256": "8c83b2d37b2f7ef006e5747dec0762cdb778f76b8f57647141c41cbd11121424",
+            "resource": "raw_sip_1m_bars",
+            "source_artifact_id": 9995587996,
+            "source_record_ordinal": 23,
+            "source_request_id": "d537916c4e5423d250159e907cbac9024368d950ed63952125f1cdafb5eeaab6",
+            "timestamp_ns": 1748609880000000000
+          },
+          "signal_ts_ns": 1748609940000000000
+        },
+        "scenario_id": "l1-conservative-v0.1",
+        "session_id": "session-f520034f90983357c52be7c25ee2f9206f3a7354c36a1d1afa8a7be79c7abcd8",
+        "trade_evidence": {
+          "composed_record_ordinal": 20069,
+          "record_content_sha256": "51281b4b9a94e5f7c29d3a6f3480e9fd699ef7e26d132a65cdde66f54b5e4a56",
+          "resource": "sip_transactions",
+          "source_artifact_id": 9995887799,
+          "source_record_ordinal": 89428,
+          "source_request_id": "ca32e1ac5c618596e2ebdb0efdf26124a717257916a4bf91461446833fb6b548",
+          "timestamp_ns": 1748609940004678509
+        }
+      }
+    },
+    {
+      "all_29_blocked_closes_preserve_money_positions_orders_campaigns": true,
+      "first_session_date": "2025-05-30",
+      "journal_fills": 1,
+      "last_close_content_sha256": "30c523cd4c2f63f8d8b0401d7e58832354d8e6d2752f26e6d755e064122304f7",
+      "path_complete": false,
+      "path_id": "main_account-5s-l1-stress-v0.1",
+      "pending_order_count": 0,
+      "recorded_entries": 1,
+      "recorded_sells": 0,
+      "retained_position_quantity": 2,
+      "runtime_failure": {
+        "blocks_next_session": true,
+        "error": "fresh nonhalted decision reference unavailable",
+        "error_type": "ValueError",
+        "kind": "chronological_input_failure",
+        "stage": "executable_exit_evidence"
+      },
+      "seed_application_count": 1,
+      "status_counts": {
+        "blocked_prior_state": 29,
+        "input_failure": 1
+      },
+      "unsubmitted_exit_intent": {
+        "content_sha256": "3e77266131f70f37107460d79d912f21eb669630fe2201121f23b94bb98b4dbf",
+        "decision_ts_ns": 1748609940004678509,
+        "entry_content_sha256": "52ba70be24f53fd308f3a545f033a4fbc97dab148d8ce1aa5404c1cf60d35bc5",
+        "opportunity_id": "opportunity-df22c6ea809d8a6fe62df2c0d36d14179d749fcc8c2d76cf31a39e93872a5e43",
+        "path_id": "main_account-5s-l1-stress-v0.1",
+        "quantity": 2,
+        "reason": "first_red_candle",
+        "red_signal": {
+          "evidence": {
+            "composed_record_ordinal": 1,
+            "record_content_sha256": "8c83b2d37b2f7ef006e5747dec0762cdb778f76b8f57647141c41cbd11121424",
+            "resource": "raw_sip_1m_bars",
+            "source_artifact_id": 9995587996,
+            "source_record_ordinal": 23,
+            "source_request_id": "d537916c4e5423d250159e907cbac9024368d950ed63952125f1cdafb5eeaab6",
+            "timestamp_ns": 1748609880000000000
+          },
+          "signal_ts_ns": 1748609940000000000
+        },
+        "scenario_id": "l1-stress-v0.1",
+        "session_id": "session-ddaf2ec522b2e5a4e087c1095dcc067aab9af27a785d259a797809c15c146d56",
+        "trade_evidence": {
+          "composed_record_ordinal": 20069,
+          "record_content_sha256": "51281b4b9a94e5f7c29d3a6f3480e9fd699ef7e26d132a65cdde66f54b5e4a56",
+          "resource": "sip_transactions",
+          "source_artifact_id": 9995887799,
+          "source_record_ordinal": 89428,
+          "source_request_id": "ca32e1ac5c618596e2ebdb0efdf26124a717257916a4bf91461446833fb6b548",
+          "timestamp_ns": 1748609940004678509
+        }
+      }
+    },
+    {
+      "all_29_blocked_closes_preserve_money_positions_orders_campaigns": true,
+      "first_session_date": "2025-05-30",
+      "journal_fills": 1,
+      "last_close_content_sha256": "a45ccf416001d2faa7a5b74b38ef16e6b5ae899d5c85d46c47743cf2a34b088d",
+      "path_complete": false,
+      "path_id": "main_account-10s-l1-conservative-v0.1",
+      "pending_order_count": 0,
+      "recorded_entries": 1,
+      "recorded_sells": 0,
+      "retained_position_quantity": 36,
+      "runtime_failure": {
+        "blocks_next_session": true,
+        "error": "fresh nonhalted decision reference unavailable",
+        "error_type": "ValueError",
+        "kind": "chronological_input_failure",
+        "stage": "executable_exit_evidence"
+      },
+      "seed_application_count": 1,
+      "status_counts": {
+        "blocked_prior_state": 29,
+        "input_failure": 1
+      },
+      "unsubmitted_exit_intent": {
+        "content_sha256": "4ff52fc82deffb3418f922a7c131c094390f4503544124a5c8ee0349cb18ab2a",
+        "decision_ts_ns": 1748609940004678509,
+        "entry_content_sha256": "d7082fbf83fd686ffebfb66053c7d452eaf2ace49609286d98a4ba8c4883c455",
+        "opportunity_id": "opportunity-df22c6ea809d8a6fe62df2c0d36d14179d749fcc8c2d76cf31a39e93872a5e43",
+        "path_id": "main_account-10s-l1-conservative-v0.1",
+        "quantity": 36,
+        "reason": "first_red_candle",
+        "red_signal": {
+          "evidence": {
+            "composed_record_ordinal": 1,
+            "record_content_sha256": "8c83b2d37b2f7ef006e5747dec0762cdb778f76b8f57647141c41cbd11121424",
+            "resource": "raw_sip_1m_bars",
+            "source_artifact_id": 9995587996,
+            "source_record_ordinal": 23,
+            "source_request_id": "d537916c4e5423d250159e907cbac9024368d950ed63952125f1cdafb5eeaab6",
+            "timestamp_ns": 1748609880000000000
+          },
+          "signal_ts_ns": 1748609940000000000
+        },
+        "scenario_id": "l1-conservative-v0.1",
+        "session_id": "session-0361fac69c7b9e0fd6eea6df3d40e001880c738a29094a8dab4229209851db8a",
+        "trade_evidence": {
+          "composed_record_ordinal": 20069,
+          "record_content_sha256": "51281b4b9a94e5f7c29d3a6f3480e9fd699ef7e26d132a65cdde66f54b5e4a56",
+          "resource": "sip_transactions",
+          "source_artifact_id": 9995887799,
+          "source_record_ordinal": 89428,
+          "source_request_id": "ca32e1ac5c618596e2ebdb0efdf26124a717257916a4bf91461446833fb6b548",
+          "timestamp_ns": 1748609940004678509
+        }
+      }
+    },
+    {
+      "all_29_blocked_closes_preserve_money_positions_orders_campaigns": true,
+      "first_session_date": "2025-05-30",
+      "journal_fills": 1,
+      "last_close_content_sha256": "d09392c11e6d1a00a38925f71b1d674482d46f3e6375024476892aa4fd7df480",
+      "path_complete": false,
+      "path_id": "main_account-10s-l1-stress-v0.1",
+      "pending_order_count": 0,
+      "recorded_entries": 1,
+      "recorded_sells": 0,
+      "retained_position_quantity": 2,
+      "runtime_failure": {
+        "blocks_next_session": true,
+        "error": "fresh nonhalted decision reference unavailable",
+        "error_type": "ValueError",
+        "kind": "chronological_input_failure",
+        "stage": "executable_exit_evidence"
+      },
+      "seed_application_count": 1,
+      "status_counts": {
+        "blocked_prior_state": 29,
+        "input_failure": 1
+      },
+      "unsubmitted_exit_intent": {
+        "content_sha256": "6808d64b8a3f82096cc8723d47bb4a9e9850418d3bce4daca1a915798e59bd31",
+        "decision_ts_ns": 1748609940004678509,
+        "entry_content_sha256": "f9ebbb9f940715991d54406633d259db963359bd196327c8f3fe4fd5e16f76fa",
+        "opportunity_id": "opportunity-df22c6ea809d8a6fe62df2c0d36d14179d749fcc8c2d76cf31a39e93872a5e43",
+        "path_id": "main_account-10s-l1-stress-v0.1",
+        "quantity": 2,
+        "reason": "first_red_candle",
+        "red_signal": {
+          "evidence": {
+            "composed_record_ordinal": 1,
+            "record_content_sha256": "8c83b2d37b2f7ef006e5747dec0762cdb778f76b8f57647141c41cbd11121424",
+            "resource": "raw_sip_1m_bars",
+            "source_artifact_id": 9995587996,
+            "source_record_ordinal": 23,
+            "source_request_id": "d537916c4e5423d250159e907cbac9024368d950ed63952125f1cdafb5eeaab6",
+            "timestamp_ns": 1748609880000000000
+          },
+          "signal_ts_ns": 1748609940000000000
+        },
+        "scenario_id": "l1-stress-v0.1",
+        "session_id": "session-fb284506899ff704ba54bcb0c4f15f36553ec120235269b6512b633541a1a788",
+        "trade_evidence": {
+          "composed_record_ordinal": 20069,
+          "record_content_sha256": "51281b4b9a94e5f7c29d3a6f3480e9fd699ef7e26d132a65cdde66f54b5e4a56",
+          "resource": "sip_transactions",
+          "source_artifact_id": 9995887799,
+          "source_record_ordinal": 89428,
+          "source_request_id": "ca32e1ac5c618596e2ebdb0efdf26124a717257916a4bf91461446833fb6b548",
+          "timestamp_ns": 1748609940004678509
+        }
+      }
+    },
+    {
+      "all_29_blocked_closes_preserve_money_positions_orders_campaigns": true,
+      "first_session_date": "2025-05-30",
+      "journal_fills": 1,
+      "last_close_content_sha256": "2e7e5f9c4b362bcea4a7faad1001d6c419b578833606c6fd11ca2772080eb4a9",
+      "path_complete": false,
+      "path_id": "small_account-1s-l1-conservative-v0.1",
+      "pending_order_count": 0,
+      "recorded_entries": 1,
+      "recorded_sells": 0,
+      "retained_position_quantity": 19,
+      "runtime_failure": {
+        "blocks_next_session": true,
+        "error": "fresh nonhalted decision reference unavailable",
+        "error_type": "ValueError",
+        "kind": "chronological_input_failure",
+        "stage": "executable_exit_evidence"
+      },
+      "seed_application_count": 1,
+      "status_counts": {
+        "blocked_prior_state": 29,
+        "input_failure": 1
+      },
+      "unsubmitted_exit_intent": {
+        "content_sha256": "14838004b63f21187a05f83e5bfb67aba48b59468e22ad208be88872b726b4e1",
+        "decision_ts_ns": 1748609940004678509,
+        "entry_content_sha256": "c2eea59430dc9fd98cee9540dd47be5742bed30e036892819858b58f7d627ba8",
+        "opportunity_id": "opportunity-845d706023c2ff60c09c3004502568e4a1c0a0ca3461092d8139a3eca555c83d",
+        "path_id": "small_account-1s-l1-conservative-v0.1",
+        "quantity": 19,
+        "reason": "first_red_candle",
+        "red_signal": {
+          "evidence": {
+            "composed_record_ordinal": 1,
+            "record_content_sha256": "8c83b2d37b2f7ef006e5747dec0762cdb778f76b8f57647141c41cbd11121424",
+            "resource": "raw_sip_1m_bars",
+            "source_artifact_id": 9995587996,
+            "source_record_ordinal": 23,
+            "source_request_id": "d537916c4e5423d250159e907cbac9024368d950ed63952125f1cdafb5eeaab6",
+            "timestamp_ns": 1748609880000000000
+          },
+          "signal_ts_ns": 1748609940000000000
+        },
+        "scenario_id": "l1-conservative-v0.1",
+        "session_id": "session-19ec31398ff417797299f503351b8021fb9bdd673b67151ca2db2163e62b2fe5",
+        "trade_evidence": {
+          "composed_record_ordinal": 20069,
+          "record_content_sha256": "51281b4b9a94e5f7c29d3a6f3480e9fd699ef7e26d132a65cdde66f54b5e4a56",
+          "resource": "sip_transactions",
+          "source_artifact_id": 9995887799,
+          "source_record_ordinal": 89428,
+          "source_request_id": "ca32e1ac5c618596e2ebdb0efdf26124a717257916a4bf91461446833fb6b548",
+          "timestamp_ns": 1748609940004678509
+        }
+      }
+    },
+    {
+      "all_29_blocked_closes_preserve_money_positions_orders_campaigns": true,
+      "first_session_date": "2025-05-30",
+      "journal_fills": 1,
+      "last_close_content_sha256": "b79d9617f039e54205a15a37a9249c4c7ad5ec38ad47091ac1ea83e0c9c6dbde",
+      "path_complete": false,
+      "path_id": "small_account-1s-l1-stress-v0.1",
+      "pending_order_count": 0,
+      "recorded_entries": 1,
+      "recorded_sells": 0,
+      "retained_position_quantity": 2,
+      "runtime_failure": {
+        "blocks_next_session": true,
+        "error": "fresh nonhalted decision reference unavailable",
+        "error_type": "ValueError",
+        "kind": "chronological_input_failure",
+        "stage": "executable_exit_evidence"
+      },
+      "seed_application_count": 1,
+      "status_counts": {
+        "blocked_prior_state": 29,
+        "input_failure": 1
+      },
+      "unsubmitted_exit_intent": {
+        "content_sha256": "1a7c2ac71ef8f4a1af4351b4454bc79f9be87ec180db5c3fa23e5be4390e776e",
+        "decision_ts_ns": 1748609940004678509,
+        "entry_content_sha256": "1c320e658dfe0fbd0050cf2b1b9b5e83f02ae237788eafc72fe76799e6cc9de4",
+        "opportunity_id": "opportunity-845d706023c2ff60c09c3004502568e4a1c0a0ca3461092d8139a3eca555c83d",
+        "path_id": "small_account-1s-l1-stress-v0.1",
+        "quantity": 2,
+        "reason": "first_red_candle",
+        "red_signal": {
+          "evidence": {
+            "composed_record_ordinal": 1,
+            "record_content_sha256": "8c83b2d37b2f7ef006e5747dec0762cdb778f76b8f57647141c41cbd11121424",
+            "resource": "raw_sip_1m_bars",
+            "source_artifact_id": 9995587996,
+            "source_record_ordinal": 23,
+            "source_request_id": "d537916c4e5423d250159e907cbac9024368d950ed63952125f1cdafb5eeaab6",
+            "timestamp_ns": 1748609880000000000
+          },
+          "signal_ts_ns": 1748609940000000000
+        },
+        "scenario_id": "l1-stress-v0.1",
+        "session_id": "session-925dbe7870b2063f4a2feb91fe0ea17f85795b535ee87f7a107906078c435df3",
+        "trade_evidence": {
+          "composed_record_ordinal": 20069,
+          "record_content_sha256": "51281b4b9a94e5f7c29d3a6f3480e9fd699ef7e26d132a65cdde66f54b5e4a56",
+          "resource": "sip_transactions",
+          "source_artifact_id": 9995887799,
+          "source_record_ordinal": 89428,
+          "source_request_id": "ca32e1ac5c618596e2ebdb0efdf26124a717257916a4bf91461446833fb6b548",
+          "timestamp_ns": 1748609940004678509
+        }
+      }
+    },
+    {
+      "all_29_blocked_closes_preserve_money_positions_orders_campaigns": true,
+      "first_session_date": "2025-05-30",
+      "journal_fills": 1,
+      "last_close_content_sha256": "0e5ccea083209ee85ad4e171f75fc7e30cb4906104e4fa04284a811f34a4bc13",
+      "path_complete": false,
+      "path_id": "small_account-5s-l1-conservative-v0.1",
+      "pending_order_count": 0,
+      "recorded_entries": 1,
+      "recorded_sells": 0,
+      "retained_position_quantity": 19,
+      "runtime_failure": {
+        "blocks_next_session": true,
+        "error": "fresh nonhalted decision reference unavailable",
+        "error_type": "ValueError",
+        "kind": "chronological_input_failure",
+        "stage": "executable_exit_evidence"
+      },
+      "seed_application_count": 1,
+      "status_counts": {
+        "blocked_prior_state": 29,
+        "input_failure": 1
+      },
+      "unsubmitted_exit_intent": {
+        "content_sha256": "65c651d38b75232e43e093b8337418945dc6bbb85c8fc3c5db3c050ad1ef6b90",
+        "decision_ts_ns": 1748609940004678509,
+        "entry_content_sha256": "eb79335fc97a5244502eddf1b690f8941adabc06e731ff44c9fe44ca12ee77cc",
+        "opportunity_id": "opportunity-845d706023c2ff60c09c3004502568e4a1c0a0ca3461092d8139a3eca555c83d",
+        "path_id": "small_account-5s-l1-conservative-v0.1",
+        "quantity": 19,
+        "reason": "first_red_candle",
+        "red_signal": {
+          "evidence": {
+            "composed_record_ordinal": 1,
+            "record_content_sha256": "8c83b2d37b2f7ef006e5747dec0762cdb778f76b8f57647141c41cbd11121424",
+            "resource": "raw_sip_1m_bars",
+            "source_artifact_id": 9995587996,
+            "source_record_ordinal": 23,
+            "source_request_id": "d537916c4e5423d250159e907cbac9024368d950ed63952125f1cdafb5eeaab6",
+            "timestamp_ns": 1748609880000000000
+          },
+          "signal_ts_ns": 1748609940000000000
+        },
+        "scenario_id": "l1-conservative-v0.1",
+        "session_id": "session-2d41538c90c5d90efdf2e13b0fbb856d87af87903b2a81757fc86d9a3af3dc32",
+        "trade_evidence": {
+          "composed_record_ordinal": 20069,
+          "record_content_sha256": "51281b4b9a94e5f7c29d3a6f3480e9fd699ef7e26d132a65cdde66f54b5e4a56",
+          "resource": "sip_transactions",
+          "source_artifact_id": 9995887799,
+          "source_record_ordinal": 89428,
+          "source_request_id": "ca32e1ac5c618596e2ebdb0efdf26124a717257916a4bf91461446833fb6b548",
+          "timestamp_ns": 1748609940004678509
+        }
+      }
+    },
+    {
+      "all_29_blocked_closes_preserve_money_positions_orders_campaigns": true,
+      "first_session_date": "2025-05-30",
+      "journal_fills": 1,
+      "last_close_content_sha256": "ac81e3295f2897feefa7a47d5bd8b25c35702da82136b709c95dcfff0e5189bf",
+      "path_complete": false,
+      "path_id": "small_account-5s-l1-stress-v0.1",
+      "pending_order_count": 0,
+      "recorded_entries": 1,
+      "recorded_sells": 0,
+      "retained_position_quantity": 2,
+      "runtime_failure": {
+        "blocks_next_session": true,
+        "error": "fresh nonhalted decision reference unavailable",
+        "error_type": "ValueError",
+        "kind": "chronological_input_failure",
+        "stage": "executable_exit_evidence"
+      },
+      "seed_application_count": 1,
+      "status_counts": {
+        "blocked_prior_state": 29,
+        "input_failure": 1
+      },
+      "unsubmitted_exit_intent": {
+        "content_sha256": "65ab1e2873f354ef085085338f766c8721ee14a4d4d855db4087a7ec666c7219",
+        "decision_ts_ns": 1748609940004678509,
+        "entry_content_sha256": "7d5cf8ba8ab68e62d8c5221b5bdec4831a9a290ac706ec9d071e542aae6ea3cc",
+        "opportunity_id": "opportunity-845d706023c2ff60c09c3004502568e4a1c0a0ca3461092d8139a3eca555c83d",
+        "path_id": "small_account-5s-l1-stress-v0.1",
+        "quantity": 2,
+        "reason": "first_red_candle",
+        "red_signal": {
+          "evidence": {
+            "composed_record_ordinal": 1,
+            "record_content_sha256": "8c83b2d37b2f7ef006e5747dec0762cdb778f76b8f57647141c41cbd11121424",
+            "resource": "raw_sip_1m_bars",
+            "source_artifact_id": 9995587996,
+            "source_record_ordinal": 23,
+            "source_request_id": "d537916c4e5423d250159e907cbac9024368d950ed63952125f1cdafb5eeaab6",
+            "timestamp_ns": 1748609880000000000
+          },
+          "signal_ts_ns": 1748609940000000000
+        },
+        "scenario_id": "l1-stress-v0.1",
+        "session_id": "session-63e3ecaf04dd0b267e4b61470ee1b65391e9853f8043f6fd3ce6e03f57f2797c",
+        "trade_evidence": {
+          "composed_record_ordinal": 20069,
+          "record_content_sha256": "51281b4b9a94e5f7c29d3a6f3480e9fd699ef7e26d132a65cdde66f54b5e4a56",
+          "resource": "sip_transactions",
+          "source_artifact_id": 9995887799,
+          "source_record_ordinal": 89428,
+          "source_request_id": "ca32e1ac5c618596e2ebdb0efdf26124a717257916a4bf91461446833fb6b548",
+          "timestamp_ns": 1748609940004678509
+        }
+      }
+    },
+    {
+      "all_29_blocked_closes_preserve_money_positions_orders_campaigns": true,
+      "first_session_date": "2025-05-30",
+      "journal_fills": 1,
+      "last_close_content_sha256": "0cd8a678ad7bfdaad2f50a86ed1b954ca3fa632bb9908927b4f1768c90200904",
+      "path_complete": false,
+      "path_id": "small_account-10s-l1-conservative-v0.1",
+      "pending_order_count": 0,
+      "recorded_entries": 1,
+      "recorded_sells": 0,
+      "retained_position_quantity": 19,
+      "runtime_failure": {
+        "blocks_next_session": true,
+        "error": "fresh nonhalted decision reference unavailable",
+        "error_type": "ValueError",
+        "kind": "chronological_input_failure",
+        "stage": "executable_exit_evidence"
+      },
+      "seed_application_count": 1,
+      "status_counts": {
+        "blocked_prior_state": 29,
+        "input_failure": 1
+      },
+      "unsubmitted_exit_intent": {
+        "content_sha256": "4bd68cb5227af922113ecd5b057098e39a56ebab524adb73901d876d5863441e",
+        "decision_ts_ns": 1748609940004678509,
+        "entry_content_sha256": "7c612e275c7b54370d38ebb90a030dc65787780716531db0f43ed8e41f22b281",
+        "opportunity_id": "opportunity-845d706023c2ff60c09c3004502568e4a1c0a0ca3461092d8139a3eca555c83d",
+        "path_id": "small_account-10s-l1-conservative-v0.1",
+        "quantity": 19,
+        "reason": "first_red_candle",
+        "red_signal": {
+          "evidence": {
+            "composed_record_ordinal": 1,
+            "record_content_sha256": "8c83b2d37b2f7ef006e5747dec0762cdb778f76b8f57647141c41cbd11121424",
+            "resource": "raw_sip_1m_bars",
+            "source_artifact_id": 9995587996,
+            "source_record_ordinal": 23,
+            "source_request_id": "d537916c4e5423d250159e907cbac9024368d950ed63952125f1cdafb5eeaab6",
+            "timestamp_ns": 1748609880000000000
+          },
+          "signal_ts_ns": 1748609940000000000
+        },
+        "scenario_id": "l1-conservative-v0.1",
+        "session_id": "session-636989a95f04d0dc175fc5e703fc4d65263bac8e8104b0257aec1005f3a24da2",
+        "trade_evidence": {
+          "composed_record_ordinal": 20069,
+          "record_content_sha256": "51281b4b9a94e5f7c29d3a6f3480e9fd699ef7e26d132a65cdde66f54b5e4a56",
+          "resource": "sip_transactions",
+          "source_artifact_id": 9995887799,
+          "source_record_ordinal": 89428,
+          "source_request_id": "ca32e1ac5c618596e2ebdb0efdf26124a717257916a4bf91461446833fb6b548",
+          "timestamp_ns": 1748609940004678509
+        }
+      }
+    },
+    {
+      "all_29_blocked_closes_preserve_money_positions_orders_campaigns": true,
+      "first_session_date": "2025-05-30",
+      "journal_fills": 1,
+      "last_close_content_sha256": "5e71f8a77168a4da5ed4c34bc49a165aae91f2e4f1c67e7ee4a3e7610402ef36",
+      "path_complete": false,
+      "path_id": "small_account-10s-l1-stress-v0.1",
+      "pending_order_count": 0,
+      "recorded_entries": 1,
+      "recorded_sells": 0,
+      "retained_position_quantity": 2,
+      "runtime_failure": {
+        "blocks_next_session": true,
+        "error": "fresh nonhalted decision reference unavailable",
+        "error_type": "ValueError",
+        "kind": "chronological_input_failure",
+        "stage": "executable_exit_evidence"
+      },
+      "seed_application_count": 1,
+      "status_counts": {
+        "blocked_prior_state": 29,
+        "input_failure": 1
+      },
+      "unsubmitted_exit_intent": {
+        "content_sha256": "eff3b95bba5680179c6a994f6a099fe29759cac9b26503253992ef8bb2c24588",
+        "decision_ts_ns": 1748609940004678509,
+        "entry_content_sha256": "47c31de99e3bf1605e17e54c317fd2a4172f0fc0dd4b5c05aa92e87a7443ca7f",
+        "opportunity_id": "opportunity-845d706023c2ff60c09c3004502568e4a1c0a0ca3461092d8139a3eca555c83d",
+        "path_id": "small_account-10s-l1-stress-v0.1",
+        "quantity": 2,
+        "reason": "first_red_candle",
+        "red_signal": {
+          "evidence": {
+            "composed_record_ordinal": 1,
+            "record_content_sha256": "8c83b2d37b2f7ef006e5747dec0762cdb778f76b8f57647141c41cbd11121424",
+            "resource": "raw_sip_1m_bars",
+            "source_artifact_id": 9995587996,
+            "source_record_ordinal": 23,
+            "source_request_id": "d537916c4e5423d250159e907cbac9024368d950ed63952125f1cdafb5eeaab6",
+            "timestamp_ns": 1748609880000000000
+          },
+          "signal_ts_ns": 1748609940000000000
+        },
+        "scenario_id": "l1-stress-v0.1",
+        "session_id": "session-83b5812c9ff55ced3bd1c22025b13310dcea2f96a90f79898087f3dc605d5882",
+        "trade_evidence": {
+          "composed_record_ordinal": 20069,
+          "record_content_sha256": "51281b4b9a94e5f7c29d3a6f3480e9fd699ef7e26d132a65cdde66f54b5e4a56",
+          "resource": "sip_transactions",
+          "source_artifact_id": 9995887799,
+          "source_record_ordinal": 89428,
+          "source_request_id": "ca32e1ac5c618596e2ebdb0efdf26124a717257916a4bf91461446833fb6b548",
+          "timestamp_ns": 1748609940004678509
+        }
+      }
+    }
+  ],
+  "policy_promotion_eligible": false,
+  "post_runtime_inspection_note": "A read-only diagnostic printer initially requested an absent ts_event_ns attribute. No runtime/source changes or replay reruns occurred; the final diagnostic records actual receive time and original source identity.",
+  "protected_refs_before": {
+    "refs/heads/main": "de24eb17316191da69d92e61f6843af25e9c22d0",
+    "refs/tags/sealed-historical-execution-input-acquisition-v0.1-consumed": "5a375f86e951b1e9eeb6c010995c9b57025913b7",
+    "refs/tags/sealed-historical-execution-input-acquisition-v0.2-consumed": "e2c250367895d209ec4706288a22655636298685",
+    "refs/tags/sealed-historical-execution-input-acquisition-v0.3-consumed": "0c4010044ee8557136b3c119c6350e134bba46d2",
+    "refs/tags/sealed-historical-execution-input-diagnostic-v0.1-consumed": "e1aece08a44ccf9add0157a1657d08a809687e85",
+    "refs/tags/sealed-historical-execution-input-empty-diagnostic-v0.1-consumed": "8854bb2e63dc3961d98c5d8827f857ef85ccb341",
+    "refs/tags/sealed-historical-execution-input-quote-v0.1-consumed": "dd295304dcc5e7cc0ebd300d094ab20636a72b92",
+    "refs/tags/sealed-historical-management-exit-acquisition-v0.1-consumed": "887f4a08f2cf6279c80d8aee8476ce9ae7da8b52",
+    "refs/tags/sealed-historical-management-exit-quote-v0.1-consumed": "fde309481843b7c2613d9a673f888f488a1ee795",
+    "refs/tags/sealed-historical-management-missing-input-acquisition-v0.1-consumed": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+    "refs/tags/sealed-historical-micro-input-acquisition-v0.1-consumed": "5cab2eb3aa2b73a2cbf1d57575519a7b99961e24",
+    "refs/tags/sealed-historical-micro-session-input-acquisition-v0.2-consumed": "bf5863a7115abef9e22c4f527448cd9c20084f47",
+    "refs/tags/sealed-historical-source-acquisition-v04-consumed-bbe51f4483a73f92b1f58c9f6c2085d8a47505346c2d340fbe59c0421f3f31b7": "ae55aabd3963a9d2764b19a759efd271c723a83a",
+    "refs/tags/sealed-historical-source-acquisition-v05-consumed-23ad997837490c14c200c10b34c8285db7b18ddebca131e6299a8cd70b3bbc49": "12d3c08dcfa042f785c6e35060916cfbd47a1df8",
+    "refs/tags/sealed-historical-source-acquisition-v06-consumed-0343efff8ceb49b7c3ae2e589029cf4cf0b02d72c1961f85807913f67385202e": "0d231ffecb6d4104aad53dec0b7499a16d8943f6",
+    "refs/tags/sealed-historical-source-acquisition-v09-consumed-447c11b09206b4c19ccade6c1aae70ce5bb17e4a483db6f9581d14ee3f5f862f": "92d8b4deceae5c2bb6edfb10016a0e05c33c8bfa",
+    "refs/tags/sealed-historical-source-acquisition-v10-consumed-a6519754147c39273a25b2ea818b1906dfa93ea5018edac831e2a0a7052463c7": "652db5675a35b6f455aa0d924aa50428dd995280"
+  },
+  "provider_account_accessed": false,
+  "registration_freeze_content_sha256": "964a95b484843110f266a5a121232d11b55d0a5819a1381bd0bb982ba6df7352",
+  "registration_unchanged_after_source_access": true,
+  "retrospective_labels_opened": false,
+  "ross_attachments_opened": false,
+  "runtime_bytes_reproduced_on_github": true,
+  "runtime_content_sha256": "28c745a20e6669a831ce6b9e09028e01a0c480bc1d88055c33b218ca9d88d56d",
+  "runtime_generation_completed": true,
+  "source_bindings_content_sha256": "9bb780dcbfbec3ef1b4e437cc3dc76e1528897956490d4ddd32d399ed5f683cd",
+  "test_and_execution_logs": {
+    "replay-component-01.log": {
+      "bytes": 5501,
+      "sha256": "45209217d8c16b973213a08924fbd264223df23d5242f1582801622b015c7868"
+    },
+    "replay-component-02.log": {
+      "bytes": 6311,
+      "sha256": "a72f04bfa15570f99f919e32f547f4798a6cdd7bf53e93cc30f7740695571caf"
+    },
+    "replay-focused-normal-01.log": {
+      "bytes": 17834,
+      "sha256": "396493c0230f3cb36819100720b117657eb163365afb870092cdf8ec0f0ae020"
+    },
+    "replay-focused-optimized-01.log": {
+      "bytes": 17834,
+      "sha256": "4411a2cc2db7dd82ed71a75f4934f4c8b8952ea2b2698e5283c8c06d6526e27e"
+    },
+    "replay-full-suite-01.log": {
+      "bytes": 461123,
+      "sha256": "c0fcb437bc277b1e2e42a9927af71164749347750cc827698a06f9d02d4457fa"
+    },
+    "replay-independent-01.log": {
+      "bytes": 1519,
+      "sha256": "78dfcd8796789e6e8d15e8ca1ee6708bf5ce940210844ce6be327ef5172f5f5d"
+    },
+    "replay-original-01.log": {
+      "bytes": 162,
+      "sha256": "885ff7027d21fd147d717684f2dbe5c1603a23fb1b19c4532434c8c486019b86"
+    }
+  },
+  "verification_passed": false
+}
