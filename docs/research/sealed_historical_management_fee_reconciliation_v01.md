@@ -122,3 +122,14 @@ The builder and the dedicated workflow are offline after dependency setup.
 Neither has provider/account credentials or a historical replay entry point.
 Published validation results and retained development failures are recorded in
 the accompanying permanent audit and current checkpoint.
+
+
+Published code `dbe6cb1400f02ae4676fb34ee58889d98215f037` passed all eight GitHub checks on attempt 1.
+All 1,989 local tests passed with zero skips; the 165-test focused group passed
+normally and optimized locally and in the dedicated hosted job with zero skips.
+General hosted CI passed 1,989 tests with 73 optional-SDK skips. Both downloaded
+synthetic evidence files are byte-identical to local results. The
+[local audit](../../research/data-audits/sealed-historical-management-fee-reconciliation-v0.1-independent-verification.json)
+retains development failures and their repairs; the
+[hosted audit](../../research/data-audits/sealed-historical-management-fee-reconciliation-v0.1-hosted-verification-34181750634.json)
+records exact publication and artifact evidence.

@@ -1,6 +1,6 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: historical fee and confirmed-fill reconciliation verified locally
+## Current checkpoint: historical fee and confirmed-fill reconciliation independently verified
 
 The isolated child of `1cd6f71fa36710c357c30dd3c3b5cda118c1a742` registers explicit 2025 fee
 assumptions and reconciles confirmed entry/sell fills into cash, shares, open
@@ -21,7 +21,19 @@ assumptions; broker-statement equivalence remains unverified. The July CAT
 schedule follows the May 29 announcement, with later notices retained solely
 as verification evidence. Frozen ancestor code and historical activation gates
 are unchanged. No market tape, provider account or retrospective corpus was
-opened. Hosted verification is pending at this code publication.
+opened.
+
+Code `dbe6cb1400f02ae4676fb34ee58889d98215f037` passed all eight GitHub workflows on attempt 1.
+Dedicated run `34181750634` passed 165 tests normally and optimized with zero
+skips, reconstructed the registration offline, generated the synthetic vectors
+and passed the independent verifier. General CI run `34181750697` passed 1,989
+tests with its existing 73 optional-SDK skips. The downloaded artifact
+`10039158859` is 40,719 bytes, with ZIP SHA-256
+`f7df6533fe7493f79d8611472bb7de02198621780f2073b9a4bbd605caa7b0ab`. Both the
+513,029-byte synthetic vectors and 1,005-byte independent report match the
+local files byte for byte. The [hosted audit](../../research/data-audits/sealed-historical-management-fee-reconciliation-v0.1-hosted-verification-34181750634.json)
+records the full run, job, artifact and protected-reference evidence. Main and
+all 16 consumed references were rechecked unchanged after hosted verification.
 
 See the [component and fee-source explanation](../research/sealed_historical_management_fee_reconciliation_v01.md),
 [permanent local audit](../../research/data-audits/sealed-historical-management-fee-reconciliation-v0.1-independent-verification.json)
