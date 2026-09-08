@@ -1,0 +1,66 @@
+name: Sealed historical account continuity v0.1
+
+on:
+  push:
+    branches: [phase-3-historical-snapshot]
+    paths:
+      - .github/workflows/sealed-historical-account-continuity-v01.yml
+      - src/momentumbot/research/sealed_historical_account_continuity_v01.py
+      - scripts/build_sealed_historical_account_continuity_v01.py
+      - scripts/verify_sealed_historical_account_continuity_v01.py
+      - tests/test_sealed_historical_account_continuity_v01.py
+      - research/strategy/sealed-historical-account-continuity-v0.1*.json
+      - research/runtime/sealed-historical-account-continuity-v0.1/**
+      - requirements-sealed-execution-quote-v01.txt
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sealed-historical-account-continuity-v01
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      PYTHONPATH: src:scripts
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12.14"
+      - name: Install hash-locked validation environment
+        run: |
+          python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-execution-quote-v01.txt
+          python -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          python -m pip check
+      - name: Reconstruct causal account continuity registration offline
+        run: python scripts/build_sealed_historical_account_continuity_v01.py --verify
+      - name: Verify causal reservations, scarcity and guarded account execution
+        run: |
+          python -m unittest tests.test_sealed_historical_account_continuity_v01 tests.test_sealed_historical_account_scheduler_v01 tests.test_sealed_historical_account_state_producer_v01 tests.test_sealed_historical_account_valuation_v01 tests.test_sealed_historical_management_fee_reconciliation_v01 tests.test_account_priority_policy -v
+          python -O -m unittest tests.test_sealed_historical_account_continuity_v01 tests.test_sealed_historical_account_scheduler_v01 tests.test_sealed_historical_account_state_producer_v01 tests.test_sealed_historical_account_valuation_v01 tests.test_sealed_historical_management_fee_reconciliation_v01 tests.test_account_priority_policy -v
+          python - <<'PY'
+          from pathlib import Path
+          from check_recovery_entrypoints_v13 import undefined_globals
+          for name in ('scripts/build_sealed_historical_account_continuity_v01.py', 'scripts/verify_sealed_historical_account_continuity_v01.py', 'src/momentumbot/research/sealed_historical_account_continuity_v01.py'):
+              missing = undefined_globals(Path(name).read_text(), name)
+              if missing:
+                  raise SystemExit(f'{name}: {sorted(missing)}')
+          PY
+      - name: Produce synthetic vectors and independently recompute accounting
+        run: |
+          python scripts/build_sealed_historical_account_continuity_v01.py --synthetic-vectors --output-root "$RUNNER_TEMP/account-continuity-vectors"
+          python scripts/verify_sealed_historical_account_continuity_v01.py --vectors "$RUNNER_TEMP/account-continuity-vectors/synthetic-vectors.json" --output "$RUNNER_TEMP/account-continuity-vectors/independent-verification.json"
+      - name: Retain synthetic vectors and independent verification
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: sealed-historical-account-continuity-v01-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/account-continuity-vectors
+          if-no-files-found: error
+          retention-days: 90

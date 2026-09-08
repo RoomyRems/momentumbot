@@ -1,6 +1,36 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: chronological account scheduler independently verified
+## Current checkpoint: campaign re-entry and original-window continuation verified locally
+
+The isolated child of `6933ff419afb034f9509eaa0898c3467571e32d8` implements the
+frozen two-entry campaign policy. A fresh plan can re-enter a confirmed flat
+campaign after all cancellation acknowledgments. Campaign history, net guards
+and daily fees persist; each accepted fill gets a fresh cost basis and management
+state. Unfilled orders reserve capacity but do not consume an accepted entry.
+
+Replay-verified checkpoints preserve open shares, pending orders, partial fills,
+stops, target confirmation, consumed liquidity and attempt ceilings. Resuming
+the same committed original-window program produces the same result bytes as
+uninterrupted replay. Rehashed caller balances or reset attempts are rejected.
+
+Continuation stays within original source windows. Expired-window positions
+and unresolved orders remain explicit and block next-day execution. Original
+market/corporate-action source binding and historical activation remain ahead;
+this step does not add overnight windows or retries. All original paths, slots,
+seeds, unavailable inputs and historical eligibility boundaries remain intact.
+No historical market tape, provider account, brokerage account or Ross attachment
+was opened. See the [component](../research/sealed_historical_account_continuity_v01.md)
+and [big-picture progress](progress_2026-09-08.md).
+
+All 2,145 local tests passed with zero skips. The 213-test focused group passed
+normally and optimized with zero skips. The independent checker verified 26
+synthetic cases, 379 session checkpoints, 40 continuation checkpoints, 145
+scheduler events and 51 confirmed journal fills. The freeze content commitment is
+`0bf8f0ac9eb5262afca10addbd4068cc7aab3453dac8b227433600935c2e6338`. The
+[local audit](../../research/data-audits/sealed-historical-account-continuity-v0.1-independent-verification.json) preserves test evidence, ancestor commitments and
+development failures. Hosted verification is pending at this code publication.
+
+## Prior checkpoint: chronological account scheduler independently verified
 
 The isolated child of `86733376b10b2a5feb252d174254f4e40fe701ef` puts overlapping
 opportunities on one account-local clock. Entry capacity stays reserved until

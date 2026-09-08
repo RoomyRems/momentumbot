@@ -1,0 +1,44 @@
+{
+  "account_close_evidence": false,
+  "broker_statement_equivalence_verified": false,
+  "carried_position_execution_resumption_integrated": false,
+  "content_sha256": "0bf8f0ac9eb5262afca10addbd4068cc7aab3453dac8b227433600935c2e6338",
+  "continuous_account_order_integration_verified": false,
+  "continuous_position_order_execution_authorized": false,
+  "contract_content_sha256": "3afedfbbcfeb688700bfb9f06c3ab1bd48146e91466da6b175b06fae3d0e4ee4",
+  "contract_id": "sealed-historical-account-continuity-v0.1",
+  "corporate_action_source_provenance_verified": false,
+  "document_content_sha256": {
+    "continuity-dependencies.json": "c978e74b60b0a3102523b254b4b8b406778e5b076c4e8b483735ff65ce421ee9",
+    "continuity-mechanics.json": "95d78075527a78cbf046fbf8c92d0135783363cb0951f7da257e4d789f5dd5b1",
+    "readiness-report.json": "94fff104d77cc53195a970a207edc2e115dc8bfad7dacbf4dc5aa1321a02ca20"
+  },
+  "file_inventory": {
+    "continuity-dependencies.json": {
+      "bytes": 430842,
+      "sha256": "772879a7a2c3c181e181f452ab85bdb2dcebc0720564acdfe32d6644e7a501e7"
+    },
+    "continuity-mechanics.json": {
+      "bytes": 2892,
+      "sha256": "4606442df1dcd16b8ec4b4530047b605c8bffd387330cc028e95da962a932f90"
+    },
+    "readiness-report.json": {
+      "bytes": 1254,
+      "sha256": "9bf905887fcab1406c2df92541e3e73395227e6f29be1b815707e5663f2d92b4"
+    }
+  },
+  "financial_metrics_eligible": false,
+  "historical_execution_count": 0,
+  "historical_producer_authenticated": false,
+  "historical_runtime_authorized": false,
+  "mark_is_executable_proceeds": false,
+  "next_session_open_position_valuation_verified": false,
+  "original_market_source_provenance_authenticated": false,
+  "original_window_checkpoint_resumption_verified": true,
+  "overnight_execution_window_extension_authorized": false,
+  "parent_commit_sha": "6933ff419afb034f9509eaa0898c3467571e32d8",
+  "policy_promotion_eligible": false,
+  "provider_calls": 0,
+  "retrospective_inputs_read": false,
+  "same_symbol_reentry_integrated": true
+}
