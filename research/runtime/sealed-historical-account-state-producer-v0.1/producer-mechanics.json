@@ -1,0 +1,31 @@
+{
+  "account_close_evidence": false,
+  "broker_statement_equivalence_verified": false,
+  "content_sha256": "8592e63ad644bb1481086e9f32898999f40900281fcd3d0907fadff543b07570",
+  "continuous_account_order_integration_verified": false,
+  "contract_id": "sealed-historical-account-state-producer-v0.1",
+  "financial_metrics_eligible": false,
+  "historical_producer_authenticated": false,
+  "historical_runtime_authorized": false,
+  "mechanics": {
+    "authentication": "independently_pinned_program_and_result_plus_complete_deterministic_replay_not_self_attested_hashes",
+    "availability": "every_slot_reference_dispositioned_unavailable_retained_without_rescue_unprocessed_available_blocks_next_session",
+    "cash_continuity": "flat_exact_cash_carries_directly_positive_balances_required_daily_guards_and_fee_book_restart_without_reseeding",
+    "chronology": "complete_prefix_of_registered_30_slots_same_account_horizon_scenario_previous_close_exact",
+    "empty_sessions": "preserve_registered_zero_decision_dates_and_carry_prior_state_without_fabricated_execution",
+    "failure": "retain_known_account_and_unresolved_order_state_no_zero_trade_replacement_or_implicit_liquidation",
+    "open_continuity": "positions_pending_orders_intents_and_input_failures_preserved_no_market_value_invented_blocks_future_execution",
+    "position_scheduler": "frozen_two_stream_order_and_public_feedback_ticks_routed_through_fee_account_reducer",
+    "precision": "exact_USD_two_to_nine_fractional_digits_never_round_subcent_execution_proceeds_legacy_cent_transport_only_if_exact",
+    "producer": "derive_ledger_from_once_only_seed_then_recompute_every_confirmed_execution_no_caller_balances_or_close_import",
+    "realized_pnl": "cumulative_net_after_fees_gross_and_fee_deltas_separate_never_double_subtract_fees",
+    "seed": "approved_30000_main_2000_small_once_per_path_no_later_seed_argument",
+    "serial_scope": "entire_previous_window_verified_before_next_position_global_overlap_scarcity_is_separate_integration",
+    "source_trust": "replay_proves_computation_not_market_source_origin_synthetic_only_until_historical_execution_child"
+  },
+  "next_session_open_position_valuation_verified": false,
+  "original_market_source_provenance_authenticated": false,
+  "policy_promotion_eligible": false,
+  "provider_calls": 0,
+  "retrospective_inputs_read": false
+}

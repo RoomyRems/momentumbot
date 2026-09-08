@@ -1,6 +1,43 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: historical fee and confirmed-fill reconciliation independently verified
+## Current checkpoint: account-state producer verified locally
+
+The isolated child of `dcf1bc47b586653f3c0c97a4e433b4bdf1fff32a` produces checkpoints by
+replaying an externally committed source program from once-only approved seeds.
+Claimed balances and caller-supplied preceding closes are rejected. Verified
+flat cash carries between sessions; daily guards and fee accrual restart using
+that capital, while cumulative net P&L, fees and campaign history persist.
+Fractional cents are preserved exactly. Open positions, pending cancellations,
+unsubmitted intents and incomplete inputs remain explicit and block later
+execution until their dependencies are resolved.
+
+The registration pins 56 ancestor files and retains all 12 paths, 360 session
+slots, 12 seed applications, 348 preceding-close dependencies and all 744
+original opportunity references, including 162 unavailable references. The
+independent stdlib checker reproduced 404 synthetic checkpoints and 21 confirmed
+journal fills across 20 programs. All **2,028 local tests passed with zero
+skips**; **144 focused tests** passed normally and optimized with zero skips,
+including direct offline CLI verification. The freeze content commitment is
+`81fafc0a88ca1fcb5f74caf94f7aa55d557960b8f51f15334a4272adf71c594d`. Main and all 16 consumed
+references match the preceding checkpoint.
+
+This completes replay-verifiable producer mechanics for synthetic component
+programs. It does not authenticate original market-source provenance, execute
+the historical account panel or make its closes eligible for financial metrics.
+Position windows are serial and complete; continuous overlap/scarcity and
+causal valuation of carried positions remain separate integration work.
+
+Hosted verification is pending at this code publication. See the
+[component explanation](../research/sealed_historical_account_state_producer_v01.md),
+[local audit](../../research/data-audits/sealed-historical-account-state-producer-v0.1-independent-verification.json)
+and [big-picture progress](progress_2026-09-08.md).
+
+Next: causal open-position valuation and continuous account/order/scarcity
+integration, followed by original-source binding and registered historical
+activation. No market tape, provider account or retrospective corpus was opened.
+No sealed historical account P&L or profitability result has been produced.
+
+## Prior checkpoint: historical fee and confirmed-fill reconciliation independently verified
 
 The isolated child of `1cd6f71fa36710c357c30dd3c3b5cda118c1a742` registers explicit 2025 fee
 assumptions and reconciles confirmed entry/sell fills into cash, shares, open

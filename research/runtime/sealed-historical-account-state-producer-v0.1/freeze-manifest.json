@@ -1,0 +1,36 @@
+{
+  "account_close_evidence": false,
+  "broker_statement_equivalence_verified": false,
+  "content_sha256": "81fafc0a88ca1fcb5f74caf94f7aa55d557960b8f51f15334a4272adf71c594d",
+  "continuous_account_order_integration_verified": false,
+  "contract_content_sha256": "1354c4162b7bd831a1565490b5a9d3751ea1bebd4cb60c8ad09d86525121f14c",
+  "contract_id": "sealed-historical-account-state-producer-v0.1",
+  "document_content_sha256": {
+    "account-state-dependencies.json": "5cbd32c7af21bb091b2253036ca0b0a2fbe8291d069780af6c465902fbdf38d3",
+    "producer-mechanics.json": "8592e63ad644bb1481086e9f32898999f40900281fcd3d0907fadff543b07570",
+    "readiness-report.json": "79ad4fdb94ceb0b3d1e7f58a8e1f67940726a707d226a6b58f038497898626e2"
+  },
+  "file_inventory": {
+    "account-state-dependencies.json": {
+      "bytes": 430435,
+      "sha256": "4431b54c2b568608902a2301e8cffc461c3c5c180fe41a04003b4c34cb770151"
+    },
+    "producer-mechanics.json": {
+      "bytes": 2357,
+      "sha256": "4f6d713eed6d5452cc9eddc7b824c2c661bfc976c4ea99ca5fbfa5628b7067ed"
+    },
+    "readiness-report.json": {
+      "bytes": 1077,
+      "sha256": "a0908d0970d62659ac0689cf054117bc525327538d15caac0df58bd8efe149f2"
+    }
+  },
+  "financial_metrics_eligible": false,
+  "historical_producer_authenticated": false,
+  "historical_runtime_authorized": false,
+  "next_session_open_position_valuation_verified": false,
+  "original_market_source_provenance_authenticated": false,
+  "parent_commit_sha": "dcf1bc47b586653f3c0c97a4e433b4bdf1fff32a",
+  "policy_promotion_eligible": false,
+  "provider_calls": 0,
+  "retrospective_inputs_read": false
+}
