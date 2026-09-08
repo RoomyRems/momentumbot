@@ -1,6 +1,6 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: chronological account scheduler verified locally
+## Current checkpoint: chronological account scheduler independently verified
 
 The isolated child of `86733376b10b2a5feb252d174254f4e40fe701ef` puts overlapping
 opportunities on one account-local clock. Entry capacity stays reserved until
@@ -29,8 +29,13 @@ synthetic cases, 378 session checkpoints, 88 scheduler events and 30 confirmed
 journal fills. The freeze content commitment is
 `f49742c8262409b4cab7378a49b509d91d9aaee5c959175fcfc841a71ef06ff9`. The
 [local audit](../../research/data-audits/sealed-historical-account-scheduler-v0.1-independent-verification.json) preserves the test evidence, ancestor
-commitments and development failures. Hosted verification is pending at this
-code publication.
+commitments and development failures. Code `b796d650522a8ffcdeb18762db8ea39184b69610` passed all eight GitHub workflows on attempt 1.
+Dedicated run `34190813109` passed 174 tests normally and optimized with
+zero skips. General CI run `34190813003` passed 2,106 tests with its existing 73
+optional-SDK skips. The downloaded artifact `10042187851` is 361,920
+bytes with ZIP SHA-256 `7a1a87bd90e77c420e4ec6ff763677a52cea69edccfc1c4500e298379ec018ae`. Both evidence files match
+local output byte for byte. Main and all 16 consumed references were rechecked
+unchanged. The [hosted audit](../../research/data-audits/sealed-historical-account-scheduler-v0.1-hosted-verification-34190813109.json) records the complete evidence.
 
 ## Prior checkpoint: causal next-session valuation independently verified
 

@@ -105,7 +105,11 @@ All 2,106 local tests passed with zero skips, and 174 focused tests passed
 normally and optimized. The independent checker verified 378 checkpoints, 88
 scheduler events and 30 confirmed journal fills across 23 cases. The
 [local audit](../../research/data-audits/sealed-historical-account-scheduler-v0.1-independent-verification.json) records the complete evidence and
-preserves development failures. Hosted verification follows code publication.
+preserves development failures. Code `b796d650522a8ffcdeb18762db8ea39184b69610` passed all eight GitHub workflows on attempt 1. The dedicated
+job passed 174 tests normally and optimized with zero skips; general CI passed
+2,106 tests with 73 optional-SDK skips. Both downloaded evidence files match
+local bytes. The [hosted audit](../../research/data-audits/sealed-historical-account-scheduler-v0.1-hosted-verification-34190813109.json) records the exact
+commit, runs, jobs, artifact and protected references.
 
 ```bash
 PYTHONPATH=src:scripts python scripts/build_sealed_historical_account_scheduler_v01.py --verify
