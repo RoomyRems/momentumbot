@@ -1,6 +1,26 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: first original historical account replay frozen; independent audit failed
+## Current checkpoint: isolated decimal risk projection registered
+
+The child of `9df7ad3487da1f2336701372703e4e5d196bd855` projects confirmed
+lot risk with exact decimal arithmetic in public account snapshots. The
+internal ledger, sizing, acceptance and all execution mechanics remain frozen.
+Registration precedes a new original-source replay. The byte-pinned failed
+parent is retained for strict comparison of all nonrisk values and their
+authenticated content references.
+
+The synthetic stress regression fails the unchanged parent risk checker and
+passes it with the child projection. The independent child checker also uses
+rational arithmetic to check each campaign and aggregate risk. Original dates,
+sources, seeds, fees, attempts and blocked-carry rules remain fixed. See the
+[component](../research/sealed_historical_account_risk_projection_v01.md).
+
+This step addresses public risk precision only. Fresh exit-reference handling
+is still the next execution gate, within the existing windows and attempt
+ceilings. Financial evaluation and retrospective comparison remain closed;
+the Ross attachments remain unopened.
+
+## Prior checkpoint: first original historical account replay frozen; independent audit failed
 
 The isolated original-account activation is implemented at code
 `9bf91fc289ee13f507027921ab025fd012a49d76`. Registration freeze

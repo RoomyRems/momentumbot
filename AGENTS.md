@@ -15,6 +15,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 
 | Task | Open first | Source of truth |
 |---|---|---|
+| Historical exact open-risk projection | `docs/research/sealed_historical_account_risk_projection_v01.md` | isolated public decimal risk projection, unchanged internal execution, strict failed-parent parity and frozen independent account checks |
 | Historical original account replay | `docs/research/sealed_historical_account_replay_v01.md` | verified original source bindings, frozen chronological account mechanics, all original slots and explicit failed or blocked carry with financial metrics closed |
 | Historical original source binding | `docs/research/sealed_historical_source_binding_v01.md` | exact five original archives, activation-row candidate priority, all original context/stream identities and explicit unavailable carry dependencies with account execution closed |
 | Current checkpoint / next gate | `docs/project/current_state_2026-08-31.md` | immutable parent checkpoints plus linked frozen manifests and audits |
