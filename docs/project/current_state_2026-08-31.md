@@ -1,6 +1,41 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: account-state producer independently verified
+## Current checkpoint: causal next-session valuation verified locally
+
+The isolated child of `7840e5696fe8d2961ade913771f2c7cfa257493a` first replays the verified
+producer, then values carried shares using only quotes and trading status known
+by the next registered session's 7:00 a.m. New York start. Freshness uses the
+unchanged scenario limits. Missing, stale, halted or ambiguous evidence leaves
+the mark unavailable. Share-unit continuity is explicit; corporate-action
+adjustments are never guessed. Confirmed cash, fees, realized P&L, positions,
+pending orders and unresolved inputs remain intact.
+
+The output retains original cost basis and the opening unrealized-value anchor
+for continuous account integration. A bid mark does not realize profit or
+cancel an order. Only verified flat accounts can initialize an empty next-day
+ledger; open-position continuation remains blocked until the scheduler/reducer
+integration is implemented.
+
+The registration pins 69 ancestor files and maps all 348 transitions across
+the original 12 paths and 360 session slots. All **2,064 local tests passed with
+zero skips**; **110 focused tests** passed normally and optimized with zero
+skips. The independent stdlib checker verified 29 synthetic cases, including
+three independent quote selections. The freeze content commitment is
+`22328ab6acb6e94a8941748a7f578d95658c8c7880f4571d71404ed47a835afa`. Main and all 16 consumed
+references match the preceding checkpoint.
+
+Hosted verification is pending at this code publication. See the
+[component explanation](../research/sealed_historical_account_valuation_v01.md),
+[local audit](../../research/data-audits/sealed-historical-account-valuation-v0.1-independent-verification.json)
+and [big-picture progress](progress_2026-09-08.md).
+
+Next: continuous chronological account/order/scarcity integration, then original
+market and corporate-action source binding and historical activation. The
+valuation mechanics are verified with synthetic inputs. Historical account
+replay, account-close eligibility and financial metrics remain closed. No
+historical market tape, provider account or retrospective corpus was opened.
+
+## Prior checkpoint: account-state producer independently verified
 
 The isolated child of `dcf1bc47b586653f3c0c97a4e433b4bdf1fff32a` produces checkpoints by
 replaying an externally committed source program from once-only approved seeds.

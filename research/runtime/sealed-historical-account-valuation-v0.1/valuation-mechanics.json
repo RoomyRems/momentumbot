@@ -1,0 +1,31 @@
+{
+  "account_close_evidence": false,
+  "broker_statement_equivalence_verified": false,
+  "content_sha256": "e30a0098e311cfc5ec112c0ef81fc729555e9a2f2ab5e21ede577a776909f662",
+  "continuous_account_order_integration_verified": false,
+  "continuous_position_order_execution_authorized": false,
+  "contract_id": "sealed-historical-account-valuation-v0.1",
+  "corporate_action_source_provenance_verified": false,
+  "financial_metrics_eligible": false,
+  "historical_producer_authenticated": false,
+  "historical_runtime_authorized": false,
+  "mark_is_executable_proceeds": false,
+  "mechanics": {
+    "basis": "retain_original_cost_basis_and_opening_unrealized_anchor_for_later_daily_account_integration",
+    "continuation": "preserve_positions_orders_campaigns_and_inputs_exactly_flat_ledger_initialization_only_open_execution_remains_blocked",
+    "cutoff": "immediately_following_registered_session_at_frozen_profile_start_0700_America_New_York",
+    "equity": "confirmed_cash_plus_marked_remaining_shares_no_realization_or_second_fee_subtraction",
+    "freshness": "unchanged_execution_scenario_max_quote_age_100ms_conservative_50ms_stress_inclusive",
+    "incomplete": "all_missing_prices_orders_and_input_failures_retained_equity_unknown_if_confirmed_inventory_incomplete",
+    "price": "latest_raw_bid_by_receive_time_sequence_original_ordinal_at_or_before_cutoff_no_last_good_fallback",
+    "producer_authentication": "replay_entire_committed_parent_prefix_before_accepting_its_final_state",
+    "scope": "synthetic_component_only_no_market_source_or_corporate_action_provenance_authenticated_no_orders_or_provider_calls",
+    "status": "known_trading_at_cutoff_fresh_quote_after_last_status_transition_no_equal_receive_time_ambiguity",
+    "units": "explicit_causal_unchanged_raw_share_units_required_adjustment_or_unknown_blocks_mark_no_split_guess"
+  },
+  "next_session_open_position_valuation_verified": false,
+  "original_market_source_provenance_authenticated": false,
+  "policy_promotion_eligible": false,
+  "provider_calls": 0,
+  "retrospective_inputs_read": false
+}

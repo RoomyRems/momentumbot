@@ -1,0 +1,171 @@
+{
+  "account_close_evidence": false,
+  "artifact_type": "local_independent_causal_account_valuation_verification",
+  "broker_statement_equivalence_verified": false,
+  "content_sha256": "60ff7ccc20d6dcd3ba2af93cbf1ae8e05da693b62ab39530977f9d6d6c22f41f",
+  "continuous_account_order_integration_verified": false,
+  "continuous_position_order_execution_authorized": false,
+  "contract_content_sha256": "0e21c52ce104c96ac1dc6737291557f4adcbf0a4b54917efdfab10134406d7f5",
+  "contract_id": "sealed-historical-account-valuation-v0.1",
+  "corporate_action_source_provenance_verified": false,
+  "financial_metrics_eligible": false,
+  "freeze_content_sha256": "22328ab6acb6e94a8941748a7f578d95658c8c7880f4571d71404ed47a835afa",
+  "historical_execution_count": 0,
+  "historical_market_tapes_reopened": false,
+  "historical_producer_authenticated": false,
+  "historical_runtime_authorized": false,
+  "hosted_verification_status": "pending_at_code_publication",
+  "implementation_test_failures_observed": [],
+  "incomplete_development_invocations_retained": [
+    {
+      "bytes": 6802,
+      "file_name": "valuation-focused-draft-02.log",
+      "file_sha256": "7ea5db7928dc2652e382da3021e98ca77d5bfd2d3306fb0c802b6c1092f693c3",
+      "reason": "The command returned without a terminal unittest summary in the retained output.",
+      "resolution": "Kept the output and ran the complete focused group normally and optimized with an in-call wait to terminal completion.",
+      "retained_output": "test_bad_tape_pin_or_truncated_ordinals_is_an_input_failure (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_bad_tape_pin_or_truncated_ordinals_is_an_input_failure) ... ok\ntest_duplicate_or_foreign_position_inputs_rejected (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_duplicate_or_foreign_position_inputs_rejected) ... ok\ntest_external_valuation_input_pin_is_required (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_external_valuation_input_pin_is_required) ... ok\ntest_final_registered_session_cannot_roll_into_an_unregistered_date (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_final_registered_session_cannot_roll_into_an_unregistered_date) ... ok\ntest_flat_profit_initializes_next_day_without_seed_reset (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_flat_profit_initializes_next_day_without_seed_reset) ... ok\ntest_foreign_session_or_previous_close_rejected (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_foreign_session_or_previous_close_rejected) ... ok\ntest_fractional_cent_equity_is_exact (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_fractional_cent_equity_is_exact) ... ok\ntest_freshness_boundaries_match_each_frozen_scenario (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_freshness_boundaries_match_each_frozen_scenario) ... ok\ntest_future_price_and_halt_do_not_change_the_causal_valuation (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_future_price_and_halt_do_not_change_the_causal_valuation) ... ok\ntest_halt_unknown_and_same_time_status_are_unavailable (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_halt_unknown_and_same_time_status_are_unavailable) ... ok\ntest_historical_mode_or_extra_retrospective_fields_are_rejected (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_historical_mode_or_extra_retrospective_fields_are_rejected) ... ok\ntest_july_transition_uses_original_registered_calendar (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_july_transition_uses_original_registered_calendar) ... ok\ntest_latest_native_ordinal_wins_equal_time_and_sequence (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_latest_native_ordinal_wins_equal_time_and_sequence) ... ok\ntest_missing_position_or_tape_preserves_unknown_equity (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_missing_position_or_tape_preserves_unknown_equity) ... ok\ntest_missing_unit_evidence_and_known_split_do_not_guess_adjustments (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_missing_unit_evidence_and_known_split_do_not_guess_adjustments) ... ok\ntest_omitted_available_input_cannot_be_cleared_by_valuation (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_omitted_available_input_cannot_be_cleared_by_valuation) ... ok\ntest_open_position_equity_and_original_cost_basis (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_open_position_equity_and_original_cost_basis) ... ok\ntest_pending_order_does_not_disappear_when_its_ack_time_has_passed (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_pending_order_does_not_disappear_when_its_ack_time_has_passed) ... ok\ntest_quote_at_cutoff_is_known_but_one_nanosecond_later_is_not (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_quote_at_cutoff_is_known_but_one_nanosecond_later_is_not) ... ok\ntest_resealed_forged_mark_is_rejected_by_recomputation (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_resealed_forged_mark_is_rejected_by_recomputation) ... ok\ntest_resume_requires_a_fresh_book_after_the_status_transition (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_resume_requires_a_fresh_book_after_the_status_transition) ... ok\ntest_tampered_producer_close_cannot_be_valued (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_tampered_producer_close_cannot_be_valued) ... ok\ntest_unavailable_input_remains_explicit_without_blocking_verified_flat_cash (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_unavailable_input_remains_explicit_without_blocking_verified_flat_cash) ... ok\ntest_unusable_latest_quote_does_not_fall_back_to_earlier_good_book (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_unusable_latest_quote_does_not_fall_back_to_earlier_good_book) ... ok\ntest_valuation_preserves_positions_orders_fees_and_campaigns (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_valuation_preserves_positions_orders_fees_and_campaigns) ... ok\ntest_valuation_time_is_frozen_next_session_start (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_valuation_time_is_frozen_next_session_start) ... ok\ntest_wrong_source_symbol_date_or_request_coverage_rejected (tests.test_sealed_historical_account_valuation_v01.ValuationMechanicsTests.test_wrong_source_symbol_date_or_request_coverage_rejected) ... ok\ntest_all_348_dependencies_preserve_frozen_session_slots (tests.test_sealed_historical_account_valuation_v01.ValuationRegistrationTests.test_all_348_dependencies_preserve_frozen_session_slots) ... ok\ntest_direct_offline_cli_produces_independently_verified_artifacts (tests.test_sealed_historical_account_valuation_v01.ValuationRegistrationTests.test_direct_offline_cli_produces_independently_verified_artifacts) ... ok\ntest_entrypoints_have_no_undefined_globals_and_checker_is_stdlib (tests.test_sealed_historical_account_valuation_v01.ValuationRegistrationTests.test_entrypoints_have_no_undefined_globals_and_checker_is_stdlib) ... ok\ntest_frozen_output_and_symlink_paths_rejected (tests.test_sealed_historical_account_valuation_v01.ValuationRegistrationTests.test_frozen_output_and_symlink_paths_rejected) ... ok\ntest_independent_checker_recomputes_vectors_and_rejects_resealed_wrong_equity (tests.test_sealed_historical_account_valuation_v01.ValuationRegistrationTests.test_independent_checker_recomputes_vectors_and_rejects_resealed_wrong_equity) ... ok\ntest_metadata_never_values_or_opens_market_tapes (tests.test_sealed_historical_account_valuation_v01.ValuationRegistrationTests.test_metadata_never_values_or_opens_market_tapes) ... ok\ntest_parent_or_child_mutation_invalidates_registration (tests.test_sealed_historical_account_valuation_v01.ValuationRegistrationTests.test_parent_or_child_mutation_invalidates_registration) ... ",
+      "status": "incomplete_invocation_not_accepted_as_a_gate"
+    }
+  ],
+  "independent_valuation_verification": {
+    "account_close_evidence": false,
+    "broker_statement_equivalence_verified": false,
+    "case_count": 29,
+    "content_sha256": "1302695e4424c956769cc88fec4c3b9a4fcc85ab5da59f82316159ecfeba1405",
+    "continuous_account_order_integration_verified": false,
+    "continuous_position_order_execution_authorized": false,
+    "contract_content_sha256": "0e21c52ce104c96ac1dc6737291557f4adcbf0a4b54917efdfab10134406d7f5",
+    "contract_id": "sealed-historical-account-valuation-v0.1",
+    "corporate_action_source_provenance_verified": false,
+    "financial_metrics_eligible": false,
+    "freeze_content_sha256": "22328ab6acb6e94a8941748a7f578d95658c8c7880f4571d71404ed47a835afa",
+    "historical_execution_count": 0,
+    "historical_producer_authenticated": false,
+    "historical_runtime_authorized": false,
+    "independently_selected_marks": 3,
+    "mark_is_executable_proceeds": false,
+    "next_session_open_position_valuation_verified": false,
+    "original_market_source_provenance_authenticated": false,
+    "policy_promotion_eligible": false,
+    "provider_calls": 0,
+    "registered_paths": 12,
+    "registered_sessions": 360,
+    "retrospective_inputs_read": false,
+    "source_execution_recomputed_by_independent_checker": false,
+    "stdlib_only": true,
+    "synthetic_only": true,
+    "synthetic_vectors_content_sha256": "8b6ba1f20534c37beeb2af64062723e8f7b269ea21991aead3f245d7d142ea9a",
+    "valuation_transitions": 348,
+    "verification_passed": true
+  },
+  "initial_mechanics_gate": {
+    "bytes": 5465,
+    "file_name": "valuation-focused-draft-01.log",
+    "file_sha256": "97a583d7c819136757d460b15b9bcaa4240334b79f8893bbc3f54571b35fae4d",
+    "passed": true,
+    "seconds": 9.914,
+    "skips": 0,
+    "tests_run": 27
+  },
+  "local_validation": {
+    "dependency_lock_path": "requirements-sealed-execution-quote-v01.txt",
+    "dependency_lock_sha256": "03f4da335027e4c83bcf38e523c2e11aeaae49778f5bd6caa47e4703348b31b4",
+    "focused_normal": {
+      "bytes": 21696,
+      "file_name": "valuation-focused-normal-final.log",
+      "file_sha256": "1c02ddd266adb6c78212cda2da479cf30778432abe984fd732edd786e3464584",
+      "passed": true,
+      "seconds": 25.352,
+      "skips": 0,
+      "tests_run": 110
+    },
+    "focused_optimized": {
+      "bytes": 21696,
+      "file_name": "valuation-focused-optimized-final.log",
+      "file_sha256": "4fa21b16881905984958efec7c8122ac28558c78b5c9d66f4eac5af951fde882",
+      "passed": true,
+      "seconds": 24.834,
+      "skips": 0,
+      "tests_run": 110
+    },
+    "full_suite": {
+      "bytes": 435976,
+      "file_name": "valuation-full-suite-final.log",
+      "file_sha256": "62549a65bab5ae2376ab2b04e5c755504f49c9decda1f7644626b169a682056f",
+      "passed": true,
+      "seconds": 176.53,
+      "skips": 0,
+      "tests_run": 2064
+    },
+    "new_test_count": 36,
+    "python_version": "3.12.13",
+    "undefined_globals": []
+  },
+  "mark_is_executable_proceeds": false,
+  "next_gate": "continuous_account_order_scarcity_integration_and_original_source_binding",
+  "next_session_open_position_valuation_verified": false,
+  "original_market_source_provenance_authenticated": false,
+  "parent_commit_sha": "7840e5696fe8d2961ade913771f2c7cfa257493a",
+  "parent_tree_sha": "df78ff3a64a2caf2ae93b95a56538b394964625d",
+  "policy_promotion_eligible": false,
+  "primary_registration_verification": {
+    "account_close_evidence": false,
+    "broker_statement_equivalence_verified": false,
+    "content_sha256": "a600aa177d415c656377611c606ff1971628003354debec7e2b5e02dda02cba4",
+    "continuous_account_order_integration_verified": false,
+    "continuous_position_order_execution_authorized": false,
+    "contract_id": "sealed-historical-account-valuation-v0.1",
+    "corporate_action_source_provenance_verified": false,
+    "file_inventory": {
+      "freeze-manifest.json": {
+        "bytes": 1756,
+        "sha256": "044dcee834155e3b063dc146ed9a154eaad7f19b4b9027f6618f23cccf792b56"
+      },
+      "readiness-report.json": {
+        "bytes": 1092,
+        "sha256": "b411119554826b5e1ea0a67e116b41d38bb44dac7a5cb3b02a94e997f79446f3"
+      },
+      "valuation-dependencies.json": {
+        "bytes": 183989,
+        "sha256": "dc1e47b7f60d8e0f3b2f50d6e4cbe85984c6d6c4a99dee713dbaecab0e556c5f"
+      },
+      "valuation-mechanics.json": {
+        "bytes": 2080,
+        "sha256": "078555d60025c68d22ba80719597876c3ae1ee99ff51bdea7fe756fa0d349796"
+      }
+    },
+    "financial_metrics_eligible": false,
+    "freeze_content_sha256": "22328ab6acb6e94a8941748a7f578d95658c8c7880f4571d71404ed47a835afa",
+    "historical_producer_authenticated": false,
+    "historical_runtime_authorized": false,
+    "mark_is_executable_proceeds": false,
+    "next_session_open_position_valuation_verified": false,
+    "original_market_source_provenance_authenticated": false,
+    "policy_promotion_eligible": false,
+    "provider_calls": 0,
+    "retrospective_inputs_read": false,
+    "verification_passed": true
+  },
+  "protected_refs_unchanged_from_preceding_checkpoint": {
+    "refs/heads/main": "de24eb17316191da69d92e61f6843af25e9c22d0",
+    "refs/tags/sealed-historical-execution-input-acquisition-v0.1-consumed": "5a375f86e951b1e9eeb6c010995c9b57025913b7",
+    "refs/tags/sealed-historical-execution-input-acquisition-v0.2-consumed": "e2c250367895d209ec4706288a22655636298685",
+    "refs/tags/sealed-historical-execution-input-acquisition-v0.3-consumed": "0c4010044ee8557136b3c119c6350e134bba46d2",
+    "refs/tags/sealed-historical-execution-input-diagnostic-v0.1-consumed": "e1aece08a44ccf9add0157a1657d08a809687e85",
+    "refs/tags/sealed-historical-execution-input-empty-diagnostic-v0.1-consumed": "8854bb2e63dc3961d98c5d8827f857ef85ccb341",
+    "refs/tags/sealed-historical-execution-input-quote-v0.1-consumed": "dd295304dcc5e7cc0ebd300d094ab20636a72b92",
+    "refs/tags/sealed-historical-management-exit-acquisition-v0.1-consumed": "887f4a08f2cf6279c80d8aee8476ce9ae7da8b52",
+    "refs/tags/sealed-historical-management-exit-quote-v0.1-consumed": "fde309481843b7c2613d9a673f888f488a1ee795",
+    "refs/tags/sealed-historical-management-missing-input-acquisition-v0.1-consumed": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+    "refs/tags/sealed-historical-micro-input-acquisition-v0.1-consumed": "5cab2eb3aa2b73a2cbf1d57575519a7b99961e24",
+    "refs/tags/sealed-historical-micro-session-input-acquisition-v0.2-consumed": "bf5863a7115abef9e22c4f527448cd9c20084f47",
+    "refs/tags/sealed-historical-source-acquisition-v04-consumed-bbe51f4483a73f92b1f58c9f6c2085d8a47505346c2d340fbe59c0421f3f31b7": "ae55aabd3963a9d2764b19a759efd271c723a83a",
+    "refs/tags/sealed-historical-source-acquisition-v05-consumed-23ad997837490c14c200c10b34c8285db7b18ddebca131e6299a8cd70b3bbc49": "12d3c08dcfa042f785c6e35060916cfbd47a1df8",
+    "refs/tags/sealed-historical-source-acquisition-v06-consumed-0343efff8ceb49b7c3ae2e589029cf4cf0b02d72c1961f85807913f67385202e": "0d231ffecb6d4104aad53dec0b7499a16d8943f6",
+    "refs/tags/sealed-historical-source-acquisition-v09-consumed-447c11b09206b4c19ccade6c1aae70ce5bb17e4a483db6f9581d14ee3f5f862f": "92d8b4deceae5c2bb6edfb10016a0e05c33c8bfa",
+    "refs/tags/sealed-historical-source-acquisition-v10-consumed-a6519754147c39273a25b2ea818b1906dfa93ea5018edac831e2a0a7052463c7": "652db5675a35b6f455aa0d924aa50428dd995280"
+  },
+  "provider_calls": 0,
+  "retrospective_inputs_read": false,
+  "schema_version": 1
+}
