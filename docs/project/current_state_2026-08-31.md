@@ -1,6 +1,6 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: original historical source binding independently verified locally
+## Current checkpoint: original historical source binding independently verified
 
 The isolated child of `b10c8e675161c22658633d70e07960781c405cd3` binds the exact five
 retained source archives to the account-input boundary. It preserves original
@@ -28,11 +28,21 @@ Both original-source verification runs passed on their first attempt.
 Historical account execution, financial metrics and retrospective comparison
 remain closed. No provider or brokerage account was accessed, and the Ross
 attachments remain unopened. Next: isolated historical account activation using
-the verified bindings and explicit unresolved carry. Hosted reproduction is
-the remaining publication check. See the
+the verified bindings and explicit unresolved carry. See the
 [component](../research/sealed_historical_source_binding_v01.md),
 [local audit](../../research/data-audits/sealed-historical-source-binding-v0.1-independent-verification.json)
 and [big-picture progress](progress_2026-09-08.md).
+
+Code `ec8f728cc7e580383fc90e822c412074e1b38741` passed all eight GitHub workflows
+on attempt 1. Dedicated run `34237152248` passed 135 tests normally and optimized
+with zero skips and independently reproduced the original-source bindings.
+General CI run `34237152217` passed 2,180 tests with 73 existing optional-SDK
+skips. Artifact `10060984490` is 377,229 bytes with ZIP SHA-256
+`2577dfdccdee948c9241d3489737e0dac40cf3c97ad826ead9500c095e55d94a`.
+All four downloaded files match local bytes. Main and all 16 consumed references
+were rechecked unchanged. The
+[hosted audit](../../research/data-audits/sealed-historical-source-binding-v0.1-hosted-verification-34237152248.json)
+records the complete evidence.
 
 ## Prior checkpoint: campaign re-entry and original-window continuation independently verified
 

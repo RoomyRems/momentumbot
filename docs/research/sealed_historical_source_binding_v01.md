@@ -103,4 +103,15 @@ The resulting source-binding manifest is
 `9bb780dcbfbec3ef1b4e437cc3dc76e1528897956490d4ddd32d399ed5f683cd`.
 The [local audit](../../research/data-audits/sealed-historical-source-binding-v0.1-independent-verification.json)
 records original archive commitments, test receipts, independent checks and
-protected references. Hosted reproduction is the remaining publication check.
+protected references.
+
+Code `ec8f728cc7e580383fc90e822c412074e1b38741` passed all eight GitHub workflows
+on attempt 1. Dedicated run `34237152248` passed 135 tests normally and optimized
+with zero skips, rebuilt the original bindings and passed the independent
+checker. General CI run `34237152217` passed 2,180 tests with its existing 73
+optional-SDK skips. Downloaded artifact `10060984490` is 377,229 bytes with ZIP
+SHA-256 `2577dfdccdee948c9241d3489737e0dac40cf3c97ad826ead9500c095e55d94a`.
+All four evidence files match local output byte for byte. Main and all 16
+consumed references remain unchanged. The
+[hosted audit](../../research/data-audits/sealed-historical-source-binding-v0.1-hosted-verification-34237152248.json)
+records exact run, job, archive and file evidence.

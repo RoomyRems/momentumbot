@@ -1,0 +1,1119 @@
+{
+  "account_close_evidence": false,
+  "account_or_fill_simulation_executed": false,
+  "all_eight_code_workflows_passed_attempt_one": true,
+  "artifact_metadata": {
+    "archive_download_url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/artifacts/10060984490/zip",
+    "created_at": "2026-09-08T14:30:42Z",
+    "digest": "sha256:2577dfdccdee948c9241d3489737e0dac40cf3c97ad826ead9500c095e55d94a",
+    "expired": false,
+    "expires_at": "2026-12-07T14:15:58Z",
+    "id": 10060984490,
+    "name": "sealed-historical-source-binding-v01-34237152248-1",
+    "node_id": "MDg6QXJ0aWZhY3QxMDA2MDk4NDQ5MA==",
+    "size_in_bytes": 377229,
+    "updated_at": "2026-09-08T14:30:42Z",
+    "url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/artifacts/10060984490",
+    "workflow_run": {
+      "head_branch": "phase-3-historical-snapshot",
+      "head_repository_id": 1332103865,
+      "head_sha": "ec8f728cc7e580383fc90e822c412074e1b38741",
+      "id": 34237152248,
+      "repository_id": 1332103865
+    }
+  },
+  "artifact_type": "exact_hosted_original_source_binding_verification",
+  "artifact_verification": {
+    "account_or_fill_simulation_executed": false,
+    "all_eight_workflows_passed_attempt_one": true,
+    "artifact_id": 10060984490,
+    "code_commit_sha": "ec8f728cc7e580383fc90e822c412074e1b38741",
+    "content_sha256": "20dd36a60e20ebed9ab0abaed3d51186f915a401ddeef4c45a5b86aa501aa841",
+    "exact_local_file_matches": 4,
+    "file_inventory": {
+      "context-access-verification.json": {
+        "bytes": 455123,
+        "sha256": "d0ab029486a7ae3c9122500a13dbf5a6643cf4fb0466a0f59651f5caa5c1ebb9"
+      },
+      "freeze-manifest.json": {
+        "bytes": 1842,
+        "sha256": "2ef9bccd8f4cd1a20fd4b1be88e5cbad230f0851448b9e8c8d741124a7ec27ba"
+      },
+      "independent-verification.json": {
+        "bytes": 842,
+        "sha256": "03f0fe0c34362b20d08f424c2af0556c70d6fc3fbb1bb58daa278ff7f85fdb4b"
+      },
+      "source-bindings.json": {
+        "bytes": 2626367,
+        "sha256": "dbaeb9265d37872b04c554143490cdc2e023311468d1f1ba4aa2fbf8b9b67e9a"
+      }
+    },
+    "focused_skips": 0,
+    "focused_tests_per_mode": 135,
+    "historical_runtime_authorized": false,
+    "hosted_ci_optional_sdk_skips": 73,
+    "hosted_ci_tests": 2180,
+    "job_id": 102097699792,
+    "main_and_16_consumed_references_unchanged": true,
+    "provider_jobs_skipped": true,
+    "retrospective_inputs_read": false,
+    "source_bindings_content_sha256": "9bb780dcbfbec3ef1b4e437cc3dc76e1528897956490d4ddd32d399ed5f683cd",
+    "verification_passed": true,
+    "workflow_run_attempt": 1,
+    "workflow_run_id": 34237152248,
+    "zip_bytes": 377229,
+    "zip_sha256": "2577dfdccdee948c9241d3489737e0dac40cf3c97ad826ead9500c095e55d94a"
+  },
+  "binding_job_id": 102097699792,
+  "broker_statement_equivalence_verified": false,
+  "carried_position_execution_resumption_integrated": false,
+  "ci_job_id": 102097697385,
+  "ci_run_id": 34237152217,
+  "code_commit_sha": "ec8f728cc7e580383fc90e822c412074e1b38741",
+  "code_parent_commit_sha": "b10c8e675161c22658633d70e07960781c405cd3",
+  "code_tree_sha": "967e0c9cb5c080741cde9a4e01d2e844688d4bd4",
+  "content_sha256": "e2ad1a3cc994ba6a8c8798aecc02601c10eacef810dcfc2314ef004cc5d1442b",
+  "continuous_account_order_integration_verified": false,
+  "continuous_position_order_execution_authorized": false,
+  "contract_id": "sealed-historical-source-binding-v0.1",
+  "corporate_action_source_provenance_verified": false,
+  "financial_metrics_eligible": false,
+  "historical_account_execution_enabled": false,
+  "historical_execution_count": 0,
+  "historical_producer_authenticated": false,
+  "historical_runtime_authorized": false,
+  "hosted_artifact_verifier_source": "\"\"\"Verify exact hosted run provenance and all four output files using stdlib.\"\"\"\nimport hashlib\nimport json\nfrom pathlib import Path\nimport zipfile\n\nSCRATCH=Path('/workspace/scratch/b3ce0ef3e0fa')\nREPO=Path('/workspace/scratch/2d76267c92e1/momentumbot')\n\ndef require(ok, reason):\n    if not ok:raise ValueError(reason)\n\ndef sha(raw):return hashlib.sha256(raw).hexdigest()\ndef digest(value):return sha(json.dumps(value,sort_keys=True,separators=(',',':'),allow_nan=False).encode())\n\nmeta=json.loads((SCRATCH/'binding-hosted-metadata.json').read_text())\nrequire(meta['code_commit_sha']=='ec8f728cc7e580383fc90e822c412074e1b38741','exact code commit required')\nrequire(meta['code_tree_sha']=='967e0c9cb5c080741cde9a4e01d2e844688d4bd4','exact code tree required')\nrequire(len(meta['runs'])==8 and len({r['id'] for r in meta['runs']})==8,'exact eight workflow runs required')\nfor run in meta['runs']:\n    require(run['head_sha']==meta['code_commit_sha'] and run['run_attempt']==1 and run['event']=='push'\n        and run['head_branch']=='phase-3-historical-snapshot' and run['conclusion']=='success'\n        and run['status']=='completed','complete successful original code run required')\nrun=next(r for r in meta['runs'] if r['id']==34237152248)\nrequire(run['path']=='.github/workflows/sealed-historical-source-binding-v01.yml','exact source binding workflow required')\njob=next(j for group in meta['jobs'] for j in group['jobs'] if j['id']==102097699792)\nrequire(job['run_id']==run['id'] and job['conclusion']=='success','exact successful binding job required')\nrequire(all(s['conclusion']=='success' for s in job['steps']),'all source binding steps must pass')\nrequire(meta['focused_logs']['tests']==[135,135] and meta['focused_logs']['skips']==[0,0],'strict normal and optimized focused tests required')\nrequire(meta['ci_logs']['tests']==[2180] and meta['ci_logs']['skips']==[73],'exact general CI tests and existing optional SDK skips required')\nfor group in meta['jobs']:\n    for j in group['jobs']:\n        if j['name'] in ('acquire','probe'):\n            require(j['conclusion']=='skipped','provider jobs must remain unarmed')\nartifact=meta['artifact']\nrequire(artifact['workflow_run']['id']==run['id'] and artifact['workflow_run']['head_sha']==meta['code_commit_sha'],'artifact origin differs')\nrequire(artifact['name']=='sealed-historical-source-binding-v01-34237152248-1' and artifact['expired'] is False,'artifact name or retention differs')\npath=SCRATCH/'binding-hosted-34237152248.zip'\nrequire(path.is_file() and not path.is_symlink(),'regular hosted artifact required')\nraw=path.read_bytes()\nrequire(len(raw)==artifact['size_in_bytes'] and 'sha256:'+sha(raw)==artifact['digest'],'downloaded ZIP differs from GitHub digest')\nlocal=SCRATCH/'binding-original-sources-01'\ninventory={}\nwith zipfile.ZipFile(path) as archive:\n    require(len(archive.namelist())==len(set(archive.namelist()))==4,'exact four unique output files required')\n    require(set(archive.namelist())=={p.name for p in local.iterdir()},'hosted evidence member set differs')\n    for name in sorted(archive.namelist()):\n        body=archive.read(name)\n        require(body==(local/name).read_bytes(),'hosted source binding differs: '+name)\n        inventory[name]={'bytes':len(body),'sha256':sha(body)}\naudit=json.loads((REPO/'research/data-audits/sealed-historical-source-binding-v0.1-independent-verification.json').read_text())\nrequire(inventory==audit['bound_artifact_inventory'],'local audited bytes changed')\nrequire(meta['protected_refs_after']==audit['protected_refs_before'],'main or consumed source references changed')\nresult={'verification_passed':True,'code_commit_sha':meta['code_commit_sha'],'workflow_run_id':run['id'],\n    'workflow_run_attempt':1,'job_id':job['id'],'artifact_id':artifact['id'],'zip_bytes':len(raw),'zip_sha256':sha(raw),\n    'exact_local_file_matches':4,'file_inventory':inventory,'all_eight_workflows_passed_attempt_one':True,\n    'focused_tests_per_mode':135,'focused_skips':0,'hosted_ci_tests':2180,'hosted_ci_optional_sdk_skips':73,\n    'provider_jobs_skipped':True,'main_and_16_consumed_references_unchanged':True,\n    'source_bindings_content_sha256':audit['source_bindings_content_sha256'],\n    'account_or_fill_simulation_executed':False,'historical_runtime_authorized':False,'retrospective_inputs_read':False}\nresult['content_sha256']=digest(result)\nwith (SCRATCH/'binding-hosted-artifact-verification.json').open('x') as handle:\n    json.dump(result,handle,sort_keys=True,indent=2);handle.write('\\n')\nprint(json.dumps(result,sort_keys=True,indent=2))\n",
+  "hosted_artifact_verifier_source_sha256": "67d17c4dcd67f077a5b6439ab7bb1724f60ee2f2a37d3bed82fd4d2033c3473e",
+  "hosted_ci_test_evidence": {
+    "seconds": [
+      "233.504"
+    ],
+    "skips": [
+      73
+    ],
+    "tests": [
+      2180
+    ]
+  },
+  "hosted_focused_test_evidence": {
+    "seconds": [
+      "57.547",
+      "57.079"
+    ],
+    "skips": [
+      0,
+      0
+    ],
+    "tests": [
+      135,
+      135
+    ]
+  },
+  "independent_audit_content_sha256": "e10d6683a9051517694d66d5d52ae44570bba500dc5fad9ef961d2fa1047f1ae",
+  "independent_audit_file_sha256": "21e4d4285b80faaf6d1f2f3a14d610fea9c4c3f815b00adf631cda00c5977dd6",
+  "independent_audit_path": "research/data-audits/sealed-historical-source-binding-v0.1-independent-verification.json",
+  "local_full_skips": 0,
+  "local_full_tests": 2180,
+  "main_and_16_consumed_references_unchanged": true,
+  "mark_is_executable_proceeds": false,
+  "new_tests": 35,
+  "next_gate": "isolated_historical_account_activation_with_bound_sources_and_explicit_unresolved_carry",
+  "next_session_open_position_valuation_verified": false,
+  "original_market_source_provenance_authenticated": true,
+  "original_window_checkpoint_resumption_verified": true,
+  "overnight_execution_window_extension_authorized": false,
+  "policy_promotion_eligible": false,
+  "protected_refs_after": {
+    "refs/heads/main": "de24eb17316191da69d92e61f6843af25e9c22d0",
+    "refs/tags/sealed-historical-execution-input-acquisition-v0.1-consumed": "5a375f86e951b1e9eeb6c010995c9b57025913b7",
+    "refs/tags/sealed-historical-execution-input-acquisition-v0.2-consumed": "e2c250367895d209ec4706288a22655636298685",
+    "refs/tags/sealed-historical-execution-input-acquisition-v0.3-consumed": "0c4010044ee8557136b3c119c6350e134bba46d2",
+    "refs/tags/sealed-historical-execution-input-diagnostic-v0.1-consumed": "e1aece08a44ccf9add0157a1657d08a809687e85",
+    "refs/tags/sealed-historical-execution-input-empty-diagnostic-v0.1-consumed": "8854bb2e63dc3961d98c5d8827f857ef85ccb341",
+    "refs/tags/sealed-historical-execution-input-quote-v0.1-consumed": "dd295304dcc5e7cc0ebd300d094ab20636a72b92",
+    "refs/tags/sealed-historical-management-exit-acquisition-v0.1-consumed": "887f4a08f2cf6279c80d8aee8476ce9ae7da8b52",
+    "refs/tags/sealed-historical-management-exit-quote-v0.1-consumed": "fde309481843b7c2613d9a673f888f488a1ee795",
+    "refs/tags/sealed-historical-management-missing-input-acquisition-v0.1-consumed": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+    "refs/tags/sealed-historical-micro-input-acquisition-v0.1-consumed": "5cab2eb3aa2b73a2cbf1d57575519a7b99961e24",
+    "refs/tags/sealed-historical-micro-session-input-acquisition-v0.2-consumed": "bf5863a7115abef9e22c4f527448cd9c20084f47",
+    "refs/tags/sealed-historical-source-acquisition-v04-consumed-bbe51f4483a73f92b1f58c9f6c2085d8a47505346c2d340fbe59c0421f3f31b7": "ae55aabd3963a9d2764b19a759efd271c723a83a",
+    "refs/tags/sealed-historical-source-acquisition-v05-consumed-23ad997837490c14c200c10b34c8285db7b18ddebca131e6299a8cd70b3bbc49": "12d3c08dcfa042f785c6e35060916cfbd47a1df8",
+    "refs/tags/sealed-historical-source-acquisition-v06-consumed-0343efff8ceb49b7c3ae2e589029cf4cf0b02d72c1961f85807913f67385202e": "0d231ffecb6d4104aad53dec0b7499a16d8943f6",
+    "refs/tags/sealed-historical-source-acquisition-v09-consumed-447c11b09206b4c19ccade6c1aae70ce5bb17e4a483db6f9581d14ee3f5f862f": "92d8b4deceae5c2bb6edfb10016a0e05c33c8bfa",
+    "refs/tags/sealed-historical-source-acquisition-v10-consumed-a6519754147c39273a25b2ea818b1906dfa93ea5018edac831e2a0a7052463c7": "652db5675a35b6f455aa0d924aa50428dd995280"
+  },
+  "provider_calls": 0,
+  "registration_freeze_content_sha256": "a5765974223b6551dcb6e2dffcc0f1f050c172592d6530e94013ffa6c0fbed79",
+  "retrospective_inputs_read": false,
+  "same_symbol_reentry_integrated": true,
+  "source_binding_registered": true,
+  "source_bindings_content_sha256": "9bb780dcbfbec3ef1b4e437cc3dc76e1528897956490d4ddd32d399ed5f683cd",
+  "workflow_conclusion": "success",
+  "workflow_evidence": {
+    "jobs": [
+      {
+        "jobs": [
+          {
+            "completed_at": "2026-09-08T14:30:45Z",
+            "conclusion": "success",
+            "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34237152248/job/102097699792",
+            "id": 102097699792,
+            "name": "validate",
+            "run_id": 34237152248,
+            "started_at": "2026-09-08T14:16:01Z",
+            "status": "completed",
+            "steps": [
+              {
+                "completed_at": "2026-09-08T14:16:03Z",
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "started_at": "2026-09-08T14:16:02Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:04Z",
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "started_at": "2026-09-08T14:16:03Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:05Z",
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "started_at": "2026-09-08T14:16:04Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:22Z",
+                "conclusion": "success",
+                "name": "Install hash-locked validation environment",
+                "number": 4,
+                "started_at": "2026-09-08T14:16:05Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:24Z",
+                "conclusion": "success",
+                "name": "Reconstruct source-binding registration offline",
+                "number": 5,
+                "started_at": "2026-09-08T14:16:22Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:18:27Z",
+                "conclusion": "success",
+                "name": "Verify source binding and frozen parent mechanics",
+                "number": 6,
+                "started_at": "2026-09-08T14:16:24Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:18:42Z",
+                "conclusion": "success",
+                "name": "Download only five immutable GitHub evidence archives",
+                "number": 7,
+                "started_at": "2026-09-08T14:18:27Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:26:25Z",
+                "conclusion": "success",
+                "name": "Bind every original source without executing accounts",
+                "number": 8,
+                "started_at": "2026-09-08T14:18:42Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:30:41Z",
+                "conclusion": "success",
+                "name": "Independently verify original bytes, candidate priority and all account contexts",
+                "number": 9,
+                "started_at": "2026-09-08T14:26:25Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:30:42Z",
+                "conclusion": "success",
+                "name": "Retain original source bindings and independent verification",
+                "number": 10,
+                "started_at": "2026-09-08T14:30:41Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:30:42Z",
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 19,
+                "started_at": "2026-09-08T14:30:42Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:30:42Z",
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 20,
+                "started_at": "2026-09-08T14:30:42Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:30:42Z",
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 21,
+                "started_at": "2026-09-08T14:30:42Z",
+                "status": "completed"
+              }
+            ]
+          }
+        ],
+        "run_id": 34237152248
+      },
+      {
+        "jobs": [
+          {
+            "completed_at": "2026-09-08T14:20:19Z",
+            "conclusion": "success",
+            "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34237152217/job/102097697385",
+            "id": 102097697385,
+            "name": "test",
+            "run_id": 34237152217,
+            "started_at": "2026-09-08T14:16:00Z",
+            "status": "completed",
+            "steps": [
+              {
+                "completed_at": "2026-09-08T14:16:01Z",
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "started_at": "2026-09-08T14:16:01Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:02Z",
+                "conclusion": "success",
+                "name": "Run actions/checkout@v4",
+                "number": 2,
+                "started_at": "2026-09-08T14:16:01Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:03Z",
+                "conclusion": "success",
+                "name": "Run actions/setup-python@v5",
+                "number": 3,
+                "started_at": "2026-09-08T14:16:02Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:19Z",
+                "conclusion": "success",
+                "name": "Install package",
+                "number": 4,
+                "started_at": "2026-09-08T14:16:03Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:20:16Z",
+                "conclusion": "success",
+                "name": "Run tests",
+                "number": 5,
+                "started_at": "2026-09-08T14:16:19Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:20:16Z",
+                "conclusion": "success",
+                "name": "Compile",
+                "number": 6,
+                "started_at": "2026-09-08T14:20:16Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:20:17Z",
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@v5",
+                "number": 11,
+                "started_at": "2026-09-08T14:20:16Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:20:17Z",
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@v4",
+                "number": 12,
+                "started_at": "2026-09-08T14:20:17Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:20:17Z",
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 13,
+                "started_at": "2026-09-08T14:20:17Z",
+                "status": "completed"
+              }
+            ]
+          }
+        ],
+        "run_id": 34237152217
+      },
+      {
+        "jobs": [
+          {
+            "completed_at": "2026-09-08T14:16:17Z",
+            "conclusion": "success",
+            "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34237152189/job/102097697853",
+            "id": 102097697853,
+            "name": "validate",
+            "run_id": 34237152189,
+            "started_at": "2026-09-08T14:16:01Z",
+            "status": "completed",
+            "steps": [
+              {
+                "completed_at": "2026-09-08T14:16:02Z",
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "started_at": "2026-09-08T14:16:02Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:04Z",
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "started_at": "2026-09-08T14:16:03Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:04Z",
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "started_at": "2026-09-08T14:16:04Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:15Z",
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "started_at": "2026-09-08T14:16:04Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:15Z",
+                "conclusion": "success",
+                "name": "Validate frozen authorization without credentials",
+                "number": 5,
+                "started_at": "2026-09-08T14:16:15Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:15Z",
+                "conclusion": "success",
+                "name": "Run provider-free availability tests",
+                "number": 6,
+                "started_at": "2026-09-08T14:16:15Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:15Z",
+                "conclusion": "success",
+                "name": "Compile availability entry points",
+                "number": 7,
+                "started_at": "2026-09-08T14:16:15Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:16Z",
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "started_at": "2026-09-08T14:16:15Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:16Z",
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "started_at": "2026-09-08T14:16:16Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:16Z",
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "started_at": "2026-09-08T14:16:16Z",
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "completed_at": "2026-09-08T14:16:18Z",
+            "conclusion": "skipped",
+            "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34237152189/job/102097819624",
+            "id": 102097819624,
+            "name": "probe",
+            "run_id": 34237152189,
+            "started_at": "2026-09-08T14:16:18Z",
+            "status": "completed",
+            "steps": []
+          }
+        ],
+        "run_id": 34237152189
+      },
+      {
+        "jobs": [
+          {
+            "completed_at": "2026-09-08T14:16:20Z",
+            "conclusion": "success",
+            "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34237152168/job/102097697401",
+            "id": 102097697401,
+            "name": "validate",
+            "run_id": 34237152168,
+            "started_at": "2026-09-08T14:16:01Z",
+            "status": "completed",
+            "steps": [
+              {
+                "completed_at": "2026-09-08T14:16:02Z",
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "started_at": "2026-09-08T14:16:01Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:04Z",
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "started_at": "2026-09-08T14:16:02Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:04Z",
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "started_at": "2026-09-08T14:16:04Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:15Z",
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "started_at": "2026-09-08T14:16:04Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:16Z",
+                "conclusion": "success",
+                "name": "Validate frozen v0.3 repair and parents without credentials",
+                "number": 5,
+                "started_at": "2026-09-08T14:16:15Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:16Z",
+                "conclusion": "success",
+                "name": "Run bounded-acquisition tests",
+                "number": 6,
+                "started_at": "2026-09-08T14:16:16Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:16Z",
+                "conclusion": "success",
+                "name": "Compile acquisition entry points",
+                "number": 7,
+                "started_at": "2026-09-08T14:16:16Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:16Z",
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "started_at": "2026-09-08T14:16:16Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:17Z",
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "started_at": "2026-09-08T14:16:16Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:17Z",
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "started_at": "2026-09-08T14:16:17Z",
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "completed_at": "2026-09-08T14:16:20Z",
+            "conclusion": "skipped",
+            "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34237152168/job/102097837755",
+            "id": 102097837755,
+            "name": "acquire",
+            "run_id": 34237152168,
+            "started_at": "2026-09-08T14:16:21Z",
+            "status": "completed",
+            "steps": []
+          }
+        ],
+        "run_id": 34237152168
+      },
+      {
+        "jobs": [
+          {
+            "completed_at": "2026-09-08T14:16:20Z",
+            "conclusion": "success",
+            "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34237152136/job/102097696961",
+            "id": 102097696961,
+            "name": "validate",
+            "run_id": 34237152136,
+            "started_at": "2026-09-08T14:16:02Z",
+            "status": "completed",
+            "steps": [
+              {
+                "completed_at": "2026-09-08T14:16:03Z",
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "started_at": "2026-09-08T14:16:03Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:05Z",
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "started_at": "2026-09-08T14:16:03Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:05Z",
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "started_at": "2026-09-08T14:16:05Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:17Z",
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "started_at": "2026-09-08T14:16:05Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:17Z",
+                "conclusion": "success",
+                "name": "Validate frozen repair without credentials",
+                "number": 5,
+                "started_at": "2026-09-08T14:16:17Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:17Z",
+                "conclusion": "success",
+                "name": "Run provider-free repair tests",
+                "number": 6,
+                "started_at": "2026-09-08T14:16:17Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:17Z",
+                "conclusion": "success",
+                "name": "Compile repair entry points",
+                "number": 7,
+                "started_at": "2026-09-08T14:16:17Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:17Z",
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "started_at": "2026-09-08T14:16:17Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:17Z",
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "started_at": "2026-09-08T14:16:17Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:17Z",
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "started_at": "2026-09-08T14:16:17Z",
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "completed_at": "2026-09-08T14:16:20Z",
+            "conclusion": "skipped",
+            "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34237152136/job/102097837683",
+            "id": 102097837683,
+            "name": "probe",
+            "run_id": 34237152136,
+            "started_at": "2026-09-08T14:16:21Z",
+            "status": "completed",
+            "steps": []
+          }
+        ],
+        "run_id": 34237152136
+      },
+      {
+        "jobs": [
+          {
+            "completed_at": "2026-09-08T14:16:21Z",
+            "conclusion": "success",
+            "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34237152140/job/102097696895",
+            "id": 102097696895,
+            "name": "validate",
+            "run_id": 34237152140,
+            "started_at": "2026-09-08T14:16:00Z",
+            "status": "completed",
+            "steps": [
+              {
+                "completed_at": "2026-09-08T14:16:02Z",
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "started_at": "2026-09-08T14:16:01Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:04Z",
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "started_at": "2026-09-08T14:16:02Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:04Z",
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "started_at": "2026-09-08T14:16:04Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:18Z",
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "started_at": "2026-09-08T14:16:04Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:18Z",
+                "conclusion": "success",
+                "name": "Validate sealed manifests and selected dates",
+                "number": 5,
+                "started_at": "2026-09-08T14:16:18Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:18Z",
+                "conclusion": "success",
+                "name": "Run leakage and tamper tests",
+                "number": 6,
+                "started_at": "2026-09-08T14:16:18Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:18Z",
+                "conclusion": "success",
+                "name": "Compile registration entry points",
+                "number": 7,
+                "started_at": "2026-09-08T14:16:18Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:18Z",
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "started_at": "2026-09-08T14:16:18Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:19Z",
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "started_at": "2026-09-08T14:16:18Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:19Z",
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "started_at": "2026-09-08T14:16:19Z",
+                "status": "completed"
+              }
+            ]
+          }
+        ],
+        "run_id": 34237152140
+      },
+      {
+        "jobs": [
+          {
+            "completed_at": "2026-09-08T14:16:21Z",
+            "conclusion": "success",
+            "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34237152317/job/102097697883",
+            "id": 102097697883,
+            "name": "validate",
+            "run_id": 34237152317,
+            "started_at": "2026-09-08T14:16:01Z",
+            "status": "completed",
+            "steps": [
+              {
+                "completed_at": "2026-09-08T14:16:03Z",
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "started_at": "2026-09-08T14:16:02Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:04Z",
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "started_at": "2026-09-08T14:16:03Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:04Z",
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "started_at": "2026-09-08T14:16:04Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:17Z",
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "started_at": "2026-09-08T14:16:04Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:17Z",
+                "conclusion": "success",
+                "name": "Validate frozen v0.2 repair and parents without credentials",
+                "number": 5,
+                "started_at": "2026-09-08T14:16:17Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:18Z",
+                "conclusion": "success",
+                "name": "Run bounded-acquisition tests",
+                "number": 6,
+                "started_at": "2026-09-08T14:16:17Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:18Z",
+                "conclusion": "success",
+                "name": "Compile acquisition entry points",
+                "number": 7,
+                "started_at": "2026-09-08T14:16:18Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:18Z",
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "started_at": "2026-09-08T14:16:18Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:19Z",
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "started_at": "2026-09-08T14:16:18Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:19Z",
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "started_at": "2026-09-08T14:16:19Z",
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "completed_at": "2026-09-08T14:16:21Z",
+            "conclusion": "skipped",
+            "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34237152317/job/102097841326",
+            "id": 102097841326,
+            "name": "acquire",
+            "run_id": 34237152317,
+            "started_at": "2026-09-08T14:16:21Z",
+            "status": "completed",
+            "steps": []
+          }
+        ],
+        "run_id": 34237152317
+      },
+      {
+        "jobs": [
+          {
+            "completed_at": "2026-09-08T14:16:22Z",
+            "conclusion": "success",
+            "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34237152173/job/102097698001",
+            "id": 102097698001,
+            "name": "validate",
+            "run_id": 34237152173,
+            "started_at": "2026-09-08T14:16:00Z",
+            "status": "completed",
+            "steps": [
+              {
+                "completed_at": "2026-09-08T14:16:02Z",
+                "conclusion": "success",
+                "name": "Set up job",
+                "number": 1,
+                "started_at": "2026-09-08T14:16:01Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:04Z",
+                "conclusion": "success",
+                "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 2,
+                "started_at": "2026-09-08T14:16:02Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:04Z",
+                "conclusion": "success",
+                "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 3,
+                "started_at": "2026-09-08T14:16:04Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:17Z",
+                "conclusion": "success",
+                "name": "Install provider-free project",
+                "number": 4,
+                "started_at": "2026-09-08T14:16:04Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:18Z",
+                "conclusion": "success",
+                "name": "Validate frozen acquisition and parents without credentials",
+                "number": 5,
+                "started_at": "2026-09-08T14:16:17Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:19Z",
+                "conclusion": "success",
+                "name": "Run bounded-acquisition tests",
+                "number": 6,
+                "started_at": "2026-09-08T14:16:18Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:19Z",
+                "conclusion": "success",
+                "name": "Compile acquisition entry points",
+                "number": 7,
+                "started_at": "2026-09-08T14:16:19Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:19Z",
+                "conclusion": "success",
+                "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+                "number": 13,
+                "started_at": "2026-09-08T14:16:19Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:19Z",
+                "conclusion": "success",
+                "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+                "number": 14,
+                "started_at": "2026-09-08T14:16:19Z",
+                "status": "completed"
+              },
+              {
+                "completed_at": "2026-09-08T14:16:20Z",
+                "conclusion": "success",
+                "name": "Complete job",
+                "number": 15,
+                "started_at": "2026-09-08T14:16:20Z",
+                "status": "completed"
+              }
+            ]
+          },
+          {
+            "completed_at": "2026-09-08T14:16:23Z",
+            "conclusion": "skipped",
+            "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34237152173/job/102097852913",
+            "id": 102097852913,
+            "name": "acquire",
+            "run_id": 34237152173,
+            "started_at": "2026-09-08T14:16:23Z",
+            "status": "completed",
+            "steps": []
+          }
+        ],
+        "run_id": 34237152173
+      }
+    ],
+    "runs": [
+      {
+        "conclusion": "success",
+        "created_at": "2026-09-08T14:15:57Z",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "ec8f728cc7e580383fc90e822c412074e1b38741",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34237152189",
+        "id": 34237152189,
+        "name": "Sealed historical provider availability v0.1",
+        "path": ".github/workflows/sealed-historical-provider-availability.yml",
+        "run_attempt": 1,
+        "status": "completed",
+        "updated_at": "2026-09-08T14:16:18Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-09-08T14:15:57Z",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "ec8f728cc7e580383fc90e822c412074e1b38741",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34237152173",
+        "id": 34237152173,
+        "name": "Sealed historical source acquisition v0.1",
+        "path": ".github/workflows/sealed-historical-source-acquisition.yml",
+        "run_attempt": 1,
+        "status": "completed",
+        "updated_at": "2026-09-08T14:16:23Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-09-08T14:15:57Z",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "ec8f728cc7e580383fc90e822c412074e1b38741",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34237152168",
+        "id": 34237152168,
+        "name": "Sealed historical source acquisition v0.3",
+        "path": ".github/workflows/sealed-historical-source-acquisition-v03.yml",
+        "run_attempt": 1,
+        "status": "completed",
+        "updated_at": "2026-09-08T14:16:21Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-09-08T14:15:57Z",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "ec8f728cc7e580383fc90e822c412074e1b38741",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34237152136",
+        "id": 34237152136,
+        "name": "Sealed historical provider availability repair v0.2",
+        "path": ".github/workflows/sealed-historical-provider-availability-v02.yml",
+        "run_attempt": 1,
+        "status": "completed",
+        "updated_at": "2026-09-08T14:16:21Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-09-08T14:15:57Z",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "ec8f728cc7e580383fc90e822c412074e1b38741",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34237152140",
+        "id": 34237152140,
+        "name": "Sealed historical walk-forward v0.1",
+        "path": ".github/workflows/sealed-historical-walk-forward.yml",
+        "run_attempt": 1,
+        "status": "completed",
+        "updated_at": "2026-09-08T14:16:21Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-09-08T14:15:57Z",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "ec8f728cc7e580383fc90e822c412074e1b38741",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34237152317",
+        "id": 34237152317,
+        "name": "Sealed historical source acquisition v0.2",
+        "path": ".github/workflows/sealed-historical-source-acquisition-v02.yml",
+        "run_attempt": 1,
+        "status": "completed",
+        "updated_at": "2026-09-08T14:16:22Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-09-08T14:15:57Z",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "ec8f728cc7e580383fc90e822c412074e1b38741",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34237152217",
+        "id": 34237152217,
+        "name": "CI",
+        "path": ".github/workflows/ci.yml",
+        "run_attempt": 1,
+        "status": "completed",
+        "updated_at": "2026-09-08T14:20:19Z"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-09-08T14:15:57Z",
+        "event": "push",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "ec8f728cc7e580383fc90e822c412074e1b38741",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34237152248",
+        "id": 34237152248,
+        "name": "Sealed historical source binding v0.1",
+        "path": ".github/workflows/sealed-historical-source-binding-v01.yml",
+        "run_attempt": 1,
+        "status": "completed",
+        "updated_at": "2026-09-08T14:30:46Z"
+      }
+    ]
+  },
+  "workflow_run_attempt": 1,
+  "workflow_run_id": 34237152248
+}
