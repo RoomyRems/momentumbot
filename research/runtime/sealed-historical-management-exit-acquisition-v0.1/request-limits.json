@@ -1,0 +1,1613 @@
+{
+  "content_sha256": "e135b7a787fdf48c78c35e845a391603a0c28cb57c7e9a3f6637fd02962ccf8b",
+  "contract_id": "sealed-historical-management-exit-acquisition-v0.1",
+  "execution_record_required": true,
+  "maximum_billable_bytes": 209898320,
+  "maximum_quoted_cost_usd": "0.234732925899",
+  "provider_calls": 0,
+  "quote_report_content_sha256": "ad28f542b6497b6a63e6d4a5aa50d15092f2b8e2472474beecde8e884f11812d",
+  "request_limits": [
+    {
+      "exit_request_index": 0,
+      "maximum_billable_bytes": 5618400,
+      "maximum_quoted_cost_usd": "0.006279051304",
+      "maximum_wire_bytes": 5683936,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1748610810199660995,
+        "request_id": "2025-05-30-GITS-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1748609843363881835,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "GITS"
+        ],
+        "trading_date": "2025-05-30"
+      },
+      "request_content_sha256": "e141b4b8a25c5bb816186f1b8d89a6d9292d2d1e4f3d9a6ac1efc9c08c5e71eb"
+    },
+    {
+      "exit_request_index": 1,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1748610810199660995,
+        "request_id": "2025-05-30-GITS-status",
+        "schema": "status",
+        "start_ns": 1748563200000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "GITS"
+        ],
+        "trading_date": "2025-05-30"
+      },
+      "request_content_sha256": "9ca44e822638dd0cb6eac852fc2ff44c1bcbd5ba55966d412d3379b617bc928a"
+    },
+    {
+      "exit_request_index": 2,
+      "maximum_billable_bytes": 3974800,
+      "maximum_quoted_cost_usd": "0.004442185164",
+      "maximum_wire_bytes": 4040336,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1748863250343383233,
+        "request_id": "2025-06-02-INM-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1748862268031368840,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "INM"
+        ],
+        "trading_date": "2025-06-02"
+      },
+      "request_content_sha256": "782862b85c876bf5158a2aea22e817415e852fccd90ce0b911454b9ac6e8374a"
+    },
+    {
+      "exit_request_index": 3,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1748863250343383233,
+        "request_id": "2025-06-02-INM-status",
+        "schema": "status",
+        "start_ns": 1748822400000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "INM"
+        ],
+        "trading_date": "2025-06-02"
+      },
+      "request_content_sha256": "ef5f384c1897c9f05a2328660dc7f9ee82d22703db10a6557ca15147ed1072bb"
+    },
+    {
+      "exit_request_index": 4,
+      "maximum_billable_bytes": 4006080,
+      "maximum_quoted_cost_usd": "0.004477143288",
+      "maximum_wire_bytes": 4071616,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1748864606937229085,
+        "request_id": "2025-06-02-LYRA-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1748862530174801315,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "LYRA"
+        ],
+        "trading_date": "2025-06-02"
+      },
+      "request_content_sha256": "eb6c887685d5540905c3e604054b955e04e7393a378ff499d2c214da171af4ff"
+    },
+    {
+      "exit_request_index": 5,
+      "maximum_billable_bytes": 320,
+      "maximum_quoted_cost_usd": "0.000004768372",
+      "maximum_wire_bytes": 65856,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1748864606937229085,
+        "request_id": "2025-06-02-LYRA-status",
+        "schema": "status",
+        "start_ns": 1748822400000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "LYRA"
+        ],
+        "trading_date": "2025-06-02"
+      },
+      "request_content_sha256": "4ca6a82ebf0c05a8b9c81a712739a603d6ab40084637e9b11793287cb4279f2f"
+    },
+    {
+      "exit_request_index": 6,
+      "maximum_billable_bytes": 1329600,
+      "maximum_quoted_cost_usd": "0.001485943794",
+      "maximum_wire_bytes": 1395136,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1749037568888228165,
+        "request_id": "2025-06-04-STSS-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1749036608788228165,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "STSS"
+        ],
+        "trading_date": "2025-06-04"
+      },
+      "request_content_sha256": "c02ffe7c10f5913b7ebef72db7060c0e8bcb0e2c97d5c9c8f34d197a9c1d0f4e"
+    },
+    {
+      "exit_request_index": 7,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1749037568888228165,
+        "request_id": "2025-06-04-STSS-status",
+        "schema": "status",
+        "start_ns": 1748995200000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "STSS"
+        ],
+        "trading_date": "2025-06-04"
+      },
+      "request_content_sha256": "681a196d484dc060701ef06e0d6f0632f09ddc0a5f77d0d903053649ca3a3502"
+    },
+    {
+      "exit_request_index": 8,
+      "maximum_billable_bytes": 1911600,
+      "maximum_quoted_cost_usd": "0.00213637948",
+      "maximum_wire_bytes": 1977136,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1749212004578954510,
+        "request_id": "2025-06-06-VERO-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1749211044478954510,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "VERO"
+        ],
+        "trading_date": "2025-06-06"
+      },
+      "request_content_sha256": "d96eb9674ad60c56af2ba93f51acc55dde38df36ac1b28fdf22bbf03c6b0ea29"
+    },
+    {
+      "exit_request_index": 9,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1749212004578954510,
+        "request_id": "2025-06-06-VERO-status",
+        "schema": "status",
+        "start_ns": 1749168000000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "VERO"
+        ],
+        "trading_date": "2025-06-06"
+      },
+      "request_content_sha256": "d58eb96a4ee4a38c5ca25367826bb9bfb495db820d323940fa427b9dbb290687"
+    },
+    {
+      "exit_request_index": 10,
+      "maximum_billable_bytes": 4124240,
+      "maximum_quoted_cost_usd": "0.004609197378",
+      "maximum_wire_bytes": 4189776,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1749475311796681807,
+        "request_id": "2025-06-09-SNPX-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1749474351696681807,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "SNPX"
+        ],
+        "trading_date": "2025-06-09"
+      },
+      "request_content_sha256": "743273363e2399e77498c76141f3452b384b26aaf7c1a5c29fb468598c319e29"
+    },
+    {
+      "exit_request_index": 11,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1749475311796681807,
+        "request_id": "2025-06-09-SNPX-status",
+        "schema": "status",
+        "start_ns": 1749427200000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "SNPX"
+        ],
+        "trading_date": "2025-06-09"
+      },
+      "request_content_sha256": "b2843722818254abf80dce18498ecf8953e52d07d2117783bf4e414c4c1006a9"
+    },
+    {
+      "exit_request_index": 12,
+      "maximum_billable_bytes": 529200,
+      "maximum_quoted_cost_usd": "0.000591427088",
+      "maximum_wire_bytes": 594736,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1749563220005336245,
+        "request_id": "2025-06-10-DPRO-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1749562259729503495,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "DPRO"
+        ],
+        "trading_date": "2025-06-10"
+      },
+      "request_content_sha256": "9d1fd29066d376e016465b8f7c896c5a966f31bd2f3caee7c4679644a5fe8911"
+    },
+    {
+      "exit_request_index": 13,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1749563220005336245,
+        "request_id": "2025-06-10-DPRO-status",
+        "schema": "status",
+        "start_ns": 1749513600000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "DPRO"
+        ],
+        "trading_date": "2025-06-10"
+      },
+      "request_content_sha256": "d82bc4951100e7396a76be0ef81344d96a8b3d99d3979d576ed2e0539c44d291"
+    },
+    {
+      "exit_request_index": 14,
+      "maximum_billable_bytes": 5769840,
+      "maximum_quoted_cost_usd": "0.006448298693",
+      "maximum_wire_bytes": 5835376,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1749557570082832423,
+        "request_id": "2025-06-10-GELS-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1749556424982692669,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "GELS"
+        ],
+        "trading_date": "2025-06-10"
+      },
+      "request_content_sha256": "47cac44441c9c405e1336e5095c189a1e1a2e09ec0f59b09d07bd0b60d115d1f"
+    },
+    {
+      "exit_request_index": 15,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1749557570082832423,
+        "request_id": "2025-06-10-GELS-status",
+        "schema": "status",
+        "start_ns": 1749513600000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "GELS"
+        ],
+        "trading_date": "2025-06-10"
+      },
+      "request_content_sha256": "b5faaa72d3d0f29fb787f54d04bdf4c004d771793e402d21f9fa5e937457811b"
+    },
+    {
+      "exit_request_index": 16,
+      "maximum_billable_bytes": 6555520,
+      "maximum_quoted_cost_usd": "0.007326364517",
+      "maximum_wire_bytes": 6621056,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1749641252309051285,
+        "request_id": "2025-06-11-HSDT-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1749640292209051285,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "HSDT"
+        ],
+        "trading_date": "2025-06-11"
+      },
+      "request_content_sha256": "1437b8769b98a500edb40bc6feb46979023c194ae802b34128fe9a30315c79ad"
+    },
+    {
+      "exit_request_index": 17,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1749641252309051285,
+        "request_id": "2025-06-11-HSDT-status",
+        "schema": "status",
+        "start_ns": 1749600000000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "HSDT"
+        ],
+        "trading_date": "2025-06-11"
+      },
+      "request_content_sha256": "163a0db747c3cb0a4f8492d0c3d609ec5595ab859e646e1e7f314555a161bc79"
+    },
+    {
+      "exit_request_index": 18,
+      "maximum_billable_bytes": 2813680,
+      "maximum_quoted_cost_usd": "0.003144532442",
+      "maximum_wire_bytes": 2879216,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1749737460038644945,
+        "request_id": "2025-06-12-XTIA-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1749735843494150998,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "XTIA"
+        ],
+        "trading_date": "2025-06-12"
+      },
+      "request_content_sha256": "44abf52a56200f989b6a2a866a22327dab5642c8951c2058490cc6d4314d9972"
+    },
+    {
+      "exit_request_index": 19,
+      "maximum_billable_bytes": 240,
+      "maximum_quoted_cost_usd": "0.000003576279",
+      "maximum_wire_bytes": 65776,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1749737460038644945,
+        "request_id": "2025-06-12-XTIA-status",
+        "schema": "status",
+        "start_ns": 1749686400000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "XTIA"
+        ],
+        "trading_date": "2025-06-12"
+      },
+      "request_content_sha256": "8858a8814a5c7ed503d398d08f1e1b3fc3d8ab313c15d7becb4378acee66a2e7"
+    },
+    {
+      "exit_request_index": 20,
+      "maximum_billable_bytes": 3337840,
+      "maximum_quoted_cost_usd": "0.003730326891",
+      "maximum_wire_bytes": 3403376,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1750249178400843885,
+        "request_id": "2025-06-18-APVO-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1750248218300843885,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "APVO"
+        ],
+        "trading_date": "2025-06-18"
+      },
+      "request_content_sha256": "6a77aa7b5be28839e5797a352edeefdec25ff029f3bd5a46e5dd257f762f891c"
+    },
+    {
+      "exit_request_index": 21,
+      "maximum_billable_bytes": 480,
+      "maximum_quoted_cost_usd": "0.000007152557",
+      "maximum_wire_bytes": 66016,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1750249178400843885,
+        "request_id": "2025-06-18-APVO-status",
+        "schema": "status",
+        "start_ns": 1750204800000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "APVO"
+        ],
+        "trading_date": "2025-06-18"
+      },
+      "request_content_sha256": "660acd4f120a57ad7446cf075f5715ebe60e3762fbae792337b2492787c3b218"
+    },
+    {
+      "exit_request_index": 22,
+      "maximum_billable_bytes": 5663680,
+      "maximum_quoted_cost_usd": "0.006329655647",
+      "maximum_wire_bytes": 5729216,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1750248238630846629,
+        "request_id": "2025-06-18-RELI-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1750247278530846629,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "RELI"
+        ],
+        "trading_date": "2025-06-18"
+      },
+      "request_content_sha256": "dadcb8c4d79dbdaa5f6ed652b268f6840c5d4637430d5b40024f3500a733f262"
+    },
+    {
+      "exit_request_index": 23,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1750248238630846629,
+        "request_id": "2025-06-18-RELI-status",
+        "schema": "status",
+        "start_ns": 1750204800000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "RELI"
+        ],
+        "trading_date": "2025-06-18"
+      },
+      "request_content_sha256": "8e85cd48328ca0497675a2de27cab8693219ce808a995380324d9a375ae30ab9"
+    },
+    {
+      "exit_request_index": 24,
+      "maximum_billable_bytes": 913280,
+      "maximum_quoted_cost_usd": "0.001020669937",
+      "maximum_wire_bytes": 978816,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1750686760834591157,
+        "request_id": "2025-06-23-HUSA-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1750676741245333694,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "HUSA"
+        ],
+        "trading_date": "2025-06-23"
+      },
+      "request_content_sha256": "41ce461995de5d3cbc94a6c24a68b47133ffe779487784c50debd3e366f797ac"
+    },
+    {
+      "exit_request_index": 25,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1750686760834591157,
+        "request_id": "2025-06-23-HUSA-status",
+        "schema": "status",
+        "start_ns": 1750636800000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "HUSA"
+        ],
+        "trading_date": "2025-06-23"
+      },
+      "request_content_sha256": "178c47bccc5547898f1717aed969c3bbce8cd0f0d69a4be6615dba425546001e"
+    },
+    {
+      "exit_request_index": 26,
+      "maximum_billable_bytes": 10122560,
+      "maximum_quoted_cost_usd": "0.011312842369",
+      "maximum_wire_bytes": 10188096,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1750766582850793751,
+        "request_id": "2025-06-24-INM-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1750765622750793751,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "INM"
+        ],
+        "trading_date": "2025-06-24"
+      },
+      "request_content_sha256": "ab8b42f23d2dcea6c98312c282c169065697c379cfe92ed8b639dd944c19b318"
+    },
+    {
+      "exit_request_index": 27,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1750766582850793751,
+        "request_id": "2025-06-24-INM-status",
+        "schema": "status",
+        "start_ns": 1750723200000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "INM"
+        ],
+        "trading_date": "2025-06-24"
+      },
+      "request_content_sha256": "6f880eec57ca43adc80b35d0635c69cc61f6dfed32fc3c9f386a9299cc7f3528"
+    },
+    {
+      "exit_request_index": 28,
+      "maximum_billable_bytes": 2823120,
+      "maximum_quoted_cost_usd": "0.003155082464",
+      "maximum_wire_bytes": 2888656,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1750858849591554835,
+        "request_id": "2025-06-25-GCTK-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1750857889491554835,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "GCTK"
+        ],
+        "trading_date": "2025-06-25"
+      },
+      "request_content_sha256": "ff7db98f7fb2eb1a75257e9b330d5cb97e2eef94ebf0cd56ba0958d3ca1e9243"
+    },
+    {
+      "exit_request_index": 29,
+      "maximum_billable_bytes": 320,
+      "maximum_quoted_cost_usd": "0.000004768372",
+      "maximum_wire_bytes": 65856,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1750858849591554835,
+        "request_id": "2025-06-25-GCTK-status",
+        "schema": "status",
+        "start_ns": 1750809600000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "GCTK"
+        ],
+        "trading_date": "2025-06-25"
+      },
+      "request_content_sha256": "6d23ce52b0459da62848a5ba84e1ae9c34e6c9fb45e5cb93057b513b03dff1c1"
+    },
+    {
+      "exit_request_index": 30,
+      "maximum_billable_bytes": 21792080,
+      "maximum_quoted_cost_usd": "0.024354547262",
+      "maximum_wire_bytes": 21857616,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1750944952445083211,
+        "request_id": "2025-06-26-CYN-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1750936554579090590,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "CYN"
+        ],
+        "trading_date": "2025-06-26"
+      },
+      "request_content_sha256": "5d74c6dc9e6f280651428c9d801548a7cb9cabf8dbacc99f11748226af7d798a"
+    },
+    {
+      "exit_request_index": 31,
+      "maximum_billable_bytes": 1440,
+      "maximum_quoted_cost_usd": "0.000021457672",
+      "maximum_wire_bytes": 66976,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1750944952445083211,
+        "request_id": "2025-06-26-CYN-status",
+        "schema": "status",
+        "start_ns": 1750896000000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "CYN"
+        ],
+        "trading_date": "2025-06-26"
+      },
+      "request_content_sha256": "48a104888a23dd3347f1f94346e6b1f66e8476c1ae95b5bbd85542759ecde33b"
+    },
+    {
+      "exit_request_index": 32,
+      "maximum_billable_bytes": 5873120,
+      "maximum_quoted_cost_usd": "0.006563723087",
+      "maximum_wire_bytes": 5938656,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751023518948937526,
+        "request_id": "2025-06-27-BBLG-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1751022513795213360,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "BBLG"
+        ],
+        "trading_date": "2025-06-27"
+      },
+      "request_content_sha256": "9ad80c47c54a8e227e4cb3b57d6f960e759d91d10cb18d21dea1bfe35b1de332"
+    },
+    {
+      "exit_request_index": 33,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751023518948937526,
+        "request_id": "2025-06-27-BBLG-status",
+        "schema": "status",
+        "start_ns": 1750982400000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "BBLG"
+        ],
+        "trading_date": "2025-06-27"
+      },
+      "request_content_sha256": "e71fe41c406f0f7f8cf3b2a62e7294a342e7fd10dd008307069ad19e14406de5"
+    },
+    {
+      "exit_request_index": 34,
+      "maximum_billable_bytes": 11062160,
+      "maximum_quoted_cost_usd": "0.012362927198",
+      "maximum_wire_bytes": 11127696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751030501475389533,
+        "request_id": "2025-06-27-LCFY-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1751028254334543674,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "LCFY"
+        ],
+        "trading_date": "2025-06-27"
+      },
+      "request_content_sha256": "86d35ddaed39733531c2b792d3c40a8effdb73ddc5d2c4715914b8cf14786caf"
+    },
+    {
+      "exit_request_index": 35,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751030501475389533,
+        "request_id": "2025-06-27-LCFY-status",
+        "schema": "status",
+        "start_ns": 1750982400000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "LCFY"
+        ],
+        "trading_date": "2025-06-27"
+      },
+      "request_content_sha256": "1b2529a14c9b21ed5a443ef6ca77320efac53bb936a3848434ca1944f8f87585"
+    },
+    {
+      "exit_request_index": 36,
+      "maximum_billable_bytes": 3356640,
+      "maximum_quoted_cost_usd": "0.003751337528",
+      "maximum_wire_bytes": 3422176,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751368771606311010,
+        "request_id": "2025-07-01-CLRO-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1751367800335229558,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "CLRO"
+        ],
+        "trading_date": "2025-07-01"
+      },
+      "request_content_sha256": "6b26b2187d210a05893300bcacd6ef28792189135b8e490039f3a431ee9ff2d8"
+    },
+    {
+      "exit_request_index": 37,
+      "maximum_billable_bytes": 320,
+      "maximum_quoted_cost_usd": "0.000004768372",
+      "maximum_wire_bytes": 65856,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751368771606311010,
+        "request_id": "2025-07-01-CLRO-status",
+        "schema": "status",
+        "start_ns": 1751328000000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "CLRO"
+        ],
+        "trading_date": "2025-07-01"
+      },
+      "request_content_sha256": "45e53af9955c53fe8ff987322e047e06172463f95ea4d71d10767031e72edda9"
+    },
+    {
+      "exit_request_index": 38,
+      "maximum_billable_bytes": 10226800,
+      "maximum_quoted_cost_usd": "0.011429339647",
+      "maximum_wire_bytes": 10292336,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751369886777924110,
+        "request_id": "2025-07-01-GPUS-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1751368917668904510,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "GPUS"
+        ],
+        "trading_date": "2025-07-01"
+      },
+      "request_content_sha256": "009127aefa10cfea8b000ce4f59f47f7eacb9165075b7fcdb1f2b97d3febe12e"
+    },
+    {
+      "exit_request_index": 39,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751369886777924110,
+        "request_id": "2025-07-01-GPUS-status",
+        "schema": "status",
+        "start_ns": 1751328000000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "GPUS"
+        ],
+        "trading_date": "2025-07-01"
+      },
+      "request_content_sha256": "425e0f3753af566b5af1806b308839885d12f5f610d5959c7f986a0fd4b68178"
+    },
+    {
+      "exit_request_index": 40,
+      "maximum_billable_bytes": 2900640,
+      "maximum_quoted_cost_usd": "0.003241717815",
+      "maximum_wire_bytes": 2966176,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751373376208395998,
+        "request_id": "2025-07-01-TRNR-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1751372416108395998,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "TRNR"
+        ],
+        "trading_date": "2025-07-01"
+      },
+      "request_content_sha256": "ed7b559a9886151d7fef962ac846f9de17bc12e8a22bd4f9e505debf4f611cec"
+    },
+    {
+      "exit_request_index": 41,
+      "maximum_billable_bytes": 360,
+      "maximum_quoted_cost_usd": "0.000005364418",
+      "maximum_wire_bytes": 65896,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751373376208395998,
+        "request_id": "2025-07-01-TRNR-status",
+        "schema": "status",
+        "start_ns": 1751328000000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "TRNR"
+        ],
+        "trading_date": "2025-07-01"
+      },
+      "request_content_sha256": "e4a0dd9852e87edcec66f490d88553e151035a8f963d88cdb9415d28d1ccdc80"
+    },
+    {
+      "exit_request_index": 42,
+      "maximum_billable_bytes": 1550640,
+      "maximum_quoted_cost_usd": "0.001732975245",
+      "maximum_wire_bytes": 1616176,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751464729487731148,
+        "request_id": "2025-07-02-CYN-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1751463769387731148,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "CYN"
+        ],
+        "trading_date": "2025-07-02"
+      },
+      "request_content_sha256": "1f1391b82cca3108c55b77606f5f773cdecf55052fe86f97a4d7b66e67ad5dd5"
+    },
+    {
+      "exit_request_index": 43,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751464729487731148,
+        "request_id": "2025-07-02-CYN-status",
+        "schema": "status",
+        "start_ns": 1751414400000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "CYN"
+        ],
+        "trading_date": "2025-07-02"
+      },
+      "request_content_sha256": "50bd97076405013557e35296c3f5fb3bac81728df832274c4bca0794472c5992"
+    },
+    {
+      "exit_request_index": 44,
+      "maximum_billable_bytes": 3161600,
+      "maximum_quoted_cost_usd": "0.003533363342",
+      "maximum_wire_bytes": 3227136,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751457851515784760,
+        "request_id": "2025-07-02-ELWS-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1751456891415784760,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "ELWS"
+        ],
+        "trading_date": "2025-07-02"
+      },
+      "request_content_sha256": "f8d808a0053a72e7d945c866cf4d9610f485ec1cffb7d8d30f06a153efaee822"
+    },
+    {
+      "exit_request_index": 45,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751457851515784760,
+        "request_id": "2025-07-02-ELWS-status",
+        "schema": "status",
+        "start_ns": 1751414400000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "ELWS"
+        ],
+        "trading_date": "2025-07-02"
+      },
+      "request_content_sha256": "b8442c4b857fd5e5db70f53cbdaa8c173fb38254f126c15e38b76976e6f5db6e"
+    },
+    {
+      "exit_request_index": 46,
+      "maximum_billable_bytes": 2588480,
+      "maximum_quoted_cost_usd": "0.00289285183",
+      "maximum_wire_bytes": 2654016,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751464988881827631,
+        "request_id": "2025-07-02-LIXT-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1751464028781827631,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "LIXT"
+        ],
+        "trading_date": "2025-07-02"
+      },
+      "request_content_sha256": "fe0c94fa0140c83b440df8966ac1bfb4d54e2aaa1a7cc660862a6758226b8676"
+    },
+    {
+      "exit_request_index": 47,
+      "maximum_billable_bytes": 400,
+      "maximum_quoted_cost_usd": "0.000005960464",
+      "maximum_wire_bytes": 65936,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751464988881827631,
+        "request_id": "2025-07-02-LIXT-status",
+        "schema": "status",
+        "start_ns": 1751414400000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "LIXT"
+        ],
+        "trading_date": "2025-07-02"
+      },
+      "request_content_sha256": "97280d5fb7a49983cf5123036d97fa789d57d94b5be53fa6546212cb936b7dd7"
+    },
+    {
+      "exit_request_index": 48,
+      "maximum_billable_bytes": 334720,
+      "maximum_quoted_cost_usd": "0.000374078751",
+      "maximum_wire_bytes": 400256,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751464249721991867,
+        "request_id": "2025-07-02-NTRB-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1751463289621991867,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "NTRB"
+        ],
+        "trading_date": "2025-07-02"
+      },
+      "request_content_sha256": "ccb6690080edc1ea1f353aab595ee2a39677d08756281bb6f1d6a4918737b02b"
+    },
+    {
+      "exit_request_index": 49,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751464249721991867,
+        "request_id": "2025-07-02-NTRB-status",
+        "schema": "status",
+        "start_ns": 1751414400000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "NTRB"
+        ],
+        "trading_date": "2025-07-02"
+      },
+      "request_content_sha256": "7e3d05022c1d27f01346e03fb705557fc770cab89a95a70bfe12fd38eeeecc4b"
+    },
+    {
+      "exit_request_index": 50,
+      "maximum_billable_bytes": 2217200,
+      "maximum_quoted_cost_usd": "0.002477914095",
+      "maximum_wire_bytes": 2282736,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751894570568081706,
+        "request_id": "2025-07-07-CYCC-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1751893610468081706,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "CYCC"
+        ],
+        "trading_date": "2025-07-07"
+      },
+      "request_content_sha256": "ac56f7b258d65830ecee3b7fc77aae3c0ee78ed1b71b0c4223c3682e149f6799"
+    },
+    {
+      "exit_request_index": 51,
+      "maximum_billable_bytes": 360,
+      "maximum_quoted_cost_usd": "0.000005364418",
+      "maximum_wire_bytes": 65896,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751894570568081706,
+        "request_id": "2025-07-07-CYCC-status",
+        "schema": "status",
+        "start_ns": 1751846400000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "CYCC"
+        ],
+        "trading_date": "2025-07-07"
+      },
+      "request_content_sha256": "eb023e9e551e0d9b80634b267dbf5ac909feb15c960de50a276b4fe0e77f7f98"
+    },
+    {
+      "exit_request_index": 52,
+      "maximum_billable_bytes": 28873120,
+      "maximum_quoted_cost_usd": "0.032268226147",
+      "maximum_wire_bytes": 28938656,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751896886113575281,
+        "request_id": "2025-07-07-MBIO-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1751893273311038475,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "MBIO"
+        ],
+        "trading_date": "2025-07-07"
+      },
+      "request_content_sha256": "c74aca1e7db60ae73e275799c8a910a56b42f1cc18e5091c230497896516a016"
+    },
+    {
+      "exit_request_index": 53,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751896886113575281,
+        "request_id": "2025-07-07-MBIO-status",
+        "schema": "status",
+        "start_ns": 1751846400000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "MBIO"
+        ],
+        "trading_date": "2025-07-07"
+      },
+      "request_content_sha256": "eb76aa684d163676dee699b4bfa968d9f1adcd14d517a5b6526c2fc746d6e2e5"
+    },
+    {
+      "exit_request_index": 54,
+      "maximum_billable_bytes": 1131440,
+      "maximum_quoted_cost_usd": "0.001264482737",
+      "maximum_wire_bytes": 1196976,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751981263614703182,
+        "request_id": "2025-07-08-IROH-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1751980303514703182,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "IROH"
+        ],
+        "trading_date": "2025-07-08"
+      },
+      "request_content_sha256": "d354d5987a99e0e20dcbfcd7919e964e58b05c63bb66f3270ad881aa0d6a0878"
+    },
+    {
+      "exit_request_index": 55,
+      "maximum_billable_bytes": 400,
+      "maximum_quoted_cost_usd": "0.000005960464",
+      "maximum_wire_bytes": 65936,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751981263614703182,
+        "request_id": "2025-07-08-IROH-status",
+        "schema": "status",
+        "start_ns": 1751932800000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "IROH"
+        ],
+        "trading_date": "2025-07-08"
+      },
+      "request_content_sha256": "91903a5c669b9905d800349cc150efa116f7d770922c7320a106ad172e11a7e7"
+    },
+    {
+      "exit_request_index": 56,
+      "maximum_billable_bytes": 6439040,
+      "maximum_quoted_cost_usd": "0.007196187973",
+      "maximum_wire_bytes": 6504576,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751976163905033624,
+        "request_id": "2025-07-08-NDRA-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1751975203805033624,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "NDRA"
+        ],
+        "trading_date": "2025-07-08"
+      },
+      "request_content_sha256": "ffc641465359084746fc054504f7a14fd332613dbbd1fc87f0c46bf68ff44f97"
+    },
+    {
+      "exit_request_index": 57,
+      "maximum_billable_bytes": 240,
+      "maximum_quoted_cost_usd": "0.000003576279",
+      "maximum_wire_bytes": 65776,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1751976163905033624,
+        "request_id": "2025-07-08-NDRA-status",
+        "schema": "status",
+        "start_ns": 1751932800000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "NDRA"
+        ],
+        "trading_date": "2025-07-08"
+      },
+      "request_content_sha256": "58d67b9f77eaf6cd434cc6414d5d0a0afcc253f8ce52ef0fc085f736e50f87b8"
+    },
+    {
+      "exit_request_index": 58,
+      "maximum_billable_bytes": 1357840,
+      "maximum_quoted_cost_usd": "0.001517504454",
+      "maximum_wire_bytes": 1423376,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752150364251277682,
+        "request_id": "2025-07-10-DALN-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1752149197572330600,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "DALN"
+        ],
+        "trading_date": "2025-07-10"
+      },
+      "request_content_sha256": "43223a2608553c0ba2912e617483e879f7ff5bd3c24a08e3517338267e968583"
+    },
+    {
+      "exit_request_index": 59,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752150364251277682,
+        "request_id": "2025-07-10-DALN-status",
+        "schema": "status",
+        "start_ns": 1752105600000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "DALN"
+        ],
+        "trading_date": "2025-07-10"
+      },
+      "request_content_sha256": "9e5cfbce6cf8ac5237168f092eb2a180db204a22eb40718f8548ff03a265cbab"
+    },
+    {
+      "exit_request_index": 60,
+      "maximum_billable_bytes": 4209760,
+      "maximum_quoted_cost_usd": "0.004704773426",
+      "maximum_wire_bytes": 4275296,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752238982062476436,
+        "request_id": "2025-07-11-HOLO-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1752237882073547224,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "HOLO"
+        ],
+        "trading_date": "2025-07-11"
+      },
+      "request_content_sha256": "ff8cd4a748da189383e24914f4cbbe3e5f1f9e30187b48f2139b96d83d2e84c4"
+    },
+    {
+      "exit_request_index": 61,
+      "maximum_billable_bytes": 320,
+      "maximum_quoted_cost_usd": "0.000004768372",
+      "maximum_wire_bytes": 65856,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752238982062476436,
+        "request_id": "2025-07-11-HOLO-status",
+        "schema": "status",
+        "start_ns": 1752192000000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "HOLO"
+        ],
+        "trading_date": "2025-07-11"
+      },
+      "request_content_sha256": "246d5b3a5bd4e25529ba9749549100e56a5940c5c2e1dcaf1065be22eb49ed4c"
+    },
+    {
+      "exit_request_index": 62,
+      "maximum_billable_bytes": 10553520,
+      "maximum_quoted_cost_usd": "0.011794477701",
+      "maximum_wire_bytes": 10619056,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752232641302204349,
+        "request_id": "2025-07-11-SGN-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1752231642893674400,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "SGN"
+        ],
+        "trading_date": "2025-07-11"
+      },
+      "request_content_sha256": "4e7c093932bf488ff8c1a262dea3090b470c5ae2050160321675044ca73da304"
+    },
+    {
+      "exit_request_index": 63,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752232641302204349,
+        "request_id": "2025-07-11-SGN-status",
+        "schema": "status",
+        "start_ns": 1752192000000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "SGN"
+        ],
+        "trading_date": "2025-07-11"
+      },
+      "request_content_sha256": "03d565a6ba50ffebaf9dd10a78d67ae855aa2d248a619da2004e97a37e026d20"
+    },
+    {
+      "exit_request_index": 64,
+      "maximum_billable_bytes": 5853200,
+      "maximum_quoted_cost_usd": "0.006541460752",
+      "maximum_wire_bytes": 5918736,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752495841085731027,
+        "request_id": "2025-07-14-DARE-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1752494849977827401,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "DARE"
+        ],
+        "trading_date": "2025-07-14"
+      },
+      "request_content_sha256": "86315ae193db3ffb162b3039b8cadb2d3aef341fdc2c24619c68f9f77740bbdb"
+    },
+    {
+      "exit_request_index": 65,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752495841085731027,
+        "request_id": "2025-07-14-DARE-status",
+        "schema": "status",
+        "start_ns": 1752451200000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "DARE"
+        ],
+        "trading_date": "2025-07-14"
+      },
+      "request_content_sha256": "360e13149f42838ea756702c53ef5c15125faee368300292b299a6d4419fe877"
+    },
+    {
+      "exit_request_index": 66,
+      "maximum_billable_bytes": 1294480,
+      "maximum_quoted_cost_usd": "0.001446694136",
+      "maximum_wire_bytes": 1360016,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752491917592881654,
+        "request_id": "2025-07-14-SONN-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1752490957492881654,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "SONN"
+        ],
+        "trading_date": "2025-07-14"
+      },
+      "request_content_sha256": "9de2092c128e387ca306bd1230eb71ccad586ff429b5530265f94333da682754"
+    },
+    {
+      "exit_request_index": 67,
+      "maximum_billable_bytes": 560,
+      "maximum_quoted_cost_usd": "0.00000834465",
+      "maximum_wire_bytes": 66096,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752491917592881654,
+        "request_id": "2025-07-14-SONN-status",
+        "schema": "status",
+        "start_ns": 1752451200000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "SONN"
+        ],
+        "trading_date": "2025-07-14"
+      },
+      "request_content_sha256": "dda8adda56c8ac35e281b34ea7920d3ccc1a84a9112e820fe23fcea59ec6cad2"
+    },
+    {
+      "exit_request_index": 68,
+      "maximum_billable_bytes": 4117360,
+      "maximum_quoted_cost_usd": "0.004601508379",
+      "maximum_wire_bytes": 4182896,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752493075381671375,
+        "request_id": "2025-07-14-SQFT-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1752491966973430692,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "SQFT"
+        ],
+        "trading_date": "2025-07-14"
+      },
+      "request_content_sha256": "f7b595e0738ea9e93474100439907c302fd4465c0e0cda1f83725d37df4882eb"
+    },
+    {
+      "exit_request_index": 69,
+      "maximum_billable_bytes": 880,
+      "maximum_quoted_cost_usd": "0.000013113022",
+      "maximum_wire_bytes": 66416,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752493075381671375,
+        "request_id": "2025-07-14-SQFT-status",
+        "schema": "status",
+        "start_ns": 1752451200000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "SQFT"
+        ],
+        "trading_date": "2025-07-14"
+      },
+      "request_content_sha256": "1f6339fa44769fecd255f20d53841d15b87a0464e96587e5600bdfb25520f557"
+    },
+    {
+      "exit_request_index": 70,
+      "maximum_billable_bytes": 3236400,
+      "maximum_quoted_cost_usd": "0.003616958857",
+      "maximum_wire_bytes": 3301936,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752670923354677564,
+        "request_id": "2025-07-16-BNRG-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1752669963254677564,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "BNRG"
+        ],
+        "trading_date": "2025-07-16"
+      },
+      "request_content_sha256": "83b408c35aa8dd5f04e9f4b244169a8a834396345adfcca70c47a6f2e2729dfb"
+    },
+    {
+      "exit_request_index": 71,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752670923354677564,
+        "request_id": "2025-07-16-BNRG-status",
+        "schema": "status",
+        "start_ns": 1752624000000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "BNRG"
+        ],
+        "trading_date": "2025-07-16"
+      },
+      "request_content_sha256": "c6103dd8285ac4d54ff6f568511f2777cb784c595282b1b7f701ed5e0d95c364"
+    },
+    {
+      "exit_request_index": 72,
+      "maximum_billable_bytes": 57040,
+      "maximum_quoted_cost_usd": "0.000063747168",
+      "maximum_wire_bytes": 122576,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752674089181616191,
+        "request_id": "2025-07-16-INBS-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1752673081332497264,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "INBS"
+        ],
+        "trading_date": "2025-07-16"
+      },
+      "request_content_sha256": "1d040c91f21f90e67cbe3d898e21c4b8461e582b78c800f29863f59ae6b0d1cd"
+    },
+    {
+      "exit_request_index": 73,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752674089181616191,
+        "request_id": "2025-07-16-INBS-status",
+        "schema": "status",
+        "start_ns": 1752624000000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "INBS"
+        ],
+        "trading_date": "2025-07-16"
+      },
+      "request_content_sha256": "66d6c5f71dfc5c8b8c5ab6d8dfd7076b4a28a2577220f51203dd68e800978049"
+    },
+    {
+      "exit_request_index": 74,
+      "maximum_billable_bytes": 9807520,
+      "maximum_quoted_cost_usd": "0.010960757732",
+      "maximum_wire_bytes": 9873056,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752674260037356269,
+        "request_id": "2025-07-16-NUWE-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1752663863727787070,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "NUWE"
+        ],
+        "trading_date": "2025-07-16"
+      },
+      "request_content_sha256": "260990e476f600e4693e14cd3de183e52916a1a488ef949742b37cc08249db40"
+    },
+    {
+      "exit_request_index": 75,
+      "maximum_billable_bytes": 320,
+      "maximum_quoted_cost_usd": "0.000004768372",
+      "maximum_wire_bytes": 65856,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752674260037356269,
+        "request_id": "2025-07-16-NUWE-status",
+        "schema": "status",
+        "start_ns": 1752624000000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "NUWE"
+        ],
+        "trading_date": "2025-07-16"
+      },
+      "request_content_sha256": "f708afc64287e025948e5edcf791c559a9acd2d9513fd5c3be2f944aa0e3b1b1"
+    },
+    {
+      "exit_request_index": 76,
+      "maximum_billable_bytes": 1191520,
+      "maximum_quoted_cost_usd": "0.001331627369",
+      "maximum_wire_bytes": 1257056,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752670576342347548,
+        "request_id": "2025-07-16-QLGN-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1752669616242347548,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "QLGN"
+        ],
+        "trading_date": "2025-07-16"
+      },
+      "request_content_sha256": "1ef6fea32cb951ac46db07cd33895dbc1169f3424299f99020d369b3d9611b2d"
+    },
+    {
+      "exit_request_index": 77,
+      "maximum_billable_bytes": 320,
+      "maximum_quoted_cost_usd": "0.000004768372",
+      "maximum_wire_bytes": 65856,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752670576342347548,
+        "request_id": "2025-07-16-QLGN-status",
+        "schema": "status",
+        "start_ns": 1752624000000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "QLGN"
+        ],
+        "trading_date": "2025-07-16"
+      },
+      "request_content_sha256": "c19b64d77462ccf67fca2972060dd3412dc4fbff7f32c35eaea62f2d2d5f30c4"
+    },
+    {
+      "exit_request_index": 78,
+      "maximum_billable_bytes": 7207440,
+      "maximum_quoted_cost_usd": "0.008054941893",
+      "maximum_wire_bytes": 7272976,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752760223591527589,
+        "request_id": "2025-07-17-WINT-mbp-1",
+        "schema": "mbp-1",
+        "start_ns": 1752759242269151325,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "WINT"
+        ],
+        "trading_date": "2025-07-17"
+      },
+      "request_content_sha256": "6b0d943f6711f1b3fda79a35fce5ba0a92445c1f915a728eede7e58f93105318"
+    },
+    {
+      "exit_request_index": 79,
+      "maximum_billable_bytes": 160,
+      "maximum_quoted_cost_usd": "0.000002384186",
+      "maximum_wire_bytes": 65696,
+      "request": {
+        "dataset": "XNAS.ITCH",
+        "end_exclusive": true,
+        "end_ns": 1752760223591527589,
+        "request_id": "2025-07-17-WINT-status",
+        "schema": "status",
+        "start_ns": 1752710400000000000,
+        "stype_in": "raw_symbol",
+        "symbols": [
+          "WINT"
+        ],
+        "trading_date": "2025-07-17"
+      },
+      "request_content_sha256": "bd9792d31ee5e9f8cc79f90fb4279a48b4547f1488312bbf30d7b9f4c6163ff8"
+    }
+  ],
+  "request_list_sha256": "973a926e063fda7ec76883dd4297b88c77a06af22fe3bc0618330e98e28825b4",
+  "reuse_evidence_file_sha256": "799d8664916eb89f713dec276134400e87434251ff97ea5c0b0a29219983e75b"
+}

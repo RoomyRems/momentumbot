@@ -1,6 +1,43 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: XAGE reuse and management exit metadata quote independently verified
+## Current checkpoint: bounded management exit acquisition registered, unarmed
+
+An isolated child of `0d36c619dc1d3ac8c50bf7fa91201114255e696c` registers
+acquisition for the exact 80 requests from verified exit quote run `34169338681`.
+The aggregate ceilings are **209,898,320 billable bytes** and
+**$0.234732925899 USD**. Every request must also stay within its individual
+original size and cost. All 160 metadata calls must pass before up to 80 bounded
+downloads. No retries, redirects, substituted bounds or XAGE reacquisition are
+permitted. Actual billing is not inferred from the quote.
+
+The harness inherits the frozen native decoder, record-order adapter and bounded
+HTTP mechanics. Metadata-only exact responses become unavailable receipts;
+malformed responses and write failures stop with retained ineligible evidence.
+All 80 coverage rows and 109 original opportunity classifications remain visible,
+including 23 unavailable entry inputs. Complete evidence cannot be reported if
+temporary-directory cleanup fails. Runtime eligibility remains false.
+
+Both quote ZIPs and all 19 members were checked against the permanent quote audit.
+The independent stdlib checker reproduces all 80 individual limits. Local
+verification passed all **1,921 tests** with zero skips, including 33 new tests;
+the 124-test focused group passed normally and optimized with zero skips.
+The [registration audit](../../research/data-audits/sealed-historical-management-exit-acquisition-v0.1-registration-2026-09-07.json)
+retains the verification evidence and synthetic capture checks. Hosted validation
+will be recorded at the exact published code commit.
+
+No acquisition execution record or consumed reference is created in this
+registration. No real provider call, purchase, historical runtime, account replay
+or retrospective access occurred. Main and the 15 prior consumed references
+remain unchanged. The original 30 dates, 12 account paths, 360 session slots and
+once-only account seeds remain intact.
+
+Next: after successful exact-code hosted validation, add the sole acquisition
+execution child, perform the one-shot bounded capture and independently verify
+its retained evidence. Source composition, historical fees, sell reconciliation,
+account-state production, causal next-session valuation and continuous account
+integration remain separate gates. See [exit acquisition](../research/sealed_historical_management_exit_acquisition_v01.md).
+
+## Prior checkpoint: XAGE reuse and management exit metadata quote independently verified
 
 The one-shot exit quote completed on attempt 1 in run `34169338681`, execution
 `fde309481843b7c2613d9a673f888f488a1ee795`. All 80 requests returned nonzero

@@ -1,0 +1,481 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "account_path_count": 12,
+  "account_session_slot_count": 360,
+  "acquisition_consumption_ref_created": false,
+  "acquisition_executed": false,
+  "acquisition_gate_passed": false,
+  "actual_billing_known": false,
+  "artifact_type": "historical_management_exit_acquisition_registration_audit",
+  "backtesting_executed": false,
+  "code_and_registration_file_sha256": {
+    ".github/workflows/sealed-historical-management-exit-acquisition-v01.yml": "4f8cd6aef64872cf53fd08c8965c658baad2fa59a00a5c29b5939c013876d427",
+    "research/runtime/sealed-historical-management-exit-acquisition-v0.1/request-limits.json": "0e0f8dd8dc03c1fe74e1b528273462d5f8b97b153a4747835e5f565bc9aecdae",
+    "research/strategy/sealed-historical-management-exit-acquisition-v0.1.json": "147afc1aa99e33397c1d7f25d6bf17a443c5468d44f820edd40c0d64db989901",
+    "scripts/acquire_sealed_historical_management_exit_inputs_v01.py": "cfc7082c3977e1121d8f2a38f5d3ef5f25173129246eb7b3a7eae8eb31f7b2e3",
+    "scripts/verify_sealed_historical_management_exit_acquisition_registration_v01.py": "f2922cf19f836032d3383c7a82cc9ad219c50b77c37589857aee158739f443e5",
+    "src/momentumbot/research/sealed_historical_management_exit_acquisition_v01.py": "b9e7286a793a164f67ee416152327d6cd7fb98ed7cd38293c4a0dd5ed24663f8",
+    "src/momentumbot/research/sealed_historical_management_exit_transport_v01.py": "75f8b01a97d1bf7bdbe4a18bfb2f23c5f62a547ad1f2025e43cd7ab4bca83bb2",
+    "tests/test_sealed_historical_management_exit_acquisition_v01.py": "562cbeb91548081d4352470e57441f2de594892b181ab8b4f63f3a710adab7b8"
+  },
+  "consumed_parent_rerun": false,
+  "content_sha256": "789f93a42be2ec7aa9ddedd561d3b65bc327b36d34ad25b78c9c80e0d7084b61",
+  "contract_content_sha256": "b827aa6bbb84892fe1c553902e3fdb28162dd9c75006c5ac6ef827d5fdb9f719",
+  "contract_id": "sealed-historical-management-exit-acquisition-v0.1",
+  "date_count": 30,
+  "execution_record_created": false,
+  "focused_test_count": 124,
+  "full_test_count": 1921,
+  "historical_execution_authorized": false,
+  "hosted_environment_required": "CPython 3.12.14 plus exact 29 hash-locked pins",
+  "http_attempt_ceiling": 240,
+  "immutable_refs_verified": {
+    "heads/main": "de24eb17316191da69d92e61f6843af25e9c22d0",
+    "tags/sealed-historical-execution-input-acquisition-v0.1-consumed": "5a375f86e951b1e9eeb6c010995c9b57025913b7",
+    "tags/sealed-historical-execution-input-acquisition-v0.2-consumed": "e2c250367895d209ec4706288a22655636298685",
+    "tags/sealed-historical-execution-input-acquisition-v0.3-consumed": "0c4010044ee8557136b3c119c6350e134bba46d2",
+    "tags/sealed-historical-execution-input-diagnostic-v0.1-consumed": "e1aece08a44ccf9add0157a1657d08a809687e85",
+    "tags/sealed-historical-execution-input-empty-diagnostic-v0.1-consumed": "8854bb2e63dc3961d98c5d8827f857ef85ccb341",
+    "tags/sealed-historical-execution-input-quote-v0.1-consumed": "dd295304dcc5e7cc0ebd300d094ab20636a72b92",
+    "tags/sealed-historical-management-exit-quote-v0.1-consumed": "fde309481843b7c2613d9a673f888f488a1ee795",
+    "tags/sealed-historical-management-missing-input-acquisition-v0.1-consumed": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+    "tags/sealed-historical-micro-input-acquisition-v0.1-consumed": "5cab2eb3aa2b73a2cbf1d57575519a7b99961e24",
+    "tags/sealed-historical-micro-session-input-acquisition-v0.2-consumed": "bf5863a7115abef9e22c4f527448cd9c20084f47",
+    "tags/sealed-historical-source-acquisition-v04-consumed-bbe51f4483a73f92b1f58c9f6c2085d8a47505346c2d340fbe59c0421f3f31b7": "ae55aabd3963a9d2764b19a759efd271c723a83a",
+    "tags/sealed-historical-source-acquisition-v05-consumed-23ad997837490c14c200c10b34c8285db7b18ddebca131e6299a8cd70b3bbc49": "12d3c08dcfa042f785c6e35060916cfbd47a1df8",
+    "tags/sealed-historical-source-acquisition-v06-consumed-0343efff8ceb49b7c3ae2e589029cf4cf0b02d72c1961f85807913f67385202e": "0d231ffecb6d4104aad53dec0b7499a16d8943f6",
+    "tags/sealed-historical-source-acquisition-v09-consumed-447c11b09206b4c19ccade6c1aae70ce5bb17e4a483db6f9581d14ee3f5f862f": "92d8b4deceae5c2bb6edfb10016a0e05c33c8bfa",
+    "tags/sealed-historical-source-acquisition-v10-consumed-a6519754147c39273a25b2ea818b1906dfa93ea5018edac831e2a0a7052463c7": "652db5675a35b6f455aa0d924aa50428dd995280"
+  },
+  "independent_checker_scope": "stdlib_only_exact_limits_parent_archive_inventory_receipt_and_tape_bytes_population_and_order_primary_enforces_native_semantics",
+  "independent_optimized_verification_matches": true,
+  "independent_registration": {
+    "archive_file_counts": {
+      "quote-consumption.zip": 10,
+      "quote-result.zip": 9
+    },
+    "capture": null,
+    "contract_content_sha256": "b827aa6bbb84892fe1c553902e3fdb28162dd9c75006c5ac6ef827d5fdb9f719",
+    "execution_record_present": false,
+    "limits_content_sha256": "e135b7a787fdf48c78c35e845a391603a0c28cb57c7e9a3f6637fd02962ccf8b",
+    "maximum_billable_bytes": 209898320,
+    "maximum_quoted_cost_usd": "0.234732925899",
+    "production_verifier_imported": false,
+    "provider_calls": 0,
+    "request_count": 80,
+    "verification_passed": true
+  },
+  "limits_content_sha256": "e135b7a787fdf48c78c35e845a391603a0c28cb57c7e9a3f6637fd02962ccf8b",
+  "local_environment": {
+    "implementation": "CPython",
+    "package_versions": {
+      "PyYAML": "6.0.3",
+      "aiohappyeyeballs": "2.7.1",
+      "aiohttp": "3.14.3",
+      "aiosignal": "1.4.0",
+      "attrs": "26.1.0",
+      "certifi": "2026.7.22",
+      "charset_normalizer": "3.5.1",
+      "databento": "0.83.0",
+      "databento_dbn": "0.65.0",
+      "frozenlist": "1.8.0",
+      "idna": "3.19",
+      "multidict": "6.7.1",
+      "numpy": "2.3.5",
+      "packaging": "26.3",
+      "pandas": "2.2.3",
+      "pip": "26.2.1",
+      "propcache": "0.5.2",
+      "pyarrow": "25.0.1",
+      "python-dateutil": "2.9.0.post0",
+      "pytz": "2026.3.post1",
+      "requests": "2.34.2",
+      "setuptools": "84.0.0",
+      "six": "1.17.0",
+      "typing_extensions": "4.16.0",
+      "tzdata": "2026.3",
+      "urllib3": "2.7.0",
+      "wheel": "0.48.0",
+      "yarl": "1.24.5",
+      "zstandard": "0.25.0"
+    },
+    "python_version": "3.12.13"
+  },
+  "local_test_skips": 0,
+  "maximum_billable_bytes": 209898320,
+  "maximum_quoted_cost_usd": "0.234732925899",
+  "metadata_call_ceiling": 160,
+  "new_provider_calls": 0,
+  "new_test_count": 33,
+  "next_gate": "successful_exact_code_CI_and_dedicated_validation_then_sole_acquisition_execution_child",
+  "original_entry_inputs_changed": false,
+  "original_opportunity_count": 109,
+  "original_source_provider_request_count": 30522,
+  "parent_artifact_verification": {
+    "content_sha256": "32c7ef05651b966eb8e26d988ad1fd97b21884790a486d52930c69aa1c8249ad",
+    "new_provider_calls": 0,
+    "original_source_provider_requests": 30522,
+    "parent_archives": {
+      "quote-consumption.zip": {
+        "bytes": 14586,
+        "file_count": 10,
+        "sha256": "2eecb6ddaa076ade83de301989365ce9d6d23fe5b4ae42636a2f2659a9ef655c"
+      },
+      "quote-result.zip": {
+        "bytes": 23885,
+        "file_count": 9,
+        "sha256": "993e5d6a17512c5383ee2f23a298db3a22e68dc73eefb624e5f675a39bf38b65"
+      }
+    },
+    "quote_report_content_sha256": "ad28f542b6497b6a63e6d4a5aa50d15092f2b8e2472474beecde8e884f11812d",
+    "reuse_evidence_file_sha256": "799d8664916eb89f713dec276134400e87434251ff97ea5c0b0a29219983e75b",
+    "verification_passed": true
+  },
+  "parent_commit_sha": "0d36c619dc1d3ac8c50bf7fa91201114255e696c",
+  "parent_tree_sha": "2b81488d219cc9c50147c5617003e07ab95d9d19",
+  "policy_changed": false,
+  "prepublication_findings": [
+    {
+      "finding": "initial adapted wrong-schema fixture used mbp-1 when first new request already used mbp-1",
+      "initial_result": "25 of 26 tests passed; wrong-schema rejection fixture failed",
+      "production_native_decoder_changed": false,
+      "resolution": "fixture now switches between status and mbp-1; subsequent narrow and full suites pass"
+    },
+    {
+      "cause_established": false,
+      "differences": {
+        "download-ledger.json": {
+          "inventory": {
+            "bytes": 141267,
+            "sha256": "415c02e5bdaac030f26e37550beba68413e5cf9d870e91f73288a4ed5e8f6dde"
+          },
+          "observed": {
+            "bytes": 31656,
+            "sha256": "4f263d815659363cf63c2d08b2c14ed0b35466e9aa02888f629e2217cc45984a"
+          }
+        },
+        "timeseries-http-ledger.json": {
+          "inventory": {
+            "bytes": 26911,
+            "sha256": "b2cdb22db04485cfac11be4714f372b097728091d92f9fa0dee09d444a2f7b8b"
+          },
+          "observed": {
+            "bytes": 6573,
+            "sha256": "bc7bb33f07603f979e123e0ea654feff6e5eb92369d17ee9729f3c48f07d4dbc"
+          }
+        }
+      },
+      "finding": "initial persisted scratch simulation journals differed from its final inventory",
+      "log": "Traceback (most recent call last):\n  File \"/workspace/scratch/b3ce0ef3e0fa/generate-exit-acquisition-synthetic.py\", line 33, in <module>\n    primary = a.verify_capture(h.output, root)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/scratch/2d76267c92e1/momentumbot/src/momentumbot/research/sealed_historical_management_exit_acquisition_v01.py\", line 460, in verify_capture\n    quote.require_exact(actual, inv[\"files\"], \"complete retained inventory\")\n  File \"/workspace/scratch/2d76267c92e1/momentumbot/src/momentumbot/research/sealed_historical_execution_quote_v01.py\", line 35, in require_exact\n    raise ValueError(f\"{label} differs from frozen metadata quote contract\")\nValueError: complete retained inventory differs from frozen metadata quote contract\n",
+      "log_sha256": "12c5f77484beffbe8f1dc81ffae2ffd0178d83fffd36b9c17a945f41fab4009b",
+      "production_journal_writer_changed": false,
+      "provider_calls": 0,
+      "resolution": "regenerated all three cases in an isolated temporary directory and both verifiers passed normally and optimized",
+      "result": "primary exact inventory verifier rejected the copy"
+    },
+    {
+      "finding": "first independent checker assumed quote ordinal fields also exist in frozen status rows",
+      "frozen_status_normalization_changed": false,
+      "log_sha256": "9f17f5aa8e3ecd8a61de71cf5321f67e26937924ccfce6cf5edbc15088e81203",
+      "resolution": "checker now verifies original quote ordinals and source identity for mbp-1, native receive-time ordering for status, and full canonical bytes for both"
+    }
+  ],
+  "raw_dbn_retained": false,
+  "reproduction_sources": {
+    "generate-exit-acquisition-synthetic.py": {
+      "sha256": "c7ffdd2b5bb7277c52653af3a713a7373ac4e7f6a4aa34fb039cfc738caeab13",
+      "source": "\"\"\"Reproduce provider-free retained acquisition evidence using the real SDK.\"\"\"\nfrom pathlib import Path\nimport json\nimport shutil\nimport sys\nfrom unittest.mock import patch\n\nroot = Path(sys.argv[1]).resolve()\nparents = Path(sys.argv[2]).resolve()\noutput = Path(sys.argv[3]).resolve()\nsys.path[:0] = [str(root), str(root/'src'), str(root/'scripts')]\nfrom tests.test_sealed_historical_management_exit_acquisition_v01 import Harness, REQUESTS, dbn_body\nfrom momentumbot.research import sealed_historical_management_exit_acquisition_v01 as a\nfrom verify_sealed_historical_management_exit_acquisition_registration_v01 import check\n\nverify_parents = a.verify_parents\noutput.mkdir()\nresults = {}\nfor label, options in (\n    ('complete_with_three_unavailable', {'empty': (0, 1, 10)}),\n    ('native_metadata_failure', {'malformed': dbn_body(REQUESTS[0], empty=True, delta=1)}),\n    ('metadata_http_failure', {'metadata_failure': True}),\n):\n    base = output/label\n    base.mkdir()\n    h = Harness(base, **options)\n    for name in a.PARENT_ARTIFACTS:\n        shutil.copyfile(parents/name, h.pre/name)\n    h.parents = verify_parents(h.pre, root)\n    with h.context(), patch.object(a, 'verify_parents', side_effect=verify_parents):\n        consumed = h.run('--consume')\n        acquired = h.run('--acquire')\n        primary = a.verify_capture(h.output, root)\n        independent = check(root, h.output, h.output)\n    result = {'synthetic_only': True, 'consume_exit_code': consumed,\n        'acquire_exit_code': acquired, 'simulated_http_calls': len(h.session.calls),\n        'real_provider_calls': 0, 'primary': primary, 'independent': independent,\n        'mocked_boundaries': ['provider HTTP session', 'execution identities',\n            'local environment version attestation', 'HTTP pacing', 'audit hook'],\n        'real_boundaries': ['both quote ZIPs and all members', 'SDK routing and decoding',\n            'native metadata and mapping validation', 'frozen normalization',\n            'bounded tape writing', 'journals, receipts, complete capture verification']}\n    (base/'verification.json').write_text(json.dumps(result, sort_keys=True, indent=2)+'\\n')\n    results[label] = result\n(output/'results.json').write_text(json.dumps(results, sort_keys=True, indent=2)+'\\n')\nprint(json.dumps({k: {'exit_code':v['acquire_exit_code'], 'capture':v['independent']['capture']} for k,v in results.items()}))\n"
+    },
+    "run-exit-acquisition-validation.py": {
+      "sha256": "bbecacea7b586b41f9eb070fd5fde51ebd265f2eec80147e4e5b50fb0f9ee9a2",
+      "source": "from pathlib import Path\nimport hashlib\nimport json\nimport os\nimport subprocess\nimport sys\nimport time\n\nlabel, mode = sys.argv[1:3]\nroot = Path('/workspace/scratch/2d76267c92e1/momentumbot')\nout = Path('/workspace/scratch/b3ce0ef3e0fa')\npython = '/workspace/scratch/193af10e3424/quote-env/bin/python'\ncmd = [python]\nif mode == 'optimized': cmd.append('-O')\ncmd += ['-m', 'unittest']\nif mode == 'full': cmd += ['discover', '-s', 'tests', '-v']\nelse: cmd += ['tests.test_sealed_historical_management_exit_acquisition_v01', 'tests.test_sealed_historical_management_exit_quote_v01', 'tests.test_sealed_historical_execution_acquisition_v03', 'tests.test_sealed_historical_execution_acquisition_v02', 'tests.test_sealed_historical_record_order_v01', '-v']\nenv = dict(os.environ); env['PYTHONPATH'] = 'src:scripts'\nstart = time.perf_counter()\nr = subprocess.run(cmd, cwd=root, env=env, capture_output=True)\nraw = r.stdout + b'\\n' + r.stderr\nwith (out / (label + '.log')).open('xb') as f:\n    if f.write(raw) != len(raw): raise RuntimeError('short log write')\n    f.flush(); os.fsync(f.fileno())\nreport = {'command': cmd, 'exit_code': r.returncode, 'elapsed_seconds': round(time.perf_counter() - start, 3),\n    'log_sha256': hashlib.sha256(raw).hexdigest(), 'log_bytes': len(raw),\n    'summary': [s for s in raw.decode().splitlines() if s.startswith(('Ran ', 'OK', 'FAILED', 'ERROR:', 'FAIL:'))]}\nwith (out / (label + '.json')).open('x') as f: json.dump(report, f, indent=2)\nprint(json.dumps(report))\nraise SystemExit(r.returncode)\n"
+    }
+  },
+  "request_count": 80,
+  "retrospective_inputs_loaded": false,
+  "runtime_input_eligible": false,
+  "runtime_replay_executed": false,
+  "synthetic_capture_verification": {
+    "complete_with_three_unavailable": {
+      "acquire_exit_code": 0,
+      "consume_exit_code": 0,
+      "independent": {
+        "archive_file_counts": {
+          "quote-consumption.zip": 10,
+          "quote-result.zip": 9
+        },
+        "capture": {
+          "counts": {
+            "complete": 77,
+            "failed": 0,
+            "unattempted": 0,
+            "unavailable": 3
+          },
+          "file_count": 171,
+          "http_attempts": 240,
+          "normalized_bytes": 12913,
+          "report_content_sha256": "64321257688906fa219194204b37b4b123508c39d2b9286a0568f694efe957c1",
+          "request_evidence_complete": true
+        },
+        "contract_content_sha256": "b827aa6bbb84892fe1c553902e3fdb28162dd9c75006c5ac6ef827d5fdb9f719",
+        "execution_record_present": false,
+        "limits_content_sha256": "e135b7a787fdf48c78c35e845a391603a0c28cb57c7e9a3f6637fd02962ccf8b",
+        "maximum_billable_bytes": 209898320,
+        "maximum_quoted_cost_usd": "0.234732925899",
+        "production_verifier_imported": false,
+        "provider_calls": 0,
+        "request_count": 80,
+        "verification_passed": true
+      },
+      "mocked_boundaries": [
+        "provider HTTP session",
+        "execution identities",
+        "local environment version attestation",
+        "HTTP pacing",
+        "audit hook"
+      ],
+      "primary": {
+        "acquisition_gate_passed": false,
+        "blocked_attempts": 0,
+        "content_sha256": "06dc401a6eb128f79bdb4960e14227fc061f3f80666c8d28fbcf360554cc38bc",
+        "file_count": 171,
+        "http_attempts": 240,
+        "inventory_content_sha256": "e271b4e6f5bf57dee389a515b14bf6365772ce3fbc783faa1fbc48dc7d9b953c",
+        "new_complete_count": 77,
+        "new_normalized_bytes": 12913,
+        "new_schema_row_counts": {
+          "mbp-1": 38,
+          "status": 39
+        },
+        "new_unavailable_count": 3,
+        "parent_file_count": 19,
+        "report_content_sha256": "64321257688906fa219194204b37b4b123508c39d2b9286a0568f694efe957c1",
+        "report_file_sha256": "c772d41ecb3a9bed309e6e3f24c9a4ff077d1420ccdd1762947299e66609cc2b",
+        "request_evidence_complete": true,
+        "unattempted_count": 0,
+        "verification_passed": true
+      },
+      "real_boundaries": [
+        "both quote ZIPs and all members",
+        "SDK routing and decoding",
+        "native metadata and mapping validation",
+        "frozen normalization",
+        "bounded tape writing",
+        "journals, receipts, complete capture verification"
+      ],
+      "real_provider_calls": 0,
+      "simulated_http_calls": 240,
+      "synthetic_only": true
+    },
+    "metadata_http_failure": {
+      "acquire_exit_code": 1,
+      "consume_exit_code": 0,
+      "independent": {
+        "archive_file_counts": {
+          "quote-consumption.zip": 10,
+          "quote-result.zip": 9
+        },
+        "capture": {
+          "counts": {
+            "complete": 0,
+            "failed": 0,
+            "unattempted": 80,
+            "unavailable": 0
+          },
+          "file_count": 14,
+          "http_attempts": 160,
+          "normalized_bytes": 0,
+          "report_content_sha256": "3c6bede71c2e922b903d30b7d32f64a70eef553d183779d3ca5668952d0e78cd",
+          "request_evidence_complete": false
+        },
+        "contract_content_sha256": "b827aa6bbb84892fe1c553902e3fdb28162dd9c75006c5ac6ef827d5fdb9f719",
+        "execution_record_present": false,
+        "limits_content_sha256": "e135b7a787fdf48c78c35e845a391603a0c28cb57c7e9a3f6637fd02962ccf8b",
+        "maximum_billable_bytes": 209898320,
+        "maximum_quoted_cost_usd": "0.234732925899",
+        "production_verifier_imported": false,
+        "provider_calls": 0,
+        "request_count": 80,
+        "verification_passed": true
+      },
+      "mocked_boundaries": [
+        "provider HTTP session",
+        "execution identities",
+        "local environment version attestation",
+        "HTTP pacing",
+        "audit hook"
+      ],
+      "primary": {
+        "acquisition_gate_passed": false,
+        "blocked_attempts": 0,
+        "content_sha256": "ecea11872f454d092576784379d605f1a32fb246c15d5212e24787cb7d1f16db",
+        "file_count": 14,
+        "http_attempts": 160,
+        "inventory_content_sha256": "ac750f7c1102f7470ed9291c25daec5ba43f80cf891e087d44ea92cd07633af4",
+        "new_complete_count": 0,
+        "new_normalized_bytes": 0,
+        "new_schema_row_counts": {
+          "mbp-1": 0,
+          "status": 0
+        },
+        "new_unavailable_count": 0,
+        "parent_file_count": 19,
+        "report_content_sha256": "3c6bede71c2e922b903d30b7d32f64a70eef553d183779d3ca5668952d0e78cd",
+        "report_file_sha256": "82d5433ee43de592d12ae0a0cc882e70588f1b8403bd538db6a27f3a1d3376ed",
+        "request_evidence_complete": false,
+        "unattempted_count": 80,
+        "verification_passed": true
+      },
+      "real_boundaries": [
+        "both quote ZIPs and all members",
+        "SDK routing and decoding",
+        "native metadata and mapping validation",
+        "frozen normalization",
+        "bounded tape writing",
+        "journals, receipts, complete capture verification"
+      ],
+      "real_provider_calls": 0,
+      "simulated_http_calls": 160,
+      "synthetic_only": true
+    },
+    "native_metadata_failure": {
+      "acquire_exit_code": 1,
+      "consume_exit_code": 0,
+      "independent": {
+        "archive_file_counts": {
+          "quote-consumption.zip": 10,
+          "quote-result.zip": 9
+        },
+        "capture": {
+          "counts": {
+            "complete": 0,
+            "failed": 1,
+            "unattempted": 79,
+            "unavailable": 0
+          },
+          "file_count": 14,
+          "http_attempts": 161,
+          "normalized_bytes": 0,
+          "report_content_sha256": "530189595055f1014ac80acf8fc10f62e9ef58e3acc37772e4aa307f68e93389",
+          "request_evidence_complete": false
+        },
+        "contract_content_sha256": "b827aa6bbb84892fe1c553902e3fdb28162dd9c75006c5ac6ef827d5fdb9f719",
+        "execution_record_present": false,
+        "limits_content_sha256": "e135b7a787fdf48c78c35e845a391603a0c28cb57c7e9a3f6637fd02962ccf8b",
+        "maximum_billable_bytes": 209898320,
+        "maximum_quoted_cost_usd": "0.234732925899",
+        "production_verifier_imported": false,
+        "provider_calls": 0,
+        "request_count": 80,
+        "verification_passed": true
+      },
+      "mocked_boundaries": [
+        "provider HTTP session",
+        "execution identities",
+        "local environment version attestation",
+        "HTTP pacing",
+        "audit hook"
+      ],
+      "primary": {
+        "acquisition_gate_passed": false,
+        "blocked_attempts": 0,
+        "content_sha256": "3771c6712610167c469be9f2f9866616efbf49ddfff4d78cea3f42aa4b3b07a7",
+        "file_count": 14,
+        "http_attempts": 161,
+        "inventory_content_sha256": "7d2c0979ab1836602087842d63898d174d2fc6f3b31084dc88a48a1da9044062",
+        "new_complete_count": 0,
+        "new_normalized_bytes": 0,
+        "new_schema_row_counts": {
+          "mbp-1": 0,
+          "status": 0
+        },
+        "new_unavailable_count": 0,
+        "parent_file_count": 19,
+        "report_content_sha256": "530189595055f1014ac80acf8fc10f62e9ef58e3acc37772e4aa307f68e93389",
+        "report_file_sha256": "71992666e9e2f24db23a1b6eb1580142c20c79c0e140a0804fa81339a7c7673c",
+        "request_evidence_complete": false,
+        "unattempted_count": 79,
+        "verification_passed": true
+      },
+      "real_boundaries": [
+        "both quote ZIPs and all members",
+        "SDK routing and decoding",
+        "native metadata and mapping validation",
+        "frozen normalization",
+        "bounded tape writing",
+        "journals, receipts, complete capture verification"
+      ],
+      "real_provider_calls": 0,
+      "simulated_http_calls": 161,
+      "synthetic_only": true
+    }
+  },
+  "tests": {
+    "focused": {
+      "command": [
+        "/workspace/scratch/193af10e3424/quote-env/bin/python",
+        "-m",
+        "unittest",
+        "tests.test_sealed_historical_management_exit_acquisition_v01",
+        "tests.test_sealed_historical_management_exit_quote_v01",
+        "tests.test_sealed_historical_execution_acquisition_v03",
+        "tests.test_sealed_historical_execution_acquisition_v02",
+        "tests.test_sealed_historical_record_order_v01",
+        "-v"
+      ],
+      "elapsed_seconds": 70.184,
+      "exit_code": 0,
+      "log_bytes": 63324,
+      "log_sha256": "6b879c31183e26f837a29636d655071dc3bc664bab5e3b8673d3d4237b84978d",
+      "summary": [
+        "Ran 124 tests in 68.736s",
+        "OK"
+      ]
+    },
+    "full": {
+      "command": [
+        "/workspace/scratch/193af10e3424/quote-env/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-v"
+      ],
+      "elapsed_seconds": 157.611,
+      "exit_code": 0,
+      "log_bytes": 408002,
+      "log_sha256": "1ddfdd0d18cf899a5dcbd9233fb142ebd23b3d3cdea235f3e9a58f95ecc90148",
+      "summary": [
+        "Ran 1921 tests in 156.016s",
+        "OK"
+      ]
+    },
+    "optimized": {
+      "command": [
+        "/workspace/scratch/193af10e3424/quote-env/bin/python",
+        "-O",
+        "-m",
+        "unittest",
+        "tests.test_sealed_historical_management_exit_acquisition_v01",
+        "tests.test_sealed_historical_management_exit_quote_v01",
+        "tests.test_sealed_historical_execution_acquisition_v03",
+        "tests.test_sealed_historical_execution_acquisition_v02",
+        "tests.test_sealed_historical_record_order_v01",
+        "-v"
+      ],
+      "elapsed_seconds": 71.246,
+      "exit_code": 0,
+      "log_bytes": 63324,
+      "log_sha256": "595eb88873462f76abd034646936f20d8c8292fd9730dd453dba0a45162592f9",
+      "summary": [
+        "Ran 124 tests in 68.673s",
+        "OK"
+      ]
+    }
+  },
+  "timeseries_call_ceiling": 80,
+  "unavailable_entry_count": 23,
+  "undefined_name_validation_passed": true,
+  "verified_xage_reuse_requests": 2
+}
