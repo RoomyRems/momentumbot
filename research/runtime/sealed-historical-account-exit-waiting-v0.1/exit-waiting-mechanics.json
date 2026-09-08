@@ -1,0 +1,31 @@
+{
+  "account_close_evidence": false,
+  "broker_orders_authorized": false,
+  "broker_statement_equivalence_verified": false,
+  "content_sha256": "c2a802b11bc3fdba5468db0f88785c855b7d7a9b228bba530fd249403dcb048d",
+  "contract_id": "sealed-historical-account-exit-waiting-v0.1",
+  "financial_metrics_eligible": false,
+  "historical_producer_authenticated": false,
+  "historical_runtime_authorized": false,
+  "mechanics": {
+    "attempts": "one_target_and_one_terminal_order_attempt_consumed_only_after_actual_submission",
+    "audit": "persistent_wait_start_supersession_submission_expiry_chain_linked_to_original_signal",
+    "cache": "validated_immutable_native_record_index_no_future_quote_used_for_decision",
+    "evaluation": "all_12_paths_and_360_slots_financial_metrics_and_retrospective_labels_remain_closed",
+    "expiry": "stop_reconsidering_when_550ms_tail_plus_1ns_no_longer_fits_preserve_intent_and_shares",
+    "hypothesis": "unsubmitted_exit_can_wait_causally_for_fresh_reference_inside_original_window",
+    "malformed_unknown_or_incomplete_status": "unchanged_fail_closed_not_transient_wait",
+    "parent_schema": "nested_original_component_ids_retained_optional_account_wait_journal_only_when_used",
+    "priority": "unchanged_stop_then_account_risk_then_first_red_then_target_at_each_eligible_print",
+    "reference": "latest_usable_record_at_or_before_print_with_inclusive_100ms_age_and_known_nonhalted_status",
+    "retry_clock": "subsequent_eligible_SIP_prints_only_original_phase_and_record_order",
+    "signal": "preserve_original_signal_and_latch_target_until_terminal_supersedes_it",
+    "source_seeds_strategy_risk_fees_windows": "all_frozen_parent_values_unchanged",
+    "submission": "frozen_full_tape_revalidation_fill_selection_latency_cancel_and_liquidity_use"
+  },
+  "original_market_source_provenance_authenticated": false,
+  "overnight_execution_authorized": false,
+  "policy_promotion_eligible": false,
+  "provider_requests_authorized": false,
+  "retrospective_labels_opened": false
+}

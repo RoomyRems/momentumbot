@@ -1,5 +1,24 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: causal exit waiting child preparing for frozen replay
+
+The decimal-risk parent archive comparison is now complete: all four members
+of artifact `10068241990` match the original local bytes and canonical seals.
+The frozen independent report reproduces exactly. The previous disconnection
+audit remains unchanged; the additive archive-comparison audit completes its
+pending check.
+
+The user authorized proceeding with the isolated exit-waiting child. Its
+hypothesis and boundaries are registered in
+[the component document](../research/sealed_historical_account_exit_waiting_v01.md).
+Only later eligible SIP prints can reconsider an unsubmitted exit; original
+windows, order-attempt ceilings, strategy, fees and exact public risk remain.
+Tests and independent source checks precede publication and original replay.
+No new historical outcome has been inspected at this checkpoint. Financial
+metrics, retrospective labels, overnight execution and promotion stay closed.
+
+The following checkpoint is retained as the immutable historical record.
+
 ## Current checkpoint: exact public risk verified; direct archive comparison pending
 
 The isolated child of `9df7ad3487da1f2336701372703e4e5d196bd855` repairs

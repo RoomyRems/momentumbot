@@ -1,0 +1,56 @@
+{
+  "all_member_content_commitments_verified": true,
+  "all_members_match_original_local_bytes": true,
+  "archive_bytes": 926951,
+  "archive_sha256": "5298b020711a0681687f170dc78a313cfa03ba59bb5b38564c48e3795b1fe3ec",
+  "artifact_id": 10068241990,
+  "artifact_type": "additive_completed_archive_comparison",
+  "checkpoint_commit": "d2266c8cf151a55f705c06c59986eafc590f0422",
+  "content_sha256": "3b551f3be7739b391e32392c41ac65a8f53d4508576dacc972b86b0844a3258c",
+  "contract_id": "sealed-historical-account-risk-projection-v0.1",
+  "crc_verified": true,
+  "exact_inventory_verified": true,
+  "financial_metrics_eligible": false,
+  "historical_replay_executed_during_takeover": false,
+  "implementation_commit": "c93bafd7d28fb913734a6c552a3957586befe698",
+  "independent_report_content_sha256": "0f8399c69c47abfb7ed9835f00689fe3e4886eaa0b05ab0ba452f6e09c901172",
+  "independent_verifier_reproduced_exact_report": true,
+  "members": [
+    {
+      "byte_identical_to_local_original": true,
+      "bytes": 9505888,
+      "content_sha256": "5986950aab81652970a6318d93b7a6dd3b4b3384b8aa4a92d8578e3e985398e0",
+      "member": "account-replay/account-replay.json",
+      "sha256": "e4b35e830e1934117ad2fa205b4777fd6f700e1bf5995cc9c65e4e4808dcf649"
+    },
+    {
+      "byte_identical_to_local_original": true,
+      "bytes": 1022,
+      "content_sha256": "2c3fe359b943ade8d14511b11a1d704a7c3d53d0390d65a011f9901ef9bfd0cf",
+      "member": "account-replay/freeze-manifest.json",
+      "sha256": "c671ad8ca20665a4bc2c9cde081a9fff308a4fedabe116e4447034a99286b95c"
+    },
+    {
+      "byte_identical_to_local_original": true,
+      "bytes": 6888,
+      "content_sha256": "0f8399c69c47abfb7ed9835f00689fe3e4886eaa0b05ab0ba452f6e09c901172",
+      "member": "account-replay/independent-verification.json",
+      "sha256": "fdbd89b1785ff82e63398358e66e475a856165416ceda2c3a7a1836ff6189a06"
+    },
+    {
+      "byte_identical_to_local_original": true,
+      "bytes": 1727,
+      "content_sha256": "8cc8255df4dfe33fed72e44c09d09cccb002f31c87dc3ba8f08ef5f2ac1a4464",
+      "member": "account-replay-attempt.json",
+      "sha256": "470bdd09acb147c76cfc8c020e1099c90940072c5aea5290032f08b584b37066"
+    }
+  ],
+  "next_gate": "register_causal_exit_waiting_with_original_windows_and_existing_attempt_ceilings",
+  "policy_promotion_eligible": false,
+  "prior_disconnection_audit_preserved": true,
+  "provider_requests_made": 0,
+  "run_attempt": 1,
+  "run_id": 34255076384,
+  "supersedes_pending_status_only": true,
+  "transcript_corpus_opened": false
+}
