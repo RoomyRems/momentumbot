@@ -78,7 +78,13 @@ full source-program recomputation is performed by `verify_path`.
 
 The [local audit](../../research/data-audits/sealed-historical-account-state-producer-v0.1-independent-verification.json)
 records the full and focused test gates, commitments and retained development
-failures. Hosted verification is recorded separately after code publication.
+failures. Published code `bacf662a0370601a02aec9ca345b4b424f676a06` passed all eight GitHub
+checks on attempt 1. All 2,028 local tests passed with zero skips; the 144-test
+focused group passed normally and optimized locally and in the dedicated hosted
+job with zero skips. General hosted CI passed 2,028 tests with 73 optional-SDK
+skips. Both downloaded synthetic evidence files are byte-identical to local
+results. The [hosted audit](../../research/data-audits/sealed-historical-account-state-producer-v0.1-hosted-verification-34185273453.json)
+records exact publication and artifact evidence.
 
 ## Artifacts and offline commands
 

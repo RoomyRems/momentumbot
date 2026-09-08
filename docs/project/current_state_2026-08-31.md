@@ -1,6 +1,6 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: account-state producer verified locally
+## Current checkpoint: account-state producer independently verified
 
 The isolated child of `dcf1bc47b586653f3c0c97a4e433b4bdf1fff32a` produces checkpoints by
 replaying an externally committed source program from once-only approved seeds.
@@ -27,7 +27,16 @@ the historical account panel or make its closes eligible for financial metrics.
 Position windows are serial and complete; continuous overlap/scarcity and
 causal valuation of carried positions remain separate integration work.
 
-Hosted verification is pending at this code publication. See the
+Code `bacf662a0370601a02aec9ca345b4b424f676a06` passed all eight GitHub workflows on attempt 1.
+Dedicated run `34185273453` passed 144 tests normally and optimized with zero
+skips, reconstructed the registration offline, and generated synthetic evidence
+that passed independent verification. General CI run `34185273411` passed
+2,028 tests with its existing 73 optional-SDK skips. Downloaded artifact
+`10040300774` is 388,886 bytes, with ZIP SHA-256
+`8bdf14e9a065233143e4890c6472d7d710c30154d341eb1794c0615dada5ae15`. Both files match their local counterparts
+byte for byte. Main and all 16 consumed references were rechecked unchanged.
+The [hosted audit](../../research/data-audits/sealed-historical-account-state-producer-v0.1-hosted-verification-34185273453.json)
+records the exact code, run, job, artifact and reference evidence. See the
 [component explanation](../research/sealed_historical_account_state_producer_v01.md),
 [local audit](../../research/data-audits/sealed-historical-account-state-producer-v0.1-independent-verification.json)
 and [big-picture progress](progress_2026-09-08.md).
