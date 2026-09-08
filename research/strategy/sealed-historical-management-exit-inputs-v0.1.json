@@ -1,0 +1,89 @@
+{
+  "account_or_fill_simulation_executed": false,
+  "account_runtime_input_gate_passed": false,
+  "acquisition_gate_passed": false,
+  "all_exit_times_executable_inferred": false,
+  "artifact_type": "registered_provider_free_complete_exit_source_composition",
+  "available_entries": 86,
+  "backtesting_executed": false,
+  "broker_account_read": false,
+  "common_source_pairs": 41,
+  "composition": "byte_identical_full_original_gzip_tapes_no_clipping_recompression_sorting_or_renumbering",
+  "content_sha256": "d7b6e92111247d91599f73f5fc9dc7d2416aa45040844045cc06702b69e2de69",
+  "contract_id": "sealed-historical-management-exit-inputs-v0.1",
+  "execution_payload": "stable_full_group_tape_hash_across_sell_attempts_never_a_strategy_observation_stream",
+  "frozen_parent_file_sha256": {
+    "research/data-audits/sealed-historical-management-exit-acquisition-v0.1-independent-verification-34172486163.json": "3d0aea8e76e65eab40df8f309f33153ee80c05e8dc7c076366bc25d31ae9bb33",
+    "research/data-audits/sealed-historical-management-exit-acquisition-v0.1-report-34172486163.json": "2765deba3a5559c3ddf75caf83adfc680d720dbfa1c8292ee310cc5be1a89117",
+    "research/data-audits/sealed-historical-management-exit-quote-v0.1-xage-reuse.json": "799d8664916eb89f713dec276134400e87434251ff97ea5c0b0a29219983e75b",
+    "research/runtime/sealed-historical-management-projection-v0.1/projection-input-requirements.json": "8b89b1ffd05de277bcff906140b5aeb142a823cce99260d9c967a8d1dc9e931f",
+    "research/runtime/sealed-historical-management-runner-v0.1/exit-input-request-plan.json": "562ed42e20c7021eecf384e3a22aed5f5ce25ae15926dd93072a0313d0e6f461",
+    "research/strategy/sealed-historical-management-exit-acquisition-v0.1-execution.json": "60bbd95d1017a3e0e2b3c40060e988f4a457d81b0280b4065c9712a03a1c54e0",
+    "research/strategy/sealed-historical-management-exit-acquisition-v0.1.json": "147afc1aa99e33397c1d7f25d6bf17a443c5468d44f820edd40c0d64db989901",
+    "scripts/run_offline_python_v13.py": "fd28ca7e4a27832721a890a1a41af36863a7f13568ca9e85e17c2d5f35e0627d",
+    "src/momentumbot/research/sealed_historical_management_exit_acquisition_v01.py": "b9e7286a793a164f67ee416152327d6cd7fb98ed7cd38293c4a0dd5ed24663f8",
+    "src/momentumbot/research/sealed_historical_management_exit_quote_v01.py": "079200a3d0dededb5a3b775f46330ce3558d98fc8c1b67b10b2ce246cf8549f7"
+  },
+  "historical_execution_authorized": false,
+  "historical_runtime_activation_ready": false,
+  "hypothesis": "verified_80_captured_sources_and_original_XAGE_pair_supply_all_41_registered_common_exit_pairs",
+  "implementation_file_sha256": {
+    ".github/workflows/sealed-historical-management-exit-inputs-v01.yml": "fd9a506a424bbe22cf0453663aff02049c10746f0672f7f2e2686ab53e9fe9fe",
+    "scripts/build_sealed_historical_management_exit_inputs_v01.py": "18b45cbc23eca5e2b357a424654ffcfd7561aca77d886b78fc7e10b07d2a0c61",
+    "scripts/verify_sealed_historical_management_exit_inputs_v01.py": "e7e859f6cb6bce8ffb4fa43915ff17cc8da1a07d9d768aac317fad3388595168",
+    "src/momentumbot/research/sealed_historical_management_exit_inputs_v01.py": "5c45ee5f5f05b70e72a070f4ecc35dfbbda56039493b711fd4fe712494ba7d2e",
+    "tests/test_sealed_historical_management_exit_inputs_v01.py": "1c88abbdc831ca9aeb97321719aee5b71b10f3bf9038f298f04fab1997a84bed"
+  },
+  "management_input_gate_passed": false,
+  "management_projection_executed": false,
+  "new_sources": 80,
+  "next_gate": "register_historical_fee_sell_reconciliation_and_authenticated_account_state_integration",
+  "original_entry_inputs_changed": false,
+  "original_opportunities": 109,
+  "output_write": "exclusive_single_write_flush_fsync_then_reopen_and_verify_every_final_tape",
+  "paper_or_live_orders_authorized": false,
+  "parent_commit_sha": "c0ccf773fcc49091682f600c07d991fdd26ab6a8",
+  "parent_tree_sha": "de777b3271e0697a99b80db96fea2f5f58c96178",
+  "policy_changed": false,
+  "portfolio_financial_metrics_eligible": false,
+  "provider_calls": 0,
+  "provider_purchase_authorized_usd": "0",
+  "reader": "external_freeze_and_original_window_pins_with_conditional_exit_envelope_checks",
+  "recipe_content_sha256": "03946f17e4515ee994cfa90ef24f7ec843f5033c8ebd8d8d29570fc6fd579153",
+  "retrospective_inputs_loaded": false,
+  "reused_sources": 2,
+  "schema_version": 1,
+  "source_artifacts": {
+    "entry_consumption": {
+      "artifact_id": 10004656665,
+      "bytes": 1137522,
+      "file_count": 17,
+      "run_id": 34084113393,
+      "sha256": "105e3b93fb7be691d330e4e35451455352c5e64fc914ede3e7a253d4f769154a"
+    },
+    "entry_result": {
+      "artifact_id": 10004782232,
+      "bytes": 13700990,
+      "file_count": 144,
+      "run_id": 34084113393,
+      "sha256": "1fe68f4e526caa6ce0ee8f8845248e5ef3039f3e3ffbce370020162add3b99d6"
+    },
+    "exit_consumption": {
+      "artifact_id": 10036214401,
+      "bytes": 55576,
+      "file_count": 17,
+      "run_id": 34172486163,
+      "sha256": "2fc7a7e8831f63d43eae0c03071c54a9d53ea72c12816bd2d385270bb77155c4"
+    },
+    "exit_result": {
+      "artifact_id": 10036433307,
+      "bytes": 27641253,
+      "file_count": 174,
+      "run_id": 34172486163,
+      "sha256": "73c5b2e4e34a9b67ea0306c164f7ce1ec37892821173418c866ffaace64c6940"
+    }
+  },
+  "source_tapes": 82,
+  "unavailable_entries": 23,
+  "unavailable_entries_rescued": false
+}

@@ -1,0 +1,89 @@
+name: Sealed historical complete management exit inputs v0.1
+
+on:
+  push:
+    branches: [phase-3-historical-snapshot]
+    paths:
+      - .github/workflows/sealed-historical-management-exit-inputs-v01.yml
+      - src/momentumbot/research/sealed_historical_management_exit_inputs_v01.py
+      - scripts/build_sealed_historical_management_exit_inputs_v01.py
+      - scripts/verify_sealed_historical_management_exit_inputs_v01.py
+      - tests/test_sealed_historical_management_exit_inputs_v01.py
+      - research/strategy/sealed-historical-management-exit-inputs-v0.1.json
+      - research/runtime/sealed-historical-management-exit-inputs-v0.1/**
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: sealed-historical-management-exit-inputs-v01
+  cancel-in-progress: false
+
+jobs:
+  compose:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      PYTHONPATH: src:scripts
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12.14"
+      - name: Install the frozen verification environment
+        run: |
+          python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-execution-quote-v01.txt
+          python -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          python -m pip check
+      - name: Validate registration and source boundary tests offline
+        run: |
+          python scripts/build_sealed_historical_management_exit_inputs_v01.py --validate-registration
+          python -m unittest tests.test_sealed_historical_management_exit_inputs_v01 tests.test_sealed_historical_management_exit_acquisition_v01 tests.test_sealed_historical_management_runner_v01 tests.test_sealed_historical_management_fill_feedback_v01 -v
+          python -O -m unittest tests.test_sealed_historical_management_exit_inputs_v01 tests.test_sealed_historical_management_exit_acquisition_v01 tests.test_sealed_historical_management_runner_v01 tests.test_sealed_historical_management_fill_feedback_v01 -v
+          python - <<'PY'
+          from pathlib import Path
+          from check_recovery_entrypoints_v13 import undefined_globals
+          for name in ('scripts/build_sealed_historical_management_exit_inputs_v01.py', 'scripts/verify_sealed_historical_management_exit_inputs_v01.py', 'src/momentumbot/research/sealed_historical_management_exit_inputs_v01.py'):
+              missing = undefined_globals(Path(name).read_text(), name)
+              if missing:
+                  raise SystemExit(f'{name}: {sorted(missing)}')
+          PY
+      - name: Download only the four immutable GitHub evidence artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/10036433307/zip > "$RUNNER_TEMP/exit-result.zip"
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/10036214401/zip > "$RUNNER_TEMP/exit-consumption.zip"
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/10004782232/zip > "$RUNNER_TEMP/entry-result.zip"
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/10004656665/zip > "$RUNNER_TEMP/entry-consumption.zip"
+      - name: Reverify full capture chains and reconstruct every exit source offline
+        run: >-
+          python scripts/build_sealed_historical_management_exit_inputs_v01.py --build --check-committed
+          --exit-result-zip "$RUNNER_TEMP/exit-result.zip" --exit-consumption-zip "$RUNNER_TEMP/exit-consumption.zip"
+          --entry-result-zip "$RUNNER_TEMP/entry-result.zip" --entry-consumption-zip "$RUNNER_TEMP/entry-consumption.zip"
+          --output-root artifacts/sealed-historical-management-exit-inputs-v0.1
+      - name: Independently check all original source bytes and composed identities
+        run: >-
+          python scripts/verify_sealed_historical_management_exit_inputs_v01.py
+          --exit-result-zip "$RUNNER_TEMP/exit-result.zip" --exit-consumption-zip "$RUNNER_TEMP/exit-consumption.zip"
+          --entry-result-zip "$RUNNER_TEMP/entry-result.zip" --entry-consumption-zip "$RUNNER_TEMP/entry-consumption.zip"
+          --output-root artifacts/sealed-historical-management-exit-inputs-v0.1
+          > artifacts/exit-input-independent-verification.json
+      - name: Retain the verified complete exit source bundle
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: sealed-historical-management-exit-inputs-v01-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/sealed-historical-management-exit-inputs-v0.1
+          if-no-files-found: error
+          retention-days: 90
+      - name: Retain independent verification
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: sealed-historical-management-exit-inputs-v01-independent-${{ github.run_id }}-${{ github.run_attempt }}
+          path: artifacts/exit-input-independent-verification.json
+          if-no-files-found: error
+          retention-days: 90

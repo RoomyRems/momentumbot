@@ -1,0 +1,59 @@
+{
+  "XAGE_reuse_verification_content_sha256": "1ac0688d646242a6dedbfbf4919bf645aa81400aba89bb782a66558929c19273",
+  "account_or_fill_simulation_executed": false,
+  "account_runtime_input_gate_passed": false,
+  "acquisition_gate_passed": false,
+  "all_exit_times_executable_inferred": false,
+  "all_four_source_archives_verified": true,
+  "backtesting_executed": false,
+  "broker_account_read": false,
+  "content_sha256": "e7f6a78191fa723fcd20c1d508107cf86aa5b6dd5ee400d8897f92168394cd32",
+  "contract_id": "sealed-historical-management-exit-inputs-v0.1",
+  "direct_archive_file_count": 352,
+  "exit_capture_audit_content_sha256": "ea2e21e27f9ace1d43a161a05e18f7d795c15bfaf495f2a3ae3d9ff4892eed34",
+  "exit_capture_verification_content_sha256": "34c672d4ede89f85f54d13d9630bfe737dd45946b6a42310e9580fef6ffc964f",
+  "historical_execution_authorized": false,
+  "historical_runtime_activation_ready": false,
+  "management_input_gate_passed": false,
+  "management_projection_executed": false,
+  "original_entry_inputs_changed": false,
+  "original_source_normalization_verified_before_copy": true,
+  "paper_or_live_orders_authorized": false,
+  "policy_changed": false,
+  "portfolio_financial_metrics_eligible": false,
+  "provider_calls": 0,
+  "provider_purchase_authorized_usd": "0",
+  "retrospective_inputs_loaded": false,
+  "source_artifacts": {
+    "entry_consumption": {
+      "artifact_id": 10004656665,
+      "bytes": 1137522,
+      "file_count": 17,
+      "run_id": 34084113393,
+      "sha256": "105e3b93fb7be691d330e4e35451455352c5e64fc914ede3e7a253d4f769154a"
+    },
+    "entry_result": {
+      "artifact_id": 10004782232,
+      "bytes": 13700990,
+      "file_count": 144,
+      "run_id": 34084113393,
+      "sha256": "1fe68f4e526caa6ce0ee8f8845248e5ef3039f3e3ffbce370020162add3b99d6"
+    },
+    "exit_consumption": {
+      "artifact_id": 10036214401,
+      "bytes": 55576,
+      "file_count": 17,
+      "run_id": 34172486163,
+      "sha256": "2fc7a7e8831f63d43eae0c03071c54a9d53ea72c12816bd2d385270bb77155c4"
+    },
+    "exit_result": {
+      "artifact_id": 10036433307,
+      "bytes": 27641253,
+      "file_count": 174,
+      "run_id": 34172486163,
+      "sha256": "73c5b2e4e34a9b67ea0306c164f7ce1ec37892821173418c866ffaace64c6940"
+    }
+  },
+  "source_captures_modified": false,
+  "unavailable_entries_rescued": false
+}

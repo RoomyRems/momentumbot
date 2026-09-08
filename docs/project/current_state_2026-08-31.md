@@ -1,6 +1,46 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: management exit capture independently verified
+## Current checkpoint: complete management exit source bundle independently verified
+
+The provider-free composer is a child of `c0ccf773fcc49091682f600c07d991fdd26ab6a8`.
+It combines all 80 completed exit sources with the two verified original XAGE
+sources into **41 quote/status pairs**. The 87-file bundle contains **2,223,448
+records** (2,223,297 quotes and 151 statuses), totaling **604,286,662 normalized
+bytes**. All 82 compressed tapes are byte-identical to their original captures.
+Original request identities, quote ordinals and native ordering remain intact.
+
+The primary verifier reopened the complete capture/reuse chains. The independent
+stdlib checker reopened all four exact archives and their 352 direct members,
+compared every copied byte and normalized row, and reproduced all 41 stable
+execution-payload hashes. Both verifiers agree on every final file. The freeze
+content commitment is `a7f7a6e864e012fb2623872a7325c57fcc9c0ccbf8cd880597839c8b44965b67`.
+
+The reader checks an external freeze pin and each original opportunity's window
+pin. All 109 original opportunities remain present, including 23 unavailable
+entries. Real-input checks accepted the exact covered boundaries for all 86
+available entries and rejected all 86 late tails, all 86 wrong window pins and
+all 23 unavailable entries. GITS and XAGE full source payloads remain identical
+across early and late covered exit decisions. A full execution source is not a
+strategy observation stream and does not imply an executable exit.
+
+The first local composition succeeded. All **1,951 tests passed with zero skips**;
+the 161-test focused group passed normally and optimized with zero skips. Main
+and all 16 consumed references were checked unchanged. No provider call,
+historical account replay, retrospective access or policy change occurred.
+Hosted reconstruction will be recorded against the published code commit.
+
+See the [composition document](../research/sealed_historical_management_exit_inputs_v01.md),
+[permanent independent audit](../../research/data-audits/sealed-historical-management-exit-inputs-v0.1-independent-verification.json)
+and [big-picture progress report](progress_2026-09-08.md).
+
+Next: register historical fee application and executable sell-ledger
+reconciliation, then authenticated account-state production, causal next-session
+valuation and continuous account/order/scarcity integration. A historical
+execution child must bind the completed dependencies before the 30-session
+account replay. There is no completed sealed account P&L result or profitability
+claim. The frozen runner and its original closed activation gate remain intact.
+
+## Prior checkpoint: management exit capture independently verified
 
 The one-shot acquisition completed on attempt 1 in run `34172486163`, execution
 `887f4a08f2cf6279c80d8aee8476ce9ae7da8b52`, against validated code
