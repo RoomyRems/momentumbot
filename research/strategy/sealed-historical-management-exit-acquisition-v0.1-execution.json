@@ -1,0 +1,49 @@
+{
+  "account_or_order_authority": false,
+  "authority": "user_authorized_continued_development_and_operational_steps_2026-09-07",
+  "branch": "phase-3-historical-snapshot",
+  "code_ci_run_id": "34171929072",
+  "code_commit_sha": "98531d5f7d52cb0641de36573da93479a7c1b7eb",
+  "code_tree_sha": "68e82175628f5a85e7b0a470a14fcb64684c37f1",
+  "code_validation_run_id": "34171929116",
+  "consumption_ref": "refs/tags/sealed-historical-management-exit-acquisition-v0.1-consumed",
+  "content_sha256": "79f5cf886d55da1da11fa1d73f907b9aca078f9d458f55198826a4f32ab173ab",
+  "contract_content_sha256": "b827aa6bbb84892fe1c553902e3fdb28162dd9c75006c5ac6ef827d5fdb9f719",
+  "event": "push",
+  "exact_management_exit_acquisition_authorized": true,
+  "execution_id": "sealed-historical-management-exit-acquisition-v0.1-execution",
+  "maximum_billable_bytes": 209898320,
+  "maximum_http_attempts": 240,
+  "maximum_quoted_cost_usd": "0.234732925899",
+  "parent_artifacts": {
+    "quote-consumption.zip": {
+      "bytes": 14586,
+      "conclusion": "success",
+      "execution_commit_sha": "fde309481843b7c2613d9a673f888f488a1ee795",
+      "file_count": 10,
+      "id": 10035216510,
+      "kind": "consumption",
+      "name": "sealed-historical-management-exit-quote-v01-consumption-34169338681-1",
+      "run_id": 34169338681,
+      "sha256": "2eecb6ddaa076ade83de301989365ce9d6d23fe5b4ae42636a2f2659a9ef655c",
+      "workflow_path": ".github/workflows/sealed-historical-management-exit-quote-v01.yml"
+    },
+    "quote-result.zip": {
+      "bytes": 23885,
+      "conclusion": "success",
+      "execution_commit_sha": "fde309481843b7c2613d9a673f888f488a1ee795",
+      "file_count": 9,
+      "id": 10035254551,
+      "kind": "result",
+      "name": "sealed-historical-management-exit-quote-v01-result-34169338681-1",
+      "run_id": 34169338681,
+      "sha256": "993e5d6a17512c5383ee2f23a298db3a22e68dc73eefb624e5f675a39bf38b65",
+      "workflow_path": ".github/workflows/sealed-historical-management-exit-quote-v01.yml"
+    }
+  },
+  "repository": "RoomyRems/momentumbot",
+  "request_list_sha256": "973a926e063fda7ec76883dd4297b88c77a06af22fe3bc0618330e98e28825b4",
+  "run_attempt": 1,
+  "workflow_file_sha256": "4f8cd6aef64872cf53fd08c8965c658baad2fa59a00a5c29b5939c013876d427",
+  "workflow_path": ".github/workflows/sealed-historical-management-exit-acquisition-v01.yml"
+}
