@@ -1,24 +1,42 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: isolated decimal risk projection registered
+## Current checkpoint: exact public risk verified; direct archive comparison pending
 
-The child of `9df7ad3487da1f2336701372703e4e5d196bd855` projects confirmed
-lot risk with exact decimal arithmetic in public account snapshots. The
-internal ledger, sizing, acceptance and all execution mechanics remain frozen.
-Registration precedes a new original-source replay. The byte-pinned failed
-parent is retained for strict comparison of all nonrisk values and their
-authenticated content references.
+The isolated child of `9df7ad3487da1f2336701372703e4e5d196bd855` repairs
+public open-risk projection while preserving the internal ledger, entry sizing,
+acceptance and all execution mechanics. Code
+`c93bafd7d28fb913734a6c552a3957586befe698` and registration
+`87b1ab436d60df1bd6272d9e9f1975b0b728d0a1cd4f0badcab91957bffe46be`
+were frozen before a new original-source replay.
 
-The synthetic stress regression fails the unchanged parent risk checker and
-passes it with the child projection. The independent child checker also uses
-rational arithmetic to check each campaign and aggregate risk. Original dates,
-sources, seeds, fees, attempts and blocked-carry rules remain fixed. See the
-[component](../research/sealed_historical_account_risk_projection_v01.md).
+Runtime `5986950aab81652970a6318d93b7a6dd3b4b3384b8aa4a92d8578e3e985398e0`
+passes independent accounting and strict parent parity for all 12 paths. Six
+stress paths now publish exact `0.40` risk; six conservative path objects are
+byte-identical to the parent. The original 12 first-session input failures and
+348 blocked later slots remain. Orders, fills, fees, windows, attempts and
+availability are unchanged. The account backtest remains incomplete.
 
-This step addresses public risk precision only. Fresh exit-reference handling
-is still the next execution gate, within the existing windows and attempt
-ceilings. Financial evaluation and retrospective comparison remain closed;
-the Ross attachments remain unopened.
+All 2,223 local tests passed with zero skips; 82 focused tests passed normally
+and optimized. All eight GitHub workflows passed on attempt 1. Dedicated run
+`34255076384`, job `102158687615`, reproduced the runtime commitment and
+independent report, with 82 tests passing in both modes and no skips. CI
+`34255076369` passed 2,223 tests with the existing 73 optional-SDK skips.
+
+The hosted report text matches the local report file's exact bytes and hash.
+GitHub artifact `10068241990` is reported as 926,951 bytes with ZIP SHA
+`5298b020711a0681687f170dc78a313cfa03ba59bb5b38564c48e3795b1fe3ec`.
+The executor then disconnected before the archive download/inspection command
+could execute. Direct comparison of all archive members is **pending**.
+No post-outcome implementation changes or historical reruns occurred.
+
+Next: finish that archive comparison when workspace access returns, then
+register causal handling of an unsubmitted exit awaiting a fresh reference
+within the original windows and existing attempt ceilings. Financial evaluation,
+retrospective comparison and promotion remain closed. Ross attachments remain
+unopened. Main and all 16 consumed references were rechecked unchanged.
+
+See the [component](../research/sealed_historical_account_risk_projection_v01.md),
+[audit](../../research/data-audits/sealed-historical-account-risk-projection-v0.1-local-and-hosted-verification.json) and [project progress](progress_2026-09-08.md).
 
 ## Prior checkpoint: first original historical account replay frozen; independent audit failed
 
