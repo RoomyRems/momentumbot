@@ -1,6 +1,38 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: causal next-session valuation independently verified
+## Current checkpoint: chronological account scheduler verified locally
+
+The isolated child of `86733376b10b2a5feb252d174254f4e40fe701ef` puts overlapping
+opportunities on one account-local clock. Entry capacity stays reserved until
+actual fill/cancel feedback; future execution prices and reconciliation failures
+cannot affect earlier account state. Exact-time collisions use frozen candidate
+priority. Confirmed flat capacity can be reused before an old management window
+ends, while every trailing bar/print still receives source validation.
+
+Net account guards request the frozen one terminal exit attempt on an eligible
+print; partial or missing exits remain unresolved. Fees persist within a session,
+exact flat cash carries between days and seeds are applied once. The frozen
+producer/valuation handoff is replay-verified. All original 12 paths, 360 slots,
+348 prior-close dependencies and 744 opportunity references remain unchanged.
+
+This is synthetic intraday integration, not completed historical account replay.
+Same-symbol re-entry and carried-position resumption outside original execution
+windows are explicit remaining dependencies. Historical sources, corporate
+actions, account-close eligibility and financial metrics remain closed. No
+historical market tape, provider account, brokerage account or Ross attachment
+was opened. See the [component](../research/sealed_historical_account_scheduler_v01.md)
+and [big-picture progress](progress_2026-09-08.md).
+
+All 2,106 local tests passed with zero skips. The 174-test focused group passed
+normally and optimized with zero skips. The independent checker verified 23
+synthetic cases, 378 session checkpoints, 88 scheduler events and 30 confirmed
+journal fills. The freeze content commitment is
+`f49742c8262409b4cab7378a49b509d91d9aaee5c959175fcfc841a71ef06ff9`. The
+[local audit](../../research/data-audits/sealed-historical-account-scheduler-v0.1-independent-verification.json) preserves the test evidence, ancestor
+commitments and development failures. Hosted verification is pending at this
+code publication.
+
+## Prior checkpoint: causal next-session valuation independently verified
 
 The isolated child of `7840e5696fe8d2961ade913771f2c7cfa257493a` first replays the verified
 producer, then values carried shares using only quotes and trading status known

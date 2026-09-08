@@ -1,0 +1,39 @@
+{
+  "account_close_evidence": false,
+  "broker_statement_equivalence_verified": false,
+  "carried_position_execution_resumption_integrated": false,
+  "content_sha256": "24b42b8c07cc68a745803560583c996b00fb42237f547f2441c7d4e93150f4c8",
+  "continuous_account_order_integration_verified": false,
+  "continuous_position_order_execution_authorized": false,
+  "contract_id": "sealed-historical-account-scheduler-v0.1",
+  "corporate_action_source_provenance_verified": false,
+  "financial_metrics_eligible": false,
+  "historical_execution_count": 0,
+  "historical_producer_authenticated": false,
+  "historical_runtime_authorized": false,
+  "mark_is_executable_proceeds": false,
+  "mechanics": {
+    "capital": "shared_fee_book_per_day_exact_flat_cash_carry_once_only_seeds",
+    "clock": [
+      "completed_bar",
+      "ranked_entry_decision",
+      "SIP_print",
+      "fill_and_cancel_feedback",
+      "original_window_boundary"
+    ],
+    "entry_reservation": "from_submission_through_cancel_ack_even_if_unfilled_future_outcome_private_until_feedback",
+    "failure": "retain_confirmed_state_pending_orders_and_missing_inputs_block_later_execution",
+    "overlap": "release_after_actual_ack_not_after_entire_old_window_but_validate_all_trailing_stream_bytes",
+    "overnight": "preserve_open_positions_orders_and_valuation_no_extension_of_frozen_execution_window",
+    "reentry": "explicit_unsupported_dependency_not_silent_strategy_rejection",
+    "release": "confirmed_flat_no_pending_sells_or_entry_cancels_before_new_capacity",
+    "risk_flatten": "known_net_guard_latches_one_frozen_terminal_attempt_on_next_eligible_print_no_retry_or_fabricated_fill",
+    "scarcity": "frozen_activation_candidate_rank_for_exact_time_collisions_account_local_one_reserved_position"
+  },
+  "next_session_open_position_valuation_verified": false,
+  "original_market_source_provenance_authenticated": false,
+  "policy_promotion_eligible": false,
+  "provider_calls": 0,
+  "retrospective_inputs_read": false,
+  "same_symbol_reentry_integrated": false
+}
