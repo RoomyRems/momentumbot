@@ -1,0 +1,26 @@
+{
+  "account_close_evidence": false,
+  "broker_statement_equivalence_verified": false,
+  "content_sha256": "055c4e176d51d4f886fc1d8c82f2c158d381a682b2a22d1029b9a9f8e70ee367",
+  "contract_id": "sealed-historical-management-fee-reconciliation-v0.1",
+  "financial_metrics_eligible": false,
+  "historical_producer_authenticated": false,
+  "historical_runtime_authorized": false,
+  "mechanics": {
+    "atomicity": "copy_validate_reconcile_commit_on_success_all_failures_preserve_prior_state",
+    "continuation": "one_empty_session_ledger_once_one_active_position_persistent_fee_book_across_flat_releases",
+    "entry": "recompute_frozen_binding_and_identical_post_entry_ledger_before_fee_debit",
+    "fee_attribution": "daily_rounding_increment_charged_to_current_campaign_in_causal_order",
+    "fee_timing": "accrued_as_cash_and_net_realized_expense_when_fill_is_confirmed_no_second_EOD_debit",
+    "fees": "explicit_2025_model_no_2026_defaults_no_broker_statement_equivalence",
+    "net_guards": "exact_decimal_post_fill_net_high_water_and_frozen_loss_giveback_limits_atomic_with_fill",
+    "rounding": "cumulative_account_day_each_type_ceiling_cent_charge_only_increment_since_previous_fill",
+    "scope": "no_overlapping_positions_imported_history_overnight_valuation_historical_authentication_or_automatic_risk_flatten_orders",
+    "sells": "only_internal_causal_confirmed_receipts_actual_quantity_and_price_never_intents_or_canceled_shares",
+    "stop_risk": "remaining_lots_stop_changes_only_after_entire_target_tranche_confirmed",
+    "taf_cap": "each_sell_order_one_confirmed_positive_fill_cap_before_daily_sum"
+  },
+  "policy_promotion_eligible": false,
+  "provider_calls": 0,
+  "retrospective_inputs_read": false
+}

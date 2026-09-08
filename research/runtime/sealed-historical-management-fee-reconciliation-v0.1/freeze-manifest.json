@@ -1,0 +1,33 @@
+{
+  "account_close_evidence": false,
+  "broker_statement_equivalence_verified": false,
+  "content_sha256": "0fa4f9b21e0d17fc12ba6daba3a36159daf0915d3b258cd9ef5d018d6747536c",
+  "contract_content_sha256": "b6dd0a0de50cee3d41f129d8fc9eeadcd1c81f1c20fd96d28d927c25349a32a1",
+  "contract_id": "sealed-historical-management-fee-reconciliation-v0.1",
+  "document_content_sha256": {
+    "fee-session-map.json": "6e4424380b569284ecc77bbe7bc29081fa3c416c7918522c04eea267c6e3c145",
+    "readiness-report.json": "7094b69d59ba6fac96b4c757028f1ffca3056373cc3d1a0c20bb301fd287fa4f",
+    "reconciliation-mechanics.json": "055c4e176d51d4f886fc1d8c82f2c158d381a682b2a22d1029b9a9f8e70ee367"
+  },
+  "file_inventory": {
+    "fee-session-map.json": {
+      "bytes": 111271,
+      "sha256": "64d49c1f337107f2a3ce1c5fdded4479514d24b80d62a47d216364528fc04c3c"
+    },
+    "readiness-report.json": {
+      "bytes": 950,
+      "sha256": "f759a699e7414eb89a8aced05fd34eb29fe867fb928fd8f6b9e4440e287a5df9"
+    },
+    "reconciliation-mechanics.json": {
+      "bytes": 1722,
+      "sha256": "f581561c5a98140998f68429bea8c56dc036e4a39bda281f80699c6a7f5eeecb"
+    }
+  },
+  "financial_metrics_eligible": false,
+  "historical_producer_authenticated": false,
+  "historical_runtime_authorized": false,
+  "parent_commit_sha": "1cd6f71fa36710c357c30dd3c3b5cda118c1a742",
+  "policy_promotion_eligible": false,
+  "provider_calls": 0,
+  "retrospective_inputs_read": false
+}

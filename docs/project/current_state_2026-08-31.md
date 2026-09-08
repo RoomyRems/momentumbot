@@ -1,6 +1,40 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: complete management exit source bundle independently verified
+## Current checkpoint: historical fee and confirmed-fill reconciliation verified locally
+
+The isolated child of `1cd6f71fa36710c357c30dd3c3b5cda118c1a742` registers explicit 2025 fee
+assumptions and reconciles confirmed entry/sell fills into cash, shares, open
+risk, accrued fees and net realized P&L. The account-day fee book persists across
+successive flat positions. Exact net loss/giveback checks are atomic with each
+confirmed fill, and partial or zero exits retain their unresolved shares.
+
+The registration pins 41 ancestor files and maps fees onto all 360 original
+session slots across 12 paths. The independent stdlib checker reproduced 28
+confirmed fills across ten synthetic account cases, plus two fee boundary/cap
+vectors. All **1,989 local tests passed with zero skips**; the **165-test** focused
+group passed normally and optimized with zero skips, including the direct CLI.
+The freeze content commitment is `0fa4f9b21e0d17fc12ba6daba3a36159daf0915d3b258cd9ef5d018d6747536c`.
+Main and all 16 consumed references match the preceding checkpoint.
+
+Customer pass-through, zero commission and rounding are explicit research
+assumptions; broker-statement equivalence remains unverified. The July CAT
+schedule follows the May 29 announcement, with later notices retained solely
+as verification evidence. Frozen ancestor code and historical activation gates
+are unchanged. No market tape, provider account or retrospective corpus was
+opened. Hosted verification is pending at this code publication.
+
+See the [component and fee-source explanation](../research/sealed_historical_management_fee_reconciliation_v01.md),
+[permanent local audit](../../research/data-audits/sealed-historical-management-fee-reconciliation-v0.1-independent-verification.json)
+and [big-picture progress](progress_2026-09-08.md).
+
+Next: authenticated account-state production, causal next-session valuation
+and continuous account/order/scarcity integration. This component does not
+authenticate a session close, carry overnight positions or execute account-risk
+flatten orders. Historical replay and financial metrics remain blocked until
+the remaining dependencies are registered and verified. No sealed account P&L
+or profitability result has been produced.
+
+## Prior checkpoint: complete management exit source bundle independently verified
 
 The provider-free composer is a child of `c0ccf773fcc49091682f600c07d991fdd26ab6a8`.
 It combines all 80 completed exit sources with the two verified original XAGE

@@ -1,0 +1,103 @@
+{
+  "artifact_type": "historical_regulatory_rate_evidence_and_explicit_customer_fee_assumptions",
+  "broker_statement_equivalence_verified": false,
+  "content_sha256": "7afdb1d386a606b0a4d9b1b5cae084f7cd0662bbff1b9a98c72b73f43937e268",
+  "contract_id": "sealed-historical-management-fee-reconciliation-v0.1",
+  "explicit_assumptions": [
+    "The modeled customer pays one equity-share assessment on each executed side; member assessments do not establish actual customer pass-through.",
+    "Use zero commission for the frozen direct-API equity research model. An actual account agreement has not been verified.",
+    "Accrue each fee type by account-day, cap each one-fill sell order's TAF first, round each cumulative fee type upward to cents, and debit only the increment. This preserves the frozen parent convention.",
+    "Deduct accrued fees from cash and net realized P&L at confirmed fill time. EOD posting is not a second expense or cash debit.",
+    "Attribute the cumulative rounding increment to the campaign causing it. Campaign penny allocation depends on causal order; account-day totals do not.",
+    "Apply the July CAT reduction on the trade date under the May 29 announced schedule. Later filings and confirmation validate the historical assessment, but are not pre-trade observations.",
+    "No separate venue, off-exchange cost-recovery, clearing, financing, routing, tax, subscription or optional service charges are inferred from these member rates. Broker statement equivalence is unverified."
+  ],
+  "financial_metrics_eligible": false,
+  "historical_runtime_authorized": false,
+  "primary_sources": [
+    {
+      "published_on": "2025-04-08",
+      "role": "rate evidence published before all selected sessions",
+      "source_id": "sec-2025-2",
+      "supports": "Section 31 sale assessments are zero from May 14, 2025, covering the entire selected interval.",
+      "url": "https://www.sec.gov/rules-regulations/fee-rate-advisories/2025-2"
+    },
+    {
+      "role": "2024 filing schedule, historical 2025 column; regulatory member assessment, not customer agreement",
+      "source_id": "finra-2025-taf",
+      "supports": "The explicit 2025 column gives equity sales TAF of 0.000166 dollars per share with an 8.30 dollar per-trade cap; 2026 rates differ.",
+      "url": "https://www.finra.org/rules-guidance/rule-filings/sr-finra-2024-019/fee-adjustment-schedule"
+    },
+    {
+      "published_on": "2025-01-28",
+      "role": "rate evidence published before all selected sessions",
+      "source_id": "cat-2025-1-final",
+      "supports": "CAT Fee 2025-1 is 0.000022 per executed equivalent share, plus Historical CAT Assessment 1 of 0.000013. Both are invoiced from February on January trading.",
+      "url": "https://www.catnmsplan.com/sites/default/files/2025-01/01.28.25-CAT_Fee_Alert_2025-1.pdf"
+    },
+    {
+      "published_on": "2025-05-29",
+      "role": "pre-panel announcement; implementing the announced July schedule is an explicit research assumption, not proof of final pre-July effectiveness",
+      "source_id": "cat-2025-2-announcement",
+      "supports": "Announced proposed CAT Fee 2025-2 of 0.000009 per share, replacing 2025-1 for July transactions invoiced in August; historical assessment remains additional.",
+      "url": "https://www.catnmsplan.com/sites/default/files/2025-05/05.29.25-CAT-Fee-Alert-2025-2.pdf"
+    },
+    {
+      "filed_on": "2025-07-02",
+      "published_on": "2025-07-08",
+      "role": "later verification only; not supplied as pre-trade information to the model",
+      "source_id": "cat-2025-2-iex-filing",
+      "supports": "Notice of filing and immediate effectiveness describes 0.000009 per share for July transactions invoiced in August.",
+      "url": "https://www.sec.gov/files/rules/sro/iex/2025/34-103400.pdf"
+    },
+    {
+      "published_on": "2025-08-14",
+      "role": "post-panel verification only; no later refunds or policy reversals are injected into historical buying power",
+      "source_id": "cat-2025-2-confirmation",
+      "supports": "Confirms implemented 2025-2 fees on July transactions and the additional 0.000013 Historical CAT Assessment 1.",
+      "url": "https://www.catnmsplan.com/sites/default/files/2025-08/08.14.25-CAT-Fee-Alert-2025-3.pdf"
+    },
+    {
+      "role": "current mechanics context only; not a dated 2025 customer fee schedule",
+      "source_id": "alpaca-regulatory-mechanics",
+      "supports": "Describes intraday accrual and daily posting, TAF on sells and CAT on buys and sells.",
+      "url": "https://docs.alpaca.markets/us/docs/regulatory-fees"
+    },
+    {
+      "observed_revision": "2026-09-01",
+      "role": "not historical rate evidence; retain frozen parent rounding convention as a research assumption",
+      "source_id": "alpaca-current-schedule-excluded",
+      "supports": "Current schedule states account-day fee-type aggregation and rounding up to cents.",
+      "url": "https://files.alpaca.markets/disclosures/library/BrokFeeSched.pdf"
+    }
+  ],
+  "rate_periods": [
+    {
+      "cat_current_assessment_per_share": "0.000022",
+      "cat_historical_assessment_per_share": "0.000013",
+      "cat_rate_per_executed_share": "0.000035",
+      "commission_rate_per_dollar": "0",
+      "first_trade_date": "2025-05-30",
+      "last_trade_date": "2025-06-30",
+      "period_id": "2025-1",
+      "sec_sale_rate_per_dollar": "0",
+      "taf_per_trade_cap": "8.30",
+      "taf_sale_rate_per_share": "0.000166"
+    },
+    {
+      "cat_current_assessment_per_share": "0.000009",
+      "cat_historical_assessment_per_share": "0.000013",
+      "cat_rate_per_executed_share": "0.000022",
+      "commission_rate_per_dollar": "0",
+      "first_trade_date": "2025-07-01",
+      "last_trade_date": "2025-07-17",
+      "period_id": "2025-2",
+      "sec_sale_rate_per_dollar": "0",
+      "taf_per_trade_cap": "8.30",
+      "taf_sale_rate_per_share": "0.000166"
+    }
+  ],
+  "research_checked_on": "2026-09-08",
+  "schema_version": 1,
+  "scope": "long whole-share NMS equity research executions, 2025-05-30 through 2025-07-17 inclusive"
+}
