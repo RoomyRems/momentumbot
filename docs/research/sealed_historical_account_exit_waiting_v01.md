@@ -120,3 +120,41 @@ The next mechanics gate is a separate preregistration for bounded handling of
 residual shares after cancellation acknowledgement, preserving original windows
 and used-liquidity identity. The account backtest and financial evaluation remain
 incomplete; Ross evidence remains sealed.
+
+## Completed hosted reproduction and direct archive verification
+
+Separate reproduction commit `bedd36d782fc12e207ace0aa184bf9ed141f3a49`, tree
+`70dd60df6f3350e05d177af50737b66929542ea6`, ran the original frozen implementation
+successfully in [run 34287734612](https://github.com/RoomyRems/momentumbot/actions/runs/34287734612),
+job `102267096441`, attempt 1. Original registration checks, replay, independent
+verification and expected runtime/report byte checks all passed. The job ended
+at approximately 23:19 UTC on September 8, 2026, within its separate 90 minute
+budget. The original 45 minute workflow and its cancelled attempt are unchanged.
+
+Artifact `10080992514` is 1,027,787 bytes with ZIP SHA
+`39c6a09db77889dc28968121458a03154261880ca24d408e940f63c27cac7c8a`.
+The downloaded ZIP passes exact inventory and CRC checks. All four files are
+byte-identical to the original local output and their canonical seals verify:
+
+| Member | Bytes | Role |
+|---|---:|---|
+| `account-replay/account-replay.json` | 9,390,427 | Original 12-path runtime |
+| `account-replay/freeze-manifest.json` | 1,019 | Runtime inventory and commitments |
+| `account-replay/independent-verification.json` | 7,907 | Passing independent report |
+| `account-replay-attempt.json` | 1,724 | Receipt written before source access |
+
+The frozen checker was then executed independently against the downloaded
+runtime, using the previously fixed runtime commitment. It reproduced the
+exact 7,907-byte report already committed in the repository, content SHA
+`fb32159033c5253ba24798dc5a089dd2985a0dd6ad7a16fce04ec257ebcb365d`.
+This closes direct hosted archive verification. It preserves the local outcome
+and residual-exit next gate above; it does not complete the account backtest.
+
+All three workflows at the reproduction commit passed. CI `34287734461`
+passed 2,253 tests with the existing 73 optional-SDK skips. Local full tests
+had zero skips, and 112 focused tests passed normally and optimized both
+locally and in the original hosted job. All 255 parent/implementation file
+pins and both registrations remain unchanged. The additive
+[hosted archive audit](../../research/data-audits/sealed-historical-account-exit-waiting-v0.1-hosted-archive-comparison.json)
+records the exact file hashes, independent comparison, preserved cancellation,
+test provenance and unchanged consumed references.

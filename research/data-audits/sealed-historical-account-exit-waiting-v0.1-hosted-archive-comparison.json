@@ -1,0 +1,412 @@
+{
+  "account_backtest_complete": false,
+  "all_member_content_commitments_verified": true,
+  "all_members_match_original_local_bytes": true,
+  "all_unresolved_terminal_cancellations_acknowledged": true,
+  "alternative_account_paths_not_pooled_capital": true,
+  "archive_bytes": 1027787,
+  "archive_sha256": "39c6a09db77889dc28968121458a03154261880ca24d408e940f63c27cac7c8a",
+  "artifact_id": 10080992514,
+  "artifact_type": "additive_completed_hosted_reproduction_and_direct_archive_verification",
+  "broker_orders_authorized": false,
+  "consumed_refs_rechecked_unchanged": {
+    "refs/tags/sealed-historical-execution-input-acquisition-v0.1-consumed": "5a375f86e951b1e9eeb6c010995c9b57025913b7",
+    "refs/tags/sealed-historical-execution-input-acquisition-v0.2-consumed": "e2c250367895d209ec4706288a22655636298685",
+    "refs/tags/sealed-historical-execution-input-acquisition-v0.3-consumed": "0c4010044ee8557136b3c119c6350e134bba46d2",
+    "refs/tags/sealed-historical-execution-input-diagnostic-v0.1-consumed": "e1aece08a44ccf9add0157a1657d08a809687e85",
+    "refs/tags/sealed-historical-execution-input-empty-diagnostic-v0.1-consumed": "8854bb2e63dc3961d98c5d8827f857ef85ccb341",
+    "refs/tags/sealed-historical-execution-input-quote-v0.1-consumed": "dd295304dcc5e7cc0ebd300d094ab20636a72b92",
+    "refs/tags/sealed-historical-management-exit-acquisition-v0.1-consumed": "887f4a08f2cf6279c80d8aee8476ce9ae7da8b52",
+    "refs/tags/sealed-historical-management-exit-quote-v0.1-consumed": "fde309481843b7c2613d9a673f888f488a1ee795",
+    "refs/tags/sealed-historical-management-missing-input-acquisition-v0.1-consumed": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+    "refs/tags/sealed-historical-micro-input-acquisition-v0.1-consumed": "5cab2eb3aa2b73a2cbf1d57575519a7b99961e24",
+    "refs/tags/sealed-historical-micro-session-input-acquisition-v0.2-consumed": "bf5863a7115abef9e22c4f527448cd9c20084f47",
+    "refs/tags/sealed-historical-source-acquisition-v04-consumed-bbe51f4483a73f92b1f58c9f6c2085d8a47505346c2d340fbe59c0421f3f31b7": "ae55aabd3963a9d2764b19a759efd271c723a83a",
+    "refs/tags/sealed-historical-source-acquisition-v05-consumed-23ad997837490c14c200c10b34c8285db7b18ddebca131e6299a8cd70b3bbc49": "12d3c08dcfa042f785c6e35060916cfbd47a1df8",
+    "refs/tags/sealed-historical-source-acquisition-v06-consumed-0343efff8ceb49b7c3ae2e589029cf4cf0b02d72c1961f85807913f67385202e": "0d231ffecb6d4104aad53dec0b7499a16d8943f6",
+    "refs/tags/sealed-historical-source-acquisition-v09-consumed-447c11b09206b4c19ccade6c1aae70ce5bb17e4a483db6f9581d14ee3f5f862f": "92d8b4deceae5c2bb6edfb10016a0e05c33c8bfa",
+    "refs/tags/sealed-historical-source-acquisition-v10-consumed-a6519754147c39273a25b2ea818b1906dfa93ea5018edac831e2a0a7052463c7": "652db5675a35b6f455aa0d924aa50428dd995280"
+  },
+  "content_sha256": "ceec644eb87278c79120bc6356ef3498291c5cdbda20316bae31a908da8a9814",
+  "contract_id": "sealed-historical-account-exit-waiting-v0.1",
+  "crc_verified": true,
+  "downloaded_runtime_independently_reverified": true,
+  "exact_inventory_verified": true,
+  "financial_metrics_eligible": false,
+  "flat_sessions": 66,
+  "frozen_parent_file_count_reverified": 250,
+  "hosted_artifact": {
+    "archive_download_url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/artifacts/10080992514/zip",
+    "created_at": "2026-09-08T23:19:20Z",
+    "digest": "sha256:39c6a09db77889dc28968121458a03154261880ca24d408e940f63c27cac7c8a",
+    "expired": false,
+    "expires_at": "2026-12-07T22:48:46Z",
+    "id": 10080992514,
+    "name": "sealed-historical-account-exit-waiting-reproduction-v01-34287734612-1",
+    "size_in_bytes": 1027787,
+    "updated_at": "2026-09-08T23:19:20Z",
+    "url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/artifacts/10080992514",
+    "workflow_run": {
+      "head_branch": "phase-3-historical-snapshot",
+      "head_repository_id": 1332103865,
+      "head_sha": "bedd36d782fc12e207ace0aa184bf9ed141f3a49",
+      "id": 34287734612,
+      "repository_id": 1332103865
+    }
+  },
+  "hosted_jobs": [
+    {
+      "conclusion": "success",
+      "id": 102267096441,
+      "logs_url": null,
+      "name": "validate",
+      "run_id": 34287734612,
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 2,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+          "number": 3,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Install hash-locked validation environment",
+          "number": 4,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Verify unchanged frozen code and reproduction registration offline",
+          "number": 5,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Download only immutable original evidence and verified binding",
+          "number": 6,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Execute all original account paths offline with explicit blocked continuation",
+          "number": 7,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Independently verify original chronology, accounting and carry",
+          "number": 8,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Retain runtime, independent check and any failed attempt",
+          "number": 9,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+          "number": 17,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 18,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 19,
+          "status": "completed"
+        }
+      ]
+    }
+  ],
+  "hosted_log_file_sha256": "67ee20af2b75b5f4d3bbf88f666363cc04007a476c6073ae69cddf203dd7a496",
+  "hosted_run": {
+    "conclusion": "success",
+    "created_at": "2026-09-08T22:48:46Z",
+    "event": "push",
+    "head_branch": "phase-3-historical-snapshot",
+    "head_sha": "bedd36d782fc12e207ace0aa184bf9ed141f3a49",
+    "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34287734612",
+    "id": 34287734612,
+    "name": "Sealed historical exit waiting hosted reproduction v0.1",
+    "path": ".github/workflows/sealed-historical-account-exit-waiting-reproduction-v01.yml",
+    "run_attempt": 1,
+    "run_number": 1,
+    "run_started_at": "2026-09-08T22:48:46Z",
+    "status": "completed",
+    "updated_at": "2026-09-08T23:19:24Z"
+  },
+  "implementation_commit": "38fe1d83f51ae942acbdd6bc1af3ebbf7867a8ed",
+  "implementation_contract_content_sha256": "3f1885f4f747b6041e4c5635c78860f87168937a4d18b5b6fab452269010ab43",
+  "implementation_tree": "5fd263ddec3b58c88a86cbc6ccfc18125fe2c79b",
+  "independent_checker_scope": "frozen_account_and_exact_rational_risk_checks_plus_native_source_waiting_witnesses_not_a_second_fill_simulator",
+  "independent_report_content_sha256": "fb32159033c5253ba24798dc5a089dd2985a0dd6ad7a16fce04ec257ebcb365d",
+  "independent_report_file_sha256": "f0b23a128ff5344dfdb9301c26bd2c372fff3533c35395df70bdc86e394bfda0",
+  "independent_verifier_reproduced_exact_local_downloaded_and_committed_report_bytes": true,
+  "local_tests": {
+    "focused": {
+      "log_bytes": 22168,
+      "log_sha256": "f633a1fd80ef22d49596994521ce6dfab6a1edc0b36986dd702ac0166f5ec7e3",
+      "passed": true,
+      "skips": 0,
+      "summary": [
+        "Ran 112 tests in 62.353s",
+        "OK"
+      ],
+      "tests": 112
+    },
+    "full_suite": {
+      "log_bytes": 471371,
+      "log_sha256": "a2c59ba00b7faaac6fe7a8f92e725a6fa0c00abb6f6f7281dd06bd4a24febd16",
+      "passed": true,
+      "skips": 0,
+      "summary": [
+        "Ran 2253 tests in 267.794s",
+        "OK"
+      ],
+      "tests": 2253
+    },
+    "optimized": {
+      "log_bytes": 22168,
+      "log_sha256": "e7de9d7857aff5e90d3691d8ecb48e6508becd38ff3765c3192e6d899bc21aa6",
+      "passed": true,
+      "skips": 0,
+      "summary": [
+        "Ran 112 tests in 62.234s",
+        "OK"
+      ],
+      "tests": 112
+    }
+  },
+  "main_ref_unchanged": "de24eb17316191da69d92e61f6843af25e9c22d0",
+  "members": [
+    {
+      "byte_identical_to_local_original": true,
+      "bytes": 1724,
+      "content_sha256": "d13df22355900ac5cf815dd880bbc617c12a9c03181bdbecbd2fbb7e3bec610d",
+      "member": "account-replay-attempt.json",
+      "sha256": "4a921a9bdac95fe404526c89e08bb5375a2730c08b72af8b1860e178b215abdf"
+    },
+    {
+      "byte_identical_to_local_original": true,
+      "bytes": 9390427,
+      "content_sha256": "7b0a0edd58ea285613a01047963bccb82a8a8df4ef6192f2437da222406d7edb",
+      "member": "account-replay/account-replay.json",
+      "sha256": "b36b14350d1cb91c173122aee77e7892050546af52cd03253b587c54c288219e"
+    },
+    {
+      "byte_identical_to_local_original": true,
+      "bytes": 1019,
+      "content_sha256": "a728e93eeeec9190897354509d64b741b8fbe126035774ffa9fda9b07ca2a9bf",
+      "member": "account-replay/freeze-manifest.json",
+      "sha256": "96b28c8a01b45058195b54b3a8ae69bf9f053350310b9faecbd3db1df2471044"
+    },
+    {
+      "byte_identical_to_local_original": true,
+      "bytes": 7907,
+      "content_sha256": "fb32159033c5253ba24798dc5a089dd2985a0dd6ad7a16fce04ec257ebcb365d",
+      "member": "account-replay/independent-verification.json",
+      "sha256": "f0b23a128ff5344dfdb9301c26bd2c372fff3533c35395df70bdc86e394bfda0"
+    }
+  ],
+  "next_gate": "separately_preregister_bounded_residual_exit_handling_after_cancel_acknowledgement_with_original_windows_and_preserved_used_liquidity_identity",
+  "original_first_session_input_failures_cleared": 12,
+  "original_hosted_focused_tests": [
+    {
+      "mode": "normal",
+      "seconds": 87.749,
+      "skips": 0,
+      "tests": 112
+    },
+    {
+      "mode": "optimized",
+      "seconds": 87.645,
+      "skips": 0,
+      "tests": 112
+    }
+  ],
+  "original_implementation_registration_and_workflow_unchanged_after_outcome": true,
+  "overnight_execution_authorized": false,
+  "own_implementation_file_count_reverified": 5,
+  "policy_promotion_eligible": false,
+  "preserved_first_attempt": {
+    "archive_sha256": "f6e0054b41e0651d23037dfe3a25878b30e1e6d6a39c8326d91a5f393d6d009c",
+    "artifact_id": 10079770784,
+    "audit_and_failed_attempt_unchanged": true,
+    "audit_content_sha256": "6237c4d3441b97d24b6f0eaadf498d81c7912a8fe096a524fab742912c82a8f9",
+    "audit_file_sha256": "7825d897fd2cb9badf1a46e0946bdbf4009c545972ff4a796de1ab58ea717ebb",
+    "audit_path": "research/data-audits/sealed-historical-account-exit-waiting-v0.1-local-runtime-and-hosted-cancellation.json",
+    "diagnosis": "45_minute_job_budget_expiry_inferred_from_frozen_timeout_and_cancellation_timing",
+    "github_conclusion": "cancelled",
+    "job_id": 102251592205,
+    "receipt_only_byte_identical_to_local": true,
+    "run_attempt": 1,
+    "run_id": 34282885653
+  },
+  "provider_requests_made": 0,
+  "registration_freeze_content_sha256": "5f48460d88be6ce068a1bc3741d2a0cdb184f8530b8230aabc0b7a0edc812b44",
+  "related_workflows_at_reproduction_commit": [
+    {
+      "conclusion": "success",
+      "created_at": "2026-09-08T22:48:46Z",
+      "event": "push",
+      "head_branch": "phase-3-historical-snapshot",
+      "head_sha": "bedd36d782fc12e207ace0aa184bf9ed141f3a49",
+      "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34287734461",
+      "id": 34287734461,
+      "name": "CI",
+      "path": ".github/workflows/ci.yml",
+      "run_attempt": 1,
+      "run_number": 429,
+      "run_started_at": "2026-09-08T22:48:46Z",
+      "status": "completed",
+      "updated_at": "2026-09-08T22:52:39Z"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-09-08T22:48:46Z",
+      "event": "push",
+      "head_branch": "phase-3-historical-snapshot",
+      "head_sha": "bedd36d782fc12e207ace0aa184bf9ed141f3a49",
+      "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34287734496",
+      "id": 34287734496,
+      "name": "Sealed historical walk-forward v0.1",
+      "path": ".github/workflows/sealed-historical-walk-forward.yml",
+      "run_attempt": 1,
+      "run_number": 72,
+      "run_started_at": "2026-09-08T22:48:46Z",
+      "status": "completed",
+      "updated_at": "2026-09-08T22:49:08Z"
+    },
+    {
+      "conclusion": "success",
+      "created_at": "2026-09-08T22:48:46Z",
+      "event": "push",
+      "head_branch": "phase-3-historical-snapshot",
+      "head_sha": "bedd36d782fc12e207ace0aa184bf9ed141f3a49",
+      "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34287734612",
+      "id": 34287734612,
+      "name": "Sealed historical exit waiting hosted reproduction v0.1",
+      "path": ".github/workflows/sealed-historical-account-exit-waiting-reproduction-v01.yml",
+      "run_attempt": 1,
+      "run_number": 1,
+      "run_started_at": "2026-09-08T22:48:46Z",
+      "status": "completed",
+      "updated_at": "2026-09-08T23:19:24Z"
+    }
+  ],
+  "remainder_rows_apply_separately_to_horizons_seconds": [
+    1,
+    5,
+    10
+  ],
+  "remaining_blocker": "original_single_terminal_attempt_consumed_with_partial_or_unfilled_exit_remainder",
+  "replay_totals": {
+    "blocked_sessions": 282,
+    "completed_streams": 198,
+    "confirmed_entries": 45,
+    "confirmed_fills": 87,
+    "confirmed_sells": 42,
+    "eligible_wait_prints_verified": 186,
+    "events": 333,
+    "executed_sessions": 78,
+    "input_failure_sessions": 0,
+    "opportunity_references": 744,
+    "sessions": 360,
+    "unavailable_references": 162,
+    "wait_expiries": 0,
+    "wait_submissions": 21,
+    "wait_supersessions": 0,
+    "waits": 21
+  },
+  "reproduction_commit": "bedd36d782fc12e207ace0aa184bf9ed141f3a49",
+  "reproduction_commit_ci": {
+    "conclusion": "success",
+    "job_id": 102267096074,
+    "run_id": 34287734461,
+    "seconds": 209.679,
+    "skip_reason": "existing_optional_SDK_dependencies",
+    "skips": 73,
+    "tests": 2253
+  },
+  "reproduction_contract_content_sha256": "452dfc3c128488cc57722737cadcaebed3d0cab9b9b5338d185dab0b3b5c7ffb",
+  "reproduction_contract_id": "sealed-historical-account-exit-waiting-reproduction-v0.1",
+  "reproduction_timeout_minutes": 90,
+  "reproduction_tree": "70dd60df6f3350e05d177af50737b66929542ea6",
+  "reproduction_workflow_file_sha256_reverified": "11d75a790db7c0df8fb919f4064aff053067c694788765f8c4e4d113b46f61e6",
+  "retrospective_labels_opened": false,
+  "run_attempt": 1,
+  "run_id": 34287734612,
+  "runtime_content_sha256": "7b0a0edd58ea285613a01047963bccb82a8a8df4ef6192f2437da222406d7edb",
+  "session_status_counts": {
+    "blocked_prior_state": 282,
+    "flat_complete": 36,
+    "flat_complete_with_unavailable_inputs": 30,
+    "original_window_exhausted_with_unresolved_state": 12
+  },
+  "transcript_corpus_opened": false,
+  "unresolved_exit_remainders": [
+    {
+      "account": "main",
+      "entry_quantity": 138,
+      "later_blocked_sessions_per_path": 22,
+      "remaining_quantity": 63,
+      "scenario": "conservative",
+      "session_date": "2025-06-10",
+      "symbol": "GELS",
+      "terminal_filled_quantity": 75
+    },
+    {
+      "account": "main",
+      "entry_quantity": 70,
+      "later_blocked_sessions_per_path": 28,
+      "remaining_quantity": 70,
+      "scenario": "stress",
+      "session_date": "2025-06-02",
+      "symbol": "INM",
+      "terminal_filled_quantity": 0
+    },
+    {
+      "account": "small",
+      "entry_quantity": 11,
+      "later_blocked_sessions_per_path": 16,
+      "remaining_quantity": 7,
+      "scenario": "conservative",
+      "session_date": "2025-06-18",
+      "symbol": "APVO",
+      "terminal_filled_quantity": 4
+    },
+    {
+      "account": "small",
+      "entry_quantity": 16,
+      "later_blocked_sessions_per_path": 28,
+      "remaining_quantity": 16,
+      "scenario": "stress",
+      "session_date": "2025-06-02",
+      "symbol": "INM",
+      "terminal_filled_quantity": 0
+    }
+  ],
+  "unresolved_paths_have_outstanding_intents": false,
+  "unresolved_paths_have_pending_orders": false,
+  "verified_at_utc": "2026-09-08T23:23:46.545674+00:00"
+}

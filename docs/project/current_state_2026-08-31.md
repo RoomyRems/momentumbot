@@ -1,5 +1,53 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: exit waiting reproduced and archive verified
+
+Frozen implementation `38fe1d83f51ae942acbdd6bc1af3ebbf7867a8ed` and registration
+`5f48460d88be6ce068a1bc3741d2a0cdb184f8530b8230aabc0b7a0edc812b44`
+are verified locally and on GitHub. Separate hosted reproduction
+[run 34287734612](https://github.com/RoomyRems/momentumbot/actions/runs/34287734612),
+job `102267096441`, passed on attempt 1 at reproduction commit
+`bedd36d782fc12e207ace0aa184bf9ed141f3a49` without changing the original code.
+
+Artifact `10080992514` is 1,027,787 bytes, ZIP SHA
+`39c6a09db77889dc28968121458a03154261880ca24d408e940f63c27cac7c8a`.
+Direct download verified its exact four-member inventory, CRC, content seals
+and byte identity with the original local runtime, freeze manifest, independent
+report and attempt receipt. The frozen independent checker was executed again
+against the downloaded runtime and reproduced the exact local and committed
+report bytes. Runtime
+`7b0a0edd58ea285613a01047963bccb82a8a8df4ef6192f2437da222406d7edb`
+and report
+`fb32159033c5253ba24798dc5a089dd2985a0dd6ad7a16fce04ec257ebcb365d`
+are now directly verified across both executions.
+
+All 21 waiting episodes lead to causal submission, clearing the original 12
+fresh-reference input failures. Of 360 mandatory session slots, 78 execute:
+66 finish flat and 12 retain exit remainders. Those remainders block 282 later
+slots. The original single terminal attempt is consumed after acknowledged
+partial or unfilled cancellation: GELS 63 shares for main/conservative,
+APVO 7 for small/conservative, and INM 70 main / 16 small for stress,
+separately in each 1, 5 and 10 second horizon path. No pending order or
+unsubmitted intent remains in these unresolved states.
+
+Validation: 2,253 local tests passed with zero skips; 112 focused tests passed
+normally and optimized locally and in the original hosted job. Reproduction
+commit CI `34287734461` passed 2,253 tests with the existing 73 optional-SDK
+skips. All three workflows on that commit passed. The 250 frozen parent files,
+five implementation files, original registration and separate reproduction
+workflow were reverified unchanged, as were main and all 16 consumed refs.
+The first hosted cancellation and its receipt-only archive remain preserved.
+
+Next gate: separately preregister bounded handling of residual shares after
+cancellation acknowledgement, within original windows and with preserved
+used-liquidity identity. The account backtest remains incomplete; financial
+evaluation, retrospective labels, overnight execution and promotion stay closed.
+No provider requests were made and Ross attachments remain unopened.
+
+See [the completed archive audit](../../research/data-audits/sealed-historical-account-exit-waiting-v0.1-hosted-archive-comparison.json)
+and [the component](../research/sealed_historical_account_exit_waiting_v01.md).
+The following checkpoints are retained as historical records.
+
 ## Current checkpoint: exit waiting verified locally; hosted reproduction registered
 
 Frozen implementation `38fe1d83f51ae942acbdd6bc1af3ebbf7867a8ed` and registration
