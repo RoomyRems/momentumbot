@@ -1,23 +1,35 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: causal exit waiting child preparing for frozen replay
+## Current checkpoint: causal exit waiting verified; first replay running
 
-The decimal-risk parent archive comparison is now complete: all four members
-of artifact `10068241990` match the original local bytes and canonical seals.
-The frozen independent report reproduces exactly. The previous disconnection
-audit remains unchanged; the additive archive-comparison audit completes its
-pending check.
+Implementation `38fe1d83f51ae942acbdd6bc1af3ebbf7867a8ed`, tree
+`5fd263ddec3b58c88a86cbc6ccfc18125fe2c79b`, and registration
+`5f48460d88be6ce068a1bc3741d2a0cdb184f8530b8230aabc0b7a0edc812b44`
+were published before original-source access. All 2,253 local tests passed with
+zero skips; 112 focused tests passed normally and optimized. GitHub CI
+`34282885587`, job `102251592082`, passed 2,253 tests with the existing 73
+optional-SDK skips. The dedicated workflow passed its focused checks.
 
-The user authorized proceeding with the isolated exit-waiting child. Its
-hypothesis and boundaries are registered in
-[the component document](../research/sealed_historical_account_exit_waiting_v01.md).
-Only later eligible SIP prints can reconsider an unsubmitted exit; original
-windows, order-attempt ceilings, strategy, fees and exact public risk remain.
-Tests and independent source checks precede publication and original replay.
-No new historical outcome has been inspected at this checkpoint. Financial
-metrics, retrospective labels, overnight execution and promotion stay closed.
+The first local replay and GitHub run `34282885653` (attempt 1), dedicated job
+`102251592205`, are still running at this checkpoint. Await their completion;
+do not restart or overwrite either attempt. Next, run the frozen independent
+checker, download the exact hosted archive, compare every member to the local
+bytes, and record the outcome additively. No historical result is claimed yet.
+The code and registration remain frozen during execution.
 
-The following checkpoint is retained as the immutable historical record.
+The component is [causal exit waiting](../research/sealed_historical_account_exit_waiting_v01.md).
+The audit is `research/data-audits/sealed-historical-account-exit-waiting-v0.1-implementation-verification.json`.
+Waiting uses subsequent eligible SIP prints, preserves original signals and
+stop priority, and consumes attempts only on actual submission. Original
+windows, strategy, fees and decimal risk remain frozen.
+
+The prior risk archive comparison is complete: all four members of artifact
+`10068241990` match the original local bytes and seals; its independent report
+reproduces exactly. The earlier disconnection audit is preserved. Main and all
+16 consumed references remain unchanged. Financial evaluation, retrospective
+labels, overnight execution and promotion remain closed.
+
+The following checkpoint is retained as the historical record.
 
 ## Current checkpoint: exact public risk verified; direct archive comparison pending
 
