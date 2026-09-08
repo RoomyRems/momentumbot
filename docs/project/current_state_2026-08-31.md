@@ -1,6 +1,50 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: bounded management exit acquisition registered, unarmed
+## Current checkpoint: management exit capture independently verified
+
+The one-shot acquisition completed on attempt 1 in run `34172486163`, execution
+`887f4a08f2cf6279c80d8aee8476ce9ae7da8b52`, against validated code
+`98531d5f7d52cb0641de36573da93479a7c1b7eb`. All **80 requests completed**;
+none were unavailable, failed or left unattempted. The separate acquisition
+ledger contains exactly **160 metadata calls and 80 downloads**, with zero
+blocked attempts, retries or redirects.
+
+Both verifiers checked the complete 174-file result archive and 17-file durable
+consumption archive, including the two original quote ZIPs and their 19 members.
+All 80 normalized tapes and receipts match their byte commitments and exact
+request identities. The capture contains **1,992,594 quote records and 147 status
+records**, totaling **541,665,090 normalized bytes**. Quote record ordinals,
+source identities and native order are preserved. Raw DBN files were removed.
+
+The complete re-quote remained **209,898,320 billable bytes** and
+**$0.234732925899 USD**, within every individual original ceiling. Actual billing
+is not inferred. The result ZIP is 27,641,253 bytes with SHA-256
+`73c5b2e4e34a9b67ea0306c164f7ce1ec37892821173418c866ffaace64c6940`.
+The [permanent audit](../../research/data-audits/sealed-historical-management-exit-acquisition-v0.1-independent-verification-34172486163.json)
+and [exact capture report](../../research/data-audits/sealed-historical-management-exit-acquisition-v0.1-report-34172486163.json)
+retain complete inventories, both verifiers, run/consumption provenance and
+hosted validation evidence.
+
+The acquisition and validation jobs both passed. Dedicated validation passed
+124 tests normally and optimized with zero skips; execution CI passed 1,921
+tests with its 73 optional-SDK skips. Local registration verification passed all
+1,921 tests with zero skips. The new consumed reference points to the exact
+execution commit; main and all 15 prior consumed references are unchanged.
+
+The original 109 opportunities and 23 unavailable entry classifications remain
+unchanged. The verified XAGE pair was not reacquired. The original 30,522-request
+source ledger, 30 dates, 12 account paths and 360 session dependencies are intact.
+No historical runtime, account replay, retrospective access or policy change ran.
+Complete source evidence does not grant runtime eligibility.
+
+Next: register a provider-free composer for these 80 exit sources and the verified
+XAGE reuse pair, preserving original entry availability and ordinal lineage.
+Historical fees, sell reconciliation, authenticated account-state production,
+causal next-session valuation, continuous account/order integration and the
+historical execution child remain separate unresolved dependencies. See
+[exit acquisition](../research/sealed_historical_management_exit_acquisition_v01.md).
+
+## Prior checkpoint: bounded management exit acquisition registered, unarmed
 
 An isolated child of `0d36c619dc1d3ac8c50bf7fa91201114255e696c` registers
 acquisition for the exact 80 requests from verified exit quote run `34169338681`.

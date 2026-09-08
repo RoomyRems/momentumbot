@@ -1,5 +1,30 @@
 # Sealed historical management exit acquisition v0.1
 
+## Verified capture
+
+[Run 34172486163](https://github.com/RoomyRems/momentumbot/actions/runs/34172486163)
+completed successfully on attempt one at execution
+`887f4a08f2cf6279c80d8aee8476ce9ae7da8b52`. All 80 requests produced valid
+tapes and receipts: 1,992,594 quote records plus 147 status records. Both verifiers
+checked all 174 result files, 17 consumption files and the original quote archive
+members. Total normalized size is 541,665,090 bytes. There were exactly 240 HTTP
+attempts and no retries, redirects, blocked attempts or unavailable requests.
+
+The re-quote matched the original aggregate and every individual ceiling:
+209,898,320 billable bytes and $0.234732925899 USD. Actual billing remains unknown.
+Main and all 15 older consumed references remain unchanged; the new consumed
+reference points to the exact execution commit. The original 109 opportunities,
+23 unavailable entries and XAGE reuse evidence remain intact. Source completion
+does not authorize historical replay or account execution.
+
+The [permanent verification audit](../../research/data-audits/sealed-historical-management-exit-acquisition-v0.1-independent-verification-34172486163.json)
+retains complete inventories, hosted provenance and the independent checker.
+The [exact capture report](../../research/data-audits/sealed-historical-management-exit-acquisition-v0.1-report-34172486163.json)
+is byte-identical to the retained artifact. Next is provider-free composition of
+the newly verified exit sources and original XAGE pair.
+
+## Frozen registration before execution
+
 This unarmed child of `0d36c619dc1d3ac8c50bf7fa91201114255e696c` registers
 acquisition of the exact 80 requests from verified quote run `34169338681`.
 The hypothesis is that these missing common exit sources can be captured while
