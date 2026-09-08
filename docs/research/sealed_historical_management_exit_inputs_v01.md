@@ -97,7 +97,18 @@ unavailable entries rejected. The complete GITS and XAGE execution payloads
 remained identical across the first and last covered decisions. No fill or
 account simulation was run. The [permanent audit](../../research/data-audits/sealed-historical-management-exit-inputs-v0.1-independent-verification.json)
 retains both verifiers, complete output inventories, reader evidence and test
-log commitments. Hosted reconstruction is checked at the published code commit.
+log commitments.
+
+Code `1fc6ae1999edf89767a44912f0efadbbaba68fc1` passed all eight hosted
+workflows on attempt 1. [Dedicated run 34176013955](https://github.com/RoomyRems/momentumbot/actions/runs/34176013955)
+passed 161 normal/optimized tests with zero skips, fully reconstructed the
+bundle and passed the independent source checker. CI passed 1,951 tests with
+73 optional-SDK skips. Bundle artifact `10037358910` is 30,747,584 bytes,
+SHA-256 `94877d03a9e91372f9a36d68275b6c44421139bc5c4eab0f26403c26f26aed80`.
+All 87 downloaded files and the separately retained independent-verification
+report match their local counterparts byte for byte. The
+[hosted audit](../../research/data-audits/sealed-historical-management-exit-inputs-v0.1-hosted-verification-34176013955.json)
+retains exact run, job, artifact and verification evidence.
 
 ## Remaining dependencies
 

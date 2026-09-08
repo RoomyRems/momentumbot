@@ -27,7 +27,18 @@ The first local composition succeeded. All **1,951 tests passed with zero skips*
 the 161-test focused group passed normally and optimized with zero skips. Main
 and all 16 consumed references were checked unchanged. No provider call,
 historical account replay, retrospective access or policy change occurred.
-Hosted reconstruction will be recorded against the published code commit.
+Code `1fc6ae1999edf89767a44912f0efadbbaba68fc1` passed all eight hosted
+workflows on attempt 1. Dedicated run `34176013955` passed 161 tests normally
+and optimized with zero skips, fully reconstructed the sources offline, and
+passed the independent verifier. CI run `34176013912` passed 1,951 tests with
+73 optional-SDK skips. The downloaded 30,747,584-byte bundle artifact
+`10037358910` has SHA-256
+`94877d03a9e91372f9a36d68275b6c44421139bc5c4eab0f26403c26f26aed80`;
+all 87 files are byte-identical to the local freeze. The separately downloaded
+independent verification artifact is also byte-identical. The
+[hosted audit](../../research/data-audits/sealed-historical-management-exit-inputs-v0.1-hosted-verification-34176013955.json)
+records the complete job, run and artifact evidence. Main and all 16 consumed
+references were rechecked unchanged after hosted verification.
 
 See the [composition document](../research/sealed_historical_management_exit_inputs_v01.md),
 [permanent independent audit](../../research/data-audits/sealed-historical-management-exit-inputs-v0.1-independent-verification.json)
