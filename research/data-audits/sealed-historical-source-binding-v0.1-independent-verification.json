@@ -1,0 +1,224 @@
+{
+  "account_close_evidence": false,
+  "account_or_fill_simulation_executed": false,
+  "artifact_type": "independently_verified_original_account_source_bindings",
+  "bound_artifact_inventory": {
+    "context-access-verification.json": {
+      "bytes": 455123,
+      "sha256": "d0ab029486a7ae3c9122500a13dbf5a6643cf4fb0466a0f59651f5caa5c1ebb9"
+    },
+    "freeze-manifest.json": {
+      "bytes": 1842,
+      "sha256": "2ef9bccd8f4cd1a20fd4b1be88e5cbad230f0851448b9e8c8d741124a7ec27ba"
+    },
+    "independent-verification.json": {
+      "bytes": 842,
+      "sha256": "03f0fe0c34362b20d08f424c2af0556c70d6fc3fbb1bb58daa278ff7f85fdb4b"
+    },
+    "source-bindings.json": {
+      "bytes": 2626367,
+      "sha256": "dbaeb9265d37872b04c554143490cdc2e023311468d1f1ba4aa2fbf8b9b67e9a"
+    }
+  },
+  "broker_statement_equivalence_verified": false,
+  "carried_position_execution_resumption_integrated": false,
+  "content_sha256": "e10d6683a9051517694d66d5d52ae44570bba500dc5fad9ef961d2fa1047f1ae",
+  "continuous_account_order_integration_verified": false,
+  "continuous_position_order_execution_authorized": false,
+  "contract_content_sha256": "5dec0d4f8d5502cfc720f8512195431284eb24cf8235fe41a2a96fc907091676",
+  "contract_id": "sealed-historical-source-binding-v0.1",
+  "corporate_action_source_provenance_verified": false,
+  "financial_metrics_eligible": false,
+  "frozen_parent_files_rechecked": 214,
+  "historical_account_execution_enabled": false,
+  "historical_execution_count": 0,
+  "historical_market_tapes_reopened": true,
+  "historical_producer_authenticated": false,
+  "historical_runtime_authorized": false,
+  "hypothesis": "original_source_binding_preserves_causal_candidate_identity_exact_windows_and_explicit_carry_gaps",
+  "independent_source_binding_verification": {
+    "account_or_fill_simulation_executed": false,
+    "content_sha256": "79f37118c3e31e3d7d15a26d602f6182cfa379100265b8d43f72e5e90ae2c79a",
+    "contract_id": "sealed-historical-source-binding-v0.1",
+    "corporate_action_source_provenance_verified": false,
+    "counts": {
+      "account_contexts": 744,
+      "activations": 192,
+      "available_entries": 86,
+      "carry_dependencies": 348,
+      "entry_native_sources": 89,
+      "exit_source_pairs": 41,
+      "management_envelope_occurrences": 6641822,
+      "management_streams": 218,
+      "opportunities": 109,
+      "unavailable_entries": 23
+    },
+    "historical_runtime_authorized": false,
+    "provider_calls": 0,
+    "retrospective_inputs_read": false,
+    "source_bindings_content_sha256": "9bb780dcbfbec3ef1b4e437cc3dc76e1528897956490d4ddd32d399ed5f683cd",
+    "stdlib_only": true,
+    "verification_passed": true
+  },
+  "local_test_evidence": {
+    "focused_normal": {
+      "log_bytes": 26581,
+      "log_sha256": "084c15fcfb787ddc4d367fbdad59236be98ce378a8cb48fdb2c0dc13af1eeb56",
+      "seconds": "42.777",
+      "skips": 0,
+      "tests": 135
+    },
+    "focused_optimized": {
+      "log_bytes": 26581,
+      "log_sha256": "d3dc061ef53d4f6658672684e584e31308f6f9be9db4503b4312d622a1d7031c",
+      "seconds": "41.045",
+      "skips": 0,
+      "tests": 135
+    },
+    "full_suite": {
+      "log_bytes": 457251,
+      "log_sha256": "9a9c0bcaa2baba9b6478279386a70d7973b60443366b06f4b8ac65105513cd32",
+      "seconds": "275.075",
+      "skips": 0,
+      "tests": 2180
+    },
+    "new_component": {
+      "log_bytes": 6332,
+      "log_sha256": "ec9e8c7b3c21c58a5bafdf95594d9cfd28d11c992b42396a2a239aaae5a4664e",
+      "seconds": "2.478",
+      "skips": 0,
+      "tests": 35
+    }
+  },
+  "mark_is_executable_proceeds": false,
+  "new_test_count": 35,
+  "next_gate": "isolated_historical_account_activation_with_bound_sources_and_explicit_unresolved_carry",
+  "next_session_open_position_valuation_verified": false,
+  "original_market_source_provenance_authenticated": true,
+  "original_window_checkpoint_resumption_verified": true,
+  "overnight_execution_window_extension_authorized": false,
+  "parent_commit_sha": "b10c8e675161c22658633d70e07960781c405cd3",
+  "parent_continuity_freeze_content_sha256": "0bf8f0ac9eb5262afca10addbd4068cc7aab3453dac8b227433600935c2e6338",
+  "parent_tree_sha": "8ecd1bd27e2df355986a47e305109f5294f03413",
+  "policy_promotion_eligible": false,
+  "pre_source_registration_unchanged": true,
+  "primary_binding_verification": {
+    "account_close_evidence": false,
+    "account_or_fill_simulation_executed": false,
+    "broker_statement_equivalence_verified": false,
+    "carried_position_execution_resumption_integrated": false,
+    "content_sha256": "eacdfdb22619041bd4e7be3469d292c426685aa51d038dce49bc68f2d5c081b9",
+    "continuous_account_order_integration_verified": false,
+    "continuous_position_order_execution_authorized": false,
+    "corporate_action_source_provenance_verified": false,
+    "file_inventory": {
+      "context-access-verification.json": {
+        "bytes": 455123,
+        "sha256": "d0ab029486a7ae3c9122500a13dbf5a6643cf4fb0466a0f59651f5caa5c1ebb9"
+      },
+      "freeze-manifest.json": {
+        "bytes": 1842,
+        "sha256": "2ef9bccd8f4cd1a20fd4b1be88e5cbad230f0851448b9e8c8d741124a7ec27ba"
+      },
+      "source-bindings.json": {
+        "bytes": 2626367,
+        "sha256": "dbaeb9265d37872b04c554143490cdc2e023311468d1f1ba4aa2fbf8b9b67e9a"
+      }
+    },
+    "financial_metrics_eligible": false,
+    "historical_account_execution_enabled": false,
+    "historical_execution_count": 0,
+    "historical_producer_authenticated": false,
+    "historical_runtime_authorized": false,
+    "mark_is_executable_proceeds": false,
+    "next_session_open_position_valuation_verified": false,
+    "original_market_source_provenance_authenticated": false,
+    "original_window_checkpoint_resumption_verified": true,
+    "overnight_execution_window_extension_authorized": false,
+    "policy_promotion_eligible": false,
+    "provider_calls": 0,
+    "retrospective_inputs_read": false,
+    "same_symbol_reentry_integrated": true,
+    "source_binding_registered": true,
+    "source_bindings_content_sha256": "9bb780dcbfbec3ef1b4e437cc3dc76e1528897956490d4ddd32d399ed5f683cd",
+    "verification_passed": true
+  },
+  "protected_refs_before": {
+    "refs/heads/main": "de24eb17316191da69d92e61f6843af25e9c22d0",
+    "refs/tags/sealed-historical-execution-input-acquisition-v0.1-consumed": "5a375f86e951b1e9eeb6c010995c9b57025913b7",
+    "refs/tags/sealed-historical-execution-input-acquisition-v0.2-consumed": "e2c250367895d209ec4706288a22655636298685",
+    "refs/tags/sealed-historical-execution-input-acquisition-v0.3-consumed": "0c4010044ee8557136b3c119c6350e134bba46d2",
+    "refs/tags/sealed-historical-execution-input-diagnostic-v0.1-consumed": "e1aece08a44ccf9add0157a1657d08a809687e85",
+    "refs/tags/sealed-historical-execution-input-empty-diagnostic-v0.1-consumed": "8854bb2e63dc3961d98c5d8827f857ef85ccb341",
+    "refs/tags/sealed-historical-execution-input-quote-v0.1-consumed": "dd295304dcc5e7cc0ebd300d094ab20636a72b92",
+    "refs/tags/sealed-historical-management-exit-acquisition-v0.1-consumed": "887f4a08f2cf6279c80d8aee8476ce9ae7da8b52",
+    "refs/tags/sealed-historical-management-exit-quote-v0.1-consumed": "fde309481843b7c2613d9a673f888f488a1ee795",
+    "refs/tags/sealed-historical-management-missing-input-acquisition-v0.1-consumed": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+    "refs/tags/sealed-historical-micro-input-acquisition-v0.1-consumed": "5cab2eb3aa2b73a2cbf1d57575519a7b99961e24",
+    "refs/tags/sealed-historical-micro-session-input-acquisition-v0.2-consumed": "bf5863a7115abef9e22c4f527448cd9c20084f47",
+    "refs/tags/sealed-historical-source-acquisition-v04-consumed-bbe51f4483a73f92b1f58c9f6c2085d8a47505346c2d340fbe59c0421f3f31b7": "ae55aabd3963a9d2764b19a759efd271c723a83a",
+    "refs/tags/sealed-historical-source-acquisition-v05-consumed-23ad997837490c14c200c10b34c8285db7b18ddebca131e6299a8cd70b3bbc49": "12d3c08dcfa042f785c6e35060916cfbd47a1df8",
+    "refs/tags/sealed-historical-source-acquisition-v06-consumed-0343efff8ceb49b7c3ae2e589029cf4cf0b02d72c1961f85807913f67385202e": "0d231ffecb6d4104aad53dec0b7499a16d8943f6",
+    "refs/tags/sealed-historical-source-acquisition-v09-consumed-447c11b09206b4c19ccade6c1aae70ce5bb17e4a483db6f9581d14ee3f5f862f": "92d8b4deceae5c2bb6edfb10016a0e05c33c8bfa",
+    "refs/tags/sealed-historical-source-acquisition-v10-consumed-a6519754147c39273a25b2ea818b1906dfa93ea5018edac831e2a0a7052463c7": "652db5675a35b6f455aa0d924aa50428dd995280"
+  },
+  "provider_calls": 0,
+  "python_version": "3.12.13",
+  "registration_freeze_content_sha256": "a5765974223b6551dcb6e2dffcc0f1f050c172592d6530e94013ffa6c0fbed79",
+  "requirements_file_sha256": "03f4da335027e4c83bcf38e523c2e11aeaae49778f5bd6caa47e4703348b31b4",
+  "retained_development_attempts": [
+    {
+      "log_sha256": "82e6e36978f4d8388ece3d4027659ed0a9cba71beaa6d5e45c1a7f8cdf62e2cf",
+      "result": "23_tests_passed",
+      "stage": "synthetic_candidate_source_and_archive_mechanics"
+    },
+    {
+      "log_sha256": "896c7ddc9cfdc4e6fd2c126538559ef1f4e8285f86a354d0b5f690ad9c560493",
+      "result": "27_tests_passed",
+      "stage": "synthetic_mechanics_and_independent_projection"
+    },
+    {
+      "log_sha256": "c7cc3f0aa96826bac5e31600b2c24dd4d0a6c0f8532e540852051fd66b090d23",
+      "result": "complete",
+      "stage": "first_original_source_binding"
+    },
+    {
+      "log_sha256": "03f0fe0c34362b20d08f424c2af0556c70d6fc3fbb1bb58daa278ff7f85fdb4b",
+      "result": "complete",
+      "stage": "first_independent_original_source_binding_check"
+    }
+  ],
+  "retrospective_inputs_read": false,
+  "same_symbol_reentry_integrated": true,
+  "schema_version": 1,
+  "scope": "source_authentication_and_context_resolution_only_no_historical_account_run",
+  "source_archives": {
+    "entry_consumption": {
+      "artifact_id": 10004656665,
+      "bytes": 1137522,
+      "sha256": "105e3b93fb7be691d330e4e35451455352c5e64fc914ede3e7a253d4f769154a"
+    },
+    "entry_result": {
+      "artifact_id": 10004782232,
+      "bytes": 13700990,
+      "sha256": "1fe68f4e526caa6ce0ee8f8845248e5ef3039f3e3ffbce370020162add3b99d6"
+    },
+    "exit": {
+      "artifact_id": 10037358910,
+      "bytes": 30747584,
+      "sha256": "94877d03a9e91372f9a36d68275b6c44421139bc5c4eab0f26403c26f26aed80"
+    },
+    "management": {
+      "artifact_id": 10028253493,
+      "bytes": 43591721,
+      "sha256": "e6ae822301440e3c0d183546b472e5b6f4e0f50d6e4f1b67178ba6bf46e382e0"
+    },
+    "scanner": {
+      "artifact_id": 9993250947,
+      "bytes": 78404172,
+      "sha256": "af89836213a905a1e02dabd54cce1d2bab2f55214c2d7bc0dce44d4700243638"
+    }
+  },
+  "source_binding_registered": true,
+  "source_bindings_content_sha256": "9bb780dcbfbec3ef1b4e437cc3dc76e1528897956490d4ddd32d399ed5f683cd"
+}

@@ -15,6 +15,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 
 | Task | Open first | Source of truth |
 |---|---|---|
+| Historical original source binding | `docs/research/sealed_historical_source_binding_v01.md` | exact five original archives, activation-row candidate priority, all original context/stream identities and explicit unavailable carry dependencies with account execution closed |
 | Current checkpoint / next gate | `docs/project/current_state_2026-08-31.md` | immutable parent checkpoints plus linked frozen manifests and audits |
 | Sealed historical walk-forward | `docs/research/sealed_historical_walk_forward_v01.md` | opaque corpus commitment, prior-date exclusions, deterministic 30-session selector and provider-free registration audit |
 | Historical execution/status input plan | `docs/research/sealed_historical_execution_inputs_v01.md` | exact completed Micro checkpoint, 109 frozen decisions, 90 unquoted requests, and independent input/quote gates |

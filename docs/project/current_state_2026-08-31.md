@@ -1,6 +1,40 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: campaign re-entry and original-window continuation independently verified
+## Current checkpoint: original historical source binding independently verified locally
+
+The isolated child of `b10c8e675161c22658633d70e07960781c405cd3` binds the exact five
+retained source archives to the account-input boundary. It preserves original
+activation-row candidate priority, Micro decisions and nanoseconds, original
+entry availability, native entry/exit identities and raw management lineage.
+All 192 activations, 109 opportunities, 12 paths, 360 slots and 744 account
+contexts are retained. Entry classifications remain 86 available and 23
+unavailable; common exit quotes cannot rescue an unavailable original entry.
+
+All 348 next-session dependencies explicitly retain missing registered
+corporate-action continuity, session-start mark pairs and expired-window
+execution. No shares, prior close, flat state or unchanged share units are
+inferred. A later account run must preserve known positions, basis, cash,
+orders and attempt history when those inputs block continuation.
+
+All 2,180 local tests passed with zero skips. The 135-test focused group passed
+normally and optimized. The independent checker verified 218 management
+streams with 6,641,822 lineage envelope occurrences, 89 native entry sources,
+41 exit pairs and every account context. Registration freeze
+`a5765974223b6551dcb6e2dffcc0f1f050c172592d6530e94013ffa6c0fbed79`
+was unchanged after source processing began. The bound manifest is
+`9bb780dcbfbec3ef1b4e437cc3dc76e1528897956490d4ddd32d399ed5f683cd`.
+Both original-source verification runs passed on their first attempt.
+
+Historical account execution, financial metrics and retrospective comparison
+remain closed. No provider or brokerage account was accessed, and the Ross
+attachments remain unopened. Next: isolated historical account activation using
+the verified bindings and explicit unresolved carry. Hosted reproduction is
+the remaining publication check. See the
+[component](../research/sealed_historical_source_binding_v01.md),
+[local audit](../../research/data-audits/sealed-historical-source-binding-v0.1-independent-verification.json)
+and [big-picture progress](progress_2026-09-08.md).
+
+## Prior checkpoint: campaign re-entry and original-window continuation independently verified
 
 The isolated child of `6933ff419afb034f9509eaa0898c3467571e32d8` implements the
 frozen two-entry campaign policy. A fresh plan can re-enter a confirmed flat

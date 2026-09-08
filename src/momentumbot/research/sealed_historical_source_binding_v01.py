@@ -1,0 +1,684 @@
+"""Authenticate original account inputs without running a historical account.
+
+The archive commitments are external, immutable parents. Candidate priority
+comes from the activation's exact scanner row. Execution tails remain private
+source evidence; missing carry inputs never imply flat shares or unchanged units.
+"""
+from __future__ import annotations
+
+from copy import deepcopy
+from dataclasses import asdict
+import hashlib
+import json
+import os
+from pathlib import Path, PurePosixPath
+import re
+import stat
+import tempfile
+import zipfile
+
+import pandas as pd
+
+from momentumbot.models import current_general_2026, current_small_account_2026
+from momentumbot.research import sealed_historical_account_continuity_v01 as parent
+from momentumbot.research import sealed_historical_management_inputs_v01 as management
+from momentumbot.research import sealed_historical_management_exit_inputs_v01 as exits
+from momentumbot.research import sealed_historical_scanner_micro_runtime_v02 as scanner
+from momentumbot.research.prospective_daily_account_runtime import _candidate_from_row
+from momentumbot.research.sealed_historical_execution_quote_v01 import canonical_fingerprint, file_sha, frozen, require_exact, seal
+
+accounts = parent.accounts
+availability = accounts.availability
+runner = parent.runner
+projection = runner.projection
+CONTRACT_ID = "sealed-historical-source-binding-v0.1"
+CONTRACT_PATH = f"research/strategy/{CONTRACT_ID}.json"
+OUTPUT_PATH = f"research/runtime/{CONTRACT_ID}"
+MODULE_PATH = "src/momentumbot/research/sealed_historical_source_binding_v01.py"
+SCRIPT_PATH = "scripts/build_sealed_historical_source_binding_v01.py"
+CHECKER_PATH = "scripts/verify_sealed_historical_source_binding_v01.py"
+TEST_PATH = "tests/test_sealed_historical_source_binding_v01.py"
+WORKFLOW_PATH = ".github/workflows/sealed-historical-source-binding-v01.yml"
+PARENT_COMMIT = "b10c8e675161c22658633d70e07960781c405cd3"
+PARENT_TREE = "8ecd1bd27e2df355986a47e305109f5294f03413"
+PARENT_FREEZE = "0bf8f0ac9eb5262afca10addbd4068cc7aab3453dac8b227433600935c2e6338"
+PARENT_PINS = {
+    ".github/workflows/sealed-historical-account-continuity-v01.yml": "f48ca8fc342dc7098c0a2f164c0c9ab5b53b2a71981670d41dde321e60b661c0",
+    ".github/workflows/sealed-historical-account-scheduler-v01.yml": "dc8c43799e3cf4faa18444d4b5fd40f3b041c1fb94ebdd1f9746ba4c9ca5b428",
+    ".github/workflows/sealed-historical-account-state-producer-v01.yml": "c47cd7e2f814a11dab2b93179eed8d0d389be48a02a5790c410cac0e482dfcf9",
+    ".github/workflows/sealed-historical-account-valuation-v01.yml": "d528e040c9900413d274af8b66a5961923bcc9714c8e9102c0df7d380d106f85",
+    ".github/workflows/sealed-historical-management-fee-reconciliation-v01.yml": "2782f7618adce2a5d46844dced0ad826586dba2fcb099dfc7c9954c4cfc18cda",
+    "docs/research/sealed_historical_account_continuity_v01.md": "90f1363d59a9cde600089eb035fb4257605760bb424595145296bad7faaabd8b",
+    "docs/research/sealed_historical_account_scheduler_v01.md": "d81b2cca120bb7fb8a4c8e489f8d2e2dcf41b395bbdd7cd5d9d10409f9eb2e75",
+    "docs/research/sealed_historical_account_valuation_v01.md": "81bb4ed86b47c53094cffd46a5056593d98f16f0db989d362b0f4f7c66338913",
+    "requirements-sealed-execution-quote-v01.txt": "03f4da335027e4c83bcf38e523c2e11aeaae49778f5bd6caa47e4703348b31b4",
+    "research/data-audits/sealed-historical-account-continuity-v0.1-hosted-verification-34230798766.json": "97a26f8ac25ff80f72bdc09258814774681e5549cfbc8c983fac8c82c84e0722",
+    "research/data-audits/sealed-historical-account-continuity-v0.1-independent-verification.json": "e39c715ae2bc7f8cc1e17de2f5c29a4297bdc06be4102d26a7e28c80c62e4f23",
+    "research/data-audits/sealed-historical-account-scheduler-v0.1-hosted-verification-34190813109.json": "e44ef62ccb4dd71ecf791aadc61e98afbce2e734a812845cb7eab04d770b267a",
+    "research/data-audits/sealed-historical-account-scheduler-v0.1-independent-verification.json": "c0c73c103cd1ba24dff44fb52a425a352907bbdb4fdd69fa6a21bbee3408f653",
+    "research/data-audits/sealed-historical-account-state-producer-v0.1-hosted-verification-34185273453.json": "826eabfe3141bd2f3dfa5abdf78a2ad0384e73b5f03dc030b5e0340db488570a",
+    "research/data-audits/sealed-historical-account-state-producer-v0.1-independent-verification.json": "160c9ef1e4bc2eaa9ada69d7da2ea057814539f00524f12e41a53b2f2ad8a269",
+    "research/data-audits/sealed-historical-account-valuation-v0.1-hosted-verification-34187472158.json": "b8c665e28458aef851d636cb6415b2791fc60a65928aaa1bd9a9a0dfd2a066c6",
+    "research/data-audits/sealed-historical-account-valuation-v0.1-independent-verification.json": "fe35e3d6f93af84cf2c6678a3c3e7450a3b2ad3eb56aa7f7fe1218343590d632",
+    "research/data-audits/sealed-historical-management-exit-acquisition-v0.1-independent-verification-34172486163.json": "3d0aea8e76e65eab40df8f309f33153ee80c05e8dc7c076366bc25d31ae9bb33",
+    "research/data-audits/sealed-historical-management-exit-acquisition-v0.1-report-34172486163.json": "2765deba3a5559c3ddf75caf83adfc680d720dbfa1c8292ee310cc5be1a89117",
+    "research/data-audits/sealed-historical-management-exit-inputs-v0.1-hosted-verification-34176013955.json": "61d2b97c583dfdb8cd02642e49d2ceb6e2663cadb763d1bb795029062536b02a",
+    "research/data-audits/sealed-historical-management-exit-inputs-v0.1-independent-verification.json": "54649d3daaa57314dbf7aa4ceb7fb5fe4df2eefa8dc51cf3ca41fa6894e1be6a",
+    "research/data-audits/sealed-historical-management-exit-quote-v0.1-xage-reuse.json": "799d8664916eb89f713dec276134400e87434251ff97ea5c0b0a29219983e75b",
+    "research/data-audits/sealed-historical-management-fee-reconciliation-v0.1-hosted-verification-34181750634.json": "06840dfc13afe2f4479328e5ce5feabe0556559694a258dcf037767fbd3036a9",
+    "research/data-audits/sealed-historical-management-fee-reconciliation-v0.1-independent-verification.json": "17214b643f3d0e2748d718eb0f6e27c3396094ce733af9c2fefa48656c7a7278",
+    "research/data-audits/sealed-historical-management-inputs-v0.1-independent-verification.json": "386d8406c10714091b7a66e62c97604bf96ee08bb36138354546757f18deb5f7",
+    "research/data-audits/sealed-historical-management-projection-v0.1-independent-verification.json": "ec712e11e5fa66e035507900115dcadac1fdd6ffba8f4f5f55a24532ab2e5f19",
+    "research/data-audits/sealed-historical-source-v0.13-final-verification-34039993297.json": "baea1f5da30a5c49323a8bbc14b915d1f099bfafaa3f197249f9f12fc923002e",
+    "research/runtime/sealed-historical-account-continuity-v0.1/continuity-dependencies.json": "772879a7a2c3c181e181f452ab85bdb2dcebc0720564acdfe32d6644e7a501e7",
+    "research/runtime/sealed-historical-account-continuity-v0.1/continuity-mechanics.json": "4606442df1dcd16b8ec4b4530047b605c8bffd387330cc028e95da962a932f90",
+    "research/runtime/sealed-historical-account-continuity-v0.1/freeze-manifest.json": "189e877127959d2393178ad4abc2066ddef06bb6b16d026d95cd817c8ce833a3",
+    "research/runtime/sealed-historical-account-continuity-v0.1/readiness-report.json": "9bf905887fcab1406c2df92541e3e73395227e6f29be1b815707e5663f2d92b4",
+    "research/runtime/sealed-historical-account-management-inputs-v0.1/account-session-input-plan.json": "8ca638578e7957c88f4314e0768a3c379ee0bd1278bd6d8c8e9caa2144f05108",
+    "research/runtime/sealed-historical-account-scheduler-v0.1/freeze-manifest.json": "2861e35d3e96cf83cb621c24bff091813ffff45df46dad5759ff39e250e4f543",
+    "research/runtime/sealed-historical-account-scheduler-v0.1/readiness-report.json": "1be8a52a339716b72fad69a52ea3e740dcda048b19a3a638c37ec41f07bc0c72",
+    "research/runtime/sealed-historical-account-scheduler-v0.1/scheduler-dependencies.json": "98ac0d85df100174df7b00777d9f4dd7e32975e29e6fe2d4d29a4d635d00cbfe",
+    "research/runtime/sealed-historical-account-scheduler-v0.1/scheduler-mechanics.json": "b4c52382088e335df1e78d41fa8192bae9afe77878361efbecc0c31b016fb902",
+    "research/runtime/sealed-historical-account-state-producer-v0.1/account-state-dependencies.json": "4431b54c2b568608902a2301e8cffc461c3c5c180fe41a04003b4c34cb770151",
+    "research/runtime/sealed-historical-account-state-producer-v0.1/freeze-manifest.json": "72d81edc01d0c6dcb70c31d884276cc61d07ab5a4a22a0255d7cd4ab888a15c5",
+    "research/runtime/sealed-historical-account-state-producer-v0.1/producer-mechanics.json": "4f6d713eed6d5452cc9eddc7b824c2c661bfc976c4ea99ca5fbfa5628b7067ed",
+    "research/runtime/sealed-historical-account-state-producer-v0.1/readiness-report.json": "a0908d0970d62659ac0689cf054117bc525327538d15caac0df58bd8efe149f2",
+    "research/runtime/sealed-historical-account-valuation-v0.1/freeze-manifest.json": "044dcee834155e3b063dc146ed9a154eaad7f19b4b9027f6618f23cccf792b56",
+    "research/runtime/sealed-historical-account-valuation-v0.1/readiness-report.json": "b411119554826b5e1ea0a67e116b41d38bb44dac7a5cb3b02a94e997f79446f3",
+    "research/runtime/sealed-historical-account-valuation-v0.1/valuation-dependencies.json": "dc1e47b7f60d8e0f3b2f50d6e4cbe85984c6d6c4a99dee713dbaecab0e556c5f",
+    "research/runtime/sealed-historical-account-valuation-v0.1/valuation-mechanics.json": "078555d60025c68d22ba80719597876c3ae1ee99ff51bdea7fe756fa0d349796",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-05-30.json.gz": "7020f19d4d7cd9ed12986ef5112afd95177273d723b3619eaca8b79acce43eb9",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-02.json.gz": "a615276c5078f89bb7cc701d936e57cc8f33867a38848071b378dd0e74b787ff",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-03.json.gz": "7f5c811be0b90c98a9bd1d17a0a08b033cbf7dee2735f3d609e85bc265d5d41d",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-04.json.gz": "a118e5f3f394e22b3aea1ca13a12e4497dcebadc99ec3d56bb8295962f9be296",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-05.json.gz": "a546d51d3abfdef38d1a955a80fbab96db26c220438f645177eb2ab5d2e3bdb9",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-06.json.gz": "a07b06d7ea18f98be3a6ab4406286d1b19243790e1c77df3951ee9087fd8768f",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-09.json.gz": "5838f92103a8f247ee7a8b7bc3b6ea24027af43a605600bfa201165780a2aadf",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-10.json.gz": "3778f0077cdfbd74d0a2f2256f5fd4aaaca1987af3f126a9056ab40672456082",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-11.json.gz": "6d5098e07a1b9daa6e379da7c4c600be53c7954ee981d6f30a524ab69d94ed4b",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-12.json.gz": "b3543299f6a74a962de288b5442d515c807d37f4a567c9e2cad7022c2fdcd6fb",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-13.json.gz": "d050b7744aa35bb56870808633a7b7939a03c8613e874dd6a714caaf1195cf0b",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-16.json.gz": "7d274627a8e0ac9492b0435023a2ed54ab23563f6f5cd45d160f3e83f45b566f",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-17.json.gz": "29d59399b9692988ab157918911ded98d064564a79578f2b5497da589ff6cc9b",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-18.json.gz": "856ae58e14d93dce760d3dcf37e3efe262dc2b29f0c11de9c2f1267fd2d6b83a",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-20.json.gz": "6082f05966c3569f222420910ccd9f2fcb26aacad53fbc2adbb356aa2f8e9abb",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-23.json.gz": "348c57267ec3416d74724abf74084f1ba93443a16610fe899c789e07ffaa7eb7",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-24.json.gz": "edb68e939064322c3465d30fd7fb68476b060566af0f39b0ad74298e43ef7c67",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-25.json.gz": "c1ca90f5f0767958375d097a3ddbe7f3da1cd3a34dd61de03609dd036943b698",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-26.json.gz": "138dd1ef11ab43451393e56afe516d941a69f06a5b9c62e3ab40b5370e160e7b",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-27.json.gz": "5ce5c50c5be9efc4f83280a7e285b5e4269fcf26007e53f990e7dbd5a8e0be2a",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-07-01.json.gz": "e3bc139d5c3a096801ca091806f14f3d0e5bb01358b4689130d2da55d0c5ad20",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-07-02.json.gz": "983e506f17b520a2737eca9b760d918386c194e4189fe574e012b1f8ab0cca7c",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-07-07.json.gz": "eae6660ace9b77c2e571de2b535be00113973c6a6cd19ca7e27b9d02c635e423",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-07-08.json.gz": "49493d77e7cde39234605f97c42336dbd9b8cb28bd3d84237cdd0208e0d85e5c",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-07-10.json.gz": "38403836f754fb8b5ce29b84d27c9746cce33e4f9a5c71a53b66a269dfc76b88",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-07-11.json.gz": "13eb9aca86d171f780daaf047e93311df0370ced781f6c5fc13cc5c155dbdfe5",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-07-14.json.gz": "ab0d55cf2ba41b1eda9e91ddf42479f810a905d9b5c128b96e2d4b2143a72949",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-07-15.json.gz": "c8b08240a97792faba8a3ead49432ac9b7effc89b093d6fe916450d843e820a9",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-07-16.json.gz": "9d9a94c195f60af3f35ed094ae34fbfd6e369bfa68f1b0e7e92e38ea939fe6b3",
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-07-17.json.gz": "71367f86e2cfbdb35000417b44a98e1ee44f876712947c7ab57e84b47a062151",
+    "research/runtime/sealed-historical-execution-availability-v0.1/manifest.json": "6ed576e70dee9f439fdd2a1773f89931e6de23a73ea56e1ff1d9c81650bc8380",
+    "research/runtime/sealed-historical-management-exit-inputs-v0.1/exit-input-manifest.json": "9733ada8bd2a5db8a1fd21066377d71d71820066c4e1ea3cf52831b37292739e",
+    "research/runtime/sealed-historical-management-exit-inputs-v0.1/freeze-manifest.json": "1acad35bfcbf016b26965f03d1759c13dddb0094124f97b71a9fb25bb271fb1c",
+    "research/runtime/sealed-historical-management-exit-inputs-v0.1/opportunity-input-index.json": "d58232d30a1b28a3be4a67273835eb8b0eae4a644049945aa213955fe5450ebc",
+    "research/runtime/sealed-historical-management-exit-inputs-v0.1/readiness-report.json": "83cd64d28316da750fc8af33cac8859e2981c4b898e0308af10b2839b3311664",
+    "research/runtime/sealed-historical-management-exit-inputs-v0.1/source-verification.json": "4557cdd6a1589dbfac64fa75db5a3b80037578146c0fc9510de52411f98770f4",
+    "research/runtime/sealed-historical-management-fee-reconciliation-v0.1/fee-session-map.json": "64d49c1f337107f2a3ce1c5fdded4479514d24b80d62a47d216364528fc04c3c",
+    "research/runtime/sealed-historical-management-fee-reconciliation-v0.1/freeze-manifest.json": "2ce37076b467ff8e867eb22f48888d9dd1416c52deb145210df4e58d0ebd1d90",
+    "research/runtime/sealed-historical-management-fee-reconciliation-v0.1/readiness-report.json": "f759a699e7414eb89a8aced05fd34eb29fe867fb928fd8f6b9e4440e287a5df9",
+    "research/runtime/sealed-historical-management-fee-reconciliation-v0.1/reconciliation-mechanics.json": "f581561c5a98140998f68429bea8c56dc036e4a39bda281f80699c6a7f5eeecb",
+    "research/runtime/sealed-historical-management-fill-feedback-v0.1/entry-binding-requirements.json": "274a0a384ee9f682711c73aff23d46d561e9f99b08a317729edb700b087e7110",
+    "research/runtime/sealed-historical-management-fill-feedback-v0.1/fill-feedback-mechanics.json": "1804798cb77e4ba36938d6d1c3f2201719f039bed2b247784c902b64814317f4",
+    "research/runtime/sealed-historical-management-fill-feedback-v0.1/freeze-manifest.json": "6b0480b88442dcb83e75d2bbd790245e99dee5219c603b97b3de129e325c06e8",
+    "research/runtime/sealed-historical-management-fill-feedback-v0.1/readiness-report.json": "ae1e94aca391f80b356837d6b48dba62dbb8f852e79610b958707dabfe789d53",
+    "research/runtime/sealed-historical-management-inputs-v0.1/freeze-manifest.json": "8ac5bcdbc13f5d9f9c09ade2b6f550c6336bacaa620001c8555bd910d3e827b7",
+    "research/runtime/sealed-historical-management-inputs-v0.1/management-input-manifest.json": "e4f1c62804a442f5718f87e18109509171b37a0bfe8810d08ba6cdb668e4d57e",
+    "research/runtime/sealed-historical-management-inputs-v0.1/opportunity-input-index.json": "53272c4ce081c6b0684c95fd1332c64cc883d79e16bdd5cb4f797baab6cbae3b",
+    "research/runtime/sealed-historical-management-inputs-v0.1/readiness-report.json": "8e3f936c90211ab52c14044ede577e409d6ac4bc595532fc2c74d9ec66169064",
+    "research/runtime/sealed-historical-management-inputs-v0.1/source-verification.json": "37169a1dc11db3804cff698569524b5287b01b8154df2f5e9c6fff598a948b2d",
+    "research/runtime/sealed-historical-management-projection-v0.1/projection-input-requirements.json": "8b89b1ffd05de277bcff906140b5aeb142a823cce99260d9c967a8d1dc9e931f",
+    "research/runtime/sealed-historical-management-runner-v0.1/exit-input-request-plan.json": "562ed42e20c7021eecf384e3a22aed5f5ce25ae15926dd93072a0313d0e6f461",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-05-30.json": "c362fdb5454c2e58e6cd1d41acd26b7f176805a4b927f724e1fd7f93bcbd226a",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-02.json": "8cb09b4cd5a87377a913bc76d8db77c067a42f4c70565130513f0220c1dd9680",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-03.json": "596573f23645f2f594696cfa51db50eee608eed49237a0ae7337a8dd95365e6b",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-04.json": "cef72805f956f1b17666b652796f018b0ee94bbf411b933f005269d5e7e66926",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-05.json": "7fe8c6491f509846b853090f370798b98f3cfe8c963b68099d2442175c37db79",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-06.json": "01b1edf60b6824fd2cb3dadae3262fa7c433727fc7a4ca26cadce00daeccec49",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-09.json": "3eec74064e527c748113f8242fbc6c271aa8f905a3b65ad78240f0db7a29b34f",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-10.json": "a2f9eb30f46b724aa45c5429e9acc0f4e8149414fa87cda33d7832ecb58f5de0",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-11.json": "93d432f25889a031933abe2e2a8eedfdec98d81a3b83b4b7c75c20dcb77c88ed",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-12.json": "f502b44d90675d7bfd94da4e6609f8ebe24ddf266f2aad81f88b98c34df2c924",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-13.json": "1f1d832cf436ee4c107d5ef19cd531623b9d13babbfc0c03bd35f6dc7f4890bd",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-16.json": "0b15a987e3f937e619b6a768ad59f50a0f13945aad1b1f7ffe6d46e3d7289d22",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-17.json": "9d68eff6ca051a9fba01f5705a3f9fad5d97545132ceefdb12e0e83095b285ca",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-18.json": "3309ee0d50d9e107c9390efd27a73d589a68eaf98736b9efa2ffe4a159127793",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-20.json": "537dd70604f5bbdea6b2c40f52b354174a092e8fa1d09157adc27fe3ac690a04",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-23.json": "433c506ff81a005f9b9a839720e0198602a6c0d1ad83e7cd2f2734f1767eefa0",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-24.json": "6c6bd4663ee57f2fb6159576f24bb7ecc38ff6114e9513f4282a82398f6d81ed",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-25.json": "c469ba123cf15b9c3d2dabbee89b6ee68093de07f2dba49aa54368a970e757e5",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-26.json": "95225611f099e490257a489b32fa64f33ba3f71c3b364e7f82eeacd7444245e7",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-27.json": "8c3d45d7bf41fa7947e1746efd57221001366295172f8ffec9dfe249b2703a6f",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-07-01.json": "4543b53cf7c963c40bb863c48675b34c7db88c8035d38efd5117091158d8994e",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-07-02.json": "c328fa35c81e88943516ec404e7b23bc71b17b71bb590f27255641a0a0a1b96e",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-07-07.json": "8f925039bb0888a61531d9aa2b0a41943b4501f8e1f40fe7d51d1a5d86665a49",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-07-08.json": "49f84311080613137c69fee5790917db2aa2551b386615841cf6f6d90787f0b6",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-07-10.json": "a671e538efb7b3e9fa870620f928dc2d26bf73c2270d28c16559246381763ecb",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-07-11.json": "b1b59f25ac910b4a2600342799ff7c705420848826f83e11b7894ade7b4f2c22",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-07-14.json": "4500dc174c7fce4a07d223929479170d991fca696d84f2dc1fe7deb237154587",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-07-15.json": "81ebc23ed0b17dc7f992829acadea0a99f2c7629a5a1af4ed60e0b47cbe338c0",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-07-16.json": "83c66d0b1c5e4c1b1cc6e6214517a2cba314964c9527ff462d79cfb5e8d0bb60",
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-07-17.json": "25e42ed0def7092102b0c4516b394309cd258ddb09726b3426830d1266853aa8",
+    "research/runtime/sealed-historical-micro-v0.1/manifest.json": "2f46191a7a0e6ff085c58d589857b65617e33ae00ff9de018565ee8803d2e7cf",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-05-30.json": "fe7d4b9fbe7c6c1191878e97440ad0f362f7a0efce81416a9947387898f9cb28",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-06-02.json": "b2d2ce51997a2fe24b95c1bc12c2cabd4b4f39b12a174ed93382045c634e8c95",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-06-03.json": "3c9f705cd776fe649294b7d3cabbbffccfac51108d608dbc9818c71e73c50e0f",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-06-04.json": "259cdae7e6d973e44aca0c76eab030508d9d801a8a61f72bb7a0bafcae058b0f",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-06-05.json": "9100ac5cdd18cb4b288dcd1f21752f4274271a5d0a34fb755650358ea53b8de7",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-06-06.json": "a593aa8cc94ae788b065c7a26f2878849b754f230cf57b08da2db8c27b82f174",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-06-09.json": "0453ae197ab414d1d5c4ed51ca6d182a1eac29c6cd4d127f9b10069ba7883bfe",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-06-10.json": "04e7b6501115a52ec5be3950fdf47064aab9f887f596f4d6b637336c8fcea223",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-06-11.json": "5eebd72fb3109402c3146ba03359c10337b5bcd3e05fb9783c0e7f56fe15c5fe",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-06-12.json": "e255269223091df833a232e1dff4a85ef2dccca08ad33628f98acfde73b73b16",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-06-13.json": "24a5683865866141443addee3fab149b6f59c5152c423ab0038cfb21833f1a06",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-06-16.json": "d359f0f78ddc09bd32d6c1f13f2b1571a944282992e7bfaa9f10531896348a2a",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-06-17.json": "dfebe29c55e3bbb5ac5c3e49254535059ff42fc90f709e65da3c93f14aab9b33",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-06-18.json": "bc474589c079b9757e34f9371f08707d1d3e97508419fab9f1cfcfbf720f2689",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-06-20.json": "a5c7d81bc09f83879342ad027f08a6530e1808c0ce6b89c21d897e2b3be88b96",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-06-23.json": "c2095e78a4d297b6c4a7e5ba66d8f4272b59c06dde250f9b513b19556cd846bc",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-06-24.json": "befb660d887ff9bf7381731337b4cc28155fd863274ec3dd984b1b0d4129537e",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-06-25.json": "3b1704732cfd8e8f804f2dc7fe40fd956a9852c4ac96b19cc18473ea680a79a4",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-06-26.json": "a769a652bde187b72b1fe0e73e8b35e4b5226663413848f3c7bb89cf41315914",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-06-27.json": "74332c5e1481b4b94752963e5a07d940ff253edb0fd66fb784b302bbc3064237",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-07-01.json": "6edf9b3f086cd9e76faa90abc2cb1d680778dca6f8d8db5bc76769a9e31be35c",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-07-02.json": "626bf13d5d7379318f658728a39c79635017b7e8b826717b9dae3130ba804f10",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-07-07.json": "64a652c9f52cc753732dbc874e41e55427ba5ea91bd4cdbd1fd20463b9528e46",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-07-08.json": "3fada0c8fc713532591c44e4bf5c51075fb903c2240c15ac82530539fdb36147",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-07-10.json": "7dcbf1a2408cb54e93528f15024dca7bd7ed643819d62f96608a16ddd392be82",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-07-11.json": "c18dc0f92ecb52c38117a4e370f33290f099f90312786e82f586025514ea4dc0",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-07-14.json": "db50f123048df101fff75b2d5c28fb86fcfab37302dbfd02e5e2b93d3edaa800",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-07-15.json": "b3f97c0cd5ebf56b148ce930e9ee992a248d9ca6a7136b6b50f4816cfb2bd73f",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-07-16.json": "2fbe342f3daf7c1081ed2470ec66de5cb402534c97f6a04986989450ae1a5248",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/dates/2025-07-17.json": "089c4c2dd00eb2363d0cf4308a29436eb3fd40d9fab073a3f7183a2f5a40bcaf",
+    "research/runtime/sealed-historical-scanner-activation-v0.2/manifest.json": "efcfcb7575ca61d5d03c0d0a9cdb5d27348c8699c04d236e77c436024c6f51bb",
+    "research/strategy/sealed-historical-account-continuity-v0.1.json": "99566f6e053fd23c06084e62db417b1037b8e5907c16827774e336e85fb69996",
+    "research/strategy/sealed-historical-account-scheduler-v0.1.json": "0cf0a5591e0449eeb433eccf3e3102402f39e500776beec0773d8a8c2b69459c",
+    "research/strategy/sealed-historical-account-state-producer-v0.1.json": "d893c4b78ac26d996f72d0b3a373535704ebb5cbd8bda04ad4d59901d2800cb3",
+    "research/strategy/sealed-historical-account-valuation-v0.1.json": "de39f01dac3d56c750bc5c72a859062930caad26cf6877a890b3047fedd687d5",
+    "research/strategy/sealed-historical-management-exit-acquisition-v0.1-execution.json": "60bbd95d1017a3e0e2b3c40060e988f4a457d81b0280b4065c9712a03a1c54e0",
+    "research/strategy/sealed-historical-management-exit-acquisition-v0.1.json": "147afc1aa99e33397c1d7f25d6bf17a443c5468d44f820edd40c0d64db989901",
+    "research/strategy/sealed-historical-management-exit-inputs-v0.1.json": "e51b3d22feec29408245de3a1bc27406ac9d714203b839a5d5baada3e692c536",
+    "research/strategy/sealed-historical-management-fee-reconciliation-v0.1-fee-sources.json": "bcb903f2b8e00dc168d3b5c54a6b435054e9bc08d4e3a57d3388044e29754929",
+    "research/strategy/sealed-historical-management-fee-reconciliation-v0.1.json": "afc564cc279c180819bef3b5a0e89e28e0ae2c086263e193f17f7a5d6f9c7bdf",
+    "research/strategy/sealed-historical-management-fill-feedback-v0.1.json": "eb41f6fc5112b84e85d014bbc0f990b14b521e76ca3141a23b7044ef54fbc178",
+    "research/strategy/sealed-historical-management-projection-v0.1.json": "898bf4d7335a401d7f1962f9de48ee1956d5c2ac96ae9cd4b30d915d933a0a61",
+    "scripts/build_sealed_historical_account_continuity_v01.py": "c2bd66d69056812a4a7b70fd6dc9f4d42d8ed7d36c4e896197cadb3e97835f52",
+    "scripts/build_sealed_historical_account_scheduler_v01.py": "dd11a75ebf87ace2795cd7bfeb6324636228947e4ec571a74da9444db9197391",
+    "scripts/build_sealed_historical_account_state_producer_v01.py": "251c04f24df67b866925668da49588515d5860ab405c5bb507a275d429c0a315",
+    "scripts/build_sealed_historical_account_valuation_v01.py": "64ec2a5f47fe6a762270303cebec8b7dc9f6f6fc1eda719369ee126113b7b6cc",
+    "scripts/build_sealed_historical_management_fee_reconciliation_v01.py": "1f0b02fb1387c50943c49561387665fce032139b18d66cd54175cb979ec08574",
+    "scripts/run_offline_python_v13.py": "fd28ca7e4a27832721a890a1a41af36863a7f13568ca9e85e17c2d5f35e0627d",
+    "scripts/verify_sealed_historical_account_continuity_v01.py": "a130ba6a659fab2d94dd7edcd4f26c19d86eb4de56c74d0389400968ba54721d",
+    "scripts/verify_sealed_historical_account_scheduler_v01.py": "57298784d552a5c48e4ad885d405eddec2c6f3e7ea128427f6d6574e20895f3d",
+    "scripts/verify_sealed_historical_account_state_producer_v01.py": "93d8feb3ff4eb628e7530ad96bf4c97fcc290a48b6fa571b19955b1bf501a659",
+    "scripts/verify_sealed_historical_account_valuation_v01.py": "d2aec3399e53776538b0bae6545de1e51ee1b98abbf6d26644a435d354f16c01",
+    "scripts/verify_sealed_historical_management_exit_inputs_v01.py": "e7e859f6cb6bce8ffb4fa43915ff17cc8da1a07d9d768aac317fad3388595168",
+    "scripts/verify_sealed_historical_management_fee_reconciliation_v01.py": "4ea27b0937c991b339660d626354fe11f209c63e4a1ba5075eacc27312594409",
+    "src/momentumbot/models.py": "efa4857a1fa92d24896b750b7df4846abd952fafd966f046054e0aad21325a82",
+    "src/momentumbot/research/account_chronological_integration.py": "917257a23abba6a075f6ba1fb97b5a01fb2729dfd63d8c90f7655d6d590afe41",
+    "src/momentumbot/research/account_priority_policy.py": "3c0254bcd06425670e7158fb6c2be44edaa6c6f4b74c045798148f9d43e250d7",
+    "src/momentumbot/research/campaign_portfolio.py": "5e8b5fb8e42cc739b8337bb544b811e57ccda2df5e7f46ca65ef5a30472149c4",
+    "src/momentumbot/research/execution_realism.py": "446509405e3f44e3924c852569c5b06a096f61330552ede850a55c3da5794177",
+    "src/momentumbot/research/prospective_daily_account_runtime.py": "45473afe1b947d56fd794ca80a9f72cc7934ca446a161ecb3c7f6ab1e4080d2a",
+    "src/momentumbot/research/prospective_daily_source.py": "3f957335a390680bb898d42281fe95caf08726ea4ef822cea91a776aa1e7d34e",
+    "src/momentumbot/research/sealed_historical_account_continuity_v01.py": "579dbf09ec2800e96e0ef7f012cf797c7982cb440d5c9c09f888e7a07923087b",
+    "src/momentumbot/research/sealed_historical_account_inputs_v01.py": "b7a28487807dd5d841a205d6ab74429fb3ed5f0f74b345712c57579e360228dd",
+    "src/momentumbot/research/sealed_historical_account_scheduler_v01.py": "55dd5d4f1e91240bbc33506e5d7535e56d2c643a62389e80f1b8e075cca29cdc",
+    "src/momentumbot/research/sealed_historical_account_state_producer_v01.py": "b26456cff4d70e2845a555f166511797141fd4031112d601111bac0e21072f42",
+    "src/momentumbot/research/sealed_historical_account_valuation_v01.py": "a86edead169d1d8fc6352d0cad798b46e67d206968123b508f87c613c2d90351",
+    "src/momentumbot/research/sealed_historical_execution_acquisition_v03.py": "cb75e8648fbd333aa578c4045c778377a9eddfba4cf4b2de9ed1cdd5367fa8a8",
+    "src/momentumbot/research/sealed_historical_execution_availability_v01.py": "ef541e915e75c10641c57e42cd4a62fbb66b472c6b40a02d4c2ad85d6dbedb37",
+    "src/momentumbot/research/sealed_historical_execution_inputs_v01.py": "f100c220ed4fe5a6511d854599d8ed1494aaf554540a4fcabf6646f856b2a40f",
+    "src/momentumbot/research/sealed_historical_management_exit_acquisition_v01.py": "b9e7286a793a164f67ee416152327d6cd7fb98ed7cd38293c4a0dd5ed24663f8",
+    "src/momentumbot/research/sealed_historical_management_exit_inputs_v01.py": "5c45ee5f5f05b70e72a070f4ecc35dfbbda56039493b711fd4fe712494ba7d2e",
+    "src/momentumbot/research/sealed_historical_management_exit_quote_v01.py": "079200a3d0dededb5a3b775f46330ce3558d98fc8c1b67b10b2ce246cf8549f7",
+    "src/momentumbot/research/sealed_historical_management_fee_reconciliation_v01.py": "edf9f1d449ade225ef871a3976b8e0095b4f8a022080a761d836d62b185b2ab0",
+    "src/momentumbot/research/sealed_historical_management_fill_feedback_v01.py": "8ac8b1ea0a8d3ccf57c07d5a3a5ddf0cd82409210dc16506c68400b768f8697d",
+    "src/momentumbot/research/sealed_historical_management_inputs_v01.py": "4731af34014e2403f08f75b1cede71628e18fcc2d01a335a7dd26dc95c9face2",
+    "src/momentumbot/research/sealed_historical_management_projection_v01.py": "1741df5539180eed155c1b2160c7f9fccafdef869939da8330345aa56e548331",
+    "src/momentumbot/research/sealed_historical_management_runner_v01.py": "7f352ac748e57f9e3a3c59971a07de152e6063b783bcd4eb6b48723f8f904fc5",
+    "src/momentumbot/research/sealed_historical_record_order_v01.py": "407e02fc6fe908e26715fac2799f0debf356e96336b640e795b50287762dec6b",
+    "src/momentumbot/research/sealed_historical_scanner_micro_runtime_v02.py": "4ef7ee72658f124ebf7dbf4e9ecf6c2465590f8631980bdae3cdea1cecb69ce7",
+    "tests/test_sealed_historical_account_continuity_v01.py": "568e13da43884df9953edefa57e92c9b42ac4fc418b397978df29f034b1deccf",
+    "tests/test_sealed_historical_account_inputs_v01.py": "69f0398e4edce650ffbeeca51e7501ae84da6bcabadf258b665ea3b07df58e1b",
+    "tests/test_sealed_historical_account_scheduler_v01.py": "21a2c671bdf1248a069346249a4e15ece19d81dd54230509f70d45679d20a5a7",
+    "tests/test_sealed_historical_account_state_producer_v01.py": "72ca6dd1a28f98282a732eaef600a720d16b77be0a7f1165ce28e89120e0cb95",
+    "tests/test_sealed_historical_account_valuation_v01.py": "238a6358850a35e0c98bb7ec448ac91a4c5f6e4b2e7b56e8b79dc7b58963b6ce",
+    "tests/test_sealed_historical_management_fee_reconciliation_v01.py": "31169511e1391d6a2e3df60821017a6f95c788df1b11667ca07b02f9ce8e72da",
+    "tests/test_sealed_historical_management_fill_feedback_v01.py": "18e9e649aa501d92fd058e956c5421615006ae7593b4bdc3c731932008113d8e",
+    "tests/test_sealed_historical_management_projection_v01.py": "b34f7fb9224eb0da2b467a7ba22b1056ef9385a1e77abb5626a57b45119dbefb",
+    "tests/test_sealed_historical_management_runner_v01.py": "d81119df620f327174779b0147204b7cad6714475771f18d70d487d8e46b93f5"
+}
+SCANNER_PATH = "research/runtime/sealed-historical-scanner-activation-v0.2"
+MICRO_PATH = "research/runtime/sealed-historical-micro-v0.1"
+SOURCES = {
+    "scanner": {"artifact_id": 9993250947, "bytes": 78404172, "sha256": "af89836213a905a1e02dabd54cce1d2bab2f55214c2d7bc0dce44d4700243638"},
+    "management": {"artifact_id": 10028253493, "bytes": 43591721, "sha256": "e6ae822301440e3c0d183546b472e5b6f4e0f50d6e4f1b67178ba6bf46e382e0"},
+    "exit": {"artifact_id": 10037358910, "bytes": 30747584, "sha256": "94877d03a9e91372f9a36d68275b6c44421139bc5c4eab0f26403c26f26aed80"},
+    "entry_result": {k: v for k, v in availability.ARTIFACTS["result"].items() if k in {"artifact_id", "bytes", "sha256"}},
+    "entry_consumption": {k: v for k, v in availability.ARTIFACTS["consumption"].items() if k in {"artifact_id", "bytes", "sha256"}},
+}
+BOUNDARY = dict(parent.BOUNDARY, source_binding_registered=True,
+    historical_account_execution_enabled=False, account_or_fill_simulation_executed=False)
+NEXT_GATE = "isolated_historical_account_activation_with_bound_sources_and_explicit_unresolved_carry"
+PROFILES = {"current-general-2026": current_general_2026, "current-small-account-2026": current_small_account_2026}
+
+
+def _pin(value, expected, label):
+    if not isinstance(expected, str) or re.fullmatch(r"[0-9a-f]{64}", expected) is None:
+        raise ValueError("external SHA-256 required: " + label)
+    if canonical_fingerprint(value) != expected:
+        raise ValueError("source commitment differs: " + label)
+
+
+def _json(raw):
+    def pairs(items):
+        result = {}
+        for key, value in items:
+            if key in result:
+                raise ValueError("duplicate source JSON key")
+            result[key] = value
+        return result
+    return json.loads(raw, object_pairs_hook=pairs,
+        parse_constant=lambda value: (_ for _ in ()).throw(ValueError("nonfinite source JSON")))
+
+
+def checked_archive(path, spec):
+    availability._regular(path)
+    if path.stat().st_size != spec["bytes"] or file_sha(path) != spec["sha256"]:
+        raise ValueError("archive differs from independently verified original bytes")
+    archive = zipfile.ZipFile(path)
+    try:
+        names = set()
+        for info in archive.infolist():
+            name = PurePosixPath(info.filename)
+            mode = info.external_attr >> 16
+            if (name.is_absolute() or ".." in name.parts or "\\" in info.filename
+                    or name.as_posix() != info.filename.rstrip("/") or not name.parts
+                    or info.filename in names or info.flag_bits & 1
+                    or stat.S_ISLNK(mode) or stat.S_IFMT(mode) not in (0, stat.S_IFREG, stat.S_IFDIR)):
+                raise ValueError("unsafe or duplicate archive member")
+            names.add(info.filename)
+        return archive
+    except BaseException:
+        archive.close()
+        raise
+
+
+def extract_archive(path, spec, output):
+    if output.exists() or output.is_symlink() or any(p.is_symlink() for p in output.parents):
+        raise ValueError("new nonsymlink extraction directory required")
+    with checked_archive(path, spec) as archive:
+        output.mkdir(parents=True, exist_ok=False)
+        for info in archive.infolist():
+            target = output / info.filename
+            if info.is_dir():
+                target.mkdir(parents=True, exist_ok=True)
+            else:
+                target.parent.mkdir(parents=True, exist_ok=True)
+                with target.open("xb") as handle:
+                    raw = archive.read(info)
+                    if handle.write(raw) != len(raw):
+                        raise OSError("short source extraction")
+
+
+def unique(rows, key):
+    result = {}
+    for row in rows:
+        identity = row[key]
+        if identity in result:
+            raise ValueError("duplicate original identity: " + key)
+        result[identity] = row
+    return result
+
+
+def bind_candidate(row, activation, opportunity, profile_id):
+    """Exact activation-row projection; no latest-row or caller-rank fallback."""
+    parent.scheduler._without_labels(row)
+    _pin(row, activation["scanner_record_content_sha256"], "original scanner row")
+    if (profile_id not in PROFILES or profile_id not in activation["eligible_strategy_profile_ids"]
+            or profile_id not in opportunity["eligible_strategy_profile_ids"]):
+        raise ValueError("original profile membership required")
+    stamp = pd.Timestamp(row["decision_time"])
+    qualified = pd.Timestamp(activation["candidate_qualified_at"])
+    if (pd.isna(stamp) or stamp.tzinfo is None or stamp != qualified
+            or int(stamp.value) != opportunity["candidate_qualified_ts_ns"]
+            or int(stamp.value) > opportunity["decision_ts_ns"]
+            or activation["activation_id"] != opportunity["activation_id"]
+            or row["symbol"] != activation["symbol"] or row["symbol"] != opportunity["symbol"]):
+        raise ValueError("original activation time and symbol required")
+    candidate = _candidate_from_row(row, PROFILES[profile_id]())
+    if candidate.quality.value == "reject":
+        raise ValueError("original activation no longer qualifies under frozen profile")
+    value = asdict(candidate)
+    value.pop("float_rotation")
+    value.update(timestamp=candidate.timestamp.isoformat(), quality=candidate.quality.value,
+        reasons=list(candidate.reasons))
+    if set(value) != parent.scheduler.CANDIDATE_FIELDS:
+        raise ValueError("scheduler candidate fields differ")
+    return value
+
+
+def bind_decision(window, decision, activation):
+    projection.validate_window(window)
+    op = window["opportunity"]
+    parent.scheduler._without_labels(decision)
+    if set(decision) != availability.plan.DECISION_FIELDS:
+        raise ValueError("exact original Micro decision required")
+    _pin(decision, op["source_decision_content_sha256"], "Micro decision")
+    for key in ("activation_id", "symbol"):
+        if activation[key] != op[key] or decision[key] != op[key]:
+            raise ValueError("Micro activation identity differs")
+    if (int(pd.Timestamp(decision["candidate_qualified_at"]).value) != op["candidate_qualified_ts_ns"]
+            or int(pd.Timestamp(decision["decision_at"]).value) != op["decision_ts_ns"]
+            or decision["eligible_strategy_profile_ids"] != activation["eligible_strategy_profile_ids"]):
+        raise ValueError("original Micro time or profile lineage differs")
+    return deepcopy(decision)
+
+
+def carry_dependencies(paths):
+    """Conditional requirements only; there is no inferred historical position."""
+    result = []
+    for path in paths:
+        for previous, slot in zip(path["sessions"], path["sessions"][1:]):
+            accounts._validate_slot(previous)
+            accounts._validate_slot(slot)
+            if slot["previous_session_id"] != previous["session_id"] or slot["path_id"] != previous["path_id"]:
+                raise ValueError("carry dependency must use exact preceding slot in the same path")
+            result.append({"path_id": path["path_id"], "previous_session_id": previous["session_id"],
+                "next_session_id": slot["session_id"], "next_slot_content_sha256": slot["content_sha256"],
+                "valuation_at_ns": parent.valuation.session_start_ns(slot),
+                "position_population": "conditional_on_verified_account_replay",
+                "previous_close_content_sha256": None,
+                "share_unit_continuity": "unavailable_no_registered_corporate_action_source",
+                "valuation_quote_status": "unavailable_no_registered_session_start_mark_pair",
+                "expired_window_execution": "unavailable_no_extension_or_retry_registered",
+                "missing_evidence_effect": "preserve_exact_shares_basis_cash_orders_attempts_and_block_continuation",
+                "unchanged_units_inferred_from_split_prices": False,
+                "flat_state_inferred": False, "source_request_authorized": False})
+    return result
+
+
+def mechanics():
+    return {
+        "source_authentication": "exact_external_archive_bytes_plus_committed_metadata_and_native_tape_checks",
+        "candidate": "original_activation_scanner_row_hash_and_time_projected_by_unchanged_profile",
+        "decision": "exact_original_Micro_decision_hash_plan_activation_nanoseconds_and_profiles",
+        "scope": "all_109_opportunities_12_paths_360_slots_including_unavailable_and_empty_dates",
+        "entry": "recompute_original_availability_from_original_pair_never_rescue_with_common_exit_quotes",
+        "management": "unchanged_raw_SIP_envelopes_original_ordinals_no_sort_dedup_or_window_extension",
+        "exit": "complete_original_common_pair_with_original_opportunity_conditional_bounds",
+        "carry": "conditional_348_transitions_no_claimed_positions_or_inferred_flatness_units_or_liquidation",
+        "execution": "input_access_only_parent_synthetic_execution_guards_unchanged",
+    }
+
+
+def expected_contract(root):
+    return seal({"schema_version": 1, "contract_id": CONTRACT_ID, "parent_commit_sha": PARENT_COMMIT,
+        "parent_tree_sha": PARENT_TREE, "parent_continuity_freeze_content_sha256": PARENT_FREEZE,
+        "frozen_parent_file_sha256": PARENT_PINS, "source_archives": SOURCES, "mechanics": mechanics(),
+        "hypothesis": "original_source_binding_preserves_causal_candidate_identity_exact_windows_and_explicit_carry_gaps",
+        "implementation_file_sha256": {p: file_sha(root / p) for p in (MODULE_PATH, SCRIPT_PATH, CHECKER_PATH, TEST_PATH, WORKFLOW_PATH)},
+        "next_gate": NEXT_GATE, **BOUNDARY})
+
+
+def validate_registration(root):
+    for name, sha in PARENT_PINS.items():
+        availability._regular(root / name)
+        if file_sha(root / name) != sha:
+            raise ValueError("source binding parent differs: " + name)
+    parent.verify_bundle(root, root / parent.OUTPUT_PATH)
+    if frozen(root / parent.OUTPUT_PATH / "freeze-manifest.json")["content_sha256"] != PARENT_FREEZE:
+        raise ValueError("continuity freeze differs")
+    require_exact(frozen(root / CONTRACT_PATH), expected_contract(root), "source binding registration")
+    return seal({"verification_passed": True, "contract_content_sha256": expected_contract(root)["content_sha256"], **BOUNDARY})
+
+
+def build_bundle(root):
+    validate_registration(root)
+    paths = frozen(root / projection.ACCOUNT_PLAN)["paths"]
+    documents = {
+        "binding-mechanics.json": seal({"contract_id": CONTRACT_ID, "mechanics": mechanics(), **BOUNDARY}),
+        "carry-dependencies.json": seal({"contract_id": CONTRACT_ID, "transitions": carry_dependencies(paths), **BOUNDARY}),
+        "readiness-report.json": seal({"contract_id": CONTRACT_ID, "source_bytes_verified_in_this_registration": False,
+            "historical_sources_require_separate_bound_artifact": True, "next_gate": NEXT_GATE, **BOUNDARY})}
+    return _documents(documents, expected_contract(root)["content_sha256"])
+
+
+def _documents(documents, contract_sha):
+    files = {name: parent.fees.encoded(value) for name, value in documents.items()}
+    files["freeze-manifest.json"] = parent.fees.encoded(seal({"contract_id": CONTRACT_ID,
+        "contract_content_sha256": contract_sha,
+        "file_inventory": {name: {"bytes": len(raw), "sha256": hashlib.sha256(raw).hexdigest()} for name, raw in files.items()},
+        "document_content_sha256": {name: value["content_sha256"] for name, value in documents.items()}, **BOUNDARY}))
+    return files
+
+
+def write_files(root, output, files, *, registration=False):
+    if output.is_symlink() or any(p.is_symlink() for p in output.parents):
+        raise ValueError("nonsymlink output required")
+    if output.resolve().is_relative_to(root.resolve()) and (not registration or output.resolve() != (root / OUTPUT_PATH).resolve()):
+        raise ValueError("output must not modify repository sources")
+    output.mkdir(parents=True, exist_ok=False)
+    for name, raw in files.items():
+        with (output / name).open("xb") as handle:
+            if handle.write(raw) != len(raw):
+                raise OSError("short source binding write")
+            handle.flush()
+            os.fsync(handle.fileno())
+    return seal({"verification_passed": True, "file_inventory": availability._inventory(output), **BOUNDARY})
+
+
+def verify_bundle(root, output):
+    expected = build_bundle(root)
+    if set(availability._inventory(output)) != set(expected):
+        raise ValueError("source binding registration inventory differs")
+    for name, raw in expected.items():
+        if (output / name).read_bytes() != raw:
+            raise ValueError("source binding registration bytes differ: " + name)
+    return seal({"verification_passed": True, "freeze_content_sha256": frozen(output / "freeze-manifest.json")["content_sha256"], **BOUNDARY})
+
+
+class OriginalSources:
+    """Context-managed original evidence; no orders, account balances or signals.
+
+    Constructing this reader verifies the registered code before opening sources.
+    Each public access pins the generated binding manifest and original identity.
+    """
+    def __init__(self, root, paths, *, expected_registration_sha256):
+        checked = verify_bundle(root, root / OUTPUT_PATH)
+        if checked["freeze_content_sha256"] != expected_registration_sha256:
+            raise ValueError("external source binding registration pin differs")
+        if set(paths) != set(SOURCES):
+            raise ValueError("all five exact original archives required")
+        self.root, self.paths = root, dict(paths)
+        self._temporary = None
+        self._manifest = None
+
+    def __enter__(self):
+        if self._temporary is not None:
+            raise ValueError("source reader already open")
+        self._temporary = tempfile.TemporaryDirectory(prefix="original-source-binding-")
+        temporary = Path(self._temporary.name)
+        try:
+            for key in SOURCES:
+                with checked_archive(self.paths[key], SOURCES[key]):
+                    pass
+            extract_archive(self.paths["management"], SOURCES["management"], temporary / "management")
+            extract_archive(self.paths["exit"], SOURCES["exit"], temporary / "exit")
+            self.management = management.ManagementInputBundle(self.root, temporary / "management",
+                expected_manifest_content_sha256=frozen(self.root / management.SNAPSHOT_PATH / "freeze-manifest.json")["content_sha256"])
+            self.exits = exits.ExitInputBundle(self.root, temporary / "exit",
+                expected_manifest_content_sha256=frozen(self.root / exits.SNAPSHOT_PATH / "freeze-manifest.json")["content_sha256"])
+            result, prefix, _ = availability.verify_artifacts(self.root, result_zip=self.paths["entry_result"],
+                consumption_zip=self.paths["entry_consumption"], workspace=temporary / "entry")
+            self._entry = unique([{"request_id": r.request["request_id"], "source": r}
+                for r in availability.load_request_inputs(self.root, result, prefix)], "request_id")
+            self._scanner_rows = self._load_scanner_rows()
+            self._manifest = self._bind()
+            return self
+        except BaseException:
+            self.__exit__(None, None, None)
+            raise
+
+    def __exit__(self, *_):
+        if self._temporary is not None:
+            self._temporary.cleanup()
+        self._temporary = None
+        self._manifest = None
+        self._entry = {}
+
+    def _load_scanner_rows(self):
+        result = {}
+        with checked_archive(self.paths["scanner"], SOURCES["scanner"]) as archive:
+            for day in accounts.DATES:
+                activation_day = frozen(self.root / SCANNER_PATH / "dates" / f"{day}.json")
+                name = f"source/causal-scanner-snapshot-v0.3/{day}/scanner-snapshot.json"
+                snapshot = _json(archive.read(name))
+                accounts._sealed(snapshot, "original scanner snapshot")
+                if snapshot["content_sha256"] != activation_day["source_scanner_snapshot_content_sha256"]:
+                    raise ValueError("original scanner snapshot commitment differs")
+                require_exact(scanner.build_scanner_activation_manifest(snapshot, trading_date=day), activation_day,
+                    "original first qualifying scanner activations")
+                wanted = {a["scanner_record_content_sha256"] for a in activation_day["activations"]}
+                selected = []
+                for row in snapshot["rows"]:
+                    sha = canonical_fingerprint(row)
+                    if sha in wanted:
+                        selected.append({"sha": sha, "row": row})
+                rows = unique(selected, "sha")
+                for activation in activation_day["activations"]:
+                    result[activation["activation_id"]] = {"activation": activation,
+                        "scanner_row": rows[activation["scanner_record_content_sha256"]]["row"]}
+        if len(result) != 192:
+            raise ValueError("all 192 original activations required")
+        return result
+
+    def _entry_pair(self, op):
+        stem = op["trading_date"] + "-" + op["symbol"]
+        return tuple(self._entry[stem + "-" + schema]["source"] for schema in ("mbp-1", "status"))
+
+    def _bind(self):
+        _, _, availability_rows = accounts.load_parent(self.root)
+        available = {row["opportunity"]["opportunity_id"]: row for row in availability_rows}
+        paths = frozen(self.root / projection.ACCOUNT_PLAN)["paths"]
+        windows = frozen(self.root / runner.INPUT_REQUIREMENTS)["opportunity_windows"]
+        decisions = {}
+        for day in accounts.DATES:
+            daily = frozen(self.root / MICRO_PATH / "dates" / f"{day}.json")
+            decisions.update(unique([{"sha": canonical_fingerprint(d), "decision": d} for d in daily["decisions"]], "sha"))
+        exit_manifest = frozen(self.root / exits.SNAPSHOT_PATH / "exit-input-manifest.json")
+        groups = {g["original_group"]["group_id"]: g for g in exit_manifest["groups"]}
+        bindings, pair_checks, entry_hashes = [], {}, {}
+        for window in windows:
+            op = window["opportunity"]
+            oid = op["opportunity_id"]
+            source = self._scanner_rows[op["activation_id"]]
+            decision = bind_decision(window, decisions[op["source_decision_content_sha256"]]["decision"], source["activation"])
+            quotes, statuses = self._entry_pair(op)
+            original = availability.compose_opportunity(op, quotes, statuses)
+            require_exact(original, available[oid], "original entry availability including unavailable inputs")
+            require_exact(self.management.opportunity(oid), window, "original management opportunity")
+            streams = {resource: runner.stream_commitment(projection._records(self.management.iter_records(oid, resource), window, resource))
+                for resource in management.RESOURCES}
+            exit_op = self.exits.opportunity(oid)
+            if exit_op["window_content_sha256"] != canonical_fingerprint(window):
+                raise ValueError("exit opportunity window differs")
+            group = groups.get(exit_op["group_id"])
+            exit_binding = None
+            if group is not None:
+                member = next(m for m in group["original_group"]["members"] if m["opportunity_id"] == oid)
+                if exit_op["group_id"] not in pair_checks:
+                    tape, sha = self.exits.execution_tape(oid, member["first_possible_exit_decision_ns"],
+                        expected_window_content_sha256=canonical_fingerprint(window))
+                    pair_checks[exit_op["group_id"]] = {"execution_tape_content_sha256": sha,
+                        "quote_rows": len(tape["quote_records"]), "status_rows": len(tape["status_records"])}
+                exit_binding = {"group_id": exit_op["group_id"], "original_group": group["original_group"],
+                    "member": member, **pair_checks[exit_op["group_id"]]}
+            elif original["input_status"] == "available":
+                raise ValueError("available entry missing original exit group")
+            pair_id = quotes.request["request_id"]
+            if pair_id not in entry_hashes:
+                entry_hashes[pair_id] = None if quotes.records is None or statuses.records is None else canonical_fingerprint({
+                    "quote_request": quotes.request, "quote_records": quotes.records,
+                    "status_request": statuses.request, "status_records": statuses.records})
+            entry_sha = entry_hashes[pair_id]
+            bindings.append(seal({"opportunity_id": oid, "window": window, "source_decision": decision,
+                **deepcopy(source), "candidates": {p: bind_candidate(source["scanner_row"], source["activation"], op, p)
+                    for p in op["eligible_strategy_profile_ids"]},
+                "entry": {"input_status": original["input_status"], "reason": original["reason"],
+                    "availability_content_sha256": original["content_sha256"], "execution_tape_content_sha256": entry_sha,
+                    "quote_request_evidence_sha256": quotes.evidence["content_sha256"],
+                    "status_request_evidence_sha256": statuses.evidence["content_sha256"]},
+                "management_streams": streams, "exit": exit_binding}))
+        unique(bindings, "opportunity_id")
+        if len(bindings) != 109 or len(pair_checks) != 41:
+            raise ValueError("original source population changed")
+        return seal({"contract_id": CONTRACT_ID, "artifact_type": "authenticated_original_account_source_bindings",
+            "registration_freeze_content_sha256": frozen(self.root / OUTPUT_PATH / "freeze-manifest.json")["content_sha256"],
+            "source_archives": SOURCES, "activations": list(self._scanner_rows.values()), "paths": paths,
+            "opportunities": bindings, "carry_dependencies": carry_dependencies(paths),
+            **BOUNDARY, "original_market_source_provenance_authenticated": True})
+
+    def manifest(self):
+        if self._temporary is None or self._manifest is None:
+            raise ValueError("verified original source reader is not open")
+        return deepcopy(self._manifest)
+
+    def _resolve(self, path_id, opportunity_id, expected_manifest_sha256):
+        if self._temporary is None or self._manifest is None:
+            raise ValueError("verified original source reader is not open")
+        manifest = self._manifest
+        if manifest["content_sha256"] != expected_manifest_sha256:
+            raise ValueError("external bound-source manifest pin differs")
+        row = unique(manifest["opportunities"], "opportunity_id").get(opportunity_id)
+        if row is None:
+            raise ValueError("unregistered original source opportunity")
+        slots = [s for p in manifest["paths"] if p["path_id"] == path_id for s in p["sessions"]
+            if s["trading_date"] == row["window"]["opportunity"]["trading_date"]]
+        if len(slots) != 1 or not any(r["opportunity_id"] == opportunity_id for r in slots[0]["opportunity_inputs"]):
+            raise ValueError("opportunity does not belong to original account path")
+        return deepcopy(row), deepcopy(slots[0])
+
+    def context(self, path_id, opportunity_id, *, expected_manifest_sha256):
+        row, slot = self._resolve(path_id, opportunity_id, expected_manifest_sha256)
+        context = {"window": row["window"], "slot": slot, "source_decision": row["source_decision"]}
+        return seal({"context": context, "context_content_sha256": canonical_fingerprint(context),
+            "candidate": row["candidates"][slot["profile_id"]], "entry_input_status": row["entry"]["input_status"],
+            "entry_input_reason": row["entry"]["reason"], "binding_content_sha256": row["content_sha256"],
+            "pre_entry_account_state_authenticated": False, "historical_runtime_authorized": False})
+
+    def entry_tape(self, path_id, opportunity_id, *, expected_manifest_sha256):
+        row, _ = self._resolve(path_id, opportunity_id, expected_manifest_sha256)
+        if row["entry"]["input_status"] != "available":
+            raise ValueError("original unavailable entry cannot be rescued")
+        quotes, statuses = self._entry_pair(row["window"]["opportunity"])
+        tape = {"quote_request": quotes.request, "quote_records": quotes.records,
+            "status_request": statuses.request, "status_records": statuses.records}
+        sha = row["entry"]["execution_tape_content_sha256"]
+        _pin(tape, sha, "original entry tape at access")
+        return deepcopy(tape), sha
+
+    def iter_records(self, path_id, opportunity_id, resource, *, expected_manifest_sha256):
+        row, _ = self._resolve(path_id, opportunity_id, expected_manifest_sha256)
+        if resource not in management.RESOURCES:
+            raise ValueError("unregistered management resource")
+        cursor = runner._Cursor(self.management.iter_records(opportunity_id, resource), row["window"], resource,
+            row["management_streams"][resource])
+        while cursor.value is not None:
+            yield cursor.value
+            cursor.advance()
+
+    def exit_tape(self, path_id, opportunity_id, decision_ns, *, expected_manifest_sha256):
+        row, _ = self._resolve(path_id, opportunity_id, expected_manifest_sha256)
+        return self.exits.execution_tape(opportunity_id, decision_ns,
+            expected_window_content_sha256=canonical_fingerprint(row["window"]))

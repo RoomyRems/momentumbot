@@ -1,0 +1,46 @@
+{
+  "account_close_evidence": false,
+  "account_or_fill_simulation_executed": false,
+  "broker_statement_equivalence_verified": false,
+  "carried_position_execution_resumption_integrated": false,
+  "content_sha256": "a5765974223b6551dcb6e2dffcc0f1f050c172592d6530e94013ffa6c0fbed79",
+  "continuous_account_order_integration_verified": false,
+  "continuous_position_order_execution_authorized": false,
+  "contract_content_sha256": "5dec0d4f8d5502cfc720f8512195431284eb24cf8235fe41a2a96fc907091676",
+  "contract_id": "sealed-historical-source-binding-v0.1",
+  "corporate_action_source_provenance_verified": false,
+  "document_content_sha256": {
+    "binding-mechanics.json": "c3f97f09bf05a15dd9db35ff2a70ea0504fccb26ecafbaebb95259a56de40770",
+    "carry-dependencies.json": "c35f8da9533f0fac9bed76c49e7101ec0e2b140bf6d6108a0f142dda69318271",
+    "readiness-report.json": "cd38e763a7db804853770c9f87c79343b72e5fc6feb82460b6f0dfa32b6b9720"
+  },
+  "file_inventory": {
+    "binding-mechanics.json": {
+      "bytes": 2081,
+      "sha256": "07677069c1229f1e3ac165c6972cf23780ddcbb1256d73bd40596be04b773cac"
+    },
+    "carry-dependencies.json": {
+      "bytes": 360630,
+      "sha256": "9d3c024f5d51b2330a8f17eca0fd8c2fbf2288645e4601ecc7519bc04a115909"
+    },
+    "readiness-report.json": {
+      "bytes": 1404,
+      "sha256": "2e41ce57237ebfaf17dc34b6066618b8aebd2f9349a0f8420cdf3a959b872b22"
+    }
+  },
+  "financial_metrics_eligible": false,
+  "historical_account_execution_enabled": false,
+  "historical_execution_count": 0,
+  "historical_producer_authenticated": false,
+  "historical_runtime_authorized": false,
+  "mark_is_executable_proceeds": false,
+  "next_session_open_position_valuation_verified": false,
+  "original_market_source_provenance_authenticated": false,
+  "original_window_checkpoint_resumption_verified": true,
+  "overnight_execution_window_extension_authorized": false,
+  "policy_promotion_eligible": false,
+  "provider_calls": 0,
+  "retrospective_inputs_read": false,
+  "same_symbol_reentry_integrated": true,
+  "source_binding_registered": true
+}
