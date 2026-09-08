@@ -104,7 +104,12 @@ not claim independent market-fill simulation or market-source authentication.
 - [Local audit](../../research/data-audits/sealed-historical-account-valuation-v0.1-independent-verification.json)
 - [Hosted workflow](../../.github/workflows/sealed-historical-account-valuation-v01.yml)
 
-Hosted verification is recorded after publication of the code commit.
+All 2,064 local tests passed with zero skips. The 110-test focused group passed
+normally and optimized locally and in the dedicated hosted job with zero skips.
+Published code `99da45c718b207d68e1bb12b17a771953d5dc199` passed all eight GitHub workflows on attempt 1.
+General hosted CI passed 2,064 tests with 73 optional-SDK skips. The downloaded
+synthetic vectors and independent report match local bytes exactly. The
+[hosted audit](../../research/data-audits/sealed-historical-account-valuation-v0.1-hosted-verification-34187472158.json) records the full evidence.
 
 ```bash
 PYTHONPATH=src:scripts python scripts/build_sealed_historical_account_valuation_v01.py --verify

@@ -1,6 +1,6 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: causal next-session valuation verified locally
+## Current checkpoint: causal next-session valuation independently verified
 
 The isolated child of `7840e5696fe8d2961ade913771f2c7cfa257493a` first replays the verified
 producer, then values carried shares using only quotes and trading status known
@@ -24,7 +24,16 @@ three independent quote selections. The freeze content commitment is
 `22328ab6acb6e94a8941748a7f578d95658c8c7880f4571d71404ed47a835afa`. Main and all 16 consumed
 references match the preceding checkpoint.
 
-Hosted verification is pending at this code publication. See the
+Code `99da45c718b207d68e1bb12b17a771953d5dc199` passed all eight GitHub workflows on attempt 1.
+Dedicated run `34187472158` passed 110 tests normally and optimized with
+zero skips, reconstructed the registration offline and passed the independent
+valuation check. General CI run `34187472072` passed 2,064 tests with its
+existing 73 optional-SDK skips. Downloaded artifact `10041038233` is
+352,632 bytes, with ZIP SHA-256
+`de2cf75e08b5972b22b7becc8c829261d709b5642bca309abd1a1353834b66e4`. Both files match the local synthetic evidence
+byte for byte. Main and all 16 consumed references were rechecked unchanged.
+The [hosted audit](../../research/data-audits/sealed-historical-account-valuation-v0.1-hosted-verification-34187472158.json) records the complete
+code, run, job, artifact and reference evidence. See the
 [component explanation](../research/sealed_historical_account_valuation_v01.md),
 [local audit](../../research/data-audits/sealed-historical-account-valuation-v0.1-independent-verification.json)
 and [big-picture progress](progress_2026-09-08.md).
