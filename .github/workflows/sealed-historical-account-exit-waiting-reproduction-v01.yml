@@ -1,0 +1,117 @@
+name: Sealed historical exit waiting hosted reproduction v0.1
+
+on:
+  push:
+    branches: [phase-3-historical-snapshot]
+    paths:
+      - .github/workflows/sealed-historical-account-exit-waiting-reproduction-v01.yml
+      - research/strategy/sealed-historical-account-exit-waiting-reproduction-v0.1.json
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: sealed-historical-account-exit-waiting-reproduction-v01
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      PYTHONPATH: src:scripts
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12.14"
+      - name: Install hash-locked validation environment
+        run: |
+          python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-execution-quote-v01.txt
+          python -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          python -m pip check
+      - name: Verify unchanged frozen code and reproduction registration offline
+        run: |
+          python scripts/build_sealed_historical_account_exit_waiting_v01.py --verify
+          python - <<'PYCODE'
+          from pathlib import Path
+          import hashlib, json
+          root = Path('.')
+          p = root / "research/strategy/sealed-historical-account-exit-waiting-reproduction-v0.1.json"
+          c = json.loads(p.read_text())
+          body = {k: v for k, v in c.items() if k != "content_sha256"}
+          if hashlib.sha256(json.dumps(body, sort_keys=True, separators=(",", ":"), allow_nan=False).encode()).hexdigest() != c["content_sha256"]:
+              raise ValueError("reproduction registration seal differs")
+          if c["parent_implementation_commit"] != "38fe1d83f51ae942acbdd6bc1af3ebbf7867a8ed" or c["timeout_minutes"] != 90:
+              raise ValueError("reproduction authority differs")
+          if hashlib.sha256((root / c["workflow_path"]).read_bytes()).hexdigest() != c["workflow_file_sha256"]:
+              raise ValueError("reproduction workflow changed after registration")
+          parent = json.loads((root / "research/strategy/sealed-historical-account-exit-waiting-v0.1.json").read_text())
+          frozen = json.loads((root / "research/runtime/sealed-historical-account-exit-waiting-v0.1/freeze-manifest.json").read_text())
+          if c["original_registration_freeze_content_sha256"] != frozen["content_sha256"] or c["source_archives"] != parent["source_archives"]:
+              raise ValueError("original code or source authority differs")
+          for key in ("runtime_mechanics_changed", "provider_requests_authorized", "broker_orders_authorized", "retrospective_labels_opened", "financial_metrics_eligible"):
+              if c[key] is not False:
+                  raise ValueError("reproduction boundary differs")
+          print(json.dumps({"reproduction_registration_verified": True, "original_registration": frozen["content_sha256"]}, sort_keys=True))
+          PYCODE
+      - name: Download only immutable original evidence and verified binding
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/9993250947/zip > "$RUNNER_TEMP/scanner.zip"
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/10028253493/zip > "$RUNNER_TEMP/management.zip"
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/10037358910/zip > "$RUNNER_TEMP/exit.zip"
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/10004782232/zip > "$RUNNER_TEMP/entry-result.zip"
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/10004656665/zip > "$RUNNER_TEMP/entry-consumption.zip"
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/10060984490/zip > "$RUNNER_TEMP/binding.zip"
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/10068241990/zip > "$RUNNER_TEMP/parent-replay.zip"
+      - name: Execute all original account paths offline with explicit blocked continuation
+        run: |
+          REPLAY_REGISTRATION_SHA=$(python -c 'import json; print(json.load(open("research/runtime/sealed-historical-account-exit-waiting-v0.1/freeze-manifest.json"))["content_sha256"])')
+          python scripts/build_sealed_historical_account_exit_waiting_v01.py --replay \
+            --expected-registration-sha256 "$REPLAY_REGISTRATION_SHA" \
+            --scanner-zip "$RUNNER_TEMP/scanner.zip" --management-zip "$RUNNER_TEMP/management.zip" \
+            --exit-zip "$RUNNER_TEMP/exit.zip" --entry-result-zip "$RUNNER_TEMP/entry-result.zip" \
+            --entry-consumption-zip "$RUNNER_TEMP/entry-consumption.zip" --output-root "$RUNNER_TEMP/account-replay"
+      - name: Independently verify original chronology, accounting and carry
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          from momentumbot.research.sealed_historical_source_binding_v01 import extract_archive
+          root = Path(os.environ["RUNNER_TEMP"])
+          extract_archive(root / "binding.zip", {"bytes": 377229, "sha256": "2577dfdccdee948c9241d3489737e0dac40cf3c97ad826ead9500c095e55d94a"}, root / "source-bindings")
+          extract_archive(root / "parent-replay.zip", {"bytes": 926951, "sha256": "5298b020711a0681687f170dc78a313cfa03ba59bb5b38564c48e3795b1fe3ec"}, root / "parent-replay")
+          PY
+          REPLAY_RUNTIME_SHA=$(python -c 'import json; print(json.load(open("research/strategy/sealed-historical-account-exit-waiting-reproduction-v0.1.json"))["expected_runtime_content_sha256"])')
+          python scripts/verify_sealed_historical_account_exit_waiting_v01.py \
+            --runtime-root "$RUNNER_TEMP/account-replay" --binding-root "$RUNNER_TEMP/source-bindings" \
+            --parent-runtime-root "$RUNNER_TEMP/parent-replay/account-replay" \
+            --management-zip "$RUNNER_TEMP/management.zip" --exit-zip "$RUNNER_TEMP/exit.zip" \
+            --expected-runtime-sha256 "$REPLAY_RUNTIME_SHA" --output "$RUNNER_TEMP/account-replay/independent-verification.json"
+          python - <<'PYCODE'
+          import hashlib, json, os
+          from pathlib import Path
+          c = json.loads(Path("research/strategy/sealed-historical-account-exit-waiting-reproduction-v0.1.json").read_text())
+          output = Path(os.environ["RUNNER_TEMP"]) / "account-replay"
+          for name, key in (("account-replay.json", "expected_runtime_file_sha256"), ("independent-verification.json", "expected_independent_report_file_sha256")):
+              if hashlib.sha256((output / name).read_bytes()).hexdigest() != c[key]:
+                  raise ValueError("hosted bytes differ from verified local output: " + name)
+          print("Verified local runtime and independent report reproduced byte for byte")
+          PYCODE
+      - name: Retain runtime, independent check and any failed attempt
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: sealed-historical-account-exit-waiting-reproduction-v01-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/account-replay
+            ${{ runner.temp }}/account-replay-attempt.json
+            ${{ runner.temp }}/account-replay-failure.json
+          if-no-files-found: error
+          retention-days: 90

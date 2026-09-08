@@ -73,3 +73,50 @@ Financial evaluation, account-backtest completion, overnight execution,
 retrospective comparison and policy promotion remain closed. Any newly exposed
 input or execution blocker requires its own isolated registration; outcomes
 must not be used to patch this child.
+
+## Verified local result and hosted cancellation
+
+Implementation `38fe1d83f51ae942acbdd6bc1af3ebbf7867a8ed` produced runtime
+`7b0a0edd58ea285613a01047963bccb82a8a8df4ef6192f2437da222406d7edb`.
+The frozen independent checker passes all 12 paths, original population and
+accounting checks. It verifies 21 waiting episodes and 21 causal submissions
+across 186 eligible waiting prints. Every original first-session failure is
+cleared. There are no input-failure sessions in this run.
+
+The replay executes 78 sessions: 66 finish flat, including 30 with explicitly
+unavailable opportunities, and 12 exhaust their original window with open exit
+remainders. Those states block 282 later sessions. The checker verifies 45
+entries and 42 sells across the alternative paths; these are research fills.
+
+| Alternative account/scenario | Unresolved date | Symbol | Remaining shares | Terminal result |
+|---|---|---|---:|---|
+| Main / conservative | 2025-06-10 | GELS | 63 | 75 of 138 shares filled |
+| Main / stress | 2025-06-02 | INM | 70 | No shares filled |
+| Small / conservative | 2025-06-18 | APVO | 7 | 4 of 11 shares filled |
+| Small / stress | 2025-06-02 | INM | 16 | No shares filled |
+
+Each row applies separately to the 1, 5 and 10 second horizon paths. They are
+alternative accounts, not pooled capital. All terminal attempts have received
+their cancellation acknowledgements; no order or unsubmitted intent remains.
+The original one-terminal-attempt ceiling prevents further submission.
+
+The first hosted run `34282885653`, job `102251592205`, was cancelled at the
+registered 45 minute job limit. Its 112 focused tests passed normally and
+optimized. Artifact `10079770784` contains only the valid attempt receipt,
+byte-identical to the local receipt. No hosted runtime or independent report
+was retained. The exact GitHub conclusion is `cancelled`; the timeout diagnosis
+is inferred from the fixed limit and cancellation timing. The failure record
+is preserved in the local-runtime-and-hosted-cancellation audit.
+
+A separate `sealed-historical-account-exit-waiting-reproduction-v0.1`
+registration permits a 90 minute hosted reproduction of the identical frozen
+code, original archives and original registration. It verifies the already
+committed code hashes and compares runtime and independent-report bytes with
+the verified local commitments. It does not modify the original workflow,
+registration, sources or execution mechanics. The previously successful focused
+tests are retained rather than repeated for this operational-only reproduction.
+
+The next mechanics gate is a separate preregistration for bounded handling of
+residual shares after cancellation acknowledgement, preserving original windows
+and used-liquidity identity. The account backtest and financial evaluation remain
+incomplete; Ross evidence remains sealed.

@@ -1,5 +1,43 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: exit waiting verified locally; hosted reproduction registered
+
+Frozen implementation `38fe1d83f51ae942acbdd6bc1af3ebbf7867a8ed` and registration
+`5f48460d88be6ce068a1bc3741d2a0cdb184f8530b8230aabc0b7a0edc812b44`
+produced runtime
+`7b0a0edd58ea285613a01047963bccb82a8a8df4ef6192f2437da222406d7edb`.
+Independent report
+`fb32159033c5253ba24798dc5a089dd2985a0dd6ad7a16fce04ec257ebcb365d`
+passes all 12 paths. All 21 waits lead to causal submission; the original 12
+input failures are gone. The run executes 78 sessions, finishes 66 flat and
+preserves 12 open exit remainders, blocking 282 later slots.
+
+The remaining blocker is the original one-terminal-attempt ceiling after
+partial or unfilled exits: main/conservative GELS on June 10 (63 shares),
+small/conservative APVO on June 18 (7 shares), and both stress accounts INM on
+June 2 (70 main / 16 small shares), separately in each horizon path. All cancel
+acknowledgements are recorded. No further attempt or window extension was added.
+
+Local verification passed 2,253 tests with zero skips and 112 focused tests in
+both modes. Original GitHub CI passed 2,253 tests with its existing 73 optional
+SDK skips. The first hosted replay `34282885653`, job `102251592205`, passed its
+112 focused tests normally and optimized, then was cancelled at its 45 minute
+job limit. Its verified archive `10079770784` retains only the matching attempt
+receipt; it contains no runtime or independent report. This first attempt is
+preserved in the new local-runtime-and-hosted-cancellation audit.
+
+A separate 90 minute hosted reproduction is registered in
+`research/strategy/sealed-historical-account-exit-waiting-reproduction-v0.1.json`.
+It runs the exact unchanged implementation and archives, and must reproduce the
+known local runtime and checker bytes. Original code and registration are not
+rewritten. Next: finish that hosted reproduction and direct archive comparison,
+then preregister bounded handling of acknowledged exit remainders within the
+original windows. Financial evaluation, retrospective labels, overnight
+execution and promotion remain closed.
+
+See [the component and outcome](../research/sealed_historical_account_exit_waiting_v01.md).
+The following checkpoints are retained as historical records.
+
 ## Current checkpoint: causal exit waiting verified; first replay running
 
 Implementation `38fe1d83f51ae942acbdd6bc1af3ebbf7867a8ed`, tree
