@@ -88,7 +88,11 @@ All 2,145 local tests passed with zero skips, and 213 focused tests passed
 normally and optimized. The independent checker verified 26 cases, 379 session
 checkpoints, 40 continuation checkpoints, 145 scheduler events and 51 confirmed
 fills. The [local audit](../../research/data-audits/sealed-historical-account-continuity-v0.1-independent-verification.json) preserves the evidence and initial fixture failures.
-Hosted verification follows code publication.
+Code `ad506be1c9405123c954a7ae6d9a78f6fadedf49` passed all eight GitHub workflows on attempt 1. The dedicated
+job passed 213 tests normally and optimized with zero skips; general CI passed
+2,145 tests with 73 optional-SDK skips. Both downloaded evidence files match
+local bytes. The [hosted audit](../../research/data-audits/sealed-historical-account-continuity-v0.1-hosted-verification-34230798766.json) records the exact
+commit, runs, jobs, artifact and protected references.
 
 - [Contract](../../research/strategy/sealed-historical-account-continuity-v0.1.json)
 - [Freeze](../../research/runtime/sealed-historical-account-continuity-v0.1/freeze-manifest.json)

@@ -1,6 +1,6 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: campaign re-entry and original-window continuation verified locally
+## Current checkpoint: campaign re-entry and original-window continuation independently verified
 
 The isolated child of `6933ff419afb034f9509eaa0898c3467571e32d8` implements the
 frozen two-entry campaign policy. A fresh plan can re-enter a confirmed flat
@@ -28,7 +28,13 @@ synthetic cases, 379 session checkpoints, 40 continuation checkpoints, 145
 scheduler events and 51 confirmed journal fills. The freeze content commitment is
 `0bf8f0ac9eb5262afca10addbd4068cc7aab3453dac8b227433600935c2e6338`. The
 [local audit](../../research/data-audits/sealed-historical-account-continuity-v0.1-independent-verification.json) preserves test evidence, ancestor commitments and
-development failures. Hosted verification is pending at this code publication.
+development failures. Code `ad506be1c9405123c954a7ae6d9a78f6fadedf49` passed all eight GitHub workflows on attempt 1.
+Dedicated run `34230798766` passed 213 tests normally and optimized with
+zero skips. General CI run `34230798512` passed 2,145 tests with its existing 73
+optional-SDK skips. The downloaded artifact `10057840700` is 1,143,187
+bytes with ZIP SHA-256 `c049462efba8e31c679649e0290d2ac4cfa4a772d05b96e909201d1d158f08dc`. Both evidence files match
+local output byte for byte. Main and all 16 consumed references were rechecked
+unchanged. The [hosted audit](../../research/data-audits/sealed-historical-account-continuity-v0.1-hosted-verification-34230798766.json) records the complete evidence.
 
 ## Prior checkpoint: chronological account scheduler independently verified
 
