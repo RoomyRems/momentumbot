@@ -1,18 +1,40 @@
 # Historical account terminal continuation v0.1
 
-The registered local and hosted historical attempts are now active at commit
-`0f057039e00480f3b0275d0bcd0bdabd23da7a96`. Local native session `56228` is
-followed by verifier session `12279`; hosted run
-[34362104473](https://github.com/RoomyRems/momentumbot/actions/runs/34362104473),
-job `102501424811`, attempt 1, includes its independent checker. Neither final
-runtime nor local/hosted byte comparison is yet accepted. Do not restart these
-attempts or launch duplicate local verification. The
+At the `2026-09-09T18:38:34Z` status check, the registered local attempt was
+incomplete and its processes were unavailable. Executor sessions `56228`
+(replay) and `12279` (verifier follower) both returned `Unknown process id`;
+neither command appeared in the current process namespace. The saved progress
+contains 20 of 360 session records, through index 19 of the first main-account
+conservative path, last modified at `2026-09-09T14:26:34.792774+00:00`.
+There is no final runtime, native failure envelope, verification attempt,
+verification result or follower failure. Exit code, termination time and cause
+are unknown. Automatic local verification cannot currently be relied on.
+
+Hosted [run 34362104473](https://github.com/RoomyRems/momentumbot/actions/runs/34362104473),
+job `102501424811`, attempt 1, still reports the replay step in progress at
+implementation commit `0f057039e00480f3b0275d0bcd0bdabd23da7a96`.
+Its independent checker and artifact upload remain pending. No artifact is
+available; the job-log request returned 404 `BlobNotFound`. The status alone
+does not establish intra-session progress. The frozen job timeout is 350 minutes.
+
+The [status audit](../../research/data-audits/sealed-historical-account-terminal-continuation-v0.1-status-20260909T183834Z.json)
+records these observations and binds a byte-verified archive of the local
+receipt, all saved progress, logs and follower-start receipt. All 60 progress,
+runtime and close content seals verify; this is integrity checking, not the
+independent runtime check. The original
 [execution-start audit](../../research/data-audits/sealed-historical-account-terminal-continuation-v0.1-execution-start.json)
-records the active identifiers and the operational follower source. The follower
-only waits for and verifies the existing replay; it cannot launch a replay.
+and operational follower remain unchanged.
+
+Preserve the hosted attempt through its terminal outcome, then inspect its
+artifacts. The local attempt remains incomplete, and local/hosted comparison is
+blocked. Do not restart either replay or infer resume authority from the saved
+session records. Any recovery must preserve this original attempt and be
+separately registered; no recovery replay was launched during this status check.
 
 All seven other implementation workflows passed, including CI with 2,349 tests
-and the existing 73 optional-SDK skips.
+and the existing 73 optional-SDK skips. Execution-checkpoint CI
+[34363347527](https://github.com/RoomyRems/momentumbot/actions/runs/34363347527)
+also passed. These checks do not establish historical replay completion.
 
 This child tests one change: keep a terminal exit signal active after the
 original two-order residual sequence, until confirmed shares are flat or the

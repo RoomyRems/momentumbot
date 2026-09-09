@@ -1,5 +1,40 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: local terminal continuation incomplete; hosted still running
+
+Observed at `2026-09-09T18:38:34Z`. The local replay and verifier follower
+sessions (`56228` and `12279`) are no longer available through the executor;
+neither command is present in the current process namespace. The original
+attempt has 20 of 360 saved session records, through index 19 of the first
+main-account conservative path. Its last progress write was
+`2026-09-09T14:26:34.792774+00:00`. There is no final runtime, native failure
+envelope or independent verification result. The follower did not record a
+verification attempt or failure. Exit code, termination time and cause are
+unknown; the previous active-local checkpoint below is historical.
+
+[Hosted run 34362104473](https://github.com/RoomyRems/momentumbot/actions/runs/34362104473),
+job `102501424811`, attempt 1, still reports the replay step in progress.
+Its independent checker and upload remain pending. There is no artifact and
+the final job-log request returned 404 `BlobNotFound`, so intra-session progress
+is unverified. Its frozen timeout is 350 minutes. Execution-checkpoint CI
+[34363347527](https://github.com/RoomyRems/momentumbot/actions/runs/34363347527)
+passed.
+
+The [status audit](../../research/data-audits/sealed-historical-account-terminal-continuation-v0.1-status-20260909T183834Z.json)
+preserves the observed status and binds an archive containing the exact local
+receipt, 20 progress records, both logs and follower-start receipt. Archive CRC,
+member bytes and all 60 progress/runtime/close content seals verify. These
+integrity checks do not substitute for independent runtime verification.
+
+The next gate is the terminal outcome and retained evidence of the existing
+hosted attempt. Local completion and cross-environment comparison are blocked;
+the saved records do not authorize resuming or repeating the local replay.
+Any recovery must preserve this incomplete attempt and be separately registered.
+No replay or checker was launched during this status check. Frozen implementation,
+registration, original execution-start audit, main and all 16 consumed refs
+remain unchanged. Account-backtest completion, financial evaluation, Ross labels
+and policy promotion remain closed.
+
 ## Current checkpoint: terminal continuation replay active locally and on GitHub
 
 The child was published at `0f057039e00480f3b0275d0bcd0bdabd23da7a96`, tree

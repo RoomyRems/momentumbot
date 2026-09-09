@@ -1,0 +1,278 @@
+{
+  "account_backtest_complete": false,
+  "all_16_consumed_refs_unchanged": true,
+  "artifact_type": "incomplete_attempt_status_checkpoint",
+  "automatic_replay_retries_authorized": false,
+  "checkpoint_parent_commit_sha": "2412fefdc23bf07f9bfa42854af913b6cbf31648",
+  "content_sha256": "bf26a98951b43e30a51dc7e3c5e424789339525bfa0efc293809bd82b8e6f321",
+  "contract_id": "sealed-historical-account-terminal-continuation-v0.1",
+  "duplicate_verifier_launched": false,
+  "evidence_preserved_at": "2026-09-09T18:41:40.799849+00:00",
+  "execution_checkpoint_ci_conclusion": "success",
+  "execution_checkpoint_ci_jobs": [
+    {
+      "conclusion": "success",
+      "id": 102505686747,
+      "logs_url": null,
+      "name": "test",
+      "run_id": 34363347527,
+      "status": "completed",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4",
+          "number": 2,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/setup-python@v5",
+          "number": 3,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Install package",
+          "number": 4,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run tests",
+          "number": 5,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Compile",
+          "number": 6,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/setup-python@v5",
+          "number": 11,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4",
+          "number": 12,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 13,
+          "status": "completed"
+        }
+      ]
+    }
+  ],
+  "execution_checkpoint_ci_run_id": 34363347527,
+  "expected_panel_sessions": 360,
+  "financial_metrics_eligible": false,
+  "frozen_implementation_changed": false,
+  "hosted_artifact_count": 0,
+  "hosted_intra_session_progress_verified": false,
+  "hosted_jobs": [
+    {
+      "conclusion": null,
+      "id": 102501424811,
+      "logs_url": null,
+      "name": "validate",
+      "run_id": 34362104473,
+      "status": "in_progress",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 2,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+          "number": 3,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Install hash-locked validation environment",
+          "number": 4,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Verify frozen registration and component mechanics offline",
+          "number": 5,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Require the original hosted attempt",
+          "number": 6,
+          "status": "completed"
+        },
+        {
+          "conclusion": "success",
+          "name": "Download only immutable original evidence and verified binding",
+          "number": 7,
+          "status": "completed"
+        },
+        {
+          "conclusion": null,
+          "name": "Execute all original account paths offline with explicit blocked continuation",
+          "number": 8,
+          "status": "in_progress"
+        },
+        {
+          "conclusion": null,
+          "name": "Independently verify original chronology, accounting and carry",
+          "number": 9,
+          "status": "pending"
+        },
+        {
+          "conclusion": null,
+          "name": "Retain runtime, independent check and any failed attempt",
+          "number": 10,
+          "status": "pending"
+        },
+        {
+          "conclusion": null,
+          "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+          "number": 19,
+          "status": "pending"
+        },
+        {
+          "conclusion": null,
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 20,
+          "status": "pending"
+        }
+      ]
+    }
+  ],
+  "hosted_log_fetch": {
+    "error_code": "BlobNotFound",
+    "http_status": 404,
+    "observed_at": "2026-09-09T18:38:34.6656311Z",
+    "result": "not_available"
+  },
+  "hosted_run": {
+    "conclusion": null,
+    "created_at": "2026-09-09T14:12:39Z",
+    "head_sha": "0f057039e00480f3b0275d0bcd0bdabd23da7a96",
+    "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34362104473",
+    "id": 34362104473,
+    "run_attempt": 1,
+    "run_started_at": "2026-09-09T14:12:39Z",
+    "status": "in_progress",
+    "updated_at": "2026-09-09T14:12:43Z"
+  },
+  "hosted_timeout_minutes": 350,
+  "implementation_commit_sha": "0f057039e00480f3b0275d0bcd0bdabd23da7a96",
+  "independent_runtime_verification_completed": false,
+  "local_executor_polls": [
+    {
+      "result": "Unknown process id 56228",
+      "session_id": 56228
+    },
+    {
+      "result": "Unknown process id 12279",
+      "session_id": 12279
+    }
+  ],
+  "local_exit_code_known": false,
+  "local_final_runtime_exists": false,
+  "local_hosted_runtime_comparison_completed": false,
+  "local_last_saved_session_id": "session-ce7de331ddfd004423c9dad3e08a752de0f954fb43eaf6d8c5772450e1531299",
+  "local_last_saved_session_index": 19,
+  "local_last_saved_trading_date": "2025-06-27",
+  "local_native_failure_envelope_exists": false,
+  "local_process_inspection": {
+    "exit_code": null,
+    "matching_replay_processes": 0,
+    "matching_verification_follower_processes": 0,
+    "numeric_proc_entries": 16,
+    "scope": "current_process_namespace",
+    "termination_cause": "unknown",
+    "termination_time": null
+  },
+  "local_progress_content_seals_verified": 60,
+  "local_progress_last_modified_at": "2026-09-09T14:26:34.792774+00:00",
+  "local_saved_path_counts": {
+    "main_account-1s-l1-conservative-v0.1": 20
+  },
+  "local_saved_sessions": 20,
+  "local_saved_status_counts": {
+    "flat_complete": 11,
+    "flat_complete_with_unavailable_inputs": 9
+  },
+  "local_status": "incomplete_processes_unavailable",
+  "local_termination_cause_known": false,
+  "local_verification_attempt_exists": false,
+  "local_verification_follower_active_in_current_namespace": false,
+  "local_verification_follower_failure_exists": false,
+  "local_verification_result_exists": false,
+  "main_commit_sha": "de24eb17316191da69d92e61f6843af25e9c22d0",
+  "next_gate": "Preserve hosted attempt 1 through its terminal outcome and inspect its artifacts. Local completion and cross-environment comparison remain blocked by the incomplete local attempt; its progress is not a final runtime or restart authority.",
+  "observed_at": "2026-09-09T18:38:34Z",
+  "policy_promotion_eligible": false,
+  "preserved_evidence": {
+    "bytes": 153980,
+    "exact_member_bytes_verified": true,
+    "members": [
+      {
+        "bytes": 1733,
+        "path": "account-replay-attempt.json",
+        "sha256": "52187e385bcf742400d14ae628f83eb37e43915cf69ea1a76e58a0e3fe56ce59"
+      },
+      {
+        "bytes": 1337991,
+        "path": "account-replay-progress.jsonl",
+        "sha256": "cda5b135c5664eefd1c39dd86cea7cb838f747612c7aface4329aa6d3f3d99d9"
+      },
+      {
+        "bytes": 2206,
+        "path": "account-replay.log",
+        "sha256": "1798051e71416434b345a2e224186d274643e342c6f26bbef902cea73dd1e206"
+      },
+      {
+        "bytes": 8058,
+        "path": "status-observation.json",
+        "sha256": "1839b7ae75033fa64aaf6715138e0351f651b90569b37f8674f236ec4a99b357"
+      },
+      {
+        "bytes": 285,
+        "path": "verification-follower-start.json",
+        "sha256": "6c517d099c8d0ce271e5b4a4639bfd8aa7423b6070f4fe71fe667d70acbc4e78"
+      },
+      {
+        "bytes": 0,
+        "path": "verification-follower.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "path": "research/data-audits/sealed-historical-account-terminal-continuation-v0.1/local-incomplete-evidence-20260909T183834Z.zip",
+    "sha256": "4521c53c74b35a2cefee030e39ab74e1d031c5f6e982ddaf016bd3b35a70aa0c",
+    "zip_crc_verified": true
+  },
+  "progress_seal_verification_is_independent_runtime_verification": false,
+  "provider_requests_authorized": false,
+  "registration_freeze_content_sha256": "0f2570ba5b71783c3d27b47f2718217d7331bba8a2e8f7f09527c097fdf4a3fb",
+  "replay_restarted": false,
+  "retrospective_labels_opened": false
+}
