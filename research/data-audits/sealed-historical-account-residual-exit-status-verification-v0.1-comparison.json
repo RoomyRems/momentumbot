@@ -1,0 +1,244 @@
+{
+  "account_backtest_complete": false,
+  "account_runtime_reproduced": false,
+  "all_output_files_byte_identical": true,
+  "archive_crc_verified": true,
+  "artifact_type": "local_hosted_stored_runtime_verification_comparison",
+  "broker_orders_authorized": false,
+  "cancellation_status_counts": {
+    "cancelled_unfilled": 9,
+    "partially_filled_cancelled": 15,
+    "unavailable_no_fresh_quote": 3
+  },
+  "canonical_document_seals_verified": true,
+  "complete_paths": 0,
+  "content_sha256": "6b0dd28895f76684ba7b5e2a103c5a49e179b7d49e3796f92f3f853d9ea264c4",
+  "contract_id": "sealed-historical-account-residual-exit-status-verification-v0.1",
+  "financial_metrics_eligible": false,
+  "historical_replay_rerun": false,
+  "hosted_archive": {
+    "bytes": 3476,
+    "sha256": "d4cbcaf749fcaf36c4ec72753c4b9cfd58f6a1d415d5a5319eca818f1de7f281"
+  },
+  "hosted_artifact_id": 10087904199,
+  "hosted_attempt": 1,
+  "hosted_job_id": 102333453665,
+  "hosted_run_id": 34309642311,
+  "implementation_commit_sha": "25091dfd212f8afc595aca2a5d7d92b6d38dc78d",
+  "implementation_tree_sha": "f7455e914aaeecce1c15316cf7eb32210131e741",
+  "independent_fill_simulation": false,
+  "inventory": {
+    "attempt.json": {
+      "bytes": 1902,
+      "content_sha256": "d4b5373e463f4225b769bdc438dbafd640d8fba247bf2caa1a0dc3be30db4479",
+      "local_hosted_byte_identical": true,
+      "sha256": "5b80a77a7d4a6ba5a6aa1881d9648ef403ca86a073d4b602504a7715fe5b2b93"
+    },
+    "freeze-manifest.json": {
+      "bytes": 1421,
+      "content_sha256": "0560f414d47dcf825bc9e047b6d997d34d350f5b9aabffe65e8c2a769b74c2d9",
+      "local_hosted_byte_identical": true,
+      "sha256": "669935911dc509dad05478f28463436b54b251254e925e48377af38afcb55cd3"
+    },
+    "verification.json": {
+      "bytes": 11017,
+      "content_sha256": "0d9c7cbcaac8970178bb15b16a47f13ff5df3b9b9d7f9cb28e039bffa40d5178",
+      "local_hosted_byte_identical": true,
+      "sha256": "14b459c8a64ab0402c0a4ebaa6109ab41a2a103a7045df211f895e36e2b52c48"
+    }
+  },
+  "next_gate": "separately_recorded_account_runtime_reproduction_without_overwriting_original_attempt_then_assess_unresolved_state",
+  "original_code_or_artifacts_modified": false,
+  "original_failed_checker_preserved": true,
+  "original_local_runtime_missing": true,
+  "overnight_execution_authorized": false,
+  "paths": [
+    {
+      "original_window_exhausted_dates": [
+        "2025-06-10"
+      ],
+      "path_complete": false,
+      "path_id": "main_account-1s-l1-conservative-v0.1",
+      "session_status_counts": {
+        "blocked_prior_state": 22,
+        "flat_complete": 3,
+        "flat_complete_with_unavailable_inputs": 4,
+        "original_window_exhausted_with_unresolved_state": 1
+      }
+    },
+    {
+      "original_window_exhausted_dates": [
+        "2025-06-02"
+      ],
+      "path_complete": false,
+      "path_id": "main_account-1s-l1-stress-v0.1",
+      "session_status_counts": {
+        "blocked_prior_state": 28,
+        "flat_complete_with_unavailable_inputs": 1,
+        "original_window_exhausted_with_unresolved_state": 1
+      }
+    },
+    {
+      "original_window_exhausted_dates": [
+        "2025-06-10"
+      ],
+      "path_complete": false,
+      "path_id": "main_account-5s-l1-conservative-v0.1",
+      "session_status_counts": {
+        "blocked_prior_state": 22,
+        "flat_complete": 3,
+        "flat_complete_with_unavailable_inputs": 4,
+        "original_window_exhausted_with_unresolved_state": 1
+      }
+    },
+    {
+      "original_window_exhausted_dates": [
+        "2025-06-02"
+      ],
+      "path_complete": false,
+      "path_id": "main_account-5s-l1-stress-v0.1",
+      "session_status_counts": {
+        "blocked_prior_state": 28,
+        "flat_complete_with_unavailable_inputs": 1,
+        "original_window_exhausted_with_unresolved_state": 1
+      }
+    },
+    {
+      "original_window_exhausted_dates": [
+        "2025-06-10"
+      ],
+      "path_complete": false,
+      "path_id": "main_account-10s-l1-conservative-v0.1",
+      "session_status_counts": {
+        "blocked_prior_state": 22,
+        "flat_complete": 3,
+        "flat_complete_with_unavailable_inputs": 4,
+        "original_window_exhausted_with_unresolved_state": 1
+      }
+    },
+    {
+      "original_window_exhausted_dates": [
+        "2025-06-02"
+      ],
+      "path_complete": false,
+      "path_id": "main_account-10s-l1-stress-v0.1",
+      "session_status_counts": {
+        "blocked_prior_state": 28,
+        "flat_complete_with_unavailable_inputs": 1,
+        "original_window_exhausted_with_unresolved_state": 1
+      }
+    },
+    {
+      "original_window_exhausted_dates": [
+        "2025-06-18"
+      ],
+      "path_complete": false,
+      "path_id": "small_account-1s-l1-conservative-v0.1",
+      "session_status_counts": {
+        "blocked_prior_state": 16,
+        "flat_complete": 9,
+        "flat_complete_with_unavailable_inputs": 4,
+        "original_window_exhausted_with_unresolved_state": 1
+      }
+    },
+    {
+      "original_window_exhausted_dates": [
+        "2025-06-02"
+      ],
+      "path_complete": false,
+      "path_id": "small_account-1s-l1-stress-v0.1",
+      "session_status_counts": {
+        "blocked_prior_state": 28,
+        "flat_complete_with_unavailable_inputs": 1,
+        "original_window_exhausted_with_unresolved_state": 1
+      }
+    },
+    {
+      "original_window_exhausted_dates": [
+        "2025-06-18"
+      ],
+      "path_complete": false,
+      "path_id": "small_account-5s-l1-conservative-v0.1",
+      "session_status_counts": {
+        "blocked_prior_state": 16,
+        "flat_complete": 9,
+        "flat_complete_with_unavailable_inputs": 4,
+        "original_window_exhausted_with_unresolved_state": 1
+      }
+    },
+    {
+      "original_window_exhausted_dates": [
+        "2025-06-02"
+      ],
+      "path_complete": false,
+      "path_id": "small_account-5s-l1-stress-v0.1",
+      "session_status_counts": {
+        "blocked_prior_state": 28,
+        "flat_complete_with_unavailable_inputs": 1,
+        "original_window_exhausted_with_unresolved_state": 1
+      }
+    },
+    {
+      "original_window_exhausted_dates": [
+        "2025-06-18"
+      ],
+      "path_complete": false,
+      "path_id": "small_account-10s-l1-conservative-v0.1",
+      "session_status_counts": {
+        "blocked_prior_state": 16,
+        "flat_complete": 9,
+        "flat_complete_with_unavailable_inputs": 4,
+        "original_window_exhausted_with_unresolved_state": 1
+      }
+    },
+    {
+      "original_window_exhausted_dates": [
+        "2025-06-02"
+      ],
+      "path_complete": false,
+      "path_id": "small_account-10s-l1-stress-v0.1",
+      "session_status_counts": {
+        "blocked_prior_state": 28,
+        "flat_complete_with_unavailable_inputs": 1,
+        "original_window_exhausted_with_unresolved_state": 1
+      }
+    }
+  ],
+  "policy_promotion_eligible": false,
+  "provider_requests_authorized": false,
+  "registration_freeze_content_sha256": "ed0f19906970ed71af17bf32cbd72ebe2284daa8ad59f80557257035a5f85f85",
+  "retrospective_labels_opened": false,
+  "runtime_content_sha256": "21bd9efa65c5c5776242bb9a6a53d28c134aefe31ed7da00d389402e29f3efba",
+  "runtime_file_sha256": "90f5a02dacc26eec03e8aacb5758150c0efc8b6a9b56d9c1d4eb7f5d7287c716",
+  "runtime_unchanged": true,
+  "session_status_counts": {
+    "blocked_prior_state": 282,
+    "flat_complete": 36,
+    "flat_complete_with_unavailable_inputs": 30,
+    "original_window_exhausted_with_unresolved_state": 12
+  },
+  "totals": {
+    "blocked_sessions": 282,
+    "completed_streams": 198,
+    "confirmed_entries": 51,
+    "confirmed_fills": 114,
+    "confirmed_sells": 63,
+    "eligible_wait_prints_verified": 324,
+    "events": 399,
+    "executed_sessions": 78,
+    "input_failure_sessions": 0,
+    "opportunity_references": 744,
+    "residual_budget_exhaustions": 12,
+    "residual_expiries": 0,
+    "residual_proposals": 15,
+    "residual_ready": 15,
+    "residual_submissions": 15,
+    "sessions": 360,
+    "unavailable_references": 162,
+    "wait_expiries": 0,
+    "wait_submissions": 36,
+    "wait_supersessions": 0,
+    "waits": 36
+  },
+  "verification_passed_locally_and_hosted": true
+}

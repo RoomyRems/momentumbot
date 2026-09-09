@@ -1,0 +1,215 @@
+{
+  "account_backtest_complete": false,
+  "all_16_consumed_refs_unchanged": true,
+  "all_output_document_seals_and_inventory_verified": true,
+  "all_three_output_files_byte_identical": true,
+  "artifact_type": "verified_stored_runtime_checker_correction_success",
+  "broker_orders_authorized": false,
+  "byte_comparison_content_sha256": "6b0dd28895f76684ba7b5e2a103c5a49e179b7d49e3796f92f3f853d9ea264c4",
+  "content_sha256": "8fd4f6a98627177b28b0e8393082d26a7b19d89a7a8e7b8e7703ce21872d6fc9",
+  "contract_id": "sealed-historical-account-residual-exit-status-verification-v0.1",
+  "durable_report_files_under": "research/data-audits/sealed-historical-account-residual-exit-status-verification-v0.1",
+  "financial_metrics_eligible": false,
+  "frozen_parent_file_count": 278,
+  "hosted_full_ci": {
+    "conclusion": "success",
+    "job_id": 102333453312,
+    "run_id": 34309642231,
+    "seconds": 298.135,
+    "skip_scope": "existing_optional_SDK_environment",
+    "skipped": 73,
+    "tests": 2315
+  },
+  "hosted_runtime_verification": {
+    "artifact_bytes": 3476,
+    "artifact_created_at": "2026-09-09T04:07:06Z",
+    "artifact_digest": "sha256:d4cbcaf749fcaf36c4ec72753c4b9cfd58f6a1d415d5a5319eca818f1de7f281",
+    "artifact_id": 10087904199,
+    "artifact_name": "sealed-historical-residual-status-verification-v01-34309642311-1",
+    "attempt": 1,
+    "conclusion": "success",
+    "job_id": 102333453665,
+    "run_id": 34309642311
+  },
+  "hosted_synthetic_validation": {
+    "normal": {
+      "seconds": 11.495,
+      "skipped": 0,
+      "tests": 62
+    },
+    "optimized": {
+      "seconds": 11.667,
+      "skipped": 0,
+      "tests": 62
+    }
+  },
+  "implementation_commit_workflow_runs": [
+    {
+      "conclusion": "success",
+      "head_sha": "25091dfd212f8afc595aca2a5d7d92b6d38dc78d",
+      "id": 34309642208,
+      "name": "Sealed historical source acquisition v0.3",
+      "run_attempt": 1,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "25091dfd212f8afc595aca2a5d7d92b6d38dc78d",
+      "id": 34309642217,
+      "name": "Sealed historical source acquisition v0.1",
+      "run_attempt": 1,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "25091dfd212f8afc595aca2a5d7d92b6d38dc78d",
+      "id": 34309642223,
+      "name": "Sealed historical provider availability repair v0.2",
+      "run_attempt": 1,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "25091dfd212f8afc595aca2a5d7d92b6d38dc78d",
+      "id": 34309642231,
+      "name": "CI",
+      "run_attempt": 1,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "25091dfd212f8afc595aca2a5d7d92b6d38dc78d",
+      "id": 34309642235,
+      "name": "Sealed historical walk-forward v0.1",
+      "run_attempt": 1,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "25091dfd212f8afc595aca2a5d7d92b6d38dc78d",
+      "id": 34309642249,
+      "name": "Sealed historical provider availability v0.1",
+      "run_attempt": 1,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "25091dfd212f8afc595aca2a5d7d92b6d38dc78d",
+      "id": 34309642267,
+      "name": "Sealed historical source acquisition v0.2",
+      "run_attempt": 1,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "25091dfd212f8afc595aca2a5d7d92b6d38dc78d",
+      "id": 34309642311,
+      "name": "Sealed historical residual exit status verification v0.1",
+      "run_attempt": 1,
+      "status": "completed"
+    }
+  ],
+  "implementation_publication": {
+    "commit_sha": "25091dfd212f8afc595aca2a5d7d92b6d38dc78d",
+    "parent_sha": "89c83f04de92cff6d7ce8d38ee30b9b280dabf56",
+    "published_before_historical_verification": true,
+    "registration_sha256": "ed0f19906970ed71af17bf32cbd72ebe2284daa8ad59f80557257035a5f85f85",
+    "tree_sha": "f7455e914aaeecce1c15316cf7eb32210131e741"
+  },
+  "local_full_validation": {
+    "bytes": 484469,
+    "log_name": "residual-status-full-tests.log",
+    "result": "OK",
+    "seconds": 278.291,
+    "sha256": "73231d664933d816bbfe14e7ab570698ffb22e42db48f9c4338b3d83dea700af",
+    "skipped": 0,
+    "tests": 2315
+  },
+  "local_verification": {
+    "attempt_directory": "residual-status-local-attempt-01",
+    "exit_code": 0,
+    "new_failure_record_created": false
+  },
+  "main_commit_unchanged": "de24eb17316191da69d92e61f6843af25e9c22d0",
+  "next_gate": "separately_record_and_preserve_account_runtime_reproduction_then_register_any_continuation_change",
+  "original_270_file_pins_preserved": true,
+  "original_checker_and_runtime_unchanged": true,
+  "original_failed_run_preserved": {
+    "attempt": 1,
+    "error": "ValueError: residual cancellation witness differs",
+    "implementation_commit_sha": "49e35b57f06b97a73590517b993de0e333d692dd",
+    "job_id": 102292641574,
+    "run_id": 34295994393
+  },
+  "original_local_attempt": {
+    "attempt_receipt_preserved": true,
+    "process_no_longer_present": true,
+    "restarted": false,
+    "runtime_output_exists": false,
+    "termination_cause_established": false
+  },
+  "overnight_execution_authorized": false,
+  "policy_promotion_eligible": false,
+  "provider_requests_authorized": false,
+  "registration_validation_content_sha256": "b1ded43c954ff69d22a55f9a8c0aeb84b6cb1e8e404ddbd39746ef9b6147364d",
+  "remaining_blockers": [
+    "original_local_account_runtime_was_never_emitted_and_has_not_been_reproduced",
+    "twelve_original_windows_end_with_unresolved_state_after_bounded_residual_exhaustion",
+    "282_later_session_slots_are_explicitly_blocked_by_prior_state",
+    "162_unavailable_opportunity_references_remain_in_the_original_population"
+  ],
+  "retrospective_labels_opened": false,
+  "runtime_content_sha256": "21bd9efa65c5c5776242bb9a6a53d28c134aefe31ed7da00d389402e29f3efba",
+  "runtime_file_sha256": "90f5a02dacc26eec03e8aacb5758150c0efc8b6a9b56d9c1d4eb7f5d7287c716",
+  "runtime_policy_or_source_parameters_changed": false,
+  "runtime_population_and_status": {
+    "complete_paths": 0,
+    "paths": 12,
+    "status_counts": {
+      "blocked_prior_state": 282,
+      "flat_complete": 36,
+      "flat_complete_with_unavailable_inputs": 30,
+      "original_window_exhausted_with_unresolved_state": 12
+    },
+    "totals": {
+      "blocked_sessions": 282,
+      "completed_streams": 198,
+      "confirmed_entries": 51,
+      "confirmed_fills": 114,
+      "confirmed_sells": 63,
+      "eligible_wait_prints_verified": 324,
+      "events": 399,
+      "executed_sessions": 78,
+      "input_failure_sessions": 0,
+      "opportunity_references": 744,
+      "residual_budget_exhaustions": 12,
+      "residual_expiries": 0,
+      "residual_proposals": 15,
+      "residual_ready": 15,
+      "residual_submissions": 15,
+      "sessions": 360,
+      "unavailable_references": 162,
+      "wait_expiries": 0,
+      "wait_submissions": 36,
+      "wait_supersessions": 0,
+      "waits": 36
+    }
+  },
+  "runtime_reproduction_started_in_this_correction": false,
+  "verification_freeze_content_sha256": "0560f414d47dcf825bc9e047b6d997d34d350f5b9aabffe65e8c2a769b74c2d9",
+  "verification_log_files": {
+    "residual-status-first-ci-job-102333453312.log": {
+      "bytes": 541342,
+      "sha256": "11b99c5d3263faa5319a2af1d93c0c9665c635a91cd722891bfb5f9047d46e46"
+    },
+    "residual-status-hosted-job-102333453665.log": {
+      "bytes": 71895,
+      "sha256": "f803628c79305f63945661a3a30db339c42307ac4a0b05d2370deabc83e39637"
+    },
+    "residual-status-local-verification-01.log": {
+      "bytes": 2590,
+      "sha256": "1216c545544cd5b091021eb201c12a98dea36a69d9b425ce690231ba5de8394b"
+    }
+  },
+  "verification_report_content_sha256": "0d9c7cbcaac8970178bb15b16a47f13ff5df3b9b9d7f9cb28e039bffa40d5178"
+}

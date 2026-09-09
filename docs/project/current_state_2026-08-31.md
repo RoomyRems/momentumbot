@@ -1,5 +1,45 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: corrected verifier passed; runtime reproduction remains open
+
+The separately frozen cancellation-status verifier passed locally and in
+[run 34309642311](https://github.com/RoomyRems/momentumbot/actions/runs/34309642311),
+job `102333453665`, attempt 1, on implementation
+`25091dfd212f8afc595aca2a5d7d92b6d38dc78d` and registration
+`ed0f19906970ed71af17bf32cbd72ebe2284daa8ad59f80557257035a5f85f85`.
+Publication preceded use of the corrected checker on historical bytes.
+
+Artifact `10087904199`, 3,476 bytes, ZIP SHA
+`d4cbcaf749fcaf36c4ec72753c4b9cfd58f6a1d415d5a5319eca818f1de7f281`,
+contains three files, all byte-identical to local verification output. Inventory,
+CRC and canonical seals pass. The distinct child report is
+`0d9c7cbcaac8970178bb15b16a47f13ff5df3b9b9d7f9cb28e039bffa40d5178`.
+All 12 paths, 360 slots, 744 opportunity references and 162 unavailable
+references were checked. All 27 residual cancellation statuses verify using
+the original native sources and the preserved chronology/accounting checks.
+
+The original runtime remains
+`21bd9efa65c5c5776242bb9a6a53d28c134aefe31ed7da00d389402e29f3efba`.
+All eight implementation workflows passed on attempt 1. Full hosted CI reported
+2,315 tests with the existing 73 optional-SDK skips; local full validation had
+zero skips. The 62 hosted focused tests also passed normally and optimized.
+The original failed checker/run and missing local output remain preserved.
+No account replay was rerun, and two verifications of the same stored runtime
+do not establish runtime reproduction.
+
+The accepted runtime still contains 36 flat-complete slots, 30 flat-complete
+slots with unavailable inputs, 12 original-window exhaustions with unresolved
+state and 282 later blocked slots. All account paths remain incomplete. The
+next gate is a separately recorded runtime reproduction, preserving the original
+local attempt, followed by separately scoped work on unresolved continuation.
+Financial evaluation, account-backtest completion and retrospective labels
+remain closed. Ross attachments are unopened.
+
+Evidence: [verified outcome and scope](../research/sealed_historical_account_residual_exit_status_verification_v01.md),
+[durable child report](../../research/data-audits/sealed-historical-account-residual-exit-status-verification-v0.1/verification.json),
+[byte comparison](../../research/data-audits/sealed-historical-account-residual-exit-status-verification-v0.1-comparison.json),
+and [success audit](../../research/data-audits/sealed-historical-account-residual-exit-status-verification-v0.1-success.json).
+
 ## Current checkpoint: verifier-only correction registered; stored-runtime check next
 
 The separately versioned

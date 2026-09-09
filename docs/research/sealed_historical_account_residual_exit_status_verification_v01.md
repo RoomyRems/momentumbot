@@ -1,5 +1,63 @@
 # Residual cancellation-status verification v0.1
 
+## Verified outcome
+
+The corrected verifier passed on the exact saved runtime locally and in
+[GitHub run 34309642311](https://github.com/RoomyRems/momentumbot/actions/runs/34309642311),
+job `102333453665`, attempt 1. Implementation
+`25091dfd212f8afc595aca2a5d7d92b6d38dc78d`, tree
+`f7455e914aaeecce1c15316cf7eb32210131e741`, was published before either
+historical verification. No new checker failure occurred.
+
+Artifact `10087904199` contains exactly the child attempt receipt, verification
+report and freeze manifest. All three files match the local output byte for
+byte. Its 3,476 bytes match ZIP SHA
+`d4cbcaf749fcaf36c4ec72753c4b9cfd58f6a1d415d5a5319eca818f1de7f281`.
+Inventory, CRC, canonical seals and all freeze entries verify. The durable
+[verification report](../../research/data-audits/sealed-historical-account-residual-exit-status-verification-v0.1/verification.json)
+has content SHA
+`0d9c7cbcaac8970178bb15b16a47f13ff5df3b9b9d7f9cb28e039bffa40d5178`.
+The [byte comparison](../../research/data-audits/sealed-historical-account-residual-exit-status-verification-v0.1-comparison.json)
+has content SHA
+`6b0dd28895f76684ba7b5e2a103c5a49e179b7d49e3796f92f3f853d9ea264c4`.
+
+The checker accepted all original 12 paths and 360 slots, with the original
+744 opportunity references and 162 unavailable references preserved. All
+27 residual acknowledgements verify: 15 partial cancellations, nine ordinary
+unfilled cancellations and three no-fresh-quote cancellations. The exact original
+runtime and failed checker remain unchanged. The account replay was not rerun.
+
+Runtime acceptance verifies the recorded behavior, including its incomplete
+states. It does not establish a complete account backtest:
+
+| Original session status | Slots |
+|---|---:|
+| Flat complete | 36 |
+| Flat complete with unavailable inputs retained | 30 |
+| Original window exhausted with unresolved state | 12 |
+| Blocked by prior unresolved state | 282 |
+
+No account path is complete. Twelve residual-order budgets were exhausted.
+Across each separate 1, 5 and 10 second path, the unresolved window is June 10,
+2025 for main/conservative, June 18 for small/conservative, and June 2 for both
+stress accounts. These are retained source/continuation boundaries, not waived
+checks or financial results.
+
+The hosted focused tests passed 62 tests normally in 11.495 seconds and under
+optimization in 11.667 seconds, zero skips. All eight implementation workflows
+passed at attempt 1. [Full CI 34309642231](https://github.com/RoomyRems/momentumbot/actions/runs/34309642231)
+reported 2,315 tests in 298.135 seconds with the existing 73 optional-SDK skips.
+The [success audit](../../research/data-audits/sealed-historical-account-residual-exit-status-verification-v0.1-success.json)
+records the publication validation and remaining gate.
+
+The next gate is a separately recorded reproduction of the account runtime,
+preserving the original local attempt that emitted only its receipt. Two
+verifications of one saved runtime do not replace that missing execution.
+Any subsequent response to the unresolved positions needs separate registered
+scope. Financial evaluation and Ross labels remain closed.
+
+## Registered scope
+
 This separately registered verifier checks the exact runtime preserved by the
 failed residual replay. It corrects one known checker defect: zero-fill
 cancellations must distinguish a missing fresh quote, halted quotes, and an
@@ -92,7 +150,7 @@ original independent report. Local and hosted child output must be compared
 directly, including byte identities and inventory, before recording acceptance.
 Any additional failure must remain attached to this frozen verifier version.
 
-## Remaining boundary
+## Preregistered boundary before execution
 
 Before execution, complete runtime acceptance remains unestablished. Even if
 the corrected checks pass, checking one stored runtime in two environments does
