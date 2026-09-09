@@ -1,0 +1,79 @@
+{
+  "account_backtest_complete": false,
+  "all_seven_non_reproduction_workflows_passed": true,
+  "artifact_type": "active_frozen_reproduction_execution_checkpoint",
+  "broker_orders_authorized": false,
+  "content_sha256": "b7694014edfcfbee22e1a7bbde605850a2bb95841725a8f10efd2fc86ad45755",
+  "contract_id": "sealed-historical-account-residual-exit-reproduction-v0.1",
+  "do_not_restart_or_rerun_active_attempts": true,
+  "expected_report_content_sha256": "0d9c7cbcaac8970178bb15b16a47f13ff5df3b9b9d7f9cb28e039bffa40d5178",
+  "financial_metrics_eligible": false,
+  "historical_reproduction_complete": false,
+  "hosted": {
+    "current_step": "Reproduce unchanged account runtime and verify exact original bytes",
+    "job_id": 102452809165,
+    "run_attempt": 1,
+    "run_id": 34347599749,
+    "setup_registration_synthetic_tests_and_download_steps_passed": true,
+    "status": "in_progress"
+  },
+  "implementation_ci": {
+    "conclusion": "success",
+    "job": 102452811878,
+    "run": 34347599884,
+    "seconds": 281.678,
+    "skipped": 73,
+    "tests": 2327
+  },
+  "implementation_ci_log": {
+    "bytes": 544416,
+    "sha256": "46860f71a5c030de5ee7449efe3aa11526a35a4e650871ffb9c7e3293eef1494"
+  },
+  "implementation_commit_sha": "5b3e1864654abdd239f46f7e07b74fd070759f33",
+  "implementation_tree_sha": "8ad0688fb6947c18dbc5a2037b513d345fc3cd87",
+  "local": {
+    "log_file": "residual-reproduction-local-running-session-01.log",
+    "original_replay_receipt_emitted": true,
+    "original_replay_started": true,
+    "output_root": "residual-reproduction-local-attempt-01",
+    "reproduction_receipt_content_sha256": "17b568eb0265af4d6caa7118af83847ad82819126761f8f27798bf2fa0c839bf",
+    "running_session": 93257,
+    "runtime_output_emitted": false,
+    "source_archive_validation_passed": true,
+    "status": "in_progress"
+  },
+  "local_hosted_runtime_comparison_complete": false,
+  "local_launcher_record": {
+    "file": "residual-reproduction-local-launch-01.json",
+    "launch_log_bytes": 0,
+    "launch_log_file": "residual-reproduction-local-attempt-01.log",
+    "observed_before_running_session_launch": "2026-09-09T11:52:32.943908+00:00",
+    "original_output_overwritten": false,
+    "output_directory_existed_before_running_session_launch": false,
+    "registered_replay_attempt_restarted": false,
+    "reported_pid": 6,
+    "reproduction_receipt_existed_before_running_session_launch": false,
+    "startup_method_changed_to_supported_running_session": true,
+    "termination_cause_established": false
+  },
+  "local_receipt_file": {
+    "bytes": 2207,
+    "sha256": "649acf5536fde766f283831a04a9d9e47defa86db7d79111ea91931e314fdb53"
+  },
+  "original_attempts_overwritten": false,
+  "original_replay_receipt_file": {
+    "bytes": 1725,
+    "sha256": "c51b218c2a083afde806064bf54535a959c7fb4eaa7ae166847f07990d058d68"
+  },
+  "original_runtime_content_sha256": "21bd9efa65c5c5776242bb9a6a53d28c134aefe31ed7da00d389402e29f3efba",
+  "overnight_execution_authorized": false,
+  "policy_promotion_eligible": false,
+  "provider_requests_authorized": false,
+  "publication_preceded_execution": true,
+  "registration_audit_content_sha256": "18aa96249e788bb306c47e900aa50b2529aa982ae565893b8d3bf74872cf304f",
+  "registration_freeze_content_sha256": "25b2124138c419363176286e9bb8e209c210792365f00fc6ae4c6245a1742582",
+  "remaining_gate": "monitor_both_attempts_preserve_failure_or_compare_all_nine_files_and_original_six_component_hashes",
+  "retrospective_labels_opened": false,
+  "runtime_mechanics_changed": false,
+  "verification_mechanics_changed": false
+}

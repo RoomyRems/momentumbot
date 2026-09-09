@@ -1,5 +1,38 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: residual reproduction running — monitor existing attempts
+
+The registered reproduction is active at implementation
+`5b3e1864654abdd239f46f7e07b74fd070759f33`, tree
+`8ad0688fb6947c18dbc5a2037b513d345fc3cd87`, registration
+`25b2124138c419363176286e9bb8e209c210792365f00fc6ae4c6245a1742582`.
+Publication preceded both registered attempts.
+
+- Hosted: [run 34347599749](https://github.com/RoomyRems/momentumbot/actions/runs/34347599749),
+  job `102452809165`, attempt 1, is executing the original account replay.
+- Local: executor session `93257`, output `residual-reproduction-local-attempt-01`,
+  log `residual-reproduction-local-running-session-01.log`. Source validation
+  passed and both the separate reproduction and original producer receipts exist.
+
+Do not start another replay or overwrite these attempts. Keep all original
+source, producer, corrected-verifier and registration bytes frozen while
+monitoring. A preliminary detached launcher emitted no receipt or output; its
+empty log and launch record were preserved before the registered local attempt
+was started through the supported running session. Its termination cause was
+not established.
+
+All seven non-reproduction workflows passed, including implementation CI
+`34347599884`: 2,327 tests, existing 73 optional-SDK skips. Local full validation
+passed with zero skips. These test results do not complete runtime reproduction.
+The next action is to monitor the existing local/hosted attempts, preserve any
+failure, then compare all nine reproduction files and the six original component
+hashes. Financial evaluation, full account-backtest completion and Ross labels
+remain closed.
+
+See [active reproduction details](../research/sealed_historical_account_residual_exit_reproduction_v01.md),
+[execution audit](../../research/data-audits/sealed-historical-account-residual-exit-reproduction-v0.1-execution.json),
+and [attempt receipt](../../research/data-audits/sealed-historical-account-residual-exit-reproduction-v0.1-attempt-receipt.json).
+
 ## Current checkpoint: separate frozen residual reproduction registered
 
 `sealed-historical-account-residual-exit-reproduction-v0.1` registers one new

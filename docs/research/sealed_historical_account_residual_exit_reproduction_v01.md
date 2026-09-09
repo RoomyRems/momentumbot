@@ -1,5 +1,41 @@
 # Frozen residual account runtime reproduction v0.1
 
+## Active execution checkpoint — do not restart
+
+Implementation `5b3e1864654abdd239f46f7e07b74fd070759f33`, tree
+`8ad0688fb6947c18dbc5a2037b513d345fc3cd87`, was published before reproduction.
+[Hosted run 34347599749](https://github.com/RoomyRems/momentumbot/actions/runs/34347599749),
+job `102452809165`, attempt 1, passed setup, registration, synthetic tests and
+all original-archive downloads and entered the replay step. The local registered
+attempt is running in executor session `93257`, with output
+`residual-reproduction-local-attempt-01` and log
+`residual-reproduction-local-running-session-01.log` in the task workspace.
+
+The local reproduction receipt is
+`17b568eb0265af4d6caa7118af83847ad82819126761f8f27798bf2fa0c839bf`;
+the original producer also emitted its exact registered receipt. At this
+checkpoint neither a final local runtime nor a reproduction comparison exists.
+Resume monitoring these exact attempts. Do not start another replay, reuse their
+directories, cancel or rerun the hosted job as a recovery shortcut, or change any
+registered producer/verifier file while they execute.
+
+A preliminary local detached-process launcher produced an empty log and no
+output directory or reproduction receipt. Its launch record and empty log were
+kept. The single registered local replay then started through the supported
+running-session mechanism, which emitted both receipts. No existing reproduction
+output was overwritten; the preliminary launch's termination cause was not
+established.
+
+All seven non-reproduction workflows passed at attempt 1. [Implementation CI
+34347599884](https://github.com/RoomyRems/momentumbot/actions/runs/34347599884),
+job `102452811878`, passed 2,327 tests in 281.678 seconds with the existing
+73 optional-SDK skips. This CI result does not certify the still-running replay.
+The [execution audit](../../research/data-audits/sealed-historical-account-residual-exit-reproduction-v0.1-execution.json)
+and [durable attempt receipt](../../research/data-audits/sealed-historical-account-residual-exit-reproduction-v0.1-attempt-receipt.json)
+record the active attempt identities and preserved launcher evidence.
+
+## Registered reproduction scope
+
 This is a separately recorded reproduction of the original residual account
 replay. Its single hypothesis is that the unchanged producer recreates the
 already accepted original runtime byte for byte. It does not change strategy,
