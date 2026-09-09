@@ -1,0 +1,61 @@
+{
+  "account_backtest_complete": false,
+  "artifact_type": "runtime_reproduction_freeze",
+  "broker_orders_authorized": false,
+  "content_sha256": "5702b00cb875313e1dc75661a2a040fb025e17b2e2bd7afe47099a4c889aa4cb",
+  "contract_id": "sealed-historical-account-residual-exit-reproduction-v0.1",
+  "document_content_sha256": {
+    "account-replay-attempt.json": "daf28808c8537da83ed3fc9fb5a40de998bea57710372ba34e0b7eea1713ec67",
+    "account-replay/account-replay.json": "21bd9efa65c5c5776242bb9a6a53d28c134aefe31ed7da00d389402e29f3efba",
+    "account-replay/freeze-manifest.json": "dfe7ca65907bb7dafeebb9fc464c69557b91ecbce286f3120ca162cefca3e351",
+    "reproduction-attempt.json": "17b568eb0265af4d6caa7118af83847ad82819126761f8f27798bf2fa0c839bf",
+    "reproduction-verification.json": "70690fa827f4396d1eb3189f88de6f2ceb5a2117c6cc5656499ec60744eede24",
+    "verification/attempt.json": "d4b5373e463f4225b769bdc438dbafd640d8fba247bf2caa1a0dc3be30db4479",
+    "verification/freeze-manifest.json": "0560f414d47dcf825bc9e047b6d997d34d350f5b9aabffe65e8c2a769b74c2d9",
+    "verification/verification.json": "0d9c7cbcaac8970178bb15b16a47f13ff5df3b9b9d7f9cb28e039bffa40d5178"
+  },
+  "file_inventory": {
+    "account-replay-attempt.json": {
+      "bytes": 1725,
+      "sha256": "c51b218c2a083afde806064bf54535a959c7fb4eaa7ae166847f07990d058d68"
+    },
+    "account-replay/account-replay.json": {
+      "bytes": 10602145,
+      "sha256": "90f5a02dacc26eec03e8aacb5758150c0efc8b6a9b56d9c1d4eb7f5d7287c716"
+    },
+    "account-replay/freeze-manifest.json": {
+      "bytes": 1021,
+      "sha256": "cbd3ed8693ec54febaa9855b64d8869413605bffce5291d67c69ba8686caff0b"
+    },
+    "reproduction-attempt.json": {
+      "bytes": 2207,
+      "sha256": "649acf5536fde766f283831a04a9d9e47defa86db7d79111ea91931e314fdb53"
+    },
+    "reproduction-verification.json": {
+      "bytes": 3716,
+      "sha256": "4600bf5e73cf1f122bdb8b097819dc352e4a0c023bc511c59e9b192ca7e7a466"
+    },
+    "verification/attempt.json": {
+      "bytes": 1902,
+      "sha256": "5b80a77a7d4a6ba5a6aa1881d9648ef403ca86a073d4b602504a7715fe5b2b93"
+    },
+    "verification/freeze-manifest.json": {
+      "bytes": 1421,
+      "sha256": "669935911dc509dad05478f28463436b54b251254e925e48377af38afcb55cd3"
+    },
+    "verification/verification.json": {
+      "bytes": 11017,
+      "sha256": "14b459c8a64ab0402c0a4ebaa6109ab41a2a103a7045df211f895e36e2b52c48"
+    }
+  },
+  "financial_metrics_eligible": false,
+  "original_attempts_overwritten": false,
+  "overnight_execution_authorized": false,
+  "policy_promotion_eligible": false,
+  "provider_requests_authorized": false,
+  "registration_freeze_content_sha256": "25b2124138c419363176286e9bb8e209c210792365f00fc6ae4c6245a1742582",
+  "retrospective_labels_opened": false,
+  "runtime_mechanics_changed": false,
+  "runtime_reproduction_verified": true,
+  "verification_mechanics_changed": false
+}

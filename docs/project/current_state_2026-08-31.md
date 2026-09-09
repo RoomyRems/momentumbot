@@ -1,5 +1,28 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: local residual reproduction passed; hosted still running
+
+Local executor session `93257` completed with exit code 0, observed at
+`2026-09-09T12:46:22Z`. The unchanged original CLI reproduced all six original
+component files byte for byte. All nine output documents passed independent
+content-seal and serialized-byte checks. Reproduction report:
+`70690fa827f4396d1eb3189f88de6f2ceb5a2117c6cc5656499ec60744eede24`;
+runtime remains `21bd9efa65c5c5776242bb9a6a53d28c134aefe31ed7da00d389402e29f3efba`.
+
+[Hosted run 34347599749](https://github.com/RoomyRems/momentumbot/actions/runs/34347599749),
+job `102452809165`, attempt 1, is still executing the replay. Do not restart the
+completed local attempt or rerun the hosted workflow. The remaining gate is to
+download the completed hosted artifact, verify its exact inventory, ZIP bytes,
+CRC and document seals, then compare all nine members against local output and
+the six original component commitments. Full reproduction is not yet complete.
+
+The local [success audit](../../research/data-audits/sealed-historical-account-residual-exit-reproduction-v0.1-local-success.json)
+and [reproduction report](../../research/data-audits/sealed-historical-account-residual-exit-reproduction-v0.1/reproduction-verification.json)
+are preserved. The original 12 unresolved paths and 282 blocked later slots
+remain unchanged; account-backtest completion, financial metrics and Ross labels
+remain closed. Execution-checkpoint CI `34349287721` passed 2,327 tests with
+73 existing optional-SDK skips; its walk-forward workflow also passed.
+
 ## Current checkpoint: residual reproduction running — monitor existing attempts
 
 The registered reproduction is active at implementation

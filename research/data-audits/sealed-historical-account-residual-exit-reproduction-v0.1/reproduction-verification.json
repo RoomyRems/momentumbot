@@ -1,0 +1,85 @@
+{
+  "account_backtest_complete": false,
+  "all_six_original_component_files_byte_identical": true,
+  "artifact_type": "registered_runtime_reproduction_verification",
+  "attempt_content_sha256": "17b568eb0265af4d6caa7118af83847ad82819126761f8f27798bf2fa0c839bf",
+  "broker_orders_authorized": false,
+  "content_sha256": "70690fa827f4396d1eb3189f88de6f2ceb5a2117c6cc5656499ec60744eede24",
+  "contract_id": "sealed-historical-account-residual-exit-reproduction-v0.1",
+  "execution_provenance": "registered_original_CLI_call_and_retained_execution_log",
+  "expected_incomplete_states_preserved": {
+    "blocked_prior_state": 282,
+    "flat_complete": 36,
+    "flat_complete_with_unavailable_inputs": 30,
+    "original_window_exhausted_with_unresolved_state": 12
+  },
+  "file_inventory": {
+    "account-replay-attempt.json": {
+      "bytes": 1725,
+      "content_sha256": "daf28808c8537da83ed3fc9fb5a40de998bea57710372ba34e0b7eea1713ec67",
+      "sha256": "c51b218c2a083afde806064bf54535a959c7fb4eaa7ae166847f07990d058d68"
+    },
+    "account-replay/account-replay.json": {
+      "bytes": 10602145,
+      "content_sha256": "21bd9efa65c5c5776242bb9a6a53d28c134aefe31ed7da00d389402e29f3efba",
+      "sha256": "90f5a02dacc26eec03e8aacb5758150c0efc8b6a9b56d9c1d4eb7f5d7287c716"
+    },
+    "account-replay/freeze-manifest.json": {
+      "bytes": 1021,
+      "content_sha256": "dfe7ca65907bb7dafeebb9fc464c69557b91ecbce286f3120ca162cefca3e351",
+      "sha256": "cbd3ed8693ec54febaa9855b64d8869413605bffce5291d67c69ba8686caff0b"
+    },
+    "verification/attempt.json": {
+      "bytes": 1902,
+      "content_sha256": "d4b5373e463f4225b769bdc438dbafd640d8fba247bf2caa1a0dc3be30db4479",
+      "sha256": "5b80a77a7d4a6ba5a6aa1881d9648ef403ca86a073d4b602504a7715fe5b2b93"
+    },
+    "verification/freeze-manifest.json": {
+      "bytes": 1421,
+      "content_sha256": "0560f414d47dcf825bc9e047b6d997d34d350f5b9aabffe65e8c2a769b74c2d9",
+      "sha256": "669935911dc509dad05478f28463436b54b251254e925e48377af38afcb55cd3"
+    },
+    "verification/verification.json": {
+      "bytes": 11017,
+      "content_sha256": "0d9c7cbcaac8970178bb15b16a47f13ff5df3b9b9d7f9cb28e039bffa40d5178",
+      "sha256": "14b459c8a64ab0402c0a4ebaa6109ab41a2a103a7045df211f895e36e2b52c48"
+    }
+  },
+  "financial_metrics_eligible": false,
+  "frozen_verifier_replay_false_flag_describes_its_verification_only_operation": true,
+  "original_attempts_overwritten": false,
+  "original_producer_and_corrected_verifier_unchanged": true,
+  "original_runtime_content_sha256": "21bd9efa65c5c5776242bb9a6a53d28c134aefe31ed7da00d389402e29f3efba",
+  "overnight_execution_authorized": false,
+  "policy_promotion_eligible": false,
+  "provider_requests_authorized": false,
+  "registration_freeze_content_sha256": "25b2124138c419363176286e9bb8e209c210792365f00fc6ae4c6245a1742582",
+  "retrospective_labels_opened": false,
+  "runtime_mechanics_changed": false,
+  "runtime_reproduction_verified": true,
+  "totals": {
+    "blocked_sessions": 282,
+    "completed_streams": 198,
+    "confirmed_entries": 51,
+    "confirmed_fills": 114,
+    "confirmed_sells": 63,
+    "eligible_wait_prints_verified": 324,
+    "events": 399,
+    "executed_sessions": 78,
+    "input_failure_sessions": 0,
+    "opportunity_references": 744,
+    "residual_budget_exhaustions": 12,
+    "residual_expiries": 0,
+    "residual_proposals": 15,
+    "residual_ready": 15,
+    "residual_submissions": 15,
+    "sessions": 360,
+    "unavailable_references": 162,
+    "wait_expiries": 0,
+    "wait_submissions": 36,
+    "wait_supersessions": 0,
+    "waits": 36
+  },
+  "verification_mechanics_changed": false,
+  "verifier_report_content_sha256": "0d9c7cbcaac8970178bb15b16a47f13ff5df3b9b9d7f9cb28e039bffa40d5178"
+}

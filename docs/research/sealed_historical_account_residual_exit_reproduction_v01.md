@@ -1,5 +1,27 @@
 # Frozen residual account runtime reproduction v0.1
 
+## Local success; hosted comparison pending
+
+Local executor session `93257` completed with exit code 0, observed at
+`2026-09-09T12:46:22Z`. Its nine output files passed independent inventory,
+canonical serialization and content-seal checks. All six original component files
+match the registered bytes exactly, including the original runtime
+`21bd9efa65c5c5776242bb9a6a53d28c134aefe31ed7da00d389402e29f3efba` and corrected
+verifier report `0d9c7cbcaac8970178bb15b16a47f13ff5df3b9b9d7f9cb28e039bffa40d5178`.
+
+The [new reproduction report](../../research/data-audits/sealed-historical-account-residual-exit-reproduction-v0.1/reproduction-verification.json)
+is `70690fa827f4396d1eb3189f88de6f2ceb5a2117c6cc5656499ec60744eede24` and its
+[freeze](../../research/data-audits/sealed-historical-account-residual-exit-reproduction-v0.1/reproduction-freeze.json)
+is `5702b00cb875313e1dc75661a2a040fb025e17b2e2bd7afe47099a4c889aa4cb`.
+The [local success audit](../../research/data-audits/sealed-historical-account-residual-exit-reproduction-v0.1-local-success.json)
+records file hashes and the retained execution log commitment.
+
+Hosted run `34347599749`, job `102452809165`, attempt 1, is still in the replay
+step. Its exact artifact and all nine local/hosted file comparisons are pending.
+Do not restart either attempt. The prior execution checkpoint below remains a
+historical record; the local attempt is now complete. All incomplete account
+states and evaluation boundaries remain unchanged.
+
 ## Active execution checkpoint — do not restart
 
 Implementation `5b3e1864654abdd239f46f7e07b74fd070759f33`, tree
