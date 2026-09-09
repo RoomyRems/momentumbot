@@ -1,5 +1,19 @@
 # Historical account terminal continuation v0.1
 
+The registered local and hosted historical attempts are now active at commit
+`0f057039e00480f3b0275d0bcd0bdabd23da7a96`. Local native session `56228` is
+followed by verifier session `12279`; hosted run
+[34362104473](https://github.com/RoomyRems/momentumbot/actions/runs/34362104473),
+job `102501424811`, attempt 1, includes its independent checker. Neither final
+runtime nor local/hosted byte comparison is yet accepted. Do not restart these
+attempts or launch duplicate local verification. The
+[execution-start audit](../../research/data-audits/sealed-historical-account-terminal-continuation-v0.1-execution-start.json)
+records the active identifiers and the operational follower source. The follower
+only waits for and verifies the existing replay; it cannot launch a replay.
+
+All seven other implementation workflows passed, including CI with 2,349 tests
+and the existing 73 optional-SDK skips.
+
 This child tests one change: keep a terminal exit signal active after the
 original two-order residual sequence, until confirmed shares are flat or the
 original captured window expires. The accepted residual runtime and its

@@ -1,5 +1,37 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: terminal continuation replay active locally and on GitHub
+
+The child was published at `0f057039e00480f3b0275d0bcd0bdabd23da7a96`, tree
+`7603b10aff0e4e617a963df56abc046210a5f753`, before either historical attempt.
+Registration is `0f2570ba5b71783c3d27b47f2718217d7331bba8a2e8f7f09527c097fdf4a3fb`.
+
+- Local native replay: executor session `56228`, receipt written at
+  `2026-09-09T14:13:31.387859+00:00`. Thirteen session records were saved at the
+  latest observation, through index 12 of the first conservative main-account
+  path. These progress records are not a final panel result.
+- Hosted: [run 34362104473](https://github.com/RoomyRems/momentumbot/actions/runs/34362104473),
+  job `102501424811`, attempt 1. Component checks and original-archive download
+  passed; the historical replay is executing.
+- Local verifier follower: executor session `12279`. It waits for the existing
+  replay's final 12-path/360-session receipt and then invokes the frozen
+  independent checker once. Do not start another replay or a duplicate manual
+  checker while this follower is active. The hosted workflow also includes its
+  independent check after replay.
+- All seven other implementation workflows passed. CI
+  [34362104557](https://github.com/RoomyRems/momentumbot/actions/runs/34362104557)
+  passed 2,349 tests with the existing 73 optional-SDK skips. Local validation
+  passed all 2,349 tests with zero skips, plus 22 focused and 22 optimized tests.
+
+Both historical results, independent runtime verification and downloaded
+local/hosted byte comparison remain pending. Preserve the frozen child, its
+parents and both attempt records while monitoring. Financial evaluation, Ross
+labels and promotion remain closed. The previous residual reproduction is
+complete and must not be restarted.
+
+See the [execution-start audit](../../research/data-audits/sealed-historical-account-terminal-continuation-v0.1-execution-start.json)
+and [continuation contract](../research/sealed_historical_account_terminal_continuation_v01.md).
+
 ## Current checkpoint: terminal continuation registered for validation
 
 The next isolated child is `sealed-historical-account-terminal-continuation-v0.1`,
