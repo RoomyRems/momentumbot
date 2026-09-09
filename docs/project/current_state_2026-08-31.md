@@ -1,5 +1,42 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: bounded residual-exit child verified; original replay next
+
+The new child starts from verified checkpoint
+`1bfb8e84491e3b1e24a642fc6c1df8675a223754`, tree
+`63970e9046c7b6dfb01c277948b830c6f19680db`, and exact waiting runtime
+`7b0a0edd58ea285613a01047963bccb82a8a8df4ef6192f2437da222406d7edb`.
+Its single hypothesis permits one additional terminal order per entry after
+the original terminal cancellation acknowledgement, for the confirmed remainder
+only and on the first later eligible SIP print. Missing references inherit
+causal waiting. Original windows, fills, risk, fees and liquidity identity stay
+frozen. A second-terminal remainder remains explicitly unresolved; no third
+attempt or synthetic liquidation is added.
+
+All 2,289 local tests passed with zero skips. The 148 focused tests passed
+normally and optimized, including 36 new component tests. Static entrypoint
+checks found no undefined globals or production-code imports in the independent
+checker. The final registration freeze is
+`33ced4d6e2069f36a277b3b2025f38e07e2d7a3e9eeecd031345400ed6b54dae`.
+All 265 parent file pins and five implementation pins verify unchanged.
+
+No original-source replay of this child has occurred at this checkpoint.
+Publish this verified code and registration before source access, then run
+one local and one hosted replay. The dedicated job has a frozen 120 minute
+budget. Preserve every attempt and compare the eventual local and downloaded
+hosted artifacts exactly. Do not modify this implementation after execution.
+
+The [implementation-verification audit](../../research/data-audits/sealed-historical-account-residual-exit-v0.1-implementation-verification.json)
+records exact test-log hashes and the synthetic pre-freeze diagnostics. The
+parent comparison requires exact earlier sessions and events through the
+first cancellation acknowledgement; later capacity changes from a confirmed
+replacement are permitted and independently tested.
+
+See [bounded residual exit](../research/sealed_historical_account_residual_exit_v01.md).
+Financial evaluation, account-backtest completion, overnight execution,
+retrospective labels and promotion remain closed. Ross attachments are unopened.
+The following checkpoints are retained as historical records.
+
 ## Current checkpoint: exit waiting reproduced and archive verified
 
 Frozen implementation `38fe1d83f51ae942acbdd6bc1af3ebbf7867a8ed` and registration

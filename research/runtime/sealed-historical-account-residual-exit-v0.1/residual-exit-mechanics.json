@@ -1,0 +1,32 @@
+{
+  "account_close_evidence": false,
+  "broker_orders_authorized": false,
+  "broker_statement_equivalence_verified": false,
+  "content_sha256": "cd22800e5f7ac0c911d04a7f749dc9160978d48c0667f6882690af4b9076b198",
+  "contract_id": "sealed-historical-account-residual-exit-v0.1",
+  "financial_metrics_eligible": false,
+  "historical_producer_authenticated": false,
+  "historical_runtime_authorized": false,
+  "mechanics": {
+    "audit": "persistent_ready_proposal_submitted_expiry_or_exhaustion_chain_bound_to_entry_and_prior_order",
+    "authority": "only_confirmed_positive_remainder_after_first_terminal_cancel_acknowledgement",
+    "bound": "one_target_and_at_most_two_terminal_orders_per_entry_no_counter_reset",
+    "budget_consumption": "only_on_actual_replacement_order_submission_not_proposal_or_wait",
+    "clock": "first_eligible_SIP_print_strictly_after_acknowledgement_original_phases_and_order",
+    "evaluation": "all_12_paths_and_360_slots_financial_metrics_and_retrospective_labels_remain_closed",
+    "execution": "unchanged_marketable_limit_offsets_latency_participation_fill_and_cancel_model",
+    "exhaustion": "second_terminal_remainder_stays_open_no_third_attempt_or_inferred_liquidation",
+    "expiry": "550ms_tail_plus_1ns_must_fit_original_window_else_preserve_shares_and_intent",
+    "hypothesis": "one_additional_terminal_order_may_manage_acknowledged_partial_or_unfilled_remainder",
+    "liquidity": "original_common_tape_identity_and_consumed_record_set_preserved_across_orders_and_reentry",
+    "quantity": "all_and_only_current_confirmed_unreserved_remaining_shares",
+    "reference_wait": "unchanged_frozen_waiting_if_first_replacement_reference_is_not_fresh_nonhalted",
+    "signal": "preserve_exact_prior_submitted_intent_and_ack_witness_with_unchanged_stop_risk_red_priority",
+    "source_seeds_strategy_risk_fees_windows": "all_frozen_parent_values_unchanged"
+  },
+  "original_market_source_provenance_authenticated": false,
+  "overnight_execution_authorized": false,
+  "policy_promotion_eligible": false,
+  "provider_requests_authorized": false,
+  "retrospective_labels_opened": false
+}

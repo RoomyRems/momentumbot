@@ -1,0 +1,84 @@
+{
+  "account_backtest_complete": false,
+  "account_finisher_ast_identical_to_waiting_parent": true,
+  "additional_terminal_order_budget_per_entry": 1,
+  "artifact_type": "pre_original_source_implementation_verification",
+  "broker_orders_authorized": false,
+  "content_sha256": "5e991cd85c6a84144b9850104f05726138856f34204256f5f328a5bee3415ae4",
+  "contract_content_sha256": "2f73c36939cd418b781838772cc2d9a792ce7df49a190f209edbec9c2dbdbd1b",
+  "contract_id": "sealed-historical-account-residual-exit-v0.1",
+  "dedicated_workflow_timeout_minutes": 120,
+  "draft_diagnostics": [
+    {
+      "finding": "independent_checker_missing_seal_binding",
+      "resolved_before_freeze": true,
+      "scope": "synthetic_pre_freeze_only"
+    },
+    {
+      "finding": "parent_event_comparison_must_stop_at_ack_before_later_capacity_can_change",
+      "resolved_before_freeze": true,
+      "scope": "synthetic_pre_freeze_only"
+    }
+  ],
+  "financial_metrics_eligible": false,
+  "frozen_parent_file_count_verified": 265,
+  "historical_child_replay_executed": false,
+  "hosted_python": "3.12.14",
+  "implementation_file_sha256": {
+    ".github/workflows/sealed-historical-account-residual-exit-v01.yml": "8d8336dcd837b1ba3648966dd8f52d128d90e8fa43d5f95031f41363c7a70f88",
+    "scripts/build_sealed_historical_account_residual_exit_v01.py": "8ed4a03b1978ea448bb7b5d2286de56c8248595dffab6d7adc4eef95a09a9ef8",
+    "scripts/verify_sealed_historical_account_residual_exit_v01.py": "27a2ae0d975ed7d178a64f413a22283617d78c5de2b0c254779009c086c50c8f",
+    "src/momentumbot/research/sealed_historical_account_residual_exit_v01.py": "e8e4c7646f3127cf07707f3d224564e3f4c572591e889c1e3b8eb195718b63d6",
+    "tests/test_sealed_historical_account_residual_exit_v01.py": "f4cbec70ee153016e0fec0f9a2a9dcdb4f1f14ce123ee06e9a5a01b50bf1049b"
+  },
+  "independent_account_check_ast_identical_except_parent_namespace": true,
+  "independent_checker_has_no_production_imports": true,
+  "independent_chronology_check_ast_identical_except_registered_terminal_ceiling": true,
+  "later_capacity_divergence_after_confirmed_replacement_tested": true,
+  "local_python": "3.12.13",
+  "new_component_test_count": 36,
+  "no_undefined_entrypoint_globals": true,
+  "overnight_execution_authorized": false,
+  "parent_checkpoint_commit": "1bfb8e84491e3b1e24a642fc6c1df8675a223754",
+  "parent_checkpoint_tree": "63970e9046c7b6dfb01c277948b830c6f19680db",
+  "parent_prefix_boundary": "all_prior_sessions_exact_then_affected_session_events_through_first_terminal_cancel_acknowledgement_exact",
+  "parent_runtime_content_sha256": "7b0a0edd58ea285613a01047963bccb82a8a8df4ef6192f2437da222406d7edb",
+  "parent_runtime_file_sha256": "b36b14350d1cb91c173122aee77e7892050546af52cd03253b587c54c288219e",
+  "policy_promotion_eligible": false,
+  "provider_requests_made": 0,
+  "publication_must_precede_original_source_access": true,
+  "registration_freeze_content_sha256": "33ced4d6e2069f36a277b3b2025f38e07e2d7a3e9eeecd031345400ed6b54dae",
+  "retrospective_labels_opened": false,
+  "target_order_ceiling_per_entry": 1,
+  "terminal_order_ceiling_per_entry": 2,
+  "tests": {
+    "focused": {
+      "log_bytes": 29799,
+      "log_sha256": "ecf00cd5e812df395b4205d37d712ccbbb5609d827626138ce8c4f069372b2b3",
+      "passed": true,
+      "seconds": 70.019,
+      "skips": 0,
+      "tests": 148
+    },
+    "full_suite": {
+      "log_bytes": 478786,
+      "log_sha256": "81cbadecf22024452ba5077b778c332795dd36290d4dfa949b9115d8970f4474",
+      "passed": true,
+      "seconds": 277.269,
+      "skips": 0,
+      "tests": 2289
+    },
+    "optimized": {
+      "log_bytes": 29799,
+      "log_sha256": "ded8d8a817649df9872490a47092b0c20c9e7bedb9f55041cc81f056e0de8024",
+      "passed": true,
+      "seconds": 73.955,
+      "skips": 0,
+      "tests": 148
+    }
+  },
+  "transcript_corpus_opened": false,
+  "window_and_liquidity_identity_unchanged": true,
+  "workflow_embedded_python_blocks_syntax_validated": 1,
+  "workflow_shell_steps_syntax_validated": 5
+}
