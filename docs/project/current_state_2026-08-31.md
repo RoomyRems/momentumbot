@@ -1,5 +1,51 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: residual replay failure diagnosed; verifier correction next
+
+The first hosted residual replay completed, but independent verification
+failed. [Run 34295994393](https://github.com/RoomyRems/momentumbot/actions/runs/34295994393),
+job `102292641574`, attempt 1, retains unchanged implementation
+`49e35b57f06b97a73590517b993de0e333d692dd` and registration
+`33ced4d6e2069f36a277b3b2025f38e07e2d7a3e9eeecd031345400ed6b54dae`.
+The failure was a checker rejection, not a timeout.
+
+Downloaded artifact `10085178783` contains exactly the runtime, freeze manifest
+and attempt receipt. Its 1,119,624 bytes match ZIP SHA
+`079bb67f53d4fe9151522d995c127da109c11e19d1a1638be3e53fffbdb0eb76`.
+Inventory, CRC, canonical seals and the runtime inventory verify. Runtime
+`21bd9efa65c5c5776242bb9a6a53d28c134aefe31ed7da00d389402e29f3efba`
+is preserved but not independently accepted. No independent report exists.
+
+The unchanged checker reproduces `residual cancellation witness differs`
+locally. All 27 examined acknowledgement order IDs, times and quantities match.
+Three DPRO records have a source-proven `unavailable_no_fresh_quote` status;
+the checker incorrectly assumes all zero-fill cancellations must be ordinary
+`cancelled_unfilled`. A quote was fresh at submission but 115.938508 ms old
+at arrival, exceeding the frozen 100 ms limit; no new quote arrived before
+cancellation. This affects the separate main/conservative 1, 5 and 10 second
+paths on June 10, 2025. The diagnostic does not establish full-runtime validity.
+
+The original local process is gone, with only its receipt and empty log
+remaining. Its termination cause is not established. There is no local runtime
+for byte comparison. Neither original replay has been restarted. All 270
+frozen file pins, main and all 16 consumed references remain unchanged.
+
+Validation: 2,299 local tests passed with zero skips (277.807 seconds).
+All 46 focused tests passed normally and optimized, including ten new
+diagnostic regression tests. The diagnostic has no undefined globals or
+production implementation imports.
+
+Next: register a verifier-only correction that reconstructs cancellation
+status from native quote evidence, then run it against this exact stored
+runtime. Preserve every other check and any further failure. Resolve the
+missing local runtime separately through a preserved reproduction record.
+Financial evaluation, account-backtest completion, labels, overnight execution
+and promotion remain closed. Ross attachments remain unopened.
+
+See the [source diagnosis and correction requirements](../research/sealed_historical_account_residual_exit_cancellation_diagnostic_v01.md)
+and [preserved failure audit](../../research/data-audits/sealed-historical-account-residual-exit-v0.1-verification-failure-diagnosis.json).
+The following checkpoints are retained as historical records.
+
 ## Current checkpoint: bounded residual exit published; first replays running
 
 Implementation `49e35b57f06b97a73590517b993de0e333d692dd`, tree

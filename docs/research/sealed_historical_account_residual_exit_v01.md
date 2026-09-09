@@ -121,3 +121,20 @@ existing outputs and verify them independently, including direct comparison of
 the downloaded hosted files. No historical outcome is claimed in this checkpoint.
 The [execution audit](../../research/data-audits/sealed-historical-account-residual-exit-v0.1-published-execution-checkpoint.json)
 preserves the publication, receipt and hosted-job provenance.
+
+## Preserved verification failure and source diagnosis
+
+The first hosted replay completed on September 9, 2026, but its independent
+checker failed at `residual cancellation witness differs`. Artifact
+`10085178783` preserves the exact runtime, manifest and receipt. The original
+local attempt has no completed runtime, so cross-execution comparison is still
+unavailable. Both first attempts remain preserved without restart.
+
+The [cancellation diagnosis](sealed_historical_account_residual_exit_cancellation_diagnostic_v01.md)
+reproduces the frozen checker failure and proves from native source records
+that its zero-fill status assumption is too narrow. Three DPRO cancellations
+correctly carry `unavailable_no_fresh_quote`; the verifier expects
+`cancelled_unfilled`. All 27 examined acknowledgement IDs, times and quantities
+match. This diagnosis does not validate the complete runtime or modify this
+implementation. Next: a separately registered verifier-only correction against
+the stored artifact, before any decision to reproduce the full account replay.
