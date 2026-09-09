@@ -1,5 +1,31 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: terminal continuation registered for validation
+
+The next isolated child is `sealed-historical-account-terminal-continuation-v0.1`,
+with parent `998379812823ef44d2678cbca523ce73fbdf8bfb` and registration freeze
+`0f2570ba5b71783c3d27b47f2718217d7331bba8a2e8f7f09527c097fdf4a3fb`.
+All 12 first unresolved parent sessions reached the two-terminal attempt ceiling
+with confirmed shares and no pending order before their original windows ended.
+
+The child preserves that exact prefix and allows further terminal attempts only
+after acknowledged cancellation, at a strictly later eligible SIP print, with
+the original execution, waiting, risk, fee and finite-window rules. It binds 299
+parent files and five implementation files. Independent checks cover each new
+authority transition, and regression tests preserve the original accounting
+arithmetic and corrected zero-fill cancellation classifier.
+
+Local validation passed 22 focused tests, 22 optimized tests and all 2,349 full
+tests, with zero skips. All 299 parent files match the frozen parent commit.
+Historical execution has not started at this checkpoint. Publication must
+precede the registered local/hosted attempts. The completed
+residual reproduction below remains immutable and must not be rerun. Financial
+evaluation, Ross labels and policy promotion remain closed.
+
+See [terminal continuation details](../research/sealed_historical_account_terminal_continuation_v01.md).
+The [implementation audit](../../research/data-audits/sealed-historical-account-terminal-continuation-v0.1-implementation-verification.json)
+records the exact registration, source checks and test-log commitments.
+
 ## Current checkpoint: residual runtime reproduced locally and on GitHub
 
 The separately registered reproduction is complete. The unchanged original

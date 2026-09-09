@@ -1,0 +1,32 @@
+{
+  "account_close_evidence": false,
+  "broker_orders_authorized": false,
+  "broker_statement_equivalence_verified": false,
+  "content_sha256": "41464b5477c99d72f59458dbc1865811f826d01eab8bd7d8de9c57caa153b60c",
+  "contract_id": "sealed-historical-account-terminal-continuation-v0.1",
+  "financial_metrics_eligible": false,
+  "historical_producer_authenticated": false,
+  "historical_runtime_authorized": false,
+  "mechanics": {
+    "attempt_consumption": "only_actual_submission_waiting_spends_zero",
+    "audit": "separate_entry_bound_ready_proposed_submitted_expired_chain",
+    "authority": "original_two_terminal_prefix_then_each_confirmed_cancellation_with_positive_remainder",
+    "bound": "one_pending_order_strictly_advancing_clock_finite_original_stream_and_window",
+    "clock": "first_eligible_SIP_print_strictly_after_actual_cancel_acknowledgement",
+    "context": "prior_actual_intent_hash_actual_ack_parent_exhaustion_hash_sequential_terminal_number",
+    "evaluation": "all_12_paths_360_slots_744_references_162_unavailable_no_financial_or_label_evaluation",
+    "execution_risk_fees_seeds_strategy_sources": "all_frozen_parent_values_unchanged",
+    "expiry": "550ms_tail_plus_1ns_must_fit_original_window_no_extension",
+    "hypothesis": "preserve_terminal_latch_until_flat_or_original_window_expiry",
+    "liquidity": "same_common_tape_and_consumed_source_record_set_across_all_orders_and_reentry",
+    "quantity": "all_and_only_confirmed_unreserved_remaining_shares",
+    "reference": "unchanged_fresh_nonhalted_causal_quote_or_unsubmitted_wait",
+    "signal_priority": "unchanged_stop_account_risk_red_latch_and_wait_supersession",
+    "target": "unchanged_single_target_attempt_no_target_continuation"
+  },
+  "original_market_source_provenance_authenticated": false,
+  "overnight_execution_authorized": false,
+  "policy_promotion_eligible": false,
+  "provider_requests_authorized": false,
+  "retrospective_labels_opened": false
+}

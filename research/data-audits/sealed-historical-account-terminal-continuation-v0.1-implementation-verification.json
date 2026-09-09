@@ -1,0 +1,66 @@
+{
+  "account_backtest_complete": false,
+  "all_original_blocker_last_management_events_match_actual_second_ack": true,
+  "artifact_type": "prepublication_implementation_verification",
+  "broker_orders_authorized": false,
+  "consumed_refs_unchanged": 16,
+  "content_sha256": "28a88273030f4ca04d1d6941a6df48e77200a1f0a69835ef04da2dac4306b238",
+  "contract_id": "sealed-historical-account-terminal-continuation-v0.1",
+  "corrected_cancellation_classifier_preserved": true,
+  "financial_metrics_eligible": false,
+  "frozen_parent_files_verified_against_parent_commit": 299,
+  "historical_child_replay_executed": false,
+  "implementation_file_sha256": {
+    ".github/workflows/sealed-historical-account-terminal-continuation-v01.yml": "ae8c5238939cf3e9302367e8e6a0474475850f63a990623ec6fcbc97c8e251c0",
+    "scripts/build_sealed_historical_account_terminal_continuation_v01.py": "3c13110fe3a840d81951b1c9e5cb4c9c36519e795a30099536b3f16d37f1bdbc",
+    "scripts/verify_sealed_historical_account_terminal_continuation_v01.py": "6ef3164d473c111065727313528f443e3f122c356e5a2ed3ea57a78e6acc31f2",
+    "src/momentumbot/research/sealed_historical_account_terminal_continuation_v01.py": "46b0a0e2e2a9fa4320c0a890b452147b4ef4960371262d29c6a05005885843bc",
+    "tests/test_sealed_historical_account_terminal_continuation_v01.py": "c55a2b5eda6dfa2c5f48d348e9cd157fa09b154e91f5522e3b526eda021b73df"
+  },
+  "independent_account_path_arithmetic_ast_exact": true,
+  "main_unchanged": "de24eb17316191da69d92e61f6843af25e9c22d0",
+  "native_entry_exit_fee_risk_code_modified": false,
+  "original_two_terminal_parent_prefix_exact_in_synthetic_vectors": true,
+  "parent_commit_sha": "998379812823ef44d2678cbca523ce73fbdf8bfb",
+  "parent_runtime_content_sha256": "21bd9efa65c5c5776242bb9a6a53d28c134aefe31ed7da00d389402e29f3efba",
+  "parent_tree_sha": "a3281978c765fdf490fbad9ed92076cd9c602efb",
+  "policy_promotion_eligible": false,
+  "provider_requests_authorized": false,
+  "registration_freeze_content_sha256": "0f2570ba5b71783c3d27b47f2718217d7331bba8a2e8f7f09527c097fdf4a3fb",
+  "retrospective_labels_opened": false,
+  "session_finisher_arithmetic_ast_exact": true,
+  "validation": {
+    "final_registration": {
+      "log_bytes": 552,
+      "log_sha256": "d7c4f066aa713436e560d6277848538154d355ef3577cc0e37c925f2dadec795",
+      "passed": true,
+      "seconds": 1.162,
+      "skipped": 0,
+      "tests": 2
+    },
+    "focused": {
+      "log_bytes": 4789,
+      "log_sha256": "5028d510ed6156f0b7e8aa164ae12fbc1bd073f1ba47f844e7a1febd7929d6c9",
+      "passed": true,
+      "seconds": 5.813,
+      "skipped": 0,
+      "tests": 22
+    },
+    "full": {
+      "log_bytes": 491753,
+      "log_sha256": "77d060818adbfdc160d1f5edc0263969adb60e23b51f738d9672d21eb90d630c",
+      "passed": true,
+      "seconds": 299.629,
+      "skipped": 0,
+      "tests": 2349
+    },
+    "optimized": {
+      "log_bytes": 4789,
+      "log_sha256": "1cd0ebb98c164c81fa6cc71d98ec6650e9e5737f436d95bac676024fbf99ee52",
+      "passed": true,
+      "seconds": 6.001,
+      "skipped": 0,
+      "tests": 22
+    }
+  }
+}
