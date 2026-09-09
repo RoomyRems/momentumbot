@@ -1,0 +1,83 @@
+name: Sealed historical residual exit status verification v0.1
+
+on:
+  push:
+    branches: [phase-3-historical-snapshot]
+    paths:
+      - .github/workflows/sealed-historical-account-residual-exit-status-v01.yml
+      - scripts/verify_sealed_historical_account_residual_exit_status_v01.py
+      - tests/test_sealed_historical_account_residual_exit_status_v01.py
+      - research/strategy/sealed-historical-account-residual-exit-status-verification-v0.1.json
+      - research/runtime/sealed-historical-account-residual-exit-status-verification-v0.1/**
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: sealed-historical-account-residual-exit-status-v01
+  cancel-in-progress: false
+
+jobs:
+  verify-stored-runtime:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      PYTHONPATH: src:scripts
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12.14"
+      - name: Install hash-locked validation environment
+        run: |
+          python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-execution-quote-v01.txt
+          python -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          python -m pip check
+      - name: Verify published registration and synthetic correction offline
+        run: |
+          python scripts/verify_sealed_historical_account_residual_exit_status_v01.py --check-registration
+          python -m unittest tests.test_sealed_historical_account_residual_exit_status_v01 tests.test_sealed_historical_account_residual_exit_diagnostic_v01 tests.test_sealed_historical_account_residual_exit_v01 -v
+          python -O -m unittest tests.test_sealed_historical_account_residual_exit_status_v01 tests.test_sealed_historical_account_residual_exit_diagnostic_v01 tests.test_sealed_historical_account_residual_exit_v01 -v
+      - name: Download only the stored runtime and immutable verification inputs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/10085178783/zip > "$RUNNER_TEMP/runtime.zip"
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/10060984490/zip > "$RUNNER_TEMP/binding.zip"
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/10080992514/zip > "$RUNNER_TEMP/parent.zip"
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/10028253493/zip > "$RUNNER_TEMP/management.zip"
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/10037358910/zip > "$RUNNER_TEMP/exit.zip"
+      - name: Verify immutable archive bytes and extract saved inputs
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          from momentumbot.research.sealed_historical_source_binding_v01 import extract_archive
+          from verify_sealed_historical_account_residual_exit_status_v01 import ARCHIVES, file_spec, require
+          root = Path(os.environ["RUNNER_TEMP"])
+          for key, spec in ARCHIVES.items():
+              require(file_spec(root / (key + ".zip")) == {k: spec[k] for k in ("bytes", "sha256")}, "archive bytes differ: " + key)
+          for key in ("runtime", "binding", "parent"):
+              extract_archive(root / (key + ".zip"), ARCHIVES[key], root / key)
+          PY
+      - name: Independently verify stored runtime once under separately frozen correction
+        run: |
+          VERIFIER_REGISTRATION_SHA=$(python -c 'import json; print(json.load(open("research/runtime/sealed-historical-account-residual-exit-status-verification-v0.1/freeze-manifest.json"))["content_sha256"])')
+          python scripts/verify_sealed_historical_account_residual_exit_status_v01.py \
+            --expected-registration-sha256 "$VERIFIER_REGISTRATION_SHA" \
+            --runtime-root "$RUNNER_TEMP/runtime/account-replay" --binding-root "$RUNNER_TEMP/binding" \
+            --parent-runtime-root "$RUNNER_TEMP/parent/account-replay" \
+            --management-zip "$RUNNER_TEMP/management.zip" --exit-zip "$RUNNER_TEMP/exit.zip" \
+            --output-root "$RUNNER_TEMP/status-verification"
+      - name: Preserve corrected verification or any new failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: sealed-historical-residual-status-verification-v01-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/status-verification
+          if-no-files-found: error
+          retention-days: 90

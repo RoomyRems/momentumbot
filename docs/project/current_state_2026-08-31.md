@@ -1,5 +1,32 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: verifier-only correction registered; stored-runtime check next
+
+The separately versioned
+`sealed-historical-account-residual-exit-status-verification-v0.1` corrects only
+the zero-fill cancellation-status expectation. Its freeze is
+`ed0f19906970ed71af17bf32cbd72ebe2284daa8ad59f80557257035a5f85f85`.
+The correction derives status from the original native quote lifecycle and
+preserves all other checker predicates, enforced by AST parity tests.
+All 270 original pins remain intact, within 278 frozen parent pins and three
+new implementation pins. The original failed checker and failure remain intact.
+
+Sixteen new synthetic tests and all 62 focused tests pass normally and under
+optimization. All 2,315 local tests passed, zero skips, in 278.291 seconds.
+The [registration audit](../../research/data-audits/sealed-historical-account-residual-exit-status-verification-v0.1-registration.json)
+records exact validation before publication. This registration is based on the already published diagnosis,
+and is frozen before use of the corrected checker on the saved historical
+runtime `21bd9efa65c5c5776242bb9a6a53d28c134aefe31ed7da00d389402e29f3efba`.
+
+The next action is a local and hosted verification of those exact stored bytes,
+with exclusive attempt receipts and any new failure retained. The hosted child
+downloads only the five immutable verification archives and does not rerun the
+account replay. Successful verification would not close the missing original
+local-runtime reproducibility gap or open financial/label gates. Ross
+attachments remain unopened.
+
+Details: [verifier registration and scope](../research/sealed_historical_account_residual_exit_status_verification_v01.md).
+
 ## Current checkpoint: residual replay failure diagnosed; verifier correction next
 
 The first hosted residual replay completed, but independent verification

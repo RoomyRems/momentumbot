@@ -1,0 +1,73 @@
+{
+  "account_backtest_complete": false,
+  "account_runtime_reproduced": false,
+  "all_16_consumed_refs_unchanged": true,
+  "artifact_type": "verifier_correction_registration_validation",
+  "broker_orders_authorized": false,
+  "child_implementation_file_count": 3,
+  "content_sha256": "b1ded43c954ff69d22a55f9a8c0aeb84b6cb1e8e404ddbd39746ef9b6147364d",
+  "contract_content_sha256": "16d1658aff06bfae25a8206b37cbbd35ef9031fdabf51595668e9e1e5e803318",
+  "contract_id": "sealed-historical-account-residual-exit-status-verification-v0.1",
+  "corrected_checker_applied_to_original_runtime": false,
+  "financial_metrics_eligible": false,
+  "frozen_parent_file_count": 278,
+  "historical_replay_rerun": false,
+  "historical_runtime_acceptance_established": false,
+  "independent_fill_simulation": false,
+  "main_commit_unchanged": "de24eb17316191da69d92e61f6843af25e9c22d0",
+  "next_gate": "publish_frozen_correction_then_verify_exact_saved_runtime_locally_and_hosted",
+  "original_270_file_pins_preserved": true,
+  "original_code_or_artifacts_modified": false,
+  "original_failure_diagnosis_content_sha256": "138669a5fb265bad605995b4186755822aa7c4b1f5fe4810b048cc361196382d",
+  "overnight_execution_authorized": false,
+  "parent_commit_sha": "89c83f04de92cff6d7ce8d38ee30b9b280dabf56",
+  "parent_tree_sha": "334eadc8380301f613945c1d6a8a35e4bbcfa121",
+  "policy_promotion_eligible": false,
+  "provider_requests_authorized": false,
+  "publication_must_precede_first_historical_verification": true,
+  "python_version": "3.12.13",
+  "registration_freeze_content_sha256": "ed0f19906970ed71af17bf32cbd72ebe2284daa8ad59f80557257035a5f85f85",
+  "registration_verified_offline": true,
+  "retrospective_labels_opened": false,
+  "static_check_method": "stdlib_symtable_and_ast_parity",
+  "tests": {
+    "focused": {
+      "bytes": 13570,
+      "log_name": "residual-status-focused-tests.log",
+      "result": "OK",
+      "seconds": 12.531,
+      "sha256": "aff0c36f46e32b68f6c9440fd88a613b3a69a6a32317a4073713061c0fa30d60",
+      "skipped": 0,
+      "tests": 62
+    },
+    "full": {
+      "bytes": 484469,
+      "log_name": "residual-status-full-tests.log",
+      "result": "OK",
+      "seconds": 278.291,
+      "sha256": "73231d664933d816bbfe14e7ab570698ffb22e42db48f9c4338b3d83dea700af",
+      "skipped": 0,
+      "tests": 2315
+    },
+    "new_synthetic": {
+      "bytes": 3670,
+      "log_name": "residual-status-new-tests-01.log",
+      "result": "OK",
+      "seconds": 3.196,
+      "sha256": "4b7c12a5e2a8d635873e3315caae6ed9f09595b3256bd9a9d9e3220a3fa77755",
+      "skipped": 0,
+      "tests": 16
+    },
+    "optimized_focused": {
+      "bytes": 13570,
+      "log_name": "residual-status-optimized-tests.log",
+      "result": "OK",
+      "seconds": 12.696,
+      "sha256": "8391d803849a480ee783d20f640c4c75d06bdecef5ed184aa22e51863692802f",
+      "skipped": 0,
+      "tests": 62
+    }
+  },
+  "undefined_globals": [],
+  "workflow_yaml_valid": true
+}
