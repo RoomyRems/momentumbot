@@ -1,5 +1,35 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: separate frozen residual reproduction registered
+
+`sealed-historical-account-residual-exit-reproduction-v0.1` registers one new
+local attempt and one new hosted attempt of the unchanged residual account
+producer. Registration freeze is
+`25b2124138c419363176286e9bb8e209c210792365f00fc6ae4c6245a1742582`.
+It pins 289 parent files and three new harness/test/workflow files. All original
+producer and corrected-verifier code remains intact, with the original failed
+checker and missing local attempt preserved separately.
+
+All 2,327 local tests passed with zero skips in 281.006 seconds. The 12 new
+attempt-handling tests passed normally and optimized. All seven local archives
+match their registered bytes; the rejected cached scanner candidate was kept
+and the exact original artifact restored separately.
+
+The reproduction must be published before execution. It calls the exact original
+CLI using all seven immutable replay/verification archives, runs the frozen
+corrected checker, and requires all six original component files to match their
+registered byte lengths, file hashes and document seals. An exclusive receipt
+precedes source validation; existing output directories cannot be reused and
+every new failure is retained. The hosted time budget remains 120 minutes.
+
+The required runtime is still
+`21bd9efa65c5c5776242bb9a6a53d28c134aefe31ed7da00d389402e29f3efba`,
+including all 12 paths, 360 slots, 744 opportunity references and 162 unavailable
+references. The 12 unresolved windows and 282 blocked later slots must remain
+unchanged. Financial evaluation and retrospective Ross labels remain closed.
+
+See [reproduction scope and provenance](../research/sealed_historical_account_residual_exit_reproduction_v01.md).
+
 ## Current checkpoint: corrected verifier passed; runtime reproduction remains open
 
 The separately frozen cancellation-status verifier passed locally and in

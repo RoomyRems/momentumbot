@@ -1,0 +1,72 @@
+name: Sealed historical residual account runtime reproduction v0.1
+
+on:
+  push:
+    branches: [phase-3-historical-snapshot]
+    paths:
+      - .github/workflows/sealed-historical-account-residual-exit-reproduction-v01.yml
+      - scripts/reproduce_sealed_historical_account_residual_exit_v01.py
+      - tests/test_sealed_historical_account_residual_exit_reproduction_v01.py
+      - research/strategy/sealed-historical-account-residual-exit-reproduction-v0.1.json
+      - research/runtime/sealed-historical-account-residual-exit-reproduction-v0.1/**
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: sealed-historical-account-residual-exit-reproduction-v01
+  cancel-in-progress: false
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    env:
+      PYTHONPATH: src:scripts
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12.14"
+      - name: Install hash-locked validation environment
+        run: |
+          python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-execution-quote-v01.txt
+          python -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          python -m pip check
+      - name: Verify separate registration and synthetic attempt handling
+        run: |
+          python scripts/reproduce_sealed_historical_account_residual_exit_v01.py --check-registration
+          python -m unittest tests.test_sealed_historical_account_residual_exit_reproduction_v01 -v
+          python -O -m unittest tests.test_sealed_historical_account_residual_exit_reproduction_v01 -v
+      - name: Download only the seven immutable original archives
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/9993250947/zip > "$RUNNER_TEMP/scanner.zip"
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/10028253493/zip > "$RUNNER_TEMP/management.zip"
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/10037358910/zip > "$RUNNER_TEMP/exit.zip"
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/10004782232/zip > "$RUNNER_TEMP/entry-result.zip"
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/10004656665/zip > "$RUNNER_TEMP/entry-consumption.zip"
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/10060984490/zip > "$RUNNER_TEMP/binding.zip"
+          gh api repos/RoomyRems/momentumbot/actions/artifacts/10080992514/zip > "$RUNNER_TEMP/parent.zip"
+      - name: Reproduce unchanged account runtime and verify exact original bytes
+        run: |
+          REPRODUCTION_REGISTRATION_SHA=$(python -c 'import json; print(json.load(open("research/runtime/sealed-historical-account-residual-exit-reproduction-v0.1/freeze-manifest.json"))["content_sha256"])')
+          python scripts/reproduce_sealed_historical_account_residual_exit_v01.py --reproduce \
+            --expected-registration-sha256 "$REPRODUCTION_REGISTRATION_SHA" \
+            --scanner-zip "$RUNNER_TEMP/scanner.zip" --management-zip "$RUNNER_TEMP/management.zip" \
+            --exit-zip "$RUNNER_TEMP/exit.zip" --entry-result-zip "$RUNNER_TEMP/entry-result.zip" \
+            --entry-consumption-zip "$RUNNER_TEMP/entry-consumption.zip" --binding-zip "$RUNNER_TEMP/binding.zip" \
+            --parent-zip "$RUNNER_TEMP/parent.zip" --output-root "$RUNNER_TEMP/residual-reproduction"
+      - name: Retain new reproduction and every failed attempt
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: sealed-historical-residual-reproduction-v01-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/residual-reproduction
+          if-no-files-found: error
+          retention-days: 90

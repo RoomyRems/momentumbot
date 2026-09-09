@@ -1,0 +1,108 @@
+{
+  "account_backtest_complete": false,
+  "all_16_consumed_refs_unchanged": true,
+  "all_frozen_parent_files_unchanged": true,
+  "all_seven_local_archives_match_registered_bytes": true,
+  "artifact_type": "pre_reproduction_registration_validation",
+  "broker_orders_authorized": false,
+  "content_sha256": "18aa96249e788bb306c47e900aa50b2529aa982ae565893b8d3bf74872cf304f",
+  "contract_content_sha256": "ecbe9a777489fca6f87ef106abc9a3fe71b846f0d5b58fa7ac4897e25ccee468",
+  "contract_id": "sealed-historical-account-residual-exit-reproduction-v0.1",
+  "corrected_verifier_registration_freeze_content_sha256": "ed0f19906970ed71af17bf32cbd72ebe2284daa8ad59f80557257035a5f85f85",
+  "financial_metrics_eligible": false,
+  "historical_reproduction_started": false,
+  "next_step": "publish_then_execute_one_separate_local_and_one_separate_hosted_attempt",
+  "original_attempts_overwritten": false,
+  "original_registration_freeze_content_sha256": "33ced4d6e2069f36a277b3b2025f38e07e2d7a3e9eeecd031345400ed6b54dae",
+  "overnight_execution_authorized": false,
+  "own_files_pinned": 3,
+  "parent_commit_sha": "94fb0d37749ce8fe9c96df5d8d091b0b9d30b69c",
+  "parent_files_pinned": 289,
+  "parent_tree_sha": "89fba9cf670db8b69274eb6ed00c4b238ac38e87",
+  "policy_promotion_eligible": false,
+  "provider_requests_authorized": false,
+  "publication_required_before_replay": true,
+  "python_version": "3.12.14",
+  "registration_freeze_content_sha256": "25b2124138c419363176286e9bb8e209c210792365f00fc6ae4c6245a1742582",
+  "retrospective_labels_opened": false,
+  "runtime_mechanics_changed": false,
+  "scanner_preflight": {
+    "cached_candidate_bytes": 28827648,
+    "cached_candidate_preserved": true,
+    "cached_candidate_rejected": true,
+    "cached_candidate_sha256": "d3fdc02056a2bdb3df81afb677794b3c49f554e644354ae24d87ad1fa6b6d229",
+    "cause_of_earlier_local_runtime_loss_established": false,
+    "original_artifact_restored_separately": 9993250947,
+    "restored_bytes": 78404172,
+    "restored_sha256": "af89836213a905a1e02dabd54cce1d2bab2f55214c2d7bc0dce44d4700243638"
+  },
+  "source_archives": {
+    "binding": {
+      "artifact_id": 10060984490,
+      "bytes": 377229,
+      "sha256": "2577dfdccdee948c9241d3489737e0dac40cf3c97ad826ead9500c095e55d94a"
+    },
+    "entry_consumption": {
+      "artifact_id": 10004656665,
+      "bytes": 1137522,
+      "sha256": "105e3b93fb7be691d330e4e35451455352c5e64fc914ede3e7a253d4f769154a"
+    },
+    "entry_result": {
+      "artifact_id": 10004782232,
+      "bytes": 13700990,
+      "sha256": "1fe68f4e526caa6ce0ee8f8845248e5ef3039f3e3ffbce370020162add3b99d6"
+    },
+    "exit": {
+      "artifact_id": 10037358910,
+      "bytes": 30747584,
+      "sha256": "94877d03a9e91372f9a36d68275b6c44421139bc5c4eab0f26403c26f26aed80"
+    },
+    "management": {
+      "artifact_id": 10028253493,
+      "bytes": 43591721,
+      "sha256": "e6ae822301440e3c0d183546b472e5b6f4e0f50d6e4f1b67178ba6bf46e382e0"
+    },
+    "parent": {
+      "artifact_id": 10080992514,
+      "bytes": 1027787,
+      "sha256": "39c6a09db77889dc28968121458a03154261880ca24d408e940f63c27cac7c8a"
+    },
+    "scanner": {
+      "artifact_id": 9993250947,
+      "bytes": 78404172,
+      "sha256": "af89836213a905a1e02dabd54cce1d2bab2f55214c2d7bc0dce44d4700243638"
+    }
+  },
+  "tests": {
+    "focused": {
+      "bytes": 2897,
+      "log_name": "residual-reproduction-focused-tests-01.log",
+      "passed": true,
+      "seconds": 0.149,
+      "sha256": "604552cf783dbb15330f4aee5c48bff8eefbd545c1671cb8a420aa4e2bbb8e52",
+      "skipped": 0,
+      "tests": 12
+    },
+    "full": {
+      "bytes": 487195,
+      "log_name": "residual-reproduction-full-tests.log",
+      "passed": true,
+      "seconds": 281.006,
+      "sha256": "b170d10005f53128d30c4c900b86a6ff4ed209e12e6210bfb75889de5700091c",
+      "skipped": 0,
+      "tests": 2327
+    },
+    "optimized": {
+      "bytes": 2897,
+      "log_name": "residual-reproduction-optimized-tests.log",
+      "passed": true,
+      "seconds": 0.192,
+      "sha256": "5a3c418a88d7571499697a279ff292133090df60935416db3e781257ca3276d0",
+      "skipped": 0,
+      "tests": 12
+    }
+  },
+  "undefined_globals": [],
+  "verification_mechanics_changed": false,
+  "workflow_yaml_valid": true
+}

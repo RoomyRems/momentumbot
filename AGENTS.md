@@ -15,6 +15,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 
 | Task | Open first | Source of truth |
 |---|---|---|
+| Historical residual runtime reproduction | `docs/research/sealed_historical_account_residual_exit_reproduction_v01.md` | separate preserved local/hosted attempts, unchanged producer and corrected verifier, exact original runtime bytes and retained incomplete states |
 | Historical residual cancellation-status correction | `docs/research/sealed_historical_account_residual_exit_status_verification_v01.md` | verified saved runtime with identical local/hosted child reports, unchanged original checks, retained failure and separate runtime-reproduction gap |
 | Historical residual cancellation-check failure | `docs/research/sealed_historical_account_residual_exit_cancellation_diagnostic_v01.md` | preserved failed checker, source-proven no-quote status, diagnostic-only regression and separate verifier-correction gate |
 | Historical bounded residual exit | `docs/research/sealed_historical_account_residual_exit_v01.md` | one additional terminal order after acknowledged cancellation, strict causal print/window bounds, retained liquidity identity and independent residual authority checks |
