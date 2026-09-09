@@ -1,0 +1,251 @@
+{
+  "account_backtest_complete": false,
+  "artifact_type": "published_implementation_and_first_execution_checkpoint",
+  "broker_orders_authorized": false,
+  "content_sha256": "05911748af534ba71627e75e2ad3c2260539b46b1f88b1ba918b908648543ae1",
+  "contract_id": "sealed-historical-account-residual-exit-v0.1",
+  "do_not_modify_consumed_implementation_or_registration": true,
+  "do_not_restart_either_attempt": true,
+  "financial_metrics_eligible": false,
+  "first_source_access_after_publication": true,
+  "frozen_parent_and_implementation_files_reverified": 270,
+  "github_evidence": {
+    "consumed_refs": {
+      "refs/tags/sealed-historical-execution-input-acquisition-v0.1-consumed": "5a375f86e951b1e9eeb6c010995c9b57025913b7",
+      "refs/tags/sealed-historical-execution-input-acquisition-v0.2-consumed": "e2c250367895d209ec4706288a22655636298685",
+      "refs/tags/sealed-historical-execution-input-acquisition-v0.3-consumed": "0c4010044ee8557136b3c119c6350e134bba46d2",
+      "refs/tags/sealed-historical-execution-input-diagnostic-v0.1-consumed": "e1aece08a44ccf9add0157a1657d08a809687e85",
+      "refs/tags/sealed-historical-execution-input-empty-diagnostic-v0.1-consumed": "8854bb2e63dc3961d98c5d8827f857ef85ccb341",
+      "refs/tags/sealed-historical-execution-input-quote-v0.1-consumed": "dd295304dcc5e7cc0ebd300d094ab20636a72b92",
+      "refs/tags/sealed-historical-management-exit-acquisition-v0.1-consumed": "887f4a08f2cf6279c80d8aee8476ce9ae7da8b52",
+      "refs/tags/sealed-historical-management-exit-quote-v0.1-consumed": "fde309481843b7c2613d9a673f888f488a1ee795",
+      "refs/tags/sealed-historical-management-missing-input-acquisition-v0.1-consumed": "eeec1ea234214a9d4a449e774fe3fa29aefea025",
+      "refs/tags/sealed-historical-micro-input-acquisition-v0.1-consumed": "5cab2eb3aa2b73a2cbf1d57575519a7b99961e24",
+      "refs/tags/sealed-historical-micro-session-input-acquisition-v0.2-consumed": "bf5863a7115abef9e22c4f527448cd9c20084f47",
+      "refs/tags/sealed-historical-source-acquisition-v04-consumed-bbe51f4483a73f92b1f58c9f6c2085d8a47505346c2d340fbe59c0421f3f31b7": "ae55aabd3963a9d2764b19a759efd271c723a83a",
+      "refs/tags/sealed-historical-source-acquisition-v05-consumed-23ad997837490c14c200c10b34c8285db7b18ddebca131e6299a8cd70b3bbc49": "12d3c08dcfa042f785c6e35060916cfbd47a1df8",
+      "refs/tags/sealed-historical-source-acquisition-v06-consumed-0343efff8ceb49b7c3ae2e589029cf4cf0b02d72c1961f85807913f67385202e": "0d231ffecb6d4104aad53dec0b7499a16d8943f6",
+      "refs/tags/sealed-historical-source-acquisition-v09-consumed-447c11b09206b4c19ccade6c1aae70ce5bb17e4a483db6f9581d14ee3f5f862f": "92d8b4deceae5c2bb6edfb10016a0e05c33c8bfa",
+      "refs/tags/sealed-historical-source-acquisition-v10-consumed-a6519754147c39273a25b2ea818b1906dfa93ea5018edac831e2a0a7052463c7": "652db5675a35b6f455aa0d924aa50428dd995280"
+    },
+    "dedicated_jobs": [
+      {
+        "conclusion": null,
+        "id": 102292641574,
+        "logs_url": null,
+        "name": "validate",
+        "run_id": 34295994393,
+        "status": "in_progress",
+        "steps": [
+          {
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "number": 2,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+            "number": 3,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Install hash-locked validation environment",
+            "number": 4,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Verify frozen registration and component mechanics offline",
+            "number": 5,
+            "status": "completed"
+          },
+          {
+            "conclusion": "success",
+            "name": "Download only immutable original evidence and verified binding",
+            "number": 6,
+            "status": "completed"
+          },
+          {
+            "conclusion": null,
+            "name": "Execute all original account paths offline with explicit blocked continuation",
+            "number": 7,
+            "status": "in_progress"
+          },
+          {
+            "conclusion": null,
+            "name": "Independently verify original chronology, accounting and carry",
+            "number": 8,
+            "status": "pending"
+          },
+          {
+            "conclusion": null,
+            "name": "Retain runtime, independent check and any failed attempt",
+            "number": 9,
+            "status": "pending"
+          },
+          {
+            "conclusion": null,
+            "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+            "number": 17,
+            "status": "pending"
+          },
+          {
+            "conclusion": null,
+            "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+            "number": 18,
+            "status": "pending"
+          }
+        ]
+      }
+    ],
+    "main": "de24eb17316191da69d92e61f6843af25e9c22d0",
+    "runs": [
+      {
+        "conclusion": "success",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "49e35b57f06b97a73590517b993de0e333d692dd",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34295994312",
+        "id": 34295994312,
+        "name": "CI",
+        "run_attempt": 1,
+        "run_number": 431,
+        "run_started_at": "2026-09-09T00:40:17Z",
+        "status": "completed",
+        "updated_at": "2026-09-09T00:44:13Z"
+      },
+      {
+        "conclusion": "success",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "49e35b57f06b97a73590517b993de0e333d692dd",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34295994385",
+        "id": 34295994385,
+        "name": "Sealed historical walk-forward v0.1",
+        "run_attempt": 1,
+        "run_number": 74,
+        "run_started_at": "2026-09-09T00:40:17Z",
+        "status": "completed",
+        "updated_at": "2026-09-09T00:40:34Z"
+      },
+      {
+        "conclusion": null,
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "49e35b57f06b97a73590517b993de0e333d692dd",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34295994393",
+        "id": 34295994393,
+        "name": "Sealed historical causal account residual exit v0.1",
+        "run_attempt": 1,
+        "run_number": 1,
+        "run_started_at": "2026-09-09T00:40:17Z",
+        "status": "in_progress",
+        "updated_at": "2026-09-09T00:40:20Z"
+      },
+      {
+        "conclusion": "success",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "49e35b57f06b97a73590517b993de0e333d692dd",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34295994326",
+        "id": 34295994326,
+        "name": "Sealed historical source acquisition v0.3",
+        "run_attempt": 1,
+        "run_number": 40,
+        "run_started_at": "2026-09-09T00:40:17Z",
+        "status": "completed",
+        "updated_at": "2026-09-09T00:40:45Z"
+      },
+      {
+        "conclusion": "success",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "49e35b57f06b97a73590517b993de0e333d692dd",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34295994373",
+        "id": 34295994373,
+        "name": "Sealed historical provider availability v0.1",
+        "run_attempt": 1,
+        "run_number": 45,
+        "run_started_at": "2026-09-09T00:40:17Z",
+        "status": "completed",
+        "updated_at": "2026-09-09T00:40:36Z"
+      },
+      {
+        "conclusion": "success",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "49e35b57f06b97a73590517b993de0e333d692dd",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34295994342",
+        "id": 34295994342,
+        "name": "Sealed historical source acquisition v0.1",
+        "run_attempt": 1,
+        "run_number": 48,
+        "run_started_at": "2026-09-09T00:40:17Z",
+        "status": "completed",
+        "updated_at": "2026-09-09T00:40:38Z"
+      },
+      {
+        "conclusion": "success",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "49e35b57f06b97a73590517b993de0e333d692dd",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34295994341",
+        "id": 34295994341,
+        "name": "Sealed historical source acquisition v0.2",
+        "run_attempt": 1,
+        "run_number": 42,
+        "run_started_at": "2026-09-09T00:40:17Z",
+        "status": "completed",
+        "updated_at": "2026-09-09T00:40:38Z"
+      },
+      {
+        "conclusion": "success",
+        "head_branch": "phase-3-historical-snapshot",
+        "head_sha": "49e35b57f06b97a73590517b993de0e333d692dd",
+        "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34295994372",
+        "id": 34295994372,
+        "name": "Sealed historical provider availability repair v0.2",
+        "run_attempt": 1,
+        "run_number": 44,
+        "run_started_at": "2026-09-09T00:40:17Z",
+        "status": "completed",
+        "updated_at": "2026-09-09T00:40:39Z"
+      }
+    ]
+  },
+  "historical_runtime_outcome_claimed": false,
+  "hosted_job_id": 102292641574,
+  "hosted_replay_status": "running_first_attempt",
+  "hosted_run_attempt": 1,
+  "hosted_run_id": 34295994393,
+  "implementation_ci": {
+    "conclusion": "success",
+    "job_id": 102292641105,
+    "log_file_sha256": "d1b89f894c4ed620f9277231b98f5d78cd91a2b52e44af1e62decb99b8f40710",
+    "run_id": 34295994312,
+    "seconds": 213.796,
+    "skip_reason": "existing_optional_SDK_dependencies",
+    "skips": 73,
+    "tests": 2289
+  },
+  "implementation_commit": "49e35b57f06b97a73590517b993de0e333d692dd",
+  "implementation_commit_time": "2026-09-08T19:40:14-05:00",
+  "implementation_tree": "d40fb307d9d918f1deb59c8a3351ef2efa985712",
+  "local_receipt": {
+    "bytes": 1725,
+    "content_sha256": "daf28808c8537da83ed3fc9fb5a40de998bea57710372ba34e0b7eea1713ec67",
+    "mtime_utc": "2026-09-09T00:41:05.113522+00:00",
+    "sha256": "c51b218c2a083afde806064bf54535a959c7fb4eaa7ae166847f07990d058d68"
+  },
+  "local_replay_status": "running_first_attempt",
+  "next_gate": "await_existing_runs_then_independent_verification_and_exact_downloaded_archive_comparison",
+  "observed_at_utc": "2026-09-09T00:47:40.943336+00:00",
+  "overnight_execution_authorized": false,
+  "policy_promotion_eligible": false,
+  "pre_source_validation_audit_content_sha256": "5e991cd85c6a84144b9850104f05726138856f34204256f5f328a5bee3415ae4",
+  "provider_requests_made": 0,
+  "registration_freeze_content_sha256": "33ced4d6e2069f36a277b3b2025f38e07e2d7a3e9eeecd031345400ed6b54dae",
+  "retrospective_labels_opened": false,
+  "transcript_corpus_opened": false
+}

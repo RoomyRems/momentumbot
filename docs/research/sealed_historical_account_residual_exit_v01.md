@@ -105,3 +105,19 @@ records exact test-log commitments and resolved synthetic diagnostics before
 the freeze. No original-source replay of this child has been run at this
 checkpoint. The next gate is the registered original-source replay and direct
 local/hosted archive comparison with independent verification of the result.
+
+## Published first-execution checkpoint
+
+Implementation `49e35b57f06b97a73590517b993de0e333d692dd`, tree
+`d40fb307d9d918f1deb59c8a3351ef2efa985712`, was published before the local
+attempt receipt at 00:41:05 UTC on September 9, 2026. GitHub CI `34295994312`
+passed 2,289 tests with the existing 73 optional-SDK skips. All seven ancillary
+workflows/CI passed. The first local replay and dedicated hosted run
+`34295994393`, job `102292641574`, attempt 1, are running at this checkpoint.
+The hosted registration/focused checks and original archive download passed.
+
+Do not rerun either attempt or change consumed code or registration. Await the
+existing outputs and verify them independently, including direct comparison of
+the downloaded hosted files. No historical outcome is claimed in this checkpoint.
+The [execution audit](../../research/data-audits/sealed-historical-account-residual-exit-v0.1-published-execution-checkpoint.json)
+preserves the publication, receipt and hosted-job provenance.

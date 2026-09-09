@@ -1,5 +1,37 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: bounded residual exit published; first replays running
+
+Implementation `49e35b57f06b97a73590517b993de0e333d692dd`, tree
+`d40fb307d9d918f1deb59c8a3351ef2efa985712`, and registration freeze
+`33ced4d6e2069f36a277b3b2025f38e07e2d7a3e9eeecd031345400ed6b54dae`
+were published before the first local original-source receipt. All 2,289 local
+tests passed with zero skips, and 148 focused tests passed normally and optimized.
+GitHub CI `34295994312`, job `102292641105`, passed 2,289 tests with the existing
+73 optional-SDK skips. All seven ancillary workflows/CI passed on attempt 1.
+
+The first local replay and [hosted run 34295994393](https://github.com/RoomyRems/momentumbot/actions/runs/34295994393)
+are running at this checkpoint. Dedicated job `102292641574`, attempt 1, passed
+its frozen-registration/focused checks and exact archive download, then began
+the original account replay. No historical outcome is claimed yet. Do not
+restart either attempt or modify consumed code, registration or source bytes.
+
+The local attempt receipt is 1,725 bytes, file SHA
+`c51b218c2a083afde806064bf54535a959c7fb4eaa7ae166847f07990d058d68`.
+The [published execution checkpoint](../../research/data-audits/sealed-historical-account-residual-exit-v0.1-published-execution-checkpoint.json)
+records exact publication, receipt, test and run provenance. All 270 frozen
+parent/implementation file pins verify unchanged.
+
+Next: await both existing runs, independently verify the frozen result,
+download the hosted archive, compare every file with the local bytes and
+re-run the independent checker against the download. Record success or failure
+additively. One additional terminal order is the only mechanics change;
+original windows, liquidity, risk and fees remain frozen. Financial evaluation,
+account-backtest completion, overnight execution, labels and promotion remain
+closed. Ross attachments remain unopened.
+
+The following checkpoints are retained as historical records.
+
 ## Current checkpoint: bounded residual-exit child verified; original replay next
 
 The new child starts from verified checkpoint
