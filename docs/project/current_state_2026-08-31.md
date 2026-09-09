@@ -1,5 +1,44 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: residual runtime reproduced locally and on GitHub
+
+The separately registered reproduction is complete. The unchanged original
+producer recreated the accepted runtime, and the frozen corrected verifier
+accepted it in both environments. All nine output files are byte identical
+between local and hosted attempts; all six original component files match their
+registered original bytes. Exact ZIP inventory, CRC, canonical document bytes,
+content seals and the downloaded archive digest were independently verified.
+
+- Implementation: `5b3e1864654abdd239f46f7e07b74fd070759f33`;
+  registration `25b2124138c419363176286e9bb8e209c210792365f00fc6ae4c6245a1742582`.
+- Local: session `93257`, exit 0. Hosted: [run 34347599749](https://github.com/RoomyRems/momentumbot/actions/runs/34347599749),
+  job `102452809165`, attempt 1, success.
+- Hosted artifact `10105333963`: 1,127,255 bytes,
+  SHA-256 `b73dd35a9a41b1ab49e0a965670d520cd85cb732ca5b37bd7619b5760f6a7c47`.
+- Runtime content hash remains
+  `21bd9efa65c5c5776242bb9a6a53d28c134aefe31ed7da00d389402e29f3efba`.
+- Local validation: 12 focused, 12 optimized and 2,327 full tests, zero skips.
+  Implementation and checkpoint CI passed 2,327 tests with the existing
+  73 optional-SDK skips. All seven implementation non-reproduction workflows passed.
+
+The 12 paths and 360 session slots retain the exact prior states: 36
+`flat_complete`, 30 `flat_complete_with_unavailable_inputs`, 12
+`original_window_exhausted_with_unresolved_state`, and 282 `blocked_prior_state`.
+There are still zero complete account paths. Reproduction success does not
+complete the account backtest or open financial evaluation and Ross labels.
+
+The next gate is a separately registered scope for unresolved continuation.
+Do not rerun this completed reproduction, change the original producer or
+corrected verifier, extend windows, or infer liquidation under this contract.
+The original checker failure, missing original local runtime and preliminary
+launcher evidence remain preserved. Main and all 16 consumed refs are unchanged.
+
+See the [completed reproduction details](../research/sealed_historical_account_residual_exit_reproduction_v01.md),
+[success audit](../../research/data-audits/sealed-historical-account-residual-exit-reproduction-v0.1-success.json)
+and [independent byte comparison](../../research/data-audits/sealed-historical-account-residual-exit-reproduction-v0.1-comparison.json).
+The earlier execution checkpoints below are historical; neither reproduction
+attempt is still running.
+
 ## Current checkpoint: local residual reproduction passed; hosted still running
 
 Local executor session `93257` completed with exit code 0, observed at

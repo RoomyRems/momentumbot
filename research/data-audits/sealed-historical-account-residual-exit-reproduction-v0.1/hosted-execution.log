@@ -1,0 +1,374 @@
+﻿2026-09-09T11:50:05.2034798Z Current runner version: '2.337.0'
+2026-09-09T11:50:05.2060194Z ##[group]Runner Image Provisioner
+2026-09-09T11:50:05.2061081Z Hosted Compute Agent
+2026-09-09T11:50:05.2061692Z Version: 20260828.587
+2026-09-09T11:50:05.2062362Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-09T11:50:05.2063085Z Build Date: 2026-08-28T16:44:25Z
+2026-09-09T11:50:05.2063734Z Worker ID: {bb318521-6dd1-49c6-9b7e-272f7896e8b2}
+2026-09-09T11:50:05.2064481Z Azure Region: northcentralus
+2026-09-09T11:50:05.2065101Z ##[endgroup]
+2026-09-09T11:50:05.2066337Z ##[group]Operating System
+2026-09-09T11:50:05.2067203Z Ubuntu
+2026-09-09T11:50:05.2067766Z 24.04.4
+2026-09-09T11:50:05.2068337Z LTS
+2026-09-09T11:50:05.2068983Z ##[endgroup]
+2026-09-09T11:50:05.2069943Z ##[group]Runner Image
+2026-09-09T11:50:05.2070585Z Image: ubuntu-24.04
+2026-09-09T11:50:05.2071145Z Version: 20260831.293.1
+2026-09-09T11:50:05.2072436Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260831.293/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-09T11:50:05.2073930Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260831.293
+2026-09-09T11:50:05.2074914Z ##[endgroup]
+2026-09-09T11:50:05.2076107Z ##[group]GITHUB_TOKEN Permissions
+2026-09-09T11:50:05.2078632Z Actions: read
+2026-09-09T11:50:05.2079207Z Contents: read
+2026-09-09T11:50:05.2079802Z Metadata: read
+2026-09-09T11:50:05.2080352Z ##[endgroup]
+2026-09-09T11:50:05.2082884Z Secret source: Actions
+2026-09-09T11:50:05.2084132Z Prepare workflow directory
+2026-09-09T11:50:05.2615120Z Prepare all required actions
+2026-09-09T11:50:05.2690384Z Getting action download info
+2026-09-09T11:50:05.4915884Z Download action repository 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+2026-09-09T11:50:05.6549590Z Download action repository 'actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38' (SHA:42375524e23c412d93fb67b49958b491fce71c38)
+2026-09-09T11:50:05.9920569Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-09-09T11:50:06.3448305Z Complete job name: reproduce
+2026-09-09T11:50:06.4177229Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-09T11:50:06.4187014Z ##[group]Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+2026-09-09T11:50:06.4188011Z with:
+2026-09-09T11:50:06.4188612Z   persist-credentials: false
+2026-09-09T11:50:06.4189217Z   repository: RoomyRems/momentumbot
+2026-09-09T11:50:06.4193036Z   token: ***
+2026-09-09T11:50:06.4193628Z   ssh-strict: true
+2026-09-09T11:50:06.4194140Z   ssh-user: git
+2026-09-09T11:50:06.4194655Z   clean: true
+2026-09-09T11:50:06.4195199Z   sparse-checkout-cone-mode: true
+2026-09-09T11:50:06.4195819Z   fetch-depth: 1
+2026-09-09T11:50:06.4196354Z   fetch-tags: false
+2026-09-09T11:50:06.4198364Z   show-progress: true
+2026-09-09T11:50:06.4199083Z   lfs: false
+2026-09-09T11:50:06.4199608Z   submodules: false
+2026-09-09T11:50:06.4200131Z   set-safe-directory: true
+2026-09-09T11:50:06.4200921Z env:
+2026-09-09T11:50:06.4201412Z   PYTHONPATH: src:scripts
+2026-09-09T11:50:06.4202037Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-09T11:50:06.4202625Z ##[endgroup]
+2026-09-09T11:50:06.5304065Z Syncing repository: RoomyRems/momentumbot
+2026-09-09T11:50:06.5306154Z ##[group]Getting Git version info
+2026-09-09T11:50:06.5307288Z Working directory is '/home/runner/work/momentumbot/momentumbot'
+2026-09-09T11:50:06.5308641Z [command]/usr/bin/git version
+2026-09-09T11:50:06.5374564Z git version 2.55.0
+2026-09-09T11:50:06.5394853Z ##[endgroup]
+2026-09-09T11:50:06.5410651Z Temporarily overriding HOME='/home/runner/work/_temp/3dd0fe18-7153-4b2b-a7ec-04f9e1836386' before making global git config changes
+2026-09-09T11:50:06.5413138Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-09T11:50:06.5417235Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/momentumbot/momentumbot
+2026-09-09T11:50:06.5484030Z Deleting the contents of '/home/runner/work/momentumbot/momentumbot'
+2026-09-09T11:50:06.5488916Z ##[group]Initializing the repository
+2026-09-09T11:50:06.5495058Z [command]/usr/bin/git init /home/runner/work/momentumbot/momentumbot
+2026-09-09T11:50:06.5619011Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-09T11:50:06.5620564Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-09T11:50:06.5629875Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-09T11:50:06.5631081Z hint: call:
+2026-09-09T11:50:06.5631784Z hint:
+2026-09-09T11:50:06.5632595Z hint: 	git config --global init.defaultBranch <name>
+2026-09-09T11:50:06.5633478Z hint:
+2026-09-09T11:50:06.5634481Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-09T11:50:06.5635892Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-09T11:50:06.5637177Z hint:
+2026-09-09T11:50:06.5637896Z hint: 	git branch -m <name>
+2026-09-09T11:50:06.5638638Z hint:
+2026-09-09T11:50:06.5639659Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-09T11:50:06.5641164Z Initialized empty Git repository in /home/runner/work/momentumbot/momentumbot/.git/
+2026-09-09T11:50:06.5644169Z [command]/usr/bin/git remote add origin https://github.com/RoomyRems/momentumbot
+2026-09-09T11:50:06.5676097Z ##[endgroup]
+2026-09-09T11:50:06.5677279Z ##[group]Disabling automatic garbage collection
+2026-09-09T11:50:06.5680596Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-09T11:50:06.5712994Z ##[endgroup]
+2026-09-09T11:50:06.5713906Z ##[group]Setting up auth
+2026-09-09T11:50:06.5722263Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-09T11:50:06.5755864Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-09T11:50:06.6138548Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-09T11:50:06.6172644Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-09T11:50:06.6395661Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-09T11:50:06.6433567Z ##[endgroup]
+2026-09-09T11:50:06.6434860Z ##[group]Fetching the repository
+2026-09-09T11:50:06.6443891Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +5b3e1864654abdd239f46f7e07b74fd070759f33:refs/remotes/origin/phase-3-historical-snapshot
+2026-09-09T11:50:07.7753330Z From https://github.com/RoomyRems/momentumbot
+2026-09-09T11:50:07.7756223Z  * [new ref]         5b3e1864654abdd239f46f7e07b74fd070759f33 -> origin/phase-3-historical-snapshot
+2026-09-09T11:50:07.7778956Z ##[endgroup]
+2026-09-09T11:50:07.7787456Z ##[group]Determining the checkout info
+2026-09-09T11:50:07.7789696Z ##[endgroup]
+2026-09-09T11:50:07.7790998Z [command]/usr/bin/git sparse-checkout disable
+2026-09-09T11:50:07.7829534Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-09T11:50:07.7861920Z ##[group]Checking out the ref
+2026-09-09T11:50:07.7866088Z [command]/usr/bin/git checkout --progress --force -B phase-3-historical-snapshot refs/remotes/origin/phase-3-historical-snapshot
+2026-09-09T11:50:07.9077658Z Switched to a new branch 'phase-3-historical-snapshot'
+2026-09-09T11:50:07.9081553Z branch 'phase-3-historical-snapshot' set up to track 'origin/phase-3-historical-snapshot'.
+2026-09-09T11:50:07.9093268Z ##[endgroup]
+2026-09-09T11:50:07.9137247Z [command]/usr/bin/git log -1 --format=%H
+2026-09-09T11:50:07.9167051Z 5b3e1864654abdd239f46f7e07b74fd070759f33
+2026-09-09T11:50:07.9176523Z ##[group]Removing auth
+2026-09-09T11:50:07.9181354Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-09T11:50:07.9214614Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-09T11:50:07.9412521Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-09T11:50:07.9448853Z http.https://github.com/.extraheader
+2026-09-09T11:50:07.9453535Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-09T11:50:07.9482489Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-09T11:50:07.9673242Z ##[endgroup]
+2026-09-09T11:50:08.0028956Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-09T11:50:08.0034965Z ##[group]Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+2026-09-09T11:50:08.0036806Z with:
+2026-09-09T11:50:08.0037826Z   python-version: 3.12.14
+2026-09-09T11:50:08.0038945Z   check-latest: false
+2026-09-09T11:50:08.0048204Z   token: ***
+2026-09-09T11:50:08.0049267Z   update-environment: true
+2026-09-09T11:50:08.0050450Z   allow-prereleases: false
+2026-09-09T11:50:08.0051564Z env:
+2026-09-09T11:50:08.0052496Z   PYTHONPATH: src:scripts
+2026-09-09T11:50:08.0054135Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-09T11:50:08.0055278Z ##[endgroup]
+2026-09-09T11:50:08.1481463Z ##[group]Installed versions
+2026-09-09T11:50:08.1870910Z (node:2266) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-09T11:50:08.1874660Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-09T11:50:08.1877167Z Successfully set up CPython (3.12.14)
+2026-09-09T11:50:08.1879957Z ##[endgroup]
+2026-09-09T11:50:08.2153799Z ##[group]Run python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-execution-quote-v01.txt
+2026-09-09T11:50:08.2160329Z [36;1mpython -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-execution-quote-v01.txt[0m
+2026-09-09T11:50:08.2165431Z [36;1mpython -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .[0m
+2026-09-09T11:50:08.2168572Z [36;1mpython -m pip check[0m
+2026-09-09T11:50:08.2311784Z shell: /usr/bin/bash -e {0}
+2026-09-09T11:50:08.2313523Z env:
+2026-09-09T11:50:08.2315056Z   PYTHONPATH: src:scripts
+2026-09-09T11:50:08.2317004Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-09T11:50:08.2318981Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-09T11:50:08.2321490Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-09-09T11:50:08.2323672Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-09T11:50:08.2325439Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-09T11:50:08.2327506Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-09T11:50:08.2329336Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-09-09T11:50:08.2330928Z ##[endgroup]
+2026-09-09T11:50:11.7425332Z Requirement already satisfied: pip==26.2.1 in /opt/hostedtoolcache/Python/3.12.14/x64/lib/python3.12/site-packages (from -r requirements-sealed-execution-quote-v01.txt (line 8)) (26.2.1)
+2026-09-09T11:50:11.8846439Z Collecting setuptools==84.0.0 (from -r requirements-sealed-execution-quote-v01.txt (line 10))
+2026-09-09T11:50:11.9460958Z   Downloading setuptools-84.0.0-py3-none-any.whl (818 kB)
+2026-09-09T11:50:12.0166171Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 818.2/818.2 kB 13.7 MB/s  0:00:00
+2026-09-09T11:50:12.0435140Z Collecting wheel==0.48.0 (from -r requirements-sealed-execution-quote-v01.txt (line 12))
+2026-09-09T11:50:12.0469319Z   Downloading wheel-0.48.0-py3-none-any.whl (33 kB)
+2026-09-09T11:50:12.0613773Z Collecting packaging==26.3 (from -r requirements-sealed-execution-quote-v01.txt (line 14))
+2026-09-09T11:50:12.0649672Z   Downloading packaging-26.3-py3-none-any.whl (129 kB)
+2026-09-09T11:50:12.2459167Z Collecting numpy==2.3.5 (from -r requirements-sealed-execution-quote-v01.txt (line 16))
+2026-09-09T11:50:12.2506243Z   Downloading numpy-2.3.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.6 MB)
+2026-09-09T11:50:12.3873577Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.6/16.6 MB 122.1 MB/s  0:00:00
+2026-09-09T11:50:12.5046446Z Collecting pandas==2.2.3 (from -r requirements-sealed-execution-quote-v01.txt (line 18))
+2026-09-09T11:50:12.5089641Z   Downloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.7 MB)
+2026-09-09T11:50:12.6008483Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.7/12.7 MB 139.2 MB/s  0:00:00
+2026-09-09T11:50:12.6673766Z Collecting PyYAML==6.0.3 (from -r requirements-sealed-execution-quote-v01.txt (line 20))
+2026-09-09T11:50:12.6712085Z   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+2026-09-09T11:50:12.6781819Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 118.7 MB/s  0:00:00
+2026-09-09T11:50:12.6891455Z Collecting python-dateutil==2.9.0.post0 (from -r requirements-sealed-execution-quote-v01.txt (line 22))
+2026-09-09T11:50:12.6925336Z   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+2026-09-09T11:50:12.7252643Z Collecting pytz==2026.3.post1 (from -r requirements-sealed-execution-quote-v01.txt (line 24))
+2026-09-09T11:50:12.7290285Z   Downloading pytz-2026.3.post1-py2.py3-none-any.whl (508 kB)
+2026-09-09T11:50:12.7507691Z Collecting tzdata==2026.3 (from -r requirements-sealed-execution-quote-v01.txt (line 26))
+2026-09-09T11:50:12.7541889Z   Downloading tzdata-2026.3-py2.py3-none-any.whl (348 kB)
+2026-09-09T11:50:12.7807391Z Collecting six==1.17.0 (from -r requirements-sealed-execution-quote-v01.txt (line 28))
+2026-09-09T11:50:12.7840426Z   Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+2026-09-09T11:50:12.7972327Z Collecting aiohappyeyeballs==2.7.1 (from -r requirements-sealed-execution-quote-v01.txt (line 32))
+2026-09-09T11:50:12.8009084Z   Downloading aiohappyeyeballs-2.7.1-py3-none-any.whl (15 kB)
+2026-09-09T11:50:13.2341892Z Collecting aiohttp==3.14.3 (from -r requirements-sealed-execution-quote-v01.txt (line 34))
+2026-09-09T11:50:13.2381950Z   Downloading aiohttp-3.14.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.8 MB)
+2026-09-09T11:50:13.2480759Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.8/1.8 MB 202.1 MB/s  0:00:00
+2026-09-09T11:50:13.2652335Z Collecting aiosignal==1.4.0 (from -r requirements-sealed-execution-quote-v01.txt (line 36))
+2026-09-09T11:50:13.2691783Z   Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+2026-09-09T11:50:13.2841535Z Collecting attrs==26.1.0 (from -r requirements-sealed-execution-quote-v01.txt (line 38))
+2026-09-09T11:50:13.2875545Z   Downloading attrs-26.1.0-py3-none-any.whl (67 kB)
+2026-09-09T11:50:13.3034413Z Collecting certifi==2026.7.22 (from -r requirements-sealed-execution-quote-v01.txt (line 40))
+2026-09-09T11:50:13.3068688Z   Downloading certifi-2026.7.22-py3-none-any.whl (136 kB)
+2026-09-09T11:50:13.4048500Z Collecting charset_normalizer==3.5.1 (from -r requirements-sealed-execution-quote-v01.txt (line 42))
+2026-09-09T11:50:13.4088020Z   Downloading charset_normalizer-3.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (248 kB)
+2026-09-09T11:50:13.4313792Z Collecting databento==0.83.0 (from -r requirements-sealed-execution-quote-v01.txt (line 44))
+2026-09-09T11:50:13.4361912Z   Downloading databento-0.83.0-py3-none-any.whl (93 kB)
+2026-09-09T11:50:13.5940272Z Collecting databento_dbn==0.65.0 (from -r requirements-sealed-execution-quote-v01.txt (line 46))
+2026-09-09T11:50:13.5992781Z   Downloading databento_dbn-0.65.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.5 MB)
+2026-09-09T11:50:13.6085307Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 197.3 MB/s  0:00:00
+2026-09-09T11:50:13.6627144Z Collecting frozenlist==1.8.0 (from -r requirements-sealed-execution-quote-v01.txt (line 48))
+2026-09-09T11:50:13.6663485Z   Downloading frozenlist-1.8.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (242 kB)
+2026-09-09T11:50:13.6815380Z Collecting idna==3.19 (from -r requirements-sealed-execution-quote-v01.txt (line 50))
+2026-09-09T11:50:13.6847338Z   Downloading idna-3.19-py3-none-any.whl (68 kB)
+2026-09-09T11:50:13.9068778Z Collecting multidict==6.7.1 (from -r requirements-sealed-execution-quote-v01.txt (line 52))
+2026-09-09T11:50:13.9108500Z   Downloading multidict-6.7.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (256 kB)
+2026-09-09T11:50:13.9635746Z Collecting propcache==0.5.2 (from -r requirements-sealed-execution-quote-v01.txt (line 54))
+2026-09-09T11:50:13.9670131Z   Downloading propcache-0.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (61 kB)
+2026-09-09T11:50:14.0379013Z Collecting pyarrow==25.0.1 (from -r requirements-sealed-execution-quote-v01.txt (line 56))
+2026-09-09T11:50:14.0421562Z   Downloading pyarrow-25.0.1-cp312-cp312-manylinux_2_28_x86_64.whl (50.1 MB)
+2026-09-09T11:50:14.4828282Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 50.1/50.1 MB 113.7 MB/s  0:00:00
+2026-09-09T11:50:14.5473948Z Collecting requests==2.34.2 (from -r requirements-sealed-execution-quote-v01.txt (line 58))
+2026-09-09T11:50:14.5507384Z   Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+2026-09-09T11:50:14.5769092Z Collecting typing_extensions==4.16.0 (from -r requirements-sealed-execution-quote-v01.txt (line 60))
+2026-09-09T11:50:14.5803503Z   Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-09-09T11:50:14.5975658Z Collecting urllib3==2.7.0 (from -r requirements-sealed-execution-quote-v01.txt (line 62))
+2026-09-09T11:50:14.6009424Z   Downloading urllib3-2.7.0-py3-none-any.whl (131 kB)
+2026-09-09T11:50:14.8070866Z Collecting yarl==1.24.5 (from -r requirements-sealed-execution-quote-v01.txt (line 64))
+2026-09-09T11:50:14.8107082Z   Downloading yarl-1.24.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (109 kB)
+2026-09-09T11:50:14.8868601Z Collecting zstandard==0.25.0 (from -r requirements-sealed-execution-quote-v01.txt (line 66))
+2026-09-09T11:50:14.8909266Z   Downloading zstandard-0.25.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.5 MB)
+2026-09-09T11:50:14.9245000Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/5.5 MB 170.2 MB/s  0:00:00
+2026-09-09T11:50:15.1095246Z Installing collected packages: pytz, zstandard, yarl, wheel, urllib3, tzdata, typing_extensions, six, setuptools, requests, PyYAML, python-dateutil, pyarrow, propcache, pandas, packaging, numpy, multidict, idna, frozenlist, databento_dbn, databento, charset_normalizer, certifi, attrs, aiosignal, aiohttp, aiohappyeyeballs
+2026-09-09T11:50:26.0915091Z 
+2026-09-09T11:50:26.0942263Z Successfully installed PyYAML-6.0.3 aiohappyeyeballs-2.7.1 aiohttp-3.14.3 aiosignal-1.4.0 attrs-26.1.0 certifi-2026.7.22 charset_normalizer-3.5.1 databento-0.83.0 databento_dbn-0.65.0 frozenlist-1.8.0 idna-3.19 multidict-6.7.1 numpy-2.3.5 packaging-26.3 pandas-2.2.3 propcache-0.5.2 pyarrow-25.0.1 python-dateutil-2.9.0.post0 pytz-2026.3.post1 requests-2.34.2 setuptools-84.0.0 six-1.17.0 typing_extensions-4.16.0 tzdata-2026.3 urllib3-2.7.0 wheel-0.48.0 yarl-1.24.5 zstandard-0.25.0
+2026-09-09T11:50:27.0444746Z Obtaining file:///home/runner/work/momentumbot/momentumbot
+2026-09-09T11:50:27.0456014Z   Checking if build backend supports build_editable: started
+2026-09-09T11:50:27.4414325Z   Checking if build backend supports build_editable: finished with status 'done'
+2026-09-09T11:50:27.4430685Z   Preparing editable metadata (pyproject.toml): started
+2026-09-09T11:50:27.8127555Z   Preparing editable metadata (pyproject.toml): finished with status 'done'
+2026-09-09T11:50:27.8185230Z Building wheels for collected packages: momentumbot
+2026-09-09T11:50:27.8193029Z   Building editable for momentumbot (pyproject.toml): started
+2026-09-09T11:50:28.2107922Z   Building editable for momentumbot (pyproject.toml): finished with status 'done'
+2026-09-09T11:50:28.2113539Z   Created wheel for momentumbot: filename=momentumbot-0.2.0-0.editable-py3-none-any.whl size=4119 sha256=3f2c4f8eb829b691ba0bf511fb87d4172b61b447c699cc9276b594f45577a728
+2026-09-09T11:50:28.2119120Z   Stored in directory: /tmp/pip-ephem-wheel-cache-2fcfedm4/wheels/07/cb/80/ea9ec0ff3434472434457f9dbf823fffe4e1a99167faeb982a
+2026-09-09T11:50:28.2140624Z Successfully built momentumbot
+2026-09-09T11:50:28.2298868Z Installing collected packages: momentumbot
+2026-09-09T11:50:28.3852083Z Successfully installed momentumbot-0.2.0
+2026-09-09T11:50:28.6784051Z No broken requirements found.
+2026-09-09T11:50:28.7170676Z ##[group]Run python scripts/reproduce_sealed_historical_account_residual_exit_v01.py --check-registration
+2026-09-09T11:50:28.7171508Z [36;1mpython scripts/reproduce_sealed_historical_account_residual_exit_v01.py --check-registration[0m
+2026-09-09T11:50:28.7172286Z [36;1mpython -m unittest tests.test_sealed_historical_account_residual_exit_reproduction_v01 -v[0m
+2026-09-09T11:50:28.7173022Z [36;1mpython -O -m unittest tests.test_sealed_historical_account_residual_exit_reproduction_v01 -v[0m
+2026-09-09T11:50:28.7200253Z shell: /usr/bin/bash -e {0}
+2026-09-09T11:50:28.7200640Z env:
+2026-09-09T11:50:28.7200981Z   PYTHONPATH: src:scripts
+2026-09-09T11:50:28.7201415Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-09T11:50:28.7201844Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-09T11:50:28.7202428Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-09-09T11:50:28.7202940Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-09T11:50:28.7203570Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-09T11:50:28.7204046Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-09T11:50:28.7204524Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-09-09T11:50:28.7204956Z ##[endgroup]
+2026-09-09T11:50:28.8877492Z {"registration_verified": true, "registration_freeze_content_sha256": "25b2124138c419363176286e9bb8e209c210792365f00fc6ae4c6245a1742582"}
+2026-09-09T11:50:29.6727816Z test_bad_authority_or_internal_output_never_starts_an_attempt (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionAttemptTests.test_bad_authority_or_internal_output_never_starts_an_attempt) ... ok
+2026-09-09T11:50:29.6866246Z test_changed_reproduced_byte_cannot_be_accepted_after_mocked_verifier_pass (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionAttemptTests.test_changed_reproduced_byte_cannot_be_accepted_after_mocked_verifier_pass) ... ok
+2026-09-09T11:50:29.7069744Z test_extra_output_and_mutated_receipt_are_rejected (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionAttemptTests.test_extra_output_and_mutated_receipt_are_rejected) ... ok
+2026-09-09T11:50:29.7148631Z test_original_failure_and_partial_output_survive_and_retry_is_refused (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionAttemptTests.test_original_failure_and_partial_output_survive_and_retry_is_refused) ... ok
+2026-09-09T11:50:29.7269291Z test_receipt_precedes_sources_and_success_requires_six_exact_components (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionAttemptTests.test_receipt_precedes_sources_and_success_requires_six_exact_components) ... ok
+2026-09-09T11:50:29.7301980Z test_source_mismatch_retains_receipt_and_failure_without_entering_replay (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionAttemptTests.test_source_mismatch_retains_receipt_and_failure_without_entering_replay) ... ok
+2026-09-09T11:50:29.7306425Z test_symlink_output_is_rejected_without_touching_target (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionAttemptTests.test_symlink_output_is_rejected_without_touching_target) ... ok
+2026-09-09T11:50:29.7357425Z test_verifier_failure_is_separately_retained_after_original_output (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionAttemptTests.test_verifier_failure_is_separately_retained_after_original_output) ... ok
+2026-09-09T11:50:29.8617352Z test_metadata_cli_succeeds_under_offline_guard (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionRegistrationTests.test_metadata_cli_succeeds_under_offline_guard) ... ok
+2026-09-09T11:50:29.8844144Z test_metadata_registration_preserves_original_producer_and_verifier (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionRegistrationTests.test_metadata_registration_preserves_original_producer_and_verifier) ... ok
+2026-09-09T11:50:29.8889695Z test_original_cli_receives_exact_registration_and_restores_arguments (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionRegistrationTests.test_original_cli_receives_exact_registration_and_restores_arguments) ... ok
+2026-09-09T11:50:29.9389775Z test_wrong_external_commitment_or_changed_orchestrator_is_rejected (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionRegistrationTests.test_wrong_external_commitment_or_changed_orchestrator_is_rejected) ... ok
+2026-09-09T11:50:29.9392595Z 
+2026-09-09T11:50:29.9394094Z ----------------------------------------------------------------------
+2026-09-09T11:50:29.9395186Z Ran 12 tests in 0.267s
+2026-09-09T11:50:29.9395670Z 
+2026-09-09T11:50:29.9396067Z OK
+2026-09-09T11:50:32.8414411Z test_bad_authority_or_internal_output_never_starts_an_attempt (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionAttemptTests.test_bad_authority_or_internal_output_never_starts_an_attempt) ... ok
+2026-09-09T11:50:32.8524972Z test_changed_reproduced_byte_cannot_be_accepted_after_mocked_verifier_pass (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionAttemptTests.test_changed_reproduced_byte_cannot_be_accepted_after_mocked_verifier_pass) ... ok
+2026-09-09T11:50:32.8674044Z test_extra_output_and_mutated_receipt_are_rejected (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionAttemptTests.test_extra_output_and_mutated_receipt_are_rejected) ... ok
+2026-09-09T11:50:32.8761173Z test_original_failure_and_partial_output_survive_and_retry_is_refused (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionAttemptTests.test_original_failure_and_partial_output_survive_and_retry_is_refused) ... ok
+2026-09-09T11:50:32.8876355Z test_receipt_precedes_sources_and_success_requires_six_exact_components (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionAttemptTests.test_receipt_precedes_sources_and_success_requires_six_exact_components) ... ok
+2026-09-09T11:50:32.8918603Z test_source_mismatch_retains_receipt_and_failure_without_entering_replay (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionAttemptTests.test_source_mismatch_retains_receipt_and_failure_without_entering_replay) ... ok
+2026-09-09T11:50:32.8924506Z test_symlink_output_is_rejected_without_touching_target (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionAttemptTests.test_symlink_output_is_rejected_without_touching_target) ... ok
+2026-09-09T11:50:32.8979989Z test_verifier_failure_is_separately_retained_after_original_output (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionAttemptTests.test_verifier_failure_is_separately_retained_after_original_output) ... ok
+2026-09-09T11:50:33.0310962Z test_metadata_cli_succeeds_under_offline_guard (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionRegistrationTests.test_metadata_cli_succeeds_under_offline_guard) ... ok
+2026-09-09T11:50:33.0530420Z test_metadata_registration_preserves_original_producer_and_verifier (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionRegistrationTests.test_metadata_registration_preserves_original_producer_and_verifier) ... ok
+2026-09-09T11:50:33.0791386Z test_original_cli_receives_exact_registration_and_restores_arguments (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionRegistrationTests.test_original_cli_receives_exact_registration_and_restores_arguments) ... ok
+2026-09-09T11:50:33.1199313Z test_wrong_external_commitment_or_changed_orchestrator_is_rejected (tests.test_sealed_historical_account_residual_exit_reproduction_v01.ReproductionRegistrationTests.test_wrong_external_commitment_or_changed_orchestrator_is_rejected) ... ok
+2026-09-09T11:50:33.1201918Z 
+2026-09-09T11:50:33.1202309Z ----------------------------------------------------------------------
+2026-09-09T11:50:33.1203743Z Ran 12 tests in 0.280s
+2026-09-09T11:50:33.1204085Z 
+2026-09-09T11:50:33.1204366Z OK
+2026-09-09T11:50:33.1456769Z ##[group]Run gh api repos/RoomyRems/momentumbot/actions/artifacts/9993250947/zip > "$RUNNER_TEMP/scanner.zip"
+2026-09-09T11:50:33.1457736Z [36;1mgh api repos/RoomyRems/momentumbot/actions/artifacts/9993250947/zip > "$RUNNER_TEMP/scanner.zip"[0m
+2026-09-09T11:50:33.1458514Z [36;1mgh api repos/RoomyRems/momentumbot/actions/artifacts/10028253493/zip > "$RUNNER_TEMP/management.zip"[0m
+2026-09-09T11:50:33.1459280Z [36;1mgh api repos/RoomyRems/momentumbot/actions/artifacts/10037358910/zip > "$RUNNER_TEMP/exit.zip"[0m
+2026-09-09T11:50:33.1460079Z [36;1mgh api repos/RoomyRems/momentumbot/actions/artifacts/10004782232/zip > "$RUNNER_TEMP/entry-result.zip"[0m
+2026-09-09T11:50:33.1460938Z [36;1mgh api repos/RoomyRems/momentumbot/actions/artifacts/10004656665/zip > "$RUNNER_TEMP/entry-consumption.zip"[0m
+2026-09-09T11:50:33.1461761Z [36;1mgh api repos/RoomyRems/momentumbot/actions/artifacts/10060984490/zip > "$RUNNER_TEMP/binding.zip"[0m
+2026-09-09T11:50:33.1462610Z [36;1mgh api repos/RoomyRems/momentumbot/actions/artifacts/10080992514/zip > "$RUNNER_TEMP/parent.zip"[0m
+2026-09-09T11:50:33.1493233Z shell: /usr/bin/bash -e {0}
+2026-09-09T11:50:33.1493744Z env:
+2026-09-09T11:50:33.1494065Z   PYTHONPATH: src:scripts
+2026-09-09T11:50:33.1494452Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-09T11:50:33.1494950Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-09T11:50:33.1495530Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-09-09T11:50:33.1496082Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-09T11:50:33.1496722Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-09T11:50:33.1497328Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-09T11:50:33.1497848Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-09-09T11:50:33.1500425Z   GH_TOKEN: ***
+2026-09-09T11:50:33.1500761Z ##[endgroup]
+2026-09-09T11:50:44.2381424Z ##[group]Run REPRODUCTION_REGISTRATION_SHA=$(python -c 'import json; print(json.load(open("research/runtime/sealed-historical-account-residual-exit-reproduction-v0.1/freeze-manifest.json"))["content_sha256"])')
+2026-09-09T11:50:44.2383026Z [36;1mREPRODUCTION_REGISTRATION_SHA=$(python -c 'import json; print(json.load(open("research/runtime/sealed-historical-account-residual-exit-reproduction-v0.1/freeze-manifest.json"))["content_sha256"])')[0m
+2026-09-09T11:50:44.2384113Z [36;1mpython scripts/reproduce_sealed_historical_account_residual_exit_v01.py --reproduce \[0m
+2026-09-09T11:50:44.2384786Z [36;1m  --expected-registration-sha256 "$REPRODUCTION_REGISTRATION_SHA" \[0m
+2026-09-09T11:50:44.2385634Z [36;1m  --scanner-zip "$RUNNER_TEMP/scanner.zip" --management-zip "$RUNNER_TEMP/management.zip" \[0m
+2026-09-09T11:50:44.2386366Z [36;1m  --exit-zip "$RUNNER_TEMP/exit.zip" --entry-result-zip "$RUNNER_TEMP/entry-result.zip" \[0m
+2026-09-09T11:50:44.2387438Z [36;1m  --entry-consumption-zip "$RUNNER_TEMP/entry-consumption.zip" --binding-zip "$RUNNER_TEMP/binding.zip" \[0m
+2026-09-09T11:50:44.2388410Z [36;1m  --parent-zip "$RUNNER_TEMP/parent.zip" --output-root "$RUNNER_TEMP/residual-reproduction"[0m
+2026-09-09T11:50:44.2415436Z shell: /usr/bin/bash -e {0}
+2026-09-09T11:50:44.2415788Z env:
+2026-09-09T11:50:44.2416196Z   PYTHONPATH: src:scripts
+2026-09-09T11:50:44.2416773Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-09T11:50:44.2417302Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-09T11:50:44.2417832Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-09-09T11:50:44.2418330Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-09T11:50:44.2418861Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-09T11:50:44.2419359Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-09T11:50:44.2419845Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-09-09T11:50:44.2420278Z ##[endgroup]
+2026-09-09T11:50:44.3989603Z Reproduction receipt preserved; validating exact original archives
+2026-09-09T11:50:44.6189799Z Starting unchanged original account replay; no policy or source changes
+2026-09-09T13:06:30.1439016Z {"financial_metrics_eligible": false, "paths": 12, "runtime_content_sha256": "21bd9efa65c5c5776242bb9a6a53d28c134aefe31ed7da00d389402e29f3efba", "sessions": 360}
+2026-09-09T13:06:30.1453747Z Original replay completed; applying frozen corrected verifier
+2026-09-09T13:06:52.0772047Z {"account_backtest_complete": false, "broker_orders_authorized": false, "content_sha256": "70690fa827f4396d1eb3189f88de6f2ceb5a2117c6cc5656499ec60744eede24", "financial_metrics_eligible": false, "original_attempts_overwritten": false, "overnight_execution_authorized": false, "policy_promotion_eligible": false, "provider_requests_authorized": false, "retrospective_labels_opened": false, "runtime_mechanics_changed": false, "runtime_reproduction_verified": true, "verification_mechanics_changed": false}
+2026-09-09T13:06:52.1960375Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-09T13:06:52.1961668Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-09-09T13:06:52.1962064Z with:
+2026-09-09T13:06:52.1962390Z   name: sealed-historical-residual-reproduction-v01-34347599749-1
+2026-09-09T13:06:52.1962835Z   path: /home/runner/work/_temp/residual-reproduction
+2026-09-09T13:06:52.1963160Z   if-no-files-found: error
+2026-09-09T13:06:52.1963433Z   retention-days: 90
+2026-09-09T13:06:52.1963676Z   compression-level: 6
+2026-09-09T13:06:52.1963911Z   overwrite: false
+2026-09-09T13:06:52.1964142Z   include-hidden-files: false
+2026-09-09T13:06:52.1964388Z env:
+2026-09-09T13:06:52.1964601Z   PYTHONPATH: src:scripts
+2026-09-09T13:06:52.1964915Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-09T13:06:52.1965238Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-09T13:06:52.1965660Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-09-09T13:06:52.1966082Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-09T13:06:52.1966463Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-09T13:06:52.1967175Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-09T13:06:52.1967584Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-09-09T13:06:52.1967920Z ##[endgroup]
+2026-09-09T13:06:52.3877785Z (node:3688) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-09T13:06:52.3879313Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-09T13:06:52.4001272Z With the provided path, there will be 9 files uploaded
+2026-09-09T13:06:52.4002211Z Artifact name is valid!
+2026-09-09T13:06:52.4002714Z Root directory input is valid!
+2026-09-09T13:06:52.6738609Z Beginning upload of artifact content to blob storage
+2026-09-09T13:06:52.8758252Z (node:3688) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-09T13:06:53.1422823Z Uploaded bytes 1127255
+2026-09-09T13:06:53.1964417Z Finished uploading artifact content to blob storage!
+2026-09-09T13:06:53.1965416Z SHA256 digest of uploaded artifact zip is b73dd35a9a41b1ab49e0a965670d520cd85cb732ca5b37bd7619b5760f6a7c47
+2026-09-09T13:06:53.1966716Z Finalizing artifact upload
+2026-09-09T13:06:53.4552576Z Artifact sealed-historical-residual-reproduction-v01-34347599749-1.zip successfully finalized. Artifact ID 10105333963
+2026-09-09T13:06:53.4553676Z Artifact sealed-historical-residual-reproduction-v01-34347599749-1 has been successfully uploaded! Final size is 1127255 bytes. Artifact ID is 10105333963
+2026-09-09T13:06:53.4559491Z Artifact download URL: https://github.com/RoomyRems/momentumbot/actions/runs/34347599749/artifacts/10105333963
+2026-09-09T13:06:53.4724711Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-09T13:06:53.4725915Z Post job cleanup.
+2026-09-09T13:06:53.6013254Z (node:3702) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-09T13:06:53.6014024Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-09T13:06:53.6222596Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-09T13:06:53.6224586Z Post job cleanup.
+2026-09-09T13:06:53.7217905Z [command]/usr/bin/git version
+2026-09-09T13:06:53.7248331Z git version 2.55.0
+2026-09-09T13:06:53.7347214Z Temporarily overriding HOME='/home/runner/work/_temp/695f7da6-7695-4374-a249-d1525d806375' before making global git config changes
+2026-09-09T13:06:53.7348272Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-09T13:06:53.7349373Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/momentumbot/momentumbot
+2026-09-09T13:06:53.7350945Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-09T13:06:53.7408292Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-09T13:06:53.7661981Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-09T13:06:53.7689825Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-09T13:06:53.8077541Z Cleaning up orphan processes
+2026-09-09T13:06:53.8363273Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683, actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

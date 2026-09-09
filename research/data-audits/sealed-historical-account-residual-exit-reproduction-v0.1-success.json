@@ -1,0 +1,189 @@
+{
+  "account_backtest_complete": false,
+  "all_16_consumed_refs_unchanged": true,
+  "all_nine_files_byte_identical_local_hosted": true,
+  "all_six_original_components_byte_identical": true,
+  "artifact_type": "verified_separate_original_local_hosted_residual_runtime_reproduction",
+  "broker_orders_authorized": false,
+  "cause_of_original_local_runtime_loss_established": false,
+  "comparison_content_sha256": "f16ec230a20830bff4a248e5e7807f48d27d1e070953521d61cff240ee18ffb2",
+  "complete_account_paths": 0,
+  "content_sha256": "62fbe6fee26b0564479f4dd06301e488300f16efefaff149f46b7bcf51cb7c8d",
+  "contract_id": "sealed-historical-account-residual-exit-reproduction-v0.1",
+  "corrected_verification_content_sha256": "0d9c7cbcaac8970178bb15b16a47f13ff5df3b9b9d7f9cb28e039bffa40d5178",
+  "exact_zip_inventory_crc_and_document_seals_verified": true,
+  "execution_audit_content_sha256": "b7694014edfcfbee22e1a7bbde605850a2bb95841725a8f10efd2fc86ad45755",
+  "execution_checkpoint_walk_forward_conclusion": "success",
+  "execution_checkpoint_walk_forward_run": 34349287631,
+  "financial_metrics_eligible": false,
+  "historical_reproduction_complete": true,
+  "hosted": {
+    "archive_bytes": 1127255,
+    "archive_sha256": "b73dd35a9a41b1ab49e0a965670d520cd85cb732ca5b37bd7619b5760f6a7c47",
+    "artifact_id": 10105333963,
+    "artifact_name": "sealed-historical-residual-reproduction-v01-34347599749-1",
+    "conclusion": "success",
+    "head_sha": "5b3e1864654abdd239f46f7e07b74fd070759f33",
+    "job_id": 102452809165,
+    "run_attempt": 1,
+    "run_id": 34347599749,
+    "run_started_at": "2026-09-09T11:50:00Z",
+    "terminal_run_updated_at": "2026-09-09T13:06:55Z"
+  },
+  "hosted_ci": [
+    {
+      "checkpoint": "implementation",
+      "commit_sha": "5b3e1864654abdd239f46f7e07b74fd070759f33",
+      "conclusion": "success",
+      "job_id": 102452811878,
+      "log": {
+        "bytes": 544416,
+        "sha256": "46860f71a5c030de5ee7449efe3aa11526a35a4e650871ffb9c7e3293eef1494"
+      },
+      "run_id": 34347599884,
+      "seconds": 281.678,
+      "skipped": 73,
+      "tests": 2327
+    },
+    {
+      "checkpoint": "active_execution_checkpoint",
+      "commit_sha": "52b617a73310bbef178f55d5f78af8e3c274d8ef",
+      "conclusion": "success",
+      "job_id": 102458293510,
+      "log": {
+        "bytes": 544414,
+        "sha256": "1ac941dc13eb7562e2cb4c20496bebef5cdae5dbc59a2e7b92ecd18d87b57926"
+      },
+      "run_id": 34349287721,
+      "seconds": 250.591,
+      "skipped": 73,
+      "tests": 2327
+    },
+    {
+      "checkpoint": "local_success_checkpoint",
+      "commit_sha": "887a356dc72ec81a97fb988367b6388bd8b1c597",
+      "conclusion": "success",
+      "job_id": 102471613952,
+      "log": {
+        "bytes": 544416,
+        "sha256": "26ac869fd69467ea4e2a358330b612b8e599a2edac8f9894a5574d757aed7bc4"
+      },
+      "run_id": 34353300036,
+      "seconds": 296.298,
+      "skipped": 73,
+      "tests": 2327
+    }
+  ],
+  "implementation_all_seven_non_reproduction_workflows_passed": true,
+  "implementation_commit_sha": "5b3e1864654abdd239f46f7e07b74fd070759f33",
+  "implementation_tree_sha": "8ad0688fb6947c18dbc5a2037b513d345fc3cd87",
+  "independent_byte_comparison_helper": {
+    "bytes": 8093,
+    "path": "research/data-audits/sealed-historical-account-residual-exit-reproduction-v0.1/compare_downloaded_artifact.py",
+    "sha256": "18b46a93b047cb98a2a65dfdf33a5f7ac26791569e89723fc8989e8ae234ff00"
+  },
+  "local": {
+    "exit_code": 0,
+    "running_session": 93257,
+    "runtime_reproduction_verified": true,
+    "terminal_result_observed_at": "2026-09-09T12:46:22Z"
+  },
+  "local_hosted_and_original_component_comparison_complete": true,
+  "local_success_audit_content_sha256": "168805606bfb53ebd7cf279f9de32559c0f6e171098960f4631caea3ee742065",
+  "local_success_checkpoint_walk_forward_conclusion": "success",
+  "local_success_checkpoint_walk_forward_run": 34353300041,
+  "local_tests": {
+    "focused": {
+      "bytes": 2897,
+      "log_name": "residual-reproduction-focused-tests-01.log",
+      "passed": true,
+      "seconds": 0.149,
+      "sha256": "604552cf783dbb15330f4aee5c48bff8eefbd545c1671cb8a420aa4e2bbb8e52",
+      "skipped": 0,
+      "tests": 12
+    },
+    "full": {
+      "bytes": 487195,
+      "log_name": "residual-reproduction-full-tests.log",
+      "passed": true,
+      "seconds": 281.006,
+      "sha256": "b170d10005f53128d30c4c900b86a6ff4ed209e12e6210bfb75889de5700091c",
+      "skipped": 0,
+      "tests": 2327
+    },
+    "optimized": {
+      "bytes": 2897,
+      "log_name": "residual-reproduction-optimized-tests.log",
+      "passed": true,
+      "seconds": 0.192,
+      "sha256": "5a3c418a88d7571499697a279ff292133090df60935416db3e781257ca3276d0",
+      "skipped": 0,
+      "tests": 12
+    }
+  },
+  "main_sha_unchanged": "de24eb17316191da69d92e61f6843af25e9c22d0",
+  "original_attempts_overwritten": false,
+  "original_failed_checker_and_missing_local_attempt_preserved": true,
+  "original_producer_and_corrected_verifier_unchanged": true,
+  "original_runtime_content_sha256": "21bd9efa65c5c5776242bb9a6a53d28c134aefe31ed7da00d389402e29f3efba",
+  "overnight_execution_authorized": false,
+  "own_files_pinned": 3,
+  "parent_files_pinned": 289,
+  "policy_promotion_eligible": false,
+  "preliminary_detached_launcher_evidence_preserved": true,
+  "preserved_incomplete_states": {
+    "blocked_prior_state": 282,
+    "flat_complete": 36,
+    "flat_complete_with_unavailable_inputs": 30,
+    "original_window_exhausted_with_unresolved_state": 12
+  },
+  "provider_requests_authorized": false,
+  "registered_runtime_reproduction_complete": true,
+  "registration_audit_content_sha256": "18aa96249e788bb306c47e900aa50b2529aa982ae565893b8d3bf74872cf304f",
+  "registration_freeze_content_sha256": "25b2124138c419363176286e9bb8e209c210792365f00fc6ae4c6245a1742582",
+  "remaining_gate": "separately_register_unresolved_continuation_scope",
+  "reproduction_freeze_content_sha256": "5702b00cb875313e1dc75661a2a040fb025e17b2e2bd7afe47099a4c889aa4cb",
+  "reproduction_report_content_sha256": "70690fa827f4396d1eb3189f88de6f2ceb5a2117c6cc5656499ec60744eede24",
+  "required_population": {
+    "opportunity_references": 744,
+    "paths": 12,
+    "sessions": 360,
+    "unavailable_references": 162
+  },
+  "retained_execution_logs": {
+    "hosted-execution.log": {
+      "bytes": 41823,
+      "sha256": "7b9d557f825d316480d1d303d08b14570f00dc50141c9882a777649bfde7b9a3"
+    },
+    "local-execution.log": {
+      "bytes": 868,
+      "sha256": "44c82a20f00510345cd336d1635a1c3b4671d3fbf903e39c472f7a04fbbc0dd3"
+    }
+  },
+  "retrospective_labels_opened": false,
+  "runtime_mechanics_changed": false,
+  "totals": {
+    "blocked_sessions": 282,
+    "completed_streams": 198,
+    "confirmed_entries": 51,
+    "confirmed_fills": 114,
+    "confirmed_sells": 63,
+    "eligible_wait_prints_verified": 324,
+    "events": 399,
+    "executed_sessions": 78,
+    "input_failure_sessions": 0,
+    "opportunity_references": 744,
+    "residual_budget_exhaustions": 12,
+    "residual_expiries": 0,
+    "residual_proposals": 15,
+    "residual_ready": 15,
+    "residual_submissions": 15,
+    "sessions": 360,
+    "unavailable_references": 162,
+    "wait_expiries": 0,
+    "wait_submissions": 36,
+    "wait_supersessions": 0,
+    "waits": 36
+  },
+  "verification_mechanics_changed": false
+}

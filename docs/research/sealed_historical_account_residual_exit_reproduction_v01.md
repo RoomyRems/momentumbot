@@ -1,5 +1,54 @@
 # Frozen residual account runtime reproduction v0.1
 
+## Completed local and hosted reproduction
+
+Both registered attempts succeeded at unchanged implementation
+`5b3e1864654abdd239f46f7e07b74fd070759f33`. Local session `93257` exited 0;
+[hosted run 34347599749](https://github.com/RoomyRems/momentumbot/actions/runs/34347599749),
+job `102452809165`, attempt 1, completed successfully. Hosted logs show the
+original CLI starting at `2026-09-09T11:50:44Z`, its runtime result at
+`13:06:30Z`, and the corrected verification plus exact comparison succeeding
+at `13:06:52Z`. The prior active-execution sections below are historical.
+
+The [hosted artifact](https://github.com/RoomyRems/momentumbot/actions/runs/34347599749/artifacts/10105333963)
+contains exactly nine files. Its 1,127,255 downloaded bytes match GitHub's
+SHA-256 `b73dd35a9a41b1ab49e0a965670d520cd85cb732ca5b37bd7619b5760f6a7c47`.
+Independent verification checked ZIP inventory, duplicates, symlinks, CRC,
+canonical JSON bytes and content seals. Every member is byte identical to local
+output, and all six original component files match their frozen expectations.
+
+| Commitment | Content SHA-256 |
+| --- | --- |
+| Original reproduced runtime | `21bd9efa65c5c5776242bb9a6a53d28c134aefe31ed7da00d389402e29f3efba` |
+| Frozen corrected verifier report | `0d9c7cbcaac8970178bb15b16a47f13ff5df3b9b9d7f9cb28e039bffa40d5178` |
+| New reproduction report | `70690fa827f4396d1eb3189f88de6f2ceb5a2117c6cc5656499ec60744eede24` |
+| New reproduction freeze | `5702b00cb875313e1dc75661a2a040fb025e17b2e2bd7afe47099a4c889aa4cb` |
+| Independent local/hosted/original comparison | `f16ec230a20830bff4a248e5e7807f48d27d1e070953521d61cff240ee18ffb2` |
+| Completed outcome audit | `62fbe6fee26b0564479f4dd06301e488300f16efefaff149f46b7bcf51cb7c8d` |
+
+The [success audit](../../research/data-audits/sealed-historical-account-residual-exit-reproduction-v0.1-success.json)
+and [comparison](../../research/data-audits/sealed-historical-account-residual-exit-reproduction-v0.1-comparison.json)
+preserve provenance and per-file commitments. The evidence directory also retains
+the [local execution log](../../research/data-audits/sealed-historical-account-residual-exit-reproduction-v0.1/local-execution.log),
+[hosted execution log](../../research/data-audits/sealed-historical-account-residual-exit-reproduction-v0.1/hosted-execution.log),
+[artifact metadata](../../research/data-audits/sealed-historical-account-residual-exit-reproduction-v0.1/hosted-artifact.json)
+and the [independent download comparison script](../../research/data-audits/sealed-historical-account-residual-exit-reproduction-v0.1/compare_downloaded_artifact.py).
+The original failed checker and missing original local output remain preserved;
+this separately registered successful attempt does not replace them.
+
+Local validation passed 12 focused, 12 optimized and 2,327 full tests with zero
+skips. Implementation CI and both interim checkpoint CIs passed 2,327 tests with
+73 existing optional-SDK skips; the implementation's other six metadata workflows
+and both interim walk-forward checks also passed. No frozen producer, corrected
+verifier, registration, main ref or consumed ref changed during reproduction.
+
+All incomplete states remain exact: 36 flat slots, 30 flat slots with unavailable
+inputs, 12 exhausted original windows, 282 blocked later slots and zero complete
+account paths across the 12 paths / 360 slots. Financial metrics, account-backtest
+completion, retrospective labels and policy promotion remain closed. The next
+gate is separately registered unresolved-continuation work; this completed
+contract authorizes no further replay, orders, window extension or liquidation.
+
 ## Local success; hosted comparison pending
 
 Local executor session `93257` completed with exit code 0, observed at
