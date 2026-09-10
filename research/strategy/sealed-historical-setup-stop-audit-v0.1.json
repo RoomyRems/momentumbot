@@ -1,0 +1,279 @@
+{
+  "account_backtest_complete": false,
+  "account_replay_executed": false,
+  "artifact_type": "post_result_setup_stop_audit_registration",
+  "baseline_outcomes_known_before_registration": true,
+  "broker_orders_authorized": false,
+  "causal_effect_of_entry_sizing_or_exit_change_established": false,
+  "conditional_financial_metrics_eligible": true,
+  "content_sha256": "5f9adda53eba4f872aae040e20c30c1eae63122eb4e884d20db011b447fe0570",
+  "contract_id": "sealed-historical-setup-stop-audit-v0.1",
+  "counterfactual_entries_simulated": false,
+  "counterfactual_performance_established": false,
+  "definitions": {
+    "geometry": "unchanged Micro-v0.1 evaluator; unchanged source qualification, tick, pullback stop, volume and support",
+    "macd": "descriptive completed-minute 12/26/9 MACD using the original raw session and normalized prior warmup; no MACD gate installed",
+    "no_counterfactual": "no dropped-entry profits, best thresholds, altered fills or causal policy-effect claims",
+    "ordinal": "exact original running-high pullback ordinal; descriptive, no first-N filter installed",
+    "outcome_join": "saved outcomes joined only after all source prefixes verify; per-path totals remain identical",
+    "question": "do original causal prefixes, setup plans and stops reproduce; what explicit characteristics do all fixed entries have",
+    "room_to_peak_r": "(original running peak - planned trigger)/(planned trigger - original stop); signed, not clipped",
+    "scope": "post-result descriptive audit; baseline losses and GITS ordinal-5 example already known",
+    "selection": "all 109 original opportunities and all 744 original path decisions, including all unavailable references",
+    "source_alignment": "original SIP trigger print versus original XNAS decision reference; receipt clocks retained separately, no consolidated-quote inference",
+    "source_prefix": "exact original completed Micro bars, support through plan and chart trades through trigger; original prefix hash must match",
+    "witness_limit": "saved geometry witnesses reproduce plans/features; full chart-prefix hash reproduction requires original source archives"
+  },
+  "diagnostic_only": true,
+  "full_input_coverage_complete": false,
+  "full_local_reproduction_verified": false,
+  "full_quote_or_execution_model_calibrated": false,
+  "future_prices_used_for_setup": false,
+  "historical_replay_executed": false,
+  "implementation_file_specs": {
+    "scripts/audit_sealed_historical_setups_stops_v01.py": {
+      "bytes": 2601,
+      "sha256": "630ee6c91a1980f6e6f8434ebe80e30ef3295c7af0e1ea3539aa10bf4325d92c"
+    },
+    "src/momentumbot/research/sealed_historical_setup_stop_audit_v01.py": {
+      "bytes": 37571,
+      "sha256": "1d3f0e534bbebcb314ce2a557965b64069dfa75e77c814269138fb6c0fb4049b"
+    },
+    "tests/test_sealed_historical_setup_stop_audit_v01.py": {
+      "bytes": 12547,
+      "sha256": "6d963c134b59d767e520a582473d6958f952b19ab436441e3c398b3ad66eaee6"
+    }
+  },
+  "input_file_specs": {
+    "research/data-audits/sealed-historical-loss-attribution-v0.1/report.json": {
+      "bytes": 2329703,
+      "sha256": "8071b82ded309446fa261a8fda6f14bc5d16646609d1d35329bb995497045ed3"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-05-30.json": {
+      "bytes": 16332,
+      "sha256": "c362fdb5454c2e58e6cd1d41acd26b7f176805a4b927f724e1fd7f93bcbd226a"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-02.json": {
+      "bytes": 11562,
+      "sha256": "8cb09b4cd5a87377a913bc76d8db77c067a42f4c70565130513f0220c1dd9680"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-03.json": {
+      "bytes": 11547,
+      "sha256": "596573f23645f2f594696cfa51db50eee608eed49237a0ae7337a8dd95365e6b"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-04.json": {
+      "bytes": 13177,
+      "sha256": "cef72805f956f1b17666b652796f018b0ee94bbf411b933f005269d5e7e66926"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-05.json": {
+      "bytes": 3730,
+      "sha256": "7fe8c6491f509846b853090f370798b98f3cfe8c963b68099d2442175c37db79"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-06.json": {
+      "bytes": 14155,
+      "sha256": "01b1edf60b6824fd2cb3dadae3262fa7c433727fc7a4ca26cadce00daeccec49"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-09.json": {
+      "bytes": 15010,
+      "sha256": "3eec74064e527c748113f8242fbc6c271aa8f905a3b65ad78240f0db7a29b34f"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-10.json": {
+      "bytes": 19776,
+      "sha256": "a2f9eb30f46b724aa45c5429e9acc0f4e8149414fa87cda33d7832ecb58f5de0"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-11.json": {
+      "bytes": 6636,
+      "sha256": "93d432f25889a031933abe2e2a8eedfdec98d81a3b83b4b7c75c20dcb77c88ed"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-12.json": {
+      "bytes": 10962,
+      "sha256": "f502b44d90675d7bfd94da4e6609f8ebe24ddf266f2aad81f88b98c34df2c924"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-13.json": {
+      "bytes": 11889,
+      "sha256": "1f1d832cf436ee4c107d5ef19cd531623b9d13babbfc0c03bd35f6dc7f4890bd"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-16.json": {
+      "bytes": 13095,
+      "sha256": "0b15a987e3f937e619b6a768ad59f50a0f13945aad1b1f7ffe6d46e3d7289d22"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-17.json": {
+      "bytes": 5156,
+      "sha256": "9d68eff6ca051a9fba01f5705a3f9fad5d97545132ceefdb12e0e83095b285ca"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-18.json": {
+      "bytes": 8219,
+      "sha256": "3309ee0d50d9e107c9390efd27a73d589a68eaf98736b9efa2ffe4a159127793"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-20.json": {
+      "bytes": 12083,
+      "sha256": "537dd70604f5bbdea6b2c40f52b354174a092e8fa1d09157adc27fe3ac690a04"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-23.json": {
+      "bytes": 13394,
+      "sha256": "433c506ff81a005f9b9a839720e0198602a6c0d1ad83e7cd2f2734f1767eefa0"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-24.json": {
+      "bytes": 10159,
+      "sha256": "6c6bd4663ee57f2fb6159576f24bb7ecc38ff6114e9513f4282a82398f6d81ed"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-25.json": {
+      "bytes": 11986,
+      "sha256": "c469ba123cf15b9c3d2dabbee89b6ee68093de07f2dba49aa54368a970e757e5"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-26.json": {
+      "bytes": 22984,
+      "sha256": "95225611f099e490257a489b32fa64f33ba3f71c3b364e7f82eeacd7444245e7"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-06-27.json": {
+      "bytes": 18255,
+      "sha256": "8c3d45d7bf41fa7947e1746efd57221001366295172f8ffec9dfe249b2703a6f"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-07-01.json": {
+      "bytes": 17293,
+      "sha256": "4543b53cf7c963c40bb863c48675b34c7db88c8035d38efd5117091158d8994e"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-07-02.json": {
+      "bytes": 17373,
+      "sha256": "c328fa35c81e88943516ec404e7b23bc71b17b71bb590f27255641a0a0a1b96e"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-07-07.json": {
+      "bytes": 12415,
+      "sha256": "8f925039bb0888a61531d9aa2b0a41943b4501f8e1f40fe7d51d1a5d86665a49"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-07-08.json": {
+      "bytes": 11026,
+      "sha256": "49f84311080613137c69fee5790917db2aa2551b386615841cf6f6d90787f0b6"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-07-10.json": {
+      "bytes": 15264,
+      "sha256": "a671e538efb7b3e9fa870620f928dc2d26bf73c2270d28c16559246381763ecb"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-07-11.json": {
+      "bytes": 18282,
+      "sha256": "b1b59f25ac910b4a2600342799ff7c705420848826f83e11b7894ade7b4f2c22"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-07-14.json": {
+      "bytes": 18737,
+      "sha256": "4500dc174c7fce4a07d223929479170d991fca696d84f2dc1fe7deb237154587"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-07-15.json": {
+      "bytes": 8683,
+      "sha256": "81ebc23ed0b17dc7f992829acadea0a99f2c7629a5a1af4ed60e0b47cbe338c0"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-07-16.json": {
+      "bytes": 20737,
+      "sha256": "83c66d0b1c5e4c1b1cc6e6214517a2cba314964c9527ff462d79cfb5e8d0bb60"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/dates/2025-07-17.json": {
+      "bytes": 10025,
+      "sha256": "25e42ed0def7092102b0c4516b394309cd258ddb09726b3426830d1266853aa8"
+    },
+    "research/runtime/sealed-historical-micro-v0.1/manifest.json": {
+      "bytes": 7890,
+      "sha256": "2f46191a7a0e6ff085c58d589857b65617e33ae00ff9de018565ee8803d2e7cf"
+    },
+    "research/strategy/sealed-historical-loss-attribution-v0.1.json": {
+      "bytes": 11290,
+      "sha256": "7e7cf9ccd129b7cd9ce012203bf2a4012b64a70b5b8b4a94db8bb4edd4caa935"
+    }
+  },
+  "original_archives": {
+    "micro": {
+      "artifact_id": 9995887799,
+      "bytes": 243151926,
+      "members": 688,
+      "sha256": "d31eac851c1246ce23025e9518562ed3f41b8f818d42b8de707a6d86d307be99"
+    },
+    "minutes": {
+      "artifact_id": 9995587996,
+      "bytes": 849877,
+      "members": 348,
+      "sha256": "d689f493c10996bee7eddde68d62812e7850fc322caa2d530d33a97c84878e3f"
+    },
+    "scanner": {
+      "artifact_id": 9993250947,
+      "bytes": 78404172,
+      "sha256": "af89836213a905a1e02dabd54cce1d2bab2f55214c2d7bc0dce44d4700243638"
+    }
+  },
+  "original_financial_metrics_flag_changed": false,
+  "original_runtime_changed": false,
+  "original_source_code_specs": {
+    "src/momentumbot/indicators.py": {
+      "bytes": 4799,
+      "sha256": "9289b45e843ed8701e27e56cf355ff738fc943861df9200cc3a51066065cbfbe"
+    },
+    "src/momentumbot/micro_bars.py": {
+      "bytes": 6766,
+      "sha256": "946cbcae2fe5c9272388e078e8c2e7e97094f97a6e6b32e9ad43335f09e9546c"
+    },
+    "src/momentumbot/micro_execution.py": {
+      "bytes": 19933,
+      "sha256": "234836c30b51fb8789aae345f159cfe2226b2d7bdbd6a2254380ca14eda4c266"
+    },
+    "src/momentumbot/micro_policy.py": {
+      "bytes": 2558,
+      "sha256": "7d5f6d571abd41a31059cef815f9c3268f34840014c56560282b6984c1bdb301"
+    },
+    "src/momentumbot/micro_replay.py": {
+      "bytes": 8631,
+      "sha256": "128a34318e970539f01ce5454d5c58aa2a375a81f5eb2c30997dcab0170e9cbd"
+    },
+    "src/momentumbot/micro_setup.py": {
+      "bytes": 16353,
+      "sha256": "a741989b2cc0ac0aea4be5d2dbe1272d6530ca43d195f6005ac5635d52d5adcc"
+    },
+    "src/momentumbot/research/prospective_daily_source.py": {
+      "bytes": 91764,
+      "sha256": "3f957335a390680bb898d42281fe95caf08726ea4ef822cea91a776aa1e7d34e"
+    },
+    "src/momentumbot/research/sealed_historical_micro_runtime_v01.py": {
+      "bytes": 31045,
+      "sha256": "07de118db0cc6f12dad5659bdc6d2c3ad3c8a5405d275df054ef018514c853b9"
+    }
+  },
+  "original_unavailable_inputs_reclassified": false,
+  "parent_commit_sha": "a27babed52e1c2a12151be40af36a7c865f395f9",
+  "parent_loss_contract_sha256": "0a6153ad10b3a97ff13252db6176bdf01bf4c25474a2ee38bec8d5b5b49487ff",
+  "parent_loss_report_sha256": "5487f89ae0002b276aee2c051446a862d58ec0afb1ec4c0a6b3fa16b5ff3a7d3",
+  "parent_tree_sha": "67f32e01b56d874f278b86c2e0ca6bb45ef865f9",
+  "policy_promotion_eligible": false,
+  "provider_requests_authorized": false,
+  "retrospective_labels_opened": false,
+  "runtime_or_strategy_thresholds_changed": false,
+  "selected_dates": [
+    "2025-05-30",
+    "2025-06-02",
+    "2025-06-03",
+    "2025-06-04",
+    "2025-06-05",
+    "2025-06-06",
+    "2025-06-09",
+    "2025-06-10",
+    "2025-06-11",
+    "2025-06-12",
+    "2025-06-13",
+    "2025-06-16",
+    "2025-06-17",
+    "2025-06-18",
+    "2025-06-20",
+    "2025-06-23",
+    "2025-06-24",
+    "2025-06-25",
+    "2025-06-26",
+    "2025-06-27",
+    "2025-07-01",
+    "2025-07-02",
+    "2025-07-07",
+    "2025-07-08",
+    "2025-07-10",
+    "2025-07-11",
+    "2025-07-14",
+    "2025-07-15",
+    "2025-07-16",
+    "2025-07-17"
+  ],
+  "setup_policy_changed": false,
+  "source_prefix_reconstruction_only": true
+}

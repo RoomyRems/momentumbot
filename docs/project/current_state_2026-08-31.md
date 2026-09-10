@@ -1,5 +1,42 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: original setups and stops reproduce from causal sources
+
+The additive setup, stop and source audit starts from `a27babed52e1c2a12151be40af36a7c865f395f9`.
+All 109 original Micro causal-prefix hashes and plans reproduce from the exact
+original SIP/warmup, raw-minute and scanner archives. Raw/split normalization,
+completed-minute support and first eligible trigger timing match. All 300
+recorded entry stops match the reconstructed plans. The source reconstruction
+covers 45 symbol/date pairs and 10,965,021 original SIP rows. No account replay,
+provider acquisition, Ross-label access or strategy change was performed.
+
+Of 109 opportunities, five are first pullbacks, 13 second pullbacks and 91
+third-or-later pullbacks; ordinals reach 27. At the planned trigger, 101 have
+less than 2R room to the original running peak. Four have nonpositive completed-
+minute MACD and none has unknown MACD. These are descriptive observations on
+the current Micro policy, which does not require an ordinal cap, MACD gate or
+minimum room to the peak. Room is not a complete resistance map. First and
+second pullback cohorts both lose money in each account/execution combination,
+so the audit does not establish a filter that fixes the baseline.
+
+All 12 alternative paths, 360 session slots, 30 dates, 744 decisions and 162
+unavailable references remain. Main conservative/stress stay −$264.77/−$239.78
+and small conservative/stress stay −$35.75/−$13.75, separately for each identical
+horizon. The 86 original quote references satisfy their original 100 ms gate;
+their single-venue receive clocks remain distinct from SIP trigger clocks.
+
+Registration: `5f9adda53eba4f872aae040e20c30c1eae63122eb4e884d20db011b447fe0570`.
+Report: `40c716fa69e99944ddfe8f168d4697d0bc4b6db1a0491f0f4e0f70f54536a39b`.
+Saved geometry witnesses re-evaluate plans and descriptive features without
+loading the original trade archives. Full causal-prefix authentication requires
+those original archives. The [setup/stop audit](../research/sealed_historical_setup_stop_audit_v01.md)
+records the evidence, findings and validation. The next useful scope is a
+separate preregistered setup-selection experiment with a frozen evaluation
+sample; the losing baseline and the hosted-only local-replay waiver remain.
+All 22 focused tests and all 2,473 full-suite tests passed with zero skips;
+compilation and the offline saved-evidence command with assertions disabled
+also passed. Exact source-run and test logs are retained with the audit.
+
 ## Current checkpoint: fixed baseline losses attributed to entries, sizing and exits
 
 The loss-attribution diagnostic accounts for every saved fill without changing

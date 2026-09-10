@@ -1,0 +1,265 @@
+{
+  "account_backtest_complete": false,
+  "account_replay_executed": false,
+  "all_account_results_unchanged": true,
+  "all_seven_parent_publication_checks_passed": true,
+  "artifact_type": "setup_stop_source_audit_implementation_verification",
+  "broker_orders_authorized": false,
+  "causal_effect_of_entry_sizing_or_exit_change_established": false,
+  "compileall_src_tests_and_new_command_exit_code": 0,
+  "conditional_financial_metrics_eligible": true,
+  "content_sha256": "e9c5f7475377b33a2288a9f29a6561d5dcfa47308c26704d6ac294cdc58f1178",
+  "contract_content_sha256": "5f9adda53eba4f872aae040e20c30c1eae63122eb4e884d20db011b447fe0570",
+  "contract_id": "sealed-historical-setup-stop-audit-v0.1",
+  "counterfactual_entries_simulated": false,
+  "counterfactual_performance_established": false,
+  "development_history": {
+    "correction": "Delegate empty input to the unchanged original chart helper; all 16 synthetic tests then pass.",
+    "historical_source_run_started_before_correction": false,
+    "original_runtime_or_source_code_changed": false,
+    "pre_registration_synthetic_failure": "Empty chart helper added a sequence column omitted by the original empty-frame helper."
+  },
+  "diagnostic_only": true,
+  "final_registration_verified": true,
+  "full_input_coverage_complete": false,
+  "full_local_reproduction_verified": false,
+  "full_quote_or_execution_model_calibrated": false,
+  "full_suite_dependency_versions": {
+    "databento": "0.83.0",
+    "databento-dbn": "0.65.0",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "requests": "2.34.2"
+  },
+  "future_prices_used_for_setup": false,
+  "git_diff_check_exit_code": 0,
+  "historical_replay_executed": false,
+  "implementation_file_specs": {
+    "scripts/audit_sealed_historical_setups_stops_v01.py": {
+      "bytes": 2601,
+      "sha256": "630ee6c91a1980f6e6f8434ebe80e30ef3295c7af0e1ea3539aa10bf4325d92c"
+    },
+    "src/momentumbot/research/sealed_historical_setup_stop_audit_v01.py": {
+      "bytes": 37571,
+      "sha256": "1d3f0e534bbebcb314ce2a557965b64069dfa75e77c814269138fb6c0fb4049b"
+    },
+    "tests/test_sealed_historical_setup_stop_audit_v01.py": {
+      "bytes": 12547,
+      "sha256": "6d963c134b59d767e520a582473d6958f952b19ab436441e3c398b3ad66eaee6"
+    }
+  },
+  "original_archives": {
+    "micro": {
+      "artifact_id": 9995887799,
+      "bytes": 243151926,
+      "members": 688,
+      "sha256": "d31eac851c1246ce23025e9518562ed3f41b8f818d42b8de707a6d86d307be99"
+    },
+    "minutes": {
+      "artifact_id": 9995587996,
+      "bytes": 849877,
+      "members": 348,
+      "sha256": "d689f493c10996bee7eddde68d62812e7850fc322caa2d530d33a97c84878e3f"
+    },
+    "scanner": {
+      "artifact_id": 9993250947,
+      "bytes": 78404172,
+      "sha256": "af89836213a905a1e02dabd54cce1d2bab2f55214c2d7bc0dce44d4700243638"
+    }
+  },
+  "original_financial_metrics_flag_changed": false,
+  "original_financial_metrics_flags_changed": false,
+  "original_loss_report_sha256": "5487f89ae0002b276aee2c051446a862d58ec0afb1ec4c0a6b3fa16b5ff3a7d3",
+  "original_runtime_changed": false,
+  "original_unavailable_inputs_reclassified": false,
+  "parent_commit_sha": "a27babed52e1c2a12151be40af36a7c865f395f9",
+  "parent_publication_workflows": [
+    {
+      "conclusion": "success",
+      "head_sha": "a27babed52e1c2a12151be40af36a7c865f395f9",
+      "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34477267875",
+      "id": 34477267875,
+      "name": "Sealed historical walk-forward v0.1",
+      "run_attempt": 1,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "a27babed52e1c2a12151be40af36a7c865f395f9",
+      "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34477267854",
+      "id": 34477267854,
+      "name": "Sealed historical source acquisition v0.1",
+      "run_attempt": 1,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "a27babed52e1c2a12151be40af36a7c865f395f9",
+      "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34477267878",
+      "id": 34477267878,
+      "name": "Sealed historical source acquisition v0.3",
+      "run_attempt": 1,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "a27babed52e1c2a12151be40af36a7c865f395f9",
+      "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34477267721",
+      "id": 34477267721,
+      "name": "Sealed historical provider availability repair v0.2",
+      "run_attempt": 1,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "a27babed52e1c2a12151be40af36a7c865f395f9",
+      "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34477267780",
+      "id": 34477267780,
+      "name": "Sealed historical source acquisition v0.2",
+      "run_attempt": 1,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "a27babed52e1c2a12151be40af36a7c865f395f9",
+      "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34477267859",
+      "id": 34477267859,
+      "name": "Sealed historical provider availability v0.1",
+      "run_attempt": 1,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "head_sha": "a27babed52e1c2a12151be40af36a7c865f395f9",
+      "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34477267856",
+      "id": 34477267856,
+      "name": "CI",
+      "run_attempt": 1,
+      "status": "completed"
+    }
+  ],
+  "parent_tree_sha": "67f32e01b56d874f278b86c2e0ca6bb45ef865f9",
+  "policy_promotion_eligible": false,
+  "provider_requests_authorized": false,
+  "python_version": "3.12.14",
+  "report_content_sha256": "40c716fa69e99944ddfe8f168d4697d0bc4b6db1a0491f0f4e0f70f54536a39b",
+  "result_file_specs": {
+    "geometry-witnesses.json.gz": {
+      "bytes": 395445,
+      "sha256": "90fead7323893fec9927f81f94697be561e80a418ff88655c1f83ced1304c288"
+    },
+    "report.json": {
+      "bytes": 1265004,
+      "sha256": "a9acf1bb5ae2dd0dde3f7ecaaf54ba4817583a05dcd663cd6f6279feefddc14b"
+    },
+    "report.md": {
+      "bytes": 2127,
+      "sha256": "de1cbb279baee29d73fe7b031014f6fec2a5b65858585b1e4b720b5a531eb548"
+    }
+  },
+  "retrospective_labels_opened": false,
+  "runtime_or_strategy_thresholds_changed": false,
+  "saved_verification": {
+    "exit_code": 0,
+    "full_chart_prefix_authentication_requires_original_archives": true,
+    "geometry_and_accounting_join_reproduces": true,
+    "python_assertions_disabled": true
+  },
+  "setup_policy_changed": false,
+  "source_prefix_reconstruction_only": true,
+  "source_reconstruction": {
+    "account_replay_executed": false,
+    "all_300_original_entry_stops_match": true,
+    "archive_identities_and_crcs_verified": true,
+    "attempts": 1,
+    "capture_inventories_and_selected_tape_hashes_verified": true,
+    "completed": true,
+    "dates_with_opportunities": 25,
+    "exit_code": 0,
+    "network_and_subprocess_io_guard_installed": true,
+    "new_provider_requests": 0,
+    "original_prefixes_verified": 109,
+    "original_sip_rows": 10965021,
+    "raw_split_basis_and_session_alignment_verified": true,
+    "selected_dates_retained": 30,
+    "source_pairs": 45
+  },
+  "test_environment": {
+    "packages_downloaded": false,
+    "retained_sdk_packages_used": true
+  },
+  "tests": {
+    "focused": {
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 7.151,
+      "skips": 0,
+      "tests": 22
+    },
+    "full_suite": {
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 286.362,
+      "skips": 0,
+      "tests": 2473
+    },
+    "synthetic_final": {
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.209,
+      "skips": 0,
+      "tests": 16
+    }
+  },
+  "verification_logs": {
+    "focused.log": {
+      "logical_bytes": 4059,
+      "logical_sha256": "5fe074500ed9cf92d16a9942d06fec4a709d7d60a29d43482e25bc17853afe3b",
+      "stored": {
+        "bytes": 4059,
+        "sha256": "5fe074500ed9cf92d16a9942d06fec4a709d7d60a29d43482e25bc17853afe3b"
+      }
+    },
+    "full-suite.log.gz": {
+      "logical_bytes": 513724,
+      "logical_sha256": "9196bb95dd6096e55e0ba97512474c4b2867132d46aa636f4d9a9aecdb170aa4",
+      "stored": {
+        "bytes": 60681,
+        "sha256": "0f8bcb0cf2f638a90a9c60988012453bb5ae1e885626f1c5be82c4f71b93c271"
+      }
+    },
+    "saved-verification.log": {
+      "logical_bytes": 235,
+      "logical_sha256": "cbf55250bf79283892e5d0b723396ace7b203655fc6a00d711bdc561e6b468b3",
+      "stored": {
+        "bytes": 235,
+        "sha256": "cbf55250bf79283892e5d0b723396ace7b203655fc6a00d711bdc561e6b468b3"
+      }
+    },
+    "source-run.log": {
+      "logical_bytes": 3343,
+      "logical_sha256": "b5be405120b746a8947ac59c4d263c4af1d7893dc7ceea968c89b5126dd00fd6",
+      "stored": {
+        "bytes": 3343,
+        "sha256": "b5be405120b746a8947ac59c4d263c4af1d7893dc7ceea968c89b5126dd00fd6"
+      }
+    },
+    "synthetic-final.log": {
+      "logical_bytes": 2959,
+      "logical_sha256": "dc3ed9016abd074130d19f1cc7efcdd0ffb50c8325b85ef3b1b195e80464eb80",
+      "stored": {
+        "bytes": 2959,
+        "sha256": "dc3ed9016abd074130d19f1cc7efcdd0ffb50c8325b85ef3b1b195e80464eb80"
+      }
+    },
+    "synthetic-initial.log": {
+      "logical_bytes": 4387,
+      "logical_sha256": "6e0413086261d67fb964ee041b6cfb3dc79d157da9c438489f841a456a5db496",
+      "stored": {
+        "bytes": 4387,
+        "sha256": "6e0413086261d67fb964ee041b6cfb3dc79d157da9c438489f841a456a5db496"
+      }
+    }
+  },
+  "witness_content_sha256": "5b326b3921b58456b7f77cf3b5fc753aa8f04946efb6cad4eab150331ac15bd1"
+}
