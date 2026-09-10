@@ -1,0 +1,185 @@
+{
+  "account_backtest_complete": false,
+  "all_account_results_unchanged": true,
+  "all_reason_stage_and_entry_bridges_reconcile": true,
+  "all_seven_parent_publication_checks_passed": true,
+  "artifact_type": "loss_attribution_implementation_verification",
+  "baseline_contract_content_sha256": "aac233a9b18eb5145c2c0bf8f6ab50f5bb72636afd1c748bd9edf94ce91ec2f1",
+  "baseline_report_content_sha256": "23fb88bcb2a8cb95dafe7059e0d99c54deed423c7d30a24b280b95d6b00144d8",
+  "broker_orders_authorized": false,
+  "causal_effect_of_entry_sizing_or_exit_change_established": false,
+  "closed_episodes_across_alternative_paths": 300,
+  "compileall_src_tests_exit_code": 0,
+  "conditional_financial_metrics_eligible": true,
+  "content_sha256": "dc8bb33508ec2c4cc79459ec2144db8c09d60defc40936795e9680c6808512f6",
+  "contract_content_sha256": "0a6153ad10b3a97ff13252db6176bdf01bf4c25474a2ee38bec8d5b5b49487ff",
+  "contract_id": "sealed-historical-loss-attribution-v0.1",
+  "counterfactual_performance_established": false,
+  "diagnostic_only": true,
+  "final_registration_verified": true,
+  "full_input_coverage_complete": false,
+  "full_local_reproduction_verified": false,
+  "full_suite_dependency_versions": {
+    "databento": "0.83.0",
+    "databento-dbn": "0.65.0",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "requests": "2.34.2"
+  },
+  "gate_binding": {
+    "all_109_observations_bound": true,
+    "original_disposition_counts": {
+      "blocked_account_lock": 51,
+      "blocked_campaign_entry_limit": 39,
+      "blocked_capacity": 84,
+      "entry_submitted": 408,
+      "unavailable_input": 162
+    },
+    "unresolved_observations": 0,
+    "withheld_entries_submitted_or_filled": 0,
+    "withheld_opportunities": 23,
+    "withheld_path_references": 162
+  },
+  "historical_replay_executed": false,
+  "implementation_file_specs": {
+    "scripts/attribute_sealed_historical_losses_v01.py": {
+      "bytes": 1584,
+      "sha256": "7b015bcfbdf88c5432b1ba3672794726925f002520500e3753a81847b145b6cd"
+    },
+    "src/momentumbot/research/sealed_historical_loss_attribution_v01.py": {
+      "bytes": 30188,
+      "sha256": "ddfdb9bc9706aed0c23f00fb3a23f1ab53629d60a0d2d363c2a1578420119330"
+    },
+    "tests/test_sealed_historical_loss_attribution_v01.py": {
+      "bytes": 8619,
+      "sha256": "a89054546f64032a7fcf4b9292876365a3dd4722039105657c69337c943efd8f"
+    }
+  },
+  "independent_historical_checker_reexecuted": false,
+  "original_decision_references_verified": 86,
+  "original_financial_metrics_flag_changed": false,
+  "original_runtime_changed": false,
+  "original_unavailable_inputs_reclassified": false,
+  "parent_ci_run_id": 34436921074,
+  "parent_commit_sha": "78050eacc330b82387e0b292479e5e576ea0b19a",
+  "parent_publication_workflows": [
+    {
+      "conclusion": "success",
+      "id": 34436921117,
+      "name": "Sealed historical walk-forward v0.1",
+      "status": "completed",
+      "url": "https://github.com/RoomyRems/momentumbot/actions/runs/34436921117"
+    },
+    {
+      "conclusion": "success",
+      "id": 34436921225,
+      "name": "Sealed historical source acquisition v0.2",
+      "status": "completed",
+      "url": "https://github.com/RoomyRems/momentumbot/actions/runs/34436921225"
+    },
+    {
+      "conclusion": "success",
+      "id": 34436921120,
+      "name": "Sealed historical source acquisition v0.1",
+      "status": "completed",
+      "url": "https://github.com/RoomyRems/momentumbot/actions/runs/34436921120"
+    },
+    {
+      "conclusion": "success",
+      "id": 34436921131,
+      "name": "Sealed historical source acquisition v0.3",
+      "status": "completed",
+      "url": "https://github.com/RoomyRems/momentumbot/actions/runs/34436921131"
+    },
+    {
+      "conclusion": "success",
+      "id": 34436921101,
+      "name": "Sealed historical provider availability repair v0.2",
+      "status": "completed",
+      "url": "https://github.com/RoomyRems/momentumbot/actions/runs/34436921101"
+    },
+    {
+      "conclusion": "success",
+      "id": 34436921074,
+      "name": "CI",
+      "status": "completed",
+      "url": "https://github.com/RoomyRems/momentumbot/actions/runs/34436921074"
+    },
+    {
+      "conclusion": "success",
+      "id": 34436921071,
+      "name": "Sealed historical provider availability v0.1",
+      "status": "completed",
+      "url": "https://github.com/RoomyRems/momentumbot/actions/runs/34436921071"
+    }
+  ],
+  "parent_tree_sha": "c05a3915e6a3b17946425a43fb6ada774324720a",
+  "policy_promotion_eligible": false,
+  "population": {
+    "opportunity_references": 744,
+    "paths": 12,
+    "sessions": 360,
+    "unavailable_references": 162,
+    "unique_unavailable_opportunities": 23
+  },
+  "provider_requests_authorized": false,
+  "python_version": "3.12.14",
+  "report_content_sha256": "5487f89ae0002b276aee2c051446a862d58ec0afb1ec4c0a6b3fa16b5ff3a7d3",
+  "result_file_specs": {
+    "report.json": {
+      "bytes": 2329703,
+      "sha256": "8071b82ded309446fa261a8fda6f14bc5d16646609d1d35329bb995497045ed3"
+    },
+    "report.md": {
+      "bytes": 4479,
+      "sha256": "d18cbeb9c5156baa19886f60463c3f4381dd418aeeca4902eb7ba7d24b36e176"
+    }
+  },
+  "retrospective_labels_opened": false,
+  "runtime_or_strategy_thresholds_changed": false,
+  "saved_artifact_recomputation_matches_report": true,
+  "sell_fills_across_alternative_paths": 669,
+  "submitted_sell_orders_across_alternative_paths": 870,
+  "test_environment_recovery": {
+    "historical_replay_started": false,
+    "packages_downloaded": false,
+    "retained_native_sdk_imports_verified": true
+  },
+  "tests": {
+    "focused": {
+      "exit_code": 0,
+      "log": {
+        "bytes": 3612,
+        "sha256": "f56d0a37f292f5d8cb3a0998b1c2fe9051c8c980b0fca90e3773c48c473a9078"
+      },
+      "passed": true,
+      "seconds": 3.364,
+      "skips": 0,
+      "tests": 22
+    },
+    "full_suite": {
+      "exit_code": 0,
+      "log": {
+        "bytes": 509764,
+        "sha256": "9ef78506230066bfb545cb4e6d47c527de9f1a109e292a837ff5f746640ab8c5"
+      },
+      "passed": true,
+      "seconds": 301.92,
+      "skips": 0,
+      "tests": 2451
+    },
+    "optimized": {
+      "exit_code": 0,
+      "log": {
+        "bytes": 3612,
+        "sha256": "ee443658318b3bbf876c06f9052d42f362a08025bf58a8497d031f98d2e05d5d"
+      },
+      "passed": true,
+      "seconds": 4.219,
+      "skips": 0,
+      "tests": 22
+    }
+  },
+  "unfilled_sell_orders_across_alternative_paths": 201,
+  "waited_sell_orders_across_alternative_paths": 378
+}

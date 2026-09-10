@@ -1,5 +1,45 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: fixed baseline losses attributed to entries, sizing and exits
+
+The loss-attribution diagnostic accounts for every saved fill without changing
+the conditional baseline. All 12 paths, 30 dates, 744 decisions and 162 original
+unavailable references remain. The new report binds 300 closed episodes, 669
+sell fills and 870 submitted sell orders to original decision quotes, source
+stops, entry receipts and residual/continuation/waiting authority. Price and fee
+bridges and both exit-reason and execution-stage totals reconcile exactly.
+
+Initial-stop exits account for most losses. Main conservative has −$360.58
+gross P&L at initial stops, partly offset by targets and other exits, and ends
+at the unchanged −$264.77 net. Entry price shortfall is $1.41 and modeled fees
+are $0.75. Main stress remains −$239.78 net even with $32.87 of aggregate entry
+price improvement against its original decision asks. Small conservative/stress
+remain −$35.75/−$13.75. The horizons are identical within each combination.
+
+First-entry and re-entry cohorts are negative in every combination. Main
+conservative/stress re-entries contribute −$13.43/−$87.03 net; first entries
+contribute −$251.34/−$152.75. Only 13.686468%/5.481840% of requested main-account
+entry shares filled. Main stress has 47 unfilled sell orders out of 132, and
+−$173.64 gross is booked on third-or-later terminal attempts. These are
+accounting locations and execution counts, not causal losses attributable to
+the continuation rule or hypothetical returns from removing trades.
+
+Registration: `0a6153ad10b3a97ff13252db6176bdf01bf4c25474a2ee38bec8d5b5b49487ff`.
+Report: `5487f89ae0002b276aee2c051446a862d58ec0afb1ec4c0a6b3fa16b5ff3a7d3`.
+Parent `78050eacc330b82387e0b292479e5e576ea0b19a` passed all seven publication
+checks, including CI 34436921074. The linked implementation audit records the
+final validation results for this diagnostic: 22 focused tests, 22 optimized
+tests and all 2,451 full-suite tests passed with zero skips, plus compilation
+and final registration verification.
+
+The original runtime, financial report, coverage flags and failed/incomplete
+attempt history remain unchanged. No historical replay, new provider request,
+Ross-label access or policy change occurred. The next useful scope is auditing
+causal setup evidence, original stop placement and source alignment behind the
+stop-heavy entries before specifying a separate policy experiment. See the
+[loss-attribution record](../research/sealed_historical_loss_attribution_v01.md)
+and its complete report and validation evidence.
+
 ## Current checkpoint: conditional account performance calculated
 
 The strict observed-update policy now has a conditional financial report from

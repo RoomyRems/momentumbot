@@ -1,0 +1,223 @@
+{
+  "account_backtest_complete": false,
+  "artifact_type": "post_result_loss_attribution_registration",
+  "baseline_contract_content_sha256": "aac233a9b18eb5145c2c0bf8f6ab50f5bb72636afd1c748bd9edf94ce91ec2f1",
+  "baseline_financial_outcomes_known_before_registration": true,
+  "baseline_report_content_sha256": "23fb88bcb2a8cb95dafe7059e0d99c54deed423c7d30a24b280b95d6b00144d8",
+  "broker_orders_authorized": false,
+  "causal_effect_of_entry_sizing_or_exit_change_established": false,
+  "conditional_financial_metrics_eligible": true,
+  "content_sha256": "0a6153ad10b3a97ff13252db6176bdf01bf4c25474a2ee38bec8d5b5b49487ff",
+  "contract_id": "sealed-historical-loss-attribution-v0.1",
+  "counterfactual_performance_established": false,
+  "diagnostic_only": true,
+  "full_input_coverage_complete": false,
+  "full_local_reproduction_verified": false,
+  "historical_replay_executed": false,
+  "implementation_file_specs": {
+    "scripts/attribute_sealed_historical_losses_v01.py": {
+      "bytes": 1584,
+      "sha256": "7b015bcfbdf88c5432b1ba3672794726925f002520500e3753a81847b145b6cd"
+    },
+    "src/momentumbot/research/sealed_historical_loss_attribution_v01.py": {
+      "bytes": 30188,
+      "sha256": "ddfdb9bc9706aed0c23f00fb3a23f1ab53629d60a0d2d363c2a1578420119330"
+    },
+    "tests/test_sealed_historical_loss_attribution_v01.py": {
+      "bytes": 8619,
+      "sha256": "a89054546f64032a7fcf4b9292876365a3dd4722039105657c69337c943efd8f"
+    }
+  },
+  "input_file_specs": {
+    "research/data-audits/sealed-historical-account-conditional-evaluation-v0.1/report.json": {
+      "bytes": 868147,
+      "sha256": "3f417d551505641fb44b1f5bd3a3446660c721b49588219f0667f6d22387f4ec"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-05-30.json.gz": {
+      "bytes": 13227,
+      "sha256": "7020f19d4d7cd9ed12986ef5112afd95177273d723b3619eaca8b79acce43eb9"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-02.json.gz": {
+      "bytes": 11759,
+      "sha256": "a615276c5078f89bb7cc701d936e57cc8f33867a38848071b378dd0e74b787ff"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-03.json.gz": {
+      "bytes": 784,
+      "sha256": "7f5c811be0b90c98a9bd1d17a0a08b033cbf7dee2735f3d609e85bc265d5d41d"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-04.json.gz": {
+      "bytes": 2749,
+      "sha256": "a118e5f3f394e22b3aea1ca13a12e4497dcebadc99ec3d56bb8295962f9be296"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-05.json.gz": {
+      "bytes": 785,
+      "sha256": "a546d51d3abfdef38d1a955a80fbab96db26c220438f645177eb2ab5d2e3bdb9"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-06.json.gz": {
+      "bytes": 5363,
+      "sha256": "a07b06d7ea18f98be3a6ab4406286d1b19243790e1c77df3951ee9087fd8768f"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-09.json.gz": {
+      "bytes": 5125,
+      "sha256": "5838f92103a8f247ee7a8b7bc3b6ea24027af43a605600bfa201165780a2aadf"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-10.json.gz": {
+      "bytes": 17413,
+      "sha256": "3778f0077cdfbd74d0a2f2256f5fd4aaaca1987af3f126a9056ab40672456082"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-11.json.gz": {
+      "bytes": 6813,
+      "sha256": "6d5098e07a1b9daa6e379da7c4c600be53c7954ee981d6f30a524ab69d94ed4b"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-12.json.gz": {
+      "bytes": 3801,
+      "sha256": "b3543299f6a74a962de288b5442d515c807d37f4a567c9e2cad7022c2fdcd6fb"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-13.json.gz": {
+      "bytes": 1448,
+      "sha256": "d050b7744aa35bb56870808633a7b7939a03c8613e874dd6a714caaf1195cf0b"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-16.json.gz": {
+      "bytes": 784,
+      "sha256": "7d274627a8e0ac9492b0435023a2ed54ab23563f6f5cd45d160f3e83f45b566f"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-17.json.gz": {
+      "bytes": 786,
+      "sha256": "29d59399b9692988ab157918911ded98d064564a79578f2b5497da589ff6cc9b"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-18.json.gz": {
+      "bytes": 5200,
+      "sha256": "856ae58e14d93dce760d3dcf37e3efe262dc2b29f0c11de9c2f1267fd2d6b83a"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-20.json.gz": {
+      "bytes": 783,
+      "sha256": "6082f05966c3569f222420910ccd9f2fcb26aacad53fbc2adbb356aa2f8e9abb"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-23.json.gz": {
+      "bytes": 4209,
+      "sha256": "348c57267ec3416d74724abf74084f1ba93443a16610fe899c789e07ffaa7eb7"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-24.json.gz": {
+      "bytes": 7986,
+      "sha256": "edb68e939064322c3465d30fd7fb68476b060566af0f39b0ad74298e43ef7c67"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-25.json.gz": {
+      "bytes": 6441,
+      "sha256": "c1ca90f5f0767958375d097a3ddbe7f3da1cd3a34dd61de03609dd036943b698"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-26.json.gz": {
+      "bytes": 30132,
+      "sha256": "138dd1ef11ab43451393e56afe516d941a69f06a5b9c62e3ab40b5370e160e7b"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-06-27.json.gz": {
+      "bytes": 12827,
+      "sha256": "5ce5c50c5be9efc4f83280a7e285b5e4269fcf26007e53f990e7dbd5a8e0be2a"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-07-01.json.gz": {
+      "bytes": 14862,
+      "sha256": "e3bc139d5c3a096801ca091806f14f3d0e5bb01358b4689130d2da55d0c5ad20"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-07-02.json.gz": {
+      "bytes": 9150,
+      "sha256": "983e506f17b520a2737eca9b760d918386c194e4189fe574e012b1f8ab0cca7c"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-07-07.json.gz": {
+      "bytes": 11596,
+      "sha256": "eae6660ace9b77c2e571de2b535be00113973c6a6cd19ca7e27b9d02c635e423"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-07-08.json.gz": {
+      "bytes": 10562,
+      "sha256": "49493d77e7cde39234605f97c42336dbd9b8cb28bd3d84237cdd0208e0d85e5c"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-07-10.json.gz": {
+      "bytes": 4973,
+      "sha256": "38403836f754fb8b5ce29b84d27c9746cce33e4f9a5c71a53b66a269dfc76b88"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-07-11.json.gz": {
+      "bytes": 21257,
+      "sha256": "13eb9aca86d171f780daaf047e93311df0370ced781f6c5fc13cc5c155dbdfe5"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-07-14.json.gz": {
+      "bytes": 13760,
+      "sha256": "ab0d55cf2ba41b1eda9e91ddf42479f810a905d9b5c128b96e2d4b2143a72949"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-07-15.json.gz": {
+      "bytes": 8124,
+      "sha256": "c8b08240a97792faba8a3ead49432ac9b7effc89b093d6fe916450d843e820a9"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-07-16.json.gz": {
+      "bytes": 18648,
+      "sha256": "9d9a94c195f60af3f35ed094ae34fbfd6e369bfa68f1b0e7e92e38ea939fe6b3"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/dates/2025-07-17.json.gz": {
+      "bytes": 7508,
+      "sha256": "71367f86e2cfbdb35000417b44a98e1ee44f876712947c7ab57e84b47a062151"
+    },
+    "research/runtime/sealed-historical-execution-availability-v0.1/manifest.json": {
+      "bytes": 101644,
+      "sha256": "6ed576e70dee9f439fdd2a1773f89931e6de23a73ea56e1ff1d9c81650bc8380"
+    },
+    "research/strategy/sealed-historical-account-conditional-evaluation-v0.1.json": {
+      "bytes": 7495,
+      "sha256": "cdaa1d0b54b12015c60e3a0262a801617d975276150d69fa43519e3bdd269a26"
+    }
+  },
+  "metric_definitions": {
+    "arithmetic": "Decimal precision 60, lossless money, ratios half-even to six places; serialized float stops use Decimal(str(value))",
+    "bridge_limit": "accounting identity at actual sizes/exits; reference quote is not a simulated alternative fill or an attainable profit claim",
+    "entry_shortfall": "confirmed quantity * (actual entry price - original decision ask); positive is an adverse price difference",
+    "initial_risk": "confirmed entry shares * (recorded entry price - recorded initial stop); not guaranteed maximum loss",
+    "population": "all 12 alternative paths and all 30 dates; never pool horizons/accounts into independent observations",
+    "price_bridge": "reference-to-actual-exit price component minus entry shortfall minus all fees equals actual net P&L",
+    "reason_attribution": "sum realized sell P&L by recorded reason; exit fees shown separately; entry fees remain a separate debit",
+    "reentry": "second confirmed entry for the same activation in a path; aggregate whole episodes including all fees",
+    "scope": "post-result diagnostic; baseline losses already known; no threshold or policy change",
+    "sizing": "requested/filled/cancelled shares, notional and initial stop risk relative to that session's opening equity",
+    "stage_attribution": "mutually exclusive profit-target, first terminal, second residual, third-or-later continuation orders; includes unfilled orders",
+    "stop_shortfall": "for initial_stop sells only: quantity * (initial stop - actual sell); signed difference, not a causal effect of waiting",
+    "unfilled_or_blocked": "retain all original decisions; no hypothetical P&L or lost-profit estimate",
+    "waiting": "orthogonal annotation from original wait_submitted evidence; never added to reason/stage totals"
+  },
+  "original_financial_metrics_flag_changed": false,
+  "original_runtime_changed": false,
+  "original_unavailable_inputs_reclassified": false,
+  "parent_commit_sha": "78050eacc330b82387e0b292479e5e576ea0b19a",
+  "parent_tree_sha": "c05a3915e6a3b17946425a43fb6ada774324720a",
+  "policy_promotion_eligible": false,
+  "provider_requests_authorized": false,
+  "question": "which recorded entry price differences, exit reasons, execution stages and sizes account for the fixed losses",
+  "retrospective_labels_opened": false,
+  "runtime_or_strategy_thresholds_changed": false,
+  "selected_dates": [
+    "2025-05-30",
+    "2025-06-02",
+    "2025-06-03",
+    "2025-06-04",
+    "2025-06-05",
+    "2025-06-06",
+    "2025-06-09",
+    "2025-06-10",
+    "2025-06-11",
+    "2025-06-12",
+    "2025-06-13",
+    "2025-06-16",
+    "2025-06-17",
+    "2025-06-18",
+    "2025-06-20",
+    "2025-06-23",
+    "2025-06-24",
+    "2025-06-25",
+    "2025-06-26",
+    "2025-06-27",
+    "2025-07-01",
+    "2025-07-02",
+    "2025-07-07",
+    "2025-07-08",
+    "2025-07-10",
+    "2025-07-11",
+    "2025-07-14",
+    "2025-07-15",
+    "2025-07-16",
+    "2025-07-17"
+  ]
+}
