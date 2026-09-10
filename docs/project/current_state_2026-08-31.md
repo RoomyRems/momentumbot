@@ -1,5 +1,42 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: conditional account performance calculated
+
+The strict observed-update policy now has a conditional financial report from
+its unchanged hosted replay. All 109 observations bind to the original source
+opportunities; all 23 policy withholds preserve 162 unavailable path references
+and have no submitted orders or fills. All 12 paths, 360 session slots, 30 dates,
+once-only seeds and original unavailable carry history remain.
+
+Every path loses money after the original modeled fees. For each of the 1-, 5-
+and 10-second horizons, the $30,000 account ends at $29,735.23 conservative
+(−$264.77; −0.882567%) or $29,760.22 stress (−$239.78; −0.799267%). The $2,000
+account ends at $1,964.25 conservative (−$35.75; −1.787500%) or $1,986.25 stress
+(−$13.75; −0.687500%). Horizon results are identical within account/execution;
+these overlapping alternatives are not independent confirmations or one portfolio.
+
+The evaluator reconciles 969 confirmed fills into 300 closed positions across
+all alternatives, combines partial exits, separates re-entry, charges fees once,
+and checks daily/cumulative account carry. It records every daily equity value.
+Drawdown is measured at session closes, not intraday mark to market. The original
+fee model assumes zero commissions. Returns are not annualized.
+
+Registration: `aac233a9b18eb5145c2c0bf8f6ab50f5bb72636afd1c748bd9edf94ce91ec2f1`.
+Report: `23fb88bcb2a8cb95dafe7059e0d99c54deed423c7d30a24b280b95d6b00144d8`.
+Parent `d9b2bd3cb5164c651acc8f24a6eddcaf4d935ac8` passed all seven GitHub checks.
+The child passed 27 focused, 27 optimized and all 2,429 full-suite tests with
+zero skips, plus compilation and final registration verification.
+
+This separate conditional evaluation changes no original completeness/financial
+flag, source, policy or runtime. No historical replay, new provider request,
+Ross-label access, policy promotion or brokerage action occurred. Full market
+coverage and a profitable live strategy remain unestablished.
+
+The next useful scope is loss attribution using the fixed fills and decisions,
+with no tuning or promotion from this already inspected sample. See the
+[conditional evaluation record](../research/sealed_historical_account_conditional_evaluation_v01.md)
+and its linked complete report and validation evidence.
+
 ## Current checkpoint: entry-reference source evidence and explicit observed-update gate
 
 Parent `ae3711e8f248e28754166ba580d9c7b6bfd3e8ef` is published and all seven

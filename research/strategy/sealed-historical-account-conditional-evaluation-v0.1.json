@@ -1,0 +1,198 @@
+{
+  "accepted_checker_content_sha256": "d1eb98692d4795ff6985bf19683505ad7f8d9d2a14f019f0790ac723fff390d6",
+  "accepted_runtime_content_sha256": "a429f6723668fe9614ba6366de44b27d016ef939a5361d323bf58dceef250e91",
+  "account_backtest_complete": false,
+  "account_seeds_usd": {
+    "main_account": "30000",
+    "small_account": "2000"
+  },
+  "alternative_cells": [
+    {
+      "account_key": "main_account",
+      "horizon_seconds": 1,
+      "scenario_id": "l1-conservative-v0.1"
+    },
+    {
+      "account_key": "main_account",
+      "horizon_seconds": 1,
+      "scenario_id": "l1-stress-v0.1"
+    },
+    {
+      "account_key": "main_account",
+      "horizon_seconds": 5,
+      "scenario_id": "l1-conservative-v0.1"
+    },
+    {
+      "account_key": "main_account",
+      "horizon_seconds": 5,
+      "scenario_id": "l1-stress-v0.1"
+    },
+    {
+      "account_key": "main_account",
+      "horizon_seconds": 10,
+      "scenario_id": "l1-conservative-v0.1"
+    },
+    {
+      "account_key": "main_account",
+      "horizon_seconds": 10,
+      "scenario_id": "l1-stress-v0.1"
+    },
+    {
+      "account_key": "small_account",
+      "horizon_seconds": 1,
+      "scenario_id": "l1-conservative-v0.1"
+    },
+    {
+      "account_key": "small_account",
+      "horizon_seconds": 1,
+      "scenario_id": "l1-stress-v0.1"
+    },
+    {
+      "account_key": "small_account",
+      "horizon_seconds": 5,
+      "scenario_id": "l1-conservative-v0.1"
+    },
+    {
+      "account_key": "small_account",
+      "horizon_seconds": 5,
+      "scenario_id": "l1-stress-v0.1"
+    },
+    {
+      "account_key": "small_account",
+      "horizon_seconds": 10,
+      "scenario_id": "l1-conservative-v0.1"
+    },
+    {
+      "account_key": "small_account",
+      "horizon_seconds": 10,
+      "scenario_id": "l1-stress-v0.1"
+    }
+  ],
+  "archive_specs": {
+    "binding": {
+      "bytes": 377229,
+      "members": [
+        "context-access-verification.json",
+        "freeze-manifest.json",
+        "independent-verification.json",
+        "source-bindings.json"
+      ],
+      "sha256": "2577dfdccdee948c9241d3489737e0dac40cf3c97ad826ead9500c095e55d94a"
+    },
+    "hosted": {
+      "bytes": 5733269,
+      "members": [
+        "account-replay-attempt.json",
+        "account-replay-progress.jsonl",
+        "account-replay/account-replay.json",
+        "account-replay/freeze-manifest.json",
+        "account-replay/independent-verification.json"
+      ],
+      "sha256": "4683050552fe81e68b9bbaf7ecdd154bb90fdec50c5baeecf9439ff38c28b014"
+    }
+  },
+  "artifact_type": "conditional_post_result_evaluation_registration",
+  "broker_orders_authorized": false,
+  "conditional_financial_metrics_eligible": true,
+  "content_sha256": "aac233a9b18eb5145c2c0bf8f6ab50f5bb72636afd1c748bd9edf94ce91ec2f1",
+  "contract_id": "sealed-historical-account-conditional-evaluation-v0.1",
+  "entry_evidence_content_sha256": "b47ba35fa6bed02db623faa6ded834447557d776fc3b35cd506632218d8760ce",
+  "entry_policy_id": "strict-observed-quote-entry-gate-v0.1",
+  "full_input_coverage_complete": false,
+  "full_local_reproduction_verified": false,
+  "historical_replay_executed": false,
+  "historical_replay_required": false,
+  "implementation_file_specs": {
+    "scripts/evaluate_sealed_historical_account_conditional_v01.py": {
+      "bytes": 1572,
+      "sha256": "6f20065ae670d8fa288ec8f4bf2f3076c925951d10246f3bfb150288eff77ea6"
+    },
+    "src/momentumbot/research/sealed_historical_account_conditional_evaluation_v01.py": {
+      "bytes": 32668,
+      "sha256": "fa3ee9ac6a32c8c2c7b2af2e78ef6f29859944dfbc527beea1e1b8563dc03f56"
+    },
+    "tests/test_sealed_historical_account_conditional_evaluation_v01.py": {
+      "bytes": 14370,
+      "sha256": "1c14ca418bde557d8cdbad2fe930ebcd79b1eb93f0a2d8b693110f9dc2fa8ca1"
+    }
+  },
+  "input_file_specs": {
+    "research/data-audits/sealed-historical-account-hosted-acceptance-v0.1/acceptance-report.json": {
+      "bytes": 223683,
+      "sha256": "77384f1ed7fdb811b6066e0897ae62c160b170da30892363716791ccc49e69e9"
+    },
+    "research/data-audits/sealed-historical-entry-reference-evidence-v0.1/report.json": {
+      "bytes": 180355,
+      "sha256": "c30370382f4203f00efbfbb4c831305603a66f14c3caa819e335df2ca2bcc7e7"
+    },
+    "research/strategy/sealed-historical-account-hosted-acceptance-v0.1.json": {
+      "bytes": 4421,
+      "sha256": "0c5b475cc259f930de2b2d7f91ee58f000c49422b0a99efcda18a2f86db1b06e"
+    },
+    "research/strategy/sealed-historical-entry-reference-evidence-v0.1.json": {
+      "bytes": 10120,
+      "sha256": "ba08ef6bb2fb0ead9d5b65376cc3c047654b9eb9b23006f6b9bba5ed9a465f87"
+    }
+  },
+  "metric_definitions": {
+    "aggregation": "never sum overlapping paths into a portfolio, select a winner, or annualize selected dates",
+    "arithmetic": "Decimal precision 60; exact money; ratios rounded half-even to 6 decimal places",
+    "average_win_loss": "mean net-positive episode P&L and mean net-negative episode P&L; null for empty group",
+    "drawdown_exclusion": "not intraday mark-to-market drawdown; no unobserved prices inferred",
+    "entry_fill_rate_pct": "100 * confirmed buy shares / shares requested in submitted entry orders; null if no orders",
+    "episode": "one confirmed entry fill to flat; partial exits combined; re-entry is a new episode",
+    "episode_fees": "original causal incremental charges on entry and all its exits; fees subtracted once",
+    "equity_curve": "seed followed by all 30 flat session closes; nonconsecutive research dates",
+    "expectancy_usd": "mean net P&L per closed episode; null if no episodes",
+    "max_drawdown": "largest seed-or-session-close peak to later session-close decline; USD and percent computed separately",
+    "net_pnl": "confirmed sell proceeds minus confirmed buy costs minus all original incremental fees",
+    "population": "all original 12 alternative paths, each with all 30 selected dates and once-only seed",
+    "profit_factor": "sum positive episode NET P&L / abs(sum negative episode NET P&L); null if no losses",
+    "return_pct": "100 * net P&L / original account seed; not annualized",
+    "win_rate_pct": "100 * net-positive closed episodes / all closed episodes including flats; null if no episodes"
+  },
+  "original_financial_metrics_flag_changed": false,
+  "original_runtime_changed": false,
+  "original_unavailable_inputs_reclassified": false,
+  "parent_commit_sha": "d9b2bd3cb5164c651acc8f24a6eddcaf4d935ac8",
+  "parent_tree_sha": "8acce39b1df31c64c2a4b19a1fc67ac498affb5f",
+  "policy_promotion_eligible": false,
+  "provider_requests_authorized": false,
+  "question": "what are the unchanged hosted accounts' results conditional on the strict observed-update entry policy",
+  "retrospective_labels_opened": false,
+  "runtime_and_source_availability_known_before_evaluation": true,
+  "selected_dates": [
+    "2025-05-30",
+    "2025-06-02",
+    "2025-06-03",
+    "2025-06-04",
+    "2025-06-05",
+    "2025-06-06",
+    "2025-06-09",
+    "2025-06-10",
+    "2025-06-11",
+    "2025-06-12",
+    "2025-06-13",
+    "2025-06-16",
+    "2025-06-17",
+    "2025-06-18",
+    "2025-06-20",
+    "2025-06-23",
+    "2025-06-24",
+    "2025-06-25",
+    "2025-06-26",
+    "2025-06-27",
+    "2025-07-01",
+    "2025-07-02",
+    "2025-07-07",
+    "2025-07-08",
+    "2025-07-10",
+    "2025-07-11",
+    "2025-07-14",
+    "2025-07-15",
+    "2025-07-16",
+    "2025-07-17"
+  ],
+  "source_bindings_content_sha256": "9bb780dcbfbec3ef1b4e437cc3dc76e1528897956490d4ddd32d399ed5f683cd",
+  "unseen_data_strategy_test": false
+}

@@ -1,0 +1,106 @@
+{
+  "account_backtest_complete": false,
+  "all_12_paths_have_negative_net_pnl": true,
+  "all_seven_parent_publication_checks_passed": true,
+  "artifact_type": "conditional_evaluation_implementation_verification",
+  "broker_orders_authorized": false,
+  "closed_episodes_across_alternative_paths": 300,
+  "compileall_src_tests_exit_code": 0,
+  "conditional_financial_metrics_eligible": true,
+  "confirmed_fills_across_alternative_paths": 969,
+  "content_sha256": "2e26baf8b7f9e2cacd40fd29eb3429dd622b51998316c7fd19b9ea219dd3f4b4",
+  "contract_content_sha256": "aac233a9b18eb5145c2c0bf8f6ab50f5bb72636afd1c748bd9edf94ce91ec2f1",
+  "contract_id": "sealed-historical-account-conditional-evaluation-v0.1",
+  "final_registration_verified": true,
+  "full_input_coverage_complete": false,
+  "full_local_reproduction_verified": false,
+  "gate_binding": {
+    "all_109_observations_bound": true,
+    "original_disposition_counts": {
+      "blocked_account_lock": 51,
+      "blocked_campaign_entry_limit": 39,
+      "blocked_capacity": 84,
+      "entry_submitted": 408,
+      "unavailable_input": 162
+    },
+    "unresolved_observations": 0,
+    "withheld_entries_submitted_or_filled": 0,
+    "withheld_opportunities": 23,
+    "withheld_path_references": 162
+  },
+  "historical_replay_executed": false,
+  "independent_historical_checker_reexecuted": false,
+  "original_financial_metrics_flag_changed": false,
+  "original_runtime_changed": false,
+  "original_unavailable_inputs_reclassified": false,
+  "parent_ci_run_id": 34435048257,
+  "parent_commit_sha": "d9b2bd3cb5164c651acc8f24a6eddcaf4d935ac8",
+  "parent_tree_sha": "8acce39b1df31c64c2a4b19a1fc67ac498affb5f",
+  "policy_promotion_eligible": false,
+  "population": {
+    "opportunity_references": 744,
+    "paths": 12,
+    "sessions": 360,
+    "unavailable_references": 162,
+    "unique_unavailable_opportunities": 23
+  },
+  "provider_requests_authorized": false,
+  "python_version": "3.12.14",
+  "report_content_sha256": "23fb88bcb2a8cb95dafe7059e0d99c54deed423c7d30a24b280b95d6b00144d8",
+  "result_file_specs": {
+    "report.json": {
+      "bytes": 868147,
+      "sha256": "3f417d551505641fb44b1f5bd3a3446660c721b49588219f0667f6d22387f4ec"
+    },
+    "report.md": {
+      "bytes": 4917,
+      "sha256": "c0425e8aa72c352fa2c1402fd139dc5bd0318f16f444101fb47f20789e467e8a"
+    }
+  },
+  "retrospective_labels_opened": false,
+  "saved_artifact_recomputation_matches_report": true,
+  "test_import_path_correction": {
+    "all_financial_and_gate_results_identical_after_test_integration": true,
+    "initial_contract_content_sha256": "a3d15bb63d9a086f114cd565b0a6449360fbdccee77916ca34eae429b8b81c4d",
+    "initial_focused_environment_with_src_only": "repository scripts import unavailable",
+    "initial_focused_environment_without_src": "momentumbot package unavailable",
+    "initial_report_content_sha256": "a0b5c31119be6e14867e3163fb3a9dc425114ff56a690d10ab08b9a4ad5df91e",
+    "metric_definitions_changed": false,
+    "resolution": "focused test explicitly installs repository scripts search path, matching existing repository test convention"
+  },
+  "tests": {
+    "focused": {
+      "exit_code": 0,
+      "log": {
+        "bytes": 4729,
+        "sha256": "f206ffdbc2c1037b2c0fae3b0dc16670c7d779a46888ae4e89d4da18d95a25aa"
+      },
+      "passed": true,
+      "seconds": 1.692,
+      "skips": 0,
+      "tests": 27
+    },
+    "full_suite": {
+      "exit_code": 0,
+      "log": {
+        "bytes": 506251,
+        "sha256": "62f6c9d522bce0495749081e0a42bfc630c45c2ac0b337031bfcf6b0bb89e6c5"
+      },
+      "passed": true,
+      "seconds": 276.315,
+      "skips": 0,
+      "tests": 2429
+    },
+    "optimized": {
+      "exit_code": 0,
+      "log": {
+        "bytes": 4729,
+        "sha256": "7dde736fc861c0ecfee3335582d501a5dc57f1dfdf8bb226f6b4542f0fa28997"
+      },
+      "passed": true,
+      "seconds": 1.688,
+      "skips": 0,
+      "tests": 27
+    }
+  }
+}
