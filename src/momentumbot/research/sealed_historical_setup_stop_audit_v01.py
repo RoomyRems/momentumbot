@@ -29,6 +29,10 @@ LOSS_REPORT = "5487f89ae0002b276aee2c051446a862d58ec0afb1ec4c0a6b3fa16b5ff3a7d3"
 MICRO_ROOT = "research/runtime/sealed-historical-micro-v0.1"
 SCANNER_ROOT = "source/causal-scanner-source-inputs-v0.2"
 BASE = f"research/data-audits/{ID}"
+REPAIR_BASE = f"{BASE}/publication-repair"
+REPAIR_PARENT = "a27f6991aef8fe5cb130eb48a8ddb5ebeb977b31"
+INITIAL_REPORT = "40c716fa69e99944ddfe8f168d4697d0bc4b6db1a0491f0f4e0f70f54536a39b"
+INITIAL_ARCHIVE = {"bytes": 716616, "sha256": "1a9d43ed0d2bbf1b0b129ff09a806c35e1d14396be79ee5827ba19a4bc4761d8", "members": 17}
 OWN_FILES = ("src/momentumbot/research/sealed_historical_setup_stop_audit_v01.py",
     "scripts/audit_sealed_historical_setups_stops_v01.py",
     "tests/test_sealed_historical_setup_stop_audit_v01.py")
@@ -78,9 +82,14 @@ def json_object(raw):
 def registration(root):
     loss.check_registration(root, LOSS_CONTRACT)
     loss.baseline.evidence.document((root / f"research/data-audits/{loss.ID}/report.json").read_bytes(), LOSS_REPORT)
+    repair_parent_report(root)
     inputs = [f"research/strategy/{loss.ID}.json", f"research/data-audits/{loss.ID}/report.json",
+        *[f"{REPAIR_BASE}/{name}" for name in ("initial-publication.zip", "ci-attempt-1.log.gz", "lineage.json")],
         f"{MICRO_ROOT}/manifest.json", *[f"{MICRO_ROOT}/dates/{d}.json" for d in loss.baseline.DATES]]
     return seal({"contract_id": ID, "artifact_type": "post_result_setup_stop_audit_registration",
+        "registration_revision": 2, "publication_repair_parent_commit_sha": REPAIR_PARENT,
+        "initial_report_content_sha256": INITIAL_REPORT,
+        "repair_scope": "timestamp-resolution representation parity only; all original audit observations must remain identical",
         "parent_commit_sha": PARENT, "parent_tree_sha": PARENT_TREE,
         "parent_loss_contract_sha256": LOSS_CONTRACT, "parent_loss_report_sha256": LOSS_REPORT,
         "definitions": DEFINITIONS, "original_archives": ARCHIVES,
@@ -117,6 +126,22 @@ class SourceArchive:
 
     def read(self, name):
         return self.archive.read(name)
+
+
+def repair_parent_report(root):
+    archive = SourceArchive(root / REPAIR_BASE / "initial-publication.zip", INITIAL_ARCHIVE)
+    try:
+        report = accepted.read_json(archive.read(f"{BASE}/report.json"))
+        require(report["content_sha256"] == INITIAL_REPORT, "initial published report identity differs")
+        return report
+    finally:
+        archive.close()
+
+
+def unchanged_observations(report, initial):
+    ignored = {"content_sha256", "contract_content_sha256"}
+    require({k: v for k, v in report.items() if k not in ignored}
+        == {k: v for k, v in initial.items() if k not in ignored}, "publication repair changed original audit observations")
 
 
 class Capture(SourceArchive):
@@ -242,7 +267,9 @@ def aggregate_source(trades):
             | {"vwap": s["vwap_numerator"] / s["vwap_volume"] if s["vwap_volume"] else float("nan")}
             | {k: s[k] for k in ("open_time", "high_time", "low_time", "close_time")}
             | {"unknown_condition_count": len(s["unknown_conditions"])})
-        index.append(pd.Timestamp(bucket, unit="ns", tz=trades.index.tz))
+        # Match the original scalar's resolution before DatetimeIndex inference.
+        # pandas 3 preserves microseconds where pandas 2 inferred nanoseconds.
+        index.append(s["open_time"].floor("10s"))
     return pd.DataFrame(rows, index=pd.DatetimeIndex(index, name="timestamp")) if rows else micro_bars._empty_bars()
 
 
@@ -506,6 +533,7 @@ def build(root, expected, paths, progress=lambda message: None):
             "groups": witnesses})
         report = report_payload(previous, expected, witness, metadata, rows)
         verify_result(report, witness, expected, previous, binding, refs)
+        unchanged_observations(report, repair_parent_report(root))
         return report, witness
     finally:
         for source in sources.values():
@@ -518,6 +546,7 @@ def verify_saved(root, expected):
     witness = accepted.read_json(gzip.decompress((root / BASE / "geometry-witnesses.json.gz").read_bytes()))
     previous, binding, refs = original_evidence(root)
     verify_result(report, witness, expected, previous, binding, refs)
+    unchanged_observations(report, repair_parent_report(root))
     require((root / BASE / "report.md").read_text(encoding="utf-8") == render_markdown(report), "saved Markdown differs")
     return report
 

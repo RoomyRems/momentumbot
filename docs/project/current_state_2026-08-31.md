@@ -25,17 +25,23 @@ and small conservative/stress stay −$35.75/−$13.75, separately for each iden
 horizon. The 86 original quote references satisfy their original 100 ms gate;
 their single-venue receive clocks remain distinct from SIP trigger clocks.
 
-Registration: `5f9adda53eba4f872aae040e20c30c1eae63122eb4e884d20db011b447fe0570`.
-Report: `40c716fa69e99944ddfe8f168d4697d0bc4b6db1a0491f0f4e0f70f54536a39b`.
+Registration revision 2: `7c8cb1a2fadaf955736500ad46b5442f10ed51cfc75f64409aae978b53254721`.
+Report: `879890004b3ea3fbcd5c6ef2b4330aa8f2660059252c855959408acfa811e9b5`.
 Saved geometry witnesses re-evaluate plans and descriptive features without
 loading the original trade archives. Full causal-prefix authentication requires
 those original archives. The [setup/stop audit](../research/sealed_historical_setup_stop_audit_v01.md)
 records the evidence, findings and validation. The next useful scope is a
 separate preregistered setup-selection experiment with a frozen evaluation
 sample; the losing baseline and the hosted-only local-replay waiver remain.
-All 22 focused tests and all 2,473 full-suite tests passed with zero skips;
-compilation and the offline saved-evidence command with assertions disabled
-also passed. Exact source-run and test logs are retained with the audit.
+Initial publication `a27f6991aef8fe5cb130eb48a8ddb5ebeb977b31` passed local tests
+but failed two CI timestamp-dtype subtests under pandas 3.0.5. Registration
+revision 2 corrects only the helper's timestamp representation, using the
+original per-bar floor operation. The exact initial publication and CI failure
+are preserved. A second complete source reconstruction produces identical
+observations and compressed geometry witnesses. All 23 focused tests pass on
+both original and exact CI pandas/NumPy versions, and all 2,474 full-suite tests
+pass with zero skips. Compilation and offline saved verification with assertions
+disabled also pass. Exact source-run and test logs are retained with the audit.
 
 ## Current checkpoint: fixed baseline losses attributed to entries, sizing and exits
 

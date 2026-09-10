@@ -42,10 +42,13 @@ class SourceMechanicsTests(unittest.TestCase):
             "conditions": [["@"], [], ["I"], ["B"], ["B"], ["@", "T"], ["unknown"], ["I"], ["Q"], ["@"], ["@"], ["M"], ["unknown"]],
             "tape": ["C", "C", "C", "C", "A", "C", "C", "C", "C", "C", "C", "C", "C"]},
             index=pd.Timestamp("2025-06-02T11:00:00Z") + pd.to_timedelta(offsets, unit="s"))
-        for frame in (trades, trades.iloc[::-1], trades.iloc[:0]):
-            with self.subTest(length=len(frame), reversed=not frame.index.is_monotonic_increasing):
-                assert_frame_equal(a.aggregate_source(frame), a.micro_bars.aggregate_trade_bars(frame), check_exact=True)
-                assert_frame_equal(a.chart_source(frame), a.micro_execution.price_eligible_trades(frame), check_exact=True)
+        for unit in ("ns", "us", "ms", "s"):
+            resolved = trades.copy()
+            resolved.index = resolved.index.as_unit(unit)
+            for frame in (resolved, resolved.iloc[::-1], resolved.iloc[:0]):
+                with self.subTest(unit=unit, length=len(frame), reversed=not frame.index.is_monotonic_increasing):
+                    assert_frame_equal(a.aggregate_source(frame), a.micro_bars.aggregate_trade_bars(frame), check_exact=True)
+                    assert_frame_equal(a.chart_source(frame), a.micro_execution.price_eligible_trades(frame), check_exact=True)
 
     def test_serialization_matches_original_including_numeric_coercion(self):
         _, bars, chart, support, _ = fixture()
@@ -217,6 +220,14 @@ class FrozenEvidenceTests(unittest.TestCase):
     def test_wrong_external_commitment_is_rejected(self):
         with self.assertRaisesRegex(ValueError, "external setup audit commitment"):
             a.check_registration(ROOT, "0" * 64)
+
+    def test_publication_repair_preserves_every_original_observation(self):
+        original = a.repair_parent_report(ROOT)
+        a.unchanged_observations(self.report, original)
+        changed = deepcopy(self.report)
+        changed["opportunities"][0]["trigger"]["price"] = "999"
+        with self.assertRaisesRegex(ValueError, "changed original audit observations"):
+            a.unchanged_observations(changed, original)
 
 
 if __name__ == "__main__":

@@ -6,7 +6,7 @@
   "broker_orders_authorized": false,
   "causal_effect_of_entry_sizing_or_exit_change_established": false,
   "conditional_financial_metrics_eligible": true,
-  "content_sha256": "5f9adda53eba4f872aae040e20c30c1eae63122eb4e884d20db011b447fe0570",
+  "content_sha256": "7c8cb1a2fadaf955736500ad46b5442f10ed51cfc75f64409aae978b53254721",
   "contract_id": "sealed-historical-setup-stop-audit-v0.1",
   "counterfactual_entries_simulated": false,
   "counterfactual_performance_established": false,
@@ -36,18 +36,31 @@
       "sha256": "630ee6c91a1980f6e6f8434ebe80e30ef3295c7af0e1ea3539aa10bf4325d92c"
     },
     "src/momentumbot/research/sealed_historical_setup_stop_audit_v01.py": {
-      "bytes": 37571,
-      "sha256": "1d3f0e534bbebcb314ce2a557965b64069dfa75e77c814269138fb6c0fb4049b"
+      "bytes": 39247,
+      "sha256": "fd8a4a57c344e97724625d9746637db62c49f34f728eaa4bf8ca6e118c51c8e1"
     },
     "tests/test_sealed_historical_setup_stop_audit_v01.py": {
-      "bytes": 12547,
-      "sha256": "6d963c134b59d767e520a582473d6958f952b19ab436441e3c398b3ad66eaee6"
+      "bytes": 13149,
+      "sha256": "316c38dd3cb7a4efcf3db80ffc21b4d32fb3004dc97f6e4e13fa124f087cfad7"
     }
   },
+  "initial_report_content_sha256": "40c716fa69e99944ddfe8f168d4697d0bc4b6db1a0491f0f4e0f70f54536a39b",
   "input_file_specs": {
     "research/data-audits/sealed-historical-loss-attribution-v0.1/report.json": {
       "bytes": 2329703,
       "sha256": "8071b82ded309446fa261a8fda6f14bc5d16646609d1d35329bb995497045ed3"
+    },
+    "research/data-audits/sealed-historical-setup-stop-audit-v0.1/publication-repair/ci-attempt-1.log.gz": {
+      "bytes": 82494,
+      "sha256": "ccbd40f8e9258506ee657941e6311485ebc587ebb5213ccb00729b7311c02387"
+    },
+    "research/data-audits/sealed-historical-setup-stop-audit-v0.1/publication-repair/initial-publication.zip": {
+      "bytes": 716616,
+      "sha256": "1a9d43ed0d2bbf1b0b129ff09a806c35e1d14396be79ee5827ba19a4bc4761d8"
+    },
+    "research/data-audits/sealed-historical-setup-stop-audit-v0.1/publication-repair/lineage.json": {
+      "bytes": 4791,
+      "sha256": "c572a7a70740876dd745b92aae50992dfbde29b95aee6eb5011690d7e2f0cb20"
     },
     "research/runtime/sealed-historical-micro-v0.1/dates/2025-05-30.json": {
       "bytes": 16332,
@@ -240,6 +253,9 @@
   "parent_tree_sha": "67f32e01b56d874f278b86c2e0ca6bb45ef865f9",
   "policy_promotion_eligible": false,
   "provider_requests_authorized": false,
+  "publication_repair_parent_commit_sha": "a27f6991aef8fe5cb130eb48a8ddb5ebeb977b31",
+  "registration_revision": 2,
+  "repair_scope": "timestamp-resolution representation parity only; all original audit observations must remain identical",
   "retrospective_labels_opened": false,
   "runtime_or_strategy_thresholds_changed": false,
   "selected_dates": [

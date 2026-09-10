@@ -73,13 +73,13 @@ chart-prefix authentication still requires the three exact original archives.
 It does not establish consolidated quote quality, real fill calibration, a
 causal policy effect or full market coverage.
 
-The source-run contract is
-`5f9adda53eba4f872aae040e20c30c1eae63122eb4e884d20db011b447fe0570`.
+The current source-run contract (registration revision 2) is
+`7c8cb1a2fadaf955736500ad46b5442f10ed51cfc75f64409aae978b53254721`.
 Reproduction takes explicit original archives and a new output directory:
 
 ```bash
 PYTHONPATH=src:scripts python scripts/audit_sealed_historical_setups_stops_v01.py \
-  --expected-contract-sha256 5f9adda53eba4f872aae040e20c30c1eae63122eb4e884d20db011b447fe0570 \
+  --expected-contract-sha256 7c8cb1a2fadaf955736500ad46b5442f10ed51cfc75f64409aae978b53254721 \
   --micro-zip /absolute/path/to/original-9995887799.zip \
   --minutes-zip /absolute/path/to/original-9995587996.zip \
   --scanner-zip /absolute/path/to/original-9993250947.zip \
@@ -144,15 +144,15 @@ an evaluation sample and selection rules fixed before its outcomes are opened.
 It does not justify changing stops, selecting a profitable ordinal cutoff,
 promoting a policy, or requesting another full local account replay.
 
-Report content commitment:
-`40c716fa69e99944ddfe8f168d4697d0bc4b6db1a0491f0f4e0f70f54536a39b`.
+Current report content commitment:
+`879890004b3ea3fbcd5c6ef2b4330aa8f2660059252c855959408acfa811e9b5`.
 Saved geometry commitment:
 `5b326b3921b58456b7f77cf3b5fc753aa8f04946efb6cad4eab150331ac15bd1`.
 See the [complete report](../../research/data-audits/sealed-historical-setup-stop-audit-v0.1/report.md),
 [machine-readable evidence](../../research/data-audits/sealed-historical-setup-stop-audit-v0.1/report.json)
 and [implementation verification](../../research/data-audits/sealed-historical-setup-stop-audit-v0.1/implementation-verification.json).
 
-## Validation and retained history
+## Initial validation and retained history
 
 All 22 focused tests and all 2,473 full-suite tests passed with zero skips.
 The full suite took 286.362 seconds on Python 3.12.14 with the retained native
@@ -168,3 +168,46 @@ source reconstruction succeeded. Its complete progress log, the focused test
 log, the saved-verification log and the compressed full-suite log are preserved
 alongside the implementation verification. No failed historical experiment or
 unavailable original observation was removed or reclassified.
+
+## Publication compatibility correction
+
+Initial publication `a27f6991aef8fe5cb130eb48a8ddb5ebeb977b31` retained the successful
+source reconstruction and local tests, but CI run `34541422808`, attempt 1, job
+`103084696832` failed two aggregation-parity subtests. GitHub used pandas 3.0.5
+and NumPy 2.5.3. Its synthetic input timestamps had microsecond resolution; the
+new helper hard-coded nanosecond index scalars. The original aggregation kept
+microsecond scalars. Values matched, but the index dtype did not. The historical
+saved-evidence tests passed. CI also skipped 73 optional-SDK tests, independently
+of this failure.
+
+Registration revision 2 changes only the audit helper's emitted timestamp
+representation: it applies the original `Timestamp.floor("10s")` operation once
+per completed output bar. It preserves source resolution and the installed
+pandas version's normal index inference. Trade ordering, condition rules,
+bucket arithmetic, price/volume values, frozen policy, source inputs and account
+results are unchanged. Tests cover nanosecond, microsecond, millisecond and
+second input resolutions. An isolated installation of GitHub's exact pandas
+and NumPy versions reproduces the original failure and passes the corrected
+comparison. The primary source-reconstruction environment remains pandas 2.2.3
+and NumPy 2.3.5.
+
+The exact initial 17 changed files are retained in
+[initial-publication.zip](../../research/data-audits/sealed-historical-setup-stop-audit-v0.1/publication-repair/initial-publication.zip),
+with the [failed CI log](../../research/data-audits/sealed-historical-setup-stop-audit-v0.1/publication-repair/ci-attempt-1.log.gz)
+and [frozen repair lineage](../../research/data-audits/sealed-historical-setup-stop-audit-v0.1/publication-repair/lineage.json).
+The initial registration and report remain reproducible from that snapshot or
+its immutable commit. The revised builder and saved verifier require every
+original audit observation, witness commitment, cohort and account result to
+remain identical; only the registration reference and report's own content
+commitment may change. This is a publication compatibility correction, not a
+new strategy experiment or a change to the losing baseline.
+
+The second full source reconstruction succeeded: all 109 original causal
+prefixes and all 300 source stops match again. Every audit observation is
+identical to the first publication, and even the compressed geometry witness
+bytes are unchanged. All 23 focused tests pass on both the original and exact
+CI pandas/NumPy versions. All 2,474 full-suite tests passed with zero skips in
+280.253 seconds using the retained SDKs. Compilation and offline saved-evidence
+verification with assertions disabled also passed; that saved verification ran
+under the exact CI pandas/NumPy versions. The current implementation verification
+and logs record the correction separately from the preserved initial attempt.

@@ -1,0 +1,100 @@
+{
+  "all_original_audit_observations_must_remain_identical": true,
+  "cause": "pandas 3 infers microsecond synthetic timestamps; optimized helper hard-coded nanosecond index scalars while the original preserved microseconds.",
+  "ci-attempt-1.log.gz": {
+    "bytes": 82494,
+    "sha256": "ccbd40f8e9258506ee657941e6311485ebc587ebb5213ccb00729b7311c02387"
+  },
+  "ci_attempt": 1,
+  "ci_job_id": 103084696832,
+  "ci_run_id": 34541422808,
+  "conclusion": "failure",
+  "content_sha256": "1c381c7f764b370cd0d72ef6325c077b8975dc7016559bfd8ea5e604f2f67614",
+  "failed_subtests": [
+    "length=13, reversed=False",
+    "length=13, reversed=True"
+  ],
+  "failed_test": "test_aggregation_preserves_conditions_float_arithmetic_and_ties",
+  "failures": 2,
+  "file_specs": {
+    "AGENTS.md": {
+      "bytes": 20534,
+      "sha256": "055b6e339f3d647b5dbd1c20471db5ca9a28915de2ea098cad1aac01b4029953"
+    },
+    "docs/project/current_state_2026-08-31.md": {
+      "bytes": 128906,
+      "sha256": "847cb4c506dff6a6ec7a04b64585a38a493d63e17f8070ef71dd5907d372fd63"
+    },
+    "docs/research/sealed_historical_setup_stop_audit_v01.md": {
+      "bytes": 10446,
+      "sha256": "860650f9321d451bff6769a8a487d0368687222af699d1475f7ec3eb9340d8de"
+    },
+    "research/data-audits/sealed-historical-setup-stop-audit-v0.1/geometry-witnesses.json.gz": {
+      "bytes": 395445,
+      "sha256": "90fead7323893fec9927f81f94697be561e80a418ff88655c1f83ced1304c288"
+    },
+    "research/data-audits/sealed-historical-setup-stop-audit-v0.1/implementation-verification.json": {
+      "bytes": 9584,
+      "sha256": "3d39d491a6bcfe52d56cbda365ae15aa66ce46f8df516d1cb84769a7acc423f7"
+    },
+    "research/data-audits/sealed-historical-setup-stop-audit-v0.1/report.json": {
+      "bytes": 1265004,
+      "sha256": "a9acf1bb5ae2dd0dde3f7ecaaf54ba4817583a05dcd663cd6f6279feefddc14b"
+    },
+    "research/data-audits/sealed-historical-setup-stop-audit-v0.1/report.md": {
+      "bytes": 2127,
+      "sha256": "de1cbb279baee29d73fe7b031014f6fec2a5b65858585b1e4b720b5a531eb548"
+    },
+    "research/data-audits/sealed-historical-setup-stop-audit-v0.1/verification-logs/focused.log": {
+      "bytes": 4059,
+      "sha256": "5fe074500ed9cf92d16a9942d06fec4a709d7d60a29d43482e25bc17853afe3b"
+    },
+    "research/data-audits/sealed-historical-setup-stop-audit-v0.1/verification-logs/full-suite.log.gz": {
+      "bytes": 60681,
+      "sha256": "0f8bcb0cf2f638a90a9c60988012453bb5ae1e885626f1c5be82c4f71b93c271"
+    },
+    "research/data-audits/sealed-historical-setup-stop-audit-v0.1/verification-logs/saved-verification.log": {
+      "bytes": 235,
+      "sha256": "cbf55250bf79283892e5d0b723396ace7b203655fc6a00d711bdc561e6b468b3"
+    },
+    "research/data-audits/sealed-historical-setup-stop-audit-v0.1/verification-logs/source-run.log": {
+      "bytes": 3343,
+      "sha256": "b5be405120b746a8947ac59c4d263c4af1d7893dc7ceea968c89b5126dd00fd6"
+    },
+    "research/data-audits/sealed-historical-setup-stop-audit-v0.1/verification-logs/synthetic-final.log": {
+      "bytes": 2959,
+      "sha256": "dc3ed9016abd074130d19f1cc7efcdd0ffb50c8325b85ef3b1b195e80464eb80"
+    },
+    "research/data-audits/sealed-historical-setup-stop-audit-v0.1/verification-logs/synthetic-initial.log": {
+      "bytes": 4387,
+      "sha256": "6e0413086261d67fb964ee041b6cfb3dc79d157da9c438489f841a456a5db496"
+    },
+    "research/strategy/sealed-historical-setup-stop-audit-v0.1.json": {
+      "bytes": 12396,
+      "sha256": "1e359ff6986d8eeeb9d49bacf41e244fa58078cddc4c9dce1c4e633ccb8c916f"
+    },
+    "scripts/audit_sealed_historical_setups_stops_v01.py": {
+      "bytes": 2601,
+      "sha256": "630ee6c91a1980f6e6f8434ebe80e30ef3295c7af0e1ea3539aa10bf4325d92c"
+    },
+    "src/momentumbot/research/sealed_historical_setup_stop_audit_v01.py": {
+      "bytes": 37571,
+      "sha256": "1d3f0e534bbebcb314ce2a557965b64069dfa75e77c814269138fb6c0fb4049b"
+    },
+    "tests/test_sealed_historical_setup_stop_audit_v01.py": {
+      "bytes": 12547,
+      "sha256": "6d963c134b59d767e520a582473d6958f952b19ab436441e3c398b3ad66eaee6"
+    }
+  },
+  "initial-publication.zip": {
+    "bytes": 716616,
+    "sha256": "1a9d43ed0d2bbf1b0b129ff09a806c35e1d14396be79ee5827ba19a4bc4761d8"
+  },
+  "initial_commit_sha": "a27f6991aef8fe5cb130eb48a8ddb5ebeb977b31",
+  "initial_registration_sha256": "5f9adda53eba4f872aae040e20c30c1eae63122eb4e884d20db011b447fe0570",
+  "initial_report_sha256": "40c716fa69e99944ddfe8f168d4697d0bc4b6db1a0491f0f4e0f70f54536a39b",
+  "initial_tree_sha": "c8b8e0b74d7df4deb94a07947c6bd6e3db2d3a4a",
+  "repair_scope": "Use the original timestamp floor operation once per emitted bar to preserve its scalar resolution. Keep arithmetic, order, original policy, source rows, geometry and saved account results unchanged.",
+  "skips": 73,
+  "tests": 2473
+}
