@@ -1,5 +1,37 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: entry-reference source evidence and explicit observed-update gate
+
+Parent `ae3711e8f248e28754166ba580d9c7b6bfd3e8ef` is published and all seven
+publication workflows passed. The new source-backed observation layer preserves
+the accepted hosted replay and every original unavailable classification.
+
+All 22 no-fresh-reference cases have zero original quote updates in the frozen
+inclusive 100 ms lookback. Thirteen already have older quotes retained; nine
+have no earlier update in the original request. JVA's original exact response
+is separately verified empty, with complete decoding and valid metadata/mapping.
+This is not evidence that a standing quote did not exist outside the window.
+
+The separate `strict-observed-quote-entry-gate-v0.1` specifies withholding entry
+when complete source evidence contains no qualifying update. Unverified source
+remains unresolved. The real audit retained all 109 original opportunities,
+preserved all 86 available reference ordinals/ages, produced 23 policy withhold
+observations and retained all 162 original unavailable path/session references.
+It changes no trading/account engine, source, threshold, runtime or gap history.
+
+Registration: `6025d10ad774b1edd9dc2101241efe4df575b9a329ce042ebe58739d5e4b9a62`.
+Result: `b47ba35fa6bed02db623faa6ded834447557d776fc3b35cd506632218d8760ce`.
+Validation passed 28 focused tests, 28 optimized tests and all 2,402 full-suite
+tests with zero skips. Final registration and the original-source audit passed.
+No historical replay, provider request or retrospective-label access occurred.
+
+The next development scope is a separately bound conditional evaluation of the
+strict observed-update policy using the unchanged hosted account paths and all
+30 dates. Preserve explicit withhold decisions and all original unavailable
+history. This is not permission to claim full market-input coverage, use a
+standing quote, change freshness, acquire wider windows or promote a policy.
+See [entry-reference evidence and policy](../research/sealed_historical_entry_reference_evidence_v01.md).
+
 ## Current checkpoint: hosted terminal replay accepted; local rerun waived
 
 The user authorized moving forward without another local replay. This is a

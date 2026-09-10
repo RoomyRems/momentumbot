@@ -1,0 +1,63 @@
+{
+  "account_backtest_complete": false,
+  "artifact_type": "implementation_verification",
+  "broker_orders_authorized": false,
+  "content_sha256": "cffe45b75b4aa0e5b92f9dd6cd0bdef7f3f98502c2d759c3965f7e69646e1947",
+  "contract_id": "sealed-historical-entry-reference-evidence-v0.1",
+  "financial_metrics_eligible": false,
+  "focused_tests": {
+    "count": 28,
+    "passed": true,
+    "seconds": 0.01
+  },
+  "full_market_input_coverage_established": false,
+  "full_suite": {
+    "count": 2402,
+    "log_sha256": "2c6a76e30a9808d4f6f92bede0c6ba23b2727e6130ebee17bc71da436d0fda3e",
+    "native_exit_code": 0,
+    "passed": true,
+    "seconds": 278.658,
+    "skips": 0
+  },
+  "historical_replay_executed": false,
+  "implementation_file_specs": {
+    "scripts/audit_sealed_historical_entry_reference_evidence_v01.py": {
+      "bytes": 1573,
+      "sha256": "e6507a45a9b1a70380fa7a9d34d924187c9f5b67a2d4c4a8a5472dece41b808d"
+    },
+    "src/momentumbot/research/sealed_historical_entry_reference_evidence_v01.py": {
+      "bytes": 21591,
+      "sha256": "6123c54f49f2f72b2b1061db56047bb9cccefbe7dc931b45c87f27599be9e940"
+    },
+    "tests/test_sealed_historical_entry_reference_evidence_v01.py": {
+      "bytes": 12421,
+      "sha256": "57e80f04cb9290f48b4b8b31bb8f2eae2cd9cf80899ed80faa8f31304c1d89ed"
+    }
+  },
+  "optimized_tests": {
+    "count": 28,
+    "passed": true,
+    "seconds": 0.008
+  },
+  "original_runtime_changed": false,
+  "original_unavailable_inputs_reclassified": false,
+  "parent_all_seven_github_workflows_passed": true,
+  "parent_ci_run_id": 34432958144,
+  "parent_commit_sha": "ae3711e8f248e28754166ba580d9c7b6bfd3e8ef",
+  "policy_promoted": false,
+  "provider_requests_authorized": false,
+  "python_version": "3.12.14",
+  "registration_content_sha256": "6025d10ad774b1edd9dc2101241efe4df575b9a329ce042ebe58739d5e4b9a62",
+  "retrospective_labels_opened": false,
+  "source_audit": {
+    "all_109_opportunities_retained": true,
+    "all_86_original_references_preserved": true,
+    "exact_archives_verified": true,
+    "original_saved_archives_unchanged": true,
+    "original_unavailable_path_references_preserved": 162,
+    "unresolved_observations": 0,
+    "withhold_observations": 23
+  },
+  "source_report_content_sha256": "b47ba35fa6bed02db623faa6ded834447557d776fc3b35cd506632218d8760ce",
+  "standing_quote_reconstruction_established": false
+}
