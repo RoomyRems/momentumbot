@@ -1,5 +1,24 @@
 # Historical account terminal continuation v0.1
 
+## Current status: hosted success accepted without a local rerun
+
+The user authorized proceeding without local reproduction. Hosted run
+[34362104473](https://github.com/RoomyRems/momentumbot/actions/runs/34362104473)
+finished successfully, including its original independent checker. Its exact
+runtime and evidence are accepted under the separate
+[hosted-acceptance amendment](sealed_historical_account_hosted_acceptance_v01.md).
+All 360 slots executed, with 240 flat-complete and 120 flat-complete-with-unavailable-inputs
+outcomes. No further local or hosted replay is required for that acceptance.
+
+The 20 saved local records match the hosted prefix; the interrupted attempt
+remains preserved and full cross-environment reproduction remains unverified.
+The amendment does not change the original contract or execution rules, and
+does not waive missing inputs or authorize financial/label evaluation. The next
+development scope is unavailable entry-reference evidence. The status notes
+below are historical and no longer mean the hosted run is active.
+
+## Preserved observation before hosted completion
+
 At the `2026-09-09T18:38:34Z` status check, the registered local attempt was
 incomplete and its processes were unavailable. Executor sessions `56228`
 (replay) and `12279` (verifier follower) both returned `Unknown process id`;

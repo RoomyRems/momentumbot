@@ -1,0 +1,103 @@
+{
+  "archive_specs": {
+    "binding": {
+      "bytes": 377229,
+      "members": [
+        "context-access-verification.json",
+        "freeze-manifest.json",
+        "independent-verification.json",
+        "source-bindings.json"
+      ],
+      "sha256": "2577dfdccdee948c9241d3489737e0dac40cf3c97ad826ead9500c095e55d94a"
+    },
+    "hosted": {
+      "bytes": 5733269,
+      "members": [
+        "account-replay-attempt.json",
+        "account-replay-progress.jsonl",
+        "account-replay/account-replay.json",
+        "account-replay/freeze-manifest.json",
+        "account-replay/independent-verification.json"
+      ],
+      "sha256": "4683050552fe81e68b9bbaf7ecdd154bb90fdec50c5baeecf9439ff38c28b014"
+    },
+    "local": {
+      "bytes": 153980,
+      "members": [
+        "account-replay-attempt.json",
+        "account-replay-progress.jsonl",
+        "account-replay.log",
+        "status-observation.json",
+        "verification-follower-start.json",
+        "verification-follower.log"
+      ],
+      "sha256": "4521c53c74b35a2cefee030e39ab74e1d031c5f6e982ddaf016bd3b35a70aa0c"
+    }
+  },
+  "artifact_type": "post_result_validation_plan_amendment",
+  "broker_orders_authorized": false,
+  "content_sha256": "c22f691546c5370525a32eca00436f3ebbf812c56f45e058b24aea22854a3657",
+  "contract_id": "sealed-historical-account-hosted-acceptance-v0.1",
+  "expected_binding_content_sha256": "9bb780dcbfbec3ef1b4e437cc3dc76e1528897956490d4ddd32d399ed5f683cd",
+  "expected_checker_content_sha256": "d1eb98692d4795ff6985bf19683505ad7f8d9d2a14f019f0790ac723fff390d6",
+  "expected_runtime_content_sha256": "a429f6723668fe9614ba6366de44b27d016ef939a5361d323bf58dceef250e91",
+  "financial_metrics_eligible": false,
+  "full_local_replay_required": false,
+  "full_local_reproduction_verified": false,
+  "hosted_artifact_id": 10120239248,
+  "hosted_attempt": 1,
+  "hosted_run_id": 34362104473,
+  "hosted_success_known_before_amendment": true,
+  "implementation_file_specs": {
+    "scripts/verify_sealed_historical_account_hosted_acceptance_v01.py": {
+      "bytes": 23666,
+      "sha256": "9c8fdc2212297275e7d997c4dc2e89d61c304a7962b079d9a30985304352e414"
+    },
+    "tests/test_sealed_historical_account_hosted_acceptance_v01.py": {
+      "bytes": 20726,
+      "sha256": "c7dc93bb0ee712e523c9e7d35078ccb16c02cd3bf48e6cf5f0a3559193260232"
+    }
+  },
+  "independent_checker_reused_not_reexecuted": true,
+  "independent_fill_simulator_claimed": false,
+  "input_file_specs": {
+    "research/data-audits/sealed-historical-account-hosted-acceptance-v0.1/hosted-provenance.json": {
+      "bytes": 4440,
+      "sha256": "6030ddd165b573aef8a621fac521b440d6cbeea672d73f959c48022bd6bf948a"
+    },
+    "research/data-audits/sealed-historical-account-terminal-continuation-v0.1/local-incomplete-evidence-20260909T183834Z.zip": {
+      "bytes": 153980,
+      "sha256": "4521c53c74b35a2cefee030e39ab74e1d031c5f6e982ddaf016bd3b35a70aa0c"
+    },
+    "research/runtime/sealed-historical-account-terminal-continuation-v0.1/freeze-manifest.json": {
+      "bytes": 1062,
+      "sha256": "76f90f4dd5d0dbe1ee5b183d97c37687a181c46f91fb502c35a6662c5b2f7490"
+    },
+    "research/strategy/sealed-historical-account-terminal-continuation-v0.1.json": {
+      "bytes": 49881,
+      "sha256": "73801a469ed9d9fcc1d9af27c7f752243c2b683e2867dcce1b11ca10d880030d"
+    }
+  },
+  "next_gate": "separately_scope_unavailable_entry_reference_resolution_or_conditional_evaluation",
+  "original_attempts_overwritten": false,
+  "original_contract_rewritten": false,
+  "original_implementation_commit_sha": "0f057039e00480f3b0275d0bcd0bdabd23da7a96",
+  "original_registration_content_sha256": "0f2570ba5b71783c3d27b47f2718217d7331bba8a2e8f7f09527c097fdf4a3fb",
+  "parent_checkpoint_commit_sha": "ffa97914add1882b376460b2d41fcc9491873a35",
+  "policy_promotion_eligible": false,
+  "provider_requests_authorized": false,
+  "replay_executed": false,
+  "required_population": {
+    "opportunity_references": 744,
+    "paths": 12,
+    "sessions": 360,
+    "unavailable_references": 162,
+    "unique_unavailable_opportunities": 23
+  },
+  "required_saved_local_prefix_records": 20,
+  "retrospective_labels_opened": false,
+  "runtime_mechanics_changed": false,
+  "scope": "accept_existing_hosted_mechanical_replay_and_audit_input_coverage_only",
+  "unavailable_inputs_reclassified": false,
+  "user_authorization": "Okay you may proceed with the next step without the local replay"
+}

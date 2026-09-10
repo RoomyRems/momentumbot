@@ -1,5 +1,52 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: hosted terminal replay accepted; local rerun waived
+
+The user authorized moving forward without another local replay. This is a
+post-result validation-plan amendment, not a claim that the interrupted local
+attempt completed. The original contract, code, outputs and local evidence are
+unchanged. Full cross-environment reproducibility remains unverified and is no
+longer a prerequisite for accepting this hosted mechanical replay.
+
+[Hosted run 34362104473](https://github.com/RoomyRems/momentumbot/actions/runs/34362104473),
+attempt 1 at `0f057039e00480f3b0275d0bcd0bdabd23da7a96`, passed replay,
+independent verification and upload. Runtime content is
+`a429f6723668fe9614ba6366de44b27d016ef939a5361d323bf58dceef250e91`.
+The exact hosted and source-binding archives are retained with the new audit.
+All 20 saved local records and the receipt match the hosted bytes.
+
+The offline acceptance/coverage check passed against all original archives and
+360 final/progress pairs. All 12 paths retain 30 dates and 744 opportunity
+references. Captured execution is complete: 240 flat-complete sessions, 120
+flat-complete-with-unavailable-inputs sessions, no blocked execution and no
+remaining captured position/order. Cash, fees and carry chains reconcile.
+
+Full input coverage is still incomplete: 22 opportunity IDs have no quote
+meeting the frozen freshness rule (156 path references); one JVA opportunity
+has an unavailable exact quote request (6 references). These are not all
+download failures and cannot simply be relabelled as known no-trades. Main
+paths have 14 affected sessions each; small paths have 6. Every path has a gap
+on the first selected date, so later fully available sessions still carry a
+history conditional on unavailable opportunities. Financial evaluation and
+Ross labels remain closed.
+
+Supplemental inspection matched all 23 original availability rows: the 22
+fresh-reference cases contain no usable pre-decision quote in their captured
+windows, despite complete status coverage. JVA is the separate absent capture.
+The current data cannot establish an earlier standing quote or authorize using
+a later quote for the earlier decision.
+
+Validation passed 25 focused and 25 optimized tests, plus all 2,374 full tests
+in 270.736 seconds with zero skips. All 304 original implementation/ancestor
+files and the copied archive bytes verify. No original runtime was rerun.
+
+The next substantive scope is unavailable entry-reference evidence or an
+explicitly separate available-input-only evaluation contract, not another local
+replay. No runtime, provider request or brokerage action was launched here.
+See [hosted acceptance and coverage](../research/sealed_historical_account_hosted_acceptance_v01.md),
+the [registration](../../research/strategy/sealed-historical-account-hosted-acceptance-v0.1.json)
+and [acceptance report](../../research/data-audits/sealed-historical-account-hosted-acceptance-v0.1/acceptance-report.json).
+
 ## Current checkpoint: local terminal continuation incomplete; hosted still running
 
 Observed at `2026-09-09T18:38:34Z`. The local replay and verifier follower
