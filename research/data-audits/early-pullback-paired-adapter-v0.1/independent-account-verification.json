@@ -1,0 +1,55 @@
+{
+  "artifact_type": "independent_synthetic_account_snapshot_verification",
+  "brokerage_orders_enabled": false,
+  "case_definition": "two sessions; first late A and one-second-later early B; next session early C; both accounts and both scenarios",
+  "cases": [
+    {
+      "account": "main_account",
+      "paired_sessions": 4,
+      "program_sha256": "26121719642093aa3bb6776bbd2972655cc78d3763cff23a34496986f9ff5fa8",
+      "result_content_sha256": "f6239dc5ce9f4c4aa322998aea7b47d5d96e2ea58cf8346b40fc37ab30421e72",
+      "scenario": "l1-conservative-v0.1",
+      "snapshots_independently_verified": 4,
+      "sources_sha256": "445a7f6d8bc81c508115b02ba9e5c99c29b0fb83783763c8d4d3a0d9a9e3c69c"
+    },
+    {
+      "account": "main_account",
+      "paired_sessions": 4,
+      "program_sha256": "53d32eef5a33bd383e966c8f76169d6667952a878f88b7fb83cbe7cd765f3cb5",
+      "result_content_sha256": "0f95f871956a08989dda8608ee45eb2594bdf84e9af0a25a4c84ed1ee5b4d3c9",
+      "scenario": "l1-stress-v0.1",
+      "snapshots_independently_verified": 4,
+      "sources_sha256": "445a7f6d8bc81c508115b02ba9e5c99c29b0fb83783763c8d4d3a0d9a9e3c69c"
+    },
+    {
+      "account": "small_account",
+      "paired_sessions": 4,
+      "program_sha256": "01c1c2dc3dc21d6505df9001275ecf28afe8612c090018213197762fa83c9864",
+      "result_content_sha256": "d0fc90493ba663a4b147ec7f3675acd4ed6a78087f5ff190a5202d3a526df798",
+      "scenario": "l1-conservative-v0.1",
+      "snapshots_independently_verified": 4,
+      "sources_sha256": "5057d0f50ce6d67931d0bdd18d4f16cf81377a77cb8f0bf17cc6b794cf4df4e4"
+    },
+    {
+      "account": "small_account",
+      "paired_sessions": 4,
+      "program_sha256": "2ecb75b1c1e0b9d958d1fea4f2f3d8477d386e445f926393f7a4e82415be6461",
+      "result_content_sha256": "b4e117cc17fd9f879d5242bd618b879801209549e2fbeae42033e0f367e65302",
+      "scenario": "l1-stress-v0.1",
+      "snapshots_independently_verified": 4,
+      "sources_sha256": "5057d0f50ce6d67931d0bdd18d4f16cf81377a77cb8f0bf17cc6b794cf4df4e4"
+    }
+  ],
+  "checker": "scripts/verify_sealed_historical_account_risk_projection_v01.py:verify_decimal_snapshot",
+  "content_sha256": "ba274001d01a980bd956a419b664f3856d587d4eca4b4cb716fcf92f486da1f2",
+  "contract_id": "early-pullback-paired-adapter-v0.1",
+  "discretionary_strategy_integrated": false,
+  "financial_evaluation_enabled": false,
+  "new_panel_historical_execution_enabled": false,
+  "policy_promotion_eligible": false,
+  "provider_access_enabled": false,
+  "second_independent_fill_simulator": false,
+  "source_fixture": "tests/test_early_pullback_paired_adapter_v01.py:append_case",
+  "synthetic_only": true,
+  "verification_passed": true
+}

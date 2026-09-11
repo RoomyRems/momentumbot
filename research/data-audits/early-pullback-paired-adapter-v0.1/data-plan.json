@@ -1,0 +1,119 @@
+{
+  "actual_incremental_cost_known": false,
+  "artifact_type": "unarmed_new_panel_availability_and_cost_plan",
+  "authorized_calls_now": 0,
+  "automatic_retry_or_pagination": false,
+  "brokerage_orders_enabled": false,
+  "bulk_cost_usd": null,
+  "bulk_request_count": null,
+  "changed_dates_or_replacements_allowed": false,
+  "content_sha256": "41d941377a8a53ccc250f03e406aaf5419e868df0eb64f6e67331b3fae1a4a16",
+  "contract_id": "early-pullback-paired-adapter-v0.1",
+  "credential_route": "reuse validated main Alpaca routing; never inspect or persist secret values",
+  "discretionary_strategy_integrated": false,
+  "financial_evaluation_enabled": false,
+  "incremental_spend_authorized_usd": "0.00",
+  "later_capture_order": [
+    "independently confirm every full session and bind new catalogue without changing ancestor guards",
+    "point-in-time universe/identity/corporate-action/float/news and causal cross-section source plan",
+    "shared SIP/minute capture and all original Micro triggers; same union for both arms",
+    "exact trigger-bound quote/status and management request manifest",
+    "metadata quote with per-request/total ceilings and separate one-shot approval",
+    "capture once, byte-verify, then run all paired paths before outcome evaluation"
+  ],
+  "maximum_probe_calls_if_separately_authorized": 4,
+  "new_catalogue_adapter_implemented": false,
+  "new_panel_historical_execution_enabled": false,
+  "planned_probe_requests": [
+    {
+      "kind": "minimal_SIP_daily_entitlement_and_date_presence",
+      "parameters": {
+        "adjustment": "raw",
+        "asof": "2026-05-19",
+        "end": "2026-05-21T00:00:00Z",
+        "feed": "sip",
+        "limit": 1000,
+        "sort": "asc",
+        "start": "2026-03-03T00:00:00Z",
+        "symbols": "SPY",
+        "timeframe": "1Day"
+      },
+      "provider": "alpaca"
+    },
+    {
+      "kind": "minimal_point_in_time_membership_sample",
+      "parameters": {
+        "active": "true",
+        "date": "2026-03-04",
+        "limit": 1,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "provider": "massive"
+    },
+    {
+      "kind": "minimal_point_in_time_membership_sample",
+      "parameters": {
+        "active": "true",
+        "date": "2026-05-19",
+        "limit": 1,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "provider": "massive"
+    },
+    {
+      "kind": "dataset_range_metadata",
+      "parameters": {
+        "dataset": "XNAS.ITCH",
+        "method": "metadata.get_dataset_range"
+      },
+      "provider": "databento"
+    }
+  ],
+  "policy_promotion_eligible": false,
+  "probe_proves": "limited endpoint entitlement and interval evidence, not complete cross-section or full-session coverage",
+  "probe_result_projection": "availability status, counts and dates only; no prices, tickers or outcomes",
+  "provider_access_enabled": false,
+  "provider_transport_implemented": false,
+  "raw_probe_rows_persisted": false,
+  "selected_dates": [
+    "2026-03-04",
+    "2026-03-05",
+    "2026-03-06",
+    "2026-03-09",
+    "2026-03-10",
+    "2026-03-12",
+    "2026-03-13",
+    "2026-03-18",
+    "2026-03-19",
+    "2026-03-25",
+    "2026-03-30",
+    "2026-04-02",
+    "2026-04-06",
+    "2026-04-10",
+    "2026-04-13",
+    "2026-04-14",
+    "2026-04-15",
+    "2026-04-16",
+    "2026-04-17",
+    "2026-04-20",
+    "2026-04-21",
+    "2026-04-23",
+    "2026-04-24",
+    "2026-04-27",
+    "2026-04-28",
+    "2026-04-29",
+    "2026-04-30",
+    "2026-05-04",
+    "2026-05-08",
+    "2026-05-19"
+  ],
+  "selection_registration_sha256": "980d7f3c8ab122fcee5f35d9da8d9a03633feb50b4e00f7287a85a0b58dd10fb",
+  "synthetic_only": true,
+  "unknown_cost_response": "no guessed dollar estimate or unbounded acquisition; freeze exact requests and quote first"
+}

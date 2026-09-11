@@ -1,5 +1,39 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: causal source binding and independent paired mechanics verified
+
+The additive child starts from `2a675a6adae46f384341c7dc9a4921b4f00c6606`.
+Externally pinned normalized SIP/minute/warmup inputs now reconstruct the
+original activation, complete Micro plan/prefix, first trigger and pullback
+ordinal. Two synthetic arms use the final original account engine with their
+own once-only seeds, capital, fees, positions and previous-close chains.
+Late-pullback withholds preserve original timing/rank and source validation
+while creating no order or campaign entry. All parent execution, management,
+risk and fee mechanics, the exact selected dates and evaluation plan remain.
+
+All 24 focused tests pass locally and with assertions disabled under the CI
+pandas/NumPy versions. All 2,523 full-suite tests pass in 274.204 seconds with
+zero skips. An independent Decimal checker verifies all 16 account snapshots
+across both accounts and scenarios. The initial fixture-only failure and all
+verification logs are preserved. Registration binds 314 files and has hash
+`989cd51227088010ad1c95db028bb9f876ee23fed94aeb62bcf038af584e8b6c`.
+
+This proves normalized reconstruction and synthetic paired account mechanics.
+Raw archive/normalization/scanner provenance and a new-catalogue historical
+adapter remain separate work. The ancestor date guards are intact; the new
+panel has not been run on old slots. An exact four-call availability plan is
+fixed but unarmed, with no provider calls and acquisition costs still unknown.
+The old losing baseline, unavailable history and hosted-only replay waiver
+remain unchanged. See the [paired-adapter record](../research/early_pullback_paired_adapter_v01.md).
+
+The intended project includes crucial discretionary/context components. These
+interim results concern the parts actually integrated and do not settle the
+full hybrid's edge or promise its profitability. Transcripts may clarify
+offline, versioned design, while recap actions/fills, future outcomes and
+evaluation-case narratives stay out of replay and runtime AI prompts. No
+transcripts were needed for this mechanical step; discretion is not yet
+integrated into the trading path. These boundaries are now in `AGENTS.md`.
+
 ## Current checkpoint: early-pullback experiment registered, not evaluated
 
 The next isolated experiment starts from verified `b37c75a04057ba51e2fefde93e31f61239aa2455`.

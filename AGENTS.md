@@ -10,11 +10,14 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 - Measurable facts, timestamps, order mechanics and every risk limit remain deterministic.
 - AI begins shadow-only, uses time-causal structured inputs, may abstain, cannot submit orders and cannot increase deterministic risk.
 - Preserve failed experiments and their provenance.
+- Interpret interim financial results as evidence about the components actually integrated. The intended project includes crucial discretionary/context components; an incomplete deterministic baseline does not settle the full hybrid strategy's edge. Completing the hybrid remains a research goal, not a profitability guarantee.
+- Transcripts may clarify offline, versioned strategy design. Keep recap actions, fills, later outcomes and evaluation-case narratives out of replay and runtime AI prompts; do not use registered evaluation cases to tune a frozen experiment.
 
 ## Route by task
 
 | Task | Open first | Source of truth |
 |---|---|---|
+| Early-pullback source binding and paired mechanics | `docs/research/early_pullback_paired_adapter_v01.md` | normalized causal trigger reconstruction, independent synthetic account arms, immutable old-date guards, exact unarmed new-panel probe plan and full-hybrid interpretation |
 | Early-pullback selection experiment | `docs/research/early_pullback_selection_v01.md` | first-two causal shadow gate, pinned new date inventory, paired evaluation plan, unarmed source/account integration and unchanged losing parent |
 | Historical setup, stop and source audit | `docs/research/sealed_historical_setup_stop_audit_v01.md` | original causal-prefix reconstruction, unchanged Micro plans and stops, descriptive geometry and quote alignment, all fixed account alternatives retained |
 | Historical losses by entry, size and exit | `docs/research/sealed_historical_loss_attribution_v01.md` | fixed conditional results, exact price/fee bridges, recorded exit reasons and order authority, all original decisions retained, no causal policy-change claim |

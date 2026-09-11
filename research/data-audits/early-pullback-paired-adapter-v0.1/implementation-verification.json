@@ -1,0 +1,155 @@
+{
+  "artifact_type": "local_early_pullback_paired_adapter_verification",
+  "contract_id": "early-pullback-paired-adapter-v0.1",
+  "parent_commit": "2a675a6adae46f384341c7dc9a4921b4f00c6606",
+  "registration_content_sha256": "989cd51227088010ad1c95db028bb9f876ee23fed94aeb62bcf038af584e8b6c",
+  "data_plan_content_sha256": "41d941377a8a53ccc250f03e406aaf5419e868df0eb64f6e67331b3fae1a4a16",
+  "verification_date": "2026-09-11",
+  "status": "local_synthetic_verification_passed_new_panel_not_executed",
+  "focused_primary": {
+    "command": "PYTHONPATH=src:scripts python -m unittest tests.test_early_pullback_paired_adapter_v01 -v",
+    "tests": 24,
+    "seconds": 4.469,
+    "skips": 0,
+    "exit_code": 0,
+    "log": "focused-tests.log.gz"
+  },
+  "focused_pandas3_optimized": {
+    "command": "python -O -m unittest tests.test_early_pullback_paired_adapter_v01 -v (PYTHONPATH=isolated pandas 3.0.5 and NumPy 2.5.3:src:scripts)",
+    "tests": 24,
+    "seconds": 4.451,
+    "skips": 0,
+    "exit_code": 0,
+    "pandas": "3.0.5",
+    "numpy": "2.5.3",
+    "log": "pandas3-optimized-tests.log.gz"
+  },
+  "full_suite": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:scripts:<retained optional native SDK site> python -m unittest discover -s tests -v",
+    "tests": 2523,
+    "seconds": 274.204,
+    "skips": 0,
+    "exit_code": 0,
+    "python": "3.12.14",
+    "pandas": "2.2.3",
+    "numpy": "2.3.5",
+    "databento": "0.83.0",
+    "databento_dbn": "0.65.0",
+    "log": "local-full-tests.log.gz"
+  },
+  "registration_check": {
+    "command": "PYTHONPATH=src:scripts python -O scripts/build_early_pullback_paired_adapter_v01.py",
+    "exit_code": 0,
+    "file_bindings": 314
+  },
+  "independent_decimal_verification": {
+    "artifact": "independent-account-verification.json",
+    "content_sha256": "ba274001d01a980bd956a419b664f3856d587d4eca4b4cb716fcf92f486da1f2",
+    "cases": 4,
+    "account_snapshots": 16,
+    "checker": "scripts/verify_sealed_historical_account_risk_projection_v01.py:verify_decimal_snapshot",
+    "verification_passed": true,
+    "second_independent_fill_simulator": false
+  },
+  "initial_fixture_failure": {
+    "tests": 20,
+    "errors": 19,
+    "seconds": 1.526,
+    "status": "failed_preserved",
+    "log": "initial-tests.log.gz",
+    "fixture_source": "initial-failing-fixtures.py.gz",
+    "cause": "Synthetic pullback candle used open 9.2 and close 9.5 without a red/decreasing pause. The unchanged Micro evaluator correctly returned no_micro_pullback_pause, causing shared fixture failures.",
+    "correction": "Changed only the synthetic pullback candle open to 9.7, above close 9.5. No original evaluator, policy or account mechanics changed.",
+    "first_repair_tests": 20,
+    "first_repair_seconds": 3.463,
+    "first_repair_log": "fixture-repair-tests.log.gz",
+    "first_repair_status": "passed"
+  },
+  "evidence_files": {
+    "fixture-repair-tests.log.gz": {
+      "bytes": 810,
+      "sha256": "94bd17bb9c8bb3604faa95f341189076fe571c69fc1b231f48feb0b36609dbdb",
+      "test_summary": [
+        "Ran 20 tests in 3.463s",
+        "OK"
+      ],
+      "uncompressed_bytes": 3921,
+      "uncompressed_sha256": "719f6a67adc891fa6211d7974da68e980469ab4942b8460101addb58cde6b402"
+    },
+    "focused-tests.log.gz": {
+      "bytes": 956,
+      "sha256": "5bb69cc948a4b99374982f0b7db8d0321a375c8b66b0176a13fc4ca13476c182",
+      "test_summary": [
+        "Ran 24 tests in 4.469s",
+        "OK"
+      ],
+      "uncompressed_bytes": 4757,
+      "uncompressed_sha256": "63c623372e28e8d194341955f28817b402d4fb9660b3549eb2be0f644ccb665e"
+    },
+    "initial-failing-fixtures.py.gz": {
+      "bytes": 4555,
+      "sha256": "4c64babe8ce60696ef66f53081924a66bc947283cfed5d24b98b1116cead4540",
+      "uncompressed_sha256": "d2e00c382f0cf6a05b1c9b2b4a9fe891f6a1b95a491990a3566bce0aebd1fb4e"
+    },
+    "initial-tests.log.gz": {
+      "bytes": 1523,
+      "sha256": "372954fb05f717d33f54f0b0470b6a445b2a5668ff02ff178005cfa473895d85",
+      "test_summary": [
+        "Ran 20 tests in 1.526s",
+        "FAILED (errors=19)"
+      ],
+      "uncompressed_bytes": 22975,
+      "uncompressed_sha256": "b2b2898af0e6cb99faf4b6307288b8e60a38863f34526244a52b1cc94413e23f"
+    },
+    "local-full-tests.log.gz": {
+      "bytes": 61992,
+      "sha256": "67fe538e39489997e01c74002e0b32b06e8eb052591ecb32aa0969a51875d50c",
+      "test_summary": [
+        "Ran 2523 tests in 274.204s",
+        "OK"
+      ],
+      "uncompressed_bytes": 522484,
+      "uncompressed_sha256": "c60fb48ef25e037f04f3be6eeb8ae9e27b58dd821884d817f7751e7d66bd5207"
+    },
+    "mechanics-tests.log.gz": {
+      "bytes": 875,
+      "sha256": "76d34de6991f48659e5a2f4cf7e75338658b212d66e52a0509c5738230bfda19",
+      "test_summary": [
+        "Ran 22 tests in 4.331s",
+        "OK"
+      ],
+      "uncompressed_bytes": 4351,
+      "uncompressed_sha256": "895d98d010885835847681d538d7e6b2d0ea457ed2e645ee379a423ab5fe3b13"
+    },
+    "pandas3-optimized-tests.log.gz": {
+      "bytes": 955,
+      "sha256": "5b5cad1e2133f93157e6e252fb8eca08a54c48b4993f15f45220c5b2dc49615a",
+      "test_summary": [
+        "Ran 24 tests in 4.451s",
+        "OK"
+      ],
+      "uncompressed_bytes": 4757,
+      "uncompressed_sha256": "8d00f37f292d9a4f832e3c79f02bd556fb2d5bc4dd93d286247ce0dc1a10cdeb"
+    }
+  },
+  "changed_python_compileall_exit_code": 0,
+  "hosted_ci": "not_run_at_local_freeze; verify publication commit checks separately",
+  "raw_provider_provenance_verified": false,
+  "normalization_factor_provenance_verified": false,
+  "scanner_cross_section_verified": false,
+  "independent_frozen_caller_commitments_required": true,
+  "ancestor_date_guards_unchanged": true,
+  "new_catalogue_adapter_implemented": false,
+  "old_historical_account_replay_repeated": false,
+  "new_panel_market_records_opened": false,
+  "transcript_records_opened_this_step": false,
+  "provider_calls_performed": 0,
+  "brokerage_orders_performed": 0,
+  "synthetic_only": true,
+  "new_panel_historical_execution_enabled": false,
+  "financial_evaluation_enabled": false,
+  "provider_access_enabled": false,
+  "brokerage_orders_enabled": false,
+  "policy_promotion_eligible": false,
+  "discretionary_strategy_integrated": false
+}
