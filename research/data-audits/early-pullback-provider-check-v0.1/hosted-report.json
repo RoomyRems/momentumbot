@@ -1,0 +1,147 @@
+{
+  "actual_incremental_cost_known": false,
+  "artifact_type": "limited_provider_availability_report",
+  "attempt_counts": {
+    "alpaca": 1,
+    "databento": 1,
+    "massive": 2,
+    "total": 4
+  },
+  "brokerage_orders_enabled": false,
+  "consumption_sha256": "9318a657c9ed0d2846b9efeedddbaf72bdf80e0842e432d1dc19250cd11b5a9d",
+  "content_sha256": "652617e5539103ad984243d00afb9297d4c794bf20fa31720788ced4c6056429",
+  "contract_id": "early-pullback-provider-check-v0.1",
+  "contract_sha256": "976149812906907f86bc5f6a8b46c8590ed87c4476c210f557b081f056e29a5b",
+  "discretionary_strategy_integrated": false,
+  "execution_sha256": "68dcb4dfb61ca7577ac162cea30e40e58e524afb345f2505ccb6d65c97be47ce",
+  "financial_evaluation_enabled": false,
+  "full_session_calendar_authenticated": false,
+  "historical_market_inputs_authenticated": false,
+  "historical_replay_enabled": false,
+  "incremental_spend_authorized_usd": "0.00",
+  "limited_availability_passed": true,
+  "paid_capture_enabled": false,
+  "point_in_time_universe_complete": false,
+  "policy_promotion_eligible": false,
+  "projections": [
+    {
+      "missing_selected_dates": [],
+      "next_page_present": false,
+      "observed_selected_dates": [
+        "2026-03-04",
+        "2026-03-05",
+        "2026-03-06",
+        "2026-03-09",
+        "2026-03-10",
+        "2026-03-12",
+        "2026-03-13",
+        "2026-03-18",
+        "2026-03-19",
+        "2026-03-25",
+        "2026-03-30",
+        "2026-04-02",
+        "2026-04-06",
+        "2026-04-10",
+        "2026-04-13",
+        "2026-04-14",
+        "2026-04-15",
+        "2026-04-16",
+        "2026-04-17",
+        "2026-04-20",
+        "2026-04-21",
+        "2026-04-23",
+        "2026-04-24",
+        "2026-04-27",
+        "2026-04-28",
+        "2026-04-29",
+        "2026-04-30",
+        "2026-05-04",
+        "2026-05-08",
+        "2026-05-19"
+      ],
+      "ok": true,
+      "row_count": 56
+    },
+    {
+      "next_page_present": true,
+      "ok": true,
+      "provider_ok_status": true,
+      "requested_date": "2026-03-04",
+      "required_fields_present": true,
+      "response_count_matches": true,
+      "row_count": 1,
+      "sample_filters_match": true
+    },
+    {
+      "next_page_present": true,
+      "ok": true,
+      "provider_ok_status": true,
+      "requested_date": "2026-05-19",
+      "required_fields_present": true,
+      "response_count_matches": true,
+      "row_count": 1,
+      "sample_filters_match": true
+    },
+    {
+      "dataset_range": {
+        "covers_selected_interval": true,
+        "range_end": "2026-09-11T04:00:00+00:00",
+        "range_start": "2018-05-01T00:00:00+00:00"
+      },
+      "ok": true,
+      "required_schema_ranges": {
+        "mbp-1": {
+          "covers_selected_interval": true,
+          "range_end": "2026-09-11T04:00:00+00:00",
+          "range_start": "2018-05-01T00:00:00+00:00"
+        },
+        "status": {
+          "covers_selected_interval": true,
+          "range_end": "2026-09-11T04:00:00+00:00",
+          "range_start": "2018-05-01T00:00:00+00:00"
+        }
+      }
+    }
+  ],
+  "raw_response_bodies_retained": false,
+  "receipt_sha256": [
+    "5e24c37601b9dd7cb4c793d2635d3c5fa6987653afc5ee04c709c57973395ebe",
+    "2b75ebe27c063bcec6fd2e687241a38c0079fdb84812b4c753bd8754556411ed",
+    "c69c0d2ef7f5eed664c6a1426edd0f3908071b8963198b37b0c1e72351703098",
+    "48e077e1fca2d73d3dbb05b634afd674de49a664e230c34f65f8b0a32ae73d62"
+  ],
+  "response_hash_limit": "raw bodies discarded; hosted provenance and tested projection are the witness, not independently replayable provider rows",
+  "selected_dates": [
+    "2026-03-04",
+    "2026-03-05",
+    "2026-03-06",
+    "2026-03-09",
+    "2026-03-10",
+    "2026-03-12",
+    "2026-03-13",
+    "2026-03-18",
+    "2026-03-19",
+    "2026-03-25",
+    "2026-03-30",
+    "2026-04-02",
+    "2026-04-06",
+    "2026-04-10",
+    "2026-04-13",
+    "2026-04-14",
+    "2026-04-15",
+    "2026-04-16",
+    "2026-04-17",
+    "2026-04-20",
+    "2026-04-21",
+    "2026-04-23",
+    "2026-04-24",
+    "2026-04-27",
+    "2026-04-28",
+    "2026-04-29",
+    "2026-04-30",
+    "2026-05-04",
+    "2026-05-08",
+    "2026-05-19"
+  ],
+  "transcript_records_read": false
+}

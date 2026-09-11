@@ -1,5 +1,38 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: new-panel limited provider availability verified
+
+[Run 34655893791](https://github.com/RoomyRems/momentumbot/actions/runs/34655893791)
+succeeded on push attempt 1, execution `fecb9744d23015387180fdfa3b60467392f57e72`
+and tested code parent `c9434f8417adfde22e564e513c4877d0bef99529`.
+Every job and step passed. Exactly four attempts completed: Alpaca one,
+Massive-family two, Databento one. The 56-row Alpaca response contains all 30
+selected dates; both one-row historical membership samples pass, with remaining
+pages explicitly unrequested. Dataset, `mbp-1` and `status` ranges cover the
+selected interval. No request retry, replacement date or trading outcome was used.
+
+Both original artifact ZIPs match GitHub's SHA-256 digests. All 14 result files
+validate against the exact requests, execution and consumption. The four common
+JSON files match the nine-file consumption artifact byte for byte; its durable
+upload preceded the first provider attempt. The consumed ref remains bound to
+the exact execution commit, and the frozen Python/dependency environment matches.
+The successful code CI ran 2,603 tests with 73 optional SDK skips and all 31
+new tests passing. The original source/account code remains unchanged.
+
+[Hosted evidence](../../research/data-audits/early-pullback-provider-check-v0.1/hosted-verification.json):
+`f317d377651a217fe38c846fd8dbc47e4a07148dc90b2fcac91a903fa4919e06`.
+Report: `652617e5539103ad984243d00afb9297d4c794bf20fa31720788ced4c6056429`.
+Details and original archives are linked from the
+[provider-check record](../research/early_pullback_provider_check_v01.md).
+
+Next: independent full-session confirmation and the exhaustive causal source
+request graph, then exact cost quotes and capture ceilings. The four-call
+authorization is permanently consumed; it must not be rerun. The result does
+not authenticate a complete universe, candidate discovery, SEC/news lineage or
+execution/management sources. Historical replay, financial comparison, paid
+capture and brokerage orders remain closed. Crucial discretionary/context
+integration remains outstanding, so this is not full-hybrid performance evidence.
+
 ## Current checkpoint: fixed new-panel provider transport and one-shot provenance
 
 The additive child of `0b13bc2af53f0b40b8e9128587abc78a89d48de1` implements

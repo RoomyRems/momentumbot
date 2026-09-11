@@ -7,6 +7,42 @@ date presence, two historical membership samples and relevant dataset/schema
 range coverage. They cannot establish complete market-source provenance or
 the hybrid strategy's profitability.
 
+## Verified hosted result
+
+[Run 34655893791](https://github.com/RoomyRems/momentumbot/actions/runs/34655893791)
+completed successfully on push attempt 1. Its sole-file execution commit is
+`fecb9744d23015387180fdfa3b60467392f57e72`, tree
+`7a88f1cf43af00733400362ea9cbf6e544ce9836`, with tested code parent
+`c9434f8417adfde22e564e513c4877d0bef99529`. Parent
+[CI 34655360294](https://github.com/RoomyRems/momentumbot/actions/runs/34655360294)
+ran 2,603 tests successfully, with the same 73 optional SDK skips and all 31
+new tests passing. Every consumption and provider job step succeeded.
+
+Exactly four attempts completed: one Alpaca, two Massive-family and one
+Databento request. The Alpaca response had 56 daily records and all 30 selected
+dates, with no missing selected dates or remaining page. Each membership
+sample had one matching row and a remaining page, preserving its incomplete
+universe scope. Dataset, `mbp-1` and `status` ranges all covered the interval.
+No request was retried or replaced, and no strategy outcome was opened.
+
+Both downloaded ZIPs match GitHub's independent artifact digests. All 14 result
+files validate; the four common JSON files are byte-identical to the nine-file
+consumption artifact. Its upload predates the first provider intent. The
+permanent consumption ref still points to the exact execution commit. The
+Python version and installed dependency versions match the frozen environment.
+
+The [hosted verification](../../research/data-audits/early-pullback-provider-check-v0.1/hosted-verification.json)
+and [sanitized report](../../research/data-audits/early-pullback-provider-check-v0.1/hosted-report.json)
+are preserved with the original ZIPs. Report content hash:
+`652617e5539103ad984243d00afb9297d4c794bf20fa31720788ced4c6056429`.
+Verification content hash:
+`f317d377651a217fe38c846fd8dbc47e4a07148dc90b2fcac91a903fa4919e06`.
+
+The authorization is consumed. Limited availability is verified; full-session
+hours, exhaustive membership/discovery, common source provenance and historical
+execution remain separate gates. No paid capture or additional provider run
+is activated by this success record.
+
 ## Frozen scope
 
 The account checkpoint, all 30 selected March–May 2026 dates, both independent

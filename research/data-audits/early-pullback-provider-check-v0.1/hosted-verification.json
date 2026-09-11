@@ -1,0 +1,181 @@
+{
+  "actual_incremental_cost_known": false,
+  "all_job_steps_succeeded": true,
+  "artifact_type": "independently_verified_hosted_availability_checkpoint",
+  "artifacts": {
+    "consumption": {
+      "bytes": 25018,
+      "created_at": "2026-09-11T22:53:51Z",
+      "file": "hosted-consumption.zip",
+      "github_digest_verified": true,
+      "id": 10285805342,
+      "sha256": "83270dc791b9de99652868f7bd663dbcf9ef4eb923cc53df4927227a218999d5"
+    },
+    "result": {
+      "bytes": 28391,
+      "created_at": "2026-09-11T22:54:15Z",
+      "file": "hosted-result.zip",
+      "github_digest_verified": true,
+      "id": 10286105636,
+      "sha256": "d9ace8829a8ae590c588954cb05447b1f50fbfdda3973a267d228271f6ab26a9"
+    }
+  },
+  "attempt_counts": {
+    "alpaca": 1,
+    "databento": 1,
+    "massive": 2,
+    "total": 4
+  },
+  "brokerage_orders_enabled": false,
+  "code_ci_run_id": 34655360294,
+  "code_ci_tests": {
+    "new_tests_passed": 31,
+    "run": 2603,
+    "seconds": 361.045,
+    "skipped": 73
+  },
+  "code_commit": "c9434f8417adfde22e564e513c4877d0bef99529",
+  "code_tree": "db9e104d49f5b8ca2e4d612268719412e6b6e875",
+  "common_preflight_result_files_identical": true,
+  "consumption_ref": {
+    "node_id": "REF_kwDOT2ZKudoANXJlZnMvdGFncy9lYXJseS1wdWxsYmFjay1wcm92aWRlci1jaGVjay12MC4xLWNvbnN1bWVk",
+    "object": {
+      "sha": "fecb9744d23015387180fdfa3b60467392f57e72",
+      "type": "commit",
+      "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/fecb9744d23015387180fdfa3b60467392f57e72"
+    },
+    "ref": "refs/tags/early-pullback-provider-check-v0.1-consumed",
+    "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/refs/tags/early-pullback-provider-check-v0.1-consumed"
+  },
+  "consumption_uploaded_before_first_attempt": true,
+  "content_sha256": "f317d377651a217fe38c846fd8dbc47e4a07148dc90b2fcac91a903fa4919e06",
+  "contract_id": "early-pullback-provider-check-v0.1",
+  "discretionary_strategy_integrated": false,
+  "execution_commit": "fecb9744d23015387180fdfa3b60467392f57e72",
+  "execution_sha256": "68dcb4dfb61ca7577ac162cea30e40e58e524afb345f2505ccb6d65c97be47ce",
+  "execution_tree": "7a88f1cf43af00733400362ea9cbf6e544ce9836",
+  "financial_evaluation_enabled": false,
+  "full_session_calendar_authenticated": false,
+  "historical_market_inputs_authenticated": false,
+  "historical_replay_enabled": false,
+  "incremental_spend_authorized_usd": "0.00",
+  "limited_availability_passed": true,
+  "paid_capture_enabled": false,
+  "pinned_environment_verified": true,
+  "point_in_time_universe_complete": false,
+  "policy_promotion_eligible": false,
+  "projections": [
+    {
+      "missing_selected_dates": [],
+      "next_page_present": false,
+      "observed_selected_dates": [
+        "2026-03-04",
+        "2026-03-05",
+        "2026-03-06",
+        "2026-03-09",
+        "2026-03-10",
+        "2026-03-12",
+        "2026-03-13",
+        "2026-03-18",
+        "2026-03-19",
+        "2026-03-25",
+        "2026-03-30",
+        "2026-04-02",
+        "2026-04-06",
+        "2026-04-10",
+        "2026-04-13",
+        "2026-04-14",
+        "2026-04-15",
+        "2026-04-16",
+        "2026-04-17",
+        "2026-04-20",
+        "2026-04-21",
+        "2026-04-23",
+        "2026-04-24",
+        "2026-04-27",
+        "2026-04-28",
+        "2026-04-29",
+        "2026-04-30",
+        "2026-05-04",
+        "2026-05-08",
+        "2026-05-19"
+      ],
+      "ok": true,
+      "row_count": 56
+    },
+    {
+      "next_page_present": true,
+      "ok": true,
+      "provider_ok_status": true,
+      "requested_date": "2026-03-04",
+      "required_fields_present": true,
+      "response_count_matches": true,
+      "row_count": 1,
+      "sample_filters_match": true
+    },
+    {
+      "next_page_present": true,
+      "ok": true,
+      "provider_ok_status": true,
+      "requested_date": "2026-05-19",
+      "required_fields_present": true,
+      "response_count_matches": true,
+      "row_count": 1,
+      "sample_filters_match": true
+    },
+    {
+      "dataset_range": {
+        "covers_selected_interval": true,
+        "range_end": "2026-09-11T04:00:00+00:00",
+        "range_start": "2018-05-01T00:00:00+00:00"
+      },
+      "ok": true,
+      "required_schema_ranges": {
+        "mbp-1": {
+          "covers_selected_interval": true,
+          "range_end": "2026-09-11T04:00:00+00:00",
+          "range_start": "2018-05-01T00:00:00+00:00"
+        },
+        "status": {
+          "covers_selected_interval": true,
+          "range_end": "2026-09-11T04:00:00+00:00",
+          "range_start": "2018-05-01T00:00:00+00:00"
+        }
+      }
+    }
+  ],
+  "raw_response_bodies_retained": false,
+  "raw_response_reparse_possible": false,
+  "registration_sha256": "976149812906907f86bc5f6a8b46c8590ed87c4476c210f557b081f056e29a5b",
+  "report_sha256": "652617e5539103ad984243d00afb9297d4c794bf20fa31720788ced4c6056429",
+  "result_verification": {
+    "actual_incremental_cost_known": false,
+    "brokerage_orders_enabled": false,
+    "content_sha256": "547ba760129a98eee79b6ed242ed07c833e8831cda093f2969283a8c4047cb56",
+    "contract_id": "early-pullback-provider-check-v0.1",
+    "discretionary_strategy_integrated": false,
+    "execution_commit_sha": "fecb9744d23015387180fdfa3b60467392f57e72",
+    "file_count": 14,
+    "financial_evaluation_enabled": false,
+    "full_session_calendar_authenticated": false,
+    "historical_market_inputs_authenticated": false,
+    "historical_replay_enabled": false,
+    "limited_availability_passed": true,
+    "paid_capture_enabled": false,
+    "point_in_time_universe_complete": false,
+    "policy_promotion_eligible": false,
+    "provider_attempts": 4,
+    "raw_response_bodies_retained": false,
+    "raw_response_reparse_possible": false,
+    "report_sha256": "652617e5539103ad984243d00afb9297d4c794bf20fa31720788ced4c6056429",
+    "transcript_records_read": false,
+    "verification_passed": true,
+    "workflow_run_id": "34655893791"
+  },
+  "transcript_records_read": false,
+  "verification_passed": true,
+  "workflow_conclusion": "success",
+  "workflow_event": "push",
+  "workflow_run_attempt": 1,
+  "workflow_run_id": 34655893791
+}
