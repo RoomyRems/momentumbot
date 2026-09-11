@@ -1,0 +1,58 @@
+{
+  "artifact_type": "local_early_pullback_registration_verification",
+  "contract_id": "early-pullback-selection-v0.1",
+  "registration_content_sha256": "980d7f3c8ab122fcee5f35d9da8d9a03633feb50b4e00f7287a85a0b58dd10fb",
+  "parent_commit": "b37c75a04057ba51e2fefde93e31f61239aa2455",
+  "verification_date": "2026-09-11",
+  "status": "local_verification_passed_market_evaluation_not_started",
+  "focused_primary": {
+    "command": "PYTHONPATH=src:tests python -m unittest test_early_pullback_selection_v01 -v",
+    "tests": 25,
+    "seconds": 0.068,
+    "skips": 0,
+    "exit_code": 0
+  },
+  "focused_pandas3_optimized": {
+    "command": "python -O -m unittest test_early_pullback_selection_v01 -v (isolated pandas 3.0.5 and NumPy 2.5.3 path)",
+    "tests": 25,
+    "seconds": 0.062,
+    "skips": 0,
+    "exit_code": 0,
+    "log": "pandas3-optimized-tests.log.gz",
+    "log_bytes": 831,
+    "log_sha256": "207fd0110f0f67bc9b305fa5d615bdabe27ee832add00dc1e8858b5d5ee45d44"
+  },
+  "full_suite": {
+    "command": "python -m unittest discover -s tests -v (PYTHONPATH=src:scripts plus retained optional native SDK site)",
+    "tests": 2499,
+    "seconds": 269.451,
+    "skips": 0,
+    "exit_code": 0,
+    "python": "3.12.14",
+    "pandas": "2.2.3",
+    "numpy": "2.3.5",
+    "databento": "0.83.0",
+    "databento_dbn": "0.65.0",
+    "log": "local-full-tests.log.gz",
+    "log_bytes": 61921,
+    "log_sha256": "e20ef0fd1bf524a3382c15ca70204c1b09fc0c70f4f8b65f36064fbc53b29879"
+  },
+  "parent_inventory": {
+    "command": "PYTHONPATH=src python -O scripts/register_early_pullback_selection_v01.py --verify-parent",
+    "status": "verified",
+    "complete_parent_tree_and_blob_inventory_reconstructed": true,
+    "tracked_files": 1519,
+    "excluded_dates": 176,
+    "exclusion_content_sha256": "b9318eabcf7acca2831fc88a7935eeb6854b52992f1689a512fbdfbec3cf2276",
+    "selected_dates": 30,
+    "provider_calls": 0
+  },
+  "changed_python_compileall_exit_code": 0,
+  "hosted_ci": "not_run_at_local_freeze; verify publication commit checks separately",
+  "historical_account_replay_performed": false,
+  "new_panel_market_evaluation_performed": false,
+  "provider_calls_performed": false,
+  "brokerage_orders_performed": false,
+  "original_runtime_or_policy_modified": false,
+  "policy_promotion_eligible": false
+}

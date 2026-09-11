@@ -1,5 +1,40 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: early-pullback experiment registered, not evaluated
+
+The next isolated experiment starts from verified `b37c75a04057ba51e2fefde93e31f61239aa2455`.
+It tests a hard cap of two causally counted pullbacks, an experimental translation
+of the existing early-pullback preference. The new shadow selector is separate
+from the original trading path. No MACD/room gate, stop, source, execution, risk,
+fee or management rule changes. The original losing baseline and hosted-only
+local-replay waiver remain unchanged.
+
+The immutable parent's 1,519 tracked files, including nested gzip/ZIP evidence,
+yield 176 conservative date exclusions. One deterministic block fixes 30
+nonconsecutive dates from March 4 to May 19, 2026, with no overlap with the old
+baseline or earlier exclusion inventory. They are repository-unreferenced, not
+certified unseen outside the repository. No retries or replacements are allowed.
+Exclusion hash: `b9318eabcf7acca2831fc88a7935eeb6854b52992f1689a512fbdfbec3cf2276`.
+Registration: `980d7f3c8ab122fcee5f35d9da8d9a03633feb50b4e00f7287a85a0b58dd10fb`.
+
+The evaluation fixes both independently carried account arms, all 24 paths and
+720 dated records. Primary comparison: main/conservative/one-second terminal
+net P&L difference. All paths and unavailable dates remain; removing saved
+losing fills is not a valid counterfactual. A positive difference alone is not
+profitability or promotion evidence. First/second cohorts in the inspected
+baseline already lost.
+
+All 25 focused tests pass on both the original and exact prior-CI pandas/NumPy
+versions, including optimized execution. The independent optimized parent
+inventory reconstruction verifies, and all 2,499 full-suite tests pass in
+269.451 seconds with zero skips. Compilation passes; full and compatibility
+logs are retained with the linked experiment's implementation verification.
+No panel market outcomes, provider calls, account replay or orders were opened.
+The source-authentication adapter and paired historical runner are not yet
+implemented. Next is their separate synthetic implementation and the exact
+panel's bounded availability/cost plan, before any acquisition or evaluation.
+See the [experiment registration and boundaries](../research/early_pullback_selection_v01.md).
+
 ## Current checkpoint: original setups and stops reproduce from causal sources
 
 The additive setup, stop and source audit starts from `a27babed52e1c2a12151be40af36a7c865f395f9`.

@@ -15,6 +15,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 
 | Task | Open first | Source of truth |
 |---|---|---|
+| Early-pullback selection experiment | `docs/research/early_pullback_selection_v01.md` | first-two causal shadow gate, pinned new date inventory, paired evaluation plan, unarmed source/account integration and unchanged losing parent |
 | Historical setup, stop and source audit | `docs/research/sealed_historical_setup_stop_audit_v01.md` | original causal-prefix reconstruction, unchanged Micro plans and stops, descriptive geometry and quote alignment, all fixed account alternatives retained |
 | Historical losses by entry, size and exit | `docs/research/sealed_historical_loss_attribution_v01.md` | fixed conditional results, exact price/fee bridges, recorded exit reasons and order authority, all original decisions retained, no causal policy-change claim |
 | Conditional historical account performance | `docs/research/sealed_historical_account_conditional_evaluation_v01.md` | unchanged hosted fills, explicit strict-quote withholds, all 12 paths and 30 dates, exact net accounting and preserved losing baseline |

@@ -1,0 +1,198 @@
+{
+  "artifact_type": "unarmed_setup_selection_experiment_registration",
+  "authority": {
+    "historical_account_runtime": false,
+    "live_orders": false,
+    "paid_acquisition": false,
+    "paper_orders": false,
+    "policy_promotion": false,
+    "provider_calls": false
+  },
+  "causal_protocol": {
+    "availability": "ten-second bar available at start plus ten seconds; source prefix frozen before trigger; original minute support clocks unchanged",
+    "forbidden": [
+      "Ross actions/fills/ordinals/recap labels",
+      "later prices or final volume",
+      "retrospective P&L",
+      "present-day reference data backfilled into history"
+    ],
+    "input": "exact original activation completed bars, independently authenticated plan and trigger, and original causal-prefix hash",
+    "missing_or_invalid_prefix": "fail unresolved; never convert to strategy withhold",
+    "paired_historical_account_runner_implemented": false,
+    "runtime_order": [
+      "verify point-in-time source and session evidence",
+      "freeze common label-blind triggers",
+      "bind recomputed ordinal and both-arm dispositions to every original trigger",
+      "independently replay all paired account paths",
+      "freeze both runtime chains",
+      "evaluate"
+    ],
+    "source_authentication_adapter_implemented": false
+  },
+  "content_sha256": "980d7f3c8ab122fcee5f35d9da8d9a03633feb50b4e00f7287a85a0b58dd10fb",
+  "contract_id": "early-pullback-selection-v0.1",
+  "evaluation": {
+    "accounts_once_only_usd": {
+      "main_account": "30000",
+      "small_account": "2000"
+    },
+    "arms": [
+      "unchanged_micro_v0.1",
+      "early_pullbacks_one_and_two"
+    ],
+    "complete_gate": "all dates retained and all paired paths verifiable/flat complete under unchanged strict observed-update policy; unresolved source/account gaps block aggregate financial conclusion",
+    "counterfactual": "independent once-seeded chronological account replay for each arm; never subtract filtered saved fills or reuse control balances",
+    "dated_records_both_arms": 720,
+    "formal_significance_claim": false,
+    "horizons_seconds": [
+      1,
+      5,
+      10
+    ],
+    "missing_dates": "retain unavailable; never replace, treat as zero, or silently omit; verified zero-opportunity dates remain",
+    "no_pooling": "accounts/scenarios/horizons share dates and opportunities; not independent samples",
+    "paths_per_arm": 12,
+    "primary": "main_account baseline_conservative horizon_1s: child terminal net P&L minus control terminal net P&L after frozen fees",
+    "profitability": "positive difference with negative child P&L is loss reduction, not profitability",
+    "report_all": [
+      "all 24 paths separately, no best-cell selection",
+      "absolute and paired net P&L",
+      "all source/withheld/entered/unavailable counts",
+      "entry exposure, fill fractions and fees",
+      "session-close drawdown, win rate and profit factor with undefined values explicit",
+      "gross and net exit-reason attribution",
+      "paired per-date deltas",
+      "best closed trade removed per arm without rerunning or reselection"
+    ],
+    "ross_label_evaluation_authorized": false,
+    "scenarios": [
+      "baseline_conservative",
+      "stress"
+    ],
+    "strict_quote_withholds": "require complete original stream evidence under the separately registered strict observed-update policy; keep unavailable-source history visible",
+    "support": "positive primary difference with at least one closed child entry is descriptive directional support only; zero or negative difference does not support the hypothesis; zero child entries is inconclusive"
+  },
+  "exclusion_content_sha256": "b9318eabcf7acca2831fc88a7935eeb6854b52992f1689a512fbdfbec3cf2276",
+  "file_bindings": {
+    "research/rules/current/entries.json": {
+      "bytes": 14750,
+      "sha256": "d71aa4ab752d9786f85e0eccbae614ef9a52e426ab0197d1734a798c401bbabb"
+    },
+    "research/strategy/sealed-historical-account-conditional-evaluation-v0.1.json": {
+      "bytes": 7495,
+      "sha256": "cdaa1d0b54b12015c60e3a0262a801617d975276150d69fa43519e3bdd269a26"
+    },
+    "research/strategy/sealed-historical-setup-stop-audit-v0.1.json": {
+      "bytes": 13399,
+      "sha256": "be3813f4fa96d864a95e3da251a4b1c3a5f3c0a187dc1c739de769d9e0c94adc"
+    },
+    "scripts/register_early_pullback_selection_v01.py": {
+      "bytes": 3426,
+      "sha256": "f6c0d954487b037a5dc73c68edfff051aef0a6ce53c9dd1ec6706f580aef75dc"
+    },
+    "src/momentumbot/micro_replay.py": {
+      "bytes": 8631,
+      "sha256": "128a34318e970539f01ce5454d5c58aa2a375a81f5eb2c30997dcab0170e9cbd"
+    },
+    "src/momentumbot/micro_setup.py": {
+      "bytes": 16353,
+      "sha256": "a741989b2cc0ac0aea4be5d2dbe1272d6530ca43d195f6005ac5635d52d5adcc"
+    },
+    "src/momentumbot/research/early_pullback_selection_v01.py": {
+      "bytes": 15619,
+      "sha256": "3d8e7231def8dc7fad8da1bbb94878e27d4eb449ff1926da0b2f48f05781b213"
+    },
+    "src/momentumbot/research/sealed_historical_walk_forward.py": {
+      "bytes": 32426,
+      "sha256": "75b31e13a8f8368da5ea3f6c550fafe202397a3ef3095ca5ac98e3391e35fe02"
+    },
+    "tests/test_early_pullback_selection_v01.py": {
+      "bytes": 11401,
+      "sha256": "c591ed88ba96dc7c4187d227a74937a4eaabed5185b4e1d47d4919826f40111d"
+    }
+  },
+  "hypothesis": "Restricting otherwise valid Micro entries to causal pullbacks one and two improves paired net P&L versus unchanged Micro on the fixed new panel.",
+  "next_gate": "verify repository date exclusions and parent integrity; freeze a separate paired-runner/source-binding implementation and bounded provider availability/cost plan before any acquisition or evaluation",
+  "one_change": {
+    "all_source_triggers_retained_with_dispositions": true,
+    "anchor": "original profile-union activation qualification; no reset on withheld triggers, fills, re-entry, or a new peak",
+    "component": "entry eligibility only",
+    "maximum_pullback_number": 2,
+    "no_macd_or_room_gate": true,
+    "no_symbol_exceptions_or_threshold_search": true,
+    "ordinal": "unchanged causal_active_pullback_number at original completed plan prefix",
+    "unchanged": [
+      "scanner profiles",
+      "Micro geometry and support",
+      "stops and targets",
+      "quote freshness and clocks",
+      "fees",
+      "position sizing and risk",
+      "management and continuation",
+      "two-entry campaigns"
+    ]
+  },
+  "parent_commit": "b37c75a04057ba51e2fefde93e31f61239aa2455",
+  "parent_micro_fingerprint": "49c27b4a1925da4990095e6ffb82bf7557743d1b58ea38f20eee69bce62618fa",
+  "parent_setup_audit_report_sha256": "879890004b3ea3fbcd5c6ef2b4330aa8f2660059252c855959408acfa811e9b5",
+  "parent_tree": "ac2d6c16b02c72ffa619c5a94ced7d9bdaaa4e25",
+  "prior_outcomes_already_known": "All 30 baseline dates and ordinal cohorts were inspected; first and second cohorts also lost. They are not holdout evidence.",
+  "rationale": "MB-ENT-006 prefers early pullbacks; a hard cap of two is an experimental translation, not an exact source-authored threshold.",
+  "registration_date": "2026-09-11",
+  "sampling": {
+    "block_index": 6,
+    "block_size": 30,
+    "calendar_id": "embedded-nyse-full-session-calendar-2025-01-02--2026-06-30-v0.1",
+    "candidate_end": "2026-06-30",
+    "candidate_start": "2025-01-02",
+    "complete_block_count": 7,
+    "contamination_response": "invalidate and preserve entire registration; no automatic replacement or re-selection",
+    "date_replacement_allowed": false,
+    "discarded_tail_count": 19,
+    "eligible_session_count": 229,
+    "provider_calendar_confirmation_required": true,
+    "seed_inputs": {
+      "calendar_id": "embedded-nyse-full-session-calendar-2025-01-02--2026-06-30-v0.1",
+      "contract_id": "early-pullback-selection-v0.1",
+      "exclusion_content_sha256": "b9318eabcf7acca2831fc88a7935eeb6854b52992f1689a512fbdfbec3cf2276",
+      "parent_commit": "b37c75a04057ba51e2fefde93e31f61239aa2455"
+    },
+    "seed_retry_allowed": false,
+    "seed_sha256": "8046d881bb242d175f1f7e3e50898eee9afc710fcf152d025a35199af9d46d57",
+    "selected_dates": [
+      "2026-03-04",
+      "2026-03-05",
+      "2026-03-06",
+      "2026-03-09",
+      "2026-03-10",
+      "2026-03-12",
+      "2026-03-13",
+      "2026-03-18",
+      "2026-03-19",
+      "2026-03-25",
+      "2026-03-30",
+      "2026-04-02",
+      "2026-04-06",
+      "2026-04-10",
+      "2026-04-13",
+      "2026-04-14",
+      "2026-04-15",
+      "2026-04-16",
+      "2026-04-17",
+      "2026-04-20",
+      "2026-04-21",
+      "2026-04-23",
+      "2026-04-24",
+      "2026-04-27",
+      "2026-04-28",
+      "2026-04-29",
+      "2026-04-30",
+      "2026-05-04",
+      "2026-05-08",
+      "2026-05-19"
+    ],
+    "status": "repository_unreferenced_not_certified_unseen_outside_repository"
+  },
+  "schema_version": 1,
+  "status": "registered_synthetic_mechanics_only_no_market_evaluation"
+}
