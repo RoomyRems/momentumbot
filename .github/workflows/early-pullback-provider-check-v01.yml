@@ -1,0 +1,137 @@
+name: Early pullback provider check v0.1
+
+on:
+  push:
+    branches: [phase-3-historical-snapshot]
+    paths:
+      - research/strategy/early-pullback-provider-check-v0.1-execution.json
+
+permissions:
+  contents: read
+
+concurrency:
+  group: early-pullback-provider-check-v01
+  cancel-in-progress: false
+
+jobs:
+  consume:
+    if: github.run_attempt == 1
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      actions: read
+    outputs:
+      artifact_id: ${{ steps.preserve.outputs.artifact-id }}
+    env:
+      PYTHONPATH: src:scripts
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12.14"
+      - name: Install the frozen provider-free environment
+        run: |
+          python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-source-v04.txt
+          python -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          python -m pip check
+          mkdir provider-check-preflight
+          python -m pip freeze --all > provider-check-preflight/pip-freeze.txt
+          python --version > provider-check-preflight/python-version.txt
+          cp requirements-sealed-source-v04.txt provider-check-preflight/requirements.txt
+      - name: Validate exact registration and sole-file execution child
+        run: python scripts/check_early_pullback_providers_v01.py --validate-only --check-execution
+      - name: Verify bounded transport and failure preservation offline
+        run: |
+          python -m unittest tests.test_early_pullback_provider_check_v01 -v
+          python -O -m unittest tests.test_early_pullback_provider_check_v01 -v
+      - name: Verify successful CI on the exact code parent
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          CI_RUN=$(python -c 'from pathlib import Path; from momentumbot.research import early_pullback_provider_check_v01 as m; print(m.frozen(Path(m.EXECUTION_PATH))["successful_code_ci_run_id"])')
+          gh api "repos/RoomyRems/momentumbot/actions/runs/$CI_RUN" > provider-check-preflight/parent-ci.json
+          python - <<'PY'
+          from pathlib import Path
+          from momentumbot.research import early_pullback_provider_check_v01 as m
+          m.validate_ci(m.json_object(Path('provider-check-preflight/parent-ci.json').read_bytes()), m.frozen(Path(m.EXECUTION_PATH)))
+          PY
+      - name: Atomically consume the four-call authorization
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method POST repos/RoomyRems/momentumbot/git/refs -f ref=refs/tags/early-pullback-provider-check-v0.1-consumed -f sha="$GITHUB_SHA" > provider-check-preflight/consumption-ref.json
+          python scripts/check_early_pullback_providers_v01.py --prepare --preflight provider-check-preflight
+      - name: Durably retain consumption before provider access
+        id: preserve
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: early-pullback-provider-check-v01-consumption-${{ github.run_id }}-${{ github.run_attempt }}
+          path: provider-check-preflight
+          if-no-files-found: error
+          retention-days: 90
+
+  probe:
+    if: github.run_attempt == 1
+    needs: consume
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+    env:
+      PYTHONPATH: src:scripts
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12.14"
+      - name: Install the same frozen environment
+        run: |
+          python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-source-v04.txt
+          python -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          python -m pip check
+      - name: Download the exact consumption artifact
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          artifact-ids: ${{ needs.consume.outputs.artifact_id }}
+          path: provider-check-preflight
+          merge-multiple: true
+      - name: Verify the permanent ref still binds this execution
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/RoomyRems/momentumbot/git/ref/tags/early-pullback-provider-check-v0.1-consumed > provider-check-current-ref.json
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          from momentumbot.research import early_pullback_provider_check_v01 as m
+          current = json.loads(Path('provider-check-current-ref.json').read_bytes())
+          if current.get('ref') != m.CONSUMPTION_REF or current.get('object', {}).get('sha') != os.environ['GITHUB_SHA']:
+              raise SystemExit('Permanent consumption ref differs')
+          PY
+      - name: Execute only the four fixed availability requests
+        timeout-minutes: 3
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_MAIN_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_MAIN_API_SECRET }}
+          MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
+          POLYGON_API_KEY: ${{ secrets.POLYGON_API_KEY }}
+          DATABENTO_API_KEY: ${{ secrets.DATABENTO_API_KEY }}
+        run: python scripts/check_early_pullback_providers_v01.py --probe --preflight provider-check-preflight --output provider-check-result
+      - name: Retain complete or partial sanitized evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: early-pullback-provider-check-v01-result-${{ github.run_id }}-${{ github.run_attempt }}
+          path: provider-check-result
+          if-no-files-found: warn
+          retention-days: 90

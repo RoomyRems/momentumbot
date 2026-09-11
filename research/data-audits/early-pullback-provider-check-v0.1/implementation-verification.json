@@ -1,0 +1,85 @@
+{
+  "actual_incremental_cost_known": false,
+  "artifact_type": "provider_free_implementation_verification",
+  "brokerage_orders_enabled": false,
+  "compilation": {
+    "scripts": true,
+    "src": true,
+    "tests": true
+  },
+  "content_sha256": "d8191401da7d7c47ce0bb1811d425bfbb4abda913d97b3236fbc24770c180b84",
+  "contract_id": "early-pullback-provider-check-v0.1",
+  "discretionary_strategy_integrated": false,
+  "file_binding_count": 336,
+  "financial_evaluation_enabled": false,
+  "full_process_exit_code": 0,
+  "full_process_wall_seconds": 352.8056206100009,
+  "full_session_calendar_authenticated": false,
+  "historical_market_inputs_authenticated": false,
+  "historical_replay_enabled": false,
+  "local_environment": {
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "python": "3.12.14"
+  },
+  "new_historical_replay_runs": 0,
+  "optimized_environment": {
+    "numpy": "2.5.3",
+    "optimization": 1,
+    "pandas": "3.0.5",
+    "python": "3.12.14"
+  },
+  "paid_capture_enabled": false,
+  "parent_commit": "0b13bc2af53f0b40b8e9128587abc78a89d48de1",
+  "point_in_time_universe_complete": false,
+  "policy_promotion_eligible": false,
+  "provider_attempts": 0,
+  "raw_response_bodies_retained": false,
+  "registration_sha256": "976149812906907f86bc5f6a8b46c8590ed87c4476c210f557b081f056e29a5b",
+  "test_runs": {
+    "focused": {
+      "log": "focused-tests.log.gz",
+      "log_bytes": 1023,
+      "log_sha256": "e43f1ccdff51fd5d8acc1b2a6b9370c70e9ed73cac617b1965814d89cb0fd826",
+      "new_component_tests_passed": 31,
+      "passed": 31,
+      "seconds": 0.299,
+      "skipped": 0,
+      "tests_run": 31,
+      "uncompressed_log_sha256": "b4db7abe92748fca1c232835d4f0bbab0b1520bda6617c6afeb0d02e0b67d22f"
+    },
+    "full": {
+      "log": "full-tests.log.gz",
+      "log_bytes": 62815,
+      "log_sha256": "ea1aa3020bcef984595352530af0a40603bc5a7a0438044ad1d09dab4c33318e",
+      "new_component_tests_passed": 31,
+      "passed": 2530,
+      "seconds": 350.979,
+      "skip_reasons": {
+        "actual pinned SDK covered in dedicated acquisition validation": 3,
+        "actual pinned SDK exercised in dedicated v0.2 validation": 10,
+        "pinned SDK covered by dedicated diagnostic validation": 4,
+        "pinned SDK covered by dedicated record-order validation": 1,
+        "pinned SDK exercised by dedicated quote validation": 5,
+        "real pinned SDK exercised by dedicated validation": 50
+      },
+      "skipped": 73,
+      "tests_run": 2603,
+      "uncompressed_log_sha256": "0f9b14f4efddf0157450c987abc06f697085b7af541a0daf1a9391c65228848f"
+    },
+    "optimized_pandas3": {
+      "log": "optimized_pandas3-tests.log.gz",
+      "log_bytes": 1022,
+      "log_sha256": "8b23eb503b87ed986a6cbe6096b149a04fc4c9121bdadf10549863dfc6755184",
+      "new_component_tests_passed": 31,
+      "passed": 31,
+      "seconds": 0.305,
+      "skipped": 0,
+      "tests_run": 31,
+      "uncompressed_log_sha256": "9ded192ad020a3c247984cc03aaeaccc6294c4c794c46d816f9745f02c193d6b"
+    }
+  },
+  "transcript_records_read": false,
+  "undefined_globals": [],
+  "verification_passed": true
+}

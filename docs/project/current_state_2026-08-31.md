@@ -1,5 +1,35 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: fixed new-panel provider transport and one-shot provenance
+
+The additive child of `0b13bc2af53f0b40b8e9128587abc78a89d48de1` implements
+the unchanged four-request availability plan. It preserves all 30 dates and
+every registered strategy/account rule. The new direct HTTPS transport forbids
+retries, redirects and pagination, bounds each response, records an intent
+before every attempt, and retains response digests with only permitted
+availability summaries. Failed or interrupted attempts remain visible.
+
+A separate sole-file execution child binds the tested code commit/tree and
+successful hosted CI. A job without provider credentials consumes a permanent
+Git ref and uploads its receipt before a separate read-only provider job can
+run. Registration itself stays unarmed. Evidence verification checks the exact
+request, consumption, receipt, report and artifact identities. Discarded raw
+availability response bodies cannot be independently reparsed; complete market
+source provenance remains a later capture requirement.
+
+All 31 new tests pass normally and under optimized pandas 3. The full local
+suite runs 2,603 tests: 2,530 pass and 73 optional SDK tests skip; all new tests
+execute. Compilation passes. Registration:
+`976149812906907f86bc5f6a8b46c8590ed87c4476c210f557b081f056e29a5b`.
+Implementation and verification are linked in the
+[provider-check record](../research/early_pullback_provider_check_v01.md).
+Availability checks do not establish a full-session calendar, complete universe,
+exhausted candidate discovery or common execution-source lineage. Historical
+replay, financial evaluation, paid capture and brokerage orders remain closed.
+The $0.00 incremental-spend ceiling, original losing baseline, local historical
+replay waiver and crucial unintegrated discretionary layer remain unchanged.
+Transcripts remain offline design material and do not enter this provider check.
+
 ## Current checkpoint: new-panel account and dated-fee integration
 
 The additive account child starts from `6a7e385b277aab0c0690ad0325bc5f81e2225d70`.
