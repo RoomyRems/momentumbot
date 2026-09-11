@@ -17,6 +17,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 
 | Task | Open first | Source of truth |
 |---|---|---|
+| Early-pullback new-panel source catalogue | `docs/research/early_pullback_panel_sources_v01.md` | fixed new-date identities, byte-verified synthetic archives, frozen scanner/normalization/Micro reconstruction, explicit provider-provenance and account-context limits |
 | Early-pullback source binding and paired mechanics | `docs/research/early_pullback_paired_adapter_v01.md` | normalized causal trigger reconstruction, independent synthetic account arms, immutable old-date guards, exact unarmed new-panel probe plan and full-hybrid interpretation |
 | Early-pullback selection experiment | `docs/research/early_pullback_selection_v01.md` | first-two causal shadow gate, pinned new date inventory, paired evaluation plan, unarmed source/account integration and unchanged losing parent |
 | Historical setup, stop and source audit | `docs/research/sealed_historical_setup_stop_audit_v01.md` | original causal-prefix reconstruction, unchanged Micro plans and stops, descriptive geometry and quote alignment, all fixed account alternatives retained |

@@ -1,0 +1,153 @@
+{
+  "contract_id": "early-pullback-panel-sources-v0.1",
+  "artifact_type": "local_new_panel_source_implementation_verification",
+  "parent_commit": "d6dc01cddaf681b62f82dc2a46aae6fa2a1bfaa5",
+  "registration_content_sha256": "5743bf8ab6a70f2c78d61f98ef841a054bc804076fd0d0d4ae0b7c1c2145b87e",
+  "verification_date": "2026-09-11",
+  "status": "local_synthetic_verification_passed_historical_sources_and_accounts_not_opened",
+  "focused_primary": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:scripts python -m unittest tests.test_early_pullback_panel_sources_v01 -v",
+    "tests": 26,
+    "seconds": 26.189,
+    "exit_code": 0,
+    "skips": 0,
+    "log": "focused-tests.log.gz"
+  },
+  "focused_pandas3_optimized": {
+    "command": "python -O -m unittest tests.test_early_pullback_panel_sources_v01 -v (isolated pandas 3.0.5/NumPy 2.5.3:src:scripts)",
+    "tests": 26,
+    "seconds": 26.026,
+    "exit_code": 0,
+    "skips": 0,
+    "log": "pandas3-tests.log.gz"
+  },
+  "full_suite": {
+    "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src:scripts:<retained optional native SDK site> python -m unittest discover -s tests -v",
+    "tests": 2549,
+    "seconds": 443.678,
+    "exit_code": 0,
+    "skips": 0,
+    "python": "3.12.14",
+    "pandas": "2.2.3",
+    "numpy": "2.3.5",
+    "databento": "0.83.0",
+    "databento_dbn": "0.65.0",
+    "log": "local-full-tests.log.gz"
+  },
+  "registration_check": {
+    "command": "PYTHONPATH=src:scripts python -O scripts/build_early_pullback_panel_sources_v01.py",
+    "exit_code": 0,
+    "file_bindings": 322
+  },
+  "synthetic_bundle": {
+    "verification_file": "synthetic-bundle-verification.json",
+    "verification_content_sha256": "718a065c18b10f3a52b51583b9f80cdb7a85bf91ec71a377cebc7ca2137c9966",
+    "archive_file": "synthetic-source-bundle.zip",
+    "archive_commitment": {
+      "bytes": 17755,
+      "sha256": "bbbf367256b8dd061b776ade9de3f0af8757668bab0e38922da4df32f907d29e"
+    },
+    "result_full_envelope_sha256": "824376e2d27b03d4c0954fc2efb060493cf01473675de6c0c3b876f5b56acd62",
+    "source_dates": 30,
+    "paths": 24,
+    "slots": 720,
+    "scanner_rows": 120,
+    "activations": 1,
+    "micro_decisions": 1,
+    "synthetic_zero_decision_dates": 29,
+    "independent_second_source_engine": false
+  },
+  "exact_frozen_bundle_pandas3_optimized": {
+    "assertions_enabled": false,
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "result_sha256": "824376e2d27b03d4c0954fc2efb060493cf01473675de6c0c3b876f5b56acd62",
+    "status": "exact_frozen_reconstruction_verified"
+  },
+  "initial_unpublished_failure": {
+    "tests": 21,
+    "errors": 1,
+    "seconds": 17.519,
+    "exit_code": 1,
+    "initial_registration_sha256": "2e6f893437871dbb10840a9932d7b00c2ef83369992c5b60f6fa5b54dcf71c02",
+    "log": "initial-tests.log.gz",
+    "source_snapshot": "initial-code-and-registration.tar.gz",
+    "cause": "Panel caller supplied the sealed catalogue's internal content hash where the strict verifier expected the full-envelope fingerprint.",
+    "correction": "Pass the complete envelope fingerprint and additionally recheck catalogue equality against the verified calendar. No validator relaxed; source/scanner/Micro policy unchanged.",
+    "first_repaired_tests": 25,
+    "first_repaired_seconds": 24.931,
+    "first_repaired_log": "repaired-tests.log.gz",
+    "first_repaired_exit_code": 0
+  },
+  "evidence_files": {
+    "focused-tests.log.gz": {
+      "bytes": 986,
+      "sha256": "73d29d0594eb0c39e9febd6d85ef8c9c15a435b5deda6d5690d3c633879eee49",
+      "test_summary": [
+        "Ran 26 tests in 26.189s",
+        "OK"
+      ],
+      "uncompressed_sha256": "dd5028eb9700d2717e882155e316287d6db6bc6b33af52a6280fda24a2a2f392"
+    },
+    "initial-code-and-registration.tar.gz": {
+      "bytes": 30174,
+      "sha256": "72ecea8cb77250d778e363c015bc413f93815b82e9ac2ddba313e57b9c92c150"
+    },
+    "initial-tests.log.gz": {
+      "bytes": 1199,
+      "sha256": "9c2264e6f464b4e1496d4e69d7d39903dae0226d3d8fab7d04844a5344de8407",
+      "test_summary": [
+        "Ran 21 tests in 17.519s",
+        "FAILED (errors=1)"
+      ],
+      "uncompressed_sha256": "f087f7a88ddd31908d81f3638eb10479eff1946b46faa40a40a3b11df4aef78a"
+    },
+    "pandas3-tests.log.gz": {
+      "bytes": 984,
+      "sha256": "961e4d23c9d1b8f718cf44fd9086e7267c21a4ac562fbe14afc666fdcad24237",
+      "test_summary": [
+        "Ran 26 tests in 26.026s",
+        "OK"
+      ],
+      "uncompressed_sha256": "9cf9a909af09684ed4f0848409f8e0e4ceb1a32299a252b1a6aae7748a81da6e"
+    },
+    "repaired-tests.log.gz": {
+      "bytes": 949,
+      "sha256": "9376bd43d106f0682f4502a28e1d410e76abd8548f09d0b24832b404030a2e3d",
+      "test_summary": [
+        "Ran 25 tests in 24.931s",
+        "OK"
+      ],
+      "uncompressed_sha256": "44d26cd46438b9513ce4f9d7a0674df23935b27ebe64e218d6e764dafdb3ecc4"
+    },
+    "local-full-tests.log.gz": {
+      "bytes": 62677,
+      "sha256": "3d64fbd5b1cc12745bccde86d5f575599a9218283eb584c1e6d820e822356e82",
+      "uncompressed_sha256": "cb7846bbe5acf4ef5e3a421d50019a60fb9648f64876e40b2bde4377bc86512f",
+      "test_summary": [
+        "Ran 2549 tests in 443.678s",
+        "OK"
+      ]
+    }
+  },
+  "changed_python_compileall_exit_code": 0,
+  "hosted_ci": "not_run_at_local_freeze; verify exact publication commit checks separately",
+  "transcript_records_opened": false,
+  "new_panel_real_market_records_opened": false,
+  "original_historical_replay_repeated": false,
+  "provider_calls_performed": 0,
+  "brokerage_orders_performed": 0,
+  "synthetic_only": true,
+  "new_panel_historical_execution_enabled": false,
+  "financial_evaluation_enabled": false,
+  "provider_access_enabled": false,
+  "brokerage_orders_enabled": false,
+  "policy_promotion_eligible": false,
+  "discretionary_strategy_integrated": false,
+  "provider_origin_authenticated": false,
+  "point_in_time_universe_provenance_authenticated": false,
+  "market_candidate_discovery_recomputed": false,
+  "provider_request_exhaustion_verified": false,
+  "historical_zero_opportunity_claim": false,
+  "historical_account_context_adapter_integrated": false
+}

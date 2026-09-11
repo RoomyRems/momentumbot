@@ -1,5 +1,42 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: fixed new-panel catalogue and captured-source reconstruction
+
+The additive source child starts from `d6dc01cddaf681b62f82dc2a46aae6fa2a1bfaa5`.
+It creates 24 new source-path identities and 720 chronological slots on the
+unchanged March–May 2026 dates. Calendar validation handles the DST transition,
+retains once-only $30,000/$2,000 seeds and rejects missing/replaced/early-close
+dates. Unbound sources remain unknown, not inferred zero-opportunity dates.
+No original date, seed, candidate or entry-context validator was altered.
+
+The offline synthetic archive reader verifies the outer ZIP, independent
+manifest commitment and all 32 members before opening day records. The original
+scanner v0.3 and profile union reconstruct first qualifying activations from
+declared source inputs. Original causal raw/split normalization, a raw-minute
+support bridge and original Micro trigger reconstruction feed the prior
+causal-prefix/ordinal verifier. Both arms retain the complete same source union.
+
+All 26 focused tests pass locally and with assertions disabled under CI's
+pandas 3.0.5/NumPy 2.5.3. A saved synthetic archive reconstructs identically twice
+and has the same full result hash under both dependency versions. Compilation
+and optimized registration checks pass. The initial unpublished hash-wiring
+failure, its exact code/registration and repaired results are retained.
+The registration binds 322 files at
+`5743bf8ab6a70f2c78d61f98ef841a054bc804076fd0d0d4ae0b7c1c2145b87e`.
+All 2,549 full-suite tests pass in 443.678 seconds with zero skips; evidence is
+linked in the [source-adapter record](../research/early_pullback_panel_sources_v01.md).
+
+This verifies captured-byte-to-feature mechanics on fixtures, not provider
+origin, point-in-time census/candidate-discovery completeness, SEC/news lineage
+or exhausted capture requests. No real new-panel market records, transcripts,
+provider calls, historical account replay or orders were opened. New slots
+still need an isolated account-engine context adapter and real execution/
+management inputs. The bounded availability plan remains unarmed. Next is
+request/provider provenance and that account-context integration before
+historical activation; paid capture still requires quotes and ceilings.
+Full-hybrid performance remains untested while discretion and other crucial
+components are unintegrated. The original baseline and local-replay waiver stand.
+
 ## Current checkpoint: causal source binding and independent paired mechanics verified
 
 The additive child starts from `2a675a6adae46f384341c7dc9a4921b4f00c6606`.
