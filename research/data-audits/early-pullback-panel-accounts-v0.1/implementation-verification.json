@@ -1,0 +1,186 @@
+{
+  "account_runtime_scope": "synthetic_component_fixture",
+  "broker_statement_equivalence_verified": false,
+  "brokerage_orders": 0,
+  "brokerage_orders_enabled": false,
+  "compatibility_tests": {
+    "assertions_disabled": true,
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "seconds": 27.14,
+    "skips": 0,
+    "status": "passed",
+    "tests": 23
+  },
+  "compileall": {
+    "scripts": true,
+    "src": true,
+    "tests": true
+  },
+  "content_sha256": "1d003f0859a91514f4da3d85b5aff574e78bafd6d230864d72e9afb37e3f88a4",
+  "contract_id": "early-pullback-panel-accounts-v0.1",
+  "cross_dependency_full_result_equality_sha256": "efa3fa6cd3fa38206422ad5bd968a825256866f0177cf49b2e1726b124f8d2f5",
+  "discretionary_strategy_integrated": false,
+  "evidence_files": {
+    "clock-context-code-and-registration.tar.gz": {
+      "bytes": 42973,
+      "sha256": "cac52a002841bd6103d0190892cc0a75b1d4a50a24c831a6205aa03649609546"
+    },
+    "clock-context-tests.log.gz": {
+      "bytes": 936,
+      "sha256": "0a5ac391abdca6c1dd54ace03bce37ad1a000cbfbb7d4ac00cfc748c4bb13cdd"
+    },
+    "dependency-compatibility-verification.json": {
+      "bytes": 767,
+      "sha256": "cce80e26b1c37c167c055a59cd91866a4b03cf9454169f7ccff74b43938dbd3a"
+    },
+    "empty-invocation.log.gz": {
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec"
+    },
+    "fee-context-code-and-registration.tar.gz": {
+      "bytes": 42818,
+      "sha256": "30e3f4d7f6b56eaab162119e0e7d97463b17feba9860a927ae5cd543798d2afd"
+    },
+    "fee-context-tests.log.gz": {
+      "bytes": 1251,
+      "sha256": "99cf1480f83d172a4f6c127324e06732ca528542927a81a8a222d93c08b80e15"
+    },
+    "fixture-code-and-registration.tar.gz": {
+      "bytes": 43397,
+      "sha256": "7123d57d18c21e2636dc2d2f1d64bb20d42905dc41f396b946da887a37ece048"
+    },
+    "fixture-tests.log.gz": {
+      "bytes": 1098,
+      "sha256": "6932a38309fc50bf89125950202f134311a0cab6318d2d025b4c20787aa10cf5"
+    },
+    "focused-tests.log.gz": {
+      "bytes": 959,
+      "sha256": "7df19cbcf15c68ba417cce53e181e62795aa78463987386690edcfc85793ab53"
+    },
+    "initial-code-and-registration.tar.gz": {
+      "bytes": 38868,
+      "sha256": "b8545b88dcedae8e5ad95dae28e0c340bf3bcfebb2d60f27f3f76ac7d4f947c6"
+    },
+    "initial-tests.log.gz": {
+      "bytes": 1261,
+      "sha256": "f80abe7a12262cdefaefa2a9c7888fa810f3bde62c58789d02bf94903b77104e"
+    },
+    "integration-code-and-registration.tar.gz": {
+      "bytes": 43089,
+      "sha256": "2e0dd3d93fe693df2802bce2ba736603fcd9705bf0db934cdf383c99b519ae4d"
+    },
+    "integration-tests.log.gz": {
+      "bytes": 1099,
+      "sha256": "052787a71c84d194e20ec2745fef064cccd4113ee0a42cb71b7de366b3c905be"
+    },
+    "interrupted-full-tests.log.gz": {
+      "bytes": 30523,
+      "sha256": "41da8f6a6b2f14799a31caed118843e7f4bc847cbdd6de207b816ab1bba68676"
+    },
+    "local-full-tests.log.gz": {
+      "bytes": 63351,
+      "sha256": "3a0c023febceb75e70331b485dc82cc075d29343ea890f59cc4616b73b5a62cf"
+    },
+    "local-test-completion.json": {
+      "bytes": 81,
+      "sha256": "ee46d08d8bd478b8cffc887fa4495a69b6c7406c9c15d1d7533087174e0631b5"
+    },
+    "paired-main-execution.json.gz": {
+      "bytes": 2234,
+      "sha256": "375f511944428cebcdb7660474a73f76e6652f7fa08bd4c4841d3986dd51e03e"
+    },
+    "paired-main-result.json.gz": {
+      "bytes": 417359,
+      "sha256": "0df745c234754aa2b53f4d0ab3887bf75a18a78a07f899a2703e7b05597c83ba"
+    },
+    "paired-main-sources.zip": {
+      "bytes": 19672,
+      "sha256": "f193ff56068c5fa917abbfecf01590c85972b0bdd3f500a97f1741977bab22c1"
+    },
+    "pandas3-tests.log.gz": {
+      "bytes": 957,
+      "sha256": "abebe2b889f8dddb96995e246f01e68a4379baba17c12aae2c337684e64045a9"
+    },
+    "preserved-development-attempts.json": {
+      "bytes": 7185,
+      "sha256": "a44b0ee0bcae1ec508056439208b94863730382f2e1afc4aef508999b7eb9fa1"
+    },
+    "provider-check-preparation.json": {
+      "bytes": 4474,
+      "sha256": "5376c0d633d442afedd9a66c083d9f47fb852da775fdaa8bd11a415dd4120971"
+    },
+    "quote-fixture-code-and-registration.tar.gz": {
+      "bytes": 43717,
+      "sha256": "e59fd92bf31859f1a3a03c2cbd57a82719eaec3c4127d8884d32a199fbddef52"
+    },
+    "quote-fixture-tests.log.gz": {
+      "bytes": 1136,
+      "sha256": "762707ab2ddd686e743674b3b2889a72d79db897080fb622bc3b36e469c0d5d4"
+    },
+    "small-profile-execution.json.gz": {
+      "bytes": 1488,
+      "sha256": "a1f109f32a9b1d2996293ad4dcb19133421f6b486fa41b4f86876dd437dd3fc8"
+    },
+    "small-profile-result.json.gz": {
+      "bytes": 427952,
+      "sha256": "cc530571b534b35a0a9e4e5da785423ceb99cc4b7b8ad3098b67f905635f6c90"
+    },
+    "small-profile-sources.zip": {
+      "bytes": 18394,
+      "sha256": "45c72e0d00647955a8784dcc529cd19b5a46031d7afca37a089e29406eee212d"
+    },
+    "synthetic-bundle-verification.json": {
+      "bytes": 7357,
+      "sha256": "1be53a313c898368d75c5edb7ce2e26cff45fc826a08fa4a658abd4ccb88f2fe"
+    }
+  },
+  "financial_evaluation_enabled": false,
+  "focused_tests": {
+    "seconds": 26.965,
+    "skips": 0,
+    "status": "passed",
+    "tests": 23
+  },
+  "frozen_file_bindings": 328,
+  "full_suite": {
+    "new_tests_passed": 23,
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "process_completion": {
+      "exit_code": 0,
+      "status": "complete",
+      "wall_seconds": 430.333755691001
+    },
+    "python": "3.12.14",
+    "seconds": 428.471,
+    "skips": 0,
+    "status": "passed",
+    "tests": 2572
+  },
+  "historical_account_context_adapter_integrated": true,
+  "historical_execution_inputs_authenticated": false,
+  "historical_zero_opportunity_claim": false,
+  "local_historical_baseline_replay_repeated": false,
+  "market_candidate_discovery_recomputed": false,
+  "market_provider_calls": 0,
+  "new_panel_fee_rates_are_modeled": true,
+  "new_panel_historical_execution_enabled": false,
+  "official_fee_schedule_sources_consulted": true,
+  "optimized_registration": "passed",
+  "paid_market_capture": false,
+  "parent_commit": "6a7e385b277aab0c0690ad0325bc5f81e2225d70",
+  "parent_tree": "39c53dcddf43dfcae05cb35c8494b370a80c4aa2",
+  "point_in_time_universe_provenance_authenticated": false,
+  "policy_promotion_eligible": false,
+  "preserved_failed_code_snapshots": 6,
+  "provider_access_enabled": false,
+  "provider_origin_authenticated": false,
+  "provider_request_exhaustion_verified": false,
+  "registration_sha256": "54aacb047f96a67ec329ea3cee988595bfd447d11064ecc4d63750dc265e6b06",
+  "synthetic_bundle_verification_sha256": "ae4bf6b6a7610c28bbeed257c7526b9c28ea78661884f6e5e634d83a14c7fa49",
+  "synthetic_new_date_account_execution_verified": true,
+  "synthetic_only": true,
+  "transcript_records_opened": false,
+  "verification_scope": "local synthetic integration; publication-commit hosted checks are separate"
+}

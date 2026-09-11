@@ -1,0 +1,135 @@
+{
+  "account_runtime_scope": "synthetic_component_fixture",
+  "actual_incremental_cost_known": false,
+  "artifact_type": "unarmed_exact_provider_check_preparation",
+  "authorized_calls_now": 0,
+  "automatic_pagination": false,
+  "automatic_retries": false,
+  "broker_statement_equivalence_verified": false,
+  "brokerage_orders_enabled": false,
+  "calendar_limit": "daily SPY dates and endpoint samples do not independently establish every full session or universe completeness",
+  "content_sha256": "dec8f9cc56a491df556bc7e2b5af36ff21fea0a796359cd2a18dca0cd7213aff",
+  "contract_id": "early-pullback-panel-accounts-v0.1",
+  "discretionary_strategy_integrated": false,
+  "financial_evaluation_enabled": false,
+  "historical_account_context_adapter_integrated": true,
+  "historical_execution_inputs_authenticated": false,
+  "historical_zero_opportunity_claim": false,
+  "incremental_spend_authorized_usd": "0.00",
+  "market_candidate_discovery_recomputed": false,
+  "maximum_calls": 4,
+  "new_panel_fee_rates_are_modeled": true,
+  "new_panel_historical_execution_enabled": false,
+  "next_gate": "bounded provider transport and provenance; independent full-session calendar; exact source request graph and quoted ceilings before paid capture",
+  "parent_plan_sha256": "41d941377a8a53ccc250f03e406aaf5419e868df0eb64f6e67331b3fae1a4a16",
+  "point_in_time_universe_provenance_authenticated": false,
+  "policy_promotion_eligible": false,
+  "provider_access_enabled": false,
+  "provider_origin_authenticated": false,
+  "provider_request_exhaustion_verified": false,
+  "provider_transport_implemented": false,
+  "requests": [
+    {
+      "ordinal": 0,
+      "request": {
+        "kind": "minimal_SIP_daily_entitlement_and_date_presence",
+        "parameters": {
+          "adjustment": "raw",
+          "asof": "2026-05-19",
+          "end": "2026-05-21T00:00:00Z",
+          "feed": "sip",
+          "limit": 1000,
+          "sort": "asc",
+          "start": "2026-03-03T00:00:00Z",
+          "symbols": "SPY",
+          "timeframe": "1Day"
+        },
+        "provider": "alpaca"
+      },
+      "request_sha256": "070b0110e475feeae59d634eff1c0793da18b6132bf11eb60055867a085b7aef"
+    },
+    {
+      "ordinal": 1,
+      "request": {
+        "kind": "minimal_point_in_time_membership_sample",
+        "parameters": {
+          "active": "true",
+          "date": "2026-03-04",
+          "limit": 1,
+          "locale": "us",
+          "market": "stocks",
+          "order": "asc",
+          "sort": "ticker"
+        },
+        "provider": "massive"
+      },
+      "request_sha256": "cf0b7d2699616afa38996644bf8c0abadeace3e27a2d3e92be55114303b0b997"
+    },
+    {
+      "ordinal": 2,
+      "request": {
+        "kind": "minimal_point_in_time_membership_sample",
+        "parameters": {
+          "active": "true",
+          "date": "2026-05-19",
+          "limit": 1,
+          "locale": "us",
+          "market": "stocks",
+          "order": "asc",
+          "sort": "ticker"
+        },
+        "provider": "massive"
+      },
+      "request_sha256": "85939be73621d4bdc721098b1354aa32721abb4d67b64a618e00f330df9fd320"
+    },
+    {
+      "ordinal": 3,
+      "request": {
+        "kind": "dataset_range_metadata",
+        "parameters": {
+          "dataset": "XNAS.ITCH",
+          "method": "metadata.get_dataset_range"
+        },
+        "provider": "databento"
+      },
+      "request_sha256": "a986e9d990e552fb40c8ca3a1443ec2b1a47afa72f13855d48bf4c595d3a69e1"
+    }
+  ],
+  "required_execution_binding": "exact checkout and request hashes; durable one-shot consumption before transport; retain each failure; no replacement dates",
+  "response_projection": "availability status, counts and dates only; no prices, symbols or outcomes",
+  "selected_dates": [
+    "2026-03-04",
+    "2026-03-05",
+    "2026-03-06",
+    "2026-03-09",
+    "2026-03-10",
+    "2026-03-12",
+    "2026-03-13",
+    "2026-03-18",
+    "2026-03-19",
+    "2026-03-25",
+    "2026-03-30",
+    "2026-04-02",
+    "2026-04-06",
+    "2026-04-10",
+    "2026-04-13",
+    "2026-04-14",
+    "2026-04-15",
+    "2026-04-16",
+    "2026-04-17",
+    "2026-04-20",
+    "2026-04-21",
+    "2026-04-23",
+    "2026-04-24",
+    "2026-04-27",
+    "2026-04-28",
+    "2026-04-29",
+    "2026-04-30",
+    "2026-05-04",
+    "2026-05-08",
+    "2026-05-19"
+  ],
+  "source_registration_sha256": "5743bf8ab6a70f2c78d61f98ef841a054bc804076fd0d0d4ae0b7c1c2145b87e",
+  "synthetic_new_date_account_execution_verified": true,
+  "synthetic_only": true
+}

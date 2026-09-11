@@ -1,0 +1,165 @@
+{
+  "account_runtime_scope": "synthetic_component_fixture",
+  "artifact_type": "synthetic_new_panel_account_bundle_verification",
+  "broker_statement_equivalence_verified": false,
+  "brokerage_orders_enabled": false,
+  "cases": [
+    {
+      "calendar_scope": "synthetic only; no provider confirmation",
+      "confirmed_entry_counts_by_arm": {
+        "early_pullbacks_one_and_two": 18,
+        "unchanged_micro_v0.1": 24
+      },
+      "disposition_counts": {
+        "entry_submitted": 42,
+        "unavailable_input": 24,
+        "withheld_late_pullback": 6
+      },
+      "execution": {
+        "bytes": 2234,
+        "file": "paired-main-execution.json.gz",
+        "full_envelope_sha256": "a1028c01ca01bfe2dd664b7b73d8929fb4d82836e1d01d7234b6aee56bce5012",
+        "sha256": "375f511944428cebcdb7660474a73f76e6652f7fa08bd4c4841d3986dd51e03e",
+        "uncompressed_bytes": 29407,
+        "uncompressed_sha256": "4ee51b8d6bb0a0a7f4cfae28a1c9b84767ff23534b8cae5d5555b4c4118142ea"
+      },
+      "historical_performance_evidence": false,
+      "name": "paired-main",
+      "paths": 24,
+      "provider_calls": 0,
+      "result": {
+        "bytes": 417359,
+        "file": "paired-main-result.json.gz",
+        "full_envelope_sha256": "5f9998167b82af6c5d4d3b8756114f282e28e2bd4eaf80d64401aa36aab4237d",
+        "sha256": "0df745c234754aa2b53f4d0ab3887bf75a18a78a07f899a2703e7b05597c83ba",
+        "uncompressed_bytes": 6694057,
+        "uncompressed_sha256": "13fe28cdcd5084150183a1a299a5195f1b9370ad2d4ebc81a6cec6f0284c64ce"
+      },
+      "runtime_status_counts": {
+        "flat_complete": 708,
+        "flat_complete_with_unavailable_inputs": 12
+      },
+      "sessions": 720,
+      "source_file": "paired-main-sources.zip",
+      "source_pins": {
+        "expected_archive": {
+          "bytes": 19672,
+          "sha256": "f193ff56068c5fa917abbfecf01590c85972b0bdd3f500a97f1741977bab22c1"
+        },
+        "expected_manifest_sha256": "50cbc33543fc68d5f1b5c80496ebd41d7dea9d698e8dbfc88c85a041bdcd4a16"
+      },
+      "verification": {
+        "account_runtime_scope": "synthetic_component_fixture",
+        "broker_statement_equivalence_verified": false,
+        "brokerage_orders_enabled": false,
+        "content_sha256": "7268f49eccdb56c57caeca3c0c6b174626d76f4e9648dc7b11e3f577178ad8ea",
+        "contract_id": "early-pullback-panel-accounts-v0.1",
+        "discretionary_strategy_integrated": false,
+        "financial_evaluation_enabled": false,
+        "historical_account_context_adapter_integrated": true,
+        "historical_execution_inputs_authenticated": false,
+        "historical_zero_opportunity_claim": false,
+        "independent_execution_engine": false,
+        "market_candidate_discovery_recomputed": false,
+        "new_panel_fee_rates_are_modeled": true,
+        "new_panel_historical_execution_enabled": false,
+        "point_in_time_universe_provenance_authenticated": false,
+        "policy_promotion_eligible": false,
+        "provider_access_enabled": false,
+        "provider_origin_authenticated": false,
+        "provider_request_exhaustion_verified": false,
+        "result_sha256": "5f9998167b82af6c5d4d3b8756114f282e28e2bd4eaf80d64401aa36aab4237d",
+        "synthetic_new_date_account_execution_verified": true,
+        "synthetic_only": true,
+        "verification_passed": true
+      }
+    },
+    {
+      "calendar_scope": "synthetic only; no provider confirmation",
+      "confirmed_entry_counts_by_arm": {
+        "early_pullbacks_one_and_two": 24,
+        "unchanged_micro_v0.1": 24
+      },
+      "disposition_counts": {
+        "entry_submitted": 48
+      },
+      "execution": {
+        "bytes": 1488,
+        "file": "small-profile-execution.json.gz",
+        "full_envelope_sha256": "f431fdb29688b628fc12cfeb4b8421cea71d04643f98eaa95f2fc1908b546eba",
+        "sha256": "a1f109f32a9b1d2996293ad4dcb19133421f6b486fa41b4f86876dd437dd3fc8",
+        "uncompressed_bytes": 14671,
+        "uncompressed_sha256": "f2d8fe4a54eca63bf8e1d6b8a1acd68a65d1998bdffb0194b55bfa0e556c9972"
+      },
+      "historical_performance_evidence": false,
+      "name": "small-profile",
+      "paths": 24,
+      "provider_calls": 0,
+      "result": {
+        "bytes": 427952,
+        "file": "small-profile-result.json.gz",
+        "full_envelope_sha256": "1b4208a5a037b68833e47f89d7c74bafcc3024a62b52bf10c4b2f722b6a114b5",
+        "sha256": "cc530571b534b35a0a9e4e5da785423ceb99cc4b7b8ad3098b67f905635f6c90",
+        "uncompressed_bytes": 6533893,
+        "uncompressed_sha256": "39a844823c61af256a021d7f0c558553b53e0d17e47fea9994f3dac69cb2bcec"
+      },
+      "runtime_status_counts": {
+        "flat_complete": 720
+      },
+      "sessions": 720,
+      "source_file": "small-profile-sources.zip",
+      "source_pins": {
+        "expected_archive": {
+          "bytes": 18394,
+          "sha256": "45c72e0d00647955a8784dcc529cd19b5a46031d7afca37a089e29406eee212d"
+        },
+        "expected_manifest_sha256": "af317e51184c9bcf181fd481dca53cdb54662e26dccf696eef8a71b9622413cb"
+      },
+      "verification": {
+        "account_runtime_scope": "synthetic_component_fixture",
+        "broker_statement_equivalence_verified": false,
+        "brokerage_orders_enabled": false,
+        "content_sha256": "92a2aeff4c8c483e8f152cdd4b97f174e0bbcaaf0caa5c4b764b2227268c9800",
+        "contract_id": "early-pullback-panel-accounts-v0.1",
+        "discretionary_strategy_integrated": false,
+        "financial_evaluation_enabled": false,
+        "historical_account_context_adapter_integrated": true,
+        "historical_execution_inputs_authenticated": false,
+        "historical_zero_opportunity_claim": false,
+        "independent_execution_engine": false,
+        "market_candidate_discovery_recomputed": false,
+        "new_panel_fee_rates_are_modeled": true,
+        "new_panel_historical_execution_enabled": false,
+        "point_in_time_universe_provenance_authenticated": false,
+        "policy_promotion_eligible": false,
+        "provider_access_enabled": false,
+        "provider_origin_authenticated": false,
+        "provider_request_exhaustion_verified": false,
+        "result_sha256": "1b4208a5a037b68833e47f89d7c74bafcc3024a62b52bf10c4b2f722b6a114b5",
+        "synthetic_new_date_account_execution_verified": true,
+        "synthetic_only": true,
+        "verification_passed": true
+      }
+    }
+  ],
+  "content_sha256": "ae4bf6b6a7610c28bbeed257c7526b9c28ea78661884f6e5e634d83a14c7fa49",
+  "contract_id": "early-pullback-panel-accounts-v0.1",
+  "discretionary_strategy_integrated": false,
+  "financial_evaluation_enabled": false,
+  "historical_account_context_adapter_integrated": true,
+  "historical_execution_inputs_authenticated": false,
+  "historical_zero_opportunity_claim": false,
+  "independent_execution_engine": false,
+  "market_candidate_discovery_recomputed": false,
+  "new_panel_fee_rates_are_modeled": true,
+  "new_panel_historical_execution_enabled": false,
+  "point_in_time_universe_provenance_authenticated": false,
+  "policy_promotion_eligible": false,
+  "provider_access_enabled": false,
+  "provider_origin_authenticated": false,
+  "provider_request_exhaustion_verified": false,
+  "registration_sha256": "54aacb047f96a67ec329ea3cee988595bfd447d11064ecc4d63750dc265e6b06",
+  "synthetic_new_date_account_execution_verified": true,
+  "synthetic_only": true,
+  "two_identical_replays_per_case": true
+}

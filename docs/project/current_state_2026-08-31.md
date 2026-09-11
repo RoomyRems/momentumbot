@@ -1,5 +1,44 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: new-panel account and dated-fee integration
+
+The additive account child starts from `6a7e385b277aab0c0690ad0325bc5f81e2225d70`.
+It connects the verified synthetic source archive to all 24 separate account
+paths and 720 March–May 2026 slots. Candidates, Micro decisions and first-two
+eligibility are reconstructed before either arm executes. All plans require
+explicit shared execution availability, including late pullbacks. Exact same-
+arm/cell close chains carry cash and fees without reseeding; unresolved shares
+and failed streams remain visible and block later execution.
+
+Original date guards and all frozen ancestor files remain unchanged. Fifteen
+context-dependent method bodies are structurally checked against their parents;
+final market processing, execution, management, continuation, fee arithmetic
+and risk projection are inherited. The old fee interval correctly rejected
+the first run. A separate dated 2026 SEC/TAF/CAT schedule now applies equally
+to both arms, with official sources and customer-fee assumptions recorded.
+This changes the temporal rate context, not the original 2025 fee schedule.
+
+All 23 focused tests pass normally and with assertions disabled under pandas 3.
+They cover both account classes, all fixed paths, DST, actual fills, legitimate
+zero activity, late withholds, exact carry, and retained failures. Two saved
+synthetic bundles each replay all 720 slots twice identically, including exact
+cross-dependency result matches. All 2,572 full-suite tests pass in 428.471
+seconds with zero skips, and compilation passes. Results and preserved
+development attempts are recorded in the
+[account integration record](../research/early_pullback_panel_accounts_v01.md).
+Registration: `54aacb047f96a67ec329ea3cee988595bfd447d11064ecc4d63750dc265e6b06`.
+
+The unchanged four-call provider plan now has per-request hashes at this
+checkpoint; transport and durable one-shot consumption remain unimplemented.
+No new-panel market-provider calls, paid capture, historical account replay,
+transcript records or brokerage orders were opened. Provider origin,
+independent full-session confirmation, complete point-in-time universe and
+candidate discovery, SEC/news lineage and common execution-source provenance
+remain gates before a historical child. Financial comparison remains closed.
+Discretionary/context components are still crucial outstanding work, and no
+full-hybrid profitability conclusion follows from these fixture checks. The
+original baseline and local historical replay waiver stand.
+
 ## Current checkpoint: fixed new-panel catalogue and captured-source reconstruction
 
 The additive source child starts from `d6dc01cddaf681b62f82dc2a46aae6fa2a1bfaa5`.

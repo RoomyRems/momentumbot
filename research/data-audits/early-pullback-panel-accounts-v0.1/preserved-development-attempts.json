@@ -1,0 +1,175 @@
+{
+  "attempts": [
+    {
+      "attempt": "initial",
+      "code": {
+        "bytes": 38868,
+        "file": "initial-code-and-registration.tar.gz",
+        "sha256": "b8545b88dcedae8e5ad95dae28e0c340bf3bcfebb2d60f27f3f76ac7d4f947c6"
+      },
+      "code_binding_verified": true,
+      "log": {
+        "bytes": 1261,
+        "file": "initial-tests.log.gz",
+        "sha256": "f80abe7a12262cdefaefa2a9c7888fa810f3bde62c58789d02bf94903b77104e",
+        "uncompressed_bytes": 7026,
+        "uncompressed_sha256": "2f1d2fea4d30bc69f3dc27dab33f3639073c2ade9b73f694dd2491f87ae89709"
+      },
+      "reason": "old fee interval rejected new dates",
+      "registration_sha256": "5656dafd7dc54b69c5403c65ba4269abe2ef6cc539ccf258cce06a449d359084",
+      "seconds": 17.124,
+      "status": "failed_unpublished",
+      "test_conclusion": "FAILED (failures=4, errors=1)",
+      "tests_run": 17
+    },
+    {
+      "attempt": "fee-context",
+      "code": {
+        "bytes": 42818,
+        "file": "fee-context-code-and-registration.tar.gz",
+        "sha256": "30e3f4d7f6b56eaab162119e0e7d97463b17feba9860a927ae5cd543798d2afd"
+      },
+      "code_binding_verified": true,
+      "log": {
+        "bytes": 1251,
+        "file": "fee-context-tests.log.gz",
+        "sha256": "99cf1480f83d172a4f6c127324e06732ca528542927a81a8a222d93c08b80e15",
+        "uncompressed_bytes": 6717,
+        "uncompressed_sha256": "1f5a9592c4aa64838aec0b42280afd078a64ae2eb8af2760cc34572a84ecb533"
+      },
+      "reason": "old session-start ancestry guard retained",
+      "registration_sha256": "3ed0edb98ce5d46f478e6abca74df7382b6c7921ac434f744fe5570ce648b495",
+      "seconds": 16.237,
+      "status": "failed_unpublished",
+      "test_conclusion": "FAILED (failures=4)",
+      "tests_run": 19
+    },
+    {
+      "attempt": "clock-context",
+      "code": {
+        "bytes": 42973,
+        "file": "clock-context-code-and-registration.tar.gz",
+        "sha256": "cac52a002841bd6103d0190892cc0a75b1d4a50a24c831a6205aa03649609546"
+      },
+      "code_binding_verified": true,
+      "log": {
+        "bytes": 936,
+        "file": "clock-context-tests.log.gz",
+        "sha256": "0a5ac391abdca6c1dd54ace03bce37ad1a000cbfbb7d4ac00cfc748c4bb13cdd",
+        "uncompressed_bytes": 3597,
+        "uncompressed_sha256": "95421d17c3ed922a751b84087072db2028e988e78bcccf876a171b8bbed2527e"
+      },
+      "reason": "missing copied candidate schema alias",
+      "registration_sha256": "aff569af009f9cd279f86c7606d2dcd53cd3d2438e6424e7224dc5d74fd8b2f9",
+      "seconds": 3.488,
+      "status": "failed_unpublished",
+      "test_conclusion": "FAILED (errors=1)",
+      "tests_run": 5
+    },
+    {
+      "attempt": "integration",
+      "code": {
+        "bytes": 43089,
+        "file": "integration-code-and-registration.tar.gz",
+        "sha256": "2e0dd3d93fe693df2802bce2ba736603fcd9705bf0db934cdf383c99b519ae4d"
+      },
+      "code_binding_verified": true,
+      "log": {
+        "bytes": 1099,
+        "file": "integration-tests.log.gz",
+        "sha256": "052787a71c84d194e20ec2745fef064cccd4113ee0a42cb71b7de366b3c905be",
+        "uncompressed_bytes": 5125,
+        "uncompressed_sha256": "d61ca0094cc0848be9d6f009b6ac35634a85c7619359ef77e7dcd55feb9640b4"
+      },
+      "reason": "two test assertions assumed a loss on a profitable synthetic combination",
+      "registration_sha256": "47ebb579b8b51c5a4a010e41e0b4740ddc56544c5ce779c63dcafb8731f8e95e",
+      "seconds": 19.172,
+      "status": "failed_unpublished",
+      "test_conclusion": "FAILED (failures=2)",
+      "tests_run": 19
+    },
+    {
+      "attempt": "fixture",
+      "code": {
+        "bytes": 43397,
+        "file": "fixture-code-and-registration.tar.gz",
+        "sha256": "7123d57d18c21e2636dc2d2f1d64bb20d42905dc41f396b946da887a37ece048"
+      },
+      "code_binding_verified": true,
+      "log": {
+        "bytes": 1098,
+        "file": "fixture-tests.log.gz",
+        "sha256": "6932a38309fc50bf89125950202f134311a0cab6318d2d025b4c20787aa10cf5",
+        "uncompressed_bytes": 4767,
+        "uncompressed_sha256": "040f030becc38fcc03917dc2c537d878dadbb7cd557c0a106eb1bfd8de10db6b"
+      },
+      "reason": "common fixture had no fresh observed quote at stress arrival",
+      "registration_sha256": "62d21ff295899a4eeef476398dd4c06388dff1d5630a241e716170af255a8d80",
+      "seconds": 23.187,
+      "status": "failed_unpublished",
+      "test_conclusion": "FAILED (failures=1)",
+      "tests_run": 21
+    },
+    {
+      "attempt": "quote-fixture",
+      "code": {
+        "bytes": 43717,
+        "file": "quote-fixture-code-and-registration.tar.gz",
+        "sha256": "e59fd92bf31859f1a3a03c2cbd57a82719eaec3c4127d8884d32a199fbddef52"
+      },
+      "code_binding_verified": true,
+      "log": {
+        "bytes": 1136,
+        "file": "quote-fixture-tests.log.gz",
+        "sha256": "762707ab2ddd686e743674b3b2889a72d79db897080fb622bc3b36e469c0d5d4",
+        "uncompressed_bytes": 4957,
+        "uncompressed_sha256": "d6ae853c09c12111ac07f27e6c6480655a0e57b073480720a63c7e8613fc7583"
+      },
+      "reason": "small profile correctly rejected the default scanner price; test wrongly expected activity",
+      "registration_sha256": "9787468ceaded7a47a74c4e70a32df8d1df6d707e64f16d20eb8fd210ce4c841",
+      "seconds": 24.891,
+      "status": "failed_unpublished",
+      "test_conclusion": "FAILED (failures=1)",
+      "tests_run": 22
+    },
+    {
+      "attempt": "empty-log-invocation",
+      "code": {
+        "bytes": 43397,
+        "file": "fixture-code-and-registration.tar.gz",
+        "sha256": "7123d57d18c21e2636dc2d2f1d64bb20d42905dc41f396b946da887a37ece048"
+      },
+      "log": {
+        "bytes": 20,
+        "file": "empty-invocation.log.gz",
+        "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+        "uncompressed_bytes": 0,
+        "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "reason": "tool returned exit 1 without any unittest output; retried same code, no pass claimed",
+      "registration_sha256": "62d21ff295899a4eeef476398dd4c06388dff1d5630a241e716170af255a8d80",
+      "status": "unverified_execution_exit_1"
+    },
+    {
+      "attempt": "initial-full-suite",
+      "log": {
+        "bytes": 30523,
+        "file": "interrupted-full-tests.log.gz",
+        "sha256": "41da8f6a6b2f14799a31caed118843e7f4bc847cbdd6de207b816ab1bba68676",
+        "uncompressed_bytes": 222709,
+        "uncompressed_sha256": "2bee0fa6a25ecef121f4b567ddc2d2ba9a4c1c50ffe6e9627e5ff52558477c28"
+      },
+      "reason": "session handle became unavailable without final unittest summary; partial output preserved and gate rerun",
+      "registration_sha256": "54aacb047f96a67ec329ea3cee988595bfd447d11064ecc4d63750dc265e6b06",
+      "status": "no_completion_evidence"
+    },
+    {
+      "attempt": "detached-full-retry-launch",
+      "reason": "worker produced no start marker or test log; no test execution claimed; use tracked foreground process",
+      "status": "not_started",
+      "test_result": null
+    }
+  ],
+  "content_sha256": "addddd06000185f987fb986b36c05363da0d823893b810f62b49994f5c64de4d",
+  "contract_id": "early-pullback-panel-accounts-v0.1"
+}
