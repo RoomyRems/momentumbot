@@ -1,6 +1,27 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: bounded rejection diagnostic and streamlined process
+## Current checkpoint: verified provider-order fault and offline repair
+
+The one-request diagnostic completed after exact-code CI: 2,750 tests, 73 optional
+SDK skips, successful compilation. The retained HTTP-200 page has 1,000 correctly
+ordered provider tickers. The old validator uppercases before ordering, causing
+eleven false regressions, including `ACRV` -> `ACRpC`. Both original artifact ZIPs
+and their CI/ref/preflight/member commitments were independently verified.
+
+The additive repair checks exact provider order within and across pages while
+preserving canonical identities, duplicates, metadata and strict cursor rules.
+All 90 focused checks pass normally and optimized; compilation passes. No frozen
+parent or consumed launcher was changed. The full GitHub suite is the single
+authoritative checkpoint for this publication. See
+[diagnosis, repair and remaining wiring](../research/census_order_repair.md).
+
+This is not a completed 30-date capture: next wire the repaired projection/state
+into the bounded collector and archive verifier, using the existing continuation
+authorization and streamlined same-code CI/consumption pattern. The diagnostic
+remains quarantined; historical replay, identity/financial acceptance and crucial
+discretionary integration remain unopened. No transcripts or backtests were used.
+
+## Preserved checkpoint: bounded rejection diagnostic and streamlined process
 
 The owner authorized continuing and removing unreasonable process overhead on
 September 12. Focused local tests plus one authoritative full GitHub CI run now

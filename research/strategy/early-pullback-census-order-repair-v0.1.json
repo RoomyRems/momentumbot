@@ -1,0 +1,101 @@
+{
+  "brokerage_orders_enabled": false,
+  "content_sha256": "260dc6825151d090cb3589fc36c1cfe0cfdfd41c6eaae3e80dbf711bda21d6f4",
+  "contract_id": "early-pullback-census-order-repair-v0.1",
+  "discretionary_strategy_integrated": false,
+  "file_bindings": {
+    "research/data-audits/early-pullback-census-diagnostic-v0.1/hosted-preflight.zip": {
+      "bytes": 24766,
+      "sha256": "327576093c14785d651487372c20897fba9c380fc1b0d0836467a79987f7de51"
+    },
+    "research/data-audits/early-pullback-census-diagnostic-v0.1/hosted-result.zip": {
+      "bytes": 65103,
+      "sha256": "3ae062d9dd610873c3f50e568b5b61026d6dd47fb1417374ec72ac8ab46bc6e4"
+    },
+    "research/data-audits/early-pullback-census-order-repair-v0.1/diagnostic-verification.json": {
+      "bytes": 2418,
+      "sha256": "45278d961fb905426f41d750dc675356f82643a9f041c2e73788609ac93a0d9e"
+    },
+    "research/strategy/early-pullback-census-diagnostic-v0.1.json": {
+      "bytes": 77053,
+      "sha256": "fe0c5e2bd12a8f39bd7f447d5936f0c0f518a47264e886561806bea6f12b5437"
+    },
+    "scripts/verify_census_order_repair.py": {
+      "bytes": 1541,
+      "sha256": "f237c2a9b8840aa90581182d497ab79b70fd3628a5bed714c167bbc02d802625"
+    },
+    "src/momentumbot/research/census_order_repair.py": {
+      "bytes": 6343,
+      "sha256": "aeaea09089fc00b1cf82c2c1f597e8d3e7067a2aed0231cdb63ad8636e65eaaa"
+    },
+    "src/momentumbot/research/census_payload_evidence.py": {
+      "bytes": 7510,
+      "sha256": "2d9bf0d41928bc079aee29bf93baeabf8d67875e29c301b0318c2632d66799ba"
+    },
+    "tests/test_census_order_repair.py": {
+      "bytes": 14864,
+      "sha256": "d224293dfe1554fef8932a191c3fbaa00f15b52983e43501b237b7b3696df9e1"
+    }
+  },
+  "financial_evaluation_enabled": false,
+  "historical_identity_resolved": false,
+  "historical_replay_enabled": false,
+  "hosted_execution_authorized": false,
+  "hypothesis": "provider-native lexical order must be checked before canonical ticker normalization, within and across pages",
+  "incremental_spend_authorized_usd": "0.00",
+  "limits": {
+    "automatic_retries": false,
+    "maximum_combined_raw_normalized_bytes": 1496000000,
+    "maximum_http_attempts": 601,
+    "maximum_pages_per_date": 20,
+    "maximum_response_bytes": 16000000,
+    "maximum_rows_per_page": 1000,
+    "maximum_total_retained_bytes": 1500000000,
+    "metadata_reserve_bytes": 4000000,
+    "minimum_request_interval_ns": 12500000000,
+    "oversize_detection_bytes": 1,
+    "redirects": false,
+    "runtime_provider_fallback": false
+  },
+  "normalization": "unchanged normalize_reference_tickers and reference_membership_identity",
+  "paid_capture_enabled": false,
+  "parent_commit": "7bba0854cbfbf58dbe79ce3f0fd8b6f3ac02ee17",
+  "parent_registration_sha256": "8eac4c8cf2a9fd8e257eb6fa2a6b4b7829bd1119b0d43c9207a1b38edadacc63",
+  "policy_promotion_eligible": false,
+  "provider_calls_authorized_now": 0,
+  "provider_origin_authenticated": false,
+  "scope": "offline protocol repair; no transport or launcher; diagnostic remains quarantined",
+  "selected_dates": [
+    "2026-03-04",
+    "2026-03-05",
+    "2026-03-06",
+    "2026-03-09",
+    "2026-03-10",
+    "2026-03-12",
+    "2026-03-13",
+    "2026-03-18",
+    "2026-03-19",
+    "2026-03-25",
+    "2026-03-30",
+    "2026-04-02",
+    "2026-04-06",
+    "2026-04-10",
+    "2026-04-13",
+    "2026-04-14",
+    "2026-04-15",
+    "2026-04-16",
+    "2026-04-17",
+    "2026-04-20",
+    "2026-04-21",
+    "2026-04-23",
+    "2026-04-24",
+    "2026-04-27",
+    "2026-04-28",
+    "2026-04-29",
+    "2026-04-30",
+    "2026-05-04",
+    "2026-05-08",
+    "2026-05-19"
+  ],
+  "transcript_records_read": false
+}

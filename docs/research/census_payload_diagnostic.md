@@ -1,5 +1,12 @@
 # Bounded census payload diagnostic
 
+Completed successfully in run `34715001958` after CI `34715001971`. Exactly one
+HTTP-200 response was retained. Its 1,000 provider-native tickers are correctly
+ordered; uppercasing before validation creates eleven false regressions. Original
+artifacts, byte verification and the isolated protocol repair are documented in
+[census order repair](census_order_repair.md). This diagnostic is permanently
+consumed and is not a full-census success or reusable capture authorization.
+
 The immutable parent is `7e405354a5f24a0005cc7628a542acc0c23a29d6` and its
 verified two-request census failure. This diagnostic tests one hypothesis:
 credential-safe response retention and fixed rejection reasons can identify the

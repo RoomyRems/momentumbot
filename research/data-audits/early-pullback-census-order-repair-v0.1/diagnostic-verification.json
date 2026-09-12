@@ -1,0 +1,92 @@
+{
+  "artifact_type": "verified_quarantined_census_order_diagnostic",
+  "attempts": 1,
+  "billing_verified": false,
+  "body_bytes": 293790,
+  "body_sha256": "2b1a70f94e0275606fda03c7d30b3da88fc7c86a93adb054a39b29264c0b82dd",
+  "brokerage_orders_enabled": false,
+  "ci_run_id": 34715001971,
+  "code_commit": "7bba0854cbfbf58dbe79ce3f0fd8b6f3ac02ee17",
+  "content_sha256": "a8e5dc575eec599c0aac420a4909825550c7b150fd494d05a2ae1e5e351077c0",
+  "diagnostic_run_id": 34715001958,
+  "discretionary_strategy_integrated": false,
+  "false_regressions": [
+    {
+      "current": "ACRpC",
+      "index": 125,
+      "previous": "ACRV"
+    },
+    {
+      "current": "ADCpA",
+      "index": 161,
+      "previous": "ADCT"
+    },
+    {
+      "current": "AHLpD",
+      "index": 300,
+      "previous": "AHLT"
+    },
+    {
+      "current": "ALBpA",
+      "index": 392,
+      "previous": "ALBT"
+    },
+    {
+      "current": "ALLpB",
+      "index": 429,
+      "previous": "ALLY"
+    },
+    {
+      "current": "ANGpD",
+      "index": 553,
+      "previous": "ANGX"
+    },
+    {
+      "current": "APOpA",
+      "index": 622,
+      "previous": "APOS"
+    },
+    {
+      "current": "ARRpC",
+      "index": 716,
+      "previous": "ARRY"
+    },
+    {
+      "current": "ASBpE",
+      "index": 738,
+      "previous": "ASBPW"
+    },
+    {
+      "current": "ATHpA",
+      "index": 805,
+      "previous": "ATHS"
+    },
+    {
+      "current": "BACpB",
+      "index": 981,
+      "previous": "BACQU"
+    }
+  ],
+  "financial_evaluation_enabled": false,
+  "historical_identity_resolved": false,
+  "historical_replay_enabled": false,
+  "hosted_execution_authorized": false,
+  "incremental_spend_authorized_usd": "0.00",
+  "old_rejected_body_available": false,
+  "old_rejected_body_byte_identical_claim": false,
+  "paid_capture_enabled": false,
+  "policy_promotion_eligible": false,
+  "preflight_inventory_file_sha256": "f3680d6f8e10d7eb0329bf39d02f5d9497b376bc4467596a3ea344cb7a1f2581",
+  "provider_calls_authorized_now": 0,
+  "provider_native_ordered": true,
+  "provider_origin_authenticated": false,
+  "rows": 1000,
+  "runtime_use_authorized": false,
+  "status": 200,
+  "transcript_records_read": false,
+  "uppercase_ordered": false,
+  "verified_zip_sha256": {
+    "hosted-preflight.zip": "327576093c14785d651487372c20897fba9c380fc1b0d0836467a79987f7de51",
+    "hosted-result.zip": "3ae062d9dd610873c3f50e568b5b61026d6dd47fb1417374ec72ac8ab46bc6e4"
+  }
+}
