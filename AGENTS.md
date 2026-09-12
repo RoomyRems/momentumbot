@@ -17,6 +17,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 
 | Task | Open first | Source of truth |
 |---|---|---|
+| Integrated repaired census capture | `docs/research/census_repaired_capture.md` | same-code CI-gated one-pass capture, safe failure retention, frozen repaired protocol in collector and verifier, automatic original-ZIP replay |
 | Census provider-order repair | `docs/research/census_order_repair.md` | verified mixed-case ordering fault, repaired pure projection/state, unchanged identity/schema/cursor rules and remaining collector/verifier wiring |
 | Census rejection diagnostic and streamlined delivery | `docs/research/census_payload_diagnostic.md` | one exact request after same-commit full CI, independent durable consumption, safe raw retention, fixed rejection reason and no runtime promotion |
 | Early-pullback consumed census failure and public pricing | `docs/research/early_pullback_census_hosted_v02.md` | verified two-request HTTP-200 payload rejection, unavailable rejected body, permanent consumption, unknown billing and a separate diagnostic gate |

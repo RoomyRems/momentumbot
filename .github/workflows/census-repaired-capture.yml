@@ -1,0 +1,192 @@
+name: Repaired bounded census capture
+
+on:
+  push:
+    branches: [phase-3-historical-snapshot]
+    paths: [research/strategy/early-pullback-census-repaired-v0.3.json]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: census-repaired-v03
+  cancel-in-progress: false
+
+env:
+  PYTHONPATH: src:scripts
+  PYTHONDONTWRITEBYTECODE: "1"
+
+jobs:
+  consume:
+    if: github.run_attempt == 1
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      actions: read
+    outputs:
+      artifact_id: ${{ steps.preserve.outputs.artifact-id }}
+      inventory_sha256: ${{ steps.prepare.outputs.inventory_sha256 }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12.14"
+      - name: Install frozen runtime
+        run: |
+          python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-source-v04.txt
+          python -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          python -m pip check
+      - name: Validate exact code and authorization
+        run: python scripts/run_census_capture.py validate --check-launch
+      - name: Wait for and verify full CI on this exact code commit
+        timeout-minutes: 15
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir census-preflight
+          CI_RUN=""
+          for n in $(seq 1 20); do
+            CI_RUN=$(gh run list --repo RoomyRems/momentumbot --workflow ci.yml --commit "$GITHUB_SHA" --event push --json databaseId --jq '.[0].databaseId // empty')
+            if [ -n "$CI_RUN" ]; then break; fi
+            sleep 3
+          done
+          test -n "$CI_RUN"
+          gh run watch "$CI_RUN" --repo RoomyRems/momentumbot --exit-status --interval 15
+          gh api "repos/RoomyRems/momentumbot/actions/runs/$CI_RUN" > census-preflight/ci.json
+          gh api "repos/RoomyRems/momentumbot/actions/runs/$CI_RUN/jobs?per_page=100" > census-preflight/ci-jobs.json
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          from momentumbot.research import census_capture_hosted as m
+          m.d.check_ci(m.d.base.json_object(Path('census-preflight/ci.json').read_bytes()), m.d.base.json_object(Path('census-preflight/ci-jobs.json').read_bytes()), {'GITHUB_SHA': os.environ['GITHUB_SHA']})
+          PY
+      - name: Create permanent consumption and preflight
+        id: prepare
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method POST repos/RoomyRems/momentumbot/git/refs -f ref=refs/tags/early-pullback-census-repaired-v0.3-consumed -f sha="$GITHUB_SHA" > census-preflight/consumed-ref.json
+          python scripts/run_census_capture.py prepare
+      - name: Preserve independent preflight
+        id: preserve
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: early-pullback-census-repaired-v0.3-consumption-${{ github.run_id }}-1
+          path: census-preflight
+          if-no-files-found: error
+          retention-days: 90
+
+  capture:
+    if: github.run_attempt == 1
+    needs: consume
+    runs-on: ubuntu-24.04
+    timeout-minutes: 160
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      capture_artifact_id: ${{ steps.preserve_capture.outputs.artifact-id }}
+      launch_artifact_id: ${{ steps.preserve_launch.outputs.artifact-id }}
+      inventory_sha256: ${{ steps.capture.outputs.inventory_sha256 }}
+    env:
+      CENSUS_PREFLIGHT_ARTIFACT_ID: ${{ needs.consume.outputs.artifact_id }}
+      CENSUS_PREFLIGHT_SHA256: ${{ needs.consume.outputs.inventory_sha256 }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12.14"
+      - name: Install frozen runtime
+        run: |
+          python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-source-v04.txt
+          python -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          python -m pip check
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          artifact-ids: ${{ needs.consume.outputs.artifact_id }}
+          path: census-preflight
+          merge-multiple: true
+      - name: Observe independent consumption and artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/RoomyRems/momentumbot/git/ref/tags/early-pullback-census-repaired-v0.3-consumed > census-current-ref.json
+          gh api "repos/RoomyRems/momentumbot/actions/artifacts/$CENSUS_PREFLIGHT_ARTIFACT_ID" > census-preflight-artifact.json
+      - name: Capture fixed census once
+        id: capture
+        env:
+          MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
+        run: python scripts/run_census_capture.py capture
+      - name: Preserve launch success or failure
+        id: preserve_launch
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: early-pullback-census-repaired-v0.3-launch-${{ github.run_id }}-1
+          path: census-launch
+          if-no-files-found: error
+          retention-days: 90
+      - name: Preserve original census success or failure
+        id: preserve_capture
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: early-pullback-census-repaired-v0.3-capture-${{ github.run_id }}-1
+          path: census-capture
+          if-no-files-found: error
+          retention-days: 90
+
+  verify:
+    if: github.run_attempt == 1
+    needs: [consume, capture]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      actions: read
+    env:
+      CENSUS_PREFLIGHT_ARTIFACT_ID: ${{ needs.consume.outputs.artifact_id }}
+      CENSUS_PREFLIGHT_SHA256: ${{ needs.consume.outputs.inventory_sha256 }}
+      CENSUS_CAPTURE_ARTIFACT_ID: ${{ needs.capture.outputs.capture_artifact_id }}
+      CENSUS_LAUNCH_ARTIFACT_ID: ${{ needs.capture.outputs.launch_artifact_id }}
+      CENSUS_CAPTURE_INVENTORY_SHA256: ${{ needs.capture.outputs.inventory_sha256 }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12.14"
+      - name: Install frozen runtime
+        run: |
+          python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-source-v04.txt
+          python -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          python -m pip check
+      - name: Fetch original artifacts and independent metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/RoomyRems/momentumbot/git/ref/tags/early-pullback-census-repaired-v0.3-consumed > census-current-ref.json
+          gh api "repos/RoomyRems/momentumbot/actions/artifacts/$CENSUS_PREFLIGHT_ARTIFACT_ID" > census-preflight-artifact.json
+          gh api "repos/RoomyRems/momentumbot/actions/artifacts/$CENSUS_LAUNCH_ARTIFACT_ID" > census-launch-artifact.json
+          gh api "repos/RoomyRems/momentumbot/actions/artifacts/$CENSUS_CAPTURE_ARTIFACT_ID" > census-capture-artifact.json
+          gh api "repos/RoomyRems/momentumbot/actions/artifacts/$CENSUS_LAUNCH_ARTIFACT_ID/zip" > census-launch.zip
+          gh api "repos/RoomyRems/momentumbot/actions/artifacts/$CENSUS_CAPTURE_ARTIFACT_ID/zip" > census-capture.zip
+          gh api "repos/RoomyRems/momentumbot/actions/runs/$GITHUB_RUN_ID/jobs?per_page=100" > census-jobs.json
+      - name: Verify every raw page without provider credentials
+        run: python scripts/run_census_capture.py verify
+      - name: Preserve independent verification
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: early-pullback-census-repaired-v0.3-verification-${{ github.run_id }}-1
+          path: census-verification
+          if-no-files-found: error
+          retention-days: 90

@@ -1,0 +1,177 @@
+{
+  "authorization": {
+    "account_entitlement_verified": false,
+    "billing_cap_provider_enforced": false,
+    "credit_balance_verified": false,
+    "credit_provider_identified": false,
+    "estimated_incremental_api_cost_usd": "0.00",
+    "expires_at": "2026-09-19T00:00:00Z",
+    "latest_user_message": "You may continue",
+    "maximum_incremental_cost_usd": "10.00",
+    "maximum_requests": 601,
+    "metered_purchase_authorized": false,
+    "observed_date": "2026-09-12",
+    "prior_owner_message": "I\u2019m not sure about the massive subscription coverage but I have around $120 in free credits so I don\u2019t mind reasonable charges. You are authorized and may proceed.",
+    "scope": "one repaired bounded 30-date census after same-code CI, with automatic independent archive verification",
+    "subscription_changes_authorized": false
+  },
+  "automatic_archive_verification": true,
+  "brokerage_orders_enabled": false,
+  "consumption_ref": "refs/tags/early-pullback-census-repaired-v0.3-consumed",
+  "content_sha256": "06110e27a31a130e6b52605fe9e5b290dda545f81b1757101741629eed2aee39",
+  "contract_id": "early-pullback-census-repaired-v0.3",
+  "credential_fallback": false,
+  "credential_name": "MASSIVE_API_KEY",
+  "discretionary_strategy_integrated": false,
+  "file_bindings": {
+    ".github/workflows/census-repaired-capture.yml": {
+      "bytes": 8659,
+      "sha256": "9bc9b029934381c73e605032e25c8f72d1b897e75d55dae1dc7346895bae2ddf"
+    },
+    ".github/workflows/ci.yml": {
+      "bytes": 426,
+      "sha256": "4f8ecbfd548b86e4bb66e81d1716de0e01abdf72cd6aa9ecade24ce03c329784"
+    },
+    "requirements-sealed-source-v04.txt": {
+      "bytes": 1507,
+      "sha256": "0a9cce71ad0e35defb000e4b0b1a210ed9c41e84c6eb113e8ac79c242a5b52f3"
+    },
+    "research/data-audits/early-pullback-census-diagnostic-v0.1/hosted-preflight.zip": {
+      "bytes": 24766,
+      "sha256": "327576093c14785d651487372c20897fba9c380fc1b0d0836467a79987f7de51"
+    },
+    "research/data-audits/early-pullback-census-diagnostic-v0.1/hosted-result.zip": {
+      "bytes": 65103,
+      "sha256": "3ae062d9dd610873c3f50e568b5b61026d6dd47fb1417374ec72ac8ab46bc6e4"
+    },
+    "research/data-audits/early-pullback-census-hosted-v0.2/owner-authorization-source.json": {
+      "bytes": 1627,
+      "sha256": "015fec654232e4bfe03a8ee8fbf1fa95a4a5a0c69d349b14bfcca36d5eddbd55"
+    },
+    "research/data-audits/early-pullback-census-hosted-v0.2/public-pricing-observation.json": {
+      "bytes": 2091,
+      "sha256": "80967866f021e1beffe48d6d5dcfa7669eeebe5331bcf1666eedcea0a58d871e"
+    },
+    "research/data-audits/early-pullback-census-order-repair-v0.1/diagnostic-verification.json": {
+      "bytes": 2418,
+      "sha256": "45278d961fb905426f41d750dc675356f82643a9f041c2e73788609ac93a0d9e"
+    },
+    "research/data-audits/early-pullback-census-order-repair-v0.1/hosted-ci-verification.json": {
+      "bytes": 2181,
+      "sha256": "472c22d3081468eb613a4fd58c1a28c7e724c28372cffb06dec87cd8da3bc878"
+    },
+    "research/strategy/early-pullback-census-diagnostic-v0.1.json": {
+      "bytes": 77053,
+      "sha256": "fe0c5e2bd12a8f39bd7f447d5936f0c0f518a47264e886561806bea6f12b5437"
+    },
+    "research/strategy/early-pullback-census-order-repair-v0.1.json": {
+      "bytes": 3627,
+      "sha256": "d1e164bf4134ff71c0b4f6dbd78d848c2ee85f4f097c247d7a4dc6d1347cf26a"
+    },
+    "scripts/run_census_capture.py": {
+      "bytes": 4429,
+      "sha256": "6237aaff2e3de8260b0213ef496f94e0994a206ee1ef819532531e48cd134802"
+    },
+    "scripts/verify_census_order_repair.py": {
+      "bytes": 1541,
+      "sha256": "f237c2a9b8840aa90581182d497ab79b70fd3628a5bed714c167bbc02d802625"
+    },
+    "src/momentumbot/research/census_capture.py": {
+      "bytes": 13489,
+      "sha256": "512fc2f1b155beba842a6ca49a68cbaf37446db0c7d4281e8f07930edd5dc296"
+    },
+    "src/momentumbot/research/census_capture_hosted.py": {
+      "bytes": 12330,
+      "sha256": "c3257fae022c52f61c89d4dca16b0009a63a9097a52f53b8eff616c833ab4c75"
+    },
+    "src/momentumbot/research/census_order_repair.py": {
+      "bytes": 6343,
+      "sha256": "aeaea09089fc00b1cf82c2c1f597e8d3e7067a2aed0231cdb63ad8636e65eaaa"
+    },
+    "src/momentumbot/research/census_payload_evidence.py": {
+      "bytes": 7510,
+      "sha256": "2d9bf0d41928bc079aee29bf93baeabf8d67875e29c301b0318c2632d66799ba"
+    },
+    "tests/test_census_capture.py": {
+      "bytes": 12761,
+      "sha256": "b51ab288fef1d27d6eb9d4173ce13b11c73c67f444d4e8839822f9d1785a2151"
+    },
+    "tests/test_census_capture_hosted.py": {
+      "bytes": 13065,
+      "sha256": "6af54e004753a8a985a74c320df8552896c77f384015047b6c2e03472494d0bc"
+    },
+    "tests/test_census_order_repair.py": {
+      "bytes": 14864,
+      "sha256": "d224293dfe1554fef8932a191c3fbaa00f15b52983e43501b237b7b3696df9e1"
+    }
+  },
+  "financial_evaluation_enabled": false,
+  "historical_identity_resolved": false,
+  "historical_replay_enabled": false,
+  "hosted_execution_authorized": false,
+  "hypothesis": "the repaired provider-order protocol can exhaust the fixed census and reproduce every raw page independently",
+  "incremental_spend_authorized_usd": "0.00",
+  "limits": {
+    "automatic_retries": false,
+    "maximum_combined_raw_normalized_bytes": 1496000000,
+    "maximum_http_attempts": 601,
+    "maximum_pages_per_date": 20,
+    "maximum_response_bytes": 16000000,
+    "maximum_rows_per_page": 1000,
+    "maximum_total_retained_bytes": 1500000000,
+    "metadata_reserve_bytes": 4000000,
+    "minimum_request_interval_ns": 12500000000,
+    "oversize_detection_bytes": 1,
+    "redirects": false,
+    "runtime_provider_fallback": false
+  },
+  "old_consumed_authorizations_reused": false,
+  "paid_capture_enabled": false,
+  "parent_commit": "b0eb4cdd926edee99974d81040fd6b968b7d71a2",
+  "parent_registration_sha256": "260dc6825151d090cb3589fc36c1cfe0cfdfd41c6eaae3e80dbf711bda21d6f4",
+  "policy_promotion_eligible": false,
+  "provider_calls_authorized_now": 0,
+  "provider_origin_authenticated": false,
+  "runtime": {
+    "PyYAML": "6.0.3",
+    "machine": "x86_64",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "python": "3.12.14",
+    "system": "Linux"
+  },
+  "safe_rejected_json_retained": true,
+  "selected_dates": [
+    "2026-03-04",
+    "2026-03-05",
+    "2026-03-06",
+    "2026-03-09",
+    "2026-03-10",
+    "2026-03-12",
+    "2026-03-13",
+    "2026-03-18",
+    "2026-03-19",
+    "2026-03-25",
+    "2026-03-30",
+    "2026-04-02",
+    "2026-04-06",
+    "2026-04-10",
+    "2026-04-13",
+    "2026-04-14",
+    "2026-04-15",
+    "2026-04-16",
+    "2026-04-17",
+    "2026-04-20",
+    "2026-04-21",
+    "2026-04-23",
+    "2026-04-24",
+    "2026-04-27",
+    "2026-04-28",
+    "2026-04-29",
+    "2026-04-30",
+    "2026-05-04",
+    "2026-05-08",
+    "2026-05-19"
+  ],
+  "transcript_records_read": false
+}

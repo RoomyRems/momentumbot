@@ -1,6 +1,23 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: verified provider-order fault and offline repair
+## Current checkpoint: integrated repaired collector and automatic verification
+
+The owner authorized the collector/verifier/census continuation. The new collector
+and independent archive reader both use the frozen provider-order repair. All 66
+focused tests pass normally and optimized, including 37 new integration/gate
+tests; compilation passes. The same-code workflow waits for full CI, permanently
+consumes a fresh authorization, captures the fixed census once, and automatically
+verifies the original ZIPs in a separate job without provider credentials.
+
+Scope remains 30 dates, at most 601 requests, no retries, 20 pages per date,
+12.5-second minimum spacing, and no subscription changes. Safe rejected JSON is
+retained before parsing. No transcripts, policy tuning, historical replay or
+financial evaluation are involved. At the maximum request count, pacing alone
+takes about 125 minutes; GitHub performs the capture and verification independently.
+See [integrated capture](../research/census_repaired_capture.md). No completed
+historical census is claimed before terminal artifact verification succeeds.
+
+## Preserved checkpoint: verified provider-order fault and offline repair
 
 The one-request diagnostic completed after exact-code CI: 2,750 tests, 73 optional
 SDK skips, successful compilation. The retained HTTP-200 page has 1,000 correctly
