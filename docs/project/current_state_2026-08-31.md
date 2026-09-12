@@ -13,6 +13,12 @@ The completed local full suite ran 2,661 tests: 2,588 passed, 73 optional SDK
 skips, zero failures/errors. A saved synthetic ZIP independently verified all
 127 members. Its fake observations establish mechanics only, not market data.
 
+Published code `5ff703ca098345b37c37c4bee299e709eb683a4c` passed hosted
+CI `34697041055`: all 2,661 tests run, 73 optional skips, all 36 new tests
+passed, compilation succeeded. Six legacy validations passed with all probe
+and acquisition jobs skipped. Hosted evidence:
+`321a3015f2e7480fb9350ba499498a1d0478eaefebfb1a93cb914c90735cc28b`.
+
 No provider requests, new historical baseline replay, paid capture or transcript
 reads occurred. There is no hosted launcher or consumption authority. Synthetic
 archive completeness cannot establish provider origin, historical identity or

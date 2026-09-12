@@ -113,7 +113,14 @@ clock, one invented member per date and missing identity fields are mechanics
 fixtures, not market observations or historical-universe evidence. The saved
 71,610-byte ZIP independently verified all 127 members; archive SHA-256:
 `3045cd894174e6b567d6b7708472b237e62eb2f6313767a28ea49e96d3eb889e`.
-Hosted verification status is recorded separately when available.
+Published code `5ff703ca098345b37c37c4bee299e709eb683a4c` passed
+[hosted CI 34697041055](https://github.com/RoomyRems/momentumbot/actions/runs/34697041055):
+2,661 tests in 349.882 seconds, 73 optional skips, all 36 new tests passed,
+compilation and every job step succeeded. The hosted environment installed
+pandas 3.0.5 and NumPy 2.5.3. All six legacy validations also passed; their
+probe/acquisition jobs were skipped. Hosted verification:
+`321a3015f2e7480fb9350ba499498a1d0478eaefebfb1a93cb914c90735cc28b`.
+The evidence-only child adds this result without changing tested source.
 
 ## Next gate and interpretation
 
