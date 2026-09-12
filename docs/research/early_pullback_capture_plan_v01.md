@@ -148,6 +148,19 @@ strategy rule or data guard is bypassed. Hosted CI is checked independently
 after publication; the earlier runtime failures remain visible regardless of
 its result.
 
+## Hosted code verification
+
+Code commit `a5ac8be27be3c5d38c87dd20623c55a65ea7455b`, tree
+`aa4865949c3b0fcb8c7ceccd188beaa3f29c673a`, passed
+[CI 34677122987](https://github.com/RoomyRems/momentumbot/actions/runs/34677122987).
+Every job step, including compilation, succeeded. The complete log reports
+2,625 tests in 249.544 seconds, 73 optional SDK skips and all 22 new tests
+passing under pandas 3.0.5/NumPy 2.5.3. All six legacy validation workflows
+also passed; their provider/acquisition jobs were explicitly skipped.
+The [hosted verification](../../research/data-audits/early-pullback-capture-plan-v0.1/hosted-ci-verification.json)
+retains exact run/job identities and the measured decoded-log commitment.
+The local native crash is not reclassified or explained by this success.
+
 No frozen strategy/account mechanics or old-date validators changed. The user's
 waiver of another local historical baseline replay stands; unit verification is
 not that replay. The losing parent remains preserved. Crucial discretionary

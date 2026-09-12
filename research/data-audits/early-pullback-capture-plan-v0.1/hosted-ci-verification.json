@@ -1,0 +1,164 @@
+{
+  "artifact_type": "verified_hosted_code_ci",
+  "code_commit_sha": "a5ac8be27be3c5d38c87dd20623c55a65ea7455b",
+  "code_tree_sha": "aa4865949c3b0fcb8c7ceccd188beaa3f29c673a",
+  "conclusion": "success",
+  "content_sha256": "c7e410d2a8400cfb0e098dbef57c8ccfd814097a7a720b153b0dfd80482e6a0e",
+  "contract_id": "early-pullback-capture-plan-v0.1",
+  "earlier_local_failures_reclassified_as_pass": false,
+  "earlier_native_crash_cause_isolated": false,
+  "errors": 0,
+  "event": "push",
+  "failures": 0,
+  "financial_evaluation_enabled": false,
+  "historical_replay_enabled": false,
+  "incremental_spend_authorized_usd": "0.00",
+  "jobs": [
+    {
+      "conclusion": "success",
+      "id": 103508846673,
+      "name": "test",
+      "steps": [
+        {
+          "conclusion": "success",
+          "name": "Set up job"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/checkout@v4"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run actions/setup-python@v5"
+        },
+        {
+          "conclusion": "success",
+          "name": "Install package"
+        },
+        {
+          "conclusion": "success",
+          "name": "Run tests"
+        },
+        {
+          "conclusion": "success",
+          "name": "Compile"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/setup-python@v5"
+        },
+        {
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@v4"
+        },
+        {
+          "conclusion": "success",
+          "name": "Complete job"
+        }
+      ]
+    }
+  ],
+  "legacy_jobs": [
+    {
+      "jobs": [
+        {
+          "conclusion": "success",
+          "name": "validate"
+        },
+        {
+          "conclusion": "skipped",
+          "name": "probe"
+        }
+      ],
+      "run_id": 34677122985,
+      "workflow": "Sealed historical provider availability repair v0.2"
+    },
+    {
+      "jobs": [
+        {
+          "conclusion": "success",
+          "name": "validate"
+        },
+        {
+          "conclusion": "skipped",
+          "name": "acquire"
+        }
+      ],
+      "run_id": 34677122997,
+      "workflow": "Sealed historical source acquisition v0.1"
+    },
+    {
+      "jobs": [
+        {
+          "conclusion": "success",
+          "name": "validate"
+        }
+      ],
+      "run_id": 34677122996,
+      "workflow": "Sealed historical walk-forward v0.1"
+    },
+    {
+      "jobs": [
+        {
+          "conclusion": "success",
+          "name": "validate"
+        },
+        {
+          "conclusion": "skipped",
+          "name": "acquire"
+        }
+      ],
+      "run_id": 34677122993,
+      "workflow": "Sealed historical source acquisition v0.2"
+    },
+    {
+      "jobs": [
+        {
+          "conclusion": "success",
+          "name": "validate"
+        },
+        {
+          "conclusion": "skipped",
+          "name": "acquire"
+        }
+      ],
+      "run_id": 34677123000,
+      "workflow": "Sealed historical source acquisition v0.3"
+    },
+    {
+      "jobs": [
+        {
+          "conclusion": "success",
+          "name": "validate"
+        },
+        {
+          "conclusion": "skipped",
+          "name": "probe"
+        }
+      ],
+      "run_id": 34677122977,
+      "workflow": "Sealed historical provider availability v0.1"
+    }
+  ],
+  "log": {
+    "bytes": 605978,
+    "gzip_bytes": 86771,
+    "gzip_sha256": "fa58c40688f2295dd0952ce286f3d4b19c01e2a86b3cdebf293b40106b7ad29a",
+    "path": "research/data-audits/early-pullback-capture-plan-v0.1/hosted-ci.log.gz",
+    "scope": "decoded GitHub job log; newline-normalized local transcription",
+    "sha256": "15e105cfdc4b51d8595edd8d0585306552d420b90f2624bdf18b441249ff9cad"
+  },
+  "new_tests_passed": 22,
+  "numpy": "2.5.3",
+  "paid_capture_enabled": false,
+  "pandas": "3.0.5",
+  "passed": 2552,
+  "provider_calls_authorized_now": 0,
+  "provider_probe_or_acquisition_jobs_executed": false,
+  "run_attempt": 1,
+  "run_id": 34677122987,
+  "run_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34677122987",
+  "skipped": 73,
+  "test_duration_seconds": "249.544",
+  "tests_run": 2625
+}

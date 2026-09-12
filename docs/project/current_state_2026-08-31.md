@@ -30,6 +30,12 @@ are preserved separately, not reclassified as passes. The native crash's cause
 remains unresolved. Registration:
 `a8111ed4eb7a64c76dbeceae51f580680c0e0ecce627402e89db10b94a452ff1`.
 
+Published code `a5ac8be27be3c5d38c87dd20623c55a65ea7455b` passed hosted
+CI `34677122987`: all 2,625 tests run, 73 optional skips, all 22 new tests
+passed and compilation succeeded. All six legacy validation workflows also
+passed, with their provider/acquisition jobs skipped. The exact run and
+decoded-log commitments are retained in the capture-plan hosted verification.
+
 Next: tested bounded census transport and independent byte/identity/exhaustion
 verification, followed by a separate exact-parent durable execution record.
 Historical replay and financial comparison remain closed; crucial discretionary
