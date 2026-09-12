@@ -135,6 +135,15 @@ That incomplete run was interrupted (exit 130) and its source/log retained.
 A fresh identical-source/dependency full attempt uses a 900-second watchdog
 and separate receipts. The first run's cause remains unisolated; it is not a pass.
 
+Published code `16f1e9ba168212d5e6d83b5766445c0a189711ae` passed
+[hosted CI 34700582688](https://github.com/RoomyRems/momentumbot/actions/runs/34700582688):
+all 2,691 tests in 241.092 seconds, 73 optional skips, all 30 new launcher and
+36 adapter tests passed. Every step, including compilation, succeeded. All six
+legacy validation workflows passed with probe/acquisition jobs skipped. The new
+census execution workflow did not trigger. Hosted verification:
+`98b6fa9a276fa0ad58b68f6387571213d6d8f8851b330cbceb15e817b8038245`.
+The evidence-only child adds this record without changing tested source.
+
 ## API references checked 2026-09-12
 
 - [GitHub create-reference API](https://docs.github.com/en/rest/git/refs#create-a-reference)

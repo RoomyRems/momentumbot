@@ -21,6 +21,12 @@ and its log/source are preserved, not counted as a pass. A saved synthetic
 launch verified nine preflight files and all 127 capture members. Local audit:
 `35a1111270dede72ac92fda27211a474b3a5e36b67a18fb81a50ba08677695e4`.
 
+Published code `16f1e9ba168212d5e6d83b5766445c0a189711ae` passed hosted
+CI `34700582688`: 2,691 tests, 73 optional skips, all 30 new launcher and 36
+adapter tests passed, compilation succeeded. Six legacy validations passed with
+their provider jobs skipped; the new census execution workflow did not trigger.
+Hosted audit: `98b6fa9a276fa0ad58b68f6387571213d6d8f8851b330cbceb15e817b8038245`.
+
 Next requires explicit owner approval for at most 601 requests and confirmation
 that the existing Massive subscription covers the fixed 30 historical dates
 and endpoints with no incremental charge. Owner attestation is not provider

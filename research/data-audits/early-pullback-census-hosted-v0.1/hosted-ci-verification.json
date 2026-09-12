@@ -1,0 +1,192 @@
+{
+  "actual_provider_requests": 0,
+  "adapter_tests_passed": 36,
+  "artifact_type": "hosted_launcher_implementation_verification",
+  "brokerage_orders_enabled": false,
+  "census_execution_workflow_triggered": false,
+  "code_commit": "16f1e9ba168212d5e6d83b5766445c0a189711ae",
+  "code_tree": "fb1ff442a6ccfaf7a3063c09ac9f00a2936b995c",
+  "compressed_log_bytes": 88566,
+  "compressed_log_sha256": "0f3ad8ff31d201296260848bc0317e1c787af7309b3ee434e6c9d82d461e3b72",
+  "conclusion": "success",
+  "content_sha256": "98b6fa9a276fa0ad58b68f6387571213d6d8f8851b330cbceb15e817b8038245",
+  "contract_id": "early-pullback-census-hosted-v0.1",
+  "dependency_install_lines": [
+    "2026-09-12T14:53:21.9682645Z Successfully installed PyYAML-6.0.3 momentumbot-0.2.0 numpy-2.5.3 pandas-3.0.5 python-dateutil-2.9.0.post0 six-1.17.0"
+  ],
+  "discretionary_strategy_integrated": false,
+  "errors": 0,
+  "failures": 0,
+  "financial_evaluation_enabled": false,
+  "historical_baseline_replayed": false,
+  "historical_identity_resolved": false,
+  "historical_replay_enabled": false,
+  "hosted_execution_authorized": false,
+  "incremental_spend_authorized_usd": "0.00",
+  "job_id": 103571505633,
+  "legacy_jobs": [
+    {
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 103571505604,
+          "name": "validate"
+        }
+      ],
+      "name": "Sealed historical walk-forward v0.1",
+      "run_id": 34700582658
+    },
+    {
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 103571505723,
+          "name": "validate"
+        },
+        {
+          "conclusion": "skipped",
+          "id": 103571550824,
+          "name": "probe"
+        }
+      ],
+      "name": "Sealed historical provider availability v0.1",
+      "run_id": 34700582674
+    },
+    {
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 103571505814,
+          "name": "validate"
+        },
+        {
+          "conclusion": "skipped",
+          "id": 103571555229,
+          "name": "acquire"
+        }
+      ],
+      "name": "Sealed historical source acquisition v0.3",
+      "run_id": 34700582675
+    },
+    {
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 103571505500,
+          "name": "validate"
+        },
+        {
+          "conclusion": "skipped",
+          "id": 103571543206,
+          "name": "probe"
+        }
+      ],
+      "name": "Sealed historical provider availability repair v0.2",
+      "run_id": 34700582613
+    },
+    {
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 103571505668,
+          "name": "validate"
+        },
+        {
+          "conclusion": "skipped",
+          "id": 103571544675,
+          "name": "acquire"
+        }
+      ],
+      "name": "Sealed historical source acquisition v0.2",
+      "run_id": 34700582599
+    },
+    {
+      "jobs": [
+        {
+          "conclusion": "success",
+          "id": 103571505675,
+          "name": "validate"
+        },
+        {
+          "conclusion": "skipped",
+          "id": 103571546213,
+          "name": "acquire"
+        }
+      ],
+      "name": "Sealed historical source acquisition v0.1",
+      "run_id": 34700582637
+    }
+  ],
+  "new_launcher_tests_passed": 30,
+  "optional_sdk_skips": 73,
+  "paid_capture_enabled": false,
+  "passed": 2618,
+  "policy_promotion_eligible": false,
+  "provider_calls_authorized_now": 0,
+  "provider_origin_authenticated": false,
+  "registration_sha256": "a211bc565d25118675545b248d077050fa10e16fcb7f4f509518b85b35c915c0",
+  "status": "completed",
+  "steps": [
+    {
+      "conclusion": "success",
+      "name": "Set up job",
+      "number": 1,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Run actions/checkout@v4",
+      "number": 2,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Run actions/setup-python@v5",
+      "number": 3,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Install package",
+      "number": 4,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Run tests",
+      "number": 5,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Compile",
+      "number": 6,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Post Run actions/setup-python@v5",
+      "number": 11,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Post Run actions/checkout@v4",
+      "number": 12,
+      "status": "completed"
+    },
+    {
+      "conclusion": "success",
+      "name": "Complete job",
+      "number": 13,
+      "status": "completed"
+    }
+  ],
+  "test_seconds": 241.092,
+  "tests_run": 2691,
+  "transcript_records_read": false,
+  "uncompressed_log_bytes": 618950,
+  "uncompressed_log_sha256": "6e925b994172e321b18a0526112b773fb156ee39b8054a7383b3437e1073fcdf",
+  "workflow_run_id": 34700582688,
+  "workflow_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34700582688"
+}
