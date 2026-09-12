@@ -1,0 +1,66 @@
+{
+  "account_entitlement_provider_verified": false,
+  "actual_billed_cost_usd": null,
+  "artifact_type": "public_pricing_documentation_projection",
+  "content_sha256": "8967d39a179a54453c9510440be8bfd6b4ebdd0e8fc6f63b27d84ce9d6da4ccd",
+  "credit_balance_provider_verified": false,
+  "estimate_basis": "fixed API-key reference GETs fit publicly documented Basic access, history and rate limits",
+  "estimated_incremental_api_cost_usd": "0.00",
+  "limitations": "manual public documentation projection and cost inference; not an account-specific quote or billing guarantee",
+  "metered_purchase_authorized": false,
+  "minimum_request_spacing_seconds": 12.5,
+  "observed_date": "2026-09-12",
+  "on_denial_or_failure": "retain evidence and stop; no retry, upgrade, alternate credential or paid route",
+  "provider_billing_cap_enforced": false,
+  "routes": [
+    "https://api.massive.com/v3/reference/tickers",
+    "https://api.massive.com/v3/reference/tickers/types"
+  ],
+  "selected_dates": [
+    "2026-03-04",
+    "2026-03-05",
+    "2026-03-06",
+    "2026-03-09",
+    "2026-03-10",
+    "2026-03-12",
+    "2026-03-13",
+    "2026-03-18",
+    "2026-03-19",
+    "2026-03-25",
+    "2026-03-30",
+    "2026-04-02",
+    "2026-04-06",
+    "2026-04-10",
+    "2026-04-13",
+    "2026-04-14",
+    "2026-04-15",
+    "2026-04-16",
+    "2026-04-17",
+    "2026-04-20",
+    "2026-04-21",
+    "2026-04-23",
+    "2026-04-24",
+    "2026-04-27",
+    "2026-04-28",
+    "2026-04-29",
+    "2026-04-30",
+    "2026-05-04",
+    "2026-05-08",
+    "2026-05-19"
+  ],
+  "sources": [
+    {
+      "facts": "ticker reference endpoint is included in all Stocks plans; Basic history is two years",
+      "url": "https://massive.com/docs/rest/stocks/tickers/all-tickers"
+    },
+    {
+      "facts": "ticker types endpoint is included in all Stocks plans",
+      "url": "https://massive.com/docs/rest/stocks/tickers/ticker-types"
+    },
+    {
+      "facts": "Stocks Basic costs USD 0 per month and allows five API calls per minute",
+      "url": "https://massive.com/pricing"
+    }
+  ],
+  "subscription_changes_authorized": false
+}

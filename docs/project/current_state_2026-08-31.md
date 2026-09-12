@@ -1,6 +1,27 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: unarmed census hosted launcher
+## Current checkpoint: census authorization and public pricing child
+
+The owner authorized the fixed census and reasonable charges while explicitly
+leaving Massive subscription coverage uncertain. The v0.2 child preserves that
+message and official public pricing evidence, without inventing subscription or
+credit verification. Both planned reference endpoints are documented as included
+in Basic; estimated incremental API cost is USD 0.00. The operator selected a
+USD 10.00 maximum, with no metered purchase or subscription change enabled.
+This is a public-documentation estimate, not a provider-enforced billing cap.
+
+The v0.1 launcher remains immutable and unarmed. v0.2 keeps the unchanged adapter,
+all 30 dates, 601-request ceiling, single-use consumption, CI and credential gates.
+The execution will be a separate sole-file child after verification, under the
+owner's existing authorization. See [v0.2 launcher](../research/early_pullback_census_hosted_v02.md).
+No transcript records or historical baseline replay were used.
+
+Local verification passed all 100 focused tests normally and optimized. The
+completed full retry ran 2,725 tests with 73 optional SDK skips and no failures
+or errors. The initial local stall is preserved as incomplete evidence. A saved
+synthetic launch verified nine preflight files and all 127 capture members.
+
+## Preserved checkpoint: unarmed census hosted launcher
 
 The additive child of `242e5e6516339658216269dbf85cb0590acedda0` adds
 exact-parent, first-attempt, single-use execution safeguards around the unchanged
