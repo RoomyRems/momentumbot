@@ -1,0 +1,119 @@
+{
+  "accepted_membership_pages": 0,
+  "account_entitlement_provider_verified": false,
+  "actual_billed_cost_usd": null,
+  "actual_provider_requests": 2,
+  "artifact_type": "verified_consumed_hosted_census_failure",
+  "artifacts": {
+    "capture": {
+      "bytes": 78099,
+      "created_at": "2026-09-12T15:46:46Z",
+      "file": "hosted-capture.zip",
+      "github_digest_verified": true,
+      "id": 10301101423,
+      "sha256": "7fbc2230b0b8455c9db62aab6536a5cc272648baee74cb19858b08be09186334"
+    },
+    "consumption": {
+      "bytes": 45657,
+      "created_at": "2026-09-12T15:46:07Z",
+      "file": "hosted-consumption.zip",
+      "github_digest_verified": true,
+      "id": 10301351011,
+      "sha256": "cfede7458338f21eca2950083631ed5e6a4aeec7fe735094730890f27d3176b3"
+    },
+    "linkage": {
+      "bytes": 47548,
+      "created_at": "2026-09-12T15:46:47Z",
+      "file": "hosted-linkage.zip",
+      "github_digest_verified": true,
+      "id": 10301126482,
+      "sha256": "7c660537bc36298aac027f0a244b89b3ad523dfabd6711f5a7fcf8d67fe60b94"
+    }
+  },
+  "attempted_membership_date": "2026-03-04",
+  "automatic_retries": 0,
+  "brokerage_orders_enabled": false,
+  "capture_file_count": 9,
+  "code_commit": "583848a3585801a1966f0ef6aa200d7a2053a805",
+  "complete_archive_verifier_rejected_partial": true,
+  "completed_census_dates": 0,
+  "consumption_ref": {
+    "node_id": "REF_kwDOT2ZKudoANHJlZnMvdGFncy9lYXJseS1wdWxsYmFjay1jZW5zdXMtaG9zdGVkLXYwLjItY29uc3VtZWQ",
+    "object": {
+      "sha": "ca88994846062a49a5fad224c06dc31e433323a0",
+      "type": "commit",
+      "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/commits/ca88994846062a49a5fad224c06dc31e433323a0"
+    },
+    "ref": "refs/tags/early-pullback-census-hosted-v0.2-consumed",
+    "url": "https://api.github.com/repos/RoomyRems/momentumbot/git/refs/tags/early-pullback-census-hosted-v0.2-consumed"
+  },
+  "content_sha256": "a721e69f65390b55010b7c3a670ca313d8f417d0e87947b7f59372f32fba352f",
+  "contract_id": "early-pullback-census-hosted-v0.2",
+  "credit_balance_provider_verified": false,
+  "discretionary_strategy_integrated": false,
+  "durable_consumption_uploaded_before_first_request": true,
+  "estimated_incremental_api_cost_usd": "0.00",
+  "exact_parent_ci_verified": true,
+  "exact_payload_rejection_reason_recoverable": false,
+  "execution_commit": "ca88994846062a49a5fad224c06dc31e433323a0",
+  "execution_sha256": "36efaa96d0d29c21775665db285b224e1d5d9be83369b38642d29dcf0a46ddbe",
+  "failed_body_hash_independently_recomputed": false,
+  "failed_body_retained": false,
+  "failed_response_body_bytes_receipted": 293790,
+  "failed_response_body_sha256_receipted": "dc8021cfcf825daa590a3ff03cb2d03ad02a6cd47bef909ac8ad58ec284292af",
+  "failure": {
+    "ordinal": 1,
+    "reason": "invalid_payload"
+  },
+  "failure_evidence_verified": true,
+  "financial_evaluation_enabled": false,
+  "frozen_runtime_verified": true,
+  "historical_identity_resolved": false,
+  "historical_replay_enabled": false,
+  "hosted_execution_authorized": false,
+  "http_statuses": [
+    200,
+    200
+  ],
+  "incremental_spend_authorized_usd": "0.00",
+  "independent_preflight_inventory_pin": "95e990536116c260cba3882125b2b3f5888e5836b1d6a830717d30b6581c9800",
+  "limitations": [
+    "HTTP 200 does not prove subscription or billing terms",
+    "the rejected membership body was not retained; no exact schema diagnosis is possible from its hash",
+    "not_started in the frozen report means zero accepted pages, not zero HTTP attempts",
+    "verified original workflow and bytes establish this failed attempt, not a complete universe or historical identity"
+  ],
+  "linkage_file_count": 12,
+  "logs": {
+    "capture": {
+      "compressed_bytes": 7484,
+      "compressed_sha256": "681c9fb0e689a4848582ffcf27e874861fe4669e7bd6078e77ea54fe88c870e3",
+      "raw_bytes": 33351,
+      "raw_sha256": "624758504448658830537191809efa9af71b470e4ba2163bbdf633933e5ee17c"
+    },
+    "consume": {
+      "compressed_bytes": 10898,
+      "compressed_sha256": "792b3ddc7d6431fefcba1345c647a01cb4e2e35306072e7d9907c8c837523fd0",
+      "raw_bytes": 58727,
+      "raw_sha256": "0b606da99187671a13f48906f952f49960a53cad4a3935986373aaa195b636c3"
+    }
+  },
+  "new_capture_authority_remaining": false,
+  "observed_at": "2026-09-12T15:53:48.008488+00:00",
+  "paid_capture_enabled": false,
+  "policy_promotion_eligible": false,
+  "preflight_file_count": 9,
+  "protocol_complete": false,
+  "provider_calls_authorized_now": 0,
+  "provider_origin_authenticated": false,
+  "provider_request_execution_evidence_verified": true,
+  "registration_sha256": "44f61029f59bce5fbf5d5b6555aed954ffbdd801bcd91362c78ac7632d9dadab",
+  "successful_code_ci_run_id": "34702856682",
+  "tool_archive_sha256": "6ac1bd2d2339025bfbca340a2fbecab6f5d94698e4b9a3e975bb937e47a12af7",
+  "transcript_records_read": false,
+  "type_dictionary_rows_reparsed": 24,
+  "workflow_conclusion": "failure",
+  "workflow_run_attempt": 1,
+  "workflow_run_id": 34703172831,
+  "workflow_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34703172831"
+}

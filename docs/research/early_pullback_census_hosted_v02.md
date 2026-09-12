@@ -1,4 +1,55 @@
-# Early-pullback census hosted launcher v0.2
+# Early-pullback census hosted launcher v0.2 — consumed failure
+
+## Captured result
+
+The authorized execution `ca88994846062a49a5fad224c06dc31e433323a0` ran once in
+[GitHub run 34703172831](https://github.com/RoomyRems/momentumbot/actions/runs/34703172831).
+Its permanent ref `refs/tags/early-pullback-census-hosted-v0.2-consumed` points to
+that commit. The run failed at payload validation after exactly two requests,
+with no retry or replacement run. Both responses had HTTP status 200.
+
+The first response supplied 24 current type records, all retained and reparsed.
+The second response was the first membership page for March 4, 2026. Its
+293,790-byte complete response was rejected as `invalid_payload`. The frozen
+adapter retained its receipt and SHA-256
+`dc8021cfcf825daa590a3ff03cb2d03ad02a6cd47bef909ac8ad58ec284292af`,
+but did not retain the rejected body or a specific validation predicate.
+Its exact schema, filter, ordering, cursor, or decoding failure cannot be
+recovered from that hash. Do not guess the cause or relax a validator based on it.
+
+Zero membership pages were accepted and zero of the 30 dates completed.
+`not_started` in the original report means zero accepted pages; March 4 was
+attempted and rejected. No dates or tickers were substituted. The complete
+archive verifier correctly rejects this partial capture.
+
+The original consumption, linkage, and capture ZIPs are retained alongside
+GitHub run/job metadata and logs. Their independent GitHub SHA-256 commitments
+match exactly. Verification checks the sole-file tested parent, every critical
+job step, the expected skipped cache cleanup after failure, the permanent ref,
+frozen runtime, independent consume-job inventory pin, byte-identical preflight
+copies, all retained capture members, request order, pacing, receipt seals, and
+durable consumption before the first request. Evidence verification:
+`a721e69f65390b55010b7c3a670ca313d8f417d0e87947b7f59372f32fba352f`.
+
+The initial offline checker assumed every cleanup step succeeds after a failed
+capture. It rejected the skipped setup-python cleanup; that checker and failure
+record are preserved. The corrected checker requires exactly the original
+capture failure and that one skipped cleanup. This was an offline verification
+correction, with no new provider request or change to capture.
+
+The code parent `583848a3585801a1966f0ef6aa200d7a2053a805` passed hosted CI
+`34702856682`: 2,725 tests in 228.398 seconds, 73 optional skips, all 34 new tests
+passed, and compilation succeeded. Hosted CI evidence:
+`b54ee357b2cdd8fe9d8d62e9fe1ccea892ab817c73964059d1db5601c628dd75`.
+
+The expected incremental API cost remains USD 0.00 under the documented plan;
+actual billing, private account entitlement, and the credit balance are unverified.
+HTTP 200 confirms responses for these two envelopes, not full coverage or billing.
+The next gate is a separately versioned diagnostic that records a bounded,
+credential-safe rejection reason before any new capture authorization. This run
+is permanently consumed. No historical replay or financial evaluation is opened.
+
+## Preserved implementation checkpoint
 
 Parent `7623dadff641536bbf165846816affa427c13b1f`, tree
 `3658e7503fc4e1accda2d1b20a7059da0b61f540`. The v0.1 launcher and its
@@ -31,6 +82,8 @@ The byte-bound `owner-authorization-source.json` and
 `public-pricing-observation.json` are manual source projections, not signed
 attestations or raw website archives. The approval validator requires their
 exact hashes and rejects invented subscription, balance, or billing guarantees.
+Approval pointers hash each record's compact canonical rendering; registration
+file bindings independently commit the exact pretty-printed file bytes.
 The pricing observation expires after seven days; approval remains limited to
 seven days and must be valid at launch.
 

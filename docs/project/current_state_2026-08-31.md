@@ -1,6 +1,29 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: census authorization and public pricing child
+## Current checkpoint: consumed census payload-validation failure
+
+The authorized v0.2 census ran once in GitHub run `34703172831`, execution
+`ca88994846062a49a5fad224c06dc31e433323a0`, and stopped after exactly two
+HTTP-200 requests with no retry. The 24-row current type dictionary was retained
+and reparsed. The first March 4 membership page failed as `invalid_payload`;
+zero membership pages were accepted and zero dates completed.
+
+The rejected 293,790-byte body was not retained by the frozen adapter. Its
+receipt and hash survive, but the exact validation predicate cannot be recovered.
+Do not infer a subscription denial or guess a schema repair. All three original
+artifact digests, preflight/CI/ref/runtime checks, request order and pacing, and
+retained file hashes were independently verified. Failure evidence:
+`a721e69f65390b55010b7c3a670ca313d8f417d0e87947b7f59372f32fba352f`.
+
+Code parent `583848a3585801a1966f0ef6aa200d7a2053a805` passed hosted CI
+`34702856682`: all 2,725 tests ran, 73 optional SDK skips, all 34 new checks
+passed, compilation succeeded. Actual billing remains unknown; public Basic-plan
+documentation implies USD 0.00 incremental API cost. No transcript records or
+historical baseline replay were used. The next gate is a separately versioned
+bounded rejection diagnostic before any new capture authorization. This census
+authorization is permanently consumed. See [verified failure](../research/early_pullback_census_hosted_v02.md).
+
+## Preserved checkpoint: census authorization and public pricing child
 
 The owner authorized the fixed census and reasonable charges while explicitly
 leaving Massive subscription coverage uncertain. The v0.2 child preserves that
