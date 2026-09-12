@@ -1,0 +1,1321 @@
+{
+  "actual_incremental_billing_known": false,
+  "artifact_type": "unarmed_staged_capture_plan",
+  "brokerage_orders_enabled": false,
+  "calendar_projection_sha256": "6f37a2aa5d3e7793f967699e1e9dcc765ff8af11fba60c6dd5bfb60e2c855fdd",
+  "census_limits": {
+    "automatic_retries": false,
+    "budget_exhaustion_is_failure_not_truncation": true,
+    "maximum_normalized_retained_bytes_proposed": 1500000000,
+    "maximum_pages_per_date": 20,
+    "maximum_response_bytes_proposed": 16000000,
+    "maximum_rows_per_page": 1000,
+    "maximum_total_http_attempts_if_separately_armed": 601,
+    "minimum_request_interval_seconds": "12.5",
+    "redirects": false,
+    "runtime_provider_fallback": false,
+    "ticker_type_calls": 1
+  },
+  "complete_capture_http_ceiling": null,
+  "complete_capture_inventory_materialized": false,
+  "consumed_provider_check_may_be_reused": false,
+  "content_sha256": "e5ec94c657037d3e2f689b22d673895254cf55a449ea948dbd9c3eb8e0278596",
+  "contract_id": "early-pullback-capture-plan-v0.1",
+  "dependency_graph": [
+    {
+      "capture_authorized": false,
+      "depends_on": [],
+      "exact_http_request_count": null,
+      "id": "calendar",
+      "mechanics_reference": "official-calendar-observation.json",
+      "quoted_cost_usd": null,
+      "requirement": "scheduled hours do not prove realized hours or security halt state",
+      "state": "scheduled_sessions_confirmed_only"
+    },
+    {
+      "capture_authorized": false,
+      "depends_on": [
+        "calendar"
+      ],
+      "exact_http_request_count": null,
+      "id": "membership",
+      "mechanics_reference": "scripts/build_massive_historical_census.py",
+      "quoted_cost_usd": null,
+      "requirement": "all 30 PIT censuses; exhausted pages; preserved security identities; type dictionary is current taxonomy, not historical membership",
+      "state": "bounded_initial_requests_prepared"
+    },
+    {
+      "capture_authorized": false,
+      "depends_on": [
+        "membership"
+      ],
+      "exact_http_request_count": null,
+      "id": "identity_actions",
+      "mechanics_reference": "scripts/audit_historical_identity_continuity.py",
+      "quoted_cost_usd": null,
+      "requirement": "historical identities, ticker-change and split evidence; original 120-day history and causal share-unit resolution; no current asset-master substitution",
+      "state": "blocked_on_membership"
+    },
+    {
+      "capture_authorized": false,
+      "depends_on": [
+        "identity_actions"
+      ],
+      "exact_http_request_count": null,
+      "id": "discovery",
+      "mechanics_reference": "scripts/build_identity_resolved_market_discovery_v04.py",
+      "quoted_cost_usd": null,
+      "requirement": "full membership cross-section and frozen general/small profile union; split/split gain, raw price/volume, exact RVOL; no selected ticker list",
+      "state": "blocked_on_identity"
+    },
+    {
+      "capture_authorized": false,
+      "depends_on": [
+        "discovery"
+      ],
+      "exact_http_request_count": null,
+      "id": "float_news",
+      "mechanics_reference": "docs/research/sealed_historical_source_acquisition_v13.md",
+      "quoted_cost_usd": null,
+      "requirement": "exact candidate CIK/FIGI lineage; SEC acceptance and news publication times; explicit missing/ambiguous enrichment; preserve verified v0.13 fixes",
+      "state": "blocked_on_candidates"
+    },
+    {
+      "capture_authorized": false,
+      "depends_on": [
+        "discovery",
+        "float_news"
+      ],
+      "exact_http_request_count": null,
+      "id": "scanner",
+      "mechanics_reference": "src/momentumbot/research/early_pullback_panel_sources_v01.py",
+      "quoted_cost_usd": null,
+      "requirement": "complete candidate-minute dispositions and original first qualifying profile-union activations, reconstructed not declared",
+      "state": "blocked_on_causal_sources"
+    },
+    {
+      "capture_authorized": false,
+      "depends_on": [
+        "scanner"
+      ],
+      "exact_http_request_count": null,
+      "id": "micro_sources",
+      "mechanics_reference": "src/momentumbot/research/sealed_historical_micro_inputs_v01.py",
+      "quoted_cost_usd": null,
+      "requirement": "shared SIP trades earliest activation to 10:00 New York; seven-day split warmup before 04:00; verified raw-minute reuse and causal normalization",
+      "state": "blocked_on_activations"
+    },
+    {
+      "capture_authorized": false,
+      "depends_on": [
+        "micro_sources"
+      ],
+      "exact_http_request_count": null,
+      "id": "micro",
+      "mechanics_reference": "src/momentumbot/research/early_pullback_panel_sources_v01.py",
+      "quoted_cost_usd": null,
+      "requirement": "all original triggers and prefixes before first-two gate; verified empty and unavailable remain different",
+      "state": "blocked_on_verified_capture"
+    },
+    {
+      "capture_authorized": false,
+      "depends_on": [
+        "micro"
+      ],
+      "exact_http_request_count": null,
+      "id": "execution_plan",
+      "mechanics_reference": "docs/research/sealed_historical_execution_inputs_v01.md",
+      "quoted_cost_usd": null,
+      "requirement": "exact common XNAS.ITCH mbp-1/status requests from all original triggers; nanosecond bounds; raw_symbol and ts_recv; no consolidated NBBO claim",
+      "state": "blocked_on_triggers"
+    },
+    {
+      "capture_authorized": false,
+      "depends_on": [
+        "micro",
+        "micro_sources"
+      ],
+      "exact_http_request_count": null,
+      "id": "management_plan",
+      "mechanics_reference": "docs/research/sealed_historical_account_inputs_v01.md",
+      "quoted_cost_usd": null,
+      "requirement": "minute-floor trigger through decision+900s+60s; original per-opportunity bounds and merged shared SIP/minute windows; verify reuse before tails",
+      "state": "blocked_on_triggers_and_reuse"
+    },
+    {
+      "capture_authorized": false,
+      "depends_on": [
+        "management_plan",
+        "execution_plan"
+      ],
+      "exact_http_request_count": null,
+      "id": "exit_plan",
+      "mechanics_reference": "docs/research/sealed_historical_management_runner_v01.md",
+      "quoted_cost_usd": null,
+      "requirement": "all original management execution windows for both arms; exact quote/status union before any arm performance; preserve unresolved terminal state",
+      "state": "blocked_on_exact_windows"
+    },
+    {
+      "capture_authorized": false,
+      "depends_on": [
+        "execution_plan",
+        "exit_plan"
+      ],
+      "exact_http_request_count": null,
+      "id": "paid_quote",
+      "mechanics_reference": "docs/research/sealed_historical_execution_quote_v01.md",
+      "quoted_cost_usd": null,
+      "requirement": "exact manifests first; get_billable_size plus get_cost once per request; finite per-request and aggregate quotes; metadata-only separate authority",
+      "state": "blocked_on_exact_requests"
+    },
+    {
+      "capture_authorized": false,
+      "depends_on": [
+        "paid_quote",
+        "management_plan"
+      ],
+      "exact_http_request_count": null,
+      "id": "capture",
+      "mechanics_reference": "docs/research/sealed_historical_execution_acquisition_v02.md",
+      "quoted_cost_usd": null,
+      "requirement": "independent quote verification; frozen per-request and aggregate hard ceilings; separate one-shot consumption; bounded re-quote and download; retain partial evidence",
+      "state": "blocked_on_verified_quotes_and_authority"
+    },
+    {
+      "capture_authorized": false,
+      "depends_on": [
+        "capture",
+        "micro"
+      ],
+      "exact_http_request_count": null,
+      "id": "paired_accounts",
+      "mechanics_reference": "src/momentumbot/research/early_pullback_panel_accounts_v01.py",
+      "quoted_cost_usd": null,
+      "requirement": "all 24 independent paths/720 slots; full prior-close chain; no reseeding, fabricated fills, omitted late triggers or retrospective policy tuning",
+      "state": "blocked_on_authenticated_sources"
+    }
+  ],
+  "discretionary_strategy_integrated": false,
+  "financial_evaluation_enabled": false,
+  "historical_replay_enabled": false,
+  "incremental_spend_authorized_usd": "0.00",
+  "initial_request_count": 31,
+  "initial_request_manifest_sha256": "c1fa97290616b6b26d9c5ccfdff7138266bd00d0cfc53a286b7418b3f394461f",
+  "initial_requests": [
+    {
+      "content_sha256": "f8f7b0377ba9eba9e521c35292a3d1f25b85fd08a7860dfa744cc443e065dd56",
+      "kind": "current_type_dictionary",
+      "method": "GET",
+      "params": {
+        "asset_class": "stocks",
+        "locale": "us"
+      },
+      "url": "https://api.massive.com/v3/reference/tickers/types"
+    },
+    {
+      "content_sha256": "7036148884746f0d2cb86239ec93d3321fea8343000f4a83419a2a101c06bb57",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-03-04",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-03-04",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-03-04",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "018f892f4f8ddbd28ce95f6c206b3e3482640087179a6eaccbbb40f80fc3163c",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-03-05",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-03-05",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-03-05",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "e285b507cfdf2e8ed6adc48cc8cd26c30d1760d041821cf9054e297fbff70ac7",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-03-06",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-03-06",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-03-06",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "dc2a216e7690c03283ab4a7ffcffac91ccec4cf08665b90cd8e636a53e2f6789",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-03-09",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-03-09",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-03-09",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "86491f02da287d6cda37b52642f1cdbe7d59f42296c87007ba02f144ef0133c7",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-03-10",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-03-10",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-03-10",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "a03618ae44c4c969ce22dcc9f000b818952cff35268973336656472dcd5b3d3a",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-03-12",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-03-12",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-03-12",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "7d14535ca5456269525595013b6a3af5b019d4f8fcc64e656f428a5ae540a1a5",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-03-13",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-03-13",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-03-13",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "351cbfd3f4c22e24d67561e0005b7395664fc5409a5e8595cf68ab9ca9bcacb9",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-03-18",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-03-18",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-03-18",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "3dbc389ab883fb9dc4eb7b55423888939ec15fd2c94ad106ee48c226994a439f",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-03-19",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-03-19",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-03-19",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "887518fadf0fe8617fad893c10ebf257a8dc86db636816757b37281a8ac460b8",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-03-25",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-03-25",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-03-25",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "848ec1b2a2174a024aec3a1bc0aea7b53980d146f78014d3bfde8885185dc4be",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-03-30",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-03-30",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-03-30",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "50cde4e3348c621b532da5371d85e2b0b18683aff1bb1cfbc5b6726c90a249f6",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-04-02",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-04-02",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-04-02",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "12dbe4ac205cbcb512917d10e0d710419ec99fbc8a98dff2d201a94fa8820263",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-04-06",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-04-06",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-04-06",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "3a9a3421bf2e6df63393cda799c9b01140356b21cdcc968bd599dddf7ca127c0",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-04-10",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-04-10",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-04-10",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "7bd1daa95978e54d2926a8050140c4bfd2d1390a734770d3a0171219f3b6f50d",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-04-13",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-04-13",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-04-13",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "efb6293f92a6c761718f84dc1fca1a8e0621cd20eb266b715b7a788417e5ff2f",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-04-14",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-04-14",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-04-14",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "2b237690d720ffe88084c08b55abc1fbb44f58d8c3a3ed19f18f854f41a72b6b",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-04-15",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-04-15",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-04-15",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "1706a98f324dd6f868d7d0c92a9831488ffeeb4bb356c0111cec82d6af73b659",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-04-16",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-04-16",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-04-16",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "df4f624e61ded9f2bc6dce42c9277d6be196724c167e14562a58173dc2802ba9",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-04-17",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-04-17",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-04-17",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "45daeeaef11ec6f0202e684d4b7ed8bc9ba02472eedba038bc0ed4827ba20908",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-04-20",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-04-20",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-04-20",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "951b2c083bca31e045663952557bff3eb7fec2c3d97b31fffe9043aca6f46a86",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-04-21",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-04-21",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-04-21",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "a094186f0b8c3ba8e9b7428a7b659df03a136ff3bc5276ddfac92ebd5cda639b",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-04-23",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-04-23",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-04-23",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "a5dafc791077c6ac16f68ddda3e98a019a594427dc16421394f6c0f9377d034b",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-04-24",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-04-24",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-04-24",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "a78af1c97d3248e4e3b2708e67bb79d1fd4463a7b9425e7497770542a625167a",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-04-27",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-04-27",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-04-27",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "2eb48d50a210843dd70992eedd9e3074b31bb046432eda70d411c28d53cee94b",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-04-28",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-04-28",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-04-28",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "a30ab5d28cd3741c880097eff0307422d10d1d38c100e131de41a1500ab66978",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-04-29",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-04-29",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-04-29",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "3ce91cc5a21f135eb2eda6f7ae8f006ac6e937586dde04003f226d9ac80be140",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-04-30",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-04-30",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-04-30",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "68ab003ce8c09745f69510296347e8ccede7d48d6af978ed47664ce961673290",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-05-04",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-05-04",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-05-04",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "7977457997f32b300283600654baa2beea026c386081548b049f86e7c892982d",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-05-08",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-05-08",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-05-08",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    },
+    {
+      "content_sha256": "4948953aa2864272ffb3e1acc789e639bddf4673f2d66e7face4ce689c973e8f",
+      "kind": "pit_membership_page",
+      "method": "GET",
+      "page": 1,
+      "params": {
+        "active": "true",
+        "date": "2026-05-19",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "predecessor_response_sha256": null,
+      "root_query": {
+        "active": "true",
+        "date": "2026-05-19",
+        "limit": 1000,
+        "locale": "us",
+        "market": "stocks",
+        "order": "asc",
+        "sort": "ticker"
+      },
+      "trading_date": "2026-05-19",
+      "url": "https://api.massive.com/v3/reference/tickers"
+    }
+  ],
+  "next_gate": "new tested census transport and full byte/identity/exhaustion verifier; independent durable single-use execution authority; existing subscription entitlement with zero incremental spend",
+  "paid_aggregate_cost_ceiling_usd": null,
+  "paid_capture_enabled": false,
+  "paid_per_request_cost_ceilings_usd": null,
+  "parent_commit": "cc59ca3f98861e98ae5b81335e76c10e5d2cca87",
+  "point_in_time_universe_authenticated": false,
+  "policy_promotion_eligible": false,
+  "provider_calls_authorized_now": 0,
+  "provider_transport_implemented": false,
+  "realized_full_sessions_verified": false,
+  "scheduled_full_session_count": 30,
+  "scheduled_sessions": [
+    {
+      "close": "2026-03-04T16:00:00-05:00",
+      "close_utc": "2026-03-04T21:00:00+00:00",
+      "date": "2026-03-04",
+      "open": "2026-03-04T09:30:00-05:00",
+      "open_utc": "2026-03-04T14:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-03-05T16:00:00-05:00",
+      "close_utc": "2026-03-05T21:00:00+00:00",
+      "date": "2026-03-05",
+      "open": "2026-03-05T09:30:00-05:00",
+      "open_utc": "2026-03-05T14:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-03-06T16:00:00-05:00",
+      "close_utc": "2026-03-06T21:00:00+00:00",
+      "date": "2026-03-06",
+      "open": "2026-03-06T09:30:00-05:00",
+      "open_utc": "2026-03-06T14:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-03-09T16:00:00-04:00",
+      "close_utc": "2026-03-09T20:00:00+00:00",
+      "date": "2026-03-09",
+      "open": "2026-03-09T09:30:00-04:00",
+      "open_utc": "2026-03-09T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-03-10T16:00:00-04:00",
+      "close_utc": "2026-03-10T20:00:00+00:00",
+      "date": "2026-03-10",
+      "open": "2026-03-10T09:30:00-04:00",
+      "open_utc": "2026-03-10T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-03-12T16:00:00-04:00",
+      "close_utc": "2026-03-12T20:00:00+00:00",
+      "date": "2026-03-12",
+      "open": "2026-03-12T09:30:00-04:00",
+      "open_utc": "2026-03-12T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-03-13T16:00:00-04:00",
+      "close_utc": "2026-03-13T20:00:00+00:00",
+      "date": "2026-03-13",
+      "open": "2026-03-13T09:30:00-04:00",
+      "open_utc": "2026-03-13T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-03-18T16:00:00-04:00",
+      "close_utc": "2026-03-18T20:00:00+00:00",
+      "date": "2026-03-18",
+      "open": "2026-03-18T09:30:00-04:00",
+      "open_utc": "2026-03-18T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-03-19T16:00:00-04:00",
+      "close_utc": "2026-03-19T20:00:00+00:00",
+      "date": "2026-03-19",
+      "open": "2026-03-19T09:30:00-04:00",
+      "open_utc": "2026-03-19T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-03-25T16:00:00-04:00",
+      "close_utc": "2026-03-25T20:00:00+00:00",
+      "date": "2026-03-25",
+      "open": "2026-03-25T09:30:00-04:00",
+      "open_utc": "2026-03-25T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-03-30T16:00:00-04:00",
+      "close_utc": "2026-03-30T20:00:00+00:00",
+      "date": "2026-03-30",
+      "open": "2026-03-30T09:30:00-04:00",
+      "open_utc": "2026-03-30T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-04-02T16:00:00-04:00",
+      "close_utc": "2026-04-02T20:00:00+00:00",
+      "date": "2026-04-02",
+      "open": "2026-04-02T09:30:00-04:00",
+      "open_utc": "2026-04-02T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-04-06T16:00:00-04:00",
+      "close_utc": "2026-04-06T20:00:00+00:00",
+      "date": "2026-04-06",
+      "open": "2026-04-06T09:30:00-04:00",
+      "open_utc": "2026-04-06T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-04-10T16:00:00-04:00",
+      "close_utc": "2026-04-10T20:00:00+00:00",
+      "date": "2026-04-10",
+      "open": "2026-04-10T09:30:00-04:00",
+      "open_utc": "2026-04-10T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-04-13T16:00:00-04:00",
+      "close_utc": "2026-04-13T20:00:00+00:00",
+      "date": "2026-04-13",
+      "open": "2026-04-13T09:30:00-04:00",
+      "open_utc": "2026-04-13T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-04-14T16:00:00-04:00",
+      "close_utc": "2026-04-14T20:00:00+00:00",
+      "date": "2026-04-14",
+      "open": "2026-04-14T09:30:00-04:00",
+      "open_utc": "2026-04-14T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-04-15T16:00:00-04:00",
+      "close_utc": "2026-04-15T20:00:00+00:00",
+      "date": "2026-04-15",
+      "open": "2026-04-15T09:30:00-04:00",
+      "open_utc": "2026-04-15T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-04-16T16:00:00-04:00",
+      "close_utc": "2026-04-16T20:00:00+00:00",
+      "date": "2026-04-16",
+      "open": "2026-04-16T09:30:00-04:00",
+      "open_utc": "2026-04-16T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-04-17T16:00:00-04:00",
+      "close_utc": "2026-04-17T20:00:00+00:00",
+      "date": "2026-04-17",
+      "open": "2026-04-17T09:30:00-04:00",
+      "open_utc": "2026-04-17T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-04-20T16:00:00-04:00",
+      "close_utc": "2026-04-20T20:00:00+00:00",
+      "date": "2026-04-20",
+      "open": "2026-04-20T09:30:00-04:00",
+      "open_utc": "2026-04-20T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-04-21T16:00:00-04:00",
+      "close_utc": "2026-04-21T20:00:00+00:00",
+      "date": "2026-04-21",
+      "open": "2026-04-21T09:30:00-04:00",
+      "open_utc": "2026-04-21T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-04-23T16:00:00-04:00",
+      "close_utc": "2026-04-23T20:00:00+00:00",
+      "date": "2026-04-23",
+      "open": "2026-04-23T09:30:00-04:00",
+      "open_utc": "2026-04-23T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-04-24T16:00:00-04:00",
+      "close_utc": "2026-04-24T20:00:00+00:00",
+      "date": "2026-04-24",
+      "open": "2026-04-24T09:30:00-04:00",
+      "open_utc": "2026-04-24T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-04-27T16:00:00-04:00",
+      "close_utc": "2026-04-27T20:00:00+00:00",
+      "date": "2026-04-27",
+      "open": "2026-04-27T09:30:00-04:00",
+      "open_utc": "2026-04-27T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-04-28T16:00:00-04:00",
+      "close_utc": "2026-04-28T20:00:00+00:00",
+      "date": "2026-04-28",
+      "open": "2026-04-28T09:30:00-04:00",
+      "open_utc": "2026-04-28T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-04-29T16:00:00-04:00",
+      "close_utc": "2026-04-29T20:00:00+00:00",
+      "date": "2026-04-29",
+      "open": "2026-04-29T09:30:00-04:00",
+      "open_utc": "2026-04-29T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-04-30T16:00:00-04:00",
+      "close_utc": "2026-04-30T20:00:00+00:00",
+      "date": "2026-04-30",
+      "open": "2026-04-30T09:30:00-04:00",
+      "open_utc": "2026-04-30T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-05-04T16:00:00-04:00",
+      "close_utc": "2026-05-04T20:00:00+00:00",
+      "date": "2026-05-04",
+      "open": "2026-05-04T09:30:00-04:00",
+      "open_utc": "2026-05-04T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-05-08T16:00:00-04:00",
+      "close_utc": "2026-05-08T20:00:00+00:00",
+      "date": "2026-05-08",
+      "open": "2026-05-08T09:30:00-04:00",
+      "open_utc": "2026-05-08T13:30:00+00:00",
+      "scheduled_minutes": 390
+    },
+    {
+      "close": "2026-05-19T16:00:00-04:00",
+      "close_utc": "2026-05-19T20:00:00+00:00",
+      "date": "2026-05-19",
+      "open": "2026-05-19T09:30:00-04:00",
+      "open_utc": "2026-05-19T13:30:00+00:00",
+      "scheduled_minutes": 390
+    }
+  ],
+  "selected_dates": [
+    "2026-03-04",
+    "2026-03-05",
+    "2026-03-06",
+    "2026-03-09",
+    "2026-03-10",
+    "2026-03-12",
+    "2026-03-13",
+    "2026-03-18",
+    "2026-03-19",
+    "2026-03-25",
+    "2026-03-30",
+    "2026-04-02",
+    "2026-04-06",
+    "2026-04-10",
+    "2026-04-13",
+    "2026-04-14",
+    "2026-04-15",
+    "2026-04-16",
+    "2026-04-17",
+    "2026-04-20",
+    "2026-04-21",
+    "2026-04-23",
+    "2026-04-24",
+    "2026-04-27",
+    "2026-04-28",
+    "2026-04-29",
+    "2026-04-30",
+    "2026-05-04",
+    "2026-05-08",
+    "2026-05-19"
+  ],
+  "transcript_records_read": false,
+  "unmaterialized_request_parameters": [
+    "pagination cursors",
+    "PIT identities and symbol batches",
+    "candidate CIKs",
+    "scanner activations",
+    "Micro trigger timestamps",
+    "verified source reuse gaps",
+    "management/exit request union"
+  ]
+}

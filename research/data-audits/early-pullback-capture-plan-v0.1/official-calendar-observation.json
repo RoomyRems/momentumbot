@@ -1,0 +1,80 @@
+{
+  "artifact_type": "manually_verified_official_schedule_projection",
+  "content_sha256": "6f37a2aa5d3e7793f967699e1e9dcc765ff8af11fba60c6dd5bfb60e2c855fdd",
+  "historical_provider_calendar_captured": false,
+  "observed_on_utc_date": "2026-09-12",
+  "provenance_limit": "human-checked public schedule facts; local hash binds this transcription, not independently downloaded website bytes",
+  "raw_http_bodies_retained": false,
+  "raw_http_body_hashes": null,
+  "sources": [
+    {
+      "facts": {
+        "closed_dates": [
+          "2026-01-01",
+          "2026-01-19",
+          "2026-02-16",
+          "2026-04-03",
+          "2026-05-25",
+          "2026-06-19",
+          "2026-07-03",
+          "2026-09-07",
+          "2026-11-26",
+          "2026-12-25"
+        ],
+        "early_close_dates": [
+          "2026-11-27",
+          "2026-12-24"
+        ],
+        "early_close_time": "13:00",
+        "regular_close": "16:00",
+        "regular_open": "09:30",
+        "timezone": "America/New_York",
+        "weekdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "year": 2026
+      },
+      "publisher": "NYSE",
+      "url": "https://www.nyse.com/trade/hours-calendars"
+    },
+    {
+      "facts": {
+        "closed_dates": [
+          "2026-01-01",
+          "2026-01-19",
+          "2026-02-16",
+          "2026-04-03",
+          "2026-05-25",
+          "2026-06-19",
+          "2026-07-03",
+          "2026-09-07",
+          "2026-11-26",
+          "2026-12-25"
+        ],
+        "early_close_dates": [
+          "2026-11-27",
+          "2026-12-24"
+        ],
+        "early_close_time": "13:00",
+        "regular_close": "16:00",
+        "regular_open": "09:30",
+        "timezone": "America/New_York",
+        "weekdays": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "year": 2026
+      },
+      "publisher": "Nasdaq",
+      "url": "https://www.nasdaq.com/market-activity/stock-market-holiday-schedule"
+    }
+  ],
+  "unscheduled_closures_or_security_halts_verified": false
+}

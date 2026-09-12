@@ -1,5 +1,42 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current checkpoint: scheduled calendar and unarmed census planning
+
+The additive child of `cc59ca3f98861e98ae5b81335e76c10e5d2cca87` confirms
+that all 30 unchanged dates are scheduled full equity sessions under the
+official NYSE and Nasdaq calendars checked on 2026-09-12. It preserves both
+source URLs and the manual-transcription limitation: this is not raw website
+provenance, realized-session/halts evidence or a captured provider calendar.
+The March DST change is reflected in exact local/UTC session clocks.
+
+The provider-free plan fixes 31 initial Massive GET envelopes: one current type
+dictionary and all 30 PIT census first pages. The proposed census cap is 601
+HTTP attempts (20 pages/date plus the type call), not an expected count. Pure
+pagination mechanics reject changed filters/routes, cursor cycles, tampering
+and a required twenty-first page. Exhausted empty and unavailable remain
+distinct. No transport, complete-row verifier or capture workflow is armed.
+
+All 14 source dependencies remain explicit. Symbol-specific requests, Micro
+and management/exit windows, complete-capture counts and paid cost ceilings
+are not yet materialized; they must not be represented as known or zero.
+Current provider-call authority remains zero and incremental spend USD 0.00.
+The consumed four-call check, original source/account mechanics, losing parent,
+local baseline replay waiver and offline transcript boundary are unchanged.
+
+All 22 focused tests pass normally and optimized. A completed pandas 3 full
+suite ran 2,625 tests: 2,552 passed, 73 optional SDK skips, zero failures/errors.
+Earlier missing-terminal-log, diagnostic-runner import and native-crash attempts
+are preserved separately, not reclassified as passes. The native crash's cause
+remains unresolved. Registration:
+`a8111ed4eb7a64c76dbeceae51f580680c0e0ecce627402e89db10b94a452ff1`.
+
+Next: tested bounded census transport and independent byte/identity/exhaustion
+verification, followed by a separate exact-parent durable execution record.
+Historical replay and financial comparison remain closed; crucial discretionary
+integration is still outstanding. See the
+[capture-plan record](../research/early_pullback_capture_plan_v01.md) and its
+linked registration, plan, calendar observation and measured test evidence.
+
 ## Current checkpoint: new-panel limited provider availability verified
 
 [Run 34655893791](https://github.com/RoomyRems/momentumbot/actions/runs/34655893791)
