@@ -17,6 +17,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 
 | Task | Open first | Source of truth |
 |---|---|---|
+| Census rejection diagnostic and streamlined delivery | `docs/research/census_payload_diagnostic.md` | one exact request after same-commit full CI, independent durable consumption, safe raw retention, fixed rejection reason and no runtime promotion |
 | Early-pullback consumed census failure and public pricing | `docs/research/early_pullback_census_hosted_v02.md` | verified two-request HTTP-200 payload rejection, unavailable rejected body, permanent consumption, unknown billing and a separate diagnostic gate |
 | Early-pullback census hosted execution safeguards | `docs/research/early_pullback_census_hosted_v01.md` | unarmed sole-file execution launcher, explicit owner approval/entitlement, create-only consumption and independent preflight pin before credential reads |
 | Early-pullback bounded census capture and archive verification | `docs/research/early_pullback_census_v01.md` | unarmed one-pass adapter, 30-date strict exhaustion, raw-byte and sanitized receipt retention, independently pinned archive replay and closed origin/identity/runtime gates |
@@ -129,12 +130,25 @@ Discretionary context is currently a parallel descriptive shadow artifact. It do
 1. Read the current checkpoint and the relevant component document; do not load the whole repository by default.
 2. State the frozen parent, the one hypothesis being tested and the prohibited retrospective inputs.
 3. Make the smallest isolated change and add a deterministic test.
-4. Run the narrow tests, then the full suite before publishing.
+4. Run focused local tests, including optimized-mode checks for new safety gates.
+   Publish the code checkpoint for one authoritative full GitHub CI run. Do not
+   run the entire suite locally as a duplicate prerequisite. No provider job or
+   policy promotion may proceed until CI for its exact code commit passes.
+   Documentation/evidence-only follow-ups do not require another local full suite.
 5. Record the result even when it fails; policy promotion is a separate explicit decision.
 
 ## Local verification
 
+The owner authorized this streamlined process on 2026-09-12. Retain immutable
+failed experiments, exact source/CI/artifact provenance, causal input boundaries,
+credential protection, bounded spending and single-use provider jobs. Reuse
+tested utilities and batch related fixes; do not multiply approval-only commits
+or copy entire launchers when a focused extension suffices. A bounded diagnostic
+under the owner's current continuation authorization may run after same-commit
+CI, without another confirmation turn. New paid subscriptions, expanded datasets
+or financial/live-order authority still require a separate explicit decision.
+
 ```bash
 python -m pip install -e .
-python -m unittest discover -s tests -v
+python -m unittest tests.test_component_being_changed -v
 ```

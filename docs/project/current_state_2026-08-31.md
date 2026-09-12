@@ -1,6 +1,21 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: consumed census payload-validation failure
+## Current checkpoint: bounded rejection diagnostic and streamlined process
+
+The owner authorized continuing and removing unreasonable process overhead on
+September 12. Focused local tests plus one authoritative full GitHub CI run now
+replace duplicate local full-suite runs. The bounded diagnostic may execute in
+the same code checkpoint only after that exact CI succeeds; a separate approval
+and execution-only commit is unnecessary for this explicitly authorized request.
+
+The new diagnostic requests only the original first March 4 ticker page, once,
+with no pagination. It preserves credential-safe JSON before legacy validation
+and reports a fixed rejection reason. All 61 focused checks pass normally and
+optimized. The consumed census, strategy parameters, source dates, risk controls,
+and transcript/runtime separation are unchanged. See
+[diagnostic and process](../research/census_payload_diagnostic.md).
+
+## Preserved checkpoint: consumed census payload-validation failure
 
 The authorized v0.2 census ran once in GitHub run `34703172831`, execution
 `ca88994846062a49a5fad224c06dc31e433323a0`, and stopped after exactly two

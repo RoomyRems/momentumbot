@@ -1,0 +1,130 @@
+name: Bounded census payload diagnostic
+
+on:
+  push:
+    branches: [phase-3-historical-snapshot]
+    paths: [research/strategy/early-pullback-census-diagnostic-v0.1.json]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: census-payload-diagnostic-v01
+  cancel-in-progress: false
+
+jobs:
+  consume:
+    if: github.run_attempt == 1
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      actions: read
+    outputs:
+      artifact_id: ${{ steps.preserve.outputs.artifact-id }}
+      inventory_sha256: ${{ steps.prepare.outputs.inventory_sha256 }}
+    env:
+      PYTHONPATH: src:scripts
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12.14"
+      - name: Install frozen runtime
+        run: |
+          python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-source-v04.txt
+          python -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          python -m pip check
+      - name: Validate bounded authorization and exact code checkout
+        run: python scripts/run_census_payload_diagnostic.py validate --check-launch
+      - name: Wait for and verify full CI on this exact code commit
+        timeout-minutes: 15
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir diagnostic-preflight
+          CI_RUN=""
+          for n in $(seq 1 20); do
+            CI_RUN=$(gh run list --repo RoomyRems/momentumbot --workflow ci.yml --commit "$GITHUB_SHA" --event push --json databaseId --jq '.[0].databaseId // empty')
+            if [ -n "$CI_RUN" ]; then break; fi
+            sleep 3
+          done
+          test -n "$CI_RUN"
+          gh run watch "$CI_RUN" --repo RoomyRems/momentumbot --exit-status --interval 15
+          gh api "repos/RoomyRems/momentumbot/actions/runs/$CI_RUN" > diagnostic-preflight/ci.json
+          gh api "repos/RoomyRems/momentumbot/actions/runs/$CI_RUN/jobs?per_page=100" > diagnostic-preflight/ci-jobs.json
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          from momentumbot.research import census_payload_diagnostic as m
+          m.check_ci(m.base.json_object(Path('diagnostic-preflight/ci.json').read_bytes()), m.base.json_object(Path('diagnostic-preflight/ci-jobs.json').read_bytes()), {'GITHUB_SHA': os.environ['GITHUB_SHA']})
+          PY
+      - name: Create permanent one-use consumption and preflight
+        id: prepare
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method POST repos/RoomyRems/momentumbot/git/refs -f ref=refs/tags/early-pullback-census-diagnostic-v0.1-consumed -f sha="$GITHUB_SHA" > diagnostic-preflight/consumed-ref.json
+          python scripts/run_census_payload_diagnostic.py prepare
+      - name: Retain preflight before credential access
+        id: preserve
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: early-pullback-census-diagnostic-v0.1-consumption-${{ github.run_id }}-${{ github.run_attempt }}
+          path: diagnostic-preflight
+          if-no-files-found: error
+          retention-days: 90
+
+  diagnose:
+    if: github.run_attempt == 1
+    needs: consume
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+    env:
+      PYTHONPATH: src:scripts
+      PYTHONDONTWRITEBYTECODE: "1"
+      DIAGNOSTIC_PREFLIGHT_ARTIFACT_ID: ${{ needs.consume.outputs.artifact_id }}
+      DIAGNOSTIC_PREFLIGHT_SHA256: ${{ needs.consume.outputs.inventory_sha256 }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12.14"
+      - name: Install frozen runtime
+        run: |
+          python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-source-v04.txt
+          python -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          python -m pip check
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          artifact-ids: ${{ needs.consume.outputs.artifact_id }}
+          path: diagnostic-preflight
+          merge-multiple: true
+      - name: Observe exact consumption and retained artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/RoomyRems/momentumbot/git/ref/tags/early-pullback-census-diagnostic-v0.1-consumed > diagnostic-current-ref.json
+          gh api "repos/RoomyRems/momentumbot/actions/artifacts/$DIAGNOSTIC_PREFLIGHT_ARTIFACT_ID" > diagnostic-artifact.json
+      - name: Diagnose exactly one response
+        env:
+          MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
+        run: python scripts/run_census_payload_diagnostic.py capture
+      - name: Preserve diagnostic success or failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: early-pullback-census-diagnostic-v0.1-result-${{ github.run_id }}-${{ github.run_attempt }}
+          path: diagnostic-result
+          if-no-files-found: error
+          retention-days: 90
