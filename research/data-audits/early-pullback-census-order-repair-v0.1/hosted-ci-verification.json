@@ -1,0 +1,62 @@
+{
+  "artifact_type": "census_order_repair_hosted_ci_verification",
+  "brokerage_orders_enabled": false,
+  "ci_conclusion": "success",
+  "ci_job_id": 103613283850,
+  "ci_run_id": 34716020057,
+  "code_commit": "5fac11a900dea3f603442798022870608d358635",
+  "code_tree": "10341888619e5f85a63cd53e69b580f02a668d5e",
+  "compile_succeeded": true,
+  "content_sha256": "bcbb0b6dd3a3d312c1bcc091767d478db65f50f6dc59f1d5a6545e636c64228d",
+  "discretionary_strategy_integrated": false,
+  "elapsed_test_seconds": "418.048",
+  "files": {
+    "ci-jobs.json": {
+      "bytes": 3404,
+      "sha256": "d29480f6169a9f889caf01c676d84f3907ff0916abd3d084e6eb46951e89497f"
+    },
+    "ci-run.json": {
+      "bytes": 13618,
+      "sha256": "db16efde7741a6bbff6e6d19c864121c5c50249d7a105b45f3e0a73cb5b6760d"
+    },
+    "ci.log": {
+      "bytes": 636512,
+      "sha256": "34bd9ede256be6ecbb48319ec4558082c89c710479c55d9d35f17c36f3b5420d"
+    },
+    "focused-optimized.log": {
+      "bytes": 15317,
+      "sha256": "1f6a6daf79728a88eee03989255a47747cd554013b623f125d537693d05b72b3"
+    },
+    "legacy-workflows.json": {
+      "bytes": 124540,
+      "sha256": "11c186e3dc4287250e9129d413e81b6031a61fa4da6b4965a9ddeee729266e6e"
+    }
+  },
+  "financial_evaluation_enabled": false,
+  "focused_local": {
+    "errors": 0,
+    "failures": 0,
+    "normal_seconds": "4.272",
+    "optimized_seconds": "4.480",
+    "tests": 90
+  },
+  "historical_identity_resolved": false,
+  "historical_replay_enabled": false,
+  "hosted_execution_authorized": false,
+  "incremental_spend_authorized_usd": "0.00",
+  "legacy_provider_jobs_all_skipped": true,
+  "legacy_validations_passed": 6,
+  "local_full_suite_rerun": false,
+  "new_repair_tests_passed": 29,
+  "paid_capture_enabled": false,
+  "policy_promotion_eligible": false,
+  "provider_calls_authorized_now": 0,
+  "provider_origin_authenticated": false,
+  "provider_requests_during_repair_verification": 0,
+  "registration_sha256": "260dc6825151d090cb3589fc36c1cfe0cfdfd41c6eaae3e80dbf711bda21d6f4",
+  "skips": "pinned SDK checks covered by dedicated validation workflows",
+  "tests_passed": 2706,
+  "tests_run": 2779,
+  "tests_skipped": 73,
+  "transcript_records_read": false
+}

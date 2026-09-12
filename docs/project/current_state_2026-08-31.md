@@ -10,9 +10,12 @@ and their CI/ref/preflight/member commitments were independently verified.
 
 The additive repair checks exact provider order within and across pages while
 preserving canonical identities, duplicates, metadata and strict cursor rules.
-All 90 focused checks pass normally and optimized; compilation passes. No frozen
-parent or consumed launcher was changed. The full GitHub suite is the single
-authoritative checkpoint for this publication. See
+All 90 focused checks pass normally and optimized. Published repair code
+`5fac11a900dea3f603442798022870608d358635` passed CI `34716020057`:
+2,779 tests, 73 pinned-SDK skips, all 29 new checks passed, and compilation passed.
+All six legacy validations passed with their provider jobs skipped. No frozen
+parent or consumed launcher was changed. The evidence-only follow-up skips
+duplicate CI and cannot authorize execution. See
 [diagnosis, repair and remaining wiring](../research/census_order_repair.md).
 
 This is not a completed 30-date capture: next wire the repaired projection/state

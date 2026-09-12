@@ -46,7 +46,19 @@ actual retained page, both directions of the case-order error, empty-page
 boundaries, duplicate identity, unchanged schema/cursor guards, all 30 dates in
 a synthetic 61-request protocol, and the synthetic 601-request maximum. These
 synthetic checks are not historical market captures. Compilation also passed.
-The authoritative full GitHub suite runs once for this published code checkpoint.
+Code `5fac11a900dea3f603442798022870608d358635` passed the authoritative
+[GitHub CI run](https://github.com/RoomyRems/momentumbot/actions/runs/34716020057):
+2,779 tests in 418.048 seconds, 73 pinned-SDK skips, all 29 new checks passed,
+and successful compilation. All six legacy validations passed; their provider
+jobs were skipped. The original CI log, job/run receipts and verification report
+are retained alongside the repair audit. No provider call occurred in this code
+verification and no duplicate full local suite was run.
+
+The evidence-only follow-up uses GitHub's documented
+[workflow-skip commit directive](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/skip-workflow-runs).
+It changes only documentation and saved CI evidence, not code, tests, workflows,
+registrations or execution authority. This is not a substitute for exact-code CI
+on the next executable change and does not authorize a provider job.
 
 ```bash
 PYTHONPATH=src python scripts/verify_census_order_repair.py
