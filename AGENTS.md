@@ -17,6 +17,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 
 | Task | Open first | Source of truth |
 |---|---|---|
+| Early-pullback census hosted execution safeguards | `docs/research/early_pullback_census_hosted_v01.md` | unarmed sole-file execution launcher, explicit owner approval/entitlement, create-only consumption and independent preflight pin before credential reads |
 | Early-pullback bounded census capture and archive verification | `docs/research/early_pullback_census_v01.md` | unarmed one-pass adapter, 30-date strict exhaustion, raw-byte and sanitized receipt retention, independently pinned archive replay and closed origin/identity/runtime gates |
 | Early-pullback scheduled calendar and capture planning | `docs/research/early_pullback_capture_plan_v01.md` | official scheduled-session projection, unarmed 31-root / 601-maximum census plan, strict pagination mechanics and explicit unresolved complete-capture/cost gates |
 | Early-pullback provider availability and transport provenance | `docs/research/early_pullback_provider_check_v01.md` | exact four requests, tested sole-file execution child, durable consumption before credentials, bounded sanitized receipts and explicit remaining historical source gates |

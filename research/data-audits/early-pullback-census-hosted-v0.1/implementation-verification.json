@@ -1,0 +1,92 @@
+{
+  "actual_provider_requests": 0,
+  "artifact_type": "local_launcher_implementation_verification",
+  "bound_files": 367,
+  "brokerage_orders_enabled": false,
+  "checks": {
+    "focused": {
+      "discovered": 66,
+      "elapsed_seconds": 5.631174768001074,
+      "errors": 0,
+      "expected_failures": 0,
+      "failures": 0,
+      "numpy": "2.3.5",
+      "optimize": 0,
+      "pandas": "2.2.3",
+      "phase": "focused",
+      "skips": 0,
+      "successful": true,
+      "tests_run": 66,
+      "unexpected_successes": 0
+    },
+    "full": {
+      "discovered": 2691,
+      "elapsed_seconds": 372.57175246100815,
+      "errors": 0,
+      "expected_failures": 0,
+      "failures": 0,
+      "numpy": "2.5.3",
+      "optimize": 0,
+      "pandas": "3.0.5",
+      "phase": "full-retry",
+      "skips": 73,
+      "successful": true,
+      "tests_run": 2691,
+      "unexpected_successes": 0
+    },
+    "optimized": {
+      "discovered": 66,
+      "elapsed_seconds": 6.714277827995829,
+      "errors": 0,
+      "expected_failures": 0,
+      "failures": 0,
+      "numpy": "2.5.3",
+      "optimize": 1,
+      "pandas": "3.0.5",
+      "phase": "optimized",
+      "skips": 0,
+      "successful": true,
+      "tests_run": 66,
+      "unexpected_successes": 0
+    }
+  },
+  "content_sha256": "35a1111270dede72ac92fda27211a474b3a5e36b67a18fb81a50ba08677695e4",
+  "contract_id": "early-pullback-census-hosted-v0.1",
+  "discretionary_strategy_integrated": false,
+  "execution_file_present": false,
+  "financial_evaluation_enabled": false,
+  "historical_baseline_replayed": false,
+  "historical_identity_resolved": false,
+  "historical_replay_enabled": false,
+  "hosted_ci_status": "not yet run; separate evidence follows",
+  "hosted_execution_authorized": false,
+  "incremental_spend_authorized_usd": "0.00",
+  "logs": {
+    "focused": {
+      "compressed_bytes": 1933,
+      "compressed_sha256": "d93494f073f2ffc3a07345c91817df2c26472d18bae53565b2ddb7bd127dd13a",
+      "raw_bytes": 11155,
+      "raw_sha256": "8d60a441d39e59b2cda1f883e10d619b853a92efa5ffbe69d7e9fc536859c482"
+    },
+    "full": {
+      "compressed_bytes": 63522,
+      "compressed_sha256": "100801b500e923d9180cdaedfe684aea9b77959ef30439b00bab705cb88ed7b5",
+      "raw_bytes": 512547,
+      "raw_sha256": "c67473c82d64c90160f35497f8cf7f2e8bd6ee2eaba6e37ab3bd3911a048067a"
+    },
+    "optimized": {
+      "compressed_bytes": 1932,
+      "compressed_sha256": "59b01ac7d6d0d5ce5a7c385c42b2394bf37bc7514716866b5a83b9b52d249a4e",
+      "raw_bytes": 11155,
+      "raw_sha256": "5a2da889dccafcda8b7f34a1f7fea2fab771829e1d28a6dac00758884fdce606"
+    }
+  },
+  "paid_capture_enabled": false,
+  "policy_promotion_eligible": false,
+  "provider_calls_authorized_now": 0,
+  "provider_origin_authenticated": false,
+  "registration_sha256": "a211bc565d25118675545b248d077050fa10e16fcb7f4f509518b85b35c915c0",
+  "synthetic_verification_sha256": "ca9d0541bf9978245c935567df4cb86d88d07f2cafc7289beea315f92e459498",
+  "transcript_records_read": false,
+  "verification_tools_sha256": "794d26e439e7291ed5d73c2d62698596ac7af322b1c3135c4e3a8b5e0efba5c8"
+}

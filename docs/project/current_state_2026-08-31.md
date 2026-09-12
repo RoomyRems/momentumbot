@@ -1,6 +1,33 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: unarmed bounded census adapter
+## Current checkpoint: unarmed census hosted launcher
+
+The additive child of `242e5e6516339658216269dbf85cb0590acedda0` adds
+exact-parent, first-attempt, single-use execution safeguards around the unchanged
+census adapter. Explicit time-limited owner approval and existing-subscription
+attestation, all code-parent CI steps, permanent ref consumption, uploaded
+preflight byte commitments and frozen runtime must validate before key access.
+There is no execution file, no new consumed ref and no provider capture.
+
+All 66 focused tests pass normally and optimized, including 30 new launcher
+tests. Registration:
+`a211bc565d25118675545b248d077050fa10e16fcb7f4f509518b85b35c915c0`.
+See [hosted launcher](../research/early_pullback_census_hosted_v01.md).
+
+The completed full retry ran all 2,691 tests: 2,618 passed, 73 optional SDK
+skips, zero failures/errors. The first local attempt stopped advancing at an
+existing parent registration test and was interrupted; its cause is unisolated
+and its log/source are preserved, not counted as a pass. A saved synthetic
+launch verified nine preflight files and all 127 capture members. Local audit:
+`35a1111270dede72ac92fda27211a474b3a5e36b67a18fb81a50ba08677695e4`.
+
+Next requires explicit owner approval for at most 601 requests and confirmation
+that the existing Massive subscription covers the fixed 30 historical dates
+and endpoints with no incremental charge. Owner attestation is not provider
+verification. Historical replay, financial evaluation and crucial discretionary
+integration remain unopened; no transcript records or baseline replay were used.
+
+## Preserved checkpoint: unarmed bounded census adapter
 
 The additive child of `a1bdf9711183937cb55d539a3514606c77db07d6` implements
 one-pass census transport mechanics and complete-archive byte replay for the

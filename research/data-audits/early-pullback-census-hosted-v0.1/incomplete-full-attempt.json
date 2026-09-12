@@ -1,0 +1,15 @@
+{
+  "artifact_type": "incomplete_local_verification_attempt",
+  "registration_sha256": "a211bc565d25118675545b248d077050fa10e16fcb7f4f509518b85b35c915c0",
+  "discovered": 2691,
+  "pandas": "3.0.5",
+  "numpy": "2.5.3",
+  "terminal_summary_present": false,
+  "successful": false,
+  "last_test": "test_early_pullback_capture_plan_v01.CapturePlanTests.test_frozen_parent_and_registration",
+  "observation": "Log stopped advancing at an existing parent test while the process remained CPU-active, before new launcher tests. The same test passed alone in 0.372 seconds. Cause remains unisolated.",
+  "termination": "Controlled session interrupt returned exit code 130; the incomplete log and original runner are archived.",
+  "next_attempt": "Fresh identical source/dependency full-suite process with a 900-second watchdog and separate receipts. No tests or strategies changed.",
+  "historical_baseline_replayed": false,
+  "actual_provider_requests": 0
+}
