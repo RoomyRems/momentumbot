@@ -61,9 +61,24 @@ tampering, missing/skipped CI evidence, wrong artifact/ref/runtime and output
 reuse. The saved provider page is used only as an offline parser fixture; the
 synthetic archive is not historical market evidence.
 
-The authoritative full suite will run once on publication. The capture workflow
-waits for that exact CI, and the separate verification job follows successful
-capture automatically. Original artifacts and any failures must be preserved.
+Published code `03856c714ab8a819439808622483dc7294da46e2` passed
+[full CI 34718443340](https://github.com/RoomyRems/momentumbot/actions/runs/34718443340):
+2,816 tests in 426.973 seconds, 73 SDK skips, all 37 new integration tests passed,
+and successful compilation. No duplicate local full suite ran.
+
+[Capture run 34718443422](https://github.com/RoomyRems/momentumbot/actions/runs/34718443422)
+is in progress, attempt 1, on that exact code. The permanent consumption ref
+points to the code commit. Original preflight artifact `10305017350` is 6,320
+bytes, ZIP SHA-256 `08b3e8b0138ee7672b8985ffd0c0addb3248fe17cf2ec3e1a13785c491afda38`.
+Its original ZIP, file commitments, CI/ref/runtime and creation-before-capture
+chronology were independently verified. The capture step is active; request and
+completed-date totals remain unreported until retained results are available.
+
+The separate verification job follows successful capture automatically. This
+checkpoint records an active launch, not a completed census. Check this existing
+run and its artifacts on continuation; do not rerun, dispatch or reuse its ref.
+The evidence-only follow-up skips duplicate CI and changes no executable files.
+Original artifacts and any failures must be preserved.
 Successful census verification proves this capture protocol and its provenance;
 it does not resolve all historical identities or establish financial performance.
 Discretionary integration remains an essential unfinished part of the hybrid.

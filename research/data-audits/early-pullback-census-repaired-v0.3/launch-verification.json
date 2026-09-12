@@ -1,0 +1,89 @@
+{
+  "artifact_type": "repaired_census_verified_launch_observation",
+  "automatic_archive_verification": "configured; waits for successful capture",
+  "brokerage_orders_enabled": false,
+  "capture_job_id": 103620720483,
+  "capture_state": "in_progress",
+  "capture_workflow_run_id": 34718443422,
+  "ci_conclusion": "success",
+  "ci_job_id": 103619752761,
+  "ci_run_id": 34718443340,
+  "code_commit": "03856c714ab8a819439808622483dc7294da46e2",
+  "code_tree": "022e171e0dc45c49432ecc92fc1143d717aaec56",
+  "compile_succeeded": true,
+  "complete_capture_verified": false,
+  "completed_date_count": null,
+  "consumption_commit": "03856c714ab8a819439808622483dc7294da46e2",
+  "consumption_ref": "refs/tags/early-pullback-census-repaired-v0.3-consumed",
+  "content_sha256": "da9dc1894028d7446369c6f6858b3a2f59c15cf9c5824bd61ee06d599fa5c9cc",
+  "discretionary_strategy_integrated": false,
+  "files": {
+    "ci-jobs.json": {
+      "bytes": 3404,
+      "sha256": "d3f8e8bc119eed2c809b5e803607ca9d07454174caa700bd5e658a762bd0f0e3"
+    },
+    "ci-run.json": {
+      "bytes": 13632,
+      "sha256": "aa0380ce6282e783de13f151260d85844d5460b2a03a821327b183f78159bac6"
+    },
+    "ci.log": {
+      "bytes": 643611,
+      "sha256": "549fadf307e0cedc17628d247519e5030dbbe0469a0108ec9701a87bd2c77758"
+    },
+    "consume.log": {
+      "bytes": 52120,
+      "sha256": "dab4f4716c5fb97951da29dd84f72e0e4ed6fd55f7b880f9265dc4af9a72b44a"
+    },
+    "consumed-ref.json": {
+      "bytes": 512,
+      "sha256": "ef8671f66a9537153f05a3756ddbad400441353610e387a7f49aaeaa54afb08e"
+    },
+    "focused-optimized.log": {
+      "bytes": 11240,
+      "sha256": "f6da71f563d3c7864f7d700807c9913306a344d0e3f10655491d4a12094d7c50"
+    },
+    "hosted-preflight.zip": {
+      "bytes": 6320,
+      "sha256": "08b3e8b0138ee7672b8985ffd0c0addb3248fe17cf2ec3e1a13785c491afda38"
+    },
+    "launch-artifacts-observation.json": {
+      "bytes": 960,
+      "sha256": "7af17bc218b298fa381fbbf265f40cb27268c407c01fe6fc06e0acd84aeb232b"
+    },
+    "launch-jobs-observation.json": {
+      "bytes": 8192,
+      "sha256": "e88f4066cc572d93c120eb4994398bbe79ad841a1e8a53b2fc05c275952cdfb6"
+    },
+    "launch-run-observation.json": {
+      "bytes": 13677,
+      "sha256": "370d2274692198abd3b254b42c5046b4a87a89bdca5ad49127cfc4c9c1ab5cf0"
+    }
+  },
+  "financial_evaluation_enabled": false,
+  "focused_normal_seconds": "6.276",
+  "focused_optimized_seconds": "6.655",
+  "focused_tests": 66,
+  "full_local_suite_rerun": false,
+  "historical_identity_resolved": false,
+  "historical_replay_enabled": false,
+  "hosted_execution_authorized": false,
+  "incremental_spend_authorized_usd": "0.00",
+  "new_integration_tests_passed": 37,
+  "observed_at": "2026-09-12T21:05:18.995029+00:00",
+  "paid_capture_enabled": false,
+  "policy_promotion_eligible": false,
+  "preflight_artifact_id": 10305017350,
+  "preflight_inventory_file_sha256": "cf8cff41befebaecf6ef262a7bc0162d6674a3a294ebc38a09702e40586ebbe9",
+  "preflight_pin_basis": "independently downloaded GitHub artifact ZIP digest; active consumer environment not yet observed",
+  "preflight_precedes_capture_job": true,
+  "preflight_zip_bytes": 6320,
+  "preflight_zip_sha256": "08b3e8b0138ee7672b8985ffd0c0addb3248fe17cf2ec3e1a13785c491afda38",
+  "provider_attempt_count": null,
+  "provider_calls_authorized_now": 0,
+  "provider_origin_authenticated": false,
+  "registration_sha256": "06110e27a31a130e6b52605fe9e5b290dda545f81b1757101741629eed2aee39",
+  "tests_passed": 2743,
+  "tests_run": 2816,
+  "tests_skipped": 73,
+  "transcript_records_read": false
+}

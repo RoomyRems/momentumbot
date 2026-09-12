@@ -2,7 +2,16 @@
 
 ## Current checkpoint: integrated repaired collector and automatic verification
 
-The owner authorized the collector/verifier/census continuation. The new collector
+The owner authorized the collector/verifier/census continuation. Published code
+`03856c714ab8a819439808622483dc7294da46e2` passed CI `34718443340`:
+2,816 tests, 73 SDK skips, all 37 new integration tests passed, compilation passed.
+Capture run `34718443422` is active on that exact code, attempt 1. Permanent
+consumption and original preflight artifact `10305017350` were independently
+verified. The separate archive-verification job follows successful capture
+automatically. Check this existing run on continuation; do not rerun or reuse its
+consumed ref. Complete capture and final date/request totals are not yet verified.
+
+The new collector
 and independent archive reader both use the frozen provider-order repair. All 66
 focused tests pass normally and optimized, including 37 new integration/gate
 tests; compilation passes. The same-code workflow waits for full CI, permanently
