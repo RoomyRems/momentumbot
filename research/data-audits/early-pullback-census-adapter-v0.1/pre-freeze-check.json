@@ -1,0 +1,16 @@
+{
+  "artifact_type": "development_check_record",
+  "command": "PYTHONPATH=.:src:scripts python -m unittest discover -s tests -p test_early_pullback_census_v01.py -v",
+  "tests_run": 35,
+  "passed": 33,
+  "failures": 1,
+  "errors": 1,
+  "elapsed_seconds": 2.762,
+  "failure_test": "CensusTests.test_cli_offline_validation_and_no_capture_mode",
+  "error_test": "CensusTests.test_frozen_parent_and_registration",
+  "observed_cause": "Both depended on the new registration JSON, which had not yet been written; FileNotFoundError was visible in both tracebacks.",
+  "status": "failed development check, not a final verification pass",
+  "subsequent_changes": "Added decoded-JSON credential-echo protection and its separate regression test; then wrote the first frozen registration. No ancestor or strategy rules changed.",
+  "provider_requests": 0,
+  "transcript_records_read": false
+}

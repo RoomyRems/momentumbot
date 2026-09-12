@@ -1,6 +1,26 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: scheduled calendar and unarmed census planning
+## Current checkpoint: unarmed bounded census adapter
+
+The additive child of `a1bdf9711183937cb55d539a3514606c77db07d6` implements
+one-pass census transport mechanics and complete-archive byte replay for the
+unchanged 30-date plan. It retains ambiguous/missing identifiers, checks exact
+pagination and stops on failure without retry. All 36 focused tests pass normally
+and optimized, including a synthetic 601-attempt cap case. Registration:
+`1203e49170a69c5c6eb725b77aca997a61872379c69bece4bead42a7ec6a73a7`.
+
+The completed local full suite ran 2,661 tests: 2,588 passed, 73 optional SDK
+skips, zero failures/errors. A saved synthetic ZIP independently verified all
+127 members. Its fake observations establish mechanics only, not market data.
+
+No provider requests, new historical baseline replay, paid capture or transcript
+reads occurred. There is no hosted launcher or consumption authority. Synthetic
+archive completeness cannot establish provider origin, historical identity or
+financial readiness. Next is a separately tested exact-parent hosted launcher,
+single-use consumption and verified subscription entitlement, not an automatic
+capture run. See [census adapter](../research/early_pullback_census_v01.md).
+
+## Preserved checkpoint: scheduled calendar and unarmed census planning
 
 The additive child of `cc59ca3f98861e98ae5b81335e76c10e5d2cca87` confirms
 that all 30 unchanged dates are scheduled full equity sessions under the
