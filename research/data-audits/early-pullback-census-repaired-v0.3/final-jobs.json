@@ -1,0 +1,353 @@
+{
+  "jobs": [
+    {
+      "check_run_url": "https://api.github.com/repos/RoomyRems/momentumbot/check-runs/103619754703",
+      "completed_at": "2026-09-12T21:02:17Z",
+      "conclusion": "success",
+      "created_at": "2026-09-12T20:54:34Z",
+      "head_branch": "phase-3-historical-snapshot",
+      "head_sha": "03856c714ab8a819439808622483dc7294da46e2",
+      "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34718443422/job/103619754703",
+      "id": 103619754703,
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "name": "consume",
+      "node_id": "CR_kwDOT2ZKuc8AAAAYIDf6zw",
+      "run_attempt": 1,
+      "run_id": 34718443422,
+      "run_url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/runs/34718443422",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions",
+      "runner_id": 1000001681,
+      "runner_name": "GitHub Actions 1000001681",
+      "started_at": "2026-09-12T20:54:36Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completed_at": "2026-09-12T20:54:37Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "started_at": "2026-09-12T20:54:37Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T20:54:40Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 2,
+          "started_at": "2026-09-12T20:54:38Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T20:54:40Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+          "number": 3,
+          "started_at": "2026-09-12T20:54:40Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T20:54:51Z",
+          "conclusion": "success",
+          "name": "Install frozen runtime",
+          "number": 4,
+          "started_at": "2026-09-12T20:54:40Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T20:54:52Z",
+          "conclusion": "success",
+          "name": "Validate exact code and authorization",
+          "number": 5,
+          "started_at": "2026-09-12T20:54:51Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T21:02:11Z",
+          "conclusion": "success",
+          "name": "Wait for and verify full CI on this exact code commit",
+          "number": 6,
+          "started_at": "2026-09-12T20:54:52Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T21:02:13Z",
+          "conclusion": "success",
+          "name": "Create permanent consumption and preflight",
+          "number": 7,
+          "started_at": "2026-09-12T21:02:11Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T21:02:14Z",
+          "conclusion": "success",
+          "name": "Preserve independent preflight",
+          "number": 8,
+          "started_at": "2026-09-12T21:02:13Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T21:02:14Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+          "number": 15,
+          "started_at": "2026-09-12T21:02:14Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T21:02:15Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 16,
+          "started_at": "2026-09-12T21:02:14Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T21:02:15Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 17,
+          "started_at": "2026-09-12T21:02:15Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/jobs/103619754703",
+      "workflow_name": "Repaired bounded census capture"
+    },
+    {
+      "check_run_url": "https://api.github.com/repos/RoomyRems/momentumbot/check-runs/103620720483",
+      "completed_at": "2026-09-12T22:23:59Z",
+      "conclusion": "success",
+      "created_at": "2026-09-12T21:02:17Z",
+      "head_branch": "phase-3-historical-snapshot",
+      "head_sha": "03856c714ab8a819439808622483dc7294da46e2",
+      "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34718443422/job/103620720483",
+      "id": 103620720483,
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "name": "capture",
+      "node_id": "CR_kwDOT2ZKuc8AAAAYIEa3Yw",
+      "run_attempt": 1,
+      "run_id": 34718443422,
+      "run_url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/runs/34718443422",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions",
+      "runner_id": 1000001683,
+      "runner_name": "GitHub Actions 1000001683",
+      "started_at": "2026-09-12T21:02:20Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completed_at": "2026-09-12T21:02:21Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "started_at": "2026-09-12T21:02:20Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T21:02:23Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 2,
+          "started_at": "2026-09-12T21:02:21Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T21:02:23Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+          "number": 3,
+          "started_at": "2026-09-12T21:02:23Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T21:02:34Z",
+          "conclusion": "success",
+          "name": "Install frozen runtime",
+          "number": 4,
+          "started_at": "2026-09-12T21:02:23Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T21:02:35Z",
+          "conclusion": "success",
+          "name": "Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093",
+          "number": 5,
+          "started_at": "2026-09-12T21:02:34Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T21:02:35Z",
+          "conclusion": "success",
+          "name": "Observe independent consumption and artifact",
+          "number": 6,
+          "started_at": "2026-09-12T21:02:35Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T22:23:52Z",
+          "conclusion": "success",
+          "name": "Capture fixed census once",
+          "number": 7,
+          "started_at": "2026-09-12T21:02:35Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T22:23:53Z",
+          "conclusion": "success",
+          "name": "Preserve launch success or failure",
+          "number": 8,
+          "started_at": "2026-09-12T22:23:52Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T22:23:58Z",
+          "conclusion": "success",
+          "name": "Preserve original census success or failure",
+          "number": 9,
+          "started_at": "2026-09-12T22:23:53Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T22:23:58Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+          "number": 17,
+          "started_at": "2026-09-12T22:23:58Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T22:23:58Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 18,
+          "started_at": "2026-09-12T22:23:58Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T22:23:58Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 19,
+          "started_at": "2026-09-12T22:23:58Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/jobs/103620720483",
+      "workflow_name": "Repaired bounded census capture"
+    },
+    {
+      "check_run_url": "https://api.github.com/repos/RoomyRems/momentumbot/check-runs/103631189557",
+      "completed_at": "2026-09-12T22:24:36Z",
+      "conclusion": "success",
+      "created_at": "2026-09-12T22:24:00Z",
+      "head_branch": "phase-3-historical-snapshot",
+      "head_sha": "03856c714ab8a819439808622483dc7294da46e2",
+      "html_url": "https://github.com/RoomyRems/momentumbot/actions/runs/34718443422/job/103631189557",
+      "id": 103631189557,
+      "labels": [
+        "ubuntu-24.04"
+      ],
+      "name": "verify",
+      "node_id": "CR_kwDOT2ZKuc8AAAAYIOZ2NQ",
+      "run_attempt": 1,
+      "run_id": 34718443422,
+      "run_url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/runs/34718443422",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions",
+      "runner_id": 1000001686,
+      "runner_name": "GitHub Actions 1000001686",
+      "started_at": "2026-09-12T22:24:02Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completed_at": "2026-09-12T22:24:04Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "started_at": "2026-09-12T22:24:03Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T22:24:06Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 2,
+          "started_at": "2026-09-12T22:24:04Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T22:24:06Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+          "number": 3,
+          "started_at": "2026-09-12T22:24:06Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T22:24:15Z",
+          "conclusion": "success",
+          "name": "Install frozen runtime",
+          "number": 4,
+          "started_at": "2026-09-12T22:24:06Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T22:24:20Z",
+          "conclusion": "success",
+          "name": "Fetch original artifacts and independent metadata",
+          "number": 5,
+          "started_at": "2026-09-12T22:24:15Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T22:24:33Z",
+          "conclusion": "success",
+          "name": "Verify every raw page without provider credentials",
+          "number": 6,
+          "started_at": "2026-09-12T22:24:20Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T22:24:34Z",
+          "conclusion": "success",
+          "name": "Preserve independent verification",
+          "number": 7,
+          "started_at": "2026-09-12T22:24:33Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T22:24:34Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38",
+          "number": 13,
+          "started_at": "2026-09-12T22:24:34Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T22:24:34Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "number": 14,
+          "started_at": "2026-09-12T22:24:34Z",
+          "status": "completed"
+        },
+        {
+          "completed_at": "2026-09-12T22:24:34Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 15,
+          "started_at": "2026-09-12T22:24:34Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://api.github.com/repos/RoomyRems/momentumbot/actions/jobs/103631189557",
+      "workflow_name": "Repaired bounded census capture"
+    }
+  ],
+  "total_count": 3
+}

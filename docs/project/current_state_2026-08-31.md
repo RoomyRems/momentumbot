@@ -1,30 +1,38 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: integrated repaired collector and automatic verification
+## Current checkpoint: completed and independently verified 30-date census
 
-The owner authorized the collector/verifier/census continuation. Published code
-`03856c714ab8a819439808622483dc7294da46e2` passed CI `34718443340`:
-2,816 tests, 73 SDK skips, all 37 new integration tests passed, compilation passed.
-Capture run `34718443422` is active on that exact code, attempt 1. Permanent
-consumption and original preflight artifact `10305017350` were independently
-verified. The separate archive-verification job follows successful capture
-automatically. Check this existing run on continuation; do not rerun or reuse its
-consumed ref. Complete capture and final date/request totals are not yet verified.
+Checked September 13: capture run `34718443422` completed successfully on
+September 12 at 22:24:37 UTC. All three jobs and every step passed on code
+`03856c714ab8a819439808622483dc7294da46e2`, attempt 1. Exact-code CI
+`34718443340` had already passed 2,816 tests with 73 SDK skips and compilation.
 
-The new collector
-and independent archive reader both use the frozen provider-order repair. All 66
-focused tests pass normally and optimized, including 37 new integration/gate
-tests; compilation passes. The same-code workflow waits for full CI, permanently
-consumes a fresh authorization, captures the fixed census once, and automatically
-verifies the original ZIPs in a separate job without provider credentials.
+All 30 registered dates exhausted pagination: 390 membership pages, 373,710 rows
+across dates, and 391 complete HTTP-200 requests including the 24-row type
+dictionary. No retries occurred. Capture transport took 81 minutes 15 seconds;
+the independent verifier replayed all 1,567 original archive members and passed,
+without provider requests. This check confirmed all original ZIP digests,
+independent inventory pins, result/launch seals and final receipt/date totals.
+It did not duplicate the hosted full replay, CI or provider job.
 
-Scope remains 30 dates, at most 601 requests, no retries, 20 pages per date,
-12.5-second minimum spacing, and no subscription changes. Safe rejected JSON is
-retained before parsing. No transcripts, policy tuning, historical replay or
-financial evaluation are involved. At the maximum request count, pacing alone
-takes about 125 minutes; GitHub performs the capture and verification independently.
-See [integrated capture](../research/census_repaired_capture.md). No completed
-historical census is claimed before terminal artifact verification succeeds.
+The sealed hosted verification is
+`ce60ba0657ac1f0706afea4476f2ecbf48e08a99414dd30997e3e49ae8dbab07`.
+Final metadata, logs, small original ZIPs and completion evidence are in
+`research/data-audits/early-pullback-census-repaired-v0.3/`; prior active-launch
+and failed-parent evidence is preserved. Original capture artifact `10306971164`
+is 30,807,928 bytes, SHA-256
+`38d772b2017c159050c4cef2a678a79af1fd61f243e8131f5112d1ef25b09ded`,
+and currently expires December 11, 2026 at 20:54:33 UTC. Preserve that exact raw
+source before expiration when integrating historical inputs. No retention beyond
+that date is claimed. The permanent consumption ref is unchanged; do not rerun it.
+
+Next use this frozen capture for historical identity and scanner-input integration.
+Two canonical ticker collision groups per date, missing CIK/FIGI metadata and
+one missing type code remain explicit unresolved inputs. The current dictionary
+does not prove historical identity. No transcripts, policy tuning, financial
+evaluation or historical market replay were used. Discretionary integration
+remains essential unfinished hybrid work. Actual billing remains unverified.
+See [completed capture and evidence](../research/census_repaired_capture.md).
 
 ## Preserved checkpoint: verified provider-order fault and offline repair
 

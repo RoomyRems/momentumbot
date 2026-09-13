@@ -67,18 +67,65 @@ Published code `03856c714ab8a819439808622483dc7294da46e2` passed
 and successful compilation. No duplicate local full suite ran.
 
 [Capture run 34718443422](https://github.com/RoomyRems/momentumbot/actions/runs/34718443422)
-is in progress, attempt 1, on that exact code. The permanent consumption ref
-points to the code commit. Original preflight artifact `10305017350` is 6,320
-bytes, ZIP SHA-256 `08b3e8b0138ee7672b8985ffd0c0addb3248fe17cf2ec3e1a13785c491afda38`.
-Its original ZIP, file commitments, CI/ref/runtime and creation-before-capture
-chronology were independently verified. The capture step is active; request and
-completed-date totals remain unreported until retained results are available.
+completed successfully at **2026-09-12 22:24:37 UTC**, attempt 1, on that exact
+code. All three jobs and every step passed. The consumption ref still points to
+the code commit. The previous active-launch observations remain in the audit
+directory alongside the new terminal observations.
 
-The separate verification job follows successful capture automatically. This
-checkpoint records an active launch, not a completed census. Check this existing
-run and its artifacts on continuation; do not rerun, dispatch or reuse its ref.
-The evidence-only follow-up skips duplicate CI and changes no executable files.
-Original artifacts and any failures must be preserved.
-Successful census verification proves this capture protocol and its provenance;
-it does not resolve all historical identities or establish financial performance.
-Discretionary integration remains an essential unfinished part of the hybrid.
+| Verified result | Count |
+|---|---:|
+| Registered dates fully exhausted | 30 / 30 |
+| Membership pages | 390 (13 per date) |
+| Membership rows across dates | 373,710 |
+| Requests, all complete HTTP 200 | 391 / 601 maximum |
+| Current type dictionary | 1 request, 24 rows |
+| Retries | 0 |
+| Independently verified archive members | 1,567 |
+
+The membership count includes repeated securities on different dates; it is not
+a unique-security count. Transport took 81 minutes 15.204 seconds, with a minimum
+observed request-start interval of 12.500087837 seconds. The whole workflow,
+including its same-code CI wait, completed in 90 minutes 4 seconds.
+
+The separate verifier replayed every original raw page and checked normalized
+bytes, intent/receipt chains, pacing, terminal pagination, GitHub provenance and
+the independently supplied inventory pin. Verification made zero provider
+requests. Its sealed result is
+`ce60ba0657ac1f0706afea4476f2ecbf48e08a99414dd30997e3e49ae8dbab07`.
+The September 13 status check downloaded all four original artifacts, confirmed
+their GitHub byte sizes/digests, verified result/link seals and independent pins,
+and checked retained receipt and date totals. It reused the successful hosted
+protocol replay; no duplicate full replay, CI run or provider capture was started.
+
+| Original GitHub artifact | ID | ZIP bytes |
+|---|---:|---:|
+| Consumption/preflight | 10305017350 | 6,320 |
+| Launch | 10307150746 | 7,915 |
+| Capture | 10306971164 | 30,807,928 |
+| Verification | 10306378431 | 6,445 |
+
+The original capture ZIP SHA-256 is
+`38d772b2017c159050c4cef2a678a79af1fd61f243e8131f5112d1ef25b09ded`;
+its inventory file SHA-256 is
+`493e15337421d777f1fa210716478d88f0ca9765d1c526719575435c6434d05b`.
+The raw ZIP remains GitHub artifact `10306971164`, currently expiring
+**2026-12-11 20:54:33 UTC**; it is not committed to git and longer retention is
+not claimed. Preserve that exact source before expiration when integrating the
+historical inputs. Small original ZIPs, logs, final GitHub metadata, capture report
+and sealed completion observation are retained under
+`research/data-audits/early-pullback-census-repaired-v0.3/`.
+
+## Remaining integration work
+
+Capture completeness is established. Historical security identity still requires
+resolution before scanner/replay admission: each date has two canonical ticker
+collision groups, and rows have missing CIK/FIGI fields. March 6 also has one
+missing type code. These records remain explicit; they were not silently merged
+or assigned identities. The current type dictionary is not historical identity
+proof. Actual billing remains unverified.
+
+Use the frozen capture for identity and scanner-input integration next. Do not
+rerun, dispatch or reuse the consumed census authorization. This evidence-only
+follow-up uses `[skip ci]` and changes no executable or registered files.
+Successful capture does not establish financial performance or complete the
+hybrid strategy; crucial discretionary integration remains unfinished.

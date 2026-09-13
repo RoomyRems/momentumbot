@@ -1,0 +1,305 @@
+﻿2026-09-12T22:24:03.4110819Z Current runner version: '2.337.0'
+2026-09-12T22:24:03.4136081Z ##[group]Runner Image Provisioner
+2026-09-12T22:24:03.4136941Z Hosted Compute Agent
+2026-09-12T22:24:03.4137448Z Version: 20260828.587
+2026-09-12T22:24:03.4138026Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-12T22:24:03.4138729Z Build Date: 2026-08-28T16:44:25Z
+2026-09-12T22:24:03.4139311Z Worker ID: {b409d31d-4239-4c2a-9d36-96046eceea61}
+2026-09-12T22:24:03.4139982Z Azure Region: westus2
+2026-09-12T22:24:03.4140490Z ##[endgroup]
+2026-09-12T22:24:03.4141966Z ##[group]Operating System
+2026-09-12T22:24:03.4142830Z Ubuntu
+2026-09-12T22:24:03.4143316Z 24.04.5
+2026-09-12T22:24:03.4144169Z LTS
+2026-09-12T22:24:03.4144670Z ##[endgroup]
+2026-09-12T22:24:03.4145144Z ##[group]Runner Image
+2026-09-12T22:24:03.4145796Z Image: ubuntu-24.04
+2026-09-12T22:24:03.4146286Z Version: 20260907.300.1
+2026-09-12T22:24:03.4147493Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260907.300/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-12T22:24:03.4148945Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260907.300
+2026-09-12T22:24:03.4149872Z ##[endgroup]
+2026-09-12T22:24:03.4150932Z ##[group]GITHUB_TOKEN Permissions
+2026-09-12T22:24:03.4153321Z Actions: read
+2026-09-12T22:24:03.4153716Z Contents: read
+2026-09-12T22:24:03.4154051Z Metadata: read
+2026-09-12T22:24:03.4154487Z ##[endgroup]
+2026-09-12T22:24:03.4155999Z Secret source: Actions
+2026-09-12T22:24:03.4156603Z Cache mode: write
+2026-09-12T22:24:03.4157035Z Prepare workflow directory
+2026-09-12T22:24:03.4476417Z Prepare all required actions
+2026-09-12T22:24:03.4508717Z Getting action download info
+2026-09-12T22:24:03.8285921Z Download action repository 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+2026-09-12T22:24:03.9888013Z Download action repository 'actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38' (SHA:42375524e23c412d93fb67b49958b491fce71c38)
+2026-09-12T22:24:04.1781914Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-09-12T22:24:04.4551107Z Complete job name: verify
+2026-09-12T22:24:04.4962477Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-12T22:24:04.4967650Z ##[group]Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+2026-09-12T22:24:04.4968110Z with:
+2026-09-12T22:24:04.4968349Z   fetch-depth: 2
+2026-09-12T22:24:04.4968616Z   persist-credentials: false
+2026-09-12T22:24:04.4968918Z   repository: RoomyRems/momentumbot
+2026-09-12T22:24:04.4970970Z   token: ***
+2026-09-12T22:24:04.4971211Z   ssh-strict: true
+2026-09-12T22:24:04.4971465Z   ssh-user: git
+2026-09-12T22:24:04.4971707Z   clean: true
+2026-09-12T22:24:04.4971989Z   sparse-checkout-cone-mode: true
+2026-09-12T22:24:04.4972478Z   fetch-tags: false
+2026-09-12T22:24:04.4972740Z   show-progress: true
+2026-09-12T22:24:04.4973034Z   lfs: false
+2026-09-12T22:24:04.4973285Z   submodules: false
+2026-09-12T22:24:04.4973543Z   set-safe-directory: true
+2026-09-12T22:24:04.4973893Z env:
+2026-09-12T22:24:04.4974131Z   PYTHONPATH: src:scripts
+2026-09-12T22:24:04.4974416Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-12T22:24:04.4974722Z   CENSUS_PREFLIGHT_ARTIFACT_ID: 10305017350
+2026-09-12T22:24:04.4975223Z   CENSUS_PREFLIGHT_SHA256: cf8cff41befebaecf6ef262a7bc0162d6674a3a294ebc38a09702e40586ebbe9
+2026-09-12T22:24:04.4975724Z   CENSUS_CAPTURE_ARTIFACT_ID: 10306971164
+2026-09-12T22:24:04.4976050Z   CENSUS_LAUNCH_ARTIFACT_ID: 10307150746
+2026-09-12T22:24:04.4976540Z   CENSUS_CAPTURE_INVENTORY_SHA256: 493e15337421d777f1fa210716478d88f0ca9765d1c526719575435c6434d05b
+2026-09-12T22:24:04.4977031Z ##[endgroup]
+2026-09-12T22:24:04.5614818Z Syncing repository: RoomyRems/momentumbot
+2026-09-12T22:24:04.5616814Z ##[group]Getting Git version info
+2026-09-12T22:24:04.5617480Z Working directory is '/home/runner/work/momentumbot/momentumbot'
+2026-09-12T22:24:04.5618523Z [command]/usr/bin/git version
+2026-09-12T22:24:04.5718357Z git version 2.55.0
+2026-09-12T22:24:04.5731164Z ##[endgroup]
+2026-09-12T22:24:04.5743118Z Temporarily overriding HOME='/home/runner/work/_temp/7cb70268-3898-4f3e-a220-05c38f91ea98' before making global git config changes
+2026-09-12T22:24:04.5744581Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-12T22:24:04.5749084Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/momentumbot/momentumbot
+2026-09-12T22:24:04.5803518Z Deleting the contents of '/home/runner/work/momentumbot/momentumbot'
+2026-09-12T22:24:04.5806080Z ##[group]Initializing the repository
+2026-09-12T22:24:04.5809523Z [command]/usr/bin/git init /home/runner/work/momentumbot/momentumbot
+2026-09-12T22:24:04.5927833Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-12T22:24:04.5928922Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-12T22:24:04.5929798Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-12T22:24:04.5930487Z hint: call:
+2026-09-12T22:24:04.5930843Z hint:
+2026-09-12T22:24:04.5931345Z hint: 	git config --global init.defaultBranch <name>
+2026-09-12T22:24:04.5931965Z hint:
+2026-09-12T22:24:04.5932649Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-12T22:24:04.5933476Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-12T22:24:04.5934151Z hint:
+2026-09-12T22:24:04.5934546Z hint: 	git branch -m <name>
+2026-09-12T22:24:04.5934967Z hint:
+2026-09-12T22:24:04.5935548Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-12T22:24:04.5936559Z Initialized empty Git repository in /home/runner/work/momentumbot/momentumbot/.git/
+2026-09-12T22:24:04.5963262Z [command]/usr/bin/git remote add origin https://github.com/RoomyRems/momentumbot
+2026-09-12T22:24:04.5981953Z ##[endgroup]
+2026-09-12T22:24:04.5983182Z ##[group]Disabling automatic garbage collection
+2026-09-12T22:24:04.5985383Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-12T22:24:04.6013568Z ##[endgroup]
+2026-09-12T22:24:04.6014231Z ##[group]Setting up auth
+2026-09-12T22:24:04.6018068Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-12T22:24:04.6048175Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-12T22:24:04.6328557Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-12T22:24:04.6354508Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-12T22:24:04.6525118Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-12T22:24:04.6606974Z ##[endgroup]
+2026-09-12T22:24:04.6607431Z ##[group]Fetching the repository
+2026-09-12T22:24:04.6613321Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=2 origin +03856c714ab8a819439808622483dc7294da46e2:refs/remotes/origin/phase-3-historical-snapshot
+2026-09-12T22:24:06.5343023Z From https://github.com/RoomyRems/momentumbot
+2026-09-12T22:24:06.5343714Z  * [new ref]         03856c714ab8a819439808622483dc7294da46e2 -> origin/phase-3-historical-snapshot
+2026-09-12T22:24:06.5347385Z ##[endgroup]
+2026-09-12T22:24:06.5347883Z ##[group]Determining the checkout info
+2026-09-12T22:24:06.5349366Z ##[endgroup]
+2026-09-12T22:24:06.5354156Z [command]/usr/bin/git sparse-checkout disable
+2026-09-12T22:24:06.5400794Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-12T22:24:06.5428358Z ##[group]Checking out the ref
+2026-09-12T22:24:06.5428863Z [command]/usr/bin/git checkout --progress --force -B phase-3-historical-snapshot refs/remotes/origin/phase-3-historical-snapshot
+2026-09-12T22:24:06.7375378Z Switched to a new branch 'phase-3-historical-snapshot'
+2026-09-12T22:24:06.7378659Z branch 'phase-3-historical-snapshot' set up to track 'origin/phase-3-historical-snapshot'.
+2026-09-12T22:24:06.7393187Z ##[endgroup]
+2026-09-12T22:24:06.7435112Z [command]/usr/bin/git log -1 --format=%H
+2026-09-12T22:24:06.7464187Z 03856c714ab8a819439808622483dc7294da46e2
+2026-09-12T22:24:06.7472195Z ##[group]Removing auth
+2026-09-12T22:24:06.7474402Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-12T22:24:06.7501308Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-12T22:24:06.7683681Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-12T22:24:06.7710004Z http.https://github.com/.extraheader
+2026-09-12T22:24:06.7714607Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-12T22:24:06.7741989Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-12T22:24:06.7915800Z ##[endgroup]
+2026-09-12T22:24:06.8081455Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-12T22:24:06.8082852Z ##[group]Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+2026-09-12T22:24:06.8083065Z with:
+2026-09-12T22:24:06.8083187Z   python-version: 3.12.14
+2026-09-12T22:24:06.8083314Z   check-latest: false
+2026-09-12T22:24:06.8084623Z   token: ***
+2026-09-12T22:24:06.8084736Z   update-environment: true
+2026-09-12T22:24:06.8137224Z   allow-prereleases: false
+2026-09-12T22:24:06.8137427Z env:
+2026-09-12T22:24:06.8137545Z   PYTHONPATH: src:scripts
+2026-09-12T22:24:06.8137688Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-12T22:24:06.8137839Z   CENSUS_PREFLIGHT_ARTIFACT_ID: 10305017350
+2026-09-12T22:24:06.8138160Z   CENSUS_PREFLIGHT_SHA256: cf8cff41befebaecf6ef262a7bc0162d6674a3a294ebc38a09702e40586ebbe9
+2026-09-12T22:24:06.8138447Z   CENSUS_CAPTURE_ARTIFACT_ID: 10306971164
+2026-09-12T22:24:06.8138615Z   CENSUS_LAUNCH_ARTIFACT_ID: 10307150746
+2026-09-12T22:24:06.8138867Z   CENSUS_CAPTURE_INVENTORY_SHA256: 493e15337421d777f1fa210716478d88f0ca9765d1c526719575435c6434d05b
+2026-09-12T22:24:06.8139105Z ##[endgroup]
+2026-09-12T22:24:06.9370072Z ##[group]Installed versions
+2026-09-12T22:24:06.9596304Z (node:2058) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-12T22:24:06.9596705Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-12T22:24:06.9597399Z Successfully set up CPython (3.12.14)
+2026-09-12T22:24:06.9598364Z ##[endgroup]
+2026-09-12T22:24:06.9746862Z ##[group]Run python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-source-v04.txt
+2026-09-12T22:24:06.9747535Z [36;1mpython -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-source-v04.txt[0m
+2026-09-12T22:24:06.9748000Z [36;1mpython -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .[0m
+2026-09-12T22:24:06.9748273Z [36;1mpython -m pip check[0m
+2026-09-12T22:24:06.9868571Z shell: /usr/bin/bash -e {0}
+2026-09-12T22:24:06.9869002Z env:
+2026-09-12T22:24:06.9869157Z   PYTHONPATH: src:scripts
+2026-09-12T22:24:06.9869310Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-12T22:24:06.9869463Z   CENSUS_PREFLIGHT_ARTIFACT_ID: 10305017350
+2026-09-12T22:24:06.9869729Z   CENSUS_PREFLIGHT_SHA256: cf8cff41befebaecf6ef262a7bc0162d6674a3a294ebc38a09702e40586ebbe9
+2026-09-12T22:24:06.9869992Z   CENSUS_CAPTURE_ARTIFACT_ID: 10306971164
+2026-09-12T22:24:06.9870213Z   CENSUS_LAUNCH_ARTIFACT_ID: 10307150746
+2026-09-12T22:24:06.9870457Z   CENSUS_CAPTURE_INVENTORY_SHA256: 493e15337421d777f1fa210716478d88f0ca9765d1c526719575435c6434d05b
+2026-09-12T22:24:06.9870746Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:24:06.9871000Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-09-12T22:24:06.9871232Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:24:06.9871444Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:24:06.9871660Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:24:06.9871882Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-09-12T22:24:06.9872343Z ##[endgroup]
+2026-09-12T22:24:08.2502838Z Requirement already satisfied: pip==26.2.1 in /opt/hostedtoolcache/Python/3.12.14/x64/lib/python3.12/site-packages (from -r requirements-sealed-source-v04.txt (line 6)) (26.2.1)
+2026-09-12T22:24:08.4644529Z Collecting setuptools==84.0.0 (from -r requirements-sealed-source-v04.txt (line 8))
+2026-09-12T22:24:08.5231821Z   Downloading setuptools-84.0.0-py3-none-any.whl (818 kB)
+2026-09-12T22:24:08.5954124Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 818.2/818.2 kB 12.5 MB/s  0:00:00
+2026-09-12T22:24:08.6185591Z Collecting wheel==0.48.0 (from -r requirements-sealed-source-v04.txt (line 10))
+2026-09-12T22:24:08.6259162Z   Downloading wheel-0.48.0-py3-none-any.whl (33 kB)
+2026-09-12T22:24:08.6397463Z Collecting packaging==26.3 (from -r requirements-sealed-source-v04.txt (line 12))
+2026-09-12T22:24:08.6463084Z   Downloading packaging-26.3-py3-none-any.whl (129 kB)
+2026-09-12T22:24:08.7746660Z Collecting numpy==2.3.5 (from -r requirements-sealed-source-v04.txt (line 14))
+2026-09-12T22:24:08.7818774Z   Downloading numpy-2.3.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.6 MB)
+2026-09-12T22:24:09.2074670Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.6/16.6 MB 39.6 MB/s  0:00:00
+2026-09-12T22:24:09.2837968Z Collecting pandas==2.2.3 (from -r requirements-sealed-source-v04.txt (line 16))
+2026-09-12T22:24:09.2927993Z   Downloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.7 MB)
+2026-09-12T22:24:09.4179051Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.7/12.7 MB 101.5 MB/s  0:00:00
+2026-09-12T22:24:09.4619151Z Collecting PyYAML==6.0.3 (from -r requirements-sealed-source-v04.txt (line 18))
+2026-09-12T22:24:09.4695426Z   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+2026-09-12T22:24:09.4866586Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 34.9 MB/s  0:00:00
+2026-09-12T22:24:09.4978991Z Collecting python-dateutil==2.9.0.post0 (from -r requirements-sealed-source-v04.txt (line 20))
+2026-09-12T22:24:09.5051944Z   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+2026-09-12T22:24:09.5284541Z Collecting pytz==2026.3.post1 (from -r requirements-sealed-source-v04.txt (line 22))
+2026-09-12T22:24:09.5362164Z   Downloading pytz-2026.3.post1-py2.py3-none-any.whl (508 kB)
+2026-09-12T22:24:09.5683596Z Collecting tzdata==2026.3 (from -r requirements-sealed-source-v04.txt (line 24))
+2026-09-12T22:24:09.5758104Z   Downloading tzdata-2026.3-py2.py3-none-any.whl (348 kB)
+2026-09-12T22:24:09.5922264Z Collecting six==1.17.0 (from -r requirements-sealed-source-v04.txt (line 26))
+2026-09-12T22:24:09.5987206Z   Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+2026-09-12T22:24:09.6404899Z Installing collected packages: pytz, wheel, tzdata, six, setuptools, PyYAML, python-dateutil, pandas, packaging, numpy
+2026-09-12T22:24:14.1846809Z 
+2026-09-12T22:24:14.1857156Z Successfully installed PyYAML-6.0.3 numpy-2.3.5 packaging-26.3 pandas-2.2.3 python-dateutil-2.9.0.post0 pytz-2026.3.post1 setuptools-84.0.0 six-1.17.0 tzdata-2026.3 wheel-0.48.0
+2026-09-12T22:24:14.4339928Z Obtaining file:///home/runner/work/momentumbot/momentumbot
+2026-09-12T22:24:14.4346666Z   Checking if build backend supports build_editable: started
+2026-09-12T22:24:14.7268525Z   Checking if build backend supports build_editable: finished with status 'done'
+2026-09-12T22:24:14.7275993Z   Preparing editable metadata (pyproject.toml): started
+2026-09-12T22:24:14.9534632Z   Preparing editable metadata (pyproject.toml): finished with status 'done'
+2026-09-12T22:24:14.9563099Z Building wheels for collected packages: momentumbot
+2026-09-12T22:24:14.9568348Z   Building editable for momentumbot (pyproject.toml): started
+2026-09-12T22:24:15.1273839Z   Building editable for momentumbot (pyproject.toml): finished with status 'done'
+2026-09-12T22:24:15.1278494Z   Created wheel for momentumbot: filename=momentumbot-0.2.0-0.editable-py3-none-any.whl size=4119 sha256=9babae3fbebbf579803673f479ddcbb262d6d7b9e1d284a87718298817c91e0a
+2026-09-12T22:24:15.1279419Z   Stored in directory: /tmp/pip-ephem-wheel-cache-4rhelzm6/wheels/07/cb/80/ea9ec0ff3434472434457f9dbf823fffe4e1a99167faeb982a
+2026-09-12T22:24:15.1295806Z Successfully built momentumbot
+2026-09-12T22:24:15.1400642Z Installing collected packages: momentumbot
+2026-09-12T22:24:15.1459149Z Successfully installed momentumbot-0.2.0
+2026-09-12T22:24:15.3058558Z No broken requirements found.
+2026-09-12T22:24:15.3259809Z ##[group]Run gh api repos/RoomyRems/momentumbot/git/ref/tags/early-pullback-census-repaired-v0.3-consumed > census-current-ref.json
+2026-09-12T22:24:15.3260355Z [36;1mgh api repos/RoomyRems/momentumbot/git/ref/tags/early-pullback-census-repaired-v0.3-consumed > census-current-ref.json[0m
+2026-09-12T22:24:15.3260813Z [36;1mgh api "repos/RoomyRems/momentumbot/actions/artifacts/$CENSUS_PREFLIGHT_ARTIFACT_ID" > census-preflight-artifact.json[0m
+2026-09-12T22:24:15.3261265Z [36;1mgh api "repos/RoomyRems/momentumbot/actions/artifacts/$CENSUS_LAUNCH_ARTIFACT_ID" > census-launch-artifact.json[0m
+2026-09-12T22:24:15.3261693Z [36;1mgh api "repos/RoomyRems/momentumbot/actions/artifacts/$CENSUS_CAPTURE_ARTIFACT_ID" > census-capture-artifact.json[0m
+2026-09-12T22:24:15.3262347Z [36;1mgh api "repos/RoomyRems/momentumbot/actions/artifacts/$CENSUS_LAUNCH_ARTIFACT_ID/zip" > census-launch.zip[0m
+2026-09-12T22:24:15.3262767Z [36;1mgh api "repos/RoomyRems/momentumbot/actions/artifacts/$CENSUS_CAPTURE_ARTIFACT_ID/zip" > census-capture.zip[0m
+2026-09-12T22:24:15.3263152Z [36;1mgh api "repos/RoomyRems/momentumbot/actions/runs/$GITHUB_RUN_ID/jobs?per_page=100" > census-jobs.json[0m
+2026-09-12T22:24:15.3292569Z shell: /usr/bin/bash -e {0}
+2026-09-12T22:24:15.3292702Z env:
+2026-09-12T22:24:15.3292812Z   PYTHONPATH: src:scripts
+2026-09-12T22:24:15.3292945Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-12T22:24:15.3293085Z   CENSUS_PREFLIGHT_ARTIFACT_ID: 10305017350
+2026-09-12T22:24:15.3293338Z   CENSUS_PREFLIGHT_SHA256: cf8cff41befebaecf6ef262a7bc0162d6674a3a294ebc38a09702e40586ebbe9
+2026-09-12T22:24:15.3293585Z   CENSUS_CAPTURE_ARTIFACT_ID: 10306971164
+2026-09-12T22:24:15.3293733Z   CENSUS_LAUNCH_ARTIFACT_ID: 10307150746
+2026-09-12T22:24:15.3293964Z   CENSUS_CAPTURE_INVENTORY_SHA256: 493e15337421d777f1fa210716478d88f0ca9765d1c526719575435c6434d05b
+2026-09-12T22:24:15.3294237Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:24:15.3294465Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-09-12T22:24:15.3294687Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:24:15.3294887Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:24:15.3295082Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:24:15.3295281Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-09-12T22:24:15.3296603Z   GH_TOKEN: ***
+2026-09-12T22:24:15.3296838Z ##[endgroup]
+2026-09-12T22:24:20.2404006Z ##[group]Run python scripts/run_census_capture.py verify
+2026-09-12T22:24:20.2404251Z [36;1mpython scripts/run_census_capture.py verify[0m
+2026-09-12T22:24:20.2434863Z shell: /usr/bin/bash -e {0}
+2026-09-12T22:24:20.2434999Z env:
+2026-09-12T22:24:20.2435111Z   PYTHONPATH: src:scripts
+2026-09-12T22:24:20.2435249Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-12T22:24:20.2435397Z   CENSUS_PREFLIGHT_ARTIFACT_ID: 10305017350
+2026-09-12T22:24:20.2435651Z   CENSUS_PREFLIGHT_SHA256: cf8cff41befebaecf6ef262a7bc0162d6674a3a294ebc38a09702e40586ebbe9
+2026-09-12T22:24:20.2435910Z   CENSUS_CAPTURE_ARTIFACT_ID: 10306971164
+2026-09-12T22:24:20.2436069Z   CENSUS_LAUNCH_ARTIFACT_ID: 10307150746
+2026-09-12T22:24:20.2436311Z   CENSUS_CAPTURE_INVENTORY_SHA256: 493e15337421d777f1fa210716478d88f0ca9765d1c526719575435c6434d05b
+2026-09-12T22:24:20.2436594Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:24:20.2436849Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-09-12T22:24:20.2437088Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:24:20.2437298Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:24:20.2437509Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:24:20.2437720Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-09-12T22:24:20.2437900Z ##[endgroup]
+2026-09-12T22:24:33.2898516Z {"verification_sha256": "ce60ba0657ac1f0706afea4476f2ecbf48e08a99414dd30997e3e49ae8dbab07", "attempts": 391, "dates_verified": 30, "provider_requests": 0}
+2026-09-12T22:24:33.3651540Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-12T22:24:33.3652455Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-09-12T22:24:33.3652674Z with:
+2026-09-12T22:24:33.3652861Z   name: early-pullback-census-repaired-v0.3-verification-34718443422-1
+2026-09-12T22:24:33.3653079Z   path: census-verification
+2026-09-12T22:24:33.3653217Z   if-no-files-found: error
+2026-09-12T22:24:33.3653343Z   retention-days: 90
+2026-09-12T22:24:33.3653461Z   compression-level: 6
+2026-09-12T22:24:33.3653581Z   overwrite: false
+2026-09-12T22:24:33.3653700Z   include-hidden-files: false
+2026-09-12T22:24:33.3653828Z env:
+2026-09-12T22:24:33.3653932Z   PYTHONPATH: src:scripts
+2026-09-12T22:24:33.3654082Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-12T22:24:33.3654226Z   CENSUS_PREFLIGHT_ARTIFACT_ID: 10305017350
+2026-09-12T22:24:33.3654477Z   CENSUS_PREFLIGHT_SHA256: cf8cff41befebaecf6ef262a7bc0162d6674a3a294ebc38a09702e40586ebbe9
+2026-09-12T22:24:33.3654727Z   CENSUS_CAPTURE_ARTIFACT_ID: 10306971164
+2026-09-12T22:24:33.3654874Z   CENSUS_LAUNCH_ARTIFACT_ID: 10307150746
+2026-09-12T22:24:33.3655107Z   CENSUS_CAPTURE_INVENTORY_SHA256: 493e15337421d777f1fa210716478d88f0ca9765d1c526719575435c6434d05b
+2026-09-12T22:24:33.3655386Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:24:33.3655631Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-09-12T22:24:33.3655850Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:24:33.3656052Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:24:33.3656254Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:24:33.3656458Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-09-12T22:24:33.3656635Z ##[endgroup]
+2026-09-12T22:24:33.4714950Z (node:2189) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-12T22:24:33.4715464Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-12T22:24:33.4767068Z With the provided path, there will be 6 files uploaded
+2026-09-12T22:24:33.4770817Z Artifact name is valid!
+2026-09-12T22:24:33.4771080Z Root directory input is valid!
+2026-09-12T22:24:33.8643091Z Beginning upload of artifact content to blob storage
+2026-09-12T22:24:33.8799096Z (node:2189) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-12T22:24:34.1678106Z Uploaded bytes 6445
+2026-09-12T22:24:34.2471877Z Finished uploading artifact content to blob storage!
+2026-09-12T22:24:34.2472576Z SHA256 digest of uploaded artifact zip is be5f793303dbd63954fe523588ce4ce8246d4d1d2989ec6c73512e69426079ca
+2026-09-12T22:24:34.2474356Z Finalizing artifact upload
+2026-09-12T22:24:34.4862275Z Artifact early-pullback-census-repaired-v0.3-verification-34718443422-1.zip successfully finalized. Artifact ID 10306378431
+2026-09-12T22:24:34.4863361Z Artifact early-pullback-census-repaired-v0.3-verification-34718443422-1 has been successfully uploaded! Final size is 6445 bytes. Artifact ID is 10306378431
+2026-09-12T22:24:34.4867819Z Artifact download URL: https://github.com/RoomyRems/momentumbot/actions/runs/34718443422/artifacts/10306378431
+2026-09-12T22:24:34.5011633Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-12T22:24:34.5012554Z Post job cleanup.
+2026-09-12T22:24:34.5769335Z (node:2202) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-12T22:24:34.5769967Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-12T22:24:34.5910872Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-12T22:24:34.5912268Z Post job cleanup.
+2026-09-12T22:24:34.6449240Z [command]/usr/bin/git version
+2026-09-12T22:24:34.6478985Z git version 2.55.0
+2026-09-12T22:24:34.6500902Z Temporarily overriding HOME='/home/runner/work/_temp/d6b46e7d-daf5-4529-89db-69fed2dccd9e' before making global git config changes
+2026-09-12T22:24:34.6501582Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-12T22:24:34.6504190Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/momentumbot/momentumbot
+2026-09-12T22:24:34.6534005Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-12T22:24:34.6559177Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-12T22:24:34.6754749Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-12T22:24:34.6804050Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-12T22:24:34.7102897Z Cleaning up orphan processes
+2026-09-12T22:24:34.7283441Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683, actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

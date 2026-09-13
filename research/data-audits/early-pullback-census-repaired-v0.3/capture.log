@@ -1,0 +1,751 @@
+﻿2026-09-12T21:02:20.7372600Z Current runner version: '2.337.0'
+2026-09-12T21:02:20.7409771Z ##[group]Runner Image Provisioner
+2026-09-12T21:02:20.7411250Z Hosted Compute Agent
+2026-09-12T21:02:20.7412265Z Version: 20260828.587
+2026-09-12T21:02:20.7413487Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-12T21:02:20.7414734Z Build Date: 2026-08-28T16:44:25Z
+2026-09-12T21:02:20.7415947Z Worker ID: {59a9c1ef-d247-45be-af8f-2f409cdd5e89}
+2026-09-12T21:02:20.7417538Z Azure Region: eastus
+2026-09-12T21:02:20.7418517Z ##[endgroup]
+2026-09-12T21:02:20.7420824Z ##[group]Operating System
+2026-09-12T21:02:20.7421932Z Ubuntu
+2026-09-12T21:02:20.7422957Z 24.04.5
+2026-09-12T21:02:20.7423824Z LTS
+2026-09-12T21:02:20.7424633Z ##[endgroup]
+2026-09-12T21:02:20.7425643Z ##[group]Runner Image
+2026-09-12T21:02:20.7426963Z Image: ubuntu-24.04
+2026-09-12T21:02:20.7428109Z Version: 20260907.300.1
+2026-09-12T21:02:20.7430214Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260907.300/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-12T21:02:20.7433037Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260907.300
+2026-09-12T21:02:20.7434779Z ##[endgroup]
+2026-09-12T21:02:20.7437179Z ##[group]GITHUB_TOKEN Permissions
+2026-09-12T21:02:20.7440137Z Actions: read
+2026-09-12T21:02:20.7441243Z Contents: read
+2026-09-12T21:02:20.7442127Z Metadata: read
+2026-09-12T21:02:20.7443194Z ##[endgroup]
+2026-09-12T21:02:20.7446357Z Secret source: Actions
+2026-09-12T21:02:20.7448215Z Cache mode: write
+2026-09-12T21:02:20.7449393Z Prepare workflow directory
+2026-09-12T21:02:20.8103244Z Prepare all required actions
+2026-09-12T21:02:20.8153416Z Getting action download info
+2026-09-12T21:02:20.9950612Z Download action repository 'actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683' (SHA:11bd71901bbe5b1630ceea73d27597364c9af683)
+2026-09-12T21:02:21.1321022Z Download action repository 'actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38' (SHA:42375524e23c412d93fb67b49958b491fce71c38)
+2026-09-12T21:02:21.3542896Z Download action repository 'actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093' (SHA:d3f86a106a0bac45b974a628896c90dbdf5c8093)
+2026-09-12T21:02:21.5717424Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-09-12T21:02:21.7748886Z Complete job name: capture
+2026-09-12T21:02:21.8475455Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-12T21:02:21.8484763Z ##[group]Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+2026-09-12T21:02:21.8485709Z with:
+2026-09-12T21:02:21.8486144Z   fetch-depth: 2
+2026-09-12T21:02:21.8486821Z   persist-credentials: false
+2026-09-12T21:02:21.8487364Z   repository: RoomyRems/momentumbot
+2026-09-12T21:02:21.8491135Z   token: ***
+2026-09-12T21:02:21.8491570Z   ssh-strict: true
+2026-09-12T21:02:21.8492009Z   ssh-user: git
+2026-09-12T21:02:21.8492439Z   clean: true
+2026-09-12T21:02:21.8492886Z   sparse-checkout-cone-mode: true
+2026-09-12T21:02:21.8493413Z   fetch-tags: false
+2026-09-12T21:02:21.8493861Z   show-progress: true
+2026-09-12T21:02:21.8494351Z   lfs: false
+2026-09-12T21:02:21.8494766Z   submodules: false
+2026-09-12T21:02:21.8495227Z   set-safe-directory: true
+2026-09-12T21:02:21.8496138Z env:
+2026-09-12T21:02:21.8496784Z   PYTHONPATH: src:scripts
+2026-09-12T21:02:21.8497318Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-12T21:02:21.8497868Z   CENSUS_PREFLIGHT_ARTIFACT_ID: 10305017350
+2026-09-12T21:02:21.8498745Z   CENSUS_PREFLIGHT_SHA256: cf8cff41befebaecf6ef262a7bc0162d6674a3a294ebc38a09702e40586ebbe9
+2026-09-12T21:02:21.8499604Z ##[endgroup]
+2026-09-12T21:02:21.9513094Z Syncing repository: RoomyRems/momentumbot
+2026-09-12T21:02:21.9514981Z ##[group]Getting Git version info
+2026-09-12T21:02:21.9516881Z Working directory is '/home/runner/work/momentumbot/momentumbot'
+2026-09-12T21:02:21.9518636Z [command]/usr/bin/git version
+2026-09-12T21:02:21.9621278Z git version 2.55.0
+2026-09-12T21:02:21.9658343Z ##[endgroup]
+2026-09-12T21:02:21.9669191Z Temporarily overriding HOME='/home/runner/work/_temp/1a9fe89a-ffaa-4956-9f3e-ea443efcf8ac' before making global git config changes
+2026-09-12T21:02:21.9671273Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-12T21:02:21.9673235Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/momentumbot/momentumbot
+2026-09-12T21:02:21.9727609Z Deleting the contents of '/home/runner/work/momentumbot/momentumbot'
+2026-09-12T21:02:21.9730958Z ##[group]Initializing the repository
+2026-09-12T21:02:21.9736100Z [command]/usr/bin/git init /home/runner/work/momentumbot/momentumbot
+2026-09-12T21:02:21.9853700Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-12T21:02:21.9855684Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-12T21:02:21.9857669Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-12T21:02:21.9859086Z hint: call:
+2026-09-12T21:02:21.9860005Z hint:
+2026-09-12T21:02:21.9861552Z hint: 	git config --global init.defaultBranch <name>
+2026-09-12T21:02:21.9862982Z hint:
+2026-09-12T21:02:21.9864186Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-12T21:02:21.9865516Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-12T21:02:21.9866666Z hint:
+2026-09-12T21:02:21.9867231Z hint: 	git branch -m <name>
+2026-09-12T21:02:21.9867879Z hint:
+2026-09-12T21:02:21.9868749Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-12T21:02:21.9871005Z Initialized empty Git repository in /home/runner/work/momentumbot/momentumbot/.git/
+2026-09-12T21:02:21.9874705Z [command]/usr/bin/git remote add origin https://github.com/RoomyRems/momentumbot
+2026-09-12T21:02:21.9922597Z ##[endgroup]
+2026-09-12T21:02:21.9923867Z ##[group]Disabling automatic garbage collection
+2026-09-12T21:02:21.9927124Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-12T21:02:21.9960270Z ##[endgroup]
+2026-09-12T21:02:21.9961455Z ##[group]Setting up auth
+2026-09-12T21:02:21.9969048Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-12T21:02:22.0003176Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-12T21:02:22.0401223Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-12T21:02:22.0442487Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-12T21:02:22.0680348Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-12T21:02:22.0721640Z ##[endgroup]
+2026-09-12T21:02:22.0732080Z ##[group]Fetching the repository
+2026-09-12T21:02:22.0734053Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=2 origin +03856c714ab8a819439808622483dc7294da46e2:refs/remotes/origin/phase-3-historical-snapshot
+2026-09-12T21:02:23.3038073Z From https://github.com/RoomyRems/momentumbot
+2026-09-12T21:02:23.3039530Z  * [new ref]         03856c714ab8a819439808622483dc7294da46e2 -> origin/phase-3-historical-snapshot
+2026-09-12T21:02:23.3048869Z ##[endgroup]
+2026-09-12T21:02:23.3049554Z ##[group]Determining the checkout info
+2026-09-12T21:02:23.3050282Z ##[endgroup]
+2026-09-12T21:02:23.3053733Z [command]/usr/bin/git sparse-checkout disable
+2026-09-12T21:02:23.3106141Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-12T21:02:23.3138217Z ##[group]Checking out the ref
+2026-09-12T21:02:23.3143559Z [command]/usr/bin/git checkout --progress --force -B phase-3-historical-snapshot refs/remotes/origin/phase-3-historical-snapshot
+2026-09-12T21:02:23.5110533Z Switched to a new branch 'phase-3-historical-snapshot'
+2026-09-12T21:02:23.5118763Z branch 'phase-3-historical-snapshot' set up to track 'origin/phase-3-historical-snapshot'.
+2026-09-12T21:02:23.5136975Z ##[endgroup]
+2026-09-12T21:02:23.5227420Z [command]/usr/bin/git log -1 --format=%H
+2026-09-12T21:02:23.5255432Z 03856c714ab8a819439808622483dc7294da46e2
+2026-09-12T21:02:23.5265016Z ##[group]Removing auth
+2026-09-12T21:02:23.5269194Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-12T21:02:23.5302003Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-12T21:02:23.5529514Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-12T21:02:23.5559784Z http.https://github.com/.extraheader
+2026-09-12T21:02:23.5568811Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-12T21:02:23.5603623Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-12T21:02:23.5827717Z ##[endgroup]
+2026-09-12T21:02:23.6080459Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-12T21:02:23.6082417Z ##[group]Run actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+2026-09-12T21:02:23.6082848Z with:
+2026-09-12T21:02:23.6083136Z   python-version: 3.12.14
+2026-09-12T21:02:23.6083423Z   check-latest: false
+2026-09-12T21:02:23.6085938Z   token: ***
+2026-09-12T21:02:23.6086210Z   update-environment: true
+2026-09-12T21:02:23.6086714Z   allow-prereleases: false
+2026-09-12T21:02:23.6087020Z env:
+2026-09-12T21:02:23.6087264Z   PYTHONPATH: src:scripts
+2026-09-12T21:02:23.6087564Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-12T21:02:23.6087890Z   CENSUS_PREFLIGHT_ARTIFACT_ID: 10305017350
+2026-09-12T21:02:23.6088438Z   CENSUS_PREFLIGHT_SHA256: cf8cff41befebaecf6ef262a7bc0162d6674a3a294ebc38a09702e40586ebbe9
+2026-09-12T21:02:23.6088960Z ##[endgroup]
+2026-09-12T21:02:23.7536857Z ##[group]Installed versions
+2026-09-12T21:02:23.7599742Z (node:2290) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-12T21:02:23.7601180Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-12T21:02:23.7602185Z Successfully set up CPython (3.12.14)
+2026-09-12T21:02:23.7603536Z ##[endgroup]
+2026-09-12T21:02:23.7769038Z ##[group]Run python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-source-v04.txt
+2026-09-12T21:02:23.7770302Z [36;1mpython -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-source-v04.txt[0m
+2026-09-12T21:02:23.7771227Z [36;1mpython -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .[0m
+2026-09-12T21:02:23.7771757Z [36;1mpython -m pip check[0m
+2026-09-12T21:02:23.7825846Z shell: /usr/bin/bash -e {0}
+2026-09-12T21:02:23.7826204Z env:
+2026-09-12T21:02:23.7826854Z   PYTHONPATH: src:scripts
+2026-09-12T21:02:23.7827202Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-12T21:02:23.7827561Z   CENSUS_PREFLIGHT_ARTIFACT_ID: 10305017350
+2026-09-12T21:02:23.7828139Z   CENSUS_PREFLIGHT_SHA256: cf8cff41befebaecf6ef262a7bc0162d6674a3a294ebc38a09702e40586ebbe9
+2026-09-12T21:02:23.7828764Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T21:02:23.7829561Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-09-12T21:02:23.7830082Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T21:02:23.7830539Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T21:02:23.7831000Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T21:02:23.7831467Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-09-12T21:02:23.7831862Z ##[endgroup]
+2026-09-12T21:02:24.5633698Z Requirement already satisfied: pip==26.2.1 in /opt/hostedtoolcache/Python/3.12.14/x64/lib/python3.12/site-packages (from -r requirements-sealed-source-v04.txt (line 6)) (26.2.1)
+2026-09-12T21:02:24.6999156Z Collecting setuptools==84.0.0 (from -r requirements-sealed-source-v04.txt (line 8))
+2026-09-12T21:02:24.7490469Z   Downloading setuptools-84.0.0-py3-none-any.whl (818 kB)
+2026-09-12T21:02:24.7814821Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 818.2/818.2 kB 76.3 MB/s  0:00:00
+2026-09-12T21:02:24.8056645Z Collecting wheel==0.48.0 (from -r requirements-sealed-source-v04.txt (line 10))
+2026-09-12T21:02:24.8091645Z   Downloading wheel-0.48.0-py3-none-any.whl (33 kB)
+2026-09-12T21:02:24.8233707Z Collecting packaging==26.3 (from -r requirements-sealed-source-v04.txt (line 12))
+2026-09-12T21:02:24.8266953Z   Downloading packaging-26.3-py3-none-any.whl (129 kB)
+2026-09-12T21:02:25.0307832Z Collecting numpy==2.3.5 (from -r requirements-sealed-source-v04.txt (line 14))
+2026-09-12T21:02:25.0352810Z   Downloading numpy-2.3.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.6 MB)
+2026-09-12T21:02:25.1556880Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.6/16.6 MB 139.8 MB/s  0:00:00
+2026-09-12T21:02:25.2822972Z Collecting pandas==2.2.3 (from -r requirements-sealed-source-v04.txt (line 16))
+2026-09-12T21:02:25.2864261Z   Downloading pandas-2.2.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.7 MB)
+2026-09-12T21:02:25.3477359Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.7/12.7 MB 213.2 MB/s  0:00:00
+2026-09-12T21:02:25.4183927Z Collecting PyYAML==6.0.3 (from -r requirements-sealed-source-v04.txt (line 18))
+2026-09-12T21:02:25.4221929Z   Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+2026-09-12T21:02:25.4281359Z      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 156.2 MB/s  0:00:00
+2026-09-12T21:02:25.4389692Z Collecting python-dateutil==2.9.0.post0 (from -r requirements-sealed-source-v04.txt (line 20))
+2026-09-12T21:02:25.4421219Z   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+2026-09-12T21:02:25.4737423Z Collecting pytz==2026.3.post1 (from -r requirements-sealed-source-v04.txt (line 22))
+2026-09-12T21:02:25.4783334Z   Downloading pytz-2026.3.post1-py2.py3-none-any.whl (508 kB)
+2026-09-12T21:02:25.4962374Z Collecting tzdata==2026.3 (from -r requirements-sealed-source-v04.txt (line 24))
+2026-09-12T21:02:25.4997700Z   Downloading tzdata-2026.3-py2.py3-none-any.whl (348 kB)
+2026-09-12T21:02:25.5151109Z Collecting six==1.17.0 (from -r requirements-sealed-source-v04.txt (line 26))
+2026-09-12T21:02:25.5183130Z   Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+2026-09-12T21:02:25.5522457Z Installing collected packages: pytz, wheel, tzdata, six, setuptools, PyYAML, python-dateutil, pandas, packaging, numpy
+2026-09-12T21:02:33.2759778Z 
+2026-09-12T21:02:33.2776671Z Successfully installed PyYAML-6.0.3 numpy-2.3.5 packaging-26.3 pandas-2.2.3 python-dateutil-2.9.0.post0 pytz-2026.3.post1 setuptools-84.0.0 six-1.17.0 tzdata-2026.3 wheel-0.48.0
+2026-09-12T21:02:33.6578645Z Obtaining file:///home/runner/work/momentumbot/momentumbot
+2026-09-12T21:02:33.6590505Z   Checking if build backend supports build_editable: started
+2026-09-12T21:02:33.8365357Z   Checking if build backend supports build_editable: finished with status 'done'
+2026-09-12T21:02:33.8376803Z   Preparing editable metadata (pyproject.toml): started
+2026-09-12T21:02:34.0813326Z   Preparing editable metadata (pyproject.toml): finished with status 'done'
+2026-09-12T21:02:34.0859192Z Building wheels for collected packages: momentumbot
+2026-09-12T21:02:34.0867088Z   Building editable for momentumbot (pyproject.toml): started
+2026-09-12T21:02:34.3646846Z   Building editable for momentumbot (pyproject.toml): finished with status 'done'
+2026-09-12T21:02:34.3653486Z   Created wheel for momentumbot: filename=momentumbot-0.2.0-0.editable-py3-none-any.whl size=4119 sha256=5374861a257ba55c8bebc4675c55b72224f9bcaea787f5c4e35217e1183999df
+2026-09-12T21:02:34.3655544Z   Stored in directory: /tmp/pip-ephem-wheel-cache-izld_4ww/wheels/07/cb/80/ea9ec0ff3434472434457f9dbf823fffe4e1a99167faeb982a
+2026-09-12T21:02:34.3677730Z Successfully built momentumbot
+2026-09-12T21:02:34.3834568Z Installing collected packages: momentumbot
+2026-09-12T21:02:34.3913800Z Successfully installed momentumbot-0.2.0
+2026-09-12T21:02:34.6541696Z No broken requirements found.
+2026-09-12T21:02:34.6919964Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-12T21:02:34.6921433Z ##[group]Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+2026-09-12T21:02:34.6921832Z with:
+2026-09-12T21:02:34.6922033Z   artifact-ids: 10305017350
+2026-09-12T21:02:34.6922275Z   path: census-preflight
+2026-09-12T21:02:34.6922522Z   merge-multiple: true
+2026-09-12T21:02:34.6922767Z   repository: RoomyRems/momentumbot
+2026-09-12T21:02:34.6923025Z   run-id: 34718443422
+2026-09-12T21:02:34.6923234Z env:
+2026-09-12T21:02:34.6923422Z   PYTHONPATH: src:scripts
+2026-09-12T21:02:34.6923664Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-12T21:02:34.6923932Z   CENSUS_PREFLIGHT_ARTIFACT_ID: 10305017350
+2026-09-12T21:02:34.6924454Z   CENSUS_PREFLIGHT_SHA256: cf8cff41befebaecf6ef262a7bc0162d6674a3a294ebc38a09702e40586ebbe9
+2026-09-12T21:02:34.6924993Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T21:02:34.6925424Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-09-12T21:02:34.6925855Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T21:02:34.6926250Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T21:02:34.6926943Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T21:02:34.6927347Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-09-12T21:02:34.6927674Z ##[endgroup]
+2026-09-12T21:02:34.8433345Z Downloading artifacts by ID
+2026-09-12T21:02:34.8612647Z (node:2359) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-12T21:02:34.8614092Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-12T21:02:34.9257109Z Found 1 artifact(s)
+2026-09-12T21:02:34.9258409Z Preparing to download the following artifacts:
+2026-09-12T21:02:34.9260276Z - early-pullback-census-repaired-v0.3-consumption-34718443422-1 (ID: 10305017350, Size: 6320, Expected Digest: sha256:08b3e8b0138ee7672b8985ffd0c0addb3248fe17cf2ec3e1a13785c491afda38)
+2026-09-12T21:02:35.0241766Z Redirecting to blob download url: https://productionresultssa9.blob.core.windows.net/actions-results/b4cac33d-9035-46c6-a69e-a80ce99a4b13/workflow-job-run-8c30f97f-2aa6-5ef3-918e-314f7f952286/artifacts/f4c943442af9613d37440d203af6a0eee8a8a7b3d1f31ff47da103181e83993f.zip
+2026-09-12T21:02:35.0243688Z Starting download of artifact to: /home/runner/work/momentumbot/momentumbot/census-preflight
+2026-09-12T21:02:35.0809476Z (node:2359) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-09-12T21:02:35.0920941Z SHA256 digest of downloaded artifact is 08b3e8b0138ee7672b8985ffd0c0addb3248fe17cf2ec3e1a13785c491afda38
+2026-09-12T21:02:35.0921815Z Artifact download completed successfully.
+2026-09-12T21:02:35.0922145Z Total of 1 artifact(s) downloaded
+2026-09-12T21:02:35.0926997Z Download artifact has finished successfully
+2026-09-12T21:02:35.1053324Z ##[group]Run gh api repos/RoomyRems/momentumbot/git/ref/tags/early-pullback-census-repaired-v0.3-consumed > census-current-ref.json
+2026-09-12T21:02:35.1054331Z [36;1mgh api repos/RoomyRems/momentumbot/git/ref/tags/early-pullback-census-repaired-v0.3-consumed > census-current-ref.json[0m
+2026-09-12T21:02:35.1055243Z [36;1mgh api "repos/RoomyRems/momentumbot/actions/artifacts/$CENSUS_PREFLIGHT_ARTIFACT_ID" > census-preflight-artifact.json[0m
+2026-09-12T21:02:35.1094241Z shell: /usr/bin/bash -e {0}
+2026-09-12T21:02:35.1094512Z env:
+2026-09-12T21:02:35.1094725Z   PYTHONPATH: src:scripts
+2026-09-12T21:02:35.1094986Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-12T21:02:35.1095266Z   CENSUS_PREFLIGHT_ARTIFACT_ID: 10305017350
+2026-09-12T21:02:35.1095743Z   CENSUS_PREFLIGHT_SHA256: cf8cff41befebaecf6ef262a7bc0162d6674a3a294ebc38a09702e40586ebbe9
+2026-09-12T21:02:35.1096300Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T21:02:35.1097066Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-09-12T21:02:35.1097525Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T21:02:35.1097917Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T21:02:35.1098305Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T21:02:35.1098693Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-09-12T21:02:35.1101330Z   GH_TOKEN: ***
+2026-09-12T21:02:35.1101548Z ##[endgroup]
+2026-09-12T21:02:35.7324177Z ##[group]Run python scripts/run_census_capture.py capture
+2026-09-12T21:02:35.7324618Z [36;1mpython scripts/run_census_capture.py capture[0m
+2026-09-12T21:02:35.7361979Z shell: /usr/bin/bash -e {0}
+2026-09-12T21:02:35.7362245Z env:
+2026-09-12T21:02:35.7362460Z   PYTHONPATH: src:scripts
+2026-09-12T21:02:35.7362760Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-12T21:02:35.7363055Z   CENSUS_PREFLIGHT_ARTIFACT_ID: 10305017350
+2026-09-12T21:02:35.7363565Z   CENSUS_PREFLIGHT_SHA256: cf8cff41befebaecf6ef262a7bc0162d6674a3a294ebc38a09702e40586ebbe9
+2026-09-12T21:02:35.7364148Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T21:02:35.7364610Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-09-12T21:02:35.7365068Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T21:02:35.7384836Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T21:02:35.7385381Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T21:02:35.7385798Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-09-12T21:02:35.7386298Z   MASSIVE_API_KEY: ***
+2026-09-12T21:02:35.7386805Z ##[endgroup]
+2026-09-12T21:02:37.2641621Z {"attempts": 1, "date": null, "page": null, "status": 200, "error": null, "dates_exhausted": 0}
+2026-09-12T21:02:49.8382175Z {"attempts": 2, "date": "2026-03-04", "page": 1, "status": 200, "error": null, "dates_exhausted": 0}
+2026-09-12T21:03:02.4131795Z {"attempts": 3, "date": "2026-03-04", "page": 2, "status": 200, "error": null, "dates_exhausted": 0}
+2026-09-12T21:03:14.8323986Z {"attempts": 4, "date": "2026-03-04", "page": 3, "status": 200, "error": null, "dates_exhausted": 0}
+2026-09-12T21:03:27.3904118Z {"attempts": 5, "date": "2026-03-04", "page": 4, "status": 200, "error": null, "dates_exhausted": 0}
+2026-09-12T21:03:39.9555717Z {"attempts": 6, "date": "2026-03-04", "page": 5, "status": 200, "error": null, "dates_exhausted": 0}
+2026-09-12T21:03:52.3739778Z {"attempts": 7, "date": "2026-03-04", "page": 6, "status": 200, "error": null, "dates_exhausted": 0}
+2026-09-12T21:04:04.8937113Z {"attempts": 8, "date": "2026-03-04", "page": 7, "status": 200, "error": null, "dates_exhausted": 0}
+2026-09-12T21:04:17.3127077Z {"attempts": 9, "date": "2026-03-04", "page": 8, "status": 200, "error": null, "dates_exhausted": 0}
+2026-09-12T21:04:29.9324056Z {"attempts": 10, "date": "2026-03-04", "page": 9, "status": 200, "error": null, "dates_exhausted": 0}
+2026-09-12T21:04:42.4033254Z {"attempts": 11, "date": "2026-03-04", "page": 10, "status": 200, "error": null, "dates_exhausted": 0}
+2026-09-12T21:04:54.8251546Z {"attempts": 12, "date": "2026-03-04", "page": 11, "status": 200, "error": null, "dates_exhausted": 0}
+2026-09-12T21:05:07.4209225Z {"attempts": 13, "date": "2026-03-04", "page": 12, "status": 200, "error": null, "dates_exhausted": 0}
+2026-09-12T21:05:19.9260234Z {"attempts": 14, "date": "2026-03-04", "page": 13, "status": 200, "error": null, "dates_exhausted": 1}
+2026-09-12T21:05:32.3175262Z {"attempts": 15, "date": "2026-03-05", "page": 1, "status": 200, "error": null, "dates_exhausted": 1}
+2026-09-12T21:05:44.9639182Z {"attempts": 16, "date": "2026-03-05", "page": 2, "status": 200, "error": null, "dates_exhausted": 1}
+2026-09-12T21:05:57.4728656Z {"attempts": 17, "date": "2026-03-05", "page": 3, "status": 200, "error": null, "dates_exhausted": 1}
+2026-09-12T21:06:09.8914679Z {"attempts": 18, "date": "2026-03-05", "page": 4, "status": 200, "error": null, "dates_exhausted": 1}
+2026-09-12T21:06:23.3525245Z {"attempts": 19, "date": "2026-03-05", "page": 5, "status": 200, "error": null, "dates_exhausted": 1}
+2026-09-12T21:06:34.9003453Z {"attempts": 20, "date": "2026-03-05", "page": 6, "status": 200, "error": null, "dates_exhausted": 1}
+2026-09-12T21:06:47.4090146Z {"attempts": 21, "date": "2026-03-05", "page": 7, "status": 200, "error": null, "dates_exhausted": 1}
+2026-09-12T21:06:59.9186196Z {"attempts": 22, "date": "2026-03-05", "page": 8, "status": 200, "error": null, "dates_exhausted": 1}
+2026-09-12T21:07:12.3975403Z {"attempts": 23, "date": "2026-03-05", "page": 9, "status": 200, "error": null, "dates_exhausted": 1}
+2026-09-12T21:07:24.8282282Z {"attempts": 24, "date": "2026-03-05", "page": 10, "status": 200, "error": null, "dates_exhausted": 1}
+2026-09-12T21:07:37.3823399Z {"attempts": 25, "date": "2026-03-05", "page": 11, "status": 200, "error": null, "dates_exhausted": 1}
+2026-09-12T21:07:49.8995722Z {"attempts": 26, "date": "2026-03-05", "page": 12, "status": 200, "error": null, "dates_exhausted": 1}
+2026-09-12T21:08:02.3916189Z {"attempts": 27, "date": "2026-03-05", "page": 13, "status": 200, "error": null, "dates_exhausted": 2}
+2026-09-12T21:08:14.8111634Z {"attempts": 28, "date": "2026-03-06", "page": 1, "status": 200, "error": null, "dates_exhausted": 2}
+2026-09-12T21:08:27.3043330Z {"attempts": 29, "date": "2026-03-06", "page": 2, "status": 200, "error": null, "dates_exhausted": 2}
+2026-09-12T21:08:39.8233860Z {"attempts": 30, "date": "2026-03-06", "page": 3, "status": 200, "error": null, "dates_exhausted": 2}
+2026-09-12T21:08:52.3940845Z {"attempts": 31, "date": "2026-03-06", "page": 4, "status": 200, "error": null, "dates_exhausted": 2}
+2026-09-12T21:09:04.8854517Z {"attempts": 32, "date": "2026-03-06", "page": 5, "status": 200, "error": null, "dates_exhausted": 2}
+2026-09-12T21:09:17.3210393Z {"attempts": 33, "date": "2026-03-06", "page": 6, "status": 200, "error": null, "dates_exhausted": 2}
+2026-09-12T21:09:29.8534110Z {"attempts": 34, "date": "2026-03-06", "page": 7, "status": 200, "error": null, "dates_exhausted": 2}
+2026-09-12T21:09:42.3386787Z {"attempts": 35, "date": "2026-03-06", "page": 8, "status": 200, "error": null, "dates_exhausted": 2}
+2026-09-12T21:09:54.8149018Z {"attempts": 36, "date": "2026-03-06", "page": 9, "status": 200, "error": null, "dates_exhausted": 2}
+2026-09-12T21:10:07.4608089Z {"attempts": 37, "date": "2026-03-06", "page": 10, "status": 200, "error": null, "dates_exhausted": 2}
+2026-09-12T21:10:19.8377629Z {"attempts": 38, "date": "2026-03-06", "page": 11, "status": 200, "error": null, "dates_exhausted": 2}
+2026-09-12T21:10:32.3823584Z {"attempts": 39, "date": "2026-03-06", "page": 12, "status": 200, "error": null, "dates_exhausted": 2}
+2026-09-12T21:10:44.7709593Z {"attempts": 40, "date": "2026-03-06", "page": 13, "status": 200, "error": null, "dates_exhausted": 3}
+2026-09-12T21:10:57.3097844Z {"attempts": 41, "date": "2026-03-09", "page": 1, "status": 200, "error": null, "dates_exhausted": 3}
+2026-09-12T21:11:09.9912464Z {"attempts": 42, "date": "2026-03-09", "page": 2, "status": 200, "error": null, "dates_exhausted": 3}
+2026-09-12T21:11:22.4025753Z {"attempts": 43, "date": "2026-03-09", "page": 3, "status": 200, "error": null, "dates_exhausted": 3}
+2026-09-12T21:11:34.9077697Z {"attempts": 44, "date": "2026-03-09", "page": 4, "status": 200, "error": null, "dates_exhausted": 3}
+2026-09-12T21:11:47.3974207Z {"attempts": 45, "date": "2026-03-09", "page": 5, "status": 200, "error": null, "dates_exhausted": 3}
+2026-09-12T21:11:59.8128018Z {"attempts": 46, "date": "2026-03-09", "page": 6, "status": 200, "error": null, "dates_exhausted": 3}
+2026-09-12T21:12:12.3262678Z {"attempts": 47, "date": "2026-03-09", "page": 7, "status": 200, "error": null, "dates_exhausted": 3}
+2026-09-12T21:12:24.9537105Z {"attempts": 48, "date": "2026-03-09", "page": 8, "status": 200, "error": null, "dates_exhausted": 3}
+2026-09-12T21:12:37.3593540Z {"attempts": 49, "date": "2026-03-09", "page": 9, "status": 200, "error": null, "dates_exhausted": 3}
+2026-09-12T21:12:49.8223400Z {"attempts": 50, "date": "2026-03-09", "page": 10, "status": 200, "error": null, "dates_exhausted": 3}
+2026-09-12T21:13:02.3195785Z {"attempts": 51, "date": "2026-03-09", "page": 11, "status": 200, "error": null, "dates_exhausted": 3}
+2026-09-12T21:13:14.8983174Z {"attempts": 52, "date": "2026-03-09", "page": 12, "status": 200, "error": null, "dates_exhausted": 3}
+2026-09-12T21:13:27.2875286Z {"attempts": 53, "date": "2026-03-09", "page": 13, "status": 200, "error": null, "dates_exhausted": 4}
+2026-09-12T21:13:39.9699200Z {"attempts": 54, "date": "2026-03-10", "page": 1, "status": 200, "error": null, "dates_exhausted": 4}
+2026-09-12T21:13:52.3518354Z {"attempts": 55, "date": "2026-03-10", "page": 2, "status": 200, "error": null, "dates_exhausted": 4}
+2026-09-12T21:14:04.8795784Z {"attempts": 56, "date": "2026-03-10", "page": 3, "status": 200, "error": null, "dates_exhausted": 4}
+2026-09-12T21:14:17.4058161Z {"attempts": 57, "date": "2026-03-10", "page": 4, "status": 200, "error": null, "dates_exhausted": 4}
+2026-09-12T21:14:29.8327188Z {"attempts": 58, "date": "2026-03-10", "page": 5, "status": 200, "error": null, "dates_exhausted": 4}
+2026-09-12T21:14:42.3464033Z {"attempts": 59, "date": "2026-03-10", "page": 6, "status": 200, "error": null, "dates_exhausted": 4}
+2026-09-12T21:14:54.8444444Z {"attempts": 60, "date": "2026-03-10", "page": 7, "status": 200, "error": null, "dates_exhausted": 4}
+2026-09-12T21:15:07.4130828Z {"attempts": 61, "date": "2026-03-10", "page": 8, "status": 200, "error": null, "dates_exhausted": 4}
+2026-09-12T21:15:19.8776744Z {"attempts": 62, "date": "2026-03-10", "page": 9, "status": 200, "error": null, "dates_exhausted": 4}
+2026-09-12T21:15:32.4774193Z {"attempts": 63, "date": "2026-03-10", "page": 10, "status": 200, "error": null, "dates_exhausted": 4}
+2026-09-12T21:15:44.8707647Z {"attempts": 64, "date": "2026-03-10", "page": 11, "status": 200, "error": null, "dates_exhausted": 4}
+2026-09-12T21:15:57.3217600Z {"attempts": 65, "date": "2026-03-10", "page": 12, "status": 200, "error": null, "dates_exhausted": 4}
+2026-09-12T21:16:09.7603082Z {"attempts": 66, "date": "2026-03-10", "page": 13, "status": 200, "error": null, "dates_exhausted": 5}
+2026-09-12T21:16:22.3142257Z {"attempts": 67, "date": "2026-03-12", "page": 1, "status": 200, "error": null, "dates_exhausted": 5}
+2026-09-12T21:16:34.8154899Z {"attempts": 68, "date": "2026-03-12", "page": 2, "status": 200, "error": null, "dates_exhausted": 5}
+2026-09-12T21:16:47.3702431Z {"attempts": 69, "date": "2026-03-12", "page": 3, "status": 200, "error": null, "dates_exhausted": 5}
+2026-09-12T21:16:59.9580322Z {"attempts": 70, "date": "2026-03-12", "page": 4, "status": 200, "error": null, "dates_exhausted": 5}
+2026-09-12T21:17:12.3214519Z {"attempts": 71, "date": "2026-03-12", "page": 5, "status": 200, "error": null, "dates_exhausted": 5}
+2026-09-12T21:17:24.8657068Z {"attempts": 72, "date": "2026-03-12", "page": 6, "status": 200, "error": null, "dates_exhausted": 5}
+2026-09-12T21:17:37.4032275Z {"attempts": 73, "date": "2026-03-12", "page": 7, "status": 200, "error": null, "dates_exhausted": 5}
+2026-09-12T21:17:49.8899452Z {"attempts": 74, "date": "2026-03-12", "page": 8, "status": 200, "error": null, "dates_exhausted": 5}
+2026-09-12T21:18:02.3253453Z {"attempts": 75, "date": "2026-03-12", "page": 9, "status": 200, "error": null, "dates_exhausted": 5}
+2026-09-12T21:18:14.9225014Z {"attempts": 76, "date": "2026-03-12", "page": 10, "status": 200, "error": null, "dates_exhausted": 5}
+2026-09-12T21:18:27.4090137Z {"attempts": 77, "date": "2026-03-12", "page": 11, "status": 200, "error": null, "dates_exhausted": 5}
+2026-09-12T21:18:39.8816592Z {"attempts": 78, "date": "2026-03-12", "page": 12, "status": 200, "error": null, "dates_exhausted": 5}
+2026-09-12T21:18:52.4127910Z {"attempts": 79, "date": "2026-03-12", "page": 13, "status": 200, "error": null, "dates_exhausted": 6}
+2026-09-12T21:19:04.9949678Z {"attempts": 80, "date": "2026-03-13", "page": 1, "status": 200, "error": null, "dates_exhausted": 6}
+2026-09-12T21:19:17.5115680Z {"attempts": 81, "date": "2026-03-13", "page": 2, "status": 200, "error": null, "dates_exhausted": 6}
+2026-09-12T21:19:29.8503970Z {"attempts": 82, "date": "2026-03-13", "page": 3, "status": 200, "error": null, "dates_exhausted": 6}
+2026-09-12T21:19:42.3304510Z {"attempts": 83, "date": "2026-03-13", "page": 4, "status": 200, "error": null, "dates_exhausted": 6}
+2026-09-12T21:19:54.8937861Z {"attempts": 84, "date": "2026-03-13", "page": 5, "status": 200, "error": null, "dates_exhausted": 6}
+2026-09-12T21:20:07.3248225Z {"attempts": 85, "date": "2026-03-13", "page": 6, "status": 200, "error": null, "dates_exhausted": 6}
+2026-09-12T21:20:19.8387700Z {"attempts": 86, "date": "2026-03-13", "page": 7, "status": 200, "error": null, "dates_exhausted": 6}
+2026-09-12T21:20:32.4101041Z {"attempts": 87, "date": "2026-03-13", "page": 8, "status": 200, "error": null, "dates_exhausted": 6}
+2026-09-12T21:20:44.8239731Z {"attempts": 88, "date": "2026-03-13", "page": 9, "status": 200, "error": null, "dates_exhausted": 6}
+2026-09-12T21:20:57.3495004Z {"attempts": 89, "date": "2026-03-13", "page": 10, "status": 200, "error": null, "dates_exhausted": 6}
+2026-09-12T21:21:09.8207168Z {"attempts": 90, "date": "2026-03-13", "page": 11, "status": 200, "error": null, "dates_exhausted": 6}
+2026-09-12T21:21:22.4286014Z {"attempts": 91, "date": "2026-03-13", "page": 12, "status": 200, "error": null, "dates_exhausted": 6}
+2026-09-12T21:21:34.7613051Z {"attempts": 92, "date": "2026-03-13", "page": 13, "status": 200, "error": null, "dates_exhausted": 7}
+2026-09-12T21:21:47.3227876Z {"attempts": 93, "date": "2026-03-18", "page": 1, "status": 200, "error": null, "dates_exhausted": 7}
+2026-09-12T21:21:59.9330972Z {"attempts": 94, "date": "2026-03-18", "page": 2, "status": 200, "error": null, "dates_exhausted": 7}
+2026-09-12T21:22:12.3245542Z {"attempts": 95, "date": "2026-03-18", "page": 3, "status": 200, "error": null, "dates_exhausted": 7}
+2026-09-12T21:22:25.0175989Z {"attempts": 96, "date": "2026-03-18", "page": 4, "status": 200, "error": null, "dates_exhausted": 7}
+2026-09-12T21:22:37.4010529Z {"attempts": 97, "date": "2026-03-18", "page": 5, "status": 200, "error": null, "dates_exhausted": 7}
+2026-09-12T21:22:49.8257573Z {"attempts": 98, "date": "2026-03-18", "page": 6, "status": 200, "error": null, "dates_exhausted": 7}
+2026-09-12T21:23:02.4243088Z {"attempts": 99, "date": "2026-03-18", "page": 7, "status": 200, "error": null, "dates_exhausted": 7}
+2026-09-12T21:23:14.9234318Z {"attempts": 100, "date": "2026-03-18", "page": 8, "status": 200, "error": null, "dates_exhausted": 7}
+2026-09-12T21:23:27.3640137Z {"attempts": 101, "date": "2026-03-18", "page": 9, "status": 200, "error": null, "dates_exhausted": 7}
+2026-09-12T21:23:39.9781592Z {"attempts": 102, "date": "2026-03-18", "page": 10, "status": 200, "error": null, "dates_exhausted": 7}
+2026-09-12T21:23:52.3238105Z {"attempts": 103, "date": "2026-03-18", "page": 11, "status": 200, "error": null, "dates_exhausted": 7}
+2026-09-12T21:24:04.9106301Z {"attempts": 104, "date": "2026-03-18", "page": 12, "status": 200, "error": null, "dates_exhausted": 7}
+2026-09-12T21:24:17.3575207Z {"attempts": 105, "date": "2026-03-18", "page": 13, "status": 200, "error": null, "dates_exhausted": 8}
+2026-09-12T21:24:29.8508418Z {"attempts": 106, "date": "2026-03-19", "page": 1, "status": 200, "error": null, "dates_exhausted": 8}
+2026-09-12T21:24:42.4667161Z {"attempts": 107, "date": "2026-03-19", "page": 2, "status": 200, "error": null, "dates_exhausted": 8}
+2026-09-12T21:24:54.8261084Z {"attempts": 108, "date": "2026-03-19", "page": 3, "status": 200, "error": null, "dates_exhausted": 8}
+2026-09-12T21:25:07.3522504Z {"attempts": 109, "date": "2026-03-19", "page": 4, "status": 200, "error": null, "dates_exhausted": 8}
+2026-09-12T21:25:19.8222736Z {"attempts": 110, "date": "2026-03-19", "page": 5, "status": 200, "error": null, "dates_exhausted": 8}
+2026-09-12T21:25:32.3492179Z {"attempts": 111, "date": "2026-03-19", "page": 6, "status": 200, "error": null, "dates_exhausted": 8}
+2026-09-12T21:25:44.8773986Z {"attempts": 112, "date": "2026-03-19", "page": 7, "status": 200, "error": null, "dates_exhausted": 8}
+2026-09-12T21:25:57.3525967Z {"attempts": 113, "date": "2026-03-19", "page": 8, "status": 200, "error": null, "dates_exhausted": 8}
+2026-09-12T21:26:09.9446014Z {"attempts": 114, "date": "2026-03-19", "page": 9, "status": 200, "error": null, "dates_exhausted": 8}
+2026-09-12T21:26:22.4437822Z {"attempts": 115, "date": "2026-03-19", "page": 10, "status": 200, "error": null, "dates_exhausted": 8}
+2026-09-12T21:26:34.9594223Z {"attempts": 116, "date": "2026-03-19", "page": 11, "status": 200, "error": null, "dates_exhausted": 8}
+2026-09-12T21:26:47.3392026Z {"attempts": 117, "date": "2026-03-19", "page": 12, "status": 200, "error": null, "dates_exhausted": 8}
+2026-09-12T21:26:59.8074613Z {"attempts": 118, "date": "2026-03-19", "page": 13, "status": 200, "error": null, "dates_exhausted": 9}
+2026-09-12T21:27:12.3528293Z {"attempts": 119, "date": "2026-03-25", "page": 1, "status": 200, "error": null, "dates_exhausted": 9}
+2026-09-12T21:27:24.8247585Z {"attempts": 120, "date": "2026-03-25", "page": 2, "status": 200, "error": null, "dates_exhausted": 9}
+2026-09-12T21:27:37.4015266Z {"attempts": 121, "date": "2026-03-25", "page": 3, "status": 200, "error": null, "dates_exhausted": 9}
+2026-09-12T21:27:49.9098394Z {"attempts": 122, "date": "2026-03-25", "page": 4, "status": 200, "error": null, "dates_exhausted": 9}
+2026-09-12T21:28:02.3276083Z {"attempts": 123, "date": "2026-03-25", "page": 5, "status": 200, "error": null, "dates_exhausted": 9}
+2026-09-12T21:28:14.8456300Z {"attempts": 124, "date": "2026-03-25", "page": 6, "status": 200, "error": null, "dates_exhausted": 9}
+2026-09-12T21:28:27.3249861Z {"attempts": 125, "date": "2026-03-25", "page": 7, "status": 200, "error": null, "dates_exhausted": 9}
+2026-09-12T21:28:39.8534750Z {"attempts": 126, "date": "2026-03-25", "page": 8, "status": 200, "error": null, "dates_exhausted": 9}
+2026-09-12T21:28:52.3316972Z {"attempts": 127, "date": "2026-03-25", "page": 9, "status": 200, "error": null, "dates_exhausted": 9}
+2026-09-12T21:29:04.9204736Z {"attempts": 128, "date": "2026-03-25", "page": 10, "status": 200, "error": null, "dates_exhausted": 9}
+2026-09-12T21:29:17.5029828Z {"attempts": 129, "date": "2026-03-25", "page": 11, "status": 200, "error": null, "dates_exhausted": 9}
+2026-09-12T21:29:29.8357607Z {"attempts": 130, "date": "2026-03-25", "page": 12, "status": 200, "error": null, "dates_exhausted": 9}
+2026-09-12T21:29:42.2608060Z {"attempts": 131, "date": "2026-03-25", "page": 13, "status": 200, "error": null, "dates_exhausted": 10}
+2026-09-12T21:29:54.9833196Z {"attempts": 132, "date": "2026-03-30", "page": 1, "status": 200, "error": null, "dates_exhausted": 10}
+2026-09-12T21:30:07.3320235Z {"attempts": 133, "date": "2026-03-30", "page": 2, "status": 200, "error": null, "dates_exhausted": 10}
+2026-09-12T21:30:20.0261592Z {"attempts": 134, "date": "2026-03-30", "page": 3, "status": 200, "error": null, "dates_exhausted": 10}
+2026-09-12T21:30:32.4321524Z {"attempts": 135, "date": "2026-03-30", "page": 4, "status": 200, "error": null, "dates_exhausted": 10}
+2026-09-12T21:30:44.9369390Z {"attempts": 136, "date": "2026-03-30", "page": 5, "status": 200, "error": null, "dates_exhausted": 10}
+2026-09-12T21:30:57.4011502Z {"attempts": 137, "date": "2026-03-30", "page": 6, "status": 200, "error": null, "dates_exhausted": 10}
+2026-09-12T21:31:09.8304574Z {"attempts": 138, "date": "2026-03-30", "page": 7, "status": 200, "error": null, "dates_exhausted": 10}
+2026-09-12T21:31:22.4206655Z {"attempts": 139, "date": "2026-03-30", "page": 8, "status": 200, "error": null, "dates_exhausted": 10}
+2026-09-12T21:31:34.8306917Z {"attempts": 140, "date": "2026-03-30", "page": 9, "status": 200, "error": null, "dates_exhausted": 10}
+2026-09-12T21:31:47.4095629Z {"attempts": 141, "date": "2026-03-30", "page": 10, "status": 200, "error": null, "dates_exhausted": 10}
+2026-09-12T21:31:59.8355643Z {"attempts": 142, "date": "2026-03-30", "page": 11, "status": 200, "error": null, "dates_exhausted": 10}
+2026-09-12T21:32:12.4786994Z {"attempts": 143, "date": "2026-03-30", "page": 12, "status": 200, "error": null, "dates_exhausted": 10}
+2026-09-12T21:32:24.8299425Z {"attempts": 144, "date": "2026-03-30", "page": 13, "status": 200, "error": null, "dates_exhausted": 11}
+2026-09-12T21:32:37.3300065Z {"attempts": 145, "date": "2026-04-02", "page": 1, "status": 200, "error": null, "dates_exhausted": 11}
+2026-09-12T21:32:50.0370405Z {"attempts": 146, "date": "2026-04-02", "page": 2, "status": 200, "error": null, "dates_exhausted": 11}
+2026-09-12T21:33:02.3311243Z {"attempts": 147, "date": "2026-04-02", "page": 3, "status": 200, "error": null, "dates_exhausted": 11}
+2026-09-12T21:33:14.9124412Z {"attempts": 148, "date": "2026-04-02", "page": 4, "status": 200, "error": null, "dates_exhausted": 11}
+2026-09-12T21:33:27.4163086Z {"attempts": 149, "date": "2026-04-02", "page": 5, "status": 200, "error": null, "dates_exhausted": 11}
+2026-09-12T21:33:39.8283908Z {"attempts": 150, "date": "2026-04-02", "page": 6, "status": 200, "error": null, "dates_exhausted": 11}
+2026-09-12T21:33:52.4849628Z {"attempts": 151, "date": "2026-04-02", "page": 7, "status": 200, "error": null, "dates_exhausted": 11}
+2026-09-12T21:34:04.9007900Z {"attempts": 152, "date": "2026-04-02", "page": 8, "status": 200, "error": null, "dates_exhausted": 11}
+2026-09-12T21:34:17.4826970Z {"attempts": 153, "date": "2026-04-02", "page": 9, "status": 200, "error": null, "dates_exhausted": 11}
+2026-09-12T21:34:29.8528792Z {"attempts": 154, "date": "2026-04-02", "page": 10, "status": 200, "error": null, "dates_exhausted": 11}
+2026-09-12T21:34:42.3561805Z {"attempts": 155, "date": "2026-04-02", "page": 11, "status": 200, "error": null, "dates_exhausted": 11}
+2026-09-12T21:34:54.9262346Z {"attempts": 156, "date": "2026-04-02", "page": 12, "status": 200, "error": null, "dates_exhausted": 11}
+2026-09-12T21:35:07.3012308Z {"attempts": 157, "date": "2026-04-02", "page": 13, "status": 200, "error": null, "dates_exhausted": 12}
+2026-09-12T21:35:19.8233671Z {"attempts": 158, "date": "2026-04-06", "page": 1, "status": 200, "error": null, "dates_exhausted": 12}
+2026-09-12T21:35:32.4748018Z {"attempts": 159, "date": "2026-04-06", "page": 2, "status": 200, "error": null, "dates_exhausted": 12}
+2026-09-12T21:35:44.8386047Z {"attempts": 160, "date": "2026-04-06", "page": 3, "status": 200, "error": null, "dates_exhausted": 12}
+2026-09-12T21:35:57.4132977Z {"attempts": 161, "date": "2026-04-06", "page": 4, "status": 200, "error": null, "dates_exhausted": 12}
+2026-09-12T21:36:09.9008166Z {"attempts": 162, "date": "2026-04-06", "page": 5, "status": 200, "error": null, "dates_exhausted": 12}
+2026-09-12T21:36:22.4310371Z {"attempts": 163, "date": "2026-04-06", "page": 6, "status": 200, "error": null, "dates_exhausted": 12}
+2026-09-12T21:36:34.8848969Z {"attempts": 164, "date": "2026-04-06", "page": 7, "status": 200, "error": null, "dates_exhausted": 12}
+2026-09-12T21:36:47.3334643Z {"attempts": 165, "date": "2026-04-06", "page": 8, "status": 200, "error": null, "dates_exhausted": 12}
+2026-09-12T21:36:59.9103244Z {"attempts": 166, "date": "2026-04-06", "page": 9, "status": 200, "error": null, "dates_exhausted": 12}
+2026-09-12T21:37:12.3673899Z {"attempts": 167, "date": "2026-04-06", "page": 10, "status": 200, "error": null, "dates_exhausted": 12}
+2026-09-12T21:37:24.8230888Z {"attempts": 168, "date": "2026-04-06", "page": 11, "status": 200, "error": null, "dates_exhausted": 12}
+2026-09-12T21:37:37.4351052Z {"attempts": 169, "date": "2026-04-06", "page": 12, "status": 200, "error": null, "dates_exhausted": 12}
+2026-09-12T21:37:49.9097030Z {"attempts": 170, "date": "2026-04-06", "page": 13, "status": 200, "error": null, "dates_exhausted": 13}
+2026-09-12T21:38:02.3433353Z {"attempts": 171, "date": "2026-04-10", "page": 1, "status": 200, "error": null, "dates_exhausted": 13}
+2026-09-12T21:38:14.9088301Z {"attempts": 172, "date": "2026-04-10", "page": 2, "status": 200, "error": null, "dates_exhausted": 13}
+2026-09-12T21:38:27.3350758Z {"attempts": 173, "date": "2026-04-10", "page": 3, "status": 200, "error": null, "dates_exhausted": 13}
+2026-09-12T21:38:39.9183976Z {"attempts": 174, "date": "2026-04-10", "page": 4, "status": 200, "error": null, "dates_exhausted": 13}
+2026-09-12T21:38:52.4228006Z {"attempts": 175, "date": "2026-04-10", "page": 5, "status": 200, "error": null, "dates_exhausted": 13}
+2026-09-12T21:39:05.0271421Z {"attempts": 176, "date": "2026-04-10", "page": 6, "status": 200, "error": null, "dates_exhausted": 13}
+2026-09-12T21:39:17.3345808Z {"attempts": 177, "date": "2026-04-10", "page": 7, "status": 200, "error": null, "dates_exhausted": 13}
+2026-09-12T21:39:29.9418422Z {"attempts": 178, "date": "2026-04-10", "page": 8, "status": 200, "error": null, "dates_exhausted": 13}
+2026-09-12T21:39:42.4662932Z {"attempts": 179, "date": "2026-04-10", "page": 9, "status": 200, "error": null, "dates_exhausted": 13}
+2026-09-12T21:39:54.9179044Z {"attempts": 180, "date": "2026-04-10", "page": 10, "status": 200, "error": null, "dates_exhausted": 13}
+2026-09-12T21:40:07.3245829Z {"attempts": 181, "date": "2026-04-10", "page": 11, "status": 200, "error": null, "dates_exhausted": 13}
+2026-09-12T21:40:19.9017658Z {"attempts": 182, "date": "2026-04-10", "page": 12, "status": 200, "error": null, "dates_exhausted": 13}
+2026-09-12T21:40:32.3428998Z {"attempts": 183, "date": "2026-04-10", "page": 13, "status": 200, "error": null, "dates_exhausted": 14}
+2026-09-12T21:40:44.9112687Z {"attempts": 184, "date": "2026-04-13", "page": 1, "status": 200, "error": null, "dates_exhausted": 14}
+2026-09-12T21:40:57.3324365Z {"attempts": 185, "date": "2026-04-13", "page": 2, "status": 200, "error": null, "dates_exhausted": 14}
+2026-09-12T21:41:09.9248579Z {"attempts": 186, "date": "2026-04-13", "page": 3, "status": 200, "error": null, "dates_exhausted": 14}
+2026-09-12T21:41:22.4217781Z {"attempts": 187, "date": "2026-04-13", "page": 4, "status": 200, "error": null, "dates_exhausted": 14}
+2026-09-12T21:41:34.8375984Z {"attempts": 188, "date": "2026-04-13", "page": 5, "status": 200, "error": null, "dates_exhausted": 14}
+2026-09-12T21:41:47.3315088Z {"attempts": 189, "date": "2026-04-13", "page": 6, "status": 200, "error": null, "dates_exhausted": 14}
+2026-09-12T21:41:59.8519487Z {"attempts": 190, "date": "2026-04-13", "page": 7, "status": 200, "error": null, "dates_exhausted": 14}
+2026-09-12T21:42:12.4169624Z {"attempts": 191, "date": "2026-04-13", "page": 8, "status": 200, "error": null, "dates_exhausted": 14}
+2026-09-12T21:42:24.8656286Z {"attempts": 192, "date": "2026-04-13", "page": 9, "status": 200, "error": null, "dates_exhausted": 14}
+2026-09-12T21:42:37.4258987Z {"attempts": 193, "date": "2026-04-13", "page": 10, "status": 200, "error": null, "dates_exhausted": 14}
+2026-09-12T21:42:49.8631421Z {"attempts": 194, "date": "2026-04-13", "page": 11, "status": 200, "error": null, "dates_exhausted": 14}
+2026-09-12T21:43:02.3391093Z {"attempts": 195, "date": "2026-04-13", "page": 12, "status": 200, "error": null, "dates_exhausted": 14}
+2026-09-12T21:43:14.7773713Z {"attempts": 196, "date": "2026-04-13", "page": 13, "status": 200, "error": null, "dates_exhausted": 15}
+2026-09-12T21:43:27.4492690Z {"attempts": 197, "date": "2026-04-14", "page": 1, "status": 200, "error": null, "dates_exhausted": 15}
+2026-09-12T21:43:39.9164508Z {"attempts": 198, "date": "2026-04-14", "page": 2, "status": 200, "error": null, "dates_exhausted": 15}
+2026-09-12T21:43:52.4382279Z {"attempts": 199, "date": "2026-04-14", "page": 3, "status": 200, "error": null, "dates_exhausted": 15}
+2026-09-12T21:44:04.8404769Z {"attempts": 200, "date": "2026-04-14", "page": 4, "status": 200, "error": null, "dates_exhausted": 15}
+2026-09-12T21:44:17.4793912Z {"attempts": 201, "date": "2026-04-14", "page": 5, "status": 200, "error": null, "dates_exhausted": 15}
+2026-09-12T21:44:29.8438252Z {"attempts": 202, "date": "2026-04-14", "page": 6, "status": 200, "error": null, "dates_exhausted": 15}
+2026-09-12T21:44:42.4172939Z {"attempts": 203, "date": "2026-04-14", "page": 7, "status": 200, "error": null, "dates_exhausted": 15}
+2026-09-12T21:44:54.8991353Z {"attempts": 204, "date": "2026-04-14", "page": 8, "status": 200, "error": null, "dates_exhausted": 15}
+2026-09-12T21:45:07.3332829Z {"attempts": 205, "date": "2026-04-14", "page": 9, "status": 200, "error": null, "dates_exhausted": 15}
+2026-09-12T21:45:19.9281687Z {"attempts": 206, "date": "2026-04-14", "page": 10, "status": 200, "error": null, "dates_exhausted": 15}
+2026-09-12T21:45:32.4193110Z {"attempts": 207, "date": "2026-04-14", "page": 11, "status": 200, "error": null, "dates_exhausted": 15}
+2026-09-12T21:45:44.9208244Z {"attempts": 208, "date": "2026-04-14", "page": 12, "status": 200, "error": null, "dates_exhausted": 15}
+2026-09-12T21:45:57.3620308Z {"attempts": 209, "date": "2026-04-14", "page": 13, "status": 200, "error": null, "dates_exhausted": 16}
+2026-09-12T21:46:09.8442548Z {"attempts": 210, "date": "2026-04-15", "page": 1, "status": 200, "error": null, "dates_exhausted": 16}
+2026-09-12T21:46:22.3511384Z {"attempts": 211, "date": "2026-04-15", "page": 2, "status": 200, "error": null, "dates_exhausted": 16}
+2026-09-12T21:46:34.8410638Z {"attempts": 212, "date": "2026-04-15", "page": 3, "status": 200, "error": null, "dates_exhausted": 16}
+2026-09-12T21:46:47.3464254Z {"attempts": 213, "date": "2026-04-15", "page": 4, "status": 200, "error": null, "dates_exhausted": 16}
+2026-09-12T21:46:59.8680692Z {"attempts": 214, "date": "2026-04-15", "page": 5, "status": 200, "error": null, "dates_exhausted": 16}
+2026-09-12T21:47:12.4342380Z {"attempts": 215, "date": "2026-04-15", "page": 6, "status": 200, "error": null, "dates_exhausted": 16}
+2026-09-12T21:47:24.9020047Z {"attempts": 216, "date": "2026-04-15", "page": 7, "status": 200, "error": null, "dates_exhausted": 16}
+2026-09-12T21:47:37.4742963Z {"attempts": 217, "date": "2026-04-15", "page": 8, "status": 200, "error": null, "dates_exhausted": 16}
+2026-09-12T21:47:50.0213060Z {"attempts": 218, "date": "2026-04-15", "page": 9, "status": 200, "error": null, "dates_exhausted": 16}
+2026-09-12T21:48:02.4532226Z {"attempts": 219, "date": "2026-04-15", "page": 10, "status": 200, "error": null, "dates_exhausted": 16}
+2026-09-12T21:48:14.9108202Z {"attempts": 220, "date": "2026-04-15", "page": 11, "status": 200, "error": null, "dates_exhausted": 16}
+2026-09-12T21:48:27.4166994Z {"attempts": 221, "date": "2026-04-15", "page": 12, "status": 200, "error": null, "dates_exhausted": 16}
+2026-09-12T21:48:39.8508104Z {"attempts": 222, "date": "2026-04-15", "page": 13, "status": 200, "error": null, "dates_exhausted": 17}
+2026-09-12T21:48:52.4074198Z {"attempts": 223, "date": "2026-04-16", "page": 1, "status": 200, "error": null, "dates_exhausted": 17}
+2026-09-12T21:49:04.9144420Z {"attempts": 224, "date": "2026-04-16", "page": 2, "status": 200, "error": null, "dates_exhausted": 17}
+2026-09-12T21:49:17.4432359Z {"attempts": 225, "date": "2026-04-16", "page": 3, "status": 200, "error": null, "dates_exhausted": 17}
+2026-09-12T21:49:29.8373297Z {"attempts": 226, "date": "2026-04-16", "page": 4, "status": 200, "error": null, "dates_exhausted": 17}
+2026-09-12T21:49:42.3383721Z {"attempts": 227, "date": "2026-04-16", "page": 5, "status": 200, "error": null, "dates_exhausted": 17}
+2026-09-12T21:49:54.8379966Z {"attempts": 228, "date": "2026-04-16", "page": 6, "status": 200, "error": null, "dates_exhausted": 17}
+2026-09-12T21:50:07.3720491Z {"attempts": 229, "date": "2026-04-16", "page": 7, "status": 200, "error": null, "dates_exhausted": 17}
+2026-09-12T21:50:19.8559610Z {"attempts": 230, "date": "2026-04-16", "page": 8, "status": 200, "error": null, "dates_exhausted": 17}
+2026-09-12T21:50:32.4249513Z {"attempts": 231, "date": "2026-04-16", "page": 9, "status": 200, "error": null, "dates_exhausted": 17}
+2026-09-12T21:50:44.9846702Z {"attempts": 232, "date": "2026-04-16", "page": 10, "status": 200, "error": null, "dates_exhausted": 17}
+2026-09-12T21:50:57.3808942Z {"attempts": 233, "date": "2026-04-16", "page": 11, "status": 200, "error": null, "dates_exhausted": 17}
+2026-09-12T21:51:10.0286018Z {"attempts": 234, "date": "2026-04-16", "page": 12, "status": 200, "error": null, "dates_exhausted": 17}
+2026-09-12T21:51:22.3782688Z {"attempts": 235, "date": "2026-04-16", "page": 13, "status": 200, "error": null, "dates_exhausted": 18}
+2026-09-12T21:51:34.9542719Z {"attempts": 236, "date": "2026-04-17", "page": 1, "status": 200, "error": null, "dates_exhausted": 18}
+2026-09-12T21:51:47.4554273Z {"attempts": 237, "date": "2026-04-17", "page": 2, "status": 200, "error": null, "dates_exhausted": 18}
+2026-09-12T21:51:59.9241071Z {"attempts": 238, "date": "2026-04-17", "page": 3, "status": 200, "error": null, "dates_exhausted": 18}
+2026-09-12T21:52:12.4249934Z {"attempts": 239, "date": "2026-04-17", "page": 4, "status": 200, "error": null, "dates_exhausted": 18}
+2026-09-12T21:52:24.8688212Z {"attempts": 240, "date": "2026-04-17", "page": 5, "status": 200, "error": null, "dates_exhausted": 18}
+2026-09-12T21:52:37.4337890Z {"attempts": 241, "date": "2026-04-17", "page": 6, "status": 200, "error": null, "dates_exhausted": 18}
+2026-09-12T21:52:49.8539515Z {"attempts": 242, "date": "2026-04-17", "page": 7, "status": 200, "error": null, "dates_exhausted": 18}
+2026-09-12T21:53:02.4387086Z {"attempts": 243, "date": "2026-04-17", "page": 8, "status": 200, "error": null, "dates_exhausted": 18}
+2026-09-12T21:53:14.9133039Z {"attempts": 244, "date": "2026-04-17", "page": 9, "status": 200, "error": null, "dates_exhausted": 18}
+2026-09-12T21:53:27.3404660Z {"attempts": 245, "date": "2026-04-17", "page": 10, "status": 200, "error": null, "dates_exhausted": 18}
+2026-09-12T21:53:39.9898094Z {"attempts": 246, "date": "2026-04-17", "page": 11, "status": 200, "error": null, "dates_exhausted": 18}
+2026-09-12T21:53:52.3776902Z {"attempts": 247, "date": "2026-04-17", "page": 12, "status": 200, "error": null, "dates_exhausted": 18}
+2026-09-12T21:54:04.9565746Z {"attempts": 248, "date": "2026-04-17", "page": 13, "status": 200, "error": null, "dates_exhausted": 19}
+2026-09-12T21:54:17.5021333Z {"attempts": 249, "date": "2026-04-20", "page": 1, "status": 200, "error": null, "dates_exhausted": 19}
+2026-09-12T21:54:29.9018903Z {"attempts": 250, "date": "2026-04-20", "page": 2, "status": 200, "error": null, "dates_exhausted": 19}
+2026-09-12T21:54:42.5146318Z {"attempts": 251, "date": "2026-04-20", "page": 3, "status": 200, "error": null, "dates_exhausted": 19}
+2026-09-12T21:54:54.9973023Z {"attempts": 252, "date": "2026-04-20", "page": 4, "status": 200, "error": null, "dates_exhausted": 19}
+2026-09-12T21:55:07.3642353Z {"attempts": 253, "date": "2026-04-20", "page": 5, "status": 200, "error": null, "dates_exhausted": 19}
+2026-09-12T21:55:19.9559759Z {"attempts": 254, "date": "2026-04-20", "page": 6, "status": 200, "error": null, "dates_exhausted": 19}
+2026-09-12T21:55:32.4371783Z {"attempts": 255, "date": "2026-04-20", "page": 7, "status": 200, "error": null, "dates_exhausted": 19}
+2026-09-12T21:55:44.8501606Z {"attempts": 256, "date": "2026-04-20", "page": 8, "status": 200, "error": null, "dates_exhausted": 19}
+2026-09-12T21:55:57.3943219Z {"attempts": 257, "date": "2026-04-20", "page": 9, "status": 200, "error": null, "dates_exhausted": 19}
+2026-09-12T21:56:10.0041887Z {"attempts": 258, "date": "2026-04-20", "page": 10, "status": 200, "error": null, "dates_exhausted": 19}
+2026-09-12T21:56:22.3702196Z {"attempts": 259, "date": "2026-04-20", "page": 11, "status": 200, "error": null, "dates_exhausted": 19}
+2026-09-12T21:56:34.8428477Z {"attempts": 260, "date": "2026-04-20", "page": 12, "status": 200, "error": null, "dates_exhausted": 19}
+2026-09-12T21:56:47.3195113Z {"attempts": 261, "date": "2026-04-20", "page": 13, "status": 200, "error": null, "dates_exhausted": 20}
+2026-09-12T21:56:59.9544725Z {"attempts": 262, "date": "2026-04-21", "page": 1, "status": 200, "error": null, "dates_exhausted": 20}
+2026-09-12T21:57:12.4808246Z {"attempts": 263, "date": "2026-04-21", "page": 2, "status": 200, "error": null, "dates_exhausted": 20}
+2026-09-12T21:57:24.8586977Z {"attempts": 264, "date": "2026-04-21", "page": 3, "status": 200, "error": null, "dates_exhausted": 20}
+2026-09-12T21:57:37.4962726Z {"attempts": 265, "date": "2026-04-21", "page": 4, "status": 200, "error": null, "dates_exhausted": 20}
+2026-09-12T21:57:49.8699788Z {"attempts": 266, "date": "2026-04-21", "page": 5, "status": 200, "error": null, "dates_exhausted": 20}
+2026-09-12T21:58:02.3743832Z {"attempts": 267, "date": "2026-04-21", "page": 6, "status": 200, "error": null, "dates_exhausted": 20}
+2026-09-12T21:58:14.9936631Z {"attempts": 268, "date": "2026-04-21", "page": 7, "status": 200, "error": null, "dates_exhausted": 20}
+2026-09-12T21:58:27.4694775Z {"attempts": 269, "date": "2026-04-21", "page": 8, "status": 200, "error": null, "dates_exhausted": 20}
+2026-09-12T21:58:39.9520548Z {"attempts": 270, "date": "2026-04-21", "page": 9, "status": 200, "error": null, "dates_exhausted": 20}
+2026-09-12T21:58:52.4939290Z {"attempts": 271, "date": "2026-04-21", "page": 10, "status": 200, "error": null, "dates_exhausted": 20}
+2026-09-12T21:59:04.8673724Z {"attempts": 272, "date": "2026-04-21", "page": 11, "status": 200, "error": null, "dates_exhausted": 20}
+2026-09-12T21:59:17.4345047Z {"attempts": 273, "date": "2026-04-21", "page": 12, "status": 200, "error": null, "dates_exhausted": 20}
+2026-09-12T21:59:29.9321205Z {"attempts": 274, "date": "2026-04-21", "page": 13, "status": 200, "error": null, "dates_exhausted": 21}
+2026-09-12T21:59:42.3554462Z {"attempts": 275, "date": "2026-04-23", "page": 1, "status": 200, "error": null, "dates_exhausted": 21}
+2026-09-12T21:59:54.9295928Z {"attempts": 276, "date": "2026-04-23", "page": 2, "status": 200, "error": null, "dates_exhausted": 21}
+2026-09-12T22:00:07.3618384Z {"attempts": 277, "date": "2026-04-23", "page": 3, "status": 200, "error": null, "dates_exhausted": 21}
+2026-09-12T22:00:19.8547929Z {"attempts": 278, "date": "2026-04-23", "page": 4, "status": 200, "error": null, "dates_exhausted": 21}
+2026-09-12T22:00:32.4952913Z {"attempts": 279, "date": "2026-04-23", "page": 5, "status": 200, "error": null, "dates_exhausted": 21}
+2026-09-12T22:00:44.9175115Z {"attempts": 280, "date": "2026-04-23", "page": 6, "status": 200, "error": null, "dates_exhausted": 21}
+2026-09-12T22:00:57.3444451Z {"attempts": 281, "date": "2026-04-23", "page": 7, "status": 200, "error": null, "dates_exhausted": 21}
+2026-09-12T22:01:09.9182661Z {"attempts": 282, "date": "2026-04-23", "page": 8, "status": 200, "error": null, "dates_exhausted": 21}
+2026-09-12T22:01:22.3454983Z {"attempts": 283, "date": "2026-04-23", "page": 9, "status": 200, "error": null, "dates_exhausted": 21}
+2026-09-12T22:01:35.0354854Z {"attempts": 284, "date": "2026-04-23", "page": 10, "status": 200, "error": null, "dates_exhausted": 21}
+2026-09-12T22:01:47.4488732Z {"attempts": 285, "date": "2026-04-23", "page": 11, "status": 200, "error": null, "dates_exhausted": 21}
+2026-09-12T22:01:59.8434858Z {"attempts": 286, "date": "2026-04-23", "page": 12, "status": 200, "error": null, "dates_exhausted": 21}
+2026-09-12T22:02:12.3750488Z {"attempts": 287, "date": "2026-04-23", "page": 13, "status": 200, "error": null, "dates_exhausted": 22}
+2026-09-12T22:02:24.9274343Z {"attempts": 288, "date": "2026-04-24", "page": 1, "status": 200, "error": null, "dates_exhausted": 22}
+2026-09-12T22:02:37.5015239Z {"attempts": 289, "date": "2026-04-24", "page": 2, "status": 200, "error": null, "dates_exhausted": 22}
+2026-09-12T22:02:49.8587840Z {"attempts": 290, "date": "2026-04-24", "page": 3, "status": 200, "error": null, "dates_exhausted": 22}
+2026-09-12T22:03:02.4452940Z {"attempts": 291, "date": "2026-04-24", "page": 4, "status": 200, "error": null, "dates_exhausted": 22}
+2026-09-12T22:03:14.9042614Z {"attempts": 292, "date": "2026-04-24", "page": 5, "status": 200, "error": null, "dates_exhausted": 22}
+2026-09-12T22:03:27.5364081Z {"attempts": 293, "date": "2026-04-24", "page": 6, "status": 200, "error": null, "dates_exhausted": 22}
+2026-09-12T22:03:39.8784700Z {"attempts": 294, "date": "2026-04-24", "page": 7, "status": 200, "error": null, "dates_exhausted": 22}
+2026-09-12T22:03:52.4263395Z {"attempts": 295, "date": "2026-04-24", "page": 8, "status": 200, "error": null, "dates_exhausted": 22}
+2026-09-12T22:04:04.9377600Z {"attempts": 296, "date": "2026-04-24", "page": 9, "status": 200, "error": null, "dates_exhausted": 22}
+2026-09-12T22:04:17.4991604Z {"attempts": 297, "date": "2026-04-24", "page": 10, "status": 200, "error": null, "dates_exhausted": 22}
+2026-09-12T22:04:29.9150503Z {"attempts": 298, "date": "2026-04-24", "page": 11, "status": 200, "error": null, "dates_exhausted": 22}
+2026-09-12T22:04:42.3882651Z {"attempts": 299, "date": "2026-04-24", "page": 12, "status": 200, "error": null, "dates_exhausted": 22}
+2026-09-12T22:04:54.9026299Z {"attempts": 300, "date": "2026-04-24", "page": 13, "status": 200, "error": null, "dates_exhausted": 23}
+2026-09-12T22:05:07.3788778Z {"attempts": 301, "date": "2026-04-27", "page": 1, "status": 200, "error": null, "dates_exhausted": 23}
+2026-09-12T22:05:20.0982082Z {"attempts": 302, "date": "2026-04-27", "page": 2, "status": 200, "error": null, "dates_exhausted": 23}
+2026-09-12T22:05:32.4053795Z {"attempts": 303, "date": "2026-04-27", "page": 3, "status": 200, "error": null, "dates_exhausted": 23}
+2026-09-12T22:05:44.9738735Z {"attempts": 304, "date": "2026-04-27", "page": 4, "status": 200, "error": null, "dates_exhausted": 23}
+2026-09-12T22:05:57.3532972Z {"attempts": 305, "date": "2026-04-27", "page": 5, "status": 200, "error": null, "dates_exhausted": 23}
+2026-09-12T22:06:09.9567865Z {"attempts": 306, "date": "2026-04-27", "page": 6, "status": 200, "error": null, "dates_exhausted": 23}
+2026-09-12T22:06:22.3550147Z {"attempts": 307, "date": "2026-04-27", "page": 7, "status": 200, "error": null, "dates_exhausted": 23}
+2026-09-12T22:06:34.9790225Z {"attempts": 308, "date": "2026-04-27", "page": 8, "status": 200, "error": null, "dates_exhausted": 23}
+2026-09-12T22:06:47.6018919Z {"attempts": 309, "date": "2026-04-27", "page": 9, "status": 200, "error": null, "dates_exhausted": 23}
+2026-09-12T22:06:59.9267597Z {"attempts": 310, "date": "2026-04-27", "page": 10, "status": 200, "error": null, "dates_exhausted": 23}
+2026-09-12T22:07:12.4517877Z {"attempts": 311, "date": "2026-04-27", "page": 11, "status": 200, "error": null, "dates_exhausted": 23}
+2026-09-12T22:07:24.9210674Z {"attempts": 312, "date": "2026-04-27", "page": 12, "status": 200, "error": null, "dates_exhausted": 23}
+2026-09-12T22:07:37.3684961Z {"attempts": 313, "date": "2026-04-27", "page": 13, "status": 200, "error": null, "dates_exhausted": 24}
+2026-09-12T22:07:49.9297845Z {"attempts": 314, "date": "2026-04-28", "page": 1, "status": 200, "error": null, "dates_exhausted": 24}
+2026-09-12T22:08:02.3711046Z {"attempts": 315, "date": "2026-04-28", "page": 2, "status": 200, "error": null, "dates_exhausted": 24}
+2026-09-12T22:08:14.9602857Z {"attempts": 316, "date": "2026-04-28", "page": 3, "status": 200, "error": null, "dates_exhausted": 24}
+2026-09-12T22:08:27.4338914Z {"attempts": 317, "date": "2026-04-28", "page": 4, "status": 200, "error": null, "dates_exhausted": 24}
+2026-09-12T22:08:39.9275636Z {"attempts": 318, "date": "2026-04-28", "page": 5, "status": 200, "error": null, "dates_exhausted": 24}
+2026-09-12T22:08:52.4441208Z {"attempts": 319, "date": "2026-04-28", "page": 6, "status": 200, "error": null, "dates_exhausted": 24}
+2026-09-12T22:09:04.9947235Z {"attempts": 320, "date": "2026-04-28", "page": 7, "status": 200, "error": null, "dates_exhausted": 24}
+2026-09-12T22:09:17.3961462Z {"attempts": 321, "date": "2026-04-28", "page": 8, "status": 200, "error": null, "dates_exhausted": 24}
+2026-09-12T22:09:29.8612754Z {"attempts": 322, "date": "2026-04-28", "page": 9, "status": 200, "error": null, "dates_exhausted": 24}
+2026-09-12T22:09:42.3772600Z {"attempts": 323, "date": "2026-04-28", "page": 10, "status": 200, "error": null, "dates_exhausted": 24}
+2026-09-12T22:09:54.9608972Z {"attempts": 324, "date": "2026-04-28", "page": 11, "status": 200, "error": null, "dates_exhausted": 24}
+2026-09-12T22:10:07.4439356Z {"attempts": 325, "date": "2026-04-28", "page": 12, "status": 200, "error": null, "dates_exhausted": 24}
+2026-09-12T22:10:19.8103656Z {"attempts": 326, "date": "2026-04-28", "page": 13, "status": 200, "error": null, "dates_exhausted": 25}
+2026-09-12T22:10:32.5187983Z {"attempts": 327, "date": "2026-04-29", "page": 1, "status": 200, "error": null, "dates_exhausted": 25}
+2026-09-12T22:10:44.8600824Z {"attempts": 328, "date": "2026-04-29", "page": 2, "status": 200, "error": null, "dates_exhausted": 25}
+2026-09-12T22:10:57.4389153Z {"attempts": 329, "date": "2026-04-29", "page": 3, "status": 200, "error": null, "dates_exhausted": 25}
+2026-09-12T22:11:09.8532185Z {"attempts": 330, "date": "2026-04-29", "page": 4, "status": 200, "error": null, "dates_exhausted": 25}
+2026-09-12T22:11:22.3795261Z {"attempts": 331, "date": "2026-04-29", "page": 5, "status": 200, "error": null, "dates_exhausted": 25}
+2026-09-12T22:11:34.9777440Z {"attempts": 332, "date": "2026-04-29", "page": 6, "status": 200, "error": null, "dates_exhausted": 25}
+2026-09-12T22:11:47.5153353Z {"attempts": 333, "date": "2026-04-29", "page": 7, "status": 200, "error": null, "dates_exhausted": 25}
+2026-09-12T22:11:59.9451279Z {"attempts": 334, "date": "2026-04-29", "page": 8, "status": 200, "error": null, "dates_exhausted": 25}
+2026-09-12T22:12:12.5391236Z {"attempts": 335, "date": "2026-04-29", "page": 9, "status": 200, "error": null, "dates_exhausted": 25}
+2026-09-12T22:12:24.9336905Z {"attempts": 336, "date": "2026-04-29", "page": 10, "status": 200, "error": null, "dates_exhausted": 25}
+2026-09-12T22:12:37.4416748Z {"attempts": 337, "date": "2026-04-29", "page": 11, "status": 200, "error": null, "dates_exhausted": 25}
+2026-09-12T22:12:49.8585056Z {"attempts": 338, "date": "2026-04-29", "page": 12, "status": 200, "error": null, "dates_exhausted": 25}
+2026-09-12T22:13:02.4762876Z {"attempts": 339, "date": "2026-04-29", "page": 13, "status": 200, "error": null, "dates_exhausted": 26}
+2026-09-12T22:13:14.9244748Z {"attempts": 340, "date": "2026-04-30", "page": 1, "status": 200, "error": null, "dates_exhausted": 26}
+2026-09-12T22:13:27.5145023Z {"attempts": 341, "date": "2026-04-30", "page": 2, "status": 200, "error": null, "dates_exhausted": 26}
+2026-09-12T22:13:40.0258630Z {"attempts": 342, "date": "2026-04-30", "page": 3, "status": 200, "error": null, "dates_exhausted": 26}
+2026-09-12T22:13:52.3626982Z {"attempts": 343, "date": "2026-04-30", "page": 4, "status": 200, "error": null, "dates_exhausted": 26}
+2026-09-12T22:14:05.0180315Z {"attempts": 344, "date": "2026-04-30", "page": 5, "status": 200, "error": null, "dates_exhausted": 26}
+2026-09-12T22:14:17.4292814Z {"attempts": 345, "date": "2026-04-30", "page": 6, "status": 200, "error": null, "dates_exhausted": 26}
+2026-09-12T22:14:29.9718164Z {"attempts": 346, "date": "2026-04-30", "page": 7, "status": 200, "error": null, "dates_exhausted": 26}
+2026-09-12T22:14:42.5776776Z {"attempts": 347, "date": "2026-04-30", "page": 8, "status": 200, "error": null, "dates_exhausted": 26}
+2026-09-12T22:14:54.9481044Z {"attempts": 348, "date": "2026-04-30", "page": 9, "status": 200, "error": null, "dates_exhausted": 26}
+2026-09-12T22:15:07.5482390Z {"attempts": 349, "date": "2026-04-30", "page": 10, "status": 200, "error": null, "dates_exhausted": 26}
+2026-09-12T22:15:19.9410098Z {"attempts": 350, "date": "2026-04-30", "page": 11, "status": 200, "error": null, "dates_exhausted": 26}
+2026-09-12T22:15:32.3971715Z {"attempts": 351, "date": "2026-04-30", "page": 12, "status": 200, "error": null, "dates_exhausted": 26}
+2026-09-12T22:15:44.9596221Z {"attempts": 352, "date": "2026-04-30", "page": 13, "status": 200, "error": null, "dates_exhausted": 27}
+2026-09-12T22:15:57.4514224Z {"attempts": 353, "date": "2026-05-04", "page": 1, "status": 200, "error": null, "dates_exhausted": 27}
+2026-09-12T22:16:09.9391890Z {"attempts": 354, "date": "2026-05-04", "page": 2, "status": 200, "error": null, "dates_exhausted": 27}
+2026-09-12T22:16:22.4648523Z {"attempts": 355, "date": "2026-05-04", "page": 3, "status": 200, "error": null, "dates_exhausted": 27}
+2026-09-12T22:16:34.8742343Z {"attempts": 356, "date": "2026-05-04", "page": 4, "status": 200, "error": null, "dates_exhausted": 27}
+2026-09-12T22:16:47.3823356Z {"attempts": 357, "date": "2026-05-04", "page": 5, "status": 200, "error": null, "dates_exhausted": 27}
+2026-09-12T22:16:59.9988953Z {"attempts": 358, "date": "2026-05-04", "page": 6, "status": 200, "error": null, "dates_exhausted": 27}
+2026-09-12T22:17:12.4988078Z {"attempts": 359, "date": "2026-05-04", "page": 7, "status": 200, "error": null, "dates_exhausted": 27}
+2026-09-12T22:17:24.9619384Z {"attempts": 360, "date": "2026-05-04", "page": 8, "status": 200, "error": null, "dates_exhausted": 27}
+2026-09-12T22:17:37.4100849Z {"attempts": 361, "date": "2026-05-04", "page": 9, "status": 200, "error": null, "dates_exhausted": 27}
+2026-09-12T22:17:49.9567975Z {"attempts": 362, "date": "2026-05-04", "page": 10, "status": 200, "error": null, "dates_exhausted": 27}
+2026-09-12T22:18:02.3688463Z {"attempts": 363, "date": "2026-05-04", "page": 11, "status": 200, "error": null, "dates_exhausted": 27}
+2026-09-12T22:18:14.8953826Z {"attempts": 364, "date": "2026-05-04", "page": 12, "status": 200, "error": null, "dates_exhausted": 27}
+2026-09-12T22:18:27.3095343Z {"attempts": 365, "date": "2026-05-04", "page": 13, "status": 200, "error": null, "dates_exhausted": 28}
+2026-09-12T22:18:39.9854872Z {"attempts": 366, "date": "2026-05-08", "page": 1, "status": 200, "error": null, "dates_exhausted": 28}
+2026-09-12T22:18:52.3958531Z {"attempts": 367, "date": "2026-05-08", "page": 2, "status": 200, "error": null, "dates_exhausted": 28}
+2026-09-12T22:19:04.8525030Z {"attempts": 368, "date": "2026-05-08", "page": 3, "status": 200, "error": null, "dates_exhausted": 28}
+2026-09-12T22:19:17.3930621Z {"attempts": 369, "date": "2026-05-08", "page": 4, "status": 200, "error": null, "dates_exhausted": 28}
+2026-09-12T22:19:29.9160630Z {"attempts": 370, "date": "2026-05-08", "page": 5, "status": 200, "error": null, "dates_exhausted": 28}
+2026-09-12T22:19:42.4388620Z {"attempts": 371, "date": "2026-05-08", "page": 6, "status": 200, "error": null, "dates_exhausted": 28}
+2026-09-12T22:19:54.8877710Z {"attempts": 372, "date": "2026-05-08", "page": 7, "status": 200, "error": null, "dates_exhausted": 28}
+2026-09-12T22:20:07.4018428Z {"attempts": 373, "date": "2026-05-08", "page": 8, "status": 200, "error": null, "dates_exhausted": 28}
+2026-09-12T22:20:19.8769928Z {"attempts": 374, "date": "2026-05-08", "page": 9, "status": 200, "error": null, "dates_exhausted": 28}
+2026-09-12T22:20:32.3709982Z {"attempts": 375, "date": "2026-05-08", "page": 10, "status": 200, "error": null, "dates_exhausted": 28}
+2026-09-12T22:20:44.9572958Z {"attempts": 376, "date": "2026-05-08", "page": 11, "status": 200, "error": null, "dates_exhausted": 28}
+2026-09-12T22:20:57.4782951Z {"attempts": 377, "date": "2026-05-08", "page": 12, "status": 200, "error": null, "dates_exhausted": 28}
+2026-09-12T22:21:09.8981919Z {"attempts": 378, "date": "2026-05-08", "page": 13, "status": 200, "error": null, "dates_exhausted": 29}
+2026-09-12T22:21:22.3729726Z {"attempts": 379, "date": "2026-05-19", "page": 1, "status": 200, "error": null, "dates_exhausted": 29}
+2026-09-12T22:21:34.8637743Z {"attempts": 380, "date": "2026-05-19", "page": 2, "status": 200, "error": null, "dates_exhausted": 29}
+2026-09-12T22:21:47.3608036Z {"attempts": 381, "date": "2026-05-19", "page": 3, "status": 200, "error": null, "dates_exhausted": 29}
+2026-09-12T22:21:59.8738289Z {"attempts": 382, "date": "2026-05-19", "page": 4, "status": 200, "error": null, "dates_exhausted": 29}
+2026-09-12T22:22:12.5320460Z {"attempts": 383, "date": "2026-05-19", "page": 5, "status": 200, "error": null, "dates_exhausted": 29}
+2026-09-12T22:22:24.8808233Z {"attempts": 384, "date": "2026-05-19", "page": 6, "status": 200, "error": null, "dates_exhausted": 29}
+2026-09-12T22:22:37.3807512Z {"attempts": 385, "date": "2026-05-19", "page": 7, "status": 200, "error": null, "dates_exhausted": 29}
+2026-09-12T22:22:49.9555571Z {"attempts": 386, "date": "2026-05-19", "page": 8, "status": 200, "error": null, "dates_exhausted": 29}
+2026-09-12T22:23:02.4677500Z {"attempts": 387, "date": "2026-05-19", "page": 9, "status": 200, "error": null, "dates_exhausted": 29}
+2026-09-12T22:23:14.8576882Z {"attempts": 388, "date": "2026-05-19", "page": 10, "status": 200, "error": null, "dates_exhausted": 29}
+2026-09-12T22:23:27.3661071Z {"attempts": 389, "date": "2026-05-19", "page": 11, "status": 200, "error": null, "dates_exhausted": 29}
+2026-09-12T22:23:39.9416860Z {"attempts": 390, "date": "2026-05-19", "page": 12, "status": 200, "error": null, "dates_exhausted": 29}
+2026-09-12T22:23:52.3275628Z {"attempts": 391, "date": "2026-05-19", "page": 13, "status": 200, "error": null, "dates_exhausted": 30}
+2026-09-12T22:23:52.5936060Z {"protocol_complete": true, "attempts": 391, "failure": null}
+2026-09-12T22:23:52.6647199Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-12T22:23:52.6648663Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-09-12T22:23:52.6649076Z with:
+2026-09-12T22:23:52.6649382Z   name: early-pullback-census-repaired-v0.3-launch-34718443422-1
+2026-09-12T22:23:52.6649758Z   path: census-launch
+2026-09-12T22:23:52.6649988Z   if-no-files-found: error
+2026-09-12T22:23:52.6650219Z   retention-days: 90
+2026-09-12T22:23:52.6650440Z   compression-level: 6
+2026-09-12T22:23:52.6650660Z   overwrite: false
+2026-09-12T22:23:52.6650875Z   include-hidden-files: false
+2026-09-12T22:23:52.6651108Z env:
+2026-09-12T22:23:52.6651301Z   PYTHONPATH: src:scripts
+2026-09-12T22:23:52.6651571Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-12T22:23:52.6651833Z   CENSUS_PREFLIGHT_ARTIFACT_ID: 10305017350
+2026-09-12T22:23:52.6652303Z   CENSUS_PREFLIGHT_SHA256: cf8cff41befebaecf6ef262a7bc0162d6674a3a294ebc38a09702e40586ebbe9
+2026-09-12T22:23:52.6652856Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:23:52.6653300Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-09-12T22:23:52.6653733Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:23:52.6654120Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:23:52.6654505Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:23:52.6654895Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-09-12T22:23:52.6655223Z ##[endgroup]
+2026-09-12T22:23:52.8330865Z (node:3102) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-12T22:23:52.8332403Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-12T22:23:52.8427912Z With the provided path, there will be 9 files uploaded
+2026-09-12T22:23:52.8429112Z Artifact name is valid!
+2026-09-12T22:23:52.8429699Z Root directory input is valid!
+2026-09-12T22:23:53.1273381Z Beginning upload of artifact content to blob storage
+2026-09-12T22:23:53.1590652Z (node:3102) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-12T22:23:53.2066276Z Uploaded bytes 7915
+2026-09-12T22:23:53.2257493Z Finished uploading artifact content to blob storage!
+2026-09-12T22:23:53.2258903Z SHA256 digest of uploaded artifact zip is db000e8e97759f3c2d51e60014f069bc79b15fee14259de22eced96d4cfdbb02
+2026-09-12T22:23:53.2260329Z Finalizing artifact upload
+2026-09-12T22:23:53.4318875Z Artifact early-pullback-census-repaired-v0.3-launch-34718443422-1.zip successfully finalized. Artifact ID 10307150746
+2026-09-12T22:23:53.4320314Z Artifact early-pullback-census-repaired-v0.3-launch-34718443422-1 has been successfully uploaded! Final size is 7915 bytes. Artifact ID is 10307150746
+2026-09-12T22:23:53.4325661Z Artifact download URL: https://github.com/RoomyRems/momentumbot/actions/runs/34718443422/artifacts/10307150746
+2026-09-12T22:23:53.4463712Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-12T22:23:53.4465130Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-09-12T22:23:53.4465531Z with:
+2026-09-12T22:23:53.4465848Z   name: early-pullback-census-repaired-v0.3-capture-34718443422-1
+2026-09-12T22:23:53.4466239Z   path: census-capture
+2026-09-12T22:23:53.4466778Z   if-no-files-found: error
+2026-09-12T22:23:53.4467041Z   retention-days: 90
+2026-09-12T22:23:53.4467267Z   compression-level: 6
+2026-09-12T22:23:53.4467492Z   overwrite: false
+2026-09-12T22:23:53.4467716Z   include-hidden-files: false
+2026-09-12T22:23:53.4467962Z env:
+2026-09-12T22:23:53.4468160Z   PYTHONPATH: src:scripts
+2026-09-12T22:23:53.4468449Z   PYTHONDONTWRITEBYTECODE: 1
+2026-09-12T22:23:53.4468729Z   CENSUS_PREFLIGHT_ARTIFACT_ID: 10305017350
+2026-09-12T22:23:53.4469211Z   CENSUS_PREFLIGHT_SHA256: cf8cff41befebaecf6ef262a7bc0162d6674a3a294ebc38a09702e40586ebbe9
+2026-09-12T22:23:53.4469744Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:23:53.4470187Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib/pkgconfig
+2026-09-12T22:23:53.4470636Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:23:53.4471022Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:23:53.4471419Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.14/x64
+2026-09-12T22:23:53.4471810Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.14/x64/lib
+2026-09-12T22:23:53.4472156Z ##[endgroup]
+2026-09-12T22:23:53.6219461Z (node:3114) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-12T22:23:53.6220867Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-12T22:23:53.8725844Z With the provided path, there will be 1567 files uploaded
+2026-09-12T22:23:53.8731570Z Artifact name is valid!
+2026-09-12T22:23:53.8732310Z Root directory input is valid!
+2026-09-12T22:23:54.0613792Z Beginning upload of artifact content to blob storage
+2026-09-12T22:23:55.1384149Z (node:3114) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-12T22:23:55.3068595Z Uploaded bytes 8388608
+2026-09-12T22:23:56.3136090Z Uploaded bytes 16777216
+2026-09-12T22:23:57.3629987Z Uploaded bytes 25165824
+2026-09-12T22:23:58.0753663Z Uploaded bytes 30807928
+2026-09-12T22:23:58.0946514Z Finished uploading artifact content to blob storage!
+2026-09-12T22:23:58.0950639Z SHA256 digest of uploaded artifact zip is 38d772b2017c159050c4cef2a678a79af1fd61f243e8131f5112d1ef25b09ded
+2026-09-12T22:23:58.0953106Z Finalizing artifact upload
+2026-09-12T22:23:58.3372433Z Artifact early-pullback-census-repaired-v0.3-capture-34718443422-1.zip successfully finalized. Artifact ID 10306971164
+2026-09-12T22:23:58.3374490Z Artifact early-pullback-census-repaired-v0.3-capture-34718443422-1 has been successfully uploaded! Final size is 30807928 bytes. Artifact ID is 10306971164
+2026-09-12T22:23:58.3380873Z Artifact download URL: https://github.com/RoomyRems/momentumbot/actions/runs/34718443422/artifacts/10306971164
+2026-09-12T22:23:58.3620850Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-12T22:23:58.3622150Z Post job cleanup.
+2026-09-12T22:23:58.4852479Z (node:3126) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-12T22:23:58.4853487Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-12T22:23:58.5045638Z Node 20 is being deprecated. This workflow is running with Node 24 by default. If you need to temporarily use Node 20, you can set the ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION=true environment variable. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+2026-09-12T22:23:58.5047617Z Post job cleanup.
+2026-09-12T22:23:58.5972017Z [command]/usr/bin/git version
+2026-09-12T22:23:58.6019378Z git version 2.55.0
+2026-09-12T22:23:58.6059047Z Temporarily overriding HOME='/home/runner/work/_temp/31f18d43-d54e-497d-867e-48c452b13aa4' before making global git config changes
+2026-09-12T22:23:58.6060510Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-12T22:23:58.6068804Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/momentumbot/momentumbot
+2026-09-12T22:23:58.6110694Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-12T22:23:58.6149869Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-12T22:23:58.6431159Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-12T22:23:58.6468726Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-12T22:23:58.6917919Z Evaluate and set job outputs
+2026-09-12T22:23:58.6926212Z Set output 'capture_artifact_id'
+2026-09-12T22:23:58.6928844Z Set output 'launch_artifact_id'
+2026-09-12T22:23:58.6929861Z Set output 'inventory_sha256'
+2026-09-12T22:23:58.6930699Z Cleaning up orphan processes
+2026-09-12T22:23:58.7289825Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683, actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093, actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
