@@ -1,5 +1,42 @@
 # Integrated daily coverage and identity source capture
 
+## Observed hosted outcome — September 14
+
+Code [`af48e9f`](https://github.com/RoomyRems/momentumbot/commit/af48e9f7761d80684683da02c5ef5b9bcdd800d8)
+passed [full CI](https://github.com/RoomyRems/momentumbot/actions/runs/34799137938):
+2,903 tests in 450.045 seconds, 73 optional SDK skips, compilation and every
+job/step successful, attempt 1. The six supporting validation workflows passed.
+
+[Capture 34799137954](https://github.com/RoomyRems/momentumbot/actions/runs/34799137954)
+consumed its authorization and completed all 46 daily roots for March 4, covering
+5,520 metadata candidates, of which 5,518 satisfy the frozen coverage booleans.
+The first corporate-action request then returned complete HTTP 200 with 1,000
+unique IDs and a next cursor. Every populated group has process-date regressions,
+contrary to the ordering assumption enforced by this version. The code rejected
+the page as `action date regression`. No retry or subsequent provider request ran.
+This is a provider ordering/adapter mismatch, not an authentication failure.
+
+All 47 raw bodies were retained. Offline failure verification checked the exact
+original ZIPs, independent preflight/CI/ref bindings, all 144 capture members,
+every intent/receipt, all 46 daily responses through the frozen replay, and the
+same final rejection/report. The observed process-date range remains within
+November 4, 2025–March 4, 2026. The safe rejected body is 217,339 bytes, SHA-256
+`5134b32e21dc1de6f02d4872e025331440638fe2dcf150284a79ffbb8124e09a`.
+The original capture ZIP is GitHub artifact `10330669089`, 3,493,487 bytes,
+SHA-256 `1d7edc9a9458b290320b5cd2963d911037d3c2b8d60bd86e01ef001a6528861a`.
+Machine verification, metadata, CI/capture logs and the rejected action body are
+in `research/data-audits/early-pullback-coverage-capture-v0.1/`.
+
+The run is terminal and permanently consumed. Automatic successful-capture
+verification was correctly skipped. The later offline check authenticates and
+reproduces a partial failure; it does not accept a complete historical source.
+Next create an additive ordering repair and continuation that reuses the retained
+successful prefix and action page, then fetches only the remaining suffix after
+same-code CI. This failed contract/code stays immutable. No new policy or risk
+authority follows from the diagnosis. Actual billing remains unverified.
+
+## Original implementation checkpoint
+
 Child of `e23fbe16432e863c1c8b6b9c6778129ac60bf3f6`, whose full CI
 [34794323593](https://github.com/RoomyRems/momentumbot/actions/runs/34794323593)
 completed successfully on attempt 1, including tests and compilation.

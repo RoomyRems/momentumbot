@@ -1,6 +1,40 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: integrated daily coverage and identity capture
+## Current checkpoint: first daily coverage complete; corporate-action ordering rejection
+
+Published code `af48e9f7761d80684683da02c5ef5b9bcdd800d8` passed full CI
+`34799137938`, attempt 1: 2,903 tests in 450.045 seconds, 73 optional SDK skips,
+successful compilation and every job/step passed. All six supporting workflows
+also passed. The gated capture `34799137954` then ran and is now terminal:
+consume succeeded, capture failed, automatic success verification was skipped.
+
+All 46 daily roots for March 4 completed: 5,520 candidate symbols, 5,518 passing
+the frozen raw/split prior/target coverage conditions. Request 47 was the first
+Alpaca corporate-action page. Its complete HTTP-200 body has 1,000 unique action
+IDs, a next cursor, and process dates within the requested November 4–March 4
+window, but dates regress within every populated action group. The frozen
+validator rejects it with `action date regression`. This is an ordering-contract
+mismatch, not an HTTP/authentication failure. No request was retried.
+
+Independent offline inspection verified both original ZIPs, preflight/CI/ref
+bindings, all 144 capture members, exact 47 intents/receipts, replay of the 46
+successful daily requests, and reproduction of the final rejection and failure
+report. The failure-verification seal is
+`516bf3f6b9842aab30d74dad2ef5263a161303983c35f25a8d026675d6a6b1a8`.
+Original capture artifact `10330669089`: 3,493,487 bytes; ZIP SHA-256
+`1d7edc9a9458b290320b5cd2963d911037d3c2b8d60bd86e01ef001a6528861a`.
+The safe rejected body, logs, metadata and diagnostic are retained in the capture
+audit directory. This is not a complete 30-date capture or accepted identity panel.
+
+Next implement an additive corporate-action ordering repair that preserves raw
+record order, dates, IDs and cursor completeness, plus a separately consumed
+continuation that replays the saved 46 daily responses and retained action page
+before requesting only the remaining suffix. Do not rerun the consumed v0.1
+workflow or discard completed downloads. Same-code CI is required for the corrected
+collector/verifier. No scanner/runtime, strategy/risk, transcript or financial
+gate changed. See [capture and diagnosis](../research/coverage_capture.md).
+
+## Preserved checkpoint: integrated daily coverage and identity capture
 
 The new batch connects all 1,380 frozen daily roots and 60 existing 120-day
 identity roots to bounded no-retry transport, safe original-response retention,
