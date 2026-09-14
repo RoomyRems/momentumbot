@@ -1,6 +1,28 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: daily coverage pagination and offline handoff
+## Current checkpoint: integrated daily coverage and identity capture
+
+The new batch connects all 1,380 frozen daily roots and 60 existing 120-day
+identity roots to bounded no-retry transport, safe original-response retention,
+corporate-action page validation and independent original-ZIP verification.
+The new workflow requires full CI on its exact code and a separate permanent
+consumption ref before credentials are read. It does not reuse the consumed
+census launcher. The total ceiling is 15,000 attempts; actual totals depend on
+pagination. The collector preserves failure evidence and has a 150-minute internal
+deadline before the hosted timeout.
+
+The parent code `e23fbe16432e863c1c8b6b9c6778129ac60bf3f6` passed full CI
+`34794323593`, attempt 1, including tests and compilation. New code requires its
+own CI before capture. Publication starts that gated workflow under the existing
+continuation authorization. This checkpoint records implementation, not successful
+provider acquisition; inspect the workflow's actual outcome before claiming completion.
+
+Next after verified capture: resolve dated identity/action evidence, bind complete
+coverage to the census reference bridge, then populate remaining scanner inputs.
+Strategy, risk, transcript boundaries and financial gates are unchanged. See
+[integrated capture](../research/coverage_capture.md).
+
+## Preserved checkpoint: daily coverage pagination and offline handoff
 
 The additive daily-coverage child uses the exact published census panel and all
 1,380 unchanged daily roots. It now replays bounded paginated raw/split responses

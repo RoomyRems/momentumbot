@@ -1,0 +1,175 @@
+name: Bounded daily coverage and identity capture
+on:
+  push:
+    branches: [phase-3-historical-snapshot]
+    paths: [research/strategy/early-pullback-coverage-capture-v0.1.json]
+permissions:
+  contents: read
+concurrency:
+  group: early-pullback-coverage-capture-v01
+  cancel-in-progress: false
+env:
+  PYTHONPATH: src:scripts
+  PYTHONDONTWRITEBYTECODE: "1"
+jobs:
+  consume:
+    if: github.run_attempt == 1
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      actions: read
+    outputs:
+      artifact_id: ${{ steps.preserve.outputs.artifact-id }}
+      inventory_sha256: ${{ steps.prepare.outputs.inventory_sha256 }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12.14"
+      - name: Install frozen runtime
+        run: |
+          python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-source-v04.txt
+          python -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          python -m pip check
+      - name: Validate exact child
+        run: python scripts/run_coverage_capture.py validate --check-launch
+      - name: Require successful exact-code CI
+        timeout-minutes: 15
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir coverage-preflight
+          CI_RUN=""
+          for n in $(seq 1 20); do
+            CI_RUN=$(gh run list --repo RoomyRems/momentumbot --workflow ci.yml --commit "$GITHUB_SHA" --event push --json databaseId --jq '.[0].databaseId // empty')
+            if [ -n "$CI_RUN" ]; then break; fi
+            sleep 3
+          done
+          test -n "$CI_RUN"
+          gh run watch "$CI_RUN" --repo RoomyRems/momentumbot --exit-status --interval 15
+          gh api "repos/RoomyRems/momentumbot/actions/runs/$CI_RUN" > coverage-preflight/ci.json
+          gh api "repos/RoomyRems/momentumbot/actions/runs/$CI_RUN/jobs?per_page=100" > coverage-preflight/ci-jobs.json
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          from momentumbot.research import coverage_capture_hosted as m
+          m.d.check_ci(m.parse(Path('coverage-preflight/ci.json').read_bytes()), m.parse(Path('coverage-preflight/ci-jobs.json').read_bytes()), {'GITHUB_SHA': os.environ['GITHUB_SHA']})
+          PY
+      - name: Create permanent consumption and preflight
+        id: prepare
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method POST repos/RoomyRems/momentumbot/git/refs -f ref=refs/tags/early-pullback-coverage-capture-v0.1-consumed -f sha="$GITHUB_SHA" > coverage-preflight/consumed-ref.json
+          python scripts/run_coverage_capture.py prepare
+      - name: Preserve independent preflight
+        id: preserve
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: early-pullback-coverage-capture-v0.1-consumption-${{ github.run_id }}-1
+          path: coverage-preflight
+          if-no-files-found: error
+          retention-days: 90
+  capture:
+    if: github.run_attempt == 1
+    needs: consume
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      artifact_id: ${{ steps.preserve.outputs.artifact-id }}
+      inventory_sha256: ${{ steps.capture.outputs.inventory_sha256 }}
+    env:
+      PREFLIGHT_ARTIFACT_ID: ${{ needs.consume.outputs.artifact_id }}
+      PREFLIGHT_SHA256: ${{ needs.consume.outputs.inventory_sha256 }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12.14"
+      - name: Install frozen runtime
+        run: |
+          python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-source-v04.txt
+          python -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          python -m pip check
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          artifact-ids: ${{ needs.consume.outputs.artifact_id }}
+          path: coverage-preflight
+          merge-multiple: true
+      - name: Observe consumption and independent artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/RoomyRems/momentumbot/git/ref/tags/early-pullback-coverage-capture-v0.1-consumed > coverage-current-ref.json
+          gh api "repos/RoomyRems/momentumbot/actions/artifacts/$PREFLIGHT_ARTIFACT_ID" > coverage-preflight-artifact.json
+      - name: Capture fixed coverage and identity sources once
+        id: capture
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_MAIN_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_MAIN_API_SECRET }}
+          MASSIVE_API_KEY: ${{ secrets.MASSIVE_API_KEY }}
+        run: python scripts/run_coverage_capture.py capture
+      - name: Preserve original capture success or failure
+        id: preserve
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: early-pullback-coverage-capture-v0.1-capture-${{ github.run_id }}-1
+          path: coverage-capture
+          if-no-files-found: error
+          retention-days: 90
+  verify:
+    if: github.run_attempt == 1
+    needs: [consume, capture]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    permissions:
+      contents: read
+      actions: read
+    env:
+      PREFLIGHT_ARTIFACT_ID: ${{ needs.consume.outputs.artifact_id }}
+      PREFLIGHT_SHA256: ${{ needs.consume.outputs.inventory_sha256 }}
+      CAPTURE_ARTIFACT_ID: ${{ needs.capture.outputs.artifact_id }}
+      CAPTURE_INVENTORY_SHA256: ${{ needs.capture.outputs.inventory_sha256 }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38
+        with:
+          python-version: "3.12.14"
+      - name: Install frozen runtime
+        run: |
+          python -m pip install --disable-pip-version-check --require-hashes --only-binary=:all: --no-deps -r requirements-sealed-source-v04.txt
+          python -m pip install --disable-pip-version-check --no-deps --no-build-isolation -e .
+          python -m pip check
+      - name: Fetch original ZIPs and independent metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api repos/RoomyRems/momentumbot/git/ref/tags/early-pullback-coverage-capture-v0.1-consumed > coverage-current-ref.json
+          gh api "repos/RoomyRems/momentumbot/actions/artifacts/$PREFLIGHT_ARTIFACT_ID" > coverage-preflight-artifact.json
+          gh api "repos/RoomyRems/momentumbot/actions/artifacts/$CAPTURE_ARTIFACT_ID" > coverage-capture-artifact.json
+          gh api "repos/RoomyRems/momentumbot/actions/artifacts/$PREFLIGHT_ARTIFACT_ID/zip" > coverage-preflight.zip
+          gh api "repos/RoomyRems/momentumbot/actions/artifacts/$CAPTURE_ARTIFACT_ID/zip" > coverage-capture.zip
+          gh api "repos/RoomyRems/momentumbot/actions/runs/$GITHUB_RUN_ID/jobs?per_page=100" > coverage-jobs.json
+      - name: Verify original source bytes without provider credentials
+        run: python scripts/run_coverage_capture.py verify
+      - name: Preserve independent verification
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: early-pullback-coverage-capture-v0.1-verification-${{ github.run_id }}-1
+          path: coverage-verification
+          if-no-files-found: error
+          retention-days: 90

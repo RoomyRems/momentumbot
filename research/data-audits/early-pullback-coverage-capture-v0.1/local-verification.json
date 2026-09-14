@@ -1,0 +1,14 @@
+{
+  "scope": "focused implementation verification; synthetic transport, no provider requests",
+  "modules": ["tests.test_coverage_capture", "tests.test_daily_coverage", "tests.test_census_scanner_bridge"],
+  "normal": {"tests": 87, "seconds": 9.688, "result": "OK"},
+  "optimized": {"tests": 87, "seconds": 10.713, "result": "OK"},
+  "new_tests": 28,
+  "compilation": "passed",
+  "diff_whitespace_check": "passed",
+  "full_local_suite_repeated": false,
+  "synthetic_hosted_capture_and_original_zip_replay": "passed",
+  "provider_requests": 0,
+  "historical_scanner_enabled": false,
+  "financial_evaluation_enabled": false
+}
