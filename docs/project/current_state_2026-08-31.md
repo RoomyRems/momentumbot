@@ -1,6 +1,40 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: corporate-action ordering repair and saved-prefix continuation
+## Current checkpoint: completed and verified daily coverage/action capture
+
+Checked September 14: repaired continuation run `34801775828` succeeded on code
+`9555af77b68977176545778068d54842cd069031`, push attempt 1. All three jobs and
+every step passed. Same-code CI `34801775757` passed 2,919 tests in 362.763
+seconds, with 73 optional SDK skips, and compilation passed.
+
+All 90 source tasks across the exact 30 dates completed: 1,380 daily roots and
+60 identity roots requiring 90 pages. The collector reused all 47 original
+responses and made 1,423 new requests, totaling 1,470 under the unchanged
+15,000-attempt ceiling. The 165,989 reference ticker/date records include
+165,882 daily-coverage passes and 107 explicit coverage failures. Identity
+sources contain 48,660 rows across overlapping 120-day windows; this is not a
+count of unique securities or unique corporate actions across the panel.
+
+The hosted verifier reproduced the complete report from the original archive's
+4,273 members plus the embedded original prefix, without provider requests.
+Original capture artifact `10332231111` is 104,141,996 bytes, SHA-256
+`6c694f18857697993ec61caed247cc7cf6f597f604a2ba38373db5cde96156ae`.
+Its current retention expires December 13, 2026 at 03:12:11 UTC. The original
+small verification ZIP, terminal metadata and completion proof are retained in
+`research/data-audits/early-pullback-coverage-continuation-v0.2/`.
+The continuation check reused the successful hosted replay and CI; neither was
+duplicated locally. The consumption ref remains bound to the successful code.
+
+Next resolve dated identity/corporate-action evidence and bind the verified
+coverage into the census bridge, then populate the remaining cross-sectional
+scanner inputs. Successful source capture does not establish historical
+identity continuity, historical announcement-time availability, a complete
+scanner, account evaluation or integrated discretion. The frozen early-pullback
+experiment still requires its shared market inputs and both independent account
+chains before financial comparison. All earlier failures and the losing baseline
+remain unchanged. See [completion and next gate](../research/coverage_continuation.md).
+
+## Preserved checkpoint: corporate-action ordering repair and saved-prefix continuation
 
 The additive v0.2 child preserves Alpaca action arrival order and records date
 regressions rather than rejecting otherwise valid bounded rows. Date, ID, cursor,

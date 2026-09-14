@@ -1,5 +1,46 @@
 # Corporate-action ordering repair and saved-prefix continuation
 
+## Observed hosted completion — September 14
+
+[Run 34801775828](https://github.com/RoomyRems/momentumbot/actions/runs/34801775828)
+completed successfully on `9555af77b68977176545778068d54842cd069031`, push
+attempt 1. All consume, capture and verify jobs and every step passed. The
+capture step ran from 03:19:30 to 03:36:49 UTC, and independent verification
+completed at 03:39:20 UTC. Same-code
+[CI 34801775757](https://github.com/RoomyRems/momentumbot/actions/runs/34801775757)
+passed 2,919 tests in 362.763 seconds, with 73 optional SDK skips, and compilation.
+
+The final report records 90 completed tasks on all 30 registered dates: 1,380
+daily roots and 60 corporate-action/split roots, the latter exhausting 90 pages.
+All 47 saved responses were reused, with 1,423 new requests and 1,470 combined
+attempts. There were no retries or replacement dates. Daily coverage passes for
+165,882 of 165,989 ticker/date references; the 107 remaining records retain
+their exact missing prior/target, raw/split observations. Identity pages retain
+48,660 rows across overlapping windows, not 48,660 unique events.
+
+The original capture ZIP is artifact `10332231111`: 104,141,996 bytes and SHA-256
+`6c694f18857697993ec61caed247cc7cf6f597f604a2ba38373db5cde96156ae`.
+The hosted verifier checked 4,273 members and replayed the embedded original
+prefix and complete suffix. Inventory SHA-256:
+`9e53cc5694289306a5cb2e45f5703bdbd6136f9091de488a41822317730e263e`.
+Hosted verification content seal:
+`5164702cbd6d4f006d9ce0e919a3ab7036b9cb6a169702d3409eb682ffe20903`.
+The original verification ZIP and terminal completion metadata are committed
+alongside the earlier local tests and failed prefix. The larger raw capture
+remains on GitHub with current expiration December 13, 2026 at 03:12:11 UTC.
+
+This continuation check verified the original ZIP hashes, registration, report
+and coverage seals, exact dates and counts, and terminal job/step metadata. It
+accepted the hosted source replay without duplicating it or CI locally. It made
+no provider requests, changed no policy and did not evaluate the new panel.
+The completed source remains input to a separate dated identity/coverage bridge;
+historical identity, scanner, account evaluation and discretion gates remain
+closed. Actual provider billing is still unverified. Do not rerun the consumed
+capture. The next development task is identity/corporate-action resolution and
+scanner-input integration using these exact saved sources.
+
+## Original implementation checkpoint
+
 Child of `887544eb55de494bcb9cf07d441a3669f2f4b220`. The failed v0.1 source,
 registration, code, consumption and receipts remain immutable. The repair tests
 whether complete corporate-action pagination can retain unordered provider rows
