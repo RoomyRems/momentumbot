@@ -1,6 +1,23 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: census reference and scanner-source bridge
+## Current checkpoint: daily coverage pagination and offline handoff
+
+The additive daily-coverage child uses the exact published census panel and all
+1,380 unchanged daily roots. It now replays bounded paginated raw/split responses
+into the dated bridge: ten pages per root, 16 MiB per response, exact query scope,
+unique ordered bars, New York session dates, advancing cursors, and complete
+exhaustion before any missing-coverage decision. Failures cannot retry or silently
+remove symbols. The offline CLI cannot authenticate provider origin.
+
+60 initial 120-day corporate-action/split requests are defined using the existing
+identity audit scope. Their pagination and capture integration remain unfinished;
+they are not launch authority or historical announcement-time evidence. No provider
+request, charge, policy/risk change, transcript use or account replay occurred.
+Next wire retained bounded transport and identity-page validation into the existing
+single-use hosted capture and independent verification process. See
+[daily coverage mechanics](../research/daily_coverage.md).
+
+## Preserved checkpoint: census reference and scanner-source bridge
 
 The new bridge translates all 373,710 original membership rows into 373,650
 canonical ticker/date dispositions using the unchanged universe classifier.
