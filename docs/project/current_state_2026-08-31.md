@@ -17,7 +17,11 @@ initial daily-bar requests. This is not an HTTP attempt ceiling or capture
 authorization. Historical scanner/replay and financial gates remain closed.
 
 All 47 focused tests passed normally and optimized, and compilation passed.
-Full GitHub CI is the publication gate and is recorded separately after it runs.
+Published code `8c8a0f284b518f302458b6616b3f899ed13d48cb` passed full GitHub
+CI `34793070148`: 2,846 tests in 429.315 seconds, 73 optional SDK skips,
+all 30 new bridge tests passed, and compilation passed. All six supporting
+validation workflows also passed; their provider jobs were skipped. Exact
+jobs/steps and the CI log are retained in the bridge audit directory.
 No provider request, transcript input, account replay or policy change occurred.
 Next integrate bounded daily coverage plus 120-day identity/corporate-action
 evidence. See [source bridge and results](../research/census_scanner_bridge.md).

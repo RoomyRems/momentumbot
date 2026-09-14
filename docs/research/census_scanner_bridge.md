@@ -80,6 +80,17 @@ tightened the coverage envelope's date/reference binding. Both source builds
 used only fixed reference metadata; no policy threshold or result selection
 changed. The final source build ran with Python assertions disabled.
 
+Published code [`8c8a0f2`](https://github.com/RoomyRems/momentumbot/commit/8c8a0f284b518f302458b6616b3f899ed13d48cb)
+passed [full CI 34793070148](https://github.com/RoomyRems/momentumbot/actions/runs/34793070148),
+attempt 1: 2,846 tests ran in 429.315 seconds, 73 optional SDK skips, no failures
+or errors, all 30 new bridge tests passed, and compilation succeeded. All six
+supporting validation workflows passed, with provider-facing jobs skipped.
+The published tree exactly matches the locally tested tree. Verification also
+checked every saved day seal, row/ticker/identity accounting and all 1,380 initial
+request definitions against the committed panel. No full local suite, provider
+capture or historical account replay was duplicated. The CI log and exact
+job/step observations are retained alongside the source results.
+
 Registration: `f82cf8963e80aea47d27d8c72004d06ca3886cd39de8a513d766617ee7a728d2`.
 Panel content: `307c42e4fbfe63967cba943796f13aaa0f836fd7f7fc35f1ef1e925df4c8dcc8`.
 The compressed panel, source exceptions, initial request inventory, summary and
