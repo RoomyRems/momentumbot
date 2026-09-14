@@ -1,0 +1,678 @@
+test_cik_uniqueness_recomputed_after_coverage (tests.test_census_scanner_bridge.CoverageTests.test_cik_uniqueness_recomputed_after_coverage) ... ERROR
+test_complete_exact_coverage_population (tests.test_census_scanner_bridge.CoverageTests.test_complete_exact_coverage_population) ... 
+  test_complete_exact_coverage_population (tests.test_census_scanner_bridge.CoverageTests.test_complete_exact_coverage_population) (records={}) ... ERROR
+  test_complete_exact_coverage_population (tests.test_census_scanner_bridge.CoverageTests.test_complete_exact_coverage_population) (records={'OTHER': {'split_prior_session_present': True, 'invalid_symbol': False, 'raw_prior_session_present': True, 'coverage_pass': True, 'raw_target_session_present': True, 'split_target_session_present': True}}) ... ERROR
+  test_complete_exact_coverage_population (tests.test_census_scanner_bridge.CoverageTests.test_complete_exact_coverage_population) (records={'SYNTHETIC': {'split_prior_session_present': True, 'invalid_symbol': False, 'raw_prior_session_present': True, 'coverage_pass': True, 'raw_target_session_present': True, 'split_target_session_present': True}, 'OTHER': {'split_prior_session_present': True, 'invalid_symbol': False, 'raw_prior_session_present': True, 'coverage_pass': True, 'raw_target_session_present': True, 'split_target_session_present': True}}) ... ERROR
+test_coverage_observations_cannot_coerce_or_contradict (tests.test_census_scanner_bridge.CoverageTests.test_coverage_observations_cannot_coerce_or_contradict) ... 
+  test_coverage_observations_cannot_coerce_or_contradict (tests.test_census_scanner_bridge.CoverageTests.test_coverage_observations_cannot_coerce_or_contradict) (record={'split_prior_session_present': True, 'invalid_symbol': False, 'raw_prior_session_present': True, 'coverage_pass': 'true', 'raw_target_session_present': True, 'split_target_session_present': True}) ... ERROR
+  test_coverage_observations_cannot_coerce_or_contradict (tests.test_census_scanner_bridge.CoverageTests.test_coverage_observations_cannot_coerce_or_contradict) (record={'split_prior_session_present': True, 'invalid_symbol': 1, 'raw_prior_session_present': True, 'coverage_pass': True, 'raw_target_session_present': True, 'split_target_session_present': True}) ... ERROR
+  test_coverage_observations_cannot_coerce_or_contradict (tests.test_census_scanner_bridge.CoverageTests.test_coverage_observations_cannot_coerce_or_contradict) (record={'split_prior_session_present': True, 'invalid_symbol': False, 'raw_prior_session_present': True, 'coverage_pass': True, 'raw_target_session_present': False, 'split_target_session_present': True}) ... ERROR
+  test_coverage_observations_cannot_coerce_or_contradict (tests.test_census_scanner_bridge.CoverageTests.test_coverage_observations_cannot_coerce_or_contradict) (record={'split_prior_session_present': True, 'invalid_symbol': False, 'raw_prior_session_present': True, 'coverage_pass': True, 'raw_target_session_present': True, 'split_target_session_present': True, 'extra': False}) ... ERROR
+test_coverage_projection_tamper_rejected (tests.test_census_scanner_bridge.CoverageTests.test_coverage_projection_tamper_rejected) ... ERROR
+test_exact_existing_membership_projection (tests.test_census_scanner_bridge.CoverageTests.test_exact_existing_membership_projection) ... ERROR
+test_metadata_exclusions_cannot_be_resurrected_by_coverage (tests.test_census_scanner_bridge.CoverageTests.test_metadata_exclusions_cannot_be_resurrected_by_coverage) ... ERROR
+test_missing_and_false_are_different (tests.test_census_scanner_bridge.CoverageTests.test_missing_and_false_are_different) ... ERROR
+test_raw_split_disagreement_retained (tests.test_census_scanner_bridge.CoverageTests.test_raw_split_disagreement_retained) ... ERROR
+test_dst_uses_inherited_utc_window_not_new_semantics (tests.test_census_scanner_bridge.PlanAndPinsTests.test_dst_uses_inherited_utc_window_not_new_semantics) ... ok
+test_frozen_registration_and_source_authority (tests.test_census_scanner_bridge.PlanAndPinsTests.test_frozen_registration_and_source_authority) ... skipped 'registration not yet frozen during development'
+test_no_requests_for_metadata_exclusions (tests.test_census_scanner_bridge.PlanAndPinsTests.test_no_requests_for_metadata_exclusions) ... ok
+test_request_union_all_candidates_and_adjustments (tests.test_census_scanner_bridge.PlanAndPinsTests.test_request_union_all_candidates_and_adjustments) ... ok
+test_symlink_cannot_substitute_original_source (tests.test_census_scanner_bridge.PlanAndPinsTests.test_symlink_cannot_substitute_original_source) ... ERROR
+test_wrong_archive_cannot_be_admitted_by_self_supplied_pins (tests.test_census_scanner_bridge.PlanAndPinsTests.test_wrong_archive_cannot_be_admitted_by_self_supplied_pins) ... ERROR
+test_collision_uses_frozen_semantics (tests.test_census_scanner_bridge.ReferenceTests.test_collision_uses_frozen_semantics) ... ok
+test_common_type_name_conflicts_retained (tests.test_census_scanner_bridge.ReferenceTests.test_common_type_name_conflicts_retained) ... ok
+test_duplicate_reference_identity_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_duplicate_reference_identity_rejected) ... ERROR
+test_future_label_and_price_fields_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_future_label_and_price_fields_rejected) ... 
+  test_future_label_and_price_fields_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_future_label_and_price_fields_rejected) (key='price') ... ERROR
+  test_future_label_and_price_fields_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_future_label_and_price_fields_rejected) (key='pnl') ... ERROR
+  test_future_label_and_price_fields_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_future_label_and_price_fields_rejected) (key='ross_fill') ... ERROR
+  test_future_label_and_price_fields_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_future_label_and_price_fields_rejected) (key='future_return') ... ERROR
+test_input_not_modified (tests.test_census_scanner_bridge.ReferenceTests.test_input_not_modified) ... ok
+test_missing_cik_with_figi_accepted_by_existing_rule (tests.test_census_scanner_bridge.ReferenceTests.test_missing_cik_with_figi_accepted_by_existing_rule) ... ok
+test_missing_figi_unique_cik_is_only_provisional (tests.test_census_scanner_bridge.ReferenceTests.test_missing_figi_unique_cik_is_only_provisional) ... ok
+test_missing_identifiers_quarantined_without_dropping_source (tests.test_census_scanner_bridge.ReferenceTests.test_missing_identifiers_quarantined_without_dropping_source) ... ok
+test_missing_type_not_inferred_from_name_or_other_dates (tests.test_census_scanner_bridge.ReferenceTests.test_missing_type_not_inferred_from_name_or_other_dates) ... ok
+test_no_empty_source_or_replacement_dates (tests.test_census_scanner_bridge.ReferenceTests.test_no_empty_source_or_replacement_dates) ... ERROR
+test_no_fabricated_coverage (tests.test_census_scanner_bridge.ReferenceTests.test_no_fabricated_coverage) ... ok
+test_nonunique_cik_not_used_as_security_identity (tests.test_census_scanner_bridge.ReferenceTests.test_nonunique_cik_not_used_as_security_identity) ... ok
+test_two_common_identities_not_merged (tests.test_census_scanner_bridge.ReferenceTests.test_two_common_identities_not_merged) ... ok
+test_wrong_scope_and_scalar_types_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_wrong_scope_and_scalar_types_rejected) ... 
+  test_wrong_scope_and_scalar_types_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_wrong_scope_and_scalar_types_rejected) (key='active', val=False) ... ERROR
+  test_wrong_scope_and_scalar_types_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_wrong_scope_and_scalar_types_rejected) (key='active', val='true') ... ERROR
+  test_wrong_scope_and_scalar_types_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_wrong_scope_and_scalar_types_rejected) (key='market', val='crypto') ... ERROR
+  test_wrong_scope_and_scalar_types_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_wrong_scope_and_scalar_types_rejected) (key='locale', val='gb') ... ERROR
+  test_wrong_scope_and_scalar_types_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_wrong_scope_and_scalar_types_rejected) (key='cik', val=123) ... ERROR
+  test_wrong_scope_and_scalar_types_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_wrong_scope_and_scalar_types_rejected) (key='name', val=None) ... ERROR
+
+======================================================================
+ERROR: test_cik_uniqueness_recomputed_after_coverage (tests.test_census_scanner_bridge.CoverageTests.test_cik_uniqueness_recomputed_after_coverage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 152, in test_cik_uniqueness_recomputed_after_coverage
+    out = self.bind(rows, {'SYNTHETICA': coverage(), 'SYNTHETICB': coverage(invalid_symbol=True, coverage_pass=False)})
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 115, in bind
+    return m.bind_coverage(rows, DAY, records, expected_coverage_sha256=m.fingerprint(records))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 158, in bind_coverage
+    exact(set(coverage), set(reference['coverage_symbols']), 'complete exact coverage population required')
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_provider_check_v01.py", line 57, in exact
+    require(type(value) is type(expected) and fingerprint(value) == fingerprint(expected), label)
+                                              ^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/sealed_historical_walk_forward.py", line 129, in canonical_fingerprint
+    encoded = json.dumps(
+              ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type set is not JSON serializable
+
+======================================================================
+ERROR: test_complete_exact_coverage_population (tests.test_census_scanner_bridge.CoverageTests.test_complete_exact_coverage_population) (records={})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 128, in test_complete_exact_coverage_population
+    with self.subTest(records=records), self.assertRaises(RuntimeError): self.bind([row()], records)
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 115, in bind
+    return m.bind_coverage(rows, DAY, records, expected_coverage_sha256=m.fingerprint(records))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 158, in bind_coverage
+    exact(set(coverage), set(reference['coverage_symbols']), 'complete exact coverage population required')
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_provider_check_v01.py", line 57, in exact
+    require(type(value) is type(expected) and fingerprint(value) == fingerprint(expected), label)
+                                              ^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/sealed_historical_walk_forward.py", line 129, in canonical_fingerprint
+    encoded = json.dumps(
+              ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type set is not JSON serializable
+
+======================================================================
+ERROR: test_complete_exact_coverage_population (tests.test_census_scanner_bridge.CoverageTests.test_complete_exact_coverage_population) (records={'OTHER': {'split_prior_session_present': True, 'invalid_symbol': False, 'raw_prior_session_present': True, 'coverage_pass': True, 'raw_target_session_present': True, 'split_target_session_present': True}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 128, in test_complete_exact_coverage_population
+    with self.subTest(records=records), self.assertRaises(RuntimeError): self.bind([row()], records)
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 115, in bind
+    return m.bind_coverage(rows, DAY, records, expected_coverage_sha256=m.fingerprint(records))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 158, in bind_coverage
+    exact(set(coverage), set(reference['coverage_symbols']), 'complete exact coverage population required')
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_provider_check_v01.py", line 57, in exact
+    require(type(value) is type(expected) and fingerprint(value) == fingerprint(expected), label)
+                                              ^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/sealed_historical_walk_forward.py", line 129, in canonical_fingerprint
+    encoded = json.dumps(
+              ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type set is not JSON serializable
+
+======================================================================
+ERROR: test_complete_exact_coverage_population (tests.test_census_scanner_bridge.CoverageTests.test_complete_exact_coverage_population) (records={'SYNTHETIC': {'split_prior_session_present': True, 'invalid_symbol': False, 'raw_prior_session_present': True, 'coverage_pass': True, 'raw_target_session_present': True, 'split_target_session_present': True}, 'OTHER': {'split_prior_session_present': True, 'invalid_symbol': False, 'raw_prior_session_present': True, 'coverage_pass': True, 'raw_target_session_present': True, 'split_target_session_present': True}})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 128, in test_complete_exact_coverage_population
+    with self.subTest(records=records), self.assertRaises(RuntimeError): self.bind([row()], records)
+                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 115, in bind
+    return m.bind_coverage(rows, DAY, records, expected_coverage_sha256=m.fingerprint(records))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 158, in bind_coverage
+    exact(set(coverage), set(reference['coverage_symbols']), 'complete exact coverage population required')
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_provider_check_v01.py", line 57, in exact
+    require(type(value) is type(expected) and fingerprint(value) == fingerprint(expected), label)
+                                              ^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/sealed_historical_walk_forward.py", line 129, in canonical_fingerprint
+    encoded = json.dumps(
+              ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type set is not JSON serializable
+
+======================================================================
+ERROR: test_coverage_observations_cannot_coerce_or_contradict (tests.test_census_scanner_bridge.CoverageTests.test_coverage_observations_cannot_coerce_or_contradict) (record={'split_prior_session_present': True, 'invalid_symbol': False, 'raw_prior_session_present': True, 'coverage_pass': 'true', 'raw_target_session_present': True, 'split_target_session_present': True})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 148, in test_coverage_observations_cannot_coerce_or_contradict
+    with self.subTest(record=record), self.assertRaises(RuntimeError): self.bind([row()], {'SYNTHETIC': record})
+                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 115, in bind
+    return m.bind_coverage(rows, DAY, records, expected_coverage_sha256=m.fingerprint(records))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 158, in bind_coverage
+    exact(set(coverage), set(reference['coverage_symbols']), 'complete exact coverage population required')
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_provider_check_v01.py", line 57, in exact
+    require(type(value) is type(expected) and fingerprint(value) == fingerprint(expected), label)
+                                              ^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/sealed_historical_walk_forward.py", line 129, in canonical_fingerprint
+    encoded = json.dumps(
+              ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type set is not JSON serializable
+
+======================================================================
+ERROR: test_coverage_observations_cannot_coerce_or_contradict (tests.test_census_scanner_bridge.CoverageTests.test_coverage_observations_cannot_coerce_or_contradict) (record={'split_prior_session_present': True, 'invalid_symbol': 1, 'raw_prior_session_present': True, 'coverage_pass': True, 'raw_target_session_present': True, 'split_target_session_present': True})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 148, in test_coverage_observations_cannot_coerce_or_contradict
+    with self.subTest(record=record), self.assertRaises(RuntimeError): self.bind([row()], {'SYNTHETIC': record})
+                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 115, in bind
+    return m.bind_coverage(rows, DAY, records, expected_coverage_sha256=m.fingerprint(records))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 158, in bind_coverage
+    exact(set(coverage), set(reference['coverage_symbols']), 'complete exact coverage population required')
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_provider_check_v01.py", line 57, in exact
+    require(type(value) is type(expected) and fingerprint(value) == fingerprint(expected), label)
+                                              ^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/sealed_historical_walk_forward.py", line 129, in canonical_fingerprint
+    encoded = json.dumps(
+              ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type set is not JSON serializable
+
+======================================================================
+ERROR: test_coverage_observations_cannot_coerce_or_contradict (tests.test_census_scanner_bridge.CoverageTests.test_coverage_observations_cannot_coerce_or_contradict) (record={'split_prior_session_present': True, 'invalid_symbol': False, 'raw_prior_session_present': True, 'coverage_pass': True, 'raw_target_session_present': False, 'split_target_session_present': True})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 148, in test_coverage_observations_cannot_coerce_or_contradict
+    with self.subTest(record=record), self.assertRaises(RuntimeError): self.bind([row()], {'SYNTHETIC': record})
+                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 115, in bind
+    return m.bind_coverage(rows, DAY, records, expected_coverage_sha256=m.fingerprint(records))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 158, in bind_coverage
+    exact(set(coverage), set(reference['coverage_symbols']), 'complete exact coverage population required')
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_provider_check_v01.py", line 57, in exact
+    require(type(value) is type(expected) and fingerprint(value) == fingerprint(expected), label)
+                                              ^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/sealed_historical_walk_forward.py", line 129, in canonical_fingerprint
+    encoded = json.dumps(
+              ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type set is not JSON serializable
+
+======================================================================
+ERROR: test_coverage_observations_cannot_coerce_or_contradict (tests.test_census_scanner_bridge.CoverageTests.test_coverage_observations_cannot_coerce_or_contradict) (record={'split_prior_session_present': True, 'invalid_symbol': False, 'raw_prior_session_present': True, 'coverage_pass': True, 'raw_target_session_present': True, 'split_target_session_present': True, 'extra': False})
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 148, in test_coverage_observations_cannot_coerce_or_contradict
+    with self.subTest(record=record), self.assertRaises(RuntimeError): self.bind([row()], {'SYNTHETIC': record})
+                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 115, in bind
+    return m.bind_coverage(rows, DAY, records, expected_coverage_sha256=m.fingerprint(records))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 158, in bind_coverage
+    exact(set(coverage), set(reference['coverage_symbols']), 'complete exact coverage population required')
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_provider_check_v01.py", line 57, in exact
+    require(type(value) is type(expected) and fingerprint(value) == fingerprint(expected), label)
+                                              ^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/sealed_historical_walk_forward.py", line 129, in canonical_fingerprint
+    encoded = json.dumps(
+              ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type set is not JSON serializable
+
+======================================================================
+ERROR: test_coverage_projection_tamper_rejected (tests.test_census_scanner_bridge.CoverageTests.test_coverage_projection_tamper_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 132, in test_coverage_projection_tamper_rejected
+    m.bind_coverage([row()], DAY, {'SYNTHETIC': coverage()}, expected_coverage_sha256='0' * 64)
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 156, in bind_coverage
+    require(type(coverage) is dict and fingerprint(coverage) == expected_coverage_sha256,
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_selection_v01.py", line 47, in require
+    raise ValueError(message)
+ValueError: external coverage commitment differs
+
+======================================================================
+ERROR: test_exact_existing_membership_projection (tests.test_census_scanner_bridge.CoverageTests.test_exact_existing_membership_projection)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 119, in test_exact_existing_membership_projection
+    out = self.bind([row()], records)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 115, in bind
+    return m.bind_coverage(rows, DAY, records, expected_coverage_sha256=m.fingerprint(records))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 158, in bind_coverage
+    exact(set(coverage), set(reference['coverage_symbols']), 'complete exact coverage population required')
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_provider_check_v01.py", line 57, in exact
+    require(type(value) is type(expected) and fingerprint(value) == fingerprint(expected), label)
+                                              ^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/sealed_historical_walk_forward.py", line 129, in canonical_fingerprint
+    encoded = json.dumps(
+              ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type set is not JSON serializable
+
+======================================================================
+ERROR: test_metadata_exclusions_cannot_be_resurrected_by_coverage (tests.test_census_scanner_bridge.CoverageTests.test_metadata_exclusions_cannot_be_resurrected_by_coverage)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 158, in test_metadata_exclusions_cannot_be_resurrected_by_coverage
+    self.assertEqual(self.bind(rows, {})['membership_symbols'], [])
+                     ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 115, in bind
+    return m.bind_coverage(rows, DAY, records, expected_coverage_sha256=m.fingerprint(records))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 158, in bind_coverage
+    exact(set(coverage), set(reference['coverage_symbols']), 'complete exact coverage population required')
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_provider_check_v01.py", line 57, in exact
+    require(type(value) is type(expected) and fingerprint(value) == fingerprint(expected), label)
+                                              ^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/sealed_historical_walk_forward.py", line 129, in canonical_fingerprint
+    encoded = json.dumps(
+              ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type set is not JSON serializable
+
+======================================================================
+ERROR: test_missing_and_false_are_different (tests.test_census_scanner_bridge.CoverageTests.test_missing_and_false_are_different)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 135, in test_missing_and_false_are_different
+    out = self.bind([row()], {'SYNTHETIC': coverage(raw_target_session_present=False,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 115, in bind
+    return m.bind_coverage(rows, DAY, records, expected_coverage_sha256=m.fingerprint(records))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 158, in bind_coverage
+    exact(set(coverage), set(reference['coverage_symbols']), 'complete exact coverage population required')
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_provider_check_v01.py", line 57, in exact
+    require(type(value) is type(expected) and fingerprint(value) == fingerprint(expected), label)
+                                              ^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/sealed_historical_walk_forward.py", line 129, in canonical_fingerprint
+    encoded = json.dumps(
+              ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type set is not JSON serializable
+
+======================================================================
+ERROR: test_raw_split_disagreement_retained (tests.test_census_scanner_bridge.CoverageTests.test_raw_split_disagreement_retained)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 141, in test_raw_split_disagreement_retained
+    out = self.bind([row()], {'SYNTHETIC': coverage(raw_target_session_present=False, coverage_pass=False)})
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 115, in bind
+    return m.bind_coverage(rows, DAY, records, expected_coverage_sha256=m.fingerprint(records))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 158, in bind_coverage
+    exact(set(coverage), set(reference['coverage_symbols']), 'complete exact coverage population required')
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_provider_check_v01.py", line 57, in exact
+    require(type(value) is type(expected) and fingerprint(value) == fingerprint(expected), label)
+                                              ^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/sealed_historical_walk_forward.py", line 129, in canonical_fingerprint
+    encoded = json.dumps(
+              ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type set is not JSON serializable
+
+======================================================================
+ERROR: test_symlink_cannot_substitute_original_source (tests.test_census_scanner_bridge.PlanAndPinsTests.test_symlink_cannot_substitute_original_source)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 196, in test_symlink_cannot_substitute_original_source
+    with self.assertRaises(RuntimeError): m.CensusArchive(link, ROOT)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 45, in __init__
+    require(self.path.is_file() and not any(p.is_symlink() for p in (self.path, *self.path.parents)),
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_selection_v01.py", line 47, in require
+    raise ValueError(message)
+ValueError: regular original census ZIP required
+
+======================================================================
+ERROR: test_wrong_archive_cannot_be_admitted_by_self_supplied_pins (tests.test_census_scanner_bridge.PlanAndPinsTests.test_wrong_archive_cannot_be_admitted_by_self_supplied_pins)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 188, in test_wrong_archive_cannot_be_admitted_by_self_supplied_pins
+    with self.assertRaises(RuntimeError): m.CensusArchive(path, ROOT)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 47, in __init__
+    require(self.path.stat().st_size == ARCHIVE_PIN['bytes'], 'original ZIP size differs')
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_selection_v01.py", line 47, in require
+    raise ValueError(message)
+ValueError: original ZIP size differs
+
+======================================================================
+ERROR: test_duplicate_reference_identity_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_duplicate_reference_identity_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 88, in test_duplicate_reference_identity_rejected
+    with self.assertRaises(RuntimeError): self.project([row(), row()])
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 30, in project
+    def project(self, rows): return m.project_date(rows, DAY)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 128, in project_date
+    groups = _groups(rows)
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 119, in _groups
+    require(len(set(identities)) == len(identities), 'duplicate reference identity')
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_selection_v01.py", line 47, in require
+    raise ValueError(message)
+ValueError: duplicate reference identity
+
+======================================================================
+ERROR: test_future_label_and_price_fields_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_future_label_and_price_fields_rejected) (key='price')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 93, in test_future_label_and_price_fields_rejected
+    self.project([{**row(), key: 1}])
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 30, in project
+    def project(self, rows): return m.project_date(rows, DAY)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 128, in project_date
+    groups = _groups(rows)
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 112, in _groups
+    require(type(row) is dict and set(row) == fields, 'exact normalized reference schema required')
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_selection_v01.py", line 47, in require
+    raise ValueError(message)
+ValueError: exact normalized reference schema required
+
+======================================================================
+ERROR: test_future_label_and_price_fields_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_future_label_and_price_fields_rejected) (key='pnl')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 93, in test_future_label_and_price_fields_rejected
+    self.project([{**row(), key: 1}])
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 30, in project
+    def project(self, rows): return m.project_date(rows, DAY)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 128, in project_date
+    groups = _groups(rows)
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 112, in _groups
+    require(type(row) is dict and set(row) == fields, 'exact normalized reference schema required')
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_selection_v01.py", line 47, in require
+    raise ValueError(message)
+ValueError: exact normalized reference schema required
+
+======================================================================
+ERROR: test_future_label_and_price_fields_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_future_label_and_price_fields_rejected) (key='ross_fill')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 93, in test_future_label_and_price_fields_rejected
+    self.project([{**row(), key: 1}])
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 30, in project
+    def project(self, rows): return m.project_date(rows, DAY)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 128, in project_date
+    groups = _groups(rows)
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 112, in _groups
+    require(type(row) is dict and set(row) == fields, 'exact normalized reference schema required')
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_selection_v01.py", line 47, in require
+    raise ValueError(message)
+ValueError: exact normalized reference schema required
+
+======================================================================
+ERROR: test_future_label_and_price_fields_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_future_label_and_price_fields_rejected) (key='future_return')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 93, in test_future_label_and_price_fields_rejected
+    self.project([{**row(), key: 1}])
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 30, in project
+    def project(self, rows): return m.project_date(rows, DAY)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 128, in project_date
+    groups = _groups(rows)
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 112, in _groups
+    require(type(row) is dict and set(row) == fields, 'exact normalized reference schema required')
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_selection_v01.py", line 47, in require
+    raise ValueError(message)
+ValueError: exact normalized reference schema required
+
+======================================================================
+ERROR: test_no_empty_source_or_replacement_dates (tests.test_census_scanner_bridge.ReferenceTests.test_no_empty_source_or_replacement_dates)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 102, in test_no_empty_source_or_replacement_dates
+    with self.assertRaises(RuntimeError): self.project([])
+                                          ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 30, in project
+    def project(self, rows): return m.project_date(rows, DAY)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 128, in project_date
+    groups = _groups(rows)
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 108, in _groups
+    require(type(rows) is list and bool(rows), 'nonempty complete reference rows required')
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_selection_v01.py", line 47, in require
+    raise ValueError(message)
+ValueError: nonempty complete reference rows required
+
+======================================================================
+ERROR: test_wrong_scope_and_scalar_types_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_wrong_scope_and_scalar_types_rejected) (key='active', val=False)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 99, in test_wrong_scope_and_scalar_types_rejected
+    self.project([{**row(), key: val}])
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 30, in project
+    def project(self, rows): return m.project_date(rows, DAY)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 128, in project_date
+    groups = _groups(rows)
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 113, in _groups
+    require(row['active'] is True and row['market'] == 'stocks' and row['locale'] == 'us',
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_selection_v01.py", line 47, in require
+    raise ValueError(message)
+ValueError: fixed active US stock census scope required
+
+======================================================================
+ERROR: test_wrong_scope_and_scalar_types_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_wrong_scope_and_scalar_types_rejected) (key='active', val='true')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 99, in test_wrong_scope_and_scalar_types_rejected
+    self.project([{**row(), key: val}])
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 30, in project
+    def project(self, rows): return m.project_date(rows, DAY)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 128, in project_date
+    groups = _groups(rows)
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 113, in _groups
+    require(row['active'] is True and row['market'] == 'stocks' and row['locale'] == 'us',
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_selection_v01.py", line 47, in require
+    raise ValueError(message)
+ValueError: fixed active US stock census scope required
+
+======================================================================
+ERROR: test_wrong_scope_and_scalar_types_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_wrong_scope_and_scalar_types_rejected) (key='market', val='crypto')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 99, in test_wrong_scope_and_scalar_types_rejected
+    self.project([{**row(), key: val}])
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 30, in project
+    def project(self, rows): return m.project_date(rows, DAY)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 128, in project_date
+    groups = _groups(rows)
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 113, in _groups
+    require(row['active'] is True and row['market'] == 'stocks' and row['locale'] == 'us',
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_selection_v01.py", line 47, in require
+    raise ValueError(message)
+ValueError: fixed active US stock census scope required
+
+======================================================================
+ERROR: test_wrong_scope_and_scalar_types_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_wrong_scope_and_scalar_types_rejected) (key='locale', val='gb')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 99, in test_wrong_scope_and_scalar_types_rejected
+    self.project([{**row(), key: val}])
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 30, in project
+    def project(self, rows): return m.project_date(rows, DAY)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 128, in project_date
+    groups = _groups(rows)
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 113, in _groups
+    require(row['active'] is True and row['market'] == 'stocks' and row['locale'] == 'us',
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_selection_v01.py", line 47, in require
+    raise ValueError(message)
+ValueError: fixed active US stock census scope required
+
+======================================================================
+ERROR: test_wrong_scope_and_scalar_types_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_wrong_scope_and_scalar_types_rejected) (key='cik', val=123)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 99, in test_wrong_scope_and_scalar_types_rejected
+    self.project([{**row(), key: val}])
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 30, in project
+    def project(self, rows): return m.project_date(rows, DAY)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 128, in project_date
+    groups = _groups(rows)
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 115, in _groups
+    require(all(type(value) is str for key, value in row.items() if key != 'active'),
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_selection_v01.py", line 47, in require
+    raise ValueError(message)
+ValueError: normalized reference strings required
+
+======================================================================
+ERROR: test_wrong_scope_and_scalar_types_rejected (tests.test_census_scanner_bridge.ReferenceTests.test_wrong_scope_and_scalar_types_rejected) (key='name', val=None)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 99, in test_wrong_scope_and_scalar_types_rejected
+    self.project([{**row(), key: val}])
+  File "/workspace/scratch/7c3d83031c49/momentumbot/tests/test_census_scanner_bridge.py", line 30, in project
+    def project(self, rows): return m.project_date(rows, DAY)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 128, in project_date
+    groups = _groups(rows)
+             ^^^^^^^^^^^^^
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/census_scanner_bridge.py", line 115, in _groups
+    require(all(type(value) is str for key, value in row.items() if key != 'active'),
+  File "/workspace/scratch/7c3d83031c49/momentumbot/src/momentumbot/research/early_pullback_selection_v01.py", line 47, in require
+    raise ValueError(message)
+ValueError: normalized reference strings required
+
+----------------------------------------------------------------------
+Ran 28 tests in 0.025s
+
+FAILED (errors=27, skipped=1)

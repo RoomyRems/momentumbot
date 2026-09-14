@@ -1,6 +1,28 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: completed and independently verified 30-date census
+## Current checkpoint: census reference and scanner-source bridge
+
+The new bridge translates all 373,710 original membership rows into 373,650
+canonical ticker/date dispositions using the unchanged universe classifier.
+165,989 references require daily coverage; provisional identities comprise
+136,814 Composite FIGI and 28,984 unique-CIK references, with 191 quarantines.
+Both original records in each BCPC/TPC collision remain retained; the existing
+metadata rules distinguish the common stock from the other instrument. The
+single missing TDOT type remains explicit.
+
+The adapter now binds later coverage to its exact date and reference source,
+checks the complete population, reruns the original universe classifier, and
+recomputes post-coverage identities. The source inventory has 1,380 unarmed
+initial daily-bar requests. This is not an HTTP attempt ceiling or capture
+authorization. Historical scanner/replay and financial gates remain closed.
+
+All 47 focused tests passed normally and optimized, and compilation passed.
+Full GitHub CI is the publication gate and is recorded separately after it runs.
+No provider request, transcript input, account replay or policy change occurred.
+Next integrate bounded daily coverage plus 120-day identity/corporate-action
+evidence. See [source bridge and results](../research/census_scanner_bridge.md).
+
+## Preserved checkpoint: completed and independently verified 30-date census
 
 Checked September 13: capture run `34718443422` completed successfully on
 September 12 at 22:24:37 UTC. All three jobs and every step passed on code
