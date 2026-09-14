@@ -1,6 +1,30 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: first daily coverage complete; corporate-action ordering rejection
+## Current checkpoint: corporate-action ordering repair and saved-prefix continuation
+
+The additive v0.2 child preserves Alpaca action arrival order and records date
+regressions rather than rejecting otherwise valid bounded rows. Date, ID, cursor,
+schema, page and transport guards remain; Massive ordering is unchanged. Tests
+use the exact original rejected 1,000-row page, with the parent still rejecting
+and the child preserving every original record. No new provider diagnostic runs.
+
+The original 47-response ZIP is preserved and pinned in the child audit directory.
+Replay reproduces the March 4 daily coverage exactly and reaches corporate-action
+page 2. The new run requests only the remaining suffix, with at most 14,953 new
+attempts under the original combined ceiling of 15,000. The final archive embeds
+the original ZIP and independently replays both segments. Original v0.1 code,
+failed artifacts and consumption remain immutable.
+
+The new workflow uses shared source gates and a reusable frozen-runtime action.
+It waits for exact-code full CI, creates a separate permanent consumption, checks
+the saved prefix before credentials, captures once, then independently verifies
+original ZIPs. Publication starts this gated continuation under existing owner
+authorization; this text records implementation, not a successful hosted outcome.
+Check the run before accepting the complete source. No strategy/risk, scanner
+runtime, transcript or financial gate changed. See
+[repair and continuation](../research/coverage_continuation.md).
+
+## Preserved checkpoint: first daily coverage complete; corporate-action ordering rejection
 
 Published code `af48e9f7761d80684683da02c5ef5b9bcdd800d8` passed full CI
 `34799137938`, attempt 1: 2,903 tests in 450.045 seconds, 73 optional SDK skips,

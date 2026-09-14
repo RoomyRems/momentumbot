@@ -1,0 +1,16 @@
+{
+  "modules": ["tests.test_coverage_continuation", "tests.test_coverage_capture", "tests.test_daily_coverage"],
+  "normal": {"tests": 73, "seconds": 43.629, "result": "OK"},
+  "optimized": {"tests": 73, "seconds": 44.158, "result": "OK"},
+  "new_tests": 16,
+  "original_rejected_page_replayed": true,
+  "original_prefix_responses_replayed": 47,
+  "continuation_first_request": "Alpaca corporate actions for 2026-03-04, saved page 2 cursor",
+  "synthetic_suffix_capture_and_original_archive_verification": "passed",
+  "compilation": "passed",
+  "diff_whitespace_check": "passed",
+  "full_local_suite_repeated": false,
+  "provider_requests": 0,
+  "historical_scanner_enabled": false,
+  "financial_evaluation_enabled": false
+}

@@ -1,0 +1,165 @@
+{
+  "authorization": {
+    "account_entitlement_verified": false,
+    "billing_cap_provider_enforced": false,
+    "credit_balance_verified": false,
+    "estimated_incremental_api_cost_usd": "0.00",
+    "expires_at": "2026-09-21T00:00:00Z",
+    "maximum_incremental_cost_usd": "10.00",
+    "metered_purchase_authorized": false,
+    "observed_date": "2026-09-14",
+    "scope": "one separately consumed continuation after replaying all 47 exact saved responses; remaining fixed suffix only",
+    "starts_at": "2026-09-14T00:00:00Z",
+    "subscription_changes_authorized": false,
+    "user_message": "You may continue"
+  },
+  "automatic_original_archive_verification": true,
+  "brokerage_orders_enabled": false,
+  "consumption_ref": "refs/tags/early-pullback-coverage-continuation-v0.2-consumed",
+  "content_sha256": "f4fbda9bf823752c063051ee43addf61f044229eef036e6e0e1f02da966f3eee",
+  "contract_id": "early-pullback-coverage-continuation-v0.2",
+  "contract_path": "research/strategy/early-pullback-coverage-continuation-v0.2.json",
+  "credential_names": [
+    "ALPACA_API_KEY",
+    "ALPACA_API_SECRET",
+    "MASSIVE_API_KEY"
+  ],
+  "discretionary_strategy_integrated": false,
+  "failure_verification_sha256": "516bf3f6b9842aab30d74dad2ef5263a161303983c35f25a8d026675d6a6b1a8",
+  "file_bindings": {
+    ".github/actions/source-runtime/action.yml": {
+      "bytes": 579,
+      "sha256": "79f1bcf8d79583b6d68ce443efec31cdb0a9db11d1ac7ea3303ee9849402ec44"
+    },
+    ".github/workflows/ci.yml": {
+      "bytes": 426,
+      "sha256": "4f8ecbfd548b86e4bb66e81d1716de0e01abdf72cd6aa9ecade24ce03c329784"
+    },
+    ".github/workflows/coverage-continuation.yml": {
+      "bytes": 4307,
+      "sha256": "982392c2586ca319cf5ea1fe88dab54495167257d28c82312158092a1eb6bb46"
+    },
+    "requirements-sealed-source-v04.txt": {
+      "bytes": 1507,
+      "sha256": "0a9cce71ad0e35defb000e4b0b1a210ed9c41e84c6eb113e8ac79c242a5b52f3"
+    },
+    "research/data-audits/early-pullback-coverage-capture-v0.1/failure-verification.json": {
+      "bytes": 1925,
+      "sha256": "56e4d3a6e5bb4e5ba8ee09c6ed85b499685f30efbb8f6e6464b55b4317d55f5c"
+    },
+    "research/data-audits/early-pullback-coverage-capture-v0.1/rejected-corporate-actions.json": {
+      "bytes": 217339,
+      "sha256": "5134b32e21dc1de6f02d4872e025331440638fe2dcf150284a79ffbb8124e09a"
+    },
+    "research/data-audits/early-pullback-coverage-continuation-v0.2/original-prefix.zip": {
+      "bytes": 3493487,
+      "sha256": "1d7edc9a9458b290320b5cd2963d911037d3c2b8d60bd86e01ef001a6528861a"
+    },
+    "scripts/run_coverage_continuation.py": {
+      "bytes": 6392,
+      "sha256": "4be11f1b8777c550c6111466a47245a5c5322a652b536f543a4e8c2b2799deba"
+    },
+    "src/momentumbot/research/coverage_continuation.py": {
+      "bytes": 13438,
+      "sha256": "acd125272119c7e3bffbfb90ca626a6fc131eb4f6259f359a11ca9a9a03a5376"
+    },
+    "src/momentumbot/research/coverage_continuation_hosted.py": {
+      "bytes": 5461,
+      "sha256": "65894b5a9afe7dd5bb508baf52ecb1c14ad4dab774e7592e4105f3f3a08b294b"
+    },
+    "src/momentumbot/research/hosted_source_gate.py": {
+      "bytes": 5387,
+      "sha256": "ad4ccd7160b51628f0980e3ee22a9a424291fe0dbd8692e6700bfea786be0501"
+    },
+    "tests/test_coverage_continuation.py": {
+      "bytes": 13621,
+      "sha256": "140019d73fafdb1f33a21e5593884e225270facb100ca6e90076dc55701d71e5"
+    }
+  },
+  "financial_evaluation_enabled": false,
+  "historical_identity_resolved": false,
+  "historical_replay_enabled": false,
+  "historical_scanner_enabled": false,
+  "hosted_execution_authorized": false,
+  "identity_continuity_verified": false,
+  "incremental_spend_authorized_usd": "0.00",
+  "limits": {
+    "daily_pages_per_root": 10,
+    "identity_pages_per_root": 20,
+    "maximum_attempts": 15000,
+    "maximum_body_bytes": 16777216,
+    "maximum_capture_duration_ns": 9000000000000,
+    "maximum_metadata_bytes": 80000000,
+    "maximum_new_attempts": 14953,
+    "maximum_payload_bytes": 1500000000,
+    "provider_start_interval_ns": {
+      "alpaca": 350000000,
+      "massive": 12500000000
+    },
+    "redirects": 0,
+    "report_reserve_bytes": 200000000,
+    "retries": 0,
+    "reused_attempts": 47
+  },
+  "market_coverage_verified": false,
+  "paid_capture_enabled": false,
+  "panel_sha256": "307c42e4fbfe63967cba943796f13aaa0f836fd7f7fc35f1ef1e925df4c8dcc8",
+  "parent_commit": "887544eb55de494bcb9cf07d441a3669f2f4b220",
+  "parent_registration_sha256": "0e1bb637eb820db2b3148b9ef6818ae0de1337bea1ef52d50dc1be6a29342723",
+  "policy_promotion_eligible": false,
+  "prefix_pin": {
+    "artifact_id": 10330669089,
+    "bytes": 3493487,
+    "code_commit": "af48e9f7761d80684683da02c5ef5b9bcdd800d8",
+    "inventory_sha256": "dc05d8cf5d9e0a13b0727128eb770a356bc189a943ca102382e1f7af0f76e9c2",
+    "run_id": 34799137954,
+    "sha256": "1d7edc9a9458b290320b5cd2963d911037d3c2b8d60bd86e01ef001a6528861a"
+  },
+  "provider_calls_authorized_now": 0,
+  "provider_origin_authenticated": false,
+  "receipt_schema": "early-pullback-coverage-capture-v0.1",
+  "reference_identity_is_provisional": true,
+  "repair": "Alpaca process-date arrival order becomes a retained diagnostic; no sorting, deduplication or relaxed date/ID/cursor checks",
+  "runtime": {
+    "PyYAML": "6.0.3",
+    "machine": "x86_64",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "python": "3.12.14",
+    "system": "Linux"
+  },
+  "selected_dates": [
+    "2026-03-04",
+    "2026-03-05",
+    "2026-03-06",
+    "2026-03-09",
+    "2026-03-10",
+    "2026-03-12",
+    "2026-03-13",
+    "2026-03-18",
+    "2026-03-19",
+    "2026-03-25",
+    "2026-03-30",
+    "2026-04-02",
+    "2026-04-06",
+    "2026-04-10",
+    "2026-04-13",
+    "2026-04-14",
+    "2026-04-15",
+    "2026-04-16",
+    "2026-04-17",
+    "2026-04-20",
+    "2026-04-21",
+    "2026-04-23",
+    "2026-04-24",
+    "2026-04-27",
+    "2026-04-28",
+    "2026-04-29",
+    "2026-04-30",
+    "2026-05-04",
+    "2026-05-08",
+    "2026-05-19"
+  ],
+  "transcript_records_read": false,
+  "workflow": ".github/workflows/coverage-continuation.yml"
+}

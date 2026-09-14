@@ -17,6 +17,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 
 | Task | Open first | Source of truth |
 |---|---|---|
+| Corporate-action ordering repair and saved-prefix continuation | `docs/research/coverage_continuation.md` | original-order diagnostics, exact 47-response prefix, remaining suffix only, reusable CI/consumption gates and original-archive replay |
 | Integrated daily coverage and corporate-action capture | `docs/research/coverage_capture.md` | fixed 30-date source union, safe raw retention, exact-code CI and new durable consumption, automatic original-archive replay |
 | Daily coverage pagination and identity-source roots | `docs/research/daily_coverage.md` | byte-pinned census panel, exhausted raw/split page replay, strict dated coverage handoff and unarmed 120-day identity requests |
 | Census reference/identity and scanner coverage handoff | `docs/research/census_scanner_bridge.md` | exact accepted ZIP, frozen metadata decisions, provisional same-date identities, dated complete coverage adapter and unarmed daily request union |
