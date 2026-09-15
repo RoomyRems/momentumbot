@@ -1,0 +1,4671 @@
+{
+  "alias_mapping_checks_complete": true,
+  "brokerage_orders_enabled": false,
+  "completed_alias_pairs": [
+    {
+      "alias_checks": [],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "4facccff486f37e85f19a91bfcf10461d7fe57f694cdc15dd27e8da0ecebf566",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-03-04",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-03-05",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "298a95fea446ef103245b57a6e3c7ef9c66f0fbc13e83c1ff8493bb9e1a01e5a",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "b1353bf10915a98802370cc259345bc11aea614fa13fa6f5376448e4927495c7",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-03-05",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-03-06",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "1d7820a045babc381c8bdbd102dbe1717a05e5c286605b18fc579930ed5612ca",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "15eda6e53ceb6390923e1dd03ced731c067266cdebc1409991ec6250f178b5cb",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-03-06",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-03-09",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "e742573306dadbe26949f4b6edd131db398b4d91849fe51c2d3da2d63b5ecbcc",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "GLTO",
+          "identifier": "BBG00XMLGWC5",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "DMRA",
+          "views": [
+            {
+              "asof": "2026-03-09",
+              "bar": {
+                "c": 28.69,
+                "h": 30.39,
+                "l": 26.425,
+                "n": 6880,
+                "o": 28.75,
+                "v": 231701,
+                "vw": 28.200623
+              },
+              "source_members": [
+                {
+                  "body_member": "00108.body.json",
+                  "body_sha256": "618574c56279ebd14e6ade440e96a3890e85848a05820a5d59f52664b606bbd6",
+                  "request_sha256": "5e7a7bc021ec0a2c3f11abde1c69d2f976ce9050cfef2186e36981f81f1cc208",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "GLTO",
+              "target_date": "2026-03-09"
+            },
+            {
+              "asof": "2026-03-10",
+              "bar": {
+                "c": 28.69,
+                "h": 30.39,
+                "l": 26.425,
+                "n": 6880,
+                "o": 28.75,
+                "v": 231701,
+                "vw": 28.200623
+              },
+              "source_members": [
+                {
+                  "body_member": "00154.body.json",
+                  "body_sha256": "3925814f88f23d2ac3101ad4f09ca6b6e11869a32282073f4eba08c0590f9c28",
+                  "request_sha256": "91febd629bec32695324fc6055708db0ebc74777b4f47385d35e627b2545faef",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "DMRA",
+              "target_date": "2026-03-09"
+            },
+            {
+              "asof": "2026-03-09",
+              "bar": {
+                "c": 25.51,
+                "h": 29.22,
+                "l": 25,
+                "n": 3085,
+                "o": 27.99,
+                "v": 216726,
+                "vw": 26.222826
+              },
+              "source_members": [
+                {
+                  "body_sha256": "160a1183d26b4fcfdf3779535fb478bc088a9b002d8b4b6b1b43f49e2c0fe46e",
+                  "request_sha256": "75e4140c0a431ca116fa30592a00666bff48f4748c62c2b9089d7132d3ac0b25"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "GLTO",
+              "target_date": "2026-03-10"
+            },
+            {
+              "asof": "2026-03-10",
+              "bar": {
+                "c": 25.51,
+                "h": 29.22,
+                "l": 25,
+                "n": 3085,
+                "o": 27.99,
+                "v": 216726,
+                "vw": 26.222826
+              },
+              "source_members": [
+                {
+                  "body_member": "00154.body.json",
+                  "body_sha256": "3925814f88f23d2ac3101ad4f09ca6b6e11869a32282073f4eba08c0590f9c28",
+                  "request_sha256": "91febd629bec32695324fc6055708db0ebc74777b4f47385d35e627b2545faef",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "DMRA",
+              "target_date": "2026-03-10"
+            }
+          ]
+        }
+      ],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "14fb2e3d739c0684856d9714f22ad54829e8d7bf49eb229eaacd241af07677bc",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-03-09",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-03-10",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "a750c6b5ea8d17d5be9b82a574aa902bd5b39a0f37329a0f0565fc051afcdbdf",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "SAVA",
+          "identifier": "BBG000BK9YW3",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "FLNA",
+          "views": [
+            {
+              "asof": "2026-03-10",
+              "bar": {
+                "c": 2.38,
+                "h": 2.49,
+                "l": 2.19,
+                "n": 9606,
+                "o": 2.19,
+                "v": 2090063,
+                "vw": 2.389916
+              },
+              "source_members": [
+                {
+                  "body_member": "00166.body.json",
+                  "body_sha256": "c7c9bbe7d5fbd694966ca8c9c8a1046a72384531b18640b0c7ce5cf42d090eee",
+                  "request_sha256": "3df41e8f416c11d11ddc4f208b4f4b1bce8efb6c21954f151f7f439691937176",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "SAVA",
+              "target_date": "2026-03-10"
+            },
+            {
+              "asof": "2026-03-12",
+              "bar": {
+                "c": 2.38,
+                "h": 2.49,
+                "l": 2.19,
+                "n": 9606,
+                "o": 2.19,
+                "v": 2090063,
+                "vw": 2.389916
+              },
+              "source_members": [
+                {
+                  "body_member": "00205.body.json",
+                  "body_sha256": "c9332ae86f89192d8fa0f367674ec5566c9f2160aebede392ee14a639b05718d",
+                  "request_sha256": "0cc1be8a703ef5ad0efdc4f66fc91efb0b9a3a89abdd244a234ec2c5e560801b",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "FLNA",
+              "target_date": "2026-03-10"
+            },
+            {
+              "asof": "2026-03-10",
+              "bar": {
+                "c": 1.95,
+                "h": 2.0901,
+                "l": 1.95,
+                "n": 3394,
+                "o": 2.09,
+                "v": 776810,
+                "vw": 1.992186
+              },
+              "source_members": [
+                {
+                  "body_sha256": "1625541990b8b56d6a48885551f4fc463ad437baec4868bc052295aa50b0eb4c",
+                  "request_sha256": "fe3337c40b9f6af2b5c8d1cf3856a63cc0b6cde7bf82e2267be92bfc4252c859"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "SAVA",
+              "target_date": "2026-03-12"
+            },
+            {
+              "asof": "2026-03-12",
+              "bar": {
+                "c": 1.95,
+                "h": 2.0901,
+                "l": 1.95,
+                "n": 3394,
+                "o": 2.09,
+                "v": 776810,
+                "vw": 1.992186
+              },
+              "source_members": [
+                {
+                  "body_member": "00205.body.json",
+                  "body_sha256": "c9332ae86f89192d8fa0f367674ec5566c9f2160aebede392ee14a639b05718d",
+                  "request_sha256": "0cc1be8a703ef5ad0efdc4f66fc91efb0b9a3a89abdd244a234ec2c5e560801b",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "FLNA",
+              "target_date": "2026-03-12"
+            }
+          ]
+        },
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "KLTO",
+          "identifier": "BBG015Z249H2",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "GRML",
+          "views": [
+            {
+              "asof": "2026-03-10",
+              "bar": {
+                "c": 0.52,
+                "h": 0.569,
+                "l": 0.4711,
+                "n": 7175,
+                "o": 0.48,
+                "v": 4922298,
+                "vw": 0.510873
+              },
+              "source_members": [
+                {
+                  "body_member": "00159.body.json",
+                  "body_sha256": "00d15c7984524322d16800084dcb941831e05138ab9c26cc7fa36c737317b279",
+                  "request_sha256": "43aa8decf9adb2e78ea54476fd9c04bc92fac3fbe032e128df5d6bb021582fda",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "KLTO",
+              "target_date": "2026-03-10"
+            },
+            {
+              "asof": "2026-03-12",
+              "bar": {
+                "c": 0.52,
+                "h": 0.569,
+                "l": 0.4711,
+                "n": 7175,
+                "o": 0.48,
+                "v": 4922298,
+                "vw": 0.510873
+              },
+              "source_members": [
+                {
+                  "body_member": "00206.body.json",
+                  "body_sha256": "5ede3036e540aa9750a092d126d766d424413f0b65c7112b06a98516051460cb",
+                  "request_sha256": "7816b42ddf0df73fe1b1f2a1fadce6525cc083707098264b729a0e58b12ac365",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "GRML",
+              "target_date": "2026-03-10"
+            },
+            {
+              "asof": "2026-03-10",
+              "bar": {
+                "c": 0.468,
+                "h": 0.5269,
+                "l": 0.44,
+                "n": 8419,
+                "o": 0.52,
+                "v": 3364371,
+                "vw": 0.471997
+              },
+              "source_members": [
+                {
+                  "body_sha256": "1625541990b8b56d6a48885551f4fc463ad437baec4868bc052295aa50b0eb4c",
+                  "request_sha256": "fe3337c40b9f6af2b5c8d1cf3856a63cc0b6cde7bf82e2267be92bfc4252c859"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "KLTO",
+              "target_date": "2026-03-12"
+            },
+            {
+              "asof": "2026-03-12",
+              "bar": {
+                "c": 0.468,
+                "h": 0.5269,
+                "l": 0.44,
+                "n": 8419,
+                "o": 0.52,
+                "v": 3364371,
+                "vw": 0.471997
+              },
+              "source_members": [
+                {
+                  "body_member": "00206.body.json",
+                  "body_sha256": "5ede3036e540aa9750a092d126d766d424413f0b65c7112b06a98516051460cb",
+                  "request_sha256": "7816b42ddf0df73fe1b1f2a1fadce6525cc083707098264b729a0e58b12ac365",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "GRML",
+              "target_date": "2026-03-12"
+            }
+          ]
+        }
+      ],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "05f2fb6b2c357b52f81e904694f1c0b63dcb61f97a866dc88ea106550a91cb57",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-03-10",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-03-12",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "4ed99bc8c738f9d65fa017471af9ddbaf1169604ef9e56aa138fe937cf1ba66d",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "ecfac8c7621febb819c489252f2ea1fc0351b4c243f623df7712fd5bd457363d",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-03-12",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-03-13",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "76b4ef6034512f60c4068c1a95c8eb5b666c2da1d7a1c461f10cfaa3a1a8b10d",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "LITM",
+          "identifier": "BBG00YB8QPZ3",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "FNUC",
+          "views": [
+            {
+              "asof": "2026-03-13",
+              "bar": {
+                "c": 2.39,
+                "h": 2.96,
+                "l": 2.2337,
+                "n": 5987,
+                "o": 2.92,
+                "v": 1752729,
+                "vw": 2.482273
+              },
+              "source_members": [
+                {
+                  "body_member": "00258.body.json",
+                  "body_sha256": "09336362ba177e34f2d98d0ed36421573658e222733af039a0c9321258e61ce0",
+                  "request_sha256": "2d2f979b7bf7b8f7f1f21e0817ea8492a7a2985ab5fd476f057aab58bef9eeb3",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "LITM",
+              "target_date": "2026-03-13"
+            },
+            {
+              "asof": "2026-03-18",
+              "bar": {
+                "c": 2.39,
+                "h": 2.96,
+                "l": 2.2337,
+                "n": 5987,
+                "o": 2.92,
+                "v": 1752729,
+                "vw": 2.482273
+              },
+              "source_members": [
+                {
+                  "body_member": "00303.body.json",
+                  "body_sha256": "2fe943274693f5e9b63764a50f1d1cf1855c9feda0f68e616e35511aee982d82",
+                  "request_sha256": "6373544838f37693a836ae0bd9693185c93a35537dee8d200be0b1e689a49113",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "FNUC",
+              "target_date": "2026-03-13"
+            },
+            {
+              "asof": "2026-03-13",
+              "bar": {
+                "c": 2.29,
+                "h": 2.545,
+                "l": 2.26,
+                "n": 2082,
+                "o": 2.45,
+                "v": 502427,
+                "vw": 2.362632
+              },
+              "source_members": [
+                {
+                  "body_sha256": "9e9f634224c875121882acd1607ef7cb17312e34cf6c0a163219248a70854e00",
+                  "request_sha256": "fb345bd9901d196b050cf486229c3ddf52bf51ec45d956f3c972484cf8dbca46"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "LITM",
+              "target_date": "2026-03-18"
+            },
+            {
+              "asof": "2026-03-18",
+              "bar": {
+                "c": 2.29,
+                "h": 2.545,
+                "l": 2.26,
+                "n": 2082,
+                "o": 2.45,
+                "v": 502427,
+                "vw": 2.362632
+              },
+              "source_members": [
+                {
+                  "body_member": "00303.body.json",
+                  "body_sha256": "2fe943274693f5e9b63764a50f1d1cf1855c9feda0f68e616e35511aee982d82",
+                  "request_sha256": "6373544838f37693a836ae0bd9693185c93a35537dee8d200be0b1e689a49113",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "FNUC",
+              "target_date": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "VVPR",
+          "identifier": "0001681348",
+          "identifier_kind": "unique_cik_fallback",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "VIVO",
+          "views": [
+            {
+              "asof": "2026-03-13",
+              "bar": {
+                "c": 2.07,
+                "h": 2.16,
+                "l": 1.91,
+                "n": 2514,
+                "o": 1.96,
+                "v": 608438,
+                "vw": 2.030224
+              },
+              "source_members": [
+                {
+                  "body_member": "00267.body.json",
+                  "body_sha256": "c17c0fbbc4d70df8429797150b61acc3d355d092931bce4894b9519903c014ce",
+                  "request_sha256": "6e401051df97a403473b5dd4dabbcb4952377f0dab8bac348181caa530ea7582",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "VVPR",
+              "target_date": "2026-03-13"
+            },
+            {
+              "asof": "2026-03-18",
+              "bar": {
+                "c": 2.07,
+                "h": 2.16,
+                "l": 1.91,
+                "n": 2514,
+                "o": 1.96,
+                "v": 608438,
+                "vw": 2.030224
+              },
+              "source_members": [
+                {
+                  "body_member": "00316.body.json",
+                  "body_sha256": "47335e2ecf719f00a270c0c382a8f422d1bf3b8ef3090ba483d2301227a237b1",
+                  "request_sha256": "8a3b59382188efd9154eade53bc5ed93755df042015df799f03acfd46627af23",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "VIVO",
+              "target_date": "2026-03-13"
+            },
+            {
+              "asof": "2026-03-13",
+              "bar": {
+                "c": 2.44,
+                "h": 2.69,
+                "l": 2.195,
+                "n": 6800,
+                "o": 2.23,
+                "v": 1555761,
+                "vw": 2.49625
+              },
+              "source_members": [
+                {
+                  "body_sha256": "9e9f634224c875121882acd1607ef7cb17312e34cf6c0a163219248a70854e00",
+                  "request_sha256": "fb345bd9901d196b050cf486229c3ddf52bf51ec45d956f3c972484cf8dbca46"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "VVPR",
+              "target_date": "2026-03-18"
+            },
+            {
+              "asof": "2026-03-18",
+              "bar": {
+                "c": 2.44,
+                "h": 2.69,
+                "l": 2.195,
+                "n": 6800,
+                "o": 2.23,
+                "v": 1555761,
+                "vw": 2.49625
+              },
+              "source_members": [
+                {
+                  "body_member": "00316.body.json",
+                  "body_sha256": "47335e2ecf719f00a270c0c382a8f422d1bf3b8ef3090ba483d2301227a237b1",
+                  "request_sha256": "8a3b59382188efd9154eade53bc5ed93755df042015df799f03acfd46627af23",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "VIVO",
+              "target_date": "2026-03-18"
+            }
+          ]
+        },
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "BACQ",
+          "identifier": "0002028707",
+          "identifier_kind": "unique_cik_fallback",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "MRLN",
+          "views": [
+            {
+              "asof": "2026-03-13",
+              "bar": {
+                "c": 8.34,
+                "h": 8.73,
+                "l": 8.3,
+                "n": 308,
+                "o": 8.34,
+                "v": 49455,
+                "vw": 8.504326
+              },
+              "source_members": [
+                {
+                  "body_member": "00249.body.json",
+                  "body_sha256": "a924e1217f96f527a6d48eeeb43e23fcb03bf0bd33c8102fbba2b4ff0ecad33c",
+                  "request_sha256": "0617d09f9c903f4c08995d7d7ddf404478217f958fbc1cd25af7a4f9db48fafd",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "BACQ",
+              "target_date": "2026-03-13"
+            },
+            {
+              "asof": "2026-03-18",
+              "bar": {
+                "c": 8.34,
+                "h": 8.73,
+                "l": 8.3,
+                "n": 308,
+                "o": 8.34,
+                "v": 49455,
+                "vw": 8.504326
+              },
+              "source_members": [
+                {
+                  "body_member": "00309.body.json",
+                  "body_sha256": "4b377e14ece1bfea34f646dff9eb3fa17b7e0c1a92c5bf141f4c262cde0a18c2",
+                  "request_sha256": "7e422f5a4f8c33c8de4fc6847e539d19ecca11e96d08530174622508aaa40ed2",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "MRLN",
+              "target_date": "2026-03-13"
+            },
+            {
+              "asof": "2026-03-13",
+              "bar": {
+                "c": 9.99,
+                "h": 10.1,
+                "l": 7.99,
+                "n": 6648,
+                "o": 8.94,
+                "v": 1128114,
+                "vw": 9.145745
+              },
+              "source_members": [
+                {
+                  "body_sha256": "9e9f634224c875121882acd1607ef7cb17312e34cf6c0a163219248a70854e00",
+                  "request_sha256": "fb345bd9901d196b050cf486229c3ddf52bf51ec45d956f3c972484cf8dbca46"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "BACQ",
+              "target_date": "2026-03-18"
+            },
+            {
+              "asof": "2026-03-18",
+              "bar": {
+                "c": 9.99,
+                "h": 10.1,
+                "l": 7.99,
+                "n": 6648,
+                "o": 8.94,
+                "v": 1128114,
+                "vw": 9.145745
+              },
+              "source_members": [
+                {
+                  "body_member": "00309.body.json",
+                  "body_sha256": "4b377e14ece1bfea34f646dff9eb3fa17b7e0c1a92c5bf141f4c262cde0a18c2",
+                  "request_sha256": "7e422f5a4f8c33c8de4fc6847e539d19ecca11e96d08530174622508aaa40ed2",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "MRLN",
+              "target_date": "2026-03-18"
+            }
+          ]
+        }
+      ],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "6d37340dbbd2dd22d0d0fce524c6349d427d397fce7ef9bed0195746a95825e5",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-03-13",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-03-18",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "8f7de2852170eaa21a01fef11b35bbcad6c4c2aff47afe2d7cff21133ed41ed4",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "ad9079c00e1d874935f36e9b533cb178c38d45cce1f73ec2c0c10abd0edfcc03",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-03-18",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-03-19",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "21d5ddd314065568a64e2893c44bc14691f809dfc7609f27e4c46023f440b576",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "5d88d1a8782059ee6cf37d7411848a6bd1ec96b68deb37c01d7185e371c4bfaf",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-03-19",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-03-25",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "1955d6da1d55d3f200bc24556b7f731236b198000c8a1e78b9e1b7f5fc326fda",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "2ff289ffaa97309e6bc65e59a6b0fa10a50ee4e6ff114d29e641f756b0e2cd4e",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-03-25",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-03-30",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "12d9c8f6a6e0d6b66b118fbeb789c1e088cb2de2eb9e962e2b9eae2f2a68eeb2",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "JFBR",
+          "identifier": "0001885408",
+          "identifier_kind": "unique_cik_fallback",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "NEXR",
+          "views": [
+            {
+              "asof": "2026-03-30",
+              "bar": {
+                "c": 3.08,
+                "h": 3.35,
+                "l": 2.4301,
+                "n": 4872,
+                "o": 2.51,
+                "v": 520244,
+                "vw": 2.954501
+              },
+              "source_members": [
+                {
+                  "body_member": "00453.body.json",
+                  "body_sha256": "c27c28583727b27332dd82def8c7ed79fc69cf0bbee625307c866f2ae7bccc63",
+                  "request_sha256": "d27d238b847d148b471b37bf186c312eecfab07e54ef60161b2f808ad6894902",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "JFBR",
+              "target_date": "2026-03-30"
+            },
+            {
+              "asof": "2026-04-02",
+              "bar": {
+                "c": 3.08,
+                "h": 3.35,
+                "l": 2.4301,
+                "n": 4872,
+                "o": 2.51,
+                "v": 520244,
+                "vw": 2.954501
+              },
+              "source_members": [
+                {
+                  "body_member": "00505.body.json",
+                  "body_sha256": "d0ddad76e39919223c63397590031cf37a76a40341625449fa88ce8a5c892bb3",
+                  "request_sha256": "ae1fbb591277e449307e0d609cdc0639e8390f1dc70075e4fe367b14ecd0cd0c",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "NEXR",
+              "target_date": "2026-03-30"
+            },
+            {
+              "asof": "2026-03-30",
+              "bar": {
+                "c": 1.96,
+                "h": 2.64,
+                "l": 1.63,
+                "n": 4864,
+                "o": 1.65,
+                "v": 767993,
+                "vw": 2.154692
+              },
+              "source_members": [
+                {
+                  "body_sha256": "22dd26baa06277b364af54bcfc1f71fd861de525b6ee40ca0767885409176086",
+                  "request_sha256": "1f49b07f7caeff30bab1e74738438557db38aecd83051a3d1b5b214f365e4df8"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "JFBR",
+              "target_date": "2026-04-02"
+            },
+            {
+              "asof": "2026-04-02",
+              "bar": {
+                "c": 1.96,
+                "h": 2.64,
+                "l": 1.63,
+                "n": 4864,
+                "o": 1.65,
+                "v": 767993,
+                "vw": 2.154692
+              },
+              "source_members": [
+                {
+                  "body_member": "00505.body.json",
+                  "body_sha256": "d0ddad76e39919223c63397590031cf37a76a40341625449fa88ce8a5c892bb3",
+                  "request_sha256": "ae1fbb591277e449307e0d609cdc0639e8390f1dc70075e4fe367b14ecd0cd0c",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "NEXR",
+              "target_date": "2026-04-02"
+            }
+          ]
+        }
+      ],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "730c99930912ec26866df642b95b457bde28c30caa7a3f82a1081d3f7ee0b490",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-03-30",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-04-02",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "521f62a197221c54ed76d0f2fde4c5b610194a655cd6f2231991d189a0f82ca0",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "NBY",
+          "identifier": "BBG000PVPJT3",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "SDEV",
+          "views": [
+            {
+              "asof": "2026-04-02",
+              "bar": {
+                "c": 1.95,
+                "h": 1.98,
+                "l": 1.57,
+                "n": 3942,
+                "o": 1.58,
+                "v": 637630,
+                "vw": 1.840054
+              },
+              "source_members": [
+                {
+                  "body_member": "00505.body.json",
+                  "body_sha256": "d0ddad76e39919223c63397590031cf37a76a40341625449fa88ce8a5c892bb3",
+                  "request_sha256": "ae1fbb591277e449307e0d609cdc0639e8390f1dc70075e4fe367b14ecd0cd0c",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "NBY",
+              "target_date": "2026-04-02"
+            },
+            {
+              "asof": "2026-04-06",
+              "bar": {
+                "c": 1.95,
+                "h": 1.98,
+                "l": 1.57,
+                "n": 3942,
+                "o": 1.58,
+                "v": 637630,
+                "vw": 1.840054
+              },
+              "source_members": [
+                {
+                  "body_member": "00558.body.json",
+                  "body_sha256": "a2f57d776daef346e319ec4365df4bd115a191165b59d4800b61f1fafc326bf3",
+                  "request_sha256": "01f39d35b1391fe8141fea1c73e73a011578e8a8a253305dfc62a656612358cb",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "SDEV",
+              "target_date": "2026-04-02"
+            },
+            {
+              "asof": "2026-04-02",
+              "bar": {
+                "c": 1.88,
+                "h": 2.13,
+                "l": 1.6559,
+                "n": 1919,
+                "o": 1.7,
+                "v": 317595,
+                "vw": 1.90302
+              },
+              "source_members": [
+                {
+                  "body_sha256": "8e0062d80204ba6e3ddd05238b444e411584c83c72c49c60d5c83dc792587866",
+                  "request_sha256": "84d7b69c02d26f40f07485a590ea91d55996d65f2c73f9e2f2b88b4d68aec3e4"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "NBY",
+              "target_date": "2026-04-06"
+            },
+            {
+              "asof": "2026-04-06",
+              "bar": {
+                "c": 1.88,
+                "h": 2.13,
+                "l": 1.6559,
+                "n": 1919,
+                "o": 1.7,
+                "v": 317595,
+                "vw": 1.90302
+              },
+              "source_members": [
+                {
+                  "body_member": "00558.body.json",
+                  "body_sha256": "a2f57d776daef346e319ec4365df4bd115a191165b59d4800b61f1fafc326bf3",
+                  "request_sha256": "01f39d35b1391fe8141fea1c73e73a011578e8a8a253305dfc62a656612358cb",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "SDEV",
+              "target_date": "2026-04-06"
+            }
+          ]
+        }
+      ],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "54717bffff9128107b8661818f482a182086239124138171e086602334d6a53c",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-04-02",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-04-06",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "c9dc83eb93024f3ede54a2ee9fbe1dec227d894eab5fc7da709097c59d21f051",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "511e7aa2e6e72f0b5aa76b0d08cdda6c963c6e404be2ef9123e638c22db00f00",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-04-06",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-04-10",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "b36964d9484b7a4c57ddf4c84fac1810b81a65b586dffc8bc6aadb111144439c",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "CIGL",
+          "identifier": "0002001794",
+          "identifier_kind": "unique_cik_fallback",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "YOOV",
+          "views": [
+            {
+              "asof": "2026-04-10",
+              "bar": {
+                "c": 1.99,
+                "h": 2,
+                "l": 1.76,
+                "n": 702,
+                "o": 1.76,
+                "v": 135948,
+                "vw": 1.931131
+              },
+              "source_members": [
+                {
+                  "body_member": "00594.body.json",
+                  "body_sha256": "418c07716a0b7dd0434b69a1bed1537b6d94444cc7757596e42f0965ea93c752",
+                  "request_sha256": "db5eba9c6c065913e82ec3509893bc7632aa369bde573094a5e668b75e9d2a3c",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "CIGL",
+              "target_date": "2026-04-10"
+            },
+            {
+              "asof": "2026-04-13",
+              "bar": {
+                "c": 1.99,
+                "h": 2,
+                "l": 1.76,
+                "n": 702,
+                "o": 1.76,
+                "v": 135948,
+                "vw": 1.931131
+              },
+              "source_members": [
+                {
+                  "body_member": "00660.body.json",
+                  "body_sha256": "e2bf38af6b74fd6d8b20b35645468940221425f83d31a21d2ca71b0cc62d3519",
+                  "request_sha256": "1b85c621a904848ad1f8e3d8397755f540a7bda8a586e377faabc0a0162299be",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "YOOV",
+              "target_date": "2026-04-10"
+            },
+            {
+              "asof": "2026-04-10",
+              "bar": {
+                "c": 2.04,
+                "h": 2.15,
+                "l": 1.45,
+                "n": 15467,
+                "o": 1.59,
+                "v": 1398871,
+                "vw": 1.757109
+              },
+              "source_members": [
+                {
+                  "body_sha256": "861697836684602cf54a88532bb3fc91bb03ba3cf6cae81701bcc0630741648a",
+                  "request_sha256": "c5c3fa33a6c46e51a76792728b02929dac4f61431f0911854bb41b3341ebf324"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "CIGL",
+              "target_date": "2026-04-13"
+            },
+            {
+              "asof": "2026-04-13",
+              "bar": {
+                "c": 2.04,
+                "h": 2.15,
+                "l": 1.45,
+                "n": 15467,
+                "o": 1.59,
+                "v": 1398871,
+                "vw": 1.757109
+              },
+              "source_members": [
+                {
+                  "body_member": "00660.body.json",
+                  "body_sha256": "e2bf38af6b74fd6d8b20b35645468940221425f83d31a21d2ca71b0cc62d3519",
+                  "request_sha256": "1b85c621a904848ad1f8e3d8397755f540a7bda8a586e377faabc0a0162299be",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "YOOV",
+              "target_date": "2026-04-13"
+            }
+          ]
+        }
+      ],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "f3a17aae712bae65b9f1e4b3c0c16d05be3ec08efd636a2a8ff2706aa6fd11f8",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-04-10",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-04-13",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "371ecca43da768713d8c63a73f38f7b2a0252269f4e198089dfb66c7a67f24fc",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "676aaf4c30bf8b400e7653339e25c39f70eb07e184d9d6d35353d8f7d8d3720c",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-04-13",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-04-14",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "4148d8a112bdd2bb1065db382e648203862361a3456f3b1d88b9c1da3f7b01d7",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "203c062a8323dcfbbb9e1827cdb2919d9eef9527eb07b9e87f6779b2edd17d52",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-04-14",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-04-15",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "5a8a24b3ba344ed5c4d6335cbd718fea1dfee27b3232ef898f6620cc6141a8ef",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "adf767ab1761a70e11a4f0b0c71211202234e521d05d19b7386e11420f5a963f",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-04-15",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-04-16",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "277c30690fe22a6bd22c5778a7b05dbcafc3adad7eeb14ca7caa42d92e793234",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "PSTG",
+          "identifier": "BBG00212PVZ5",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "P",
+          "views": [
+            {
+              "asof": "2026-04-16",
+              "bar": {
+                "c": 67.8,
+                "h": 67.83,
+                "l": 64.54,
+                "n": 44403,
+                "o": 65.44,
+                "v": 2818857,
+                "vw": 67.086109
+              },
+              "source_members": [
+                {
+                  "body_member": "00802.body.json",
+                  "body_sha256": "eca230d58076301ae051e2be84cadfd61b53bea12c1d68e94fe92031e42d4a7a",
+                  "request_sha256": "1917962eb09195e5b9d643e25fc58dd88feb171d19a01d57ec9d0b108b7f9ae9",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "PSTG",
+              "target_date": "2026-04-16"
+            },
+            {
+              "asof": "2026-04-17",
+              "bar": {
+                "c": 67.8,
+                "h": 67.83,
+                "l": 64.54,
+                "n": 44403,
+                "o": 65.44,
+                "v": 2818857,
+                "vw": 67.086109
+              },
+              "source_members": [
+                {
+                  "body_member": "00850.body.json",
+                  "body_sha256": "d6928cc9c52edbfd351283b17e62284c33a854f86278b153e59ef164f83535d2",
+                  "request_sha256": "af81a7cccb585679b003adf051ba9a539e4940494edef8f0247416d6e27c5e30",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "P",
+              "target_date": "2026-04-16"
+            },
+            {
+              "asof": "2026-04-16",
+              "bar": {
+                "c": 66.97,
+                "h": 69.1,
+                "l": 66.97,
+                "n": 34172,
+                "o": 68,
+                "v": 2043963,
+                "vw": 67.650347
+              },
+              "source_members": [
+                {
+                  "body_sha256": "f69e65943dcb7e938f83a35b870d52002b609b26e93870dae1bcd63c8a2fb1cb",
+                  "request_sha256": "75ab8ed29f90d96981a1b7ea07e9d90600909ba9b5eb1158828c426e5b89ba49"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "PSTG",
+              "target_date": "2026-04-17"
+            },
+            {
+              "asof": "2026-04-17",
+              "bar": {
+                "c": 66.97,
+                "h": 69.1,
+                "l": 66.97,
+                "n": 34172,
+                "o": 68,
+                "v": 2043963,
+                "vw": 67.650347
+              },
+              "source_members": [
+                {
+                  "body_member": "00850.body.json",
+                  "body_sha256": "d6928cc9c52edbfd351283b17e62284c33a854f86278b153e59ef164f83535d2",
+                  "request_sha256": "af81a7cccb585679b003adf051ba9a539e4940494edef8f0247416d6e27c5e30",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "P",
+              "target_date": "2026-04-17"
+            }
+          ]
+        }
+      ],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "10cc256500d672ed48f5028d395e68772f4def74237fcf16cd390e80aa980b99",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-04-16",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-04-17",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "8a7176d2831e407855dc43b2a68b951f2460e89034e4b5bfd4f2f9310dc2029a",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "TRAXV",
+          "identifier": "BBG020RF4QV8",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "TRAX",
+          "views": [
+            {
+              "asof": "2026-04-17",
+              "bar": {
+                "c": 22.51,
+                "h": 26.8,
+                "l": 22.5,
+                "n": 205,
+                "o": 25.79,
+                "v": 30827,
+                "vw": 23.156842
+              },
+              "source_members": [
+                {
+                  "body_member": "00854.body.json",
+                  "body_sha256": "c05f96d4f10a26ae01ffa586dea9acaaa9bb9bc6dccc47de2923def86102ba4b",
+                  "request_sha256": "80ded8dbab92514326b78369c645541dacfa7834591ead9f0d7f4db11a2937f1",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "TRAXV",
+              "target_date": "2026-04-17"
+            },
+            {
+              "asof": "2026-04-20",
+              "bar": {
+                "c": 22.51,
+                "h": 26.8,
+                "l": 22.5,
+                "n": 205,
+                "o": 25.79,
+                "v": 30827,
+                "vw": 23.156842
+              },
+              "source_members": [
+                {
+                  "body_member": "00903.body.json",
+                  "body_sha256": "a62584a2ff44f7c47ea4c4cff5235bd6cc1e03989eacc95946e5bc4215ae6d14",
+                  "request_sha256": "aa5d0b3cb93b59129bd40c359a128dd16c08c5b2a2f0c4bb22e327e2066545e1",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "TRAX",
+              "target_date": "2026-04-17"
+            },
+            {
+              "asof": "2026-04-17",
+              "bar": {
+                "c": 18.6,
+                "h": 21,
+                "l": 14.79,
+                "n": 7753,
+                "o": 20.51,
+                "v": 768845,
+                "vw": 18.044759
+              },
+              "source_members": [
+                {
+                  "body_sha256": "779c841bd90c1dd31024600ead5a3314bec34621ed278b864c40dc19ff21c64c",
+                  "request_sha256": "78c2ec34524abcef128698e5b7295a8fe6f22b39d879d5d1fb8cb86a437b16ad"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "TRAXV",
+              "target_date": "2026-04-20"
+            },
+            {
+              "asof": "2026-04-20",
+              "bar": {
+                "c": 18.6,
+                "h": 21,
+                "l": 14.79,
+                "n": 7753,
+                "o": 20.51,
+                "v": 768845,
+                "vw": 18.044759
+              },
+              "source_members": [
+                {
+                  "body_member": "00903.body.json",
+                  "body_sha256": "a62584a2ff44f7c47ea4c4cff5235bd6cc1e03989eacc95946e5bc4215ae6d14",
+                  "request_sha256": "aa5d0b3cb93b59129bd40c359a128dd16c08c5b2a2f0c4bb22e327e2066545e1",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "TRAX",
+              "target_date": "2026-04-20"
+            }
+          ]
+        }
+      ],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "fe4243380c669641cd95bacd3caf5f3d910dbe981a7498cfa94c2cc96a992af1",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-04-17",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-04-20",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "1e4c4a4746adefeb373d411af82bcf2d62d50d5a65aa1e11c54cc03c3fb04a0e",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "ATON",
+          "identifier": "0001095435",
+          "identifier_kind": "unique_cik_fallback",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "ALP",
+          "views": [
+            {
+              "asof": "2026-04-20",
+              "bar": {
+                "c": 0.32,
+                "h": 0.3504,
+                "l": 0.308,
+                "n": 13680,
+                "o": 0.33,
+                "v": 9856893,
+                "vw": 0.331186
+              },
+              "source_members": [
+                {
+                  "body_member": "00885.body.json",
+                  "body_sha256": "a88224aafcb996931802ac872ad4265916119e76ab874b3bf7d1f88fd3b4c172",
+                  "request_sha256": "005c99f17581da5d45583456bb7a09ad4b65eeb22cc431dae2837106ca774fbd",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "ATON",
+              "target_date": "2026-04-20"
+            },
+            {
+              "asof": "2026-04-21",
+              "bar": {
+                "c": 0.32,
+                "h": 0.3504,
+                "l": 0.308,
+                "n": 13680,
+                "o": 0.33,
+                "v": 9856893,
+                "vw": 0.331186
+              },
+              "source_members": [
+                {
+                  "body_member": "00933.body.json",
+                  "body_sha256": "c383ef5cddb448f16be940e17c6f12ec426d412aabc7a638484ba73b9f77cd46",
+                  "request_sha256": "af3e70a6a604e6c880b2a93b2bc0d564b51f892e0975ede46687d26b83bbbcec",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "ALP",
+              "target_date": "2026-04-20"
+            },
+            {
+              "asof": "2026-04-20",
+              "bar": {
+                "c": 0.28,
+                "h": 0.3299,
+                "l": 0.2168,
+                "n": 3646,
+                "o": 0.285,
+                "v": 2380851,
+                "vw": 0.270117
+              },
+              "source_members": [
+                {
+                  "body_sha256": "73aa9494cff48a592e9c36a3aa4697d49f3b181e0f8a82c22af84e5d7e15c0ea",
+                  "request_sha256": "8c2df1c351ddfbe7e287b385f1d15af879c405f77f9c840d8ee7db56ca63e57e"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "ATON",
+              "target_date": "2026-04-21"
+            },
+            {
+              "asof": "2026-04-21",
+              "bar": {
+                "c": 0.28,
+                "h": 0.3299,
+                "l": 0.2168,
+                "n": 3646,
+                "o": 0.285,
+                "v": 2380851,
+                "vw": 0.270117
+              },
+              "source_members": [
+                {
+                  "body_member": "00933.body.json",
+                  "body_sha256": "c383ef5cddb448f16be940e17c6f12ec426d412aabc7a638484ba73b9f77cd46",
+                  "request_sha256": "af3e70a6a604e6c880b2a93b2bc0d564b51f892e0975ede46687d26b83bbbcec",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "ALP",
+              "target_date": "2026-04-21"
+            }
+          ]
+        }
+      ],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "dbdb840bab069338dc6091574844ffee321c8f9250e565bfc0c7871ca29f665e",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-04-20",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-04-21",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "584c41accd4a01f07c13cb5888e5babd1517e61fdba89302977083b2db19ccfc",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "7e9348b56fb65def408dddfca27a1916c5a33e3a11ac2fb9581f001186882d1b",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-04-21",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-04-23",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "57b1ef831ca0894daf17b29fcbc6c762bced5c3bcf540fe794c7564f6ba27e63",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "ASGN",
+          "identifier": "BBG000CRN8N8",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "EFOR",
+          "views": [
+            {
+              "asof": "2026-04-23",
+              "bar": {
+                "c": 19.53,
+                "h": 25.38,
+                "l": 19.31,
+                "n": 100816,
+                "o": 24.3,
+                "v": 10049253,
+                "vw": 21.949791
+              },
+              "source_members": [
+                {
+                  "body_member": "00983.body.json",
+                  "body_sha256": "0cd45571961efe6b1c23c716797db599a78bad300a4ee4b4a5e9541d83625e97",
+                  "request_sha256": "40b02e12c27f088ce7aae7dab64ddc565eb9aa24245e8f835cf79ee316d0ab0c",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "ASGN",
+              "target_date": "2026-04-23"
+            },
+            {
+              "asof": "2026-04-24",
+              "bar": {
+                "c": 19.53,
+                "h": 25.38,
+                "l": 19.31,
+                "n": 100816,
+                "o": 24.3,
+                "v": 10049253,
+                "vw": 21.949791
+              },
+              "source_members": [
+                {
+                  "body_member": "01037.body.json",
+                  "body_sha256": "77d7d37898ed51b3ed94174d72ce1f22ac9f94e9d5999dc974ea0a90221886c5",
+                  "request_sha256": "95ae099dd79198a0ddde1ad57aa879b93a3d3129c5a5c73ad6fd09614de0779f",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "EFOR",
+              "target_date": "2026-04-23"
+            },
+            {
+              "asof": "2026-04-23",
+              "bar": {
+                "c": 18.97,
+                "h": 20.27,
+                "l": 18.5,
+                "n": 32213,
+                "o": 20.1,
+                "v": 2569184,
+                "vw": 19.174201
+              },
+              "source_members": [
+                {
+                  "body_sha256": "b616427ea648fb6b33200a9f6c3b4fee68cf179a06c64484224e4682e2deb2cc",
+                  "request_sha256": "71e781a8784b4f2167c1fca838e4510e56e1b346a00ef774924a6892c2e691a3"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "ASGN",
+              "target_date": "2026-04-24"
+            },
+            {
+              "asof": "2026-04-24",
+              "bar": {
+                "c": 18.97,
+                "h": 20.27,
+                "l": 18.5,
+                "n": 32213,
+                "o": 20.1,
+                "v": 2569184,
+                "vw": 19.174201
+              },
+              "source_members": [
+                {
+                  "body_member": "01037.body.json",
+                  "body_sha256": "77d7d37898ed51b3ed94174d72ce1f22ac9f94e9d5999dc974ea0a90221886c5",
+                  "request_sha256": "95ae099dd79198a0ddde1ad57aa879b93a3d3129c5a5c73ad6fd09614de0779f",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "EFOR",
+              "target_date": "2026-04-24"
+            }
+          ]
+        }
+      ],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "d893b3ffa2e5d01fcfcda4b16ce82fddb9db5ca5ed163264d562bed26b9ab8df",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-04-23",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-04-24",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "84693c9ddfbb27a71a259fab6c596b03b109ab156ac3c209b49d8533698fd0d3",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "COEP",
+          "identifier": "BBG00XTTT1C5",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "ZSQR",
+          "views": [
+            {
+              "asof": "2026-04-24",
+              "bar": {
+                "c": 16.4,
+                "h": 17.27,
+                "l": 15.87,
+                "n": 1039,
+                "o": 16.23,
+                "v": 111940,
+                "vw": 16.543384
+              },
+              "source_members": [
+                {
+                  "body_member": "01035.body.json",
+                  "body_sha256": "f8817b3bb2448730758deb9ddeb697b428e90622368b57343cc51ad60b538b1c",
+                  "request_sha256": "5153448b1bf7f50099e98547b2bfcca97f21d7250b4f33479caf2f945ddce6b2",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "COEP",
+              "target_date": "2026-04-24"
+            },
+            {
+              "asof": "2026-04-27",
+              "bar": {
+                "c": 16.4,
+                "h": 17.27,
+                "l": 15.87,
+                "n": 1039,
+                "o": 16.23,
+                "v": 111940,
+                "vw": 16.543384
+              },
+              "source_members": [
+                {
+                  "body_member": "01102.body.json",
+                  "body_sha256": "3d8d17fa964f7bb6d21cec6585d5a4d8981f554cfe5de79ee4b117b6749ef68a",
+                  "request_sha256": "60e0cc2faa8517b2a40a151630c6b0d5691cd6a1b2b63437642cb6db521b1b76",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "ZSQR",
+              "target_date": "2026-04-24"
+            },
+            {
+              "asof": "2026-04-24",
+              "bar": {
+                "c": 15.2,
+                "h": 18.8,
+                "l": 9,
+                "n": 1513,
+                "o": 18.8,
+                "v": 207858,
+                "vw": 14.500183
+              },
+              "source_members": [
+                {
+                  "body_sha256": "ad3597ff749ab13161f929d396b842e58c732498bdd815b38c9409c321d0fc9b",
+                  "request_sha256": "3bf609cc0a92c332bc5a0daae66c32cb6d02d5a2914a25f8fd20cf621cc3daa0"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "COEP",
+              "target_date": "2026-04-27"
+            },
+            {
+              "asof": "2026-04-27",
+              "bar": {
+                "c": 15.2,
+                "h": 18.8,
+                "l": 9,
+                "n": 1513,
+                "o": 18.8,
+                "v": 207858,
+                "vw": 14.500183
+              },
+              "source_members": [
+                {
+                  "body_member": "01102.body.json",
+                  "body_sha256": "3d8d17fa964f7bb6d21cec6585d5a4d8981f554cfe5de79ee4b117b6749ef68a",
+                  "request_sha256": "60e0cc2faa8517b2a40a151630c6b0d5691cd6a1b2b63437642cb6db521b1b76",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "ZSQR",
+              "target_date": "2026-04-27"
+            }
+          ]
+        }
+      ],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "25d7e20b7ba32a2b734dc11d1869965627390d408fb059cf1013263e473c2db6",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-04-24",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-04-27",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "e09e9d6eb9a38d07118fa1cf0d04fce4aa877a068c687fa42e50699a636f91ed",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "TIVC",
+          "identifier": "BBG00PT2YC04",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "VBIO",
+          "views": [
+            {
+              "asof": "2026-04-27",
+              "bar": {
+                "c": 1.4,
+                "h": 1.4,
+                "l": 1.23,
+                "n": 2212,
+                "o": 1.3,
+                "v": 362585,
+                "vw": 1.330948
+              },
+              "source_members": [
+                {
+                  "body_member": "01099.body.json",
+                  "body_sha256": "ecbdd9bdea2d2beca13af6a4e52b21cb6a9194b8d341caabeb02cce3bcf0e5b7",
+                  "request_sha256": "e7805c842c6e8d72dfe29768b0642753b1b5c5b112afb9b259ae241a33d06a80",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "TIVC",
+              "target_date": "2026-04-27"
+            },
+            {
+              "asof": "2026-04-28",
+              "bar": {
+                "c": 1.4,
+                "h": 1.4,
+                "l": 1.23,
+                "n": 2212,
+                "o": 1.3,
+                "v": 362585,
+                "vw": 1.330948
+              },
+              "source_members": [
+                {
+                  "body_member": "01149.body.json",
+                  "body_sha256": "485ffe3eabb13d8ab7082368b5b5d550aae55412e0a0deb3fc014b55658bd8ad",
+                  "request_sha256": "a2635e1d75e967e87d6554efdfba984570bd19b03fbe9868529ccf75f322a5c5",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "VBIO",
+              "target_date": "2026-04-27"
+            },
+            {
+              "asof": "2026-04-27",
+              "bar": {
+                "c": 1.01,
+                "h": 1.21,
+                "l": 0.86,
+                "n": 2087,
+                "o": 1.2,
+                "v": 490108,
+                "vw": 1.017614
+              },
+              "source_members": [
+                {
+                  "body_sha256": "e7e7831ae3c5996bb5a7f14f7c6e9302bec98bfd117272316400f2dcd48e150d",
+                  "request_sha256": "6eca970ba44d4469507bcdb6a60c894b2bbd29cee993081ec5e2858173d4dc51"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "TIVC",
+              "target_date": "2026-04-28"
+            },
+            {
+              "asof": "2026-04-28",
+              "bar": {
+                "c": 1.01,
+                "h": 1.21,
+                "l": 0.86,
+                "n": 2087,
+                "o": 1.2,
+                "v": 490108,
+                "vw": 1.017614
+              },
+              "source_members": [
+                {
+                  "body_member": "01149.body.json",
+                  "body_sha256": "485ffe3eabb13d8ab7082368b5b5d550aae55412e0a0deb3fc014b55658bd8ad",
+                  "request_sha256": "a2635e1d75e967e87d6554efdfba984570bd19b03fbe9868529ccf75f322a5c5",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "VBIO",
+              "target_date": "2026-04-28"
+            }
+          ]
+        }
+      ],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "d2653ac99b39fcdb498e1450660104b49b4e95460f5c6646063dbd4e0ab86f48",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-04-27",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-04-28",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "6883881d0d8af5f0b8f4f2970a72dbb1c1e8bb5d447124aa75742fda1846df07",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "ALTS",
+          "identifier": "BBG000CKLRH0",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "AIFC",
+          "views": [
+            {
+              "asof": "2026-04-28",
+              "bar": {
+                "c": 0.855,
+                "h": 0.8663,
+                "l": 0.84,
+                "n": 4284,
+                "o": 0.84,
+                "v": 1160080,
+                "vw": 0.847749
+              },
+              "source_members": [
+                {
+                  "body_member": "01130.body.json",
+                  "body_sha256": "28c6b534abe4c297f50698984cbaae1045129c860bc5a8a234cbd525b12fc6bf",
+                  "request_sha256": "06aa68bd211807348f2e9a4d1acb44c10f48df68c67e4dbe0bbdbacacad347da",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "ALTS",
+              "target_date": "2026-04-28"
+            },
+            {
+              "asof": "2026-04-29",
+              "bar": {
+                "c": 0.855,
+                "h": 0.8663,
+                "l": 0.84,
+                "n": 4284,
+                "o": 0.84,
+                "v": 1160080,
+                "vw": 0.847749
+              },
+              "source_members": [
+                {
+                  "body_member": "01178.body.json",
+                  "body_sha256": "1441e3396d3d301910086596542e812c5cb4eeaa7d6a2bbe3d352568f2ecd734",
+                  "request_sha256": "9c40e56ef59f72929696bbc893b0603b58c596cb7c9a4d59180cc8a2dd3fac3d",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "AIFC",
+              "target_date": "2026-04-28"
+            },
+            {
+              "asof": "2026-04-28",
+              "bar": {
+                "c": 0.8593,
+                "h": 0.8593,
+                "l": 0.8275,
+                "n": 5152,
+                "o": 0.845,
+                "v": 4156607,
+                "vw": 0.836825
+              },
+              "source_members": [
+                {
+                  "body_sha256": "9da43601f4b7253908affd9f5661755518f43a8ae31f4f3f148b66e1297ca9da",
+                  "request_sha256": "dd65d4c69fed88b4c9ca8320655b5488b2f27b621977b173489a3d73870778c9"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "ALTS",
+              "target_date": "2026-04-29"
+            },
+            {
+              "asof": "2026-04-29",
+              "bar": {
+                "c": 0.8593,
+                "h": 0.8593,
+                "l": 0.8275,
+                "n": 5152,
+                "o": 0.845,
+                "v": 4156607,
+                "vw": 0.836825
+              },
+              "source_members": [
+                {
+                  "body_member": "01178.body.json",
+                  "body_sha256": "1441e3396d3d301910086596542e812c5cb4eeaa7d6a2bbe3d352568f2ecd734",
+                  "request_sha256": "9c40e56ef59f72929696bbc893b0603b58c596cb7c9a4d59180cc8a2dd3fac3d",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "AIFC",
+              "target_date": "2026-04-29"
+            }
+          ]
+        },
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "SBLX",
+          "identifier": "BBG000F4HP82",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "FABC",
+          "views": [
+            {
+              "asof": "2026-04-28",
+              "bar": {
+                "c": 3.1,
+                "h": 5.0599,
+                "l": 2.6101,
+                "n": 627505,
+                "o": 2.7,
+                "v": 93045607,
+                "vw": 3.901088
+              },
+              "source_members": [
+                {
+                  "body_member": "01146.body.json",
+                  "body_sha256": "0e057c10ae8c83b8c21c75f739f483b332006f80570900d3ae0a8e8afc41164c",
+                  "request_sha256": "9194d5bd1fb073dd765d14b0df8b8e2324228e35f579a89f2961f61f6d7fa81f",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "SBLX",
+              "target_date": "2026-04-28"
+            },
+            {
+              "asof": "2026-04-29",
+              "bar": {
+                "c": 3.1,
+                "h": 5.0599,
+                "l": 2.6101,
+                "n": 627505,
+                "o": 2.7,
+                "v": 93045607,
+                "vw": 3.901088
+              },
+              "source_members": [
+                {
+                  "body_member": "01185.body.json",
+                  "body_sha256": "3f9fda588601e8f787a17dc3b853c5be6b5611ec5937117569c49eacc81c7da4",
+                  "request_sha256": "c326009dcf21cf1a791ce0a73bd17da3d21e2be5a2107c010a2105d0a048a769",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "FABC",
+              "target_date": "2026-04-28"
+            },
+            {
+              "asof": "2026-04-28",
+              "bar": {
+                "c": 2.7,
+                "h": 3,
+                "l": 2.46,
+                "n": 15507,
+                "o": 2.85,
+                "v": 2481407,
+                "vw": 2.700563
+              },
+              "source_members": [
+                {
+                  "body_sha256": "9da43601f4b7253908affd9f5661755518f43a8ae31f4f3f148b66e1297ca9da",
+                  "request_sha256": "dd65d4c69fed88b4c9ca8320655b5488b2f27b621977b173489a3d73870778c9"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "SBLX",
+              "target_date": "2026-04-29"
+            },
+            {
+              "asof": "2026-04-29",
+              "bar": {
+                "c": 2.7,
+                "h": 3,
+                "l": 2.46,
+                "n": 15507,
+                "o": 2.85,
+                "v": 2481407,
+                "vw": 2.700563
+              },
+              "source_members": [
+                {
+                  "body_member": "01185.body.json",
+                  "body_sha256": "3f9fda588601e8f787a17dc3b853c5be6b5611ec5937117569c49eacc81c7da4",
+                  "request_sha256": "c326009dcf21cf1a791ce0a73bd17da3d21e2be5a2107c010a2105d0a048a769",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "FABC",
+              "target_date": "2026-04-29"
+            }
+          ]
+        }
+      ],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "8cddad5f27e05c98d240993f829f85ae7256796f470bb54abb4bfc91cea86184",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-04-28",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-04-29",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "a56077f83114520646f2bb329f8075c6cf06c4dd99604e80f5444d286d861c25",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "VBIX",
+          "identifier": "BBG000DDCCV2",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "QXL",
+          "views": [
+            {
+              "asof": "2026-04-29",
+              "bar": {
+                "c": 3.64,
+                "h": 3.67,
+                "l": 3.07,
+                "n": 308,
+                "o": 3.12,
+                "v": 43057,
+                "vw": 3.325456
+              },
+              "source_members": [
+                {
+                  "body_member": "01198.body.json",
+                  "body_sha256": "4822813aa657ca671ca0639dcb06805b0d463847cbe9f62ef76291194cc460af",
+                  "request_sha256": "00860b174d695eecf37b14dfe20c0c6d4c02243c89a0e899e32a964512be1dc6",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "VBIX",
+              "target_date": "2026-04-29"
+            },
+            {
+              "asof": "2026-04-30",
+              "bar": {
+                "c": 3.64,
+                "h": 3.67,
+                "l": 3.07,
+                "n": 308,
+                "o": 3.12,
+                "v": 43057,
+                "vw": 3.325456
+              },
+              "source_members": [
+                {
+                  "body_member": "01243.body.json",
+                  "body_sha256": "94a8495180ab1fa2a5ef3787d0bb36494b67c5772383884924cfa5259a378821",
+                  "request_sha256": "f5bc2194aba9ac97462efe93d29c79c937bb7e0581cd19e3c421cdf560c4afc2",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "QXL",
+              "target_date": "2026-04-29"
+            },
+            {
+              "asof": "2026-04-29",
+              "bar": {
+                "c": 3.11,
+                "h": 3.35,
+                "l": 2.97,
+                "n": 363,
+                "o": 3.01,
+                "v": 48344,
+                "vw": 3.179662
+              },
+              "source_members": [
+                {
+                  "body_sha256": "6273239399631e5772e599b89920bea88e0f653e7dd5871728640a59891e1470",
+                  "request_sha256": "b3b631d60ed5c09ae191813af405cc0800d93defa4a7f1d35c7029a232b3cca0"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "VBIX",
+              "target_date": "2026-04-30"
+            },
+            {
+              "asof": "2026-04-30",
+              "bar": {
+                "c": 3.11,
+                "h": 3.35,
+                "l": 2.97,
+                "n": 363,
+                "o": 3.01,
+                "v": 48344,
+                "vw": 3.179662
+              },
+              "source_members": [
+                {
+                  "body_member": "01243.body.json",
+                  "body_sha256": "94a8495180ab1fa2a5ef3787d0bb36494b67c5772383884924cfa5259a378821",
+                  "request_sha256": "f5bc2194aba9ac97462efe93d29c79c937bb7e0581cd19e3c421cdf560c4afc2",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "QXL",
+              "target_date": "2026-04-30"
+            }
+          ]
+        },
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "MIGI",
+          "identifier": "BBG000R6WR47",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "BGDE",
+          "views": [
+            {
+              "asof": "2026-04-29",
+              "bar": {
+                "c": 4.71,
+                "h": 4.79,
+                "l": 4.02,
+                "n": 1600,
+                "o": 4.45,
+                "v": 179104,
+                "vw": 4.432734
+              },
+              "source_members": [
+                {
+                  "body_member": "01190.body.json",
+                  "body_sha256": "babeca1241236474f58bdf958137a9db81936e997da8a8684b282875669ee499",
+                  "request_sha256": "d184fc446db500764d28ea5c28bef004a5a40a753ac4f489e3bd32a706a261f5",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "MIGI",
+              "target_date": "2026-04-29"
+            },
+            {
+              "asof": "2026-04-30",
+              "bar": {
+                "c": 4.71,
+                "h": 4.79,
+                "l": 4.02,
+                "n": 1600,
+                "o": 4.45,
+                "v": 179104,
+                "vw": 4.432734
+              },
+              "source_members": [
+                {
+                  "body_member": "01229.body.json",
+                  "body_sha256": "7445c076e34f967c3543ab50209c151332646b8dda29979a1d847abb8fbe3ac3",
+                  "request_sha256": "0f46515c95117d337c69769491548afcade6a5f820ed61655f0a4c42fcb9bbe2",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "BGDE",
+              "target_date": "2026-04-29"
+            },
+            {
+              "asof": "2026-04-29",
+              "bar": {
+                "c": 4.5,
+                "h": 5,
+                "l": 4.3,
+                "n": 909,
+                "o": 4.4,
+                "v": 142184,
+                "vw": 4.613181
+              },
+              "source_members": [
+                {
+                  "body_sha256": "6273239399631e5772e599b89920bea88e0f653e7dd5871728640a59891e1470",
+                  "request_sha256": "b3b631d60ed5c09ae191813af405cc0800d93defa4a7f1d35c7029a232b3cca0"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "MIGI",
+              "target_date": "2026-04-30"
+            },
+            {
+              "asof": "2026-04-30",
+              "bar": {
+                "c": 4.5,
+                "h": 5,
+                "l": 4.3,
+                "n": 909,
+                "o": 4.4,
+                "v": 142184,
+                "vw": 4.613181
+              },
+              "source_members": [
+                {
+                  "body_member": "01229.body.json",
+                  "body_sha256": "7445c076e34f967c3543ab50209c151332646b8dda29979a1d847abb8fbe3ac3",
+                  "request_sha256": "0f46515c95117d337c69769491548afcade6a5f820ed61655f0a4c42fcb9bbe2",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "BGDE",
+              "target_date": "2026-04-30"
+            }
+          ]
+        }
+      ],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "4909ec97cb6368e9e710645c4c475f6c41d9cd1ec24936dbf0ff66449280b164",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-04-29",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-04-30",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "847ab9bbc9d63e63f0c9b1f5b7575592eae2768c0f4a3f933956f3550783f1b6",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "MEG",
+          "identifier": "BBG005Q29TZ4",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "ONT",
+          "views": [
+            {
+              "asof": "2026-04-30",
+              "bar": {
+                "c": 21.05,
+                "h": 21.1,
+                "l": 20.1,
+                "n": 7299,
+                "o": 20.42,
+                "v": 255207,
+                "vw": 20.906951
+              },
+              "source_members": [
+                {
+                  "body_member": "01239.body.json",
+                  "body_sha256": "f51e9614005c9097934f41c8e5544ce48dc0e2d974958b89b0761de6a636b8af",
+                  "request_sha256": "731cdef1a7ab25f1a8345a9c9e5bb0762b558958cef7a521d6eb629e34429c19",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "MEG",
+              "target_date": "2026-04-30"
+            },
+            {
+              "asof": "2026-05-04",
+              "bar": {
+                "c": 21.05,
+                "h": 21.1,
+                "l": 20.1,
+                "n": 7299,
+                "o": 20.42,
+                "v": 255207,
+                "vw": 20.906951
+              },
+              "source_members": [
+                {
+                  "body_member": "01290.body.json",
+                  "body_sha256": "67fadd40a20e68878f324894cc69d21f576deb27e47087fdf7afa3974a42fc64",
+                  "request_sha256": "9215cfa8e6013cafa1cb255ab62c9e52378047236bf50d4965d7d206431bfbfe",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "ONT",
+              "target_date": "2026-04-30"
+            },
+            {
+              "asof": "2026-04-30",
+              "bar": {
+                "c": 21.33,
+                "h": 21.67,
+                "l": 20.73,
+                "n": 7922,
+                "o": 21.39,
+                "v": 350015,
+                "vw": 21.26279
+              },
+              "source_members": [
+                {
+                  "body_sha256": "d9c7db18d331236e9ecccd67f94ae399679cca2dc4b7b59fe903aa4e0ca01c48",
+                  "request_sha256": "4419dcad6bbf8eae84247e9dd1f22098ff5fcfcf825b67e6f11b0718f851aab4"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "MEG",
+              "target_date": "2026-05-04"
+            },
+            {
+              "asof": "2026-05-04",
+              "bar": {
+                "c": 21.33,
+                "h": 21.67,
+                "l": 20.73,
+                "n": 7922,
+                "o": 21.39,
+                "v": 350015,
+                "vw": 21.26279
+              },
+              "source_members": [
+                {
+                  "body_member": "01290.body.json",
+                  "body_sha256": "67fadd40a20e68878f324894cc69d21f576deb27e47087fdf7afa3974a42fc64",
+                  "request_sha256": "9215cfa8e6013cafa1cb255ab62c9e52378047236bf50d4965d7d206431bfbfe",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "ONT",
+              "target_date": "2026-05-04"
+            }
+          ]
+        },
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "ETHM",
+          "identifier": "0002028699",
+          "identifier_kind": "unique_cik_fallback",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "DYNC",
+          "views": [
+            {
+              "asof": "2026-04-30",
+              "bar": {
+                "c": 10.77,
+                "h": 10.84,
+                "l": 10.76,
+                "n": 582,
+                "o": 10.76,
+                "v": 103893,
+                "vw": 10.776413
+              },
+              "source_members": [
+                {
+                  "body_member": "01233.body.json",
+                  "body_sha256": "dfd630259cab4be26ce62cfd763a3802415edde3d21afefcf0acd1b27fc2c802",
+                  "request_sha256": "2f79c77e83f7a7999707cfc1af616e3539f35a11c54d7ccd896c71c0fc779387",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "ETHM",
+              "target_date": "2026-04-30"
+            },
+            {
+              "asof": "2026-05-04",
+              "bar": {
+                "c": 10.77,
+                "h": 10.84,
+                "l": 10.76,
+                "n": 582,
+                "o": 10.76,
+                "v": 103893,
+                "vw": 10.776413
+              },
+              "source_members": [
+                {
+                  "body_member": "01282.body.json",
+                  "body_sha256": "9a4906a16ed0a042fd476d42e3b0b66e70bdb92947fb9e9a36151c950746de10",
+                  "request_sha256": "ad10ee61d52876702fcbc76c61ded53498d48ac6d3cd333379c605ff8fb3d97e",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "DYNC",
+              "target_date": "2026-04-30"
+            },
+            {
+              "asof": "2026-04-30",
+              "bar": {
+                "c": 10.73,
+                "h": 10.75,
+                "l": 10.72,
+                "n": 898,
+                "o": 10.72,
+                "v": 180409,
+                "vw": 10.73173
+              },
+              "source_members": [
+                {
+                  "body_sha256": "d9c7db18d331236e9ecccd67f94ae399679cca2dc4b7b59fe903aa4e0ca01c48",
+                  "request_sha256": "4419dcad6bbf8eae84247e9dd1f22098ff5fcfcf825b67e6f11b0718f851aab4"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "ETHM",
+              "target_date": "2026-05-04"
+            },
+            {
+              "asof": "2026-05-04",
+              "bar": {
+                "c": 10.73,
+                "h": 10.75,
+                "l": 10.72,
+                "n": 898,
+                "o": 10.72,
+                "v": 180409,
+                "vw": 10.73173
+              },
+              "source_members": [
+                {
+                  "body_member": "01282.body.json",
+                  "body_sha256": "9a4906a16ed0a042fd476d42e3b0b66e70bdb92947fb9e9a36151c950746de10",
+                  "request_sha256": "ad10ee61d52876702fcbc76c61ded53498d48ac6d3cd333379c605ff8fb3d97e",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "DYNC",
+              "target_date": "2026-05-04"
+            }
+          ]
+        }
+      ],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "63dd97753cea20663c8ca2cb79cfb7c4e6b143a1f27ca8414e31ac00abb5a3f5",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-04-30",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-05-04",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "c682ecc0d14e2285878867ed3c6bdfdb3898657a74ccd1861d74750a7bd35f78",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "GLPG",
+          "identifier": "BBG000BJQY75",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "LKFT",
+          "views": [
+            {
+              "asof": "2026-05-04",
+              "bar": {
+                "c": 28.46,
+                "h": 28.56,
+                "l": 27.73,
+                "n": 4819,
+                "o": 27.88,
+                "v": 309375,
+                "vw": 28.299531
+              },
+              "source_members": [
+                {
+                  "body_member": "01284.body.json",
+                  "body_sha256": "023c5a6105ad615dc8d9b48d706059b8b31d25635a253e3e99a05cfc7b1bbd37",
+                  "request_sha256": "329cf73d1f931ba112ae57aa44ebb2f0f28a7334bd979e4f3945df12c0859a32",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "GLPG",
+              "target_date": "2026-05-04"
+            },
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 28.46,
+                "h": 28.56,
+                "l": 27.73,
+                "n": 4819,
+                "o": 27.88,
+                "v": 309375,
+                "vw": 28.299531
+              },
+              "source_members": [
+                {
+                  "body_member": "01336.body.json",
+                  "body_sha256": "79de95ae464f58bde84d2b5ddb413522a16a4c3dae3d75b33951173486e37220",
+                  "request_sha256": "4ee21943fe54ac27c36c038af239f3239a53cc7806e55f0bf169d17be240e63a",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "LKFT",
+              "target_date": "2026-05-04"
+            },
+            {
+              "asof": "2026-05-04",
+              "bar": {
+                "c": 28.59,
+                "h": 29.7,
+                "l": 27.685,
+                "n": 2473,
+                "o": 29.35,
+                "v": 88700,
+                "vw": 28.474075
+              },
+              "source_members": [
+                {
+                  "body_sha256": "bdbe8b97519bbe2ecbbba076f7250f3fb556c7003b51f985d9b44fb4e13debb6",
+                  "request_sha256": "b2b4f06996d16ece7ceeea463465c52921578d21ea45a40f3aab4130d1cdcc05"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "GLPG",
+              "target_date": "2026-05-08"
+            },
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 28.59,
+                "h": 29.7,
+                "l": 27.685,
+                "n": 2473,
+                "o": 29.35,
+                "v": 88700,
+                "vw": 28.474075
+              },
+              "source_members": [
+                {
+                  "body_member": "01336.body.json",
+                  "body_sha256": "79de95ae464f58bde84d2b5ddb413522a16a4c3dae3d75b33951173486e37220",
+                  "request_sha256": "4ee21943fe54ac27c36c038af239f3239a53cc7806e55f0bf169d17be240e63a",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "LKFT",
+              "target_date": "2026-05-08"
+            }
+          ]
+        },
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "EXPI",
+          "identifier": "BBG001DCTG63",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "AGNT",
+          "views": [
+            {
+              "asof": "2026-05-04",
+              "bar": {
+                "c": 6.25,
+                "h": 6.46,
+                "l": 6.19,
+                "n": 11229,
+                "o": 6.43,
+                "v": 982049,
+                "vw": 6.289607
+              },
+              "source_members": [
+                {
+                  "body_member": "01283.body.json",
+                  "body_sha256": "909b7c374e53f620426af7feb31e45d5ca2a8ca342d16823d98d46cd5b80d163",
+                  "request_sha256": "2356415de76ab8b9aa9a7e6f17b7684e58c9c52c8e8d52af855fbf40346ad592",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "EXPI",
+              "target_date": "2026-05-04"
+            },
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 6.25,
+                "h": 6.46,
+                "l": 6.19,
+                "n": 11229,
+                "o": 6.43,
+                "v": 982049,
+                "vw": 6.289607
+              },
+              "source_members": [
+                {
+                  "body_member": "01325.body.json",
+                  "body_sha256": "89147af14a588582a127b38b08e0d081ca87992887550f1445a7706ad41e9e69",
+                  "request_sha256": "2caa0c2ae543c360f166088ac329b37b6cf97d4416d1747366668c95f77a3f83",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "AGNT",
+              "target_date": "2026-05-04"
+            },
+            {
+              "asof": "2026-05-04",
+              "bar": {
+                "c": 6.6,
+                "h": 7.06,
+                "l": 6.3,
+                "n": 14457,
+                "o": 7.06,
+                "v": 1327049,
+                "vw": 6.728272
+              },
+              "source_members": [
+                {
+                  "body_sha256": "bdbe8b97519bbe2ecbbba076f7250f3fb556c7003b51f985d9b44fb4e13debb6",
+                  "request_sha256": "b2b4f06996d16ece7ceeea463465c52921578d21ea45a40f3aab4130d1cdcc05"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "EXPI",
+              "target_date": "2026-05-08"
+            },
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 6.6,
+                "h": 7.06,
+                "l": 6.3,
+                "n": 14457,
+                "o": 7.06,
+                "v": 1327049,
+                "vw": 6.728272
+              },
+              "source_members": [
+                {
+                  "body_member": "01325.body.json",
+                  "body_sha256": "89147af14a588582a127b38b08e0d081ca87992887550f1445a7706ad41e9e69",
+                  "request_sha256": "2caa0c2ae543c360f166088ac329b37b6cf97d4416d1747366668c95f77a3f83",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "AGNT",
+              "target_date": "2026-05-08"
+            }
+          ]
+        },
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "EKSO",
+          "identifier": "BBG002Z0NKK4",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "CHRN",
+          "views": [
+            {
+              "asof": "2026-05-04",
+              "bar": {
+                "c": 11.8,
+                "h": 11.8,
+                "l": 10.56,
+                "n": 1540,
+                "o": 11.65,
+                "v": 100575,
+                "vw": 11.259251
+              },
+              "source_members": [
+                {
+                  "body_member": "01282.body.json",
+                  "body_sha256": "9a4906a16ed0a042fd476d42e3b0b66e70bdb92947fb9e9a36151c950746de10",
+                  "request_sha256": "ad10ee61d52876702fcbc76c61ded53498d48ac6d3cd333379c605ff8fb3d97e",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "EKSO",
+              "target_date": "2026-05-04"
+            },
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 11.8,
+                "h": 11.8,
+                "l": 10.56,
+                "n": 1540,
+                "o": 11.65,
+                "v": 100575,
+                "vw": 11.259251
+              },
+              "source_members": [
+                {
+                  "body_member": "01329.body.json",
+                  "body_sha256": "1d1107cd33fa6477ea3996e540bbfc807609c132ab0667dd88bead0a1350b40e",
+                  "request_sha256": "f2f551f95f352cc39add4023558dbdf77f0156cbff1d146bd012fcc4c8144a20",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "CHRN",
+              "target_date": "2026-05-04"
+            },
+            {
+              "asof": "2026-05-04",
+              "bar": {
+                "c": 15.57,
+                "h": 16.09,
+                "l": 15.09,
+                "n": 3206,
+                "o": 15.72,
+                "v": 371214,
+                "vw": 15.646814
+              },
+              "source_members": [
+                {
+                  "body_sha256": "bdbe8b97519bbe2ecbbba076f7250f3fb556c7003b51f985d9b44fb4e13debb6",
+                  "request_sha256": "b2b4f06996d16ece7ceeea463465c52921578d21ea45a40f3aab4130d1cdcc05"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "EKSO",
+              "target_date": "2026-05-08"
+            },
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 15.57,
+                "h": 16.09,
+                "l": 15.09,
+                "n": 3206,
+                "o": 15.72,
+                "v": 371214,
+                "vw": 15.646814
+              },
+              "source_members": [
+                {
+                  "body_member": "01329.body.json",
+                  "body_sha256": "1d1107cd33fa6477ea3996e540bbfc807609c132ab0667dd88bead0a1350b40e",
+                  "request_sha256": "f2f551f95f352cc39add4023558dbdf77f0156cbff1d146bd012fcc4c8144a20",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "CHRN",
+              "target_date": "2026-05-08"
+            }
+          ]
+        }
+      ],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "ff7ff672fa4162ef878c2bf0c5a6e68eab6077e7f40236516f6465512f3c3f01",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-05-04",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-05-08",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "78677cc47c2da7bf049561e17c1d7d607758244d0559730f8c8b550d607abd4b",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "RVYL",
+          "identifier": "BBG000KZ8MC9",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "RTB",
+          "views": [
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 6.61,
+                "h": 6.94,
+                "l": 6.5741,
+                "n": 239,
+                "o": 6.72,
+                "v": 8320,
+                "vw": 6.761093
+              },
+              "source_members": [
+                {
+                  "body_member": "01342.body.json",
+                  "body_sha256": "eb2c22f834e900bf2509492197b8089057707e55090c124d1c5caf6c1380af05",
+                  "request_sha256": "ddc2de684776e932214d3e43e34b2a917e7ee63686de8dbbacb2862d570b645b",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "RVYL",
+              "target_date": "2026-05-08"
+            },
+            {
+              "asof": "2026-05-19",
+              "bar": {
+                "c": 6.61,
+                "h": 6.94,
+                "l": 6.5741,
+                "n": 239,
+                "o": 6.72,
+                "v": 8320,
+                "vw": 6.761093
+              },
+              "source_members": [
+                {
+                  "body_member": "01391.body.json",
+                  "body_sha256": "4d80be4c7ed94f617a6d22deab89fd6af6978e9ec68afc83c68bc3868971076e",
+                  "request_sha256": "d96c4b3c499a917d07ea9241c1eb87712f98fab2a6a8b92a2611955c706430bd",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "RTB",
+              "target_date": "2026-05-08"
+            },
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 5.2,
+                "h": 5.68,
+                "l": 5,
+                "n": 1836,
+                "o": 5.6,
+                "v": 19296,
+                "vw": 5.253865
+              },
+              "source_members": [
+                {
+                  "body_sha256": "abacfed56f588effffdb2554659b238a87b90697d37177cf800f0f816e1d87ae",
+                  "request_sha256": "4b3e7163238ebaafaf9e9531d14c8dfb725ab3186ba68c8fef75354117ed1da3"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "RVYL",
+              "target_date": "2026-05-19"
+            },
+            {
+              "asof": "2026-05-19",
+              "bar": {
+                "c": 5.2,
+                "h": 5.68,
+                "l": 5,
+                "n": 1836,
+                "o": 5.6,
+                "v": 19296,
+                "vw": 5.253865
+              },
+              "source_members": [
+                {
+                  "body_member": "01391.body.json",
+                  "body_sha256": "4d80be4c7ed94f617a6d22deab89fd6af6978e9ec68afc83c68bc3868971076e",
+                  "request_sha256": "d96c4b3c499a917d07ea9241c1eb87712f98fab2a6a8b92a2611955c706430bd",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "RTB",
+              "target_date": "2026-05-19"
+            }
+          ]
+        },
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "KFS",
+          "identifier": "BBG000NV74Z1",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "KWY",
+          "views": [
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 11.8,
+                "h": 12.04,
+                "l": 10.75,
+                "n": 1576,
+                "o": 10.75,
+                "v": 99640,
+                "vw": 11.603982
+              },
+              "source_members": [
+                {
+                  "body_member": "01335.body.json",
+                  "body_sha256": "5920d9ab92cd3cfc7c903b82e70629dc5a896d08f749281055fa4365dc709d29",
+                  "request_sha256": "4c559e9d36deb88b8b7ec048a291233dad281448e41b82f54eb1459102f059cd",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "KFS",
+              "target_date": "2026-05-08"
+            },
+            {
+              "asof": "2026-05-19",
+              "bar": {
+                "c": 11.8,
+                "h": 12.04,
+                "l": 10.75,
+                "n": 1576,
+                "o": 10.75,
+                "v": 99640,
+                "vw": 11.603982
+              },
+              "source_members": [
+                {
+                  "body_member": "01385.body.json",
+                  "body_sha256": "0d722de91e42e744f3ed38797d5153d4932d0da9644d632ed49e8cb448d33951",
+                  "request_sha256": "712ad54c4ca749db770823a35fcd7a4dbfccd783d6ff25c149de7449c1b8e1e7",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "KWY",
+              "target_date": "2026-05-08"
+            },
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 10.44,
+                "h": 11.23,
+                "l": 10.17,
+                "n": 1664,
+                "o": 10.76,
+                "v": 115110,
+                "vw": 10.420495
+              },
+              "source_members": [
+                {
+                  "body_sha256": "abacfed56f588effffdb2554659b238a87b90697d37177cf800f0f816e1d87ae",
+                  "request_sha256": "4b3e7163238ebaafaf9e9531d14c8dfb725ab3186ba68c8fef75354117ed1da3"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "KFS",
+              "target_date": "2026-05-19"
+            },
+            {
+              "asof": "2026-05-19",
+              "bar": {
+                "c": 10.44,
+                "h": 11.23,
+                "l": 10.17,
+                "n": 1664,
+                "o": 10.76,
+                "v": 115110,
+                "vw": 10.420495
+              },
+              "source_members": [
+                {
+                  "body_member": "01385.body.json",
+                  "body_sha256": "0d722de91e42e744f3ed38797d5153d4932d0da9644d632ed49e8cb448d33951",
+                  "request_sha256": "712ad54c4ca749db770823a35fcd7a4dbfccd783d6ff25c149de7449c1b8e1e7",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "KWY",
+              "target_date": "2026-05-19"
+            }
+          ]
+        },
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "XWIN",
+          "identifier": "BBG000QL42S5",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "XMAX",
+          "views": [
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 8.34,
+                "h": 8.435,
+                "l": 8.24,
+                "n": 11632,
+                "o": 8.25,
+                "v": 2094739,
+                "vw": 8.345285
+              },
+              "source_members": [
+                {
+                  "body_member": "01346.body.json",
+                  "body_sha256": "a23c736a9da790e7df7d428bf8df9ee0e248f472d20b08790748506045c2b153",
+                  "request_sha256": "9e3dfaacf810d9e49c277ba3cb1ffb39f9413524bc68b1b2245b4104a8d1bbd4",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "XWIN",
+              "target_date": "2026-05-08"
+            },
+            {
+              "asof": "2026-05-19",
+              "bar": {
+                "c": 8.34,
+                "h": 8.435,
+                "l": 8.24,
+                "n": 11632,
+                "o": 8.25,
+                "v": 2094739,
+                "vw": 8.345285
+              },
+              "source_members": [
+                {
+                  "body_member": "01395.body.json",
+                  "body_sha256": "dbebf024dd2c7d89cef1e8ccc56e08dfc23587290ce31e6962e06db434b4ce70",
+                  "request_sha256": "8f71c3734ba7128428f1de8562ff3fc4ffda551207be1328ce8629c61f80d2fa",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "XMAX",
+              "target_date": "2026-05-08"
+            },
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 8.04,
+                "h": 8.365,
+                "l": 7.83,
+                "n": 10867,
+                "o": 8.02,
+                "v": 1474440,
+                "vw": 8.121871
+              },
+              "source_members": [
+                {
+                  "body_sha256": "abacfed56f588effffdb2554659b238a87b90697d37177cf800f0f816e1d87ae",
+                  "request_sha256": "4b3e7163238ebaafaf9e9531d14c8dfb725ab3186ba68c8fef75354117ed1da3"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "XWIN",
+              "target_date": "2026-05-19"
+            },
+            {
+              "asof": "2026-05-19",
+              "bar": {
+                "c": 8.04,
+                "h": 8.365,
+                "l": 7.83,
+                "n": 10867,
+                "o": 8.02,
+                "v": 1474440,
+                "vw": 8.121871
+              },
+              "source_members": [
+                {
+                  "body_member": "01395.body.json",
+                  "body_sha256": "dbebf024dd2c7d89cef1e8ccc56e08dfc23587290ce31e6962e06db434b4ce70",
+                  "request_sha256": "8f71c3734ba7128428f1de8562ff3fc4ffda551207be1328ce8629c61f80d2fa",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "XMAX",
+              "target_date": "2026-05-19"
+            }
+          ]
+        },
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "AGH",
+          "identifier": "BBG01NG4Q1P4",
+          "identifier_kind": "composite_figi",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "PUSA",
+          "views": [
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 4.44,
+                "h": 4.62,
+                "l": 4.3,
+                "n": 3823,
+                "o": 4.59,
+                "v": 548461,
+                "vw": 4.438002
+              },
+              "source_members": [
+                {
+                  "body_member": "01325.body.json",
+                  "body_sha256": "89147af14a588582a127b38b08e0d081ca87992887550f1445a7706ad41e9e69",
+                  "request_sha256": "2caa0c2ae543c360f166088ac329b37b6cf97d4416d1747366668c95f77a3f83",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "AGH",
+              "target_date": "2026-05-08"
+            },
+            {
+              "asof": "2026-05-19",
+              "bar": {
+                "c": 4.44,
+                "h": 4.62,
+                "l": 4.3,
+                "n": 3823,
+                "o": 4.59,
+                "v": 548461,
+                "vw": 4.438002
+              },
+              "source_members": [
+                {
+                  "body_member": "01390.body.json",
+                  "body_sha256": "4849a0f7931650be191c1200d3879671a5feb261f136b956e7eddf936816152a",
+                  "request_sha256": "b63bcc695a06b01ec803e40c6fa0cf14511fa0e7f6e26704b66330d979fc479d",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "PUSA",
+              "target_date": "2026-05-08"
+            },
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 3.83,
+                "h": 4.36,
+                "l": 3.785,
+                "n": 1984,
+                "o": 4.21,
+                "v": 332484,
+                "vw": 3.909562
+              },
+              "source_members": [
+                {
+                  "body_sha256": "abacfed56f588effffdb2554659b238a87b90697d37177cf800f0f816e1d87ae",
+                  "request_sha256": "4b3e7163238ebaafaf9e9531d14c8dfb725ab3186ba68c8fef75354117ed1da3"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "AGH",
+              "target_date": "2026-05-19"
+            },
+            {
+              "asof": "2026-05-19",
+              "bar": {
+                "c": 3.83,
+                "h": 4.36,
+                "l": 3.785,
+                "n": 1984,
+                "o": 4.21,
+                "v": 332484,
+                "vw": 3.909562
+              },
+              "source_members": [
+                {
+                  "body_member": "01390.body.json",
+                  "body_sha256": "4849a0f7931650be191c1200d3879671a5feb261f136b956e7eddf936816152a",
+                  "request_sha256": "b63bcc695a06b01ec803e40c6fa0cf14511fa0e7f6e26704b66330d979fc479d",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "PUSA",
+              "target_date": "2026-05-19"
+            }
+          ]
+        },
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "FIHL",
+          "identifier": "0001636639",
+          "identifier_kind": "unique_cik_fallback",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "PLGO",
+          "views": [
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 20.91,
+                "h": 21.4,
+                "l": 20.72,
+                "n": 8566,
+                "o": 20.92,
+                "v": 390519,
+                "vw": 20.898082
+              },
+              "source_members": [
+                {
+                  "body_member": "01332.body.json",
+                  "body_sha256": "fad19c7e85bf89d2c6adae7a09517feabf566fc8cba91fd7691d169679a9abda",
+                  "request_sha256": "2797f0f70b37ba958828de4980f93f89d298a2074c9a8a4ccd6cfc33813e96c3",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "FIHL",
+              "target_date": "2026-05-08"
+            },
+            {
+              "asof": "2026-05-19",
+              "bar": {
+                "c": 20.91,
+                "h": 21.4,
+                "l": 20.72,
+                "n": 8566,
+                "o": 20.92,
+                "v": 390519,
+                "vw": 20.898082
+              },
+              "source_members": [
+                {
+                  "body_member": "01389.body.json",
+                  "body_sha256": "bf6806429651b3a5fa4131b09a318eed5bef88100d592b20f5e970d3d0ffd19a",
+                  "request_sha256": "f1b4769a450cf40fc05e3bc1d41148441a76968b7fa557a4dca8954651c164ed",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "PLGO",
+              "target_date": "2026-05-08"
+            },
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 23.47,
+                "h": 23.95,
+                "l": 23.41,
+                "n": 7541,
+                "o": 23.87,
+                "v": 368253,
+                "vw": 23.637697
+              },
+              "source_members": [
+                {
+                  "body_sha256": "abacfed56f588effffdb2554659b238a87b90697d37177cf800f0f816e1d87ae",
+                  "request_sha256": "4b3e7163238ebaafaf9e9531d14c8dfb725ab3186ba68c8fef75354117ed1da3"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "FIHL",
+              "target_date": "2026-05-19"
+            },
+            {
+              "asof": "2026-05-19",
+              "bar": {
+                "c": 23.47,
+                "h": 23.95,
+                "l": 23.41,
+                "n": 7541,
+                "o": 23.87,
+                "v": 368253,
+                "vw": 23.637697
+              },
+              "source_members": [
+                {
+                  "body_member": "01389.body.json",
+                  "body_sha256": "bf6806429651b3a5fa4131b09a318eed5bef88100d592b20f5e970d3d0ffd19a",
+                  "request_sha256": "f1b4769a450cf40fc05e3bc1d41148441a76968b7fa557a4dca8954651c164ed",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "PLGO",
+              "target_date": "2026-05-19"
+            }
+          ]
+        },
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "ZBAI",
+          "identifier": "0001755058",
+          "identifier_kind": "unique_cik_fallback",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "AUC",
+          "views": [
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 8.35,
+                "h": 8.73,
+                "l": 8.2398,
+                "n": 472,
+                "o": 8.24,
+                "v": 7637,
+                "vw": 8.375821
+              },
+              "source_members": [
+                {
+                  "body_member": "01346.body.json",
+                  "body_sha256": "a23c736a9da790e7df7d428bf8df9ee0e248f472d20b08790748506045c2b153",
+                  "request_sha256": "9e3dfaacf810d9e49c277ba3cb1ffb39f9413524bc68b1b2245b4104a8d1bbd4",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "ZBAI",
+              "target_date": "2026-05-08"
+            },
+            {
+              "asof": "2026-05-19",
+              "bar": {
+                "c": 8.35,
+                "h": 8.73,
+                "l": 8.2398,
+                "n": 472,
+                "o": 8.24,
+                "v": 7637,
+                "vw": 8.375821
+              },
+              "source_members": [
+                {
+                  "body_member": "01375.body.json",
+                  "body_sha256": "0a96ca7b9d0816c28600f40fbb40eefe46c566be7ba4ac42b8a4eab6d57c18aa",
+                  "request_sha256": "102ee20802ce1e96896c458d3cc636ac5c83fa892f6fa9738585b42a47818829",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "AUC",
+              "target_date": "2026-05-08"
+            },
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 8.225,
+                "h": 8.6086,
+                "l": 8.1515,
+                "n": 121,
+                "o": 8.44,
+                "v": 3652,
+                "vw": 8.342787
+              },
+              "source_members": [
+                {
+                  "body_sha256": "abacfed56f588effffdb2554659b238a87b90697d37177cf800f0f816e1d87ae",
+                  "request_sha256": "4b3e7163238ebaafaf9e9531d14c8dfb725ab3186ba68c8fef75354117ed1da3"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "ZBAI",
+              "target_date": "2026-05-19"
+            },
+            {
+              "asof": "2026-05-19",
+              "bar": {
+                "c": 8.225,
+                "h": 8.6086,
+                "l": 8.1515,
+                "n": 121,
+                "o": 8.44,
+                "v": 3652,
+                "vw": 8.342787
+              },
+              "source_members": [
+                {
+                  "body_member": "01375.body.json",
+                  "body_sha256": "0a96ca7b9d0816c28600f40fbb40eefe46c566be7ba4ac42b8a4eab6d57c18aa",
+                  "request_sha256": "102ee20802ce1e96896c458d3cc636ac5c83fa892f6fa9738585b42a47818829",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "AUC",
+              "target_date": "2026-05-19"
+            }
+          ]
+        },
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "LGCB",
+          "identifier": "0001969401",
+          "identifier_kind": "unique_cik_fallback",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "UZX",
+          "views": [
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 0.67,
+                "h": 0.7399,
+                "l": 0.67,
+                "n": 218,
+                "o": 0.739,
+                "v": 80520,
+                "vw": 0.687928
+              },
+              "source_members": [
+                {
+                  "body_member": "01336.body.json",
+                  "body_sha256": "79de95ae464f58bde84d2b5ddb413522a16a4c3dae3d75b33951173486e37220",
+                  "request_sha256": "4ee21943fe54ac27c36c038af239f3239a53cc7806e55f0bf169d17be240e63a",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "LGCB",
+              "target_date": "2026-05-08"
+            },
+            {
+              "asof": "2026-05-19",
+              "bar": {
+                "c": 0.67,
+                "h": 0.7399,
+                "l": 0.67,
+                "n": 218,
+                "o": 0.739,
+                "v": 80520,
+                "vw": 0.687928
+              },
+              "source_members": [
+                {
+                  "body_member": "01394.body.json",
+                  "body_sha256": "7b05e00b909976ac34deabbfcff9c5247c2eac2ab00f4c8c8bdab8d72f05d797",
+                  "request_sha256": "5ccbd713a90405d16e903d83151dd1c61a4838100014e1d4d2a4aa34ad704347",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "UZX",
+              "target_date": "2026-05-08"
+            },
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 0.3379,
+                "h": 0.3499,
+                "l": 0.277,
+                "n": 593,
+                "o": 0.2773,
+                "v": 279245,
+                "vw": 0.304002
+              },
+              "source_members": [
+                {
+                  "body_sha256": "abacfed56f588effffdb2554659b238a87b90697d37177cf800f0f816e1d87ae",
+                  "request_sha256": "4b3e7163238ebaafaf9e9531d14c8dfb725ab3186ba68c8fef75354117ed1da3"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "LGCB",
+              "target_date": "2026-05-19"
+            },
+            {
+              "asof": "2026-05-19",
+              "bar": {
+                "c": 0.3379,
+                "h": 0.3499,
+                "l": 0.277,
+                "n": 593,
+                "o": 0.2773,
+                "v": 279245,
+                "vw": 0.304002
+              },
+              "source_members": [
+                {
+                  "body_member": "01394.body.json",
+                  "body_sha256": "7b05e00b909976ac34deabbfcff9c5247c2eac2ab00f4c8c8bdab8d72f05d797",
+                  "request_sha256": "5ccbd713a90405d16e903d83151dd1c61a4838100014e1d4d2a4aa34ad704347",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "UZX",
+              "target_date": "2026-05-19"
+            }
+          ]
+        }
+      ],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "079a2d55fe75dd1a23887eff205a0a8ce4eeec2b12007e6420f3f47453669e49",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-05-08",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-05-19",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "65c678bb64dabef9f076ad32a28cd208e50ad0a88a84e1122c552802b4908ea1",
+      "transcript_records_read": false
+    }
+  ],
+  "completed_figi_view_checks": [
+    {
+      "alias_checks": [
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "FWDI",
+          "identifier": "BBG000BJRHG1/BBG020WJG333",
+          "identifier_kind": "distinct_composite_figis",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "FWDI",
+          "views": [
+            {
+              "asof": "2026-03-10",
+              "bar": {
+                "c": 5.09,
+                "h": 5.33,
+                "l": 5,
+                "n": 8105,
+                "o": 5.01,
+                "v": 729960,
+                "vw": 5.18525
+              },
+              "source_members": [
+                {
+                  "body_member": "00157.body.json",
+                  "body_sha256": "53a8cf3e36299b1d6383a802f20edaf57a4552ba48351766780ad15715c14920",
+                  "request_sha256": "128947088817b25f1401ee84990684aa10787d6298e70e7e3e8871592eca5baf",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "FWDI",
+              "target_date": "2026-03-10"
+            },
+            {
+              "asof": "2026-03-12",
+              "bar": {
+                "c": 5.09,
+                "h": 5.33,
+                "l": 5,
+                "n": 8105,
+                "o": 5.01,
+                "v": 729960,
+                "vw": 5.18525
+              },
+              "source_members": [
+                {
+                  "body_member": "00206.body.json",
+                  "body_sha256": "5ede3036e540aa9750a092d126d766d424413f0b65c7112b06a98516051460cb",
+                  "request_sha256": "7816b42ddf0df73fe1b1f2a1fadce6525cc083707098264b729a0e58b12ac365",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "FWDI",
+              "target_date": "2026-03-10"
+            },
+            {
+              "asof": "2026-03-10",
+              "bar": {
+                "c": 4.68,
+                "h": 5,
+                "l": 4.67,
+                "n": 9301,
+                "o": 5,
+                "v": 898254,
+                "vw": 4.769725
+              },
+              "source_members": [
+                {
+                  "body_sha256": "1625541990b8b56d6a48885551f4fc463ad437baec4868bc052295aa50b0eb4c",
+                  "request_sha256": "fe3337c40b9f6af2b5c8d1cf3856a63cc0b6cde7bf82e2267be92bfc4252c859"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "FWDI",
+              "target_date": "2026-03-12"
+            },
+            {
+              "asof": "2026-03-12",
+              "bar": {
+                "c": 4.68,
+                "h": 5,
+                "l": 4.67,
+                "n": 9301,
+                "o": 5,
+                "v": 898254,
+                "vw": 4.769725
+              },
+              "source_members": [
+                {
+                  "body_member": "00206.body.json",
+                  "body_sha256": "5ede3036e540aa9750a092d126d766d424413f0b65c7112b06a98516051460cb",
+                  "request_sha256": "7816b42ddf0df73fe1b1f2a1fadce6525cc083707098264b729a0e58b12ac365",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "FWDI",
+              "target_date": "2026-03-12"
+            }
+          ]
+        }
+      ],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "7e27c7df3d2d2058f271f192e2372f3c422287399f652eb901e8e2238761a93a",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-03-10",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-03-12",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "107a444b4843f2c4d78fd4c9161ca82e018249fc35568c1d208bfbf8522f8590",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "BBUC",
+          "identifier": "BBG015MRS011/BBG0211B3568",
+          "identifier_kind": "distinct_composite_figis",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "BBUC",
+          "views": [
+            {
+              "asof": "2026-03-30",
+              "bar": {
+                "c": 31.65,
+                "h": 32.93,
+                "l": 30.21,
+                "n": 10413,
+                "o": 32.28,
+                "v": 557343,
+                "vw": 31.642748
+              },
+              "source_members": [
+                {
+                  "body_member": "00445.body.json",
+                  "body_sha256": "e08e078d7c31d30ab6f7d921afbe2c9bd13920f582b3736a6dadcf69503a1e0c",
+                  "request_sha256": "9d3a0dd60d316a231d242c06c28da06f0de0eb5330d99a9d34ab77dbedc5c746",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "BBUC",
+              "target_date": "2026-03-30"
+            },
+            {
+              "asof": "2026-04-02",
+              "bar": {
+                "c": 31.65,
+                "h": 32.93,
+                "l": 30.21,
+                "n": 10413,
+                "o": 32.28,
+                "v": 557343,
+                "vw": 31.642748
+              },
+              "source_members": [
+                {
+                  "body_member": "00494.body.json",
+                  "body_sha256": "f82770da2f2b51e856b0b951fea1abfe1c29792228968aa7e40fa00c2b436895",
+                  "request_sha256": "26ef88b8874333a57ade0c2c5e19fd124cae5786cad1afebda5f195c38083a67",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "BBUC",
+              "target_date": "2026-03-30"
+            },
+            {
+              "asof": "2026-03-30",
+              "bar": {
+                "c": 34.47,
+                "h": 34.51,
+                "l": 32.46,
+                "n": 3412,
+                "o": 32.46,
+                "v": 228539,
+                "vw": 33.813106
+              },
+              "source_members": [
+                {
+                  "body_sha256": "22dd26baa06277b364af54bcfc1f71fd861de525b6ee40ca0767885409176086",
+                  "request_sha256": "1f49b07f7caeff30bab1e74738438557db38aecd83051a3d1b5b214f365e4df8"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "BBUC",
+              "target_date": "2026-04-02"
+            },
+            {
+              "asof": "2026-04-02",
+              "bar": {
+                "c": 34.47,
+                "h": 34.51,
+                "l": 32.46,
+                "n": 3412,
+                "o": 32.46,
+                "v": 228539,
+                "vw": 33.813106
+              },
+              "source_members": [
+                {
+                  "body_member": "00494.body.json",
+                  "body_sha256": "f82770da2f2b51e856b0b951fea1abfe1c29792228968aa7e40fa00c2b436895",
+                  "request_sha256": "26ef88b8874333a57ade0c2c5e19fd124cae5786cad1afebda5f195c38083a67",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "BBUC",
+              "target_date": "2026-04-02"
+            }
+          ]
+        }
+      ],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "41e2d61d60d7886917ea7cfa6995b7c1f2739a8e5cfa28a304e135f8d95b4402",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-03-30",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-04-02",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "0a0a7d4c92191a1319415bf6fadc9460a568ed48790253fcec87bd013560b94a",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "SNTI",
+          "identifier": "BBG010WX7ZB3/BBG021Y8RQQ5",
+          "identifier_kind": "distinct_composite_figis",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "SNTI",
+          "views": [
+            {
+              "asof": "2026-04-27",
+              "bar": {
+                "c": 1.06,
+                "h": 1.1,
+                "l": 1,
+                "n": 1529,
+                "o": 1.07,
+                "v": 200344,
+                "vw": 1.070363
+              },
+              "source_members": [
+                {
+                  "body_member": "01098.body.json",
+                  "body_sha256": "a3a9e2c7ff9e16c99b3a6fac3dcc599ff6a2ca1bb5470e64be1d398871d6619c",
+                  "request_sha256": "5b72a8cb384d5d84704bcf219c8df0c4b55c2a12c25ad10fed650382dbe64237",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "SNTI",
+              "target_date": "2026-04-27"
+            },
+            {
+              "asof": "2026-04-28",
+              "bar": {
+                "c": 1.06,
+                "h": 1.1,
+                "l": 1,
+                "n": 1529,
+                "o": 1.07,
+                "v": 200344,
+                "vw": 1.070363
+              },
+              "source_members": [
+                {
+                  "body_member": "01147.body.json",
+                  "body_sha256": "275616e4692789b529b718c55847c533e27777717979ad1e2b6762e7f260a44d",
+                  "request_sha256": "ca492530678b367f6427d9300feeb020b9009153575ff72734e429c161cbf5b0",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "SNTI",
+              "target_date": "2026-04-27"
+            },
+            {
+              "asof": "2026-04-27",
+              "bar": {
+                "c": 0.9553,
+                "h": 1,
+                "l": 0.94,
+                "n": 1141,
+                "o": 1,
+                "v": 205978,
+                "vw": 0.963454
+              },
+              "source_members": [
+                {
+                  "body_sha256": "e7e7831ae3c5996bb5a7f14f7c6e9302bec98bfd117272316400f2dcd48e150d",
+                  "request_sha256": "6eca970ba44d4469507bcdb6a60c894b2bbd29cee993081ec5e2858173d4dc51"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "SNTI",
+              "target_date": "2026-04-28"
+            },
+            {
+              "asof": "2026-04-28",
+              "bar": {
+                "c": 0.9553,
+                "h": 1,
+                "l": 0.94,
+                "n": 1141,
+                "o": 1,
+                "v": 205978,
+                "vw": 0.963454
+              },
+              "source_members": [
+                {
+                  "body_member": "01147.body.json",
+                  "body_sha256": "275616e4692789b529b718c55847c533e27777717979ad1e2b6762e7f260a44d",
+                  "request_sha256": "ca492530678b367f6427d9300feeb020b9009153575ff72734e429c161cbf5b0",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "SNTI",
+              "target_date": "2026-04-28"
+            }
+          ]
+        }
+      ],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "aa3f98f2b47a8d616f79c563ec27d3ee782233fb72081fbe9667a26c00ff7372",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-04-27",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-04-28",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "2537b403746445ec29a204ccbe992135f2ac05253ba428e9eb5b20a9e01054db",
+      "transcript_records_read": false
+    },
+    {
+      "alias_checks": [
+        {
+          "bidirectional_match": true,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "DMRC",
+          "identifier": "BBG000G9F1Z5/BBG022G67PN4",
+          "identifier_kind": "distinct_composite_figis",
+          "later_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "later_ticker": "DMRC",
+          "views": [
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 9.36,
+                "h": 9.73,
+                "l": 8.4,
+                "n": 6844,
+                "o": 8.71,
+                "v": 370475,
+                "vw": 9.20067
+              },
+              "source_members": [
+                {
+                  "body_member": "01330.body.json",
+                  "body_sha256": "8cdf4f82e2387a4273fd87bfa2357c0f8ebd035530dd662575a8386e0df641f9",
+                  "request_sha256": "bd257a18c38860aac6b8115bb1f7a80c37acc7f8c9e7b0e6a49b360e38fb4702",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "DMRC",
+              "target_date": "2026-05-08"
+            },
+            {
+              "asof": "2026-05-19",
+              "bar": {
+                "c": 9.36,
+                "h": 9.73,
+                "l": 8.4,
+                "n": 6844,
+                "o": 8.71,
+                "v": 370475,
+                "vw": 9.20067
+              },
+              "source_members": [
+                {
+                  "body_member": "01379.body.json",
+                  "body_sha256": "732ac321e50479d49cf000b686ca973d8bdf2d8cfd5989733fe4c71f8f9bd82d",
+                  "request_sha256": "5739f00c3b76222fc173d659f499a5cce7fbe38eb53e894415a6c7518a846810",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "DMRC",
+              "target_date": "2026-05-08"
+            },
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 9.54,
+                "h": 9.54,
+                "l": 8.95,
+                "n": 2860,
+                "o": 9.21,
+                "v": 101649,
+                "vw": 9.318316
+              },
+              "source_members": [
+                {
+                  "body_sha256": "abacfed56f588effffdb2554659b238a87b90697d37177cf800f0f816e1d87ae",
+                  "request_sha256": "4b3e7163238ebaafaf9e9531d14c8dfb725ab3186ba68c8fef75354117ed1da3"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "DMRC",
+              "target_date": "2026-05-19"
+            },
+            {
+              "asof": "2026-05-19",
+              "bar": {
+                "c": 9.54,
+                "h": 9.54,
+                "l": 8.95,
+                "n": 2860,
+                "o": 9.21,
+                "v": 101649,
+                "vw": 9.318316
+              },
+              "source_members": [
+                {
+                  "body_member": "01379.body.json",
+                  "body_sha256": "732ac321e50479d49cf000b686ca973d8bdf2d8cfd5989733fe4c71f8f9bd82d",
+                  "request_sha256": "5739f00c3b76222fc173d659f499a5cce7fbe38eb53e894415a6c7518a846810",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "DMRC",
+              "target_date": "2026-05-19"
+            }
+          ]
+        }
+      ],
+      "all_bidirectional_matches": true,
+      "brokerage_orders_enabled": false,
+      "content_sha256": "af4c8e13a30167078f6ae3f6e01acbc37c17878f5ccb50d9be6b84625129eeb5",
+      "corporate_actions_are_runtime_news": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-05-08",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-05-19",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "source_pair_sha256": "86b3fd917662f9c476c8252d416db4e4745ed2eca5db9435e48d5145ecfa660a",
+      "transcript_records_read": false
+    }
+  ],
+  "content_sha256": "9f430be2348cd424187dcfc10356e9db65120da0c36745335191e298abbd484a",
+  "contract_id": "early-pullback-alias-completion-v0.1",
+  "corporate_actions_are_runtime_news": false,
+  "discretionary_strategy_integrated": false,
+  "distinct_figi_asof_views_consistent": true,
+  "distinct_figis_merged": false,
+  "financial_evaluation_enabled": false,
+  "historical_identity_resolved": false,
+  "historical_replay_enabled": false,
+  "historical_scanner_enabled": false,
+  "hosted_execution_authorized": false,
+  "hosted_verification_sha256": "d382ae9dae97123a4996dd9f32a46062db13b4759690c9c7651962d7777ac345",
+  "identity_continuity_verified": false,
+  "identity_disposition": "retain each dated FIGI; cross-identifier history joins are not authorized by bar equality",
+  "incremental_spend_authorized_usd": "0.00",
+  "later_identity_evidence_changes_earlier_membership": false,
+  "market_coverage_verified": false,
+  "membership_changed": false,
+  "paid_capture_enabled": false,
+  "parent_panel_sha256": "ea3dc07f5ca5ed03a467691f5f38632cdc1e351807c8fb44e4549215108b30d9",
+  "policy_promotion_eligible": false,
+  "provider_calls_authorized_now": 0,
+  "provider_origin_authenticated": false,
+  "provider_requests_during_composition": 0,
+  "reference_identity_is_provisional": true,
+  "registration_sha256": "2bcd6e1f7a80b026a3fda50fe566edcbec12542c0f0e8e972c429a30db6576af",
+  "remaining_scanner_inputs": [
+    "full-membership split minute rank bars",
+    "candidate raw minute bars and exact same-time RVOL history",
+    "point-in-time SEC float and publication-timed news"
+  ],
+  "scanner_daily_file": {
+    "bytes": 2713745,
+    "path": "research/data-audits/early-pullback-alias-completion-v0.1/saved-scanner-daily.json.gz",
+    "sha256": "debf12f84c81c1072ec2b3190415046b3a811470d14a7ed7f9d31c3978787884"
+  },
+  "scanner_missing_previous_closes": {},
+  "scanner_previous_closes": 165694,
+  "transcript_records_read": false
+}

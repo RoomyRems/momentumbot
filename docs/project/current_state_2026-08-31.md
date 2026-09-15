@@ -15,10 +15,18 @@ The existing 14-day window contains each latest prior bar and avoids a redundant
 21-day daily acquisition. Each dated FIGI remains unchanged; price equality does
 not authorize cross-identifier history joins. All prior exclusions are preserved.
 
-The new focused suite covers complete synthetic capture, original-archive replay
-and saved-source composition. Full same-code GitHub CI and hosted completion are
-the next terminal checks. See `docs/research/alias_completion.md`; do not rerun
-the consumed coverage collection or open financial evaluation from this handoff.
+Verified September 15 on code `e9cc035bf7b9d2fdb05b0380e0d1e5fd8911b487`:
+full CI `34926971450` passed 2,964 tests in 475.272 seconds, with 73 optional
+skips and successful compilation. Hosted run `34926971484` completed all three
+jobs and every step successfully. It used 17 requests with no retries. All 31
+changed-ticker and four distinct-FIGI price-view checks match bidirectionally.
+The original three ZIPs, terminal metadata and completion proof are retained.
+
+Next are full-membership split minute rank inputs, candidate raw minute and
+exact same-time RVOL histories, point-in-time SEC float and publication-timed
+news. Reuse the 165,694 saved previous closes. See
+`docs/research/alias_completion.md`; do not rerun either consumed collection
+or open financial evaluation from this handoff. Dated FIGIs remain separate.
 
 ## Previous checkpoint: source-backed dated identity and coverage handoff
 

@@ -90,5 +90,23 @@ account and financial evaluation gates remain closed until their inputs are read
 The focused suite contains 24 tests, including a complete synthetic 17-root
 capture/original-ZIP replay and composition with the saved dated source handoff.
 Normal and optimized test logs and source-preparation progress are retained with
-the audit. Full GitHub CI and the one-shot hosted capture are required on the
-published code; append their terminal evidence here after observing completion.
+the audit. Published code `e9cc035bf7b9d2fdb05b0380e0d1e5fd8911b487`
+passed full CI `34926971450`: 2,964 tests in 475.272 seconds, 73 optional
+skips and successful compilation. Capture run `34926971484` completed all
+consume/capture/verify jobs and every step successfully on September 15.
+
+The capture completed all 17 roots in 17 requests, without retries. All 31
+changed-ticker checks and all four distinct-FIGI price-view checks match in
+both directions. All 165,694 previous closes are ready, with none missing.
+Different dated FIGIs remain separate; no membership or policy was changed.
+
+The original consumption, capture and verification ZIPs are retained in the
+audit directory with terminal metadata, exact extracted hosted proof and
+completion report. `completion-verification.json` binds their archive hashes,
+all 54 capture members, successful same-code CI and the completion seals.
+The initial local whole-object metadata comparison failed solely because the
+plugin's normalized metadata omits the hosted `node_id`; every other field
+matches exactly. This diagnostic is preserved in the completion record.
+The successful hosted replay was not duplicated and no provider calls were
+made during local evidence checks. The permanent consumption tag remains
+bound to the code above; this capture must not be rerun.
