@@ -1,0 +1,114 @@
+name: Bounded alias completion and scanner daily handoff
+on:
+  push:
+    branches: [phase-3-historical-snapshot]
+    paths: [research/strategy/early-pullback-alias-completion-v0.1.json]
+permissions:
+  contents: read
+concurrency:
+  group: early-pullback-alias-completion-v01
+  cancel-in-progress: false
+env:
+  PYTHONPATH: src:scripts
+  PYTHONDONTWRITEBYTECODE: "1"
+jobs:
+  consume:
+    if: github.run_attempt == 1
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: write
+      actions: read
+    outputs:
+      artifact_id: ${{ steps.preserve.outputs.artifact-id }}
+      inventory_sha256: ${{ steps.consume.outputs.inventory_sha256 }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - uses: ./.github/actions/source-runtime
+      - name: Require exact-code CI then consume once
+        id: consume
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/run_alias_completion.py consume
+      - name: Preserve independent preflight
+        id: preserve
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: early-pullback-alias-completion-v0.1-consumption-${{ github.run_id }}-1
+          path: source-preflight
+          if-no-files-found: error
+          retention-days: 90
+  capture:
+    if: github.run_attempt == 1
+    needs: consume
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      artifact_id: ${{ steps.preserve.outputs.artifact-id }}
+      inventory_sha256: ${{ steps.capture.outputs.inventory_sha256 }}
+    env:
+      PREFLIGHT_ARTIFACT_ID: ${{ needs.consume.outputs.artifact_id }}
+      PREFLIGHT_SHA256: ${{ needs.consume.outputs.inventory_sha256 }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - uses: ./.github/actions/source-runtime
+      - name: Fetch independent capture authority
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/run_alias_completion.py fetch
+      - name: Capture the fixed 35 missing alias views
+        id: capture
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_MAIN_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_MAIN_API_SECRET }}
+        run: python scripts/run_alias_completion.py capture
+      - name: Preserve original success or failure
+        id: preserve
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: early-pullback-alias-completion-v0.1-capture-${{ github.run_id }}-1
+          path: source-capture
+          if-no-files-found: error
+          retention-days: 90
+  verify:
+    if: github.run_attempt == 1
+    needs: [consume, capture]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      actions: read
+    env:
+      PREFLIGHT_ARTIFACT_ID: ${{ needs.consume.outputs.artifact_id }}
+      PREFLIGHT_SHA256: ${{ needs.consume.outputs.inventory_sha256 }}
+      CAPTURE_ARTIFACT_ID: ${{ needs.capture.outputs.artifact_id }}
+      CAPTURE_INVENTORY_SHA256: ${{ needs.capture.outputs.inventory_sha256 }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 2
+          persist-credentials: false
+      - uses: ./.github/actions/source-runtime
+      - name: Fetch original ZIPs and metadata
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/run_alias_completion.py fetch --for-verification
+      - name: Verify original alias bytes and compose scanner handoff
+        run: python scripts/run_alias_completion.py verify
+      - name: Preserve independent verification
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: early-pullback-alias-completion-v0.1-verification-${{ github.run_id }}-1
+          path: source-verification
+          if-no-files-found: error
+          retention-days: 90

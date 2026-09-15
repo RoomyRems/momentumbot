@@ -1,0 +1,609 @@
+{
+  "brokerage_orders_enabled": false,
+  "conflicts": [
+    {
+      "action_match_proves_identity_equivalence": false,
+      "actions_within_interval": [
+        {
+          "evidence_sha256": "3f8d570d756cbe9ce3f1656fd14913772bfe289ff5d8173e1ce053d3786b497c",
+          "provider": "alpaca",
+          "row": {
+            "action_type": "name_changes",
+            "id": "f7f623a9-0d25-4b72-8f55-4946e073b82e",
+            "new_cusip": "349932103",
+            "new_symbol": "FWDI",
+            "old_cusip": "349862409",
+            "old_symbol": "FWDI",
+            "process_date": "2026-03-11"
+          },
+          "row_index": 294
+        }
+      ],
+      "alias_checks": [
+        {
+          "bidirectional_match": false,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "FWDI",
+          "identifier": "BBG000BJRHG1/BBG020WJG333",
+          "identifier_kind": "distinct_composite_figis",
+          "later_date_comparison": {
+            "match": false,
+            "status": "missing_source_query"
+          },
+          "later_ticker": "FWDI",
+          "views": [
+            {
+              "asof": "2026-03-10",
+              "bar": {
+                "c": 5.09,
+                "h": 5.33,
+                "l": 5,
+                "n": 8105,
+                "o": 5.01,
+                "v": 729960,
+                "vw": 5.18525
+              },
+              "source_members": [
+                {
+                  "body_member": "00157.body.json",
+                  "body_sha256": "53a8cf3e36299b1d6383a802f20edaf57a4552ba48351766780ad15715c14920",
+                  "request_sha256": "128947088817b25f1401ee84990684aa10787d6298e70e7e3e8871592eca5baf",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "FWDI",
+              "target_date": "2026-03-10"
+            },
+            {
+              "asof": "2026-03-12",
+              "bar": {
+                "c": 5.09,
+                "h": 5.33,
+                "l": 5,
+                "n": 8105,
+                "o": 5.01,
+                "v": 729960,
+                "vw": 5.18525
+              },
+              "source_members": [
+                {
+                  "body_member": "00206.body.json",
+                  "body_sha256": "5ede3036e540aa9750a092d126d766d424413f0b65c7112b06a98516051460cb",
+                  "request_sha256": "7816b42ddf0df73fe1b1f2a1fadce6525cc083707098264b729a0e58b12ac365",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "FWDI",
+              "target_date": "2026-03-10"
+            },
+            {
+              "asof": "2026-03-10",
+              "bar": null,
+              "source_members": [],
+              "status": "request_not_captured",
+              "symbol": "FWDI",
+              "target_date": "2026-03-12"
+            },
+            {
+              "asof": "2026-03-12",
+              "bar": {
+                "c": 4.68,
+                "h": 5,
+                "l": 4.67,
+                "n": 9301,
+                "o": 5,
+                "v": 898254,
+                "vw": 4.769725
+              },
+              "source_members": [
+                {
+                  "body_member": "00206.body.json",
+                  "body_sha256": "5ede3036e540aa9750a092d126d766d424413f0b65c7112b06a98516051460cb",
+                  "request_sha256": "7816b42ddf0df73fe1b1f2a1fadce6525cc083707098264b729a0e58b12ac365",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "FWDI",
+              "target_date": "2026-03-12"
+            }
+          ]
+        }
+      ],
+      "brokerage_orders_enabled": false,
+      "conflict": {
+        "earlier_composite_figi": "BBG000BJRHG1",
+        "later_composite_figi": "BBG020WJG333",
+        "ticker": "FWDI"
+      },
+      "content_sha256": "107a444b4843f2c4d78fd4c9161ca82e018249fc35568c1d208bfbf8522f8590",
+      "corporate_actions_are_runtime_news": false,
+      "cross_identifier_merge_permitted": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-03-10",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-03-12",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "transcript_records_read": false
+    },
+    {
+      "action_match_proves_identity_equivalence": false,
+      "actions_within_interval": [
+        {
+          "evidence_sha256": "b9cf1bc71cc57ec5e0b56e967e1211a4a5d21fed241d42d04c31ebb76b1d1680",
+          "provider": "alpaca",
+          "row": {
+            "acquiree_cusip": "G16234109",
+            "acquiree_rate": 1,
+            "acquiree_symbol": "BBU",
+            "acquirer_cusip": "113006100",
+            "acquirer_rate": 1,
+            "acquirer_symbol": "BBUC",
+            "action_type": "stock_mergers",
+            "effective_date": "2026-03-31",
+            "id": "2517c4d0-30f0-49d1-96c7-aac6f85ebbba",
+            "payable_date": "2026-03-31",
+            "process_date": "2026-03-31"
+          },
+          "row_index": 820
+        },
+        {
+          "evidence_sha256": "b9cf1bc71cc57ec5e0b56e967e1211a4a5d21fed241d42d04c31ebb76b1d1680",
+          "provider": "alpaca",
+          "row": {
+            "acquiree_cusip": "11259V106",
+            "acquiree_rate": 1,
+            "acquiree_symbol": "BBUC",
+            "acquirer_cusip": "113006100",
+            "acquirer_rate": 1,
+            "acquirer_symbol": "BBUC",
+            "action_type": "stock_mergers",
+            "effective_date": "2026-03-31",
+            "id": "2ae371c0-23b0-41ce-b09e-0d06de32d3ba",
+            "payable_date": "2026-03-31",
+            "process_date": "2026-03-31"
+          },
+          "row_index": 821
+        }
+      ],
+      "alias_checks": [
+        {
+          "bidirectional_match": false,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "BBUC",
+          "identifier": "BBG015MRS011/BBG0211B3568",
+          "identifier_kind": "distinct_composite_figis",
+          "later_date_comparison": {
+            "match": false,
+            "status": "missing_source_query"
+          },
+          "later_ticker": "BBUC",
+          "views": [
+            {
+              "asof": "2026-03-30",
+              "bar": {
+                "c": 31.65,
+                "h": 32.93,
+                "l": 30.21,
+                "n": 10413,
+                "o": 32.28,
+                "v": 557343,
+                "vw": 31.642748
+              },
+              "source_members": [
+                {
+                  "body_member": "00445.body.json",
+                  "body_sha256": "e08e078d7c31d30ab6f7d921afbe2c9bd13920f582b3736a6dadcf69503a1e0c",
+                  "request_sha256": "9d3a0dd60d316a231d242c06c28da06f0de0eb5330d99a9d34ab77dbedc5c746",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "BBUC",
+              "target_date": "2026-03-30"
+            },
+            {
+              "asof": "2026-04-02",
+              "bar": {
+                "c": 31.65,
+                "h": 32.93,
+                "l": 30.21,
+                "n": 10413,
+                "o": 32.28,
+                "v": 557343,
+                "vw": 31.642748
+              },
+              "source_members": [
+                {
+                  "body_member": "00494.body.json",
+                  "body_sha256": "f82770da2f2b51e856b0b951fea1abfe1c29792228968aa7e40fa00c2b436895",
+                  "request_sha256": "26ef88b8874333a57ade0c2c5e19fd124cae5786cad1afebda5f195c38083a67",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "BBUC",
+              "target_date": "2026-03-30"
+            },
+            {
+              "asof": "2026-03-30",
+              "bar": null,
+              "source_members": [],
+              "status": "request_not_captured",
+              "symbol": "BBUC",
+              "target_date": "2026-04-02"
+            },
+            {
+              "asof": "2026-04-02",
+              "bar": {
+                "c": 34.47,
+                "h": 34.51,
+                "l": 32.46,
+                "n": 3412,
+                "o": 32.46,
+                "v": 228539,
+                "vw": 33.813106
+              },
+              "source_members": [
+                {
+                  "body_member": "00494.body.json",
+                  "body_sha256": "f82770da2f2b51e856b0b951fea1abfe1c29792228968aa7e40fa00c2b436895",
+                  "request_sha256": "26ef88b8874333a57ade0c2c5e19fd124cae5786cad1afebda5f195c38083a67",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "BBUC",
+              "target_date": "2026-04-02"
+            }
+          ]
+        }
+      ],
+      "brokerage_orders_enabled": false,
+      "conflict": {
+        "earlier_composite_figi": "BBG015MRS011",
+        "later_composite_figi": "BBG0211B3568",
+        "ticker": "BBUC"
+      },
+      "content_sha256": "0a0a7d4c92191a1319415bf6fadc9460a568ed48790253fcec87bd013560b94a",
+      "corporate_actions_are_runtime_news": false,
+      "cross_identifier_merge_permitted": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-03-30",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-04-02",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "transcript_records_read": false
+    },
+    {
+      "action_match_proves_identity_equivalence": false,
+      "actions_within_interval": [],
+      "alias_checks": [
+        {
+          "bidirectional_match": false,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "SNTI",
+          "identifier": "BBG010WX7ZB3/BBG021Y8RQQ5",
+          "identifier_kind": "distinct_composite_figis",
+          "later_date_comparison": {
+            "match": false,
+            "status": "missing_source_query"
+          },
+          "later_ticker": "SNTI",
+          "views": [
+            {
+              "asof": "2026-04-27",
+              "bar": {
+                "c": 1.06,
+                "h": 1.1,
+                "l": 1,
+                "n": 1529,
+                "o": 1.07,
+                "v": 200344,
+                "vw": 1.070363
+              },
+              "source_members": [
+                {
+                  "body_member": "01098.body.json",
+                  "body_sha256": "a3a9e2c7ff9e16c99b3a6fac3dcc599ff6a2ca1bb5470e64be1d398871d6619c",
+                  "request_sha256": "5b72a8cb384d5d84704bcf219c8df0c4b55c2a12c25ad10fed650382dbe64237",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "SNTI",
+              "target_date": "2026-04-27"
+            },
+            {
+              "asof": "2026-04-28",
+              "bar": {
+                "c": 1.06,
+                "h": 1.1,
+                "l": 1,
+                "n": 1529,
+                "o": 1.07,
+                "v": 200344,
+                "vw": 1.070363
+              },
+              "source_members": [
+                {
+                  "body_member": "01147.body.json",
+                  "body_sha256": "275616e4692789b529b718c55847c533e27777717979ad1e2b6762e7f260a44d",
+                  "request_sha256": "ca492530678b367f6427d9300feeb020b9009153575ff72734e429c161cbf5b0",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "SNTI",
+              "target_date": "2026-04-27"
+            },
+            {
+              "asof": "2026-04-27",
+              "bar": null,
+              "source_members": [],
+              "status": "request_not_captured",
+              "symbol": "SNTI",
+              "target_date": "2026-04-28"
+            },
+            {
+              "asof": "2026-04-28",
+              "bar": {
+                "c": 0.9553,
+                "h": 1,
+                "l": 0.94,
+                "n": 1141,
+                "o": 1,
+                "v": 205978,
+                "vw": 0.963454
+              },
+              "source_members": [
+                {
+                  "body_member": "01147.body.json",
+                  "body_sha256": "275616e4692789b529b718c55847c533e27777717979ad1e2b6762e7f260a44d",
+                  "request_sha256": "ca492530678b367f6427d9300feeb020b9009153575ff72734e429c161cbf5b0",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "SNTI",
+              "target_date": "2026-04-28"
+            }
+          ]
+        }
+      ],
+      "brokerage_orders_enabled": false,
+      "conflict": {
+        "earlier_composite_figi": "BBG010WX7ZB3",
+        "later_composite_figi": "BBG021Y8RQQ5",
+        "ticker": "SNTI"
+      },
+      "content_sha256": "2537b403746445ec29a204ccbe992135f2ac05253ba428e9eb5b20a9e01054db",
+      "corporate_actions_are_runtime_news": false,
+      "cross_identifier_merge_permitted": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-04-27",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-04-28",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "transcript_records_read": false
+    },
+    {
+      "action_match_proves_identity_equivalence": false,
+      "actions_within_interval": [
+        {
+          "evidence_sha256": "ac3eb49961a6aae6ec8b3b04c118f656721cac1819894e9030c123ffbc90090c",
+          "provider": "alpaca",
+          "row": {
+            "acquiree_cusip": "25381B101",
+            "acquiree_rate": 1,
+            "acquiree_symbol": "DMRC",
+            "acquirer_cusip": "25382K100",
+            "acquirer_rate": 1,
+            "acquirer_symbol": "DMRC",
+            "action_type": "stock_mergers",
+            "effective_date": "2026-05-19",
+            "id": "ea0f4237-510f-4251-99bc-3bd0f0e502f8",
+            "payable_date": "2026-05-19",
+            "process_date": "2026-05-19"
+          },
+          "row_index": 846
+        }
+      ],
+      "alias_checks": [
+        {
+          "bidirectional_match": false,
+          "earlier_date_comparison": {
+            "match": true,
+            "status": "exact_bar_match"
+          },
+          "earlier_ticker": "DMRC",
+          "identifier": "BBG000G9F1Z5/BBG022G67PN4",
+          "identifier_kind": "distinct_composite_figis",
+          "later_date_comparison": {
+            "match": false,
+            "status": "missing_source_query"
+          },
+          "later_ticker": "DMRC",
+          "views": [
+            {
+              "asof": "2026-05-08",
+              "bar": {
+                "c": 9.36,
+                "h": 9.73,
+                "l": 8.4,
+                "n": 6844,
+                "o": 8.71,
+                "v": 370475,
+                "vw": 9.20067
+              },
+              "source_members": [
+                {
+                  "body_member": "01330.body.json",
+                  "body_sha256": "8cdf4f82e2387a4273fd87bfa2357c0f8ebd035530dd662575a8386e0df641f9",
+                  "request_sha256": "bd257a18c38860aac6b8115bb1f7a80c37acc7f8c9e7b0e6a49b360e38fb4702",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "DMRC",
+              "target_date": "2026-05-08"
+            },
+            {
+              "asof": "2026-05-19",
+              "bar": {
+                "c": 9.36,
+                "h": 9.73,
+                "l": 8.4,
+                "n": 6844,
+                "o": 8.71,
+                "v": 370475,
+                "vw": 9.20067
+              },
+              "source_members": [
+                {
+                  "body_member": "01379.body.json",
+                  "body_sha256": "732ac321e50479d49cf000b686ca973d8bdf2d8cfd5989733fe4c71f8f9bd82d",
+                  "request_sha256": "5739f00c3b76222fc173d659f499a5cce7fbe38eb53e894415a6c7518a846810",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "DMRC",
+              "target_date": "2026-05-08"
+            },
+            {
+              "asof": "2026-05-08",
+              "bar": null,
+              "source_members": [],
+              "status": "request_not_captured",
+              "symbol": "DMRC",
+              "target_date": "2026-05-19"
+            },
+            {
+              "asof": "2026-05-19",
+              "bar": {
+                "c": 9.54,
+                "h": 9.54,
+                "l": 8.95,
+                "n": 2860,
+                "o": 9.21,
+                "v": 101649,
+                "vw": 9.318316
+              },
+              "source_members": [
+                {
+                  "body_member": "01379.body.json",
+                  "body_sha256": "732ac321e50479d49cf000b686ca973d8bdf2d8cfd5989733fe4c71f8f9bd82d",
+                  "request_sha256": "5739f00c3b76222fc173d659f499a5cce7fbe38eb53e894415a6c7518a846810",
+                  "segment": "suffix"
+                }
+              ],
+              "status": "captured_bar",
+              "symbol": "DMRC",
+              "target_date": "2026-05-19"
+            }
+          ]
+        }
+      ],
+      "brokerage_orders_enabled": false,
+      "conflict": {
+        "earlier_composite_figi": "BBG000G9F1Z5",
+        "later_composite_figi": "BBG022G67PN4",
+        "ticker": "DMRC"
+      },
+      "content_sha256": "86b3fd917662f9c476c8252d416db4e4745ed2eca5db9435e48d5145ecfa660a",
+      "corporate_actions_are_runtime_news": false,
+      "cross_identifier_merge_permitted": false,
+      "discretionary_strategy_integrated": false,
+      "earlier_date": "2026-05-08",
+      "financial_evaluation_enabled": false,
+      "historical_identity_resolved": false,
+      "historical_replay_enabled": false,
+      "historical_scanner_enabled": false,
+      "hosted_execution_authorized": false,
+      "identity_continuity_verified": false,
+      "incremental_spend_authorized_usd": "0.00",
+      "later_date": "2026-05-19",
+      "later_identity_evidence_changes_earlier_membership": false,
+      "market_coverage_verified": false,
+      "paid_capture_enabled": false,
+      "policy_promotion_eligible": false,
+      "provider_calls_authorized_now": 0,
+      "provider_origin_authenticated": false,
+      "reference_identity_is_provisional": true,
+      "transcript_records_read": false
+    }
+  ],
+  "content_sha256": "3625c0eadd7259b45b22879c3294507f75eaaffc983c1cb16fb6140f54b72028",
+  "corporate_actions_are_runtime_news": false,
+  "discretionary_strategy_integrated": false,
+  "financial_evaluation_enabled": false,
+  "historical_identity_resolved": false,
+  "historical_replay_enabled": false,
+  "historical_scanner_enabled": false,
+  "hosted_execution_authorized": false,
+  "identity_continuity_verified": false,
+  "incremental_spend_authorized_usd": "0.00",
+  "later_identity_evidence_changes_earlier_membership": false,
+  "market_coverage_verified": false,
+  "paid_capture_enabled": false,
+  "parent_panel_sha256": "ea3dc07f5ca5ed03a467691f5f38632cdc1e351807c8fb44e4549215108b30d9",
+  "policy_promotion_eligible": false,
+  "provider_calls_authorized_now": 0,
+  "provider_origin_authenticated": false,
+  "provider_requests": 0,
+  "reference_identity_is_provisional": true,
+  "source_capture_pin": {
+    "bytes": 104141996,
+    "inventory_sha256": "9e53cc5694289306a5cb2e45f5703bdbd6136f9091de488a41822317730e263e",
+    "sha256": "6c694f18857697993ec61caed247cc7cf6f597f604a2ba38373db5cde96156ae"
+  },
+  "transcript_records_read": false
+}

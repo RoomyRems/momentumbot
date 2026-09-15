@@ -1,6 +1,26 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: source-backed dated identity and coverage handoff
+## Current checkpoint: bounded alias completion and scanner daily handoff
+
+September 15: `early-pullback-alias-completion-v0.1` implements the fixed remaining
+capture and hosted composition, child of `3397cf7051410d0e39a4a7ba367eb9eef5748768`.
+The 31 missing changed-ticker views plus four same-ticker/different-FIGI views
+fit the same 17 request roots, with 170 attempts maximum and no retry. Only
+Alpaca credentials are used after exact-code CI and separate durable consumption.
+
+Offline source preparation already recovered all 165,694 scanner previous closes
+from the original split daily bars, with no missing value or provider calls.
+The compressed dated map, timestamps and original source lineage are committed.
+The existing 14-day window contains each latest prior bar and avoids a redundant
+21-day daily acquisition. Each dated FIGI remains unchanged; price equality does
+not authorize cross-identifier history joins. All prior exclusions are preserved.
+
+The new focused suite covers complete synthetic capture, original-archive replay
+and saved-source composition. Full same-code GitHub CI and hosted completion are
+the next terminal checks. See `docs/research/alias_completion.md`; do not rerun
+the consumed coverage collection or open financial evaluation from this handoff.
+
+## Previous checkpoint: source-backed dated identity and coverage handoff
 
 Verified September 15: code `ec25735975e700bc03b83260adaf42392843bef5`
 passed full CI `34912370181`: 2,940 tests in 450.711 seconds, 73 optional SDK

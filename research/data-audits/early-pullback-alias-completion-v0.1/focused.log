@@ -1,0 +1,29 @@
+test_bad_launch_blocks_credential_loader (tests.test_alias_completion.AuthorityTests.test_bad_launch_blocks_credential_loader) ... ok
+test_complete_saved_source_handoff_with_synthetic_missing_views (tests.test_alias_completion.AuthorityTests.test_complete_saved_source_handoff_with_synthetic_missing_views) ... ok
+test_expiry_wrong_parent_and_rerun_rejected (tests.test_alias_completion.AuthorityTests.test_expiry_wrong_parent_and_rerun_rejected) ... ok
+test_old_consumption_cannot_be_reused (tests.test_alias_completion.AuthorityTests.test_old_consumption_cannot_be_reused) ... ok
+test_registration_and_only_alpaca_credentials (tests.test_alias_completion.AuthorityTests.test_registration_and_only_alpaca_credentials) ... ok
+test_workflow_requires_consumption_and_secrets_only_in_capture (tests.test_alias_completion.AuthorityTests.test_workflow_requires_consumption_and_secrets_only_in_capture) ... ok
+test_changed_archive_bytes_or_inventory_pin_rejected (tests.test_alias_completion.CaptureTests.test_changed_archive_bytes_or_inventory_pin_rejected) ... ok
+test_full_synthetic_capture_original_zip_replay_and_terminal_guard (tests.test_alias_completion.CaptureTests.test_full_synthetic_capture_original_zip_replay_and_terminal_guard) ... ok
+test_http_error_retained_as_failure_not_empty_observation (tests.test_alias_completion.CaptureTests.test_http_error_retained_as_failure_not_empty_observation) ... ok
+test_transport_cannot_call_massive (tests.test_alias_completion.CaptureTests.test_transport_cannot_call_massive) ... ok
+test_unsafe_body_is_not_retained_and_no_retry_occurs (tests.test_alias_completion.CaptureTests.test_unsafe_body_is_not_retained_and_no_retry_occurs) ... ok
+test_wrong_request_and_attempt_ceiling_block_transport (tests.test_alias_completion.CaptureTests.test_wrong_request_and_attempt_ceiling_block_transport) ... ok
+test_changed_asof_and_empty_nonterminal_rejected (tests.test_alias_completion.DailyAliasTests.test_changed_asof_and_empty_nonterminal_rejected) ... ok
+test_cursor_exhaustion_required_before_target_is_usable (tests.test_alias_completion.DailyAliasTests.test_cursor_exhaustion_required_before_target_is_usable) ... ok
+test_exhausted_empty_is_retained_and_not_retried (tests.test_alias_completion.DailyAliasTests.test_exhausted_empty_is_retained_and_not_retried) ... ok
+test_fixed_union_keeps_original_31_and_four_conflict_views (tests.test_alias_completion.DailyAliasTests.test_fixed_union_keeps_original_31_and_four_conflict_views) ... ok
+test_schema_order_dates_and_unknown_symbols_fail_closed (tests.test_alias_completion.DailyAliasTests.test_schema_order_dates_and_unknown_symbols_fail_closed) ... ok
+test_target_bar_asof_and_seven_fields_preserved (tests.test_alias_completion.DailyAliasTests.test_target_bar_asof_and_seven_fields_preserved) ... ok
+test_empty_and_mismatch_remain_explicit_not_resolved (tests.test_alias_completion.JoinTests.test_empty_and_mismatch_remain_explicit_not_resolved) ... ok
+test_exact_union_no_missing_extra_or_duplicate_observations (tests.test_alias_completion.JoinTests.test_exact_union_no_missing_extra_or_duplicate_observations) ... ok
+test_only_missing_view_is_filled_without_mutating_parent (tests.test_alias_completion.JoinTests.test_only_missing_view_is_filled_without_mutating_parent) ... ok
+test_duplicate_naive_or_regressing_timestamps_rejected (tests.test_alias_completion.PreviousCloseTests.test_duplicate_naive_or_regressing_timestamps_rejected) ... ok
+test_missing_and_zero_last_close_do_not_fall_back (tests.test_alias_completion.PreviousCloseTests.test_missing_and_zero_last_close_do_not_fall_back) ... ok
+test_parity_with_frozen_scanner_and_no_target_close (tests.test_alias_completion.PreviousCloseTests.test_parity_with_frozen_scanner_and_no_target_close) ... ok
+
+----------------------------------------------------------------------
+Ran 24 tests in 12.654s
+
+OK
