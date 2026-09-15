@@ -76,6 +76,12 @@ bar equivalence or clear an alias gap.
 
 ## Remaining integration
 
+The retained same-ticker/different-FIGI conflicts are FWDI (March 10→12),
+BBUC (March 30→April 2), SNTI (April 27→28), and DMRC (May 8→19).
+COEP→ZSQR (April 24→27) is the only changed-ticker transition without a
+captured name-change path. These are source observations, not inferred causes;
+the exact identifiers and rows remain in the panel for follow-up.
+
 The 17-root plan is unarmed: zero authorized calls in this artifact, no automatic
 retry, and at most ten pages per root if a separate bounded capture is built.
 The remaining work is to resolve the explicit alias/FIGI issues, derive the
@@ -91,11 +97,19 @@ there, not the unfinished full hybrid strategy.
 
 ## Validation and reproduction
 
+Published code `ec25735975e700bc03b83260adaf42392843bef5` passed
+[CI 34912370181](https://github.com/RoomyRems/momentumbot/actions/runs/34912370181)
+on September 15, push attempt 1: 2,940 tests in 450.711 seconds, 73 optional SDK
+skips, and successful compilation. All job steps passed. Exact terminal
+metadata and the test summary are retained in `ci-verification.json` beside
+the panel. The subsequent documentation/evidence-only checkpoint uses
+`[skip ci]`; it does not change the tested code or registration.
+
 The 21 focused tests passed normally and with Python optimization. They cover
 post-coverage CIK uniqueness, missing coverage, preserved quarantine, different
 FIGIs, action order/lineage, source/date substitution, all seven alias fields,
 missing versus empty views, name-change insufficiency and the unarmed query
-union. One authoritative full GitHub CI run is required for the published code.
+union. The authoritative full GitHub CI run above passed for the published code.
 
 With the package installed, the provider-free CLI is:
 

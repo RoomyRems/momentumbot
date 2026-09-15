@@ -2,6 +2,12 @@
 
 ## Current checkpoint: source-backed dated identity and coverage handoff
 
+Verified September 15: code `ec25735975e700bc03b83260adaf42392843bef5`
+passed full CI `34912370181`: 2,940 tests in 450.711 seconds, 73 optional SDK
+skips and successful compilation. Every job step passed. Terminal metadata is
+retained in the new audit's `ci-verification.json`; the evidence-only follow-up
+does not require another full suite.
+
 September 14: the offline `early-pullback-identity-coverage-v0.1` integration
 completed all 30 registered dates from the original census and completed
 coverage/action ZIPs. It produces 165,694 accepted ticker/date memberships,
