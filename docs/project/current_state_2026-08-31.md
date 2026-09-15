@@ -1,5 +1,15 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current work: batched full-membership scanner minutes
+
+September 15: `early-pullback-scanner-minutes-v0.1` implements the next source
+capture on parent `51232cf6be74b3cea7a79d446a3c129d4dbe61f4`. It reuses all
+165,694 previous closes and requests split minute bars for every dated member
+in 690 batches across the same 30 dates. Same-code CI, one-shot capture and
+automatic original-archive verification are wired together. See
+`docs/research/scanner_minutes.md` for bounds and the route into the existing
+discretionary shadow components. Hosted terminal results are still pending.
+
 ## Current checkpoint: bounded alias completion and scanner daily handoff
 
 September 15: `early-pullback-alias-completion-v0.1` implements the fixed remaining
