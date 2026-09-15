@@ -1,6 +1,31 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current checkpoint: completed and verified daily coverage/action capture
+## Current checkpoint: source-backed dated identity and coverage handoff
+
+September 14: the offline `early-pullback-identity-coverage-v0.1` integration
+completed all 30 registered dates from the original census and completed
+coverage/action ZIPs. It produces 165,694 accepted ticker/date memberships,
+188 post-coverage identity quarantines and 107 explicit coverage failures under
+the unchanged existing rules. All original action rows and source lineage are
+retained. No provider requests, policy changes or financial evaluation occurred.
+
+Adjacent-date checks retain 31 ticker changes and four same-ticker/different-FIGI
+conflicts. The saved daily requests supply 93 of the 124 alias views; the exact
+31 missing views form 17 deduplicated, unarmed query roots. None of the 31
+bidirectional checks is complete. Name-change records cannot substitute for
+missing alias bars, and later metadata cannot rewrite earlier membership.
+
+The new registration, compressed 30-date panel, per-date summary, remaining
+query plan and verification record are committed together. Focused validation:
+21 tests passed both normally and with optimization; full GitHub CI is the
+authoritative published-code gate. See `docs/research/identity_coverage.md`.
+The next task is bounded remaining-alias acquisition and explicit conflict
+resolution, followed by scanner source integration. Reuse retained split daily
+bars for previous closes before requesting any replacement daily history.
+Full historical continuity, scanner/account runtime and financial gates remain
+closed. The immutable earlier checkpoints below remain evidence.
+
+## Previous checkpoint: completed and verified daily coverage/action capture
 
 Checked September 14: repaired continuation run `34801775828` succeeded on code
 `9555af77b68977176545778068d54842cd069031`, push attempt 1. All three jobs and

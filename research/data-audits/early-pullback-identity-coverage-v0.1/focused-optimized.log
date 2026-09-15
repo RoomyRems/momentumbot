@@ -1,0 +1,26 @@
+test_original_order_all_rows_and_symbol_only_relevance_preserved (tests.test_identity_coverage.ActionEvidenceTests.test_original_order_all_rows_and_symbol_only_relevance_preserved) ... ok
+test_rows_lineage_and_date_cannot_be_relabelled (tests.test_identity_coverage.ActionEvidenceTests.test_rows_lineage_and_date_cannot_be_relabelled) ... ok
+test_absent_bars_need_explicit_consistent_status (tests.test_identity_coverage.AliasAndContinuityTests.test_absent_bars_need_explicit_consistent_status) ... ok
+test_all_seven_bar_fields_participate (tests.test_identity_coverage.AliasAndContinuityTests.test_all_seven_bar_fields_participate) ... ok
+test_asof_target_and_source_dates_cannot_be_swapped (tests.test_identity_coverage.AliasAndContinuityTests.test_asof_target_and_source_dates_cannot_be_swapped) ... ok
+test_both_comparison_dates_required_for_match (tests.test_identity_coverage.AliasAndContinuityTests.test_both_comparison_dates_required_for_match) ... ok
+test_captured_empty_view_is_not_a_new_request (tests.test_identity_coverage.AliasAndContinuityTests.test_captured_empty_view_is_not_a_new_request) ... ok
+test_four_separate_asof_queries_and_no_mutation (tests.test_identity_coverage.AliasAndContinuityTests.test_four_separate_asof_queries_and_no_mutation) ... ok
+test_invalid_bar_cannot_hide_behind_missing_or_mismatch (tests.test_identity_coverage.AliasAndContinuityTests.test_invalid_bar_cannot_hide_behind_missing_or_mismatch) ... ok
+test_name_change_path_does_not_replace_missing_alias_bars (tests.test_identity_coverage.AliasAndContinuityTests.test_name_change_path_does_not_replace_missing_alias_bars) ... ok
+test_remaining_plan_reuses_three_views_deduplicates_and_stays_unarmed (tests.test_identity_coverage.AliasAndContinuityTests.test_remaining_plan_reuses_three_views_deduplicates_and_stays_unarmed) ... ok
+test_resealed_changed_pair_cannot_authorize_different_plan_scope (tests.test_identity_coverage.AliasAndContinuityTests.test_resealed_changed_pair_cannot_authorize_different_plan_scope) ... ok
+test_same_ticker_different_figi_is_not_merged_by_shared_cik (tests.test_identity_coverage.AliasAndContinuityTests.test_same_ticker_different_figi_is_not_merged_by_shared_cik) ... ok
+test_duplicate_figi_is_visible_without_new_exclusion_rule (tests.test_identity_coverage.DatedMembershipTests.test_duplicate_figi_is_visible_without_new_exclusion_rule) ... ok
+test_exact_existing_membership_and_no_runtime_promotion (tests.test_identity_coverage.DatedMembershipTests.test_exact_existing_membership_and_no_runtime_promotion) ... ok
+test_forged_coverage_and_retrospective_reference_fields_rejected (tests.test_identity_coverage.DatedMembershipTests.test_forged_coverage_and_retrospective_reference_fields_rejected) ... ok
+test_missing_coverage_not_replaced_by_false_or_other_date (tests.test_identity_coverage.DatedMembershipTests.test_missing_coverage_not_replaced_by_false_or_other_date) ... ok
+test_post_coverage_unique_cik_and_explicit_failure (tests.test_identity_coverage.DatedMembershipTests.test_post_coverage_unique_cik_and_explicit_failure) ... ok
+test_changed_bytes_and_symlinks_rejected (tests.test_identity_coverage.SourcePinsTests.test_changed_bytes_and_symlinks_rejected) ... ok
+test_frozen_registration_and_ancestor_unchanged (tests.test_identity_coverage.SourcePinsTests.test_frozen_registration_and_ancestor_unchanged) ... ok
+test_wrong_capture_rejected_before_archive_projection (tests.test_identity_coverage.SourcePinsTests.test_wrong_capture_rejected_before_archive_projection) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 1.851s
+
+OK

@@ -1,5 +1,9 @@
 # Corporate-action ordering repair and saved-prefix continuation
 
+The completed source now feeds the offline dated membership/action artifact in
+`docs/research/identity_coverage.md`. That child reuses this accepted capture and
+its hosted replay, preserving all original failure and continuation evidence.
+
 ## Observed hosted completion — September 14
 
 [Run 34801775828](https://github.com/RoomyRems/momentumbot/actions/runs/34801775828)
