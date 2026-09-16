@@ -1,5 +1,19 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current work: accepted raw minutes and prior daily history
+
+September 16: `54ba261` passed CI `35134553230` (3,005 tests, 73 optional
+skips and compilation). Capture `35134553351` and independent verification
+succeeded: 233,576 raw minute bars, 4,018 candidate/date cases, 126 empty
+cases and 33 requests. Original proof and terminal metadata are preserved.
+
+The additive daily-history stage keeps the same 30 candidate batches and
+requests 120 prior calendar days to identify the last 50 observed sessions
+and compute the unchanged average volume. Ten focused tests pass normally
+and optimized. Publication starts its own exact-code CI and gated capture.
+Exact same-time RVOL, complete share-basis checks, float/news and discretionary
+shadow integration remain. See `docs/research/candidate_daily_history.md`.
+
 ## Current work: bounded candidate raw-minute capture
 
 September 16: scanner reader `73e91a2` passed full CI `35108918709`.
