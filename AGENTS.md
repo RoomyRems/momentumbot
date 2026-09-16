@@ -17,6 +17,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 
 | Task | Open first | Source of truth |
 |---|---|---|
+| Candidate source integration and RVOL history | `docs/research/candidate_rvol_coarse.md` | pinned raw OHLCV reader, complete candidate timestamp/basis diagnostic, accepted daily histories and 1,530 bounded 15Min acquisition batches |
 | Candidate prior daily history | `docs/research/candidate_daily_history.md` | accepted raw capture, 30 fixed prior-only daily batches, exact 50-session inventory and unchanged average-volume semantics |
 | Candidate raw-minute acquisition | `docs/research/candidate_raw_minutes.md` | 30 symbol-only batches from the saved 4,018-case superset, same-code CI and original-archive verification; split basis and RVOL remain separate |
 | Accepted scanner minutes and combined source reader | `docs/research/scanner_source_archive.md` | successful 690-root hosted capture, exact prefix/continuation bytes, all dated member frames and explicit remaining candidate/basis/context requirements |

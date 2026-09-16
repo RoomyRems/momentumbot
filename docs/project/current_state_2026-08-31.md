@@ -1,5 +1,23 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current work: source comparison and bounded RVOL history
+
+September 16: `17f8561` passed CI `35163240503` (3,015 tests, 73 optional
+skips). Daily capture `35163240481` and verification succeeded: 318,519 bars
+from 45 requests; 114 cases have fewer than 50 prior sessions.
+
+The new pinned raw reader and all-date offline comparison found matching
+timestamps for 3,892 nonempty pairs and 126 empty pairs. There are small price
+scale residuals in 175 cases; adjustment/rounding explanation and full rank
+basis verification remain open. These diagnostics do not enter runtime.
+
+The next 15Min volume capture derives 1,530 batches from 3,778 eligible cases,
+each with exactly 50 prior sessions plus a target-morning basis comparison.
+It preserves 240 explicit exclusions and remains an acquisition filter; exact
+1Min RVOL is still required. Thirteen focused tests pass normally and optimized.
+Publication starts the new exact-code CI and gated capture.
+See `docs/research/candidate_rvol_coarse.md`.
+
 ## Current work: accepted raw minutes and prior daily history
 
 September 16: `54ba261` passed CI `35134553230` (3,005 tests, 73 optional

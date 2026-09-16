@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/b27302a56508/momentumbot/scripts/audit_candidate_price_basis.py", line 43, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/scratch/b27302a56508/momentumbot/scripts/audit_candidate_price_basis.py", line 28, in main
+    split=m.selected_split_closes(split_source,target,sorted(frames))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b27302a56508/momentumbot/src/momentumbot/research/candidate_source_archive.py", line 129, in selected_split_closes
+    exact(covered,selected,'missing selected split source')
+  File "/workspace/scratch/b27302a56508/momentumbot/src/momentumbot/research/early_pullback_provider_check_v01.py", line 57, in exact
+    require(type(value) is type(expected) and fingerprint(value) == fingerprint(expected), label)
+                                              ^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b27302a56508/momentumbot/src/momentumbot/research/sealed_historical_walk_forward.py", line 129, in canonical_fingerprint
+    encoded = json.dumps(
+              ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type set is not JSON serializable
