@@ -1,6 +1,26 @@
 # MomentumBot checkpoint — 2026-08-31
 
-## Current work: scanner minute ordering repair and saved-prefix continuation
+## Current work: accepted scanner capture and combined dated source reader
+
+September 16: continuation `35105447180` succeeded on `cefb30e3`, following
+successful CI `35105447076` (2,987 tests, 73 optional skips and compilation).
+All jobs/steps passed. The independent hosted verifier accepted 690 roots,
+165,694 member/date records and 5,230,052 minute bars on all 30 dates, using
+87 saved responses and 616 new requests. Original proof archives and terminal
+metadata are retained in the scanner-source audit directory.
+
+The additive offline reader now composes original prefix and continuation
+bytes into complete dated split-minute frames plus saved previous closes.
+It retains empty members and source lineage, and supports byte-exact ZIP parts.
+All 30 dates projected successfully with assertions disabled, retaining all
+5,230,052 bars. Ten focused tests passed normally and optimized; compilation
+passed. The source audit seal is `137958a2b3ece3003f8e08bd1923f7a41ae191e33bc63692a1a4ac91ed2a844d`.
+It does not open scanner/account runtime or change policy. Next complete the
+daily/minute share-basis check and candidate raw/RVOL/float/news inputs, then
+connect scanner v0.3 to the existing discretionary shadow through a new adapter.
+See `docs/research/scanner_source_archive.md` for exact artifacts and limits.
+
+## Preserved checkpoint: scanner minute ordering repair and saved-prefix continuation
 
 The first minute capture stopped after 87 requests because a later page
 returned symbol `R` after `RUN`. All original bytes are preserved. The narrow

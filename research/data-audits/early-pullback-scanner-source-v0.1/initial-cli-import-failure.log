@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/b27302a56508/momentumbot/scripts/verify_scanner_source_archive.py", line 7, in <module>
+    from momentumbot.research.scanner_source_archive import ScannerMinuteArchive, ID, PARENT, seal
+  File "/workspace/scratch/b27302a56508/momentumbot/src/momentumbot/research/scanner_source_archive.py", line 13, in <module>
+    from momentumbot.research import scanner_minute_continuation as capture
+  File "/workspace/scratch/b27302a56508/momentumbot/src/momentumbot/research/scanner_minute_continuation.py", line 10, in <module>
+    from momentumbot.research import scanner_minutes as old
+  File "/workspace/scratch/b27302a56508/momentumbot/src/momentumbot/research/scanner_minutes.py", line 12, in <module>
+    from momentumbot.research import alias_completion as parent
+  File "/workspace/scratch/b27302a56508/momentumbot/src/momentumbot/research/alias_completion.py", line 13, in <module>
+    from momentumbot.research import identity_coverage as parent
+  File "/workspace/scratch/b27302a56508/momentumbot/src/momentumbot/research/identity_coverage.py", line 18, in <module>
+    from scripts.audit_historical_identity_continuity import (
+ModuleNotFoundError: No module named 'scripts'

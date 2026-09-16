@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/b27302a56508/momentumbot/scripts/verify_scanner_source_archive.py", line 35, in <module>
+    if __name__ == '__main__': main()
+                               ^^^^^^
+  File "/workspace/scratch/b27302a56508/momentumbot/scripts/verify_scanner_source_archive.py", line 21, in main
+    with ScannerMinuteArchive(ROOT, args.capture_zip) as source:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/b27302a56508/momentumbot/src/momentumbot/research/scanner_source_archive.py", line 61, in __init__
+    self._open(Path(root), Path(capture_zip))
+  File "/workspace/scratch/b27302a56508/momentumbot/src/momentumbot/research/scanner_source_archive.py", line 75, in _open
+    capture.old.parent.parent._pinned_file(capture_zip, {'bytes': meta['size_in_bytes'], 'sha256': meta['digest'][7:]})
+  File "/workspace/scratch/b27302a56508/momentumbot/src/momentumbot/research/identity_coverage.py", line 52, in _pinned_file
+    require(path.stat().st_size == pin['bytes'], 'original source size differs')
+  File "/workspace/scratch/b27302a56508/momentumbot/src/momentumbot/research/early_pullback_selection_v01.py", line 47, in require
+    raise ValueError(message)
+ValueError: original source size differs

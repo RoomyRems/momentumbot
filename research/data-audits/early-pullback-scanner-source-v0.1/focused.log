@@ -1,0 +1,15 @@
+test_accepted_proof_is_fixed_original_archive (tests.test_scanner_source_archive.SourceArchiveTests.test_accepted_proof_is_fixed_original_archive) ... ok
+test_both_segments_complete_membership_and_empty_symbols (tests.test_scanner_source_archive.SourceArchiveTests.test_both_segments_complete_membership_and_empty_symbols) ... ok
+test_changed_dated_membership_or_previous_close_population_fails (tests.test_scanner_source_archive.SourceArchiveTests.test_changed_dated_membership_or_previous_close_population_fails) ... ok
+test_changed_source_member_is_rejected (tests.test_scanner_source_archive.SourceArchiveTests.test_changed_source_member_is_rejected) ... ok
+test_cli_imports_with_documented_pythonpath (tests.test_scanner_source_archive.SourceArchiveTests.test_cli_imports_with_documented_pythonpath) ... ok
+test_close_is_idempotent (tests.test_scanner_source_archive.SourceArchiveTests.test_close_is_idempotent) ... ok
+test_constructor_rejects_unpinned_capture_and_closes_on_failure (tests.test_scanner_source_archive.SourceArchiveTests.test_constructor_rejects_unpinned_capture_and_closes_on_failure) ... ok
+test_original_archive_parts_preserve_bytes_and_reject_truncation (tests.test_scanner_source_archive.SourceArchiveTests.test_original_archive_parts_preserve_bytes_and_reject_truncation) ... ok
+test_projection_accepts_provider_symbol_reordering_but_not_time_regression (tests.test_scanner_source_archive.SourceArchiveTests.test_projection_accepts_provider_symbol_reordering_but_not_time_regression) ... ok
+test_unknown_date_and_missing_root_do_not_become_empty (tests.test_scanner_source_archive.SourceArchiveTests.test_unknown_date_and_missing_root_do_not_become_empty) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 2.597s
+
+OK
