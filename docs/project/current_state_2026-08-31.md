@@ -1,5 +1,20 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current work: scanner minute ordering repair and saved-prefix continuation
+
+The first minute capture stopped after 87 requests because a later page
+returned symbol `R` after `RUN`. All original bytes are preserved. The narrow
+v0.2 parser checks time order independently per symbol, while preserving the
+other original checks. Saved responses complete 86 roots / 653,465 bars; only
+604 remaining roots are registered for acquisition. Original code passed
+2,980 CI tests (73 optional skips). See `docs/research/scanner_minute_continuation.md`.
+
+September 16 continuation recovered the unpublished repair from the previous
+working tree and confirmed GitHub still held the exact `d8c9e76` parent.
+Both focused modes passed 23 tests, including original-byte prefix replay,
+and compilation passed. Publication starts the existing same-code-CI-gated
+continuation; its hosted outcome must be checked before accepting completion.
+
 ## Current work: batched full-membership scanner minutes
 
 September 15: `early-pullback-scanner-minutes-v0.1` implements the next source
@@ -8,7 +23,9 @@ capture on parent `51232cf6be74b3cea7a79d446a3c129d4dbe61f4`. It reuses all
 in 690 batches across the same 30 dates. Same-code CI, one-shot capture and
 automatic original-archive verification are wired together. See
 `docs/research/scanner_minutes.md` for bounds and the route into the existing
-discretionary shadow components. Hosted terminal results are still pending.
+discretionary shadow components. This original run failed on cross-symbol page
+ordering; the saved-prefix repair and continuation above supersede its pending
+status without changing the preserved original failure.
 
 ## Current checkpoint: bounded alias completion and scanner daily handoff
 

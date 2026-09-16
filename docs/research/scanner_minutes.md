@@ -56,3 +56,32 @@ candidate and RVOL work, bind point-in-time float and publication-timed news,
 then reconstruct scanner/Micro sources. Feed the causal leadership/news/chart
 packets into the existing discretionary shadow path. Rank capture alone is
 not a completed scanner, a financial result, or policy promotion.
+
+## Saved acquisition superset and remaining normalization check
+
+Offline reuse of the original daily archive applies the frozen split-consistent
+daily gain/range acquisition predicate to both existing profiles. The union is
+4,018 ticker/date cases (1,424 distinct symbols), at most one 250-symbol batch
+per date, versus 165,694 full-universe ticker/date cases. The sealed
+`saved-daily-acquisition-superset.json.gz` retains each selected case's source
+body hashes, prior split close, split target high, raw high/low and matching
+profiles. All 30 dates and source-member lineage are retained. Its content seal
+is `92c9616b3a9c88f24aece25d181e858faeb9b5c703e53e2b4695309f61cda4ac`.
+These full-day values are acquisition-only and must never enter runtime
+features, AI prompts, candidate priority or retrospective strategy tuning.
+
+Before actual scanner reconstruction, verify share-basis agreement between
+the saved daily capture and the newly acquired split minutes. Alpaca `asof`
+anchors symbol mapping; it does not freeze adjustment factors against later
+splits. Separate capture times therefore require a basis check. The new day
+reader supplies source frames without asserting that this remaining comparison
+has passed. Bundle the check with candidate daily/RVOL acquisition; preserve
+the saved previous closes and lineage even if explicit rebasing is required.
+
+The existing `context_assessment.py` explicitly names scanner v0.1 and its
+fingerprint. Integrate scanner v0.3 through an additive context contract/adapter;
+do not relabel v0.3 output as the old source or mutate historical shadow
+experiments. Reuse the existing causal attention, catalyst, daily-chart and
+theme builders, with absent evidence remaining explicit abstention. Discretion
+can be exercised in shadow mode before final account performance evaluation;
+trade/risk authority remains a separate decision.

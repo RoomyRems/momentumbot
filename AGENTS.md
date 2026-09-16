@@ -17,6 +17,7 @@ MomentumBot is a research-first, historically causal approximation of Ross Camer
 
 | Task | Open first | Source of truth |
 |---|---|---|
+| Scanner minute page-order repair and continuation | `docs/research/scanner_minute_continuation.md` | exact 87-response prefix, strict per-symbol timestamps, 604 remaining roots and combined original-source verification |
 | Full-membership scanner minute inputs | `docs/research/scanner_minutes.md` | 690 batched split-minute roots, complete dated rank population, original-byte replay and saved previous-close adapter |
 | Bounded remaining aliases and saved scanner daily inputs | `docs/research/alias_completion.md` | exact 17-root/35-view capture, reusable hosted gates, original-ZIP replay, immutable dated FIGIs and 165,694 reused previous closes |
 | Completed coverage, dated identity and alias-source handoff | `docs/research/identity_coverage.md` | original-source 30-date memberships, unchanged quarantines, action lineage, reused alias views and exact unarmed remaining queries |

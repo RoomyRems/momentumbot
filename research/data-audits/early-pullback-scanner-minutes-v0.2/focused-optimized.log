@@ -1,0 +1,28 @@
+test_cli_validates_with_hosted_import_path (tests.test_scanner_minutes.MinuteTests.test_cli_validates_with_hosted_import_path) ... ok
+test_cursor_progress_does_not_infer_omitted_symbol_empty (tests.test_scanner_minutes.MinuteTests.test_cursor_progress_does_not_infer_omitted_symbol_empty) ... ok
+test_exact_next_request_required (tests.test_scanner_minutes.MinuteTests.test_exact_next_request_required) ... ok
+test_failed_response_retained_once (tests.test_scanner_minutes.MinuteTests.test_failed_response_retained_once) ... ok
+test_full_source_plan_and_workflow_are_bound (tests.test_scanner_minutes.MinuteTests.test_full_source_plan_and_workflow_are_bound) ... ok
+test_http_failure_is_not_empty (tests.test_scanner_minutes.MinuteTests.test_http_failure_is_not_empty) ... ok
+test_inclusive_provider_cutoff_kept_as_bar_start (tests.test_scanner_minutes.MinuteTests.test_inclusive_provider_cutoff_kept_as_bar_start) ... ok
+test_invalid_rows_close_state_permanently (tests.test_scanner_minutes.MinuteTests.test_invalid_rows_close_state_permanently) ... ok
+test_membership_batches_include_every_symbol_and_keep_dst (tests.test_scanner_minutes.MinuteTests.test_membership_batches_include_every_symbol_and_keep_dst) ... ok
+test_missing_close_and_duplicate_members_fail (tests.test_scanner_minutes.MinuteTests.test_missing_close_and_duplicate_members_fail) ... ok
+test_multiple_minutes_same_day_are_valid (tests.test_scanner_minutes.MinuteTests.test_multiple_minutes_same_day_are_valid) ... ok
+test_nonterminal_empty_and_page_ceiling_fail (tests.test_scanner_minutes.MinuteTests.test_nonterminal_empty_and_page_ceiling_fail) ... ok
+test_preflight_failure_does_not_read_credentials (tests.test_scanner_minutes.MinuteTests.test_preflight_failure_does_not_read_credentials) ... ok
+test_repeated_cursor_and_cross_page_order_fail (tests.test_scanner_minutes.MinuteTests.test_repeated_cursor_and_cross_page_order_fail) ... ok
+test_synthetic_capture_original_archive_replay_and_tampering (tests.test_scanner_minutes.MinuteTests.test_synthetic_capture_original_archive_replay_and_tampering) ... ok
+test_terminal_empty_requires_success (tests.test_scanner_minutes.MinuteTests.test_terminal_empty_requires_success) ... ok
+test_capture_archive_roundtrip_with_symbol_page_reordering (tests.test_scanner_minute_continuation.ContinuationTests.test_capture_archive_roundtrip_with_symbol_page_reordering) ... ok
+test_empty_failure_cursor_and_page_limits_remain (tests.test_scanner_minute_continuation.ContinuationTests.test_empty_failure_cursor_and_page_limits_remain) ... ok
+test_mapped_symbol_can_arrive_on_later_page (tests.test_scanner_minute_continuation.ContinuationTests.test_mapped_symbol_can_arrive_on_later_page) ... ok
+test_original_failure_repaired_without_repeating_requests (tests.test_scanner_minute_continuation.ContinuationTests.test_original_failure_repaired_without_repeating_requests) ... ok
+test_remaining_contract_and_cli (tests.test_scanner_minute_continuation.ContinuationTests.test_remaining_contract_and_cli) ... ok
+test_schema_window_and_order_guards_remain (tests.test_scanner_minute_continuation.ContinuationTests.test_schema_window_and_order_guards_remain) ... ok
+test_symbol_time_cannot_regress_when_other_symbols_intervene (tests.test_scanner_minute_continuation.ContinuationTests.test_symbol_time_cannot_regress_when_other_symbols_intervene) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 14.614s
+
+OK
