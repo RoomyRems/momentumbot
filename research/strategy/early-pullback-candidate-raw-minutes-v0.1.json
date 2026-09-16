@@ -1,0 +1,681 @@
+{
+  "acquisition_filter_values_allowed_in_runtime": false,
+  "acquisition_superset_sha256": "92c9616b3a9c88f24aece25d181e858faeb9b5c703e53e2b4695309f61cda4ac",
+  "authorization": {
+    "estimated_incremental_api_cost_usd": "0.00",
+    "expires_at": "2026-09-22T00:00:00Z",
+    "metered_purchase_authorized": false,
+    "new_data_products_authorized": false,
+    "scope": "one raw 1Min SIP capture for the existing 4018 candidate symbol/date cases; same 30 dates, 04:00 through 10:00 ET; no subscription or product changes",
+    "starts_at": "2026-09-15T00:00:00Z",
+    "subscription_changes_authorized": false,
+    "user_message": "Great you may continue development; Continue"
+  },
+  "brokerage_orders_enabled": false,
+  "consumption_ref": "refs/tags/early-pullback-candidate-raw-minutes-v0.1-consumed",
+  "content_sha256": "3b58e379d9c16a9e34927a91d0682d7b6d74a3e4aa9c039868111c3bd5248a37",
+  "contract_id": "early-pullback-candidate-raw-minutes-v0.1",
+  "contract_path": "research/strategy/early-pullback-candidate-raw-minutes-v0.1.json",
+  "corporate_actions_are_runtime_news": false,
+  "credential_names": [
+    "ALPACA_API_KEY",
+    "ALPACA_API_SECRET"
+  ],
+  "daily_minute_share_basis_verified": false,
+  "discretionary_strategy_integrated": false,
+  "exact_same_time_rvol_complete": false,
+  "file_bindings": {
+    ".github/actions/source-runtime/action.yml": {
+      "bytes": 579,
+      "sha256": "79f1bcf8d79583b6d68ce443efec31cdb0a9db11d1ac7ea3303ee9849402ec44"
+    },
+    ".github/workflows/candidate-raw-minutes.yml": {
+      "bytes": 4232,
+      "sha256": "5a93ec25afe0d0ebd01fea47d5b6f02d05aa65162a099c513685017eb59a93a1"
+    },
+    ".github/workflows/ci.yml": {
+      "bytes": 426,
+      "sha256": "4f8ecbfd548b86e4bb66e81d1716de0e01abdf72cd6aa9ecade24ce03c329784"
+    },
+    "requirements-sealed-source-v04.txt": {
+      "bytes": 1507,
+      "sha256": "0a9cce71ad0e35defb000e4b0b1a210ed9c41e84c6eb113e8ac79c242a5b52f3"
+    },
+    "research/data-audits/early-pullback-scanner-minutes-v0.1/saved-daily-acquisition-superset.json.gz": {
+      "bytes": 241490,
+      "sha256": "1bfe5c5021e5bb65675922e5c51ede7610d0e5982bdd11c3568eb021b4501fab"
+    },
+    "scripts/hosted_scanner_source_cli.py": {
+      "bytes": 5210,
+      "sha256": "4e829af6a04d454468a619e2eedfc9b34ab37b5ea17481ef12a7516fdcb1e6e3"
+    },
+    "scripts/run_candidate_raw_minutes.py": {
+      "bytes": 472,
+      "sha256": "75d971e65252d6eb0d245dc770e0b0207fabecdd5709ab72aa63041cfb8a4573"
+    },
+    "src/momentumbot/research/candidate_raw_minutes.py": {
+      "bytes": 7209,
+      "sha256": "4ad2aad9f22607128b543da1f442f9811d5efd77acee95f596981b8135090a9e"
+    },
+    "src/momentumbot/research/minute_archive_verifier.py": {
+      "bytes": 5111,
+      "sha256": "b345e90dd5370cace0b719924ffafa9798667a09164f0311b48224681efed57b"
+    },
+    "tests/test_candidate_raw_minutes.py": {
+      "bytes": 6868,
+      "sha256": "00f91c1db69e2c98897deaf780da1fd4ffca47cd059b28ee7901ef0f773c04b8"
+    }
+  },
+  "financial_evaluation_enabled": false,
+  "historical_identity_resolved": false,
+  "historical_replay_enabled": false,
+  "historical_scanner_enabled": false,
+  "hosted_execution_authorized": false,
+  "identity_continuity_verified": false,
+  "incremental_spend_authorized_usd": "0.00",
+  "later_identity_evidence_changes_earlier_membership": false,
+  "limits": {
+    "maximum_attempts": 600,
+    "maximum_body_bytes": 16777216,
+    "maximum_duration_ns": 9000000000000,
+    "maximum_metadata_bytes": 80000000,
+    "maximum_pages_per_root": 20,
+    "maximum_payload_bytes": 1500000000,
+    "minimum_interval_ns": 350000000,
+    "redirects": 0,
+    "retries": 0
+  },
+  "market_coverage_verified": false,
+  "paid_capture_enabled": false,
+  "parent_commit": "73e91a22cd913469c50ce61e9bd14d4b554478cb",
+  "parent_registration_sha256": "3ce87b9d5201030a73aa3cec63282c69487d27bfc19b77b21884fc9a9ccaa874",
+  "policy_promotion_eligible": false,
+  "provider_calls_authorized_now": 0,
+  "provider_origin_authenticated": false,
+  "receipt_and_report_schema": "early-pullback-coverage-capture-v0.1",
+  "reference_identity_is_provisional": true,
+  "requests": [
+    {
+      "content_sha256": "38b687bac09737e8c189152a8d111e5ec2600fb4420c525ef33d0cdf81c73fae",
+      "membership_sha256": "7486602b35c00c5706eb2e0ebe1e0eaf29fd5b33a54e50d80baaba54af3b177d",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-03-04",
+        "end": "2026-03-04T15:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-03-04T09:00:00+00:00",
+        "symbols": "AARD,ABTS,ACEL,ACON,ADUR,ADVB,AENT,AGCC,AGH,AIDX,AIFF,AIRI,AMCI,ASPS,ASST,ATHE,ATHR,ATPC,AVAL,AVXL,BALY,BDMD,BFLY,BGIN,BGS,BITF,BKKT,BRCB,BTDR,BTGO,BTM,BTOG,BTQ,BW,CAMP,CANF,CCM,CD,CDIO,CGTL,CIFR,CLNN,CLOV,CLRB,CLRO,CMCM,CMTG,CNTX,COEP,CPSH,CRE,CRVO,CVU,CVV,CYRX,DAVA,DAWN,DBGI,DDC,DFDV,DFSC,DLXY,DSY,DTCX,DTIL,DUOT,EDBL,EDIT,EDSA,EIKN,ELVA,EMPD,EOLS,EOSE,EXOD,EXOZ,FATN,FBYD,FGNX,FLX,FOFO,FRMM,FTCI,FTK,FTW,FWDI,GASS,GCDT,GDC,GEMI,GLOO,GOAI,GOGO,GRDX,GRO,HBB,HIVE,HSDT,HTLM,HYPD,IBG,IMNN,INNV,INUV,INV,IOVA,JL,JXG,JYD,JZXN,KRKR,KULR,KYTX,LGCL,LUD,LVWR,MARA,MASS,MFI,MINE,MLEC,MOB,MRDN,MTC,NAUT,NCI,NCTY,NDLS,NEUP,NGEN,NMAX,NPCE,NPT,NRGV,NTHI,NUAI,OESX,OSCR,PASG,PCSA,PHGE,PHOE,PICS,PLUG,POAS,PPBT,PRLD,PROK,PURR,QUIK,QVCGA,RILY,RIOT,RSVR,RYAM,RZLT,RZLV,SABR,SAIH,SATL,SBET,SHAZ,SHMD,SOC,SORN,SPRC,SSP,STEM,STKE,STTK,STVN,SWIM,SYPR,TAOX,TE,THRY,TLS,TONX,TRNR,TRT,TRVI,TTEC,URGN,VALN,VCIG,VIR,VTIX,WHLR,WYFI,XBP,XGN,XPOF,XTIA,XXI,YDDL,ZIP,ZLAB,ZSTK",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-03-04",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "a4579c8af54d69a6210d9afad81e0fbd58ea2cd0d9998663c4a2c98bc562d2e8",
+      "membership_sha256": "bdb0eccc60488f2639171e80d099523ac977675407b0aeeca4910b3fdb292dde",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-03-05",
+        "end": "2026-03-05T15:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-03-05T09:00:00+00:00",
+        "symbols": "ABTS,ACCL,AEHL,AESI,AEYE,AFCG,AGIG,AIRS,ALAR,ALTO,AMPX,ANL,ANNA,ANTX,ATCX,ATHR,BATL,BVC,BVS,BW,CAMP,CCRN,CHAI,CHSN,CLIK,DSP,DSY,DTCX,EBON,EDHL,EFOI,EKSO,EMAT,EOLS,EXOZ,FTW,GEMI,GGR,GLXG,GTE,GXAI,GYRE,INDO,ISPR,IXHL,JL,KLXE,LAW,LXU,MARPS,MB,MFI,MLGO,MOVE,MRBK,MRDN,MSGM,MTEK,MVO,MX,MXC,NAGE,NBP,NCI,NEXN,NOMA,NPT,NTRP,NVNO,OABI,OOMA,PCLA,PDYN,PHGE,PLBL,PMAX,PMTS,PRAA,PRLD,PSHG,QURE,RBNE,RDAC,SAIL,SEV,SKIL,SLE,SMJF,SOC,SPHL,SPIR,STEM,STRZ,THRY,TMDE,TNGX,TPET,TRT,TTEC,TURB,TZOO,VG,VHC,VRM,VSTM,WHWK,WKEY,WSHP,XCUR,ZIP,ZJK",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-03-05",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "fe880606a83d1590c11e3da9d1088817b9fd4ca82dae445ead8cb4b3de32e2ed",
+      "membership_sha256": "fb65a4eac8b06f4a018e1533d9c90babd95d4e82030be0580fdb953c3f5dee45",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-03-06",
+        "end": "2026-03-06T15:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-03-06T09:00:00+00:00",
+        "symbols": "ACFN,ADVB,AGCC,AGIG,AIFF,AIRS,ALGS,ALTO,ALXO,AMPX,ANGH,ANNA,ANTX,ANY,ASPI,ASPS,ATPC,AVIR,BBOT,BDMD,BDSX,BTOG,BUDA,CDIO,CHSN,CLPT,CLRO,CNTX,COHN,CRE,DMRC,DTI,EDHL,EDSA,EFOI,EKSO,EMAT,EPSM,EVC,FBIO,FEED,FJET,FLL,FLNT,FTEL,FTW,GANX,GEVO,GGR,GITS,GOAI,GRO,GTE,HUHU,IBG,IMMX,IMPP,INDO,INTJ,IOVA,ISPR,JZXN,LION,LUNG,MARPS,MCRP,MENS,MKTW,MSGM,MVO,MXC,NCI,NCNA,NEOV,NPT,ODYS,ONDS,ONEG,OPTX,PARK,PHGE,PLAG,PRE,PRSO,PTLE,QCLS,QURE,RCAT,REPL,RKDA,ROC,ROLR,ROMA,SDA,SEAT,SEV,SLDB,SLN,SOC,SPAI,SSTI,STRZ,STTK,SWBI,SYNX,THCH,TMDE,TPET,TRT,TURB,TVGN,UAMY,UMAC,VELO,VHC,VHUB,WAI,WATT,WHWK,WTI,XTIA,ZIP,ZJK",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-03-06",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "0ceaec4c539230680187a6f1c0d8a603ae517957888a382b01239547f54e37a4",
+      "membership_sha256": "aa004287b40385a4d1b048ca6b53185d25c800c5093d4e5b58262fd706d72655",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-03-09",
+        "end": "2026-03-09T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-03-09T08:00:00+00:00",
+        "symbols": "ACRS,ACXP,ADTX,ADVB,AGCC,AGH,AGPU,ALDX,ALEC,ALZN,AMCI,ANTX,AP,APYX,ARBB,ARTW,ASTI,ATAI,ATCX,ATHR,ATLN,ATRA,BATL,BETA,BHAT,BHVN,BIRD,BMRA,BNC,BNTC,BTBD,BTOG,CAMP,CBUS,CCCC,CITR,CLPT,CRBP,CRVO,CTW,DCOY,DDC,DDD,DOMH,DTCK,DTCX,DWSN,DYN,EDBL,EDIT,EDSA,EEIQ,EGG,ELDN,EPSM,EQ,ESPR,FCUV,FOFO,FRSX,FTCI,GALT,GEOS,GEVO,GSIW,GTE,HIT,HYPD,IMMX,IPSC,IQST,ISPR,IXHL,JFB,KALV,KC,KRKR,KRRO,KYNB,LONA,LRHC,LRMR,LSTA,LTRX,LXEO,MARPS,MBAI,MLCI,NCEL,NCTY,NERV,NRT,NTSK,OKUR,OLOX,ONEG,OPTX,OTH,OVID,PCLA,PFAI,PHGE,PIII,PLUR,PLX,PLYX,POCI,PRE,PROP,PURR,QTTB,QURE,RCKT,RDW,REBN,REED,REPL,RGC,RGNX,RJET,RKDA,RLMD,RNAC,ROMA,SEV,SGHT,SLDB,SLS,SLXN,SMTI,SPHL,SSII,TAOX,TENX,TMDE,TPET,TSSI,TURB,TVGN,TYGO,UMAC,VNDA,VRCA,VTIX,WCT,WHWK,WTI,XFOR,XTIA,XXI,YDDL",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-03-09",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "62d97a6e0f374029d4f2b1bbb7a59ae8db7c6c5297ba1199995eb8cf8f34fd37",
+      "membership_sha256": "7e69768fc5a21e8bdb5372b38bff2b04a424a81d9392d49280de48035de6c06c",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-03-10",
+        "end": "2026-03-10T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-03-10T08:00:00+00:00",
+        "symbols": "ABOS,ACFN,ACRS,ACXP,ADAG,ADCT,AEC,AEVA,AGCC,AGEN,AHG,AIFF,AIFU,ALEC,ALM,ALOY,AMST,ANNX,APYX,ARTL,ASPI,ATCX,ATLX,ATOM,ATPC,AVR,BAFN,BATL,BIRD,BIYA,BMM,BOF,BTGO,BUUU,CATX,CBIO,CBUS,CEPU,CHNR,CING,CITR,CLRB,CLYM,CMT,CNSP,CNTB,CODA,CRML,CRVO,CTW,CVV,DFDV,DTIL,DWSN,DWTX,DYN,EDIT,EEIQ,ELAB,ELTX,EPSM,EVAX,FCUV,FEAM,FGI,FTCI,GEMI,GEOS,GITS,GOCO,GRDX,GRI,IBG,INKT,INVE,IONR,IRD,IXHL,KIDZ,KSS,KVHI,KYTX,LFMD,LFS,LITM,LIVE,LPCN,LVLU,MGNX,MIND,MKDW,MLEC,MLGO,MRCC,MSLE,MYGN,NCI,NEOV,NIO,NRC,NRXS,NSRX,NUCL,NXTT,OBAI,OCC,OKUR,ONEG,OPTX,OVID,PCLA,PDC,PEPG,PIII,PLAG,PLSM,PLYX,PRLD,PTRN,QTTB,QUIK,QVCGA,RCAT,RDAC,REED,RERE,RFIL,RIVN,ROLR,ROMA,RPAY,RXT,SABS,SAIH,SAVA,SBLX,SDOT,SEV,SHAZ,SHLS,SHMD,SKBL,SNT,SOS,SPRU,SSSS,SSTI,STGW,SVRE,TAOX,TBMC,TDOC,TE,TENX,TKNO,TMDE,TONX,TOPS,TOYO,TROO,TRT,TSSI,TTEC,UAMY,UEC,ULBI,UMAC,USAR,USGO,VALN,VELO,VNDA,VNET,VTAK,VYGR,WATT,WIMI,WIT,WRD,WTO,XBIO,XFOR,XGN,XTIA,YHGJ,ZJK,ZNTL,ZVRA",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-03-10",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "1cd607cce302a0eed604de80643e5d17743d5cfa4cf514847f6edfedf5c31072",
+      "membership_sha256": "09fd0e9a143e153660f4658412417f23302ab1bc8a18fe8b3129cc4d727b6c1b",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-03-12",
+        "end": "2026-03-12T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-03-12T08:00:00+00:00",
+        "symbols": "ACDC,AGH,AMTX,ANGH,ANNA,ANTX,APUS,ARQ,ARTW,ASIX,ASPN,ATLN,ATOS,ATPC,ATRA,AXIL,BIYA,BLDP,BLIV,BMBL,BUUU,CAST,CCLD,CDXS,CHSN,CING,CITR,CLRB,CLRO,CVGI,CYN,DBGI,DDC,DMRC,DSP,DTCK,DTIL,DWTX,EDBL,EDHL,EEIQ,EH,ELWT,EMAT,ENGN,EQ,EVAX,FATN,FBYD,FLNT,FOFO,FOSL,FUFU,GALT,GCDT,GITS,GLXG,GRCE,GTE,HIMX,HUN,IBG,INDO,INV,KOS,KPLT,KVHI,LANV,LCUT,LONA,LWLG,LXU,MCRP,MLEC,MVO,MXC,NCI,OCC,ODD,ONDS,PCLA,PEW,PLAG,PLBL,PLRZ,POET,POLA,PROP,PUMP,QNTM,QTTB,RBNE,RDNW,REED,ROMA,SABS,SAGT,SDOT,SIDU,SLN,SLNG,SNBR,SNES,SPRC,SXTP,TLYS,TMDE,TPET,TRAW,TTGT,TURB,UGRO,UMAC,UONEK,VELO,VRA,WOOF,WTI,XNET",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-03-12",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "6dc06c778c739afbbf7e2a9e1a7a0d3a02aa5039686048a58c37b1a0caddf9f5",
+      "membership_sha256": "d525a16cee611afc550c198b6caeb27258d554259f21fc25405d6107a2db33cf",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-03-13",
+        "end": "2026-03-13T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-03-13T08:00:00+00:00",
+        "symbols": "ADAG,AEMD,AEYE,AGCC,AHG,AIFF,ALLO,AMPY,AMTX,AMWL,ANNA,ASST,ATGL,AZ,BBBY,BDMD,BIAF,BTDR,BUDA,CCLD,CHSN,CIFR,CLNN,CNTX,CODX,CTEV,CTW,CVGI,CYN,DCX,DFDV,DFLI,DNA,DSY,EDHL,EEIQ,EFOI,EGG,ELAB,ELPW,ELTX,EQ,EVAX,FJET,FLX,FRMM,FTK,GCDT,GSIT,GSIW,HFFG,HIMX,HSDT,IBIO,IBRX,IMDX,INVE,IXHL,JYNT,KIDZ,KLAR,KLXE,KODK,KRRO,KYIV,LNZA,LOCO,LPRO,LUD,LVWR,MARA,MCRP,MGN,MOVE,NP,NPT,NRXS,NSRX,NUAI,NUCL,NXTT,OCGN,OTH,OTLY,PAYP,PCSA,PED,PEW,PLYX,QTTB,QVCGA,RAIN,RDGT,REBN,REED,ROC,SAIH,SDHC,SEAT,SHAZ,SHIM,SLS,SONM,SST,STI,STSS,SVCO,TAOX,TISI,TLYS,TOI,TONX,TOPS,TTEC,TVGN,UEIC,UPC,VGAS,VVPR,WEST,WOOF,WTO,XBIO,XNET,YHGJ,ZSTK",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-03-13",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "136ffb0f67152cdd497f18e05b8e11eb20a381b611621a36d1378c8c5b2fb818",
+      "membership_sha256": "186084d46beaed55f60ad23a110700051998f20f5c8913f15c3aaa31952e4201",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-03-18",
+        "end": "2026-03-18T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-03-18T08:00:00+00:00",
+        "symbols": "AGH,AGRO,AIB,AIM,AIRS,ALDX,ANNA,ANPA,ARTL,ASRT,ATPC,BAFN,BATL,BLIV,CHCI,CNCK,CTW,EBON,EVTV,FGL,FOXX,GCDT,HIT,HSPT,HUHU,HUYA,ISPR,JVA,KC,KLC,KOS,KSCP,LCUT,LIDR,LIVE,LNKS,LONA,LPA,MOB,MOLN,MRLN,MVO,MXC,NEXT,NN,NRGV,NUCL,OCC,OEC,ONEG,OSS,OTH,OVID,PDYN,PERF,QCLS,QNC,SBDS,SDHC,SEV,SKYQ,SNBR,SUPX,SVCO,TACT,TLYS,TMDE,TURB,TYGO,VACH,VG,VIVO,VTIX,VWAV,YHGJ",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-03-18",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "808616d48948031868a60162146c98a0e3488b5d3fba0b928000a010bee5e952",
+      "membership_sha256": "0db2a70949e2136ee4fe691ffc2147355c946a92e334fbc551726dae5e1dc456",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-03-19",
+        "end": "2026-03-19T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-03-19T08:00:00+00:00",
+        "symbols": "ACXP,ALDX,AMCI,ANNA,AREN,BATL,BBGI,BIAF,BRAG,BW,CAL,CAMP,CAST,CCRN,CDIO,CHNR,CIGL,CITR,CLRO,CMTL,CNTB,CODX,CTMX,CV,DLO,DLTH,DOMO,DXST,ELA,EMAT,ERAS,EVTV,FDMT,FLX,GCDT,GOAI,HBIO,HIND,HIT,ILAG,IPSC,JFB,KLC,KOS,LCUT,LE,LIDR,LITB,LNZA,LONA,METC,METCB,MSLE,NEXT,NOMA,NRT,NUCL,OCC,OIO,OKUR,PAYP,PCT,PHOE,PRLD,QTTB,RDAC,RDGT,RIVN,SATL,SER,SEV,SIF,SLNG,SMX,SPIR,SUNE,TGEN,TNXP,TPCS,TWO,UONE,VET,VG,VRM,WATT,XCUR,YDDL",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-03-19",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "fc8f738911ad925b1f78ed87a0a54816b47c9ce19dac86d412a6c46cacdd8e02",
+      "membership_sha256": "0aa508a628ce70f7fd723003895578390bca4221b3c9237224b4294d9862587d",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-03-25",
+        "end": "2026-03-25T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-03-25T08:00:00+00:00",
+        "symbols": "ACCS,ADAG,AEMD,AGMB,AIHS,AIP,AIRS,ALM,AMTX,ANNX,ARMP,ARQ,ASRT,ATHR,ATOS,ATPC,AZI,BAND,BBGI,BDMD,BIAF,BLNE,BOF,BTBD,BTOG,BUUU,BVC,BZAI,BZUN,CAMP,CAST,CBIO,CCCC,CD,CGNT,CHNR,CHSN,CIFR,CLIK,CMBM,CMPS,CNF,CNSP,CNTB,COE,COEP,CRVS,CSIQ,CTNM,CTW,CVRX,CVV,DOMH,DTCX,DWSN,ECOR,EDHL,EEIQ,ELE,ENVX,ERAS,EUDA,EVEX,FBYD,FCUV,FDMT,FEED,FLL,FLYE,FNUC,GITS,GMTL,GRCE,GTN.A,HCTI,HSDT,HSLV,HYPD,IBRX,ILAG,IMDX,INDI,INFQ,INVE,IOTR,ISOU,IXHL,JBLU,KIDZ,KOPN,KRKR,KSCP,LIQT,LIVE,LIXT,LODE,LUD,LUNR,LWLG,MBRX,MCRB,MESO,MGN,MGNX,MKDW,MKTW,MNTS,MOVE,MRLN,MSC,NAAS,NAII,NDRA,NIVF,NRIX,NRXP,NRXS,NSRX,NUCL,NXTT,OCC,ONCO,ONEG,OPRX,OPTX,PASG,PAYS,PROF,PTRN,QMCO,QNRX,QNTM,QURE,RBNE,RCKT,RDW,RLMD,ROMA,RPAY,RVYL,RYM,RZLT,SATL,SBDS,SER,SHMD,SIDU,SILC,SKIL,SMMT,SOGP,SPAI,SPCE,SPIR,SPPL,SQFT,SRPT,STEM,STI,SUPX,TAOX,TGEN,TNGX,TOI,TRON,TRVI,TSHA,TSSI,UGRO,ULH,UONE,UPB,VACH,VBIX,VIVO,VWAV,WATT,WFCF,WOLF,WSHP,WTF,XTLB,YI,ZGM",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-03-25",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "3b98fd59b26ec73a17c585303f2b7a82ed2b543706de495330ed3a32a489e1df",
+      "membership_sha256": "fe0a3021ae8759dacd3e98945ae1a13ec5a7b362d2b7fd334f825beadf0b8762",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-03-30",
+        "end": "2026-03-30T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-03-30T08:00:00+00:00",
+        "symbols": "ACXP,AGRO,AKTS,ALTI,ANGH,ANNA,ARTV,ASTC,ATHE,ATLX,ATPC,AVD,BBGI,BBWI,BCTX,BESS,BFRG,BGIN,BNKK,BODI,BTTC,BVC,BZUN,CBIO,CBUS,CDT,CLNN,CODI,DCOY,EBON,EEIQ,EJH,ELAB,FBYD,FGI,GEVO,GITS,GLND,GOAI,GURE,HERE,HOLO,HPK,HSCS,HTCO,HUHU,ICU,IDN,INSE,IONR,JCSE,JFBR,JFU,KOPN,KZR,LCUT,LIFE,MKDW,MMLP,MNTS,NDRA,NOMA,NPT,NTRP,NXTT,OTH,PAVM,PCLA,PCSA,PLAG,PLYX,POLA,PPHC,PRFX,PTLE,QNTM,QVCGA,RBNE,RDIB,RZLV,SAGT,SAIH,SBDS,SEAT,SGML,SKIL,SLND,SONM,SQFT,SST,SVRN,SXTC,TAOX,TBI,TGEN,TRON,TSSI,TURB,UGRO,VATE,VELO,VFS,VNCE,VRCA,XYF,ZDAI",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-03-30",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "dcc5f2937621f4a3f58e0fd510d6dafb4335f97f6f6cdaa1d916a85484e7932a",
+      "membership_sha256": "75ff21f1887129034b8a23b54fc8aea772da057c780dca343dbd8d8616f6e427",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-04-02",
+        "end": "2026-04-02T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-04-02T08:00:00+00:00",
+        "symbols": "ADV,AESI,AGL,AGPU,AIRS,AMBO,ANGH,ANL,ANNA,ANTA,ASTI,ATPC,AURE,BATL,BENF,CABA,CAST,CHA,CITR,CNTB,CNTX,COCP,CRE,CRVO,CV,DDC,DMRC,DPRO,DTCX,EDSA,EEIQ,FC,FJET,FOFO,GEOS,GLBS,GLOO,GOAI,GRO,GURE,GVH,HPK,HQ,HTCO,ICU,ILAG,IMDX,INFQ,IOTR,JFU,JLHL,KELYB,KODK,KOS,KRRO,LNZA,LODE,LONA,LTRN,LUD,LUNR,LWLG,MBAI,MENS,MGRT,MLEC,MRLN,MSC,NCT,NEXR,NEXT,NPT,NTRP,NVNI,NYXH,OPTX,ORIC,OTH,PCSA,PENG,PHGE,POET,QMCO,QNRX,QTRX,RBNE,REED,REPL,RLAY,ROMA,SAIH,SATL,SCLX,SGML,SIDU,SIF,SKYQ,SOGP,SPIR,STAK,SVRE,SVRN,TKLF,TMDE,TORO,TOYO,TRON,TURB,UMAC,UPC,USAR,VACH,VATE,VELO,VFS,VHC,VOR,VRM,WBX,WTF,WTI,XHLD,XNDU,ZENA",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-04-02",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "594a8c98e58025691614f6a6832cc4b9a93d4d7a600ce75589349b12bf31be75",
+      "membership_sha256": "c12d7503ab9e88dada5d46cb5d66cef5c2773791df321cccee320ff4e2636693",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-04-06",
+        "end": "2026-04-06T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-04-06T08:00:00+00:00",
+        "symbols": "ADAG,AGEN,AGL,AGMB,AGPU,AIB,AIDX,AIRJ,ALM,AMPX,ANL,ANVS,ARMP,ARTV,ATCX,ATHR,ATXG,AZ,AZI,BALY,BDMD,BENF,BESS,BNKK,BOLT,BTBD,BTDR,BTM,BTOG,BUR,BVC,BW,CD,CELZ,CHSN,CLIR,CLNN,CODI,CPSH,CVGI,CVM,DCOY,DFLI,DMRC,DSGN,DSWL,DWTX,EEIQ,ENVX,EXOZ,FBYD,FCHL,FCUV,FOFO,FUBO,FUFU,GGR,GITS,GMTL,GNLX,HBIO,HIMX,HKIT,HSDT,HTCR,ICU,INDP,INKT,INTT,IOTR,JLHL,KLC,KLXE,KPTI,KRRO,LCFY,LCUT,LEE,LESL,LNKS,LWLG,LZM,LZMH,MFI,MGRT,MIGI,MLEC,MNTS,MODD,NPT,NTRP,NXTT,ODD,ODYS,ONEG,OPTX,ORGN,OVID,PASG,PCSA,PFAI,PFSA,PLTK,PLUG,PRFX,PRLD,PTLE,QCLS,QMCO,QVCGA,REBN,RENX,RMCO,SBLX,SEAT,SERA,SIDU,SKBL,SKK,SKYQ,SLS,SMX,SPAI,SPCE,SST,SVRN,SXTC,SXTP,TDUP,TENX,TGL,TOYO,TRT,TTGT,TVGN,TXMD,UGRO,VACH,VMET,WAVE,WBUY,WCT,WSHP,WTI,XWEL,YDDL,ZBAI,ZIP",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-04-06",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "c5617a443021838f026e1c02e04868e55a743b045c58bb9a98b52f0d8a2cdcfe",
+      "membership_sha256": "3f1f8a93d56d55cfcfa4cd92faebe70a07ab1b63ccd721788c0bc51c3ed7622b",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-04-10",
+        "end": "2026-04-10T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-04-10T08:00:00+00:00",
+        "symbols": "AGMB,AIXI,ALMU,ALOY,AREC,ASST,ATCX,ATHR,ATOM,BBGI,BENF,BOLT,CIGL,COHN,CRML,CTW,CURR,DCX,EBON,EKSO,EMAT,ENVX,EXOZ,FATN,FBYD,FCUV,FGL,FLX,FUSE,GNLN,GPRK,GRI,GRNQ,HBNB,HKIT,HURA,HYPD,INDP,INTJ,IXHL,KXIN,KYIV,LNKS,LPTH,LWLG,MAXN,MFI,MGNX,MIGI,MKDW,MNTS,MRLN,MSC,MVO,MWG,NCEL,NOMA,OCC,OGN,OPTX,OTLY,PBM,PCLA,PHGE,PLCE,PLRZ,PLSM,POCI,POET,PRE,PRFX,PSTV,PURR,QNTM,RAVE,RBBN,RCEL,REPL,SATL,SIDU,SKIL,SKYQ,SLP,SMX,SONM,SPCE,SPHL,SPIR,SQFT,SST,SXTC,TE,TMCI,TMCR,TPST,TRON,UCAR,UGRO,UMAC,VACH,VTSI,WLAC,WYFI,XNDU,XRTX,YDES,ZJYL,ZNTL",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-04-10",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "a5b22f3493775c541d95b43b550db1f04acabd3660a42e9ce8a9d4789ea592e7",
+      "membership_sha256": "c06395b363f0b64cb42dff41b4d98ec6ef0647f51954b403471a5c4cfeeb6164",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-04-13",
+        "end": "2026-04-13T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-04-13T08:00:00+00:00",
+        "symbols": "ACXP,ADPT,AEC,AGL,AKAN,AKTX,ALLO,ALM,ALMU,ALOY,AMBO,AMBR,AMCI,AMPG,ANL,ANNA,ARMP,ASPI,ASPN,ASTC,ASTI,ASYS,ATHR,ATOM,ATRA,AVR,BATL,BBGI,BBNX,BBOT,BCAB,BCG,BHVN,BNR,BODI,BRZE,BTGO,BTM,BTOG,BTQ,BYRN,CARL,CCCC,CD,CDT,CLIK,CLLS,CLPT,CNSP,CNTN,CODA,CSHR,CVRX,DBGI,DCOY,DMRC,DOMO,EAF,EDHL,EDIT,EDSA,EGG,EIKN,ELPW,EOSE,EUDA,FATN,FLYE,FUFU,FUSE,GDEV,GEMI,GENB,GLOO,GNLN,GSIT,GURE,HBIO,HCAI,HHS,HIMS,HIND,HSPT,HURA,ICU,IMA,INDO,INV,IXHL,JAGU,JDZG,KEEL,KGEI,KPTI,LAR,LAW,LEG,LFMD,LICN,LONA,LPCN,LPTH,LTRN,LUD,LWLG,MAAS,MBAI,MENS,MIGI,MNTS,MOBX,MOVE,MRLN,MSLE,MTC,MVO,NCNA,NOK,NOMA,NTZ,NXPL,OPTX,ORGN,OSS,PALI,PAR,PASG,PAYS,PCLA,PHOE,PLBL,PLRZ,POCI,POET,PPSI,PRTC,PSTV,QDEL,QURE,RECT,REED,RENX,RMCO,RMIX,RMSG,ROLR,RVYL,RYDE,SAGT,SBLX,SEAT,SER,SERA,SEV,SGML,SIDU,SINT,SKIL,SKYQ,SPAI,SSII,SVRN,TAOX,TBI,TBRG,TE,TGEN,TMCI,TONX,TPCS,TPST,TSSI,TTEC,TURB,UAMY,UONE,VBIX,VELO,VIVO,VRCA,WSHP,WTF,WTI,XBP,XNDU,XTIA,YI,ZIP",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-04-13",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "eeff25755e95ae74bdb777f1219fb95301110c9a413b01a036d59f9d05970a16",
+      "membership_sha256": "89424ce91a3bfb0dc247f996b73d91ed284ef1b6e1268727e9d9730ac039da5b",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-04-14",
+        "end": "2026-04-14T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-04-14T08:00:00+00:00",
+        "symbols": "AARD,ACET,ACOG,ACTU,ADGM,ADXN,AGEN,AGPU,AHMA,AKTX,ANL,ARAI,ARBB,ARMP,ARQQ,ARTV,ARTW,ASPC,ASST,ASTI,AUUD,BBGI,BBNX,BLMN,BNR,BNTC,BOLD,BRR,BTDR,BTM,BTQ,BULL,CBIO,CCEL,CGNT,CHPT,CHSN,CLSK,CNTB,CRBU,CRE,CSHR,CYCN,DGXX,DNA,EBON,EDIT,EDRY,ELVA,ERAS,EVO,EXOD,FCEL,FCHL,FGNX,FJET,FRMM,FTCI,FUSE,GDC,GDEV,GLXG,GNLN,GRCE,GSIW,HHS,HIVE,HLF,HQ,HSPT,HTCR,HTLM,HURA,IMDX,IMSR,INBS,INDP,INFQ,INKT,IRWD,IVA,JBLU,JTAI,KDK,KEEL,KINS,KMRK,KXIN,KZIA,LAES,LGCL,LICN,LITB,MAAS,MAKO,MBAI,MFI,MGTX,MHH,MIGI,MINE,MLEC,MNTS,MOB,MODD,MOVE,MSC,MTC,NA,NGNE,NKLR,NRXP,NYXH,PCT,PDC,PHOE,PSTV,PTN,QBTS,QCLS,QMCO,QNRX,QTTB,QUBT,RANG,RCEL,REBN,RENT,RENX,REPL,RGTI,RMSG,RNAZ,ROLR,ROMA,SANA,SANG,SBET,SHIM,SIDU,SKK,SKLZ,SMR,SNAL,SOGP,SONM,SORA,SPHL,SRI,SUPX,SXTP,TNMG,TPCS,TTEC,UCAR,UTSI,VACH,VERI,VNCE,VTSI,WHWK,WKEY,WTF,XNDU",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-04-14",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "37554252a14a0fe840ff9f5c4627a6c91d9ae00f2572573766a7a54a1328c805",
+      "membership_sha256": "23a355c0f97c18c3106e86f1565b4a7f0c39354be902c7ef6eee6e0c5c7014b1",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-04-15",
+        "end": "2026-04-15T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-04-15T08:00:00+00:00",
+        "symbols": "AARD,ACET,ACTU,ACXP,ADCT,AESI,AI,ALAR,ALMU,AMWL,ANNX,APPS,ARQQ,ARRY,ARTV,ASAN,ASPI,ASTI,ATHR,AUR,BARK,BBNX,BENF,BESS,BIRD,BNRG,BTM,BTQ,BULL,BYRN,CIIT,CLIR,CRGO,CVV,CYCU,DOMO,DSP,EOSE,EQ,EVH,FGI,FGL,FIG,FLYX,FRMI,GANX,GENI,GLOO,GNLN,GRCE,GRDX,GRPN,HBIO,HBNB,HOUR,HQ,HSPT,HTCO,HTLM,INDP,IPSC,IPWR,IRWD,KDK,KMRK,KOPN,KULR,KZIA,LAES,LAW,LCUT,LEGN,LSF,LUD,LUMN,MAAS,MCRP,MKDW,MKZR,MNTS,MOBX,MRLN,NAAS,NB,NERV,NEXA,NICM,NKLR,NNBR,NRGV,NUAI,NUCL,NVCR,NXTT,OSG,OSS,OWL,PALI,PASG,PDC,PHOE,PLCE,PRLD,PSTV,PUBM,QBTS,QCLS,QUBT,QVCGA,RAIN,REPL,RGTI,SBLX,SCOR,SEV,SFIX,SGMT,SHIM,SKLZ,SKYQ,SLN,SLP,SMR,SMTI,SNBR,SOUN,SPHL,SQFT,SSP,SUPX,THRY,TSHA,TTEC,TVGN,TVRD,TWG,UAMY,UMAC,USAR,VBIX,VFF,VNCE,WATT,WAVE,WFF,WSHP,XBP,XELB,XHG,XNDU,XTIA,ZIP,ZSTK",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-04-15",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "ee793e4254cbc1f61db3de1490e8b53927003da24d06b49a9fe16fd4b9d3900b",
+      "membership_sha256": "c11b71f5b464f3e85567cda774a5c9cfd04deb0f7275e4b16f13415076b11704",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-04-16",
+        "end": "2026-04-16T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-04-16T08:00:00+00:00",
+        "symbols": "ACHV,ACTU,ADCT,AKTX,ALGS,ALLO,ALM,AMBR,ANL,ANTA,APPS,ARTV,ATAI,ATLX,ATXG,BATL,BB,BBGI,BCAB,BFLY,BTBD,BTM,BTOG,BZUN,CLVT,CMPS,CMPX,CNF,CSPI,CTMX,CYAB,DAO,DARE,DFDV,EEIQ,ELDN,ENVB,EVTL,EXOZ,FBYD,FGI,FJET,FNKO,FRMI,FRMM,GLND,GLOO,GLXG,GNLN,GRDX,GROW,GRPN,GURE,GVH,HIMX,HQ,ICMB,INDI,INDP,INKT,JAGU,JBIO,JFIN,JLHL,JMIA,JYD,KDK,KLRS,KMRK,LAR,LTRN,MAMO,MARA,MMLP,MNTS,MOVE,MRLN,MSLE,MTEX,MYSE,NAAS,NEXA,NKTX,NMG,NN,NUCL,NVTS,NXTT,ONFO,PBM,PCSA,PDC,PLUR,PN,RDGT,RDW,RECT,RENT,RFIL,RMSG,ROLR,RUM,SGML,SIDU,SKIL,SLDP,SOC,SPRC,SST,SVRE,SYPR,TLNC,TPST,ULCC,UONE,USAS,VATE,VBIX,VWAV,WHWK,WNW,WSHP,XBP,XRTX,YRD,ZSTK",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-04-16",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "3b35c3b9d70327bbddb33a1b79e13d69f21d9ff90328bc8ee194ccdf389d4a6c",
+      "membership_sha256": "afaa96c2473b65d6dd044a7249e61616386fa223666aa3ba64e27ef95ead37d4",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-04-17",
+        "end": "2026-04-17T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-04-17T08:00:00+00:00",
+        "symbols": "ABAT,ABSI,ABTS,ACHV,AERO,AEVA,AGCC,AKTX,ALTG,ANGX,ANL,ANTX,ARTW,ASM,ASPI,ASST,ASTC,ATHE,ATLN,BBAI,BBBY,BBGI,BBWI,BHVN,BIOA,BIRD,BMEA,BNC,BNKK,BOBS,BODI,BOF,BRR,BTM,BYRN,BZAI,CADL,CBIO,CD,CIFR,CLPT,COMP,CRGO,CRML,CRMT,CRVS,CV,CVKD,CWH,DARE,DBI,DCOY,DFH,DGXX,DOMO,EBON,EDHL,EDRY,EDSA,EFOI,ELDN,ELTX,EVAX,EXOD,FAMI,FBYD,FGI,FLD,FLL,FLYX,FRMM,FSI,GALT,GDEV,GGR,GMTL,GNLN,GOAI,GRCE,GRDX,HCAI,HIVE,HLLY,HMY,HPP,HTZ,HYPD,ICG,ICU,IFRX,IHRT,ILAG,IMDX,IMSR,INBS,INDP,INFQ,INTJ,IPWR,JBLU,JCTC,JLHL,KMRK,KURA,LAKE,LESL,LION,LIXT,LONA,LSF,LUD,LVWR,LZM,LZMH,MAAS,MATH,MDBH,MFI,MIGI,MNTS,MODD,MSAI,MSLE,MTC,MYSE,NAMM,NDRA,NG,NICM,NKLR,NKTX,NNBR,NNOX,NPT,NTHI,NVA,OCUL,ODV,ONEW,OPRT,PAMT,PBM,PLBL,PMAX,PPBT,PPSI,PROK,REAL,RMSG,RNAC,ROLR,ROMA,RPAY,RRGB,SBLX,SCLX,SHMD,SKBL,SMR,SNBR,SNCY,SNWV,SPRC,STRZ,SUPX,SVRE,TAOX,TDUP,TGEN,TKNO,TMCR,TROO,TTEC,TVGN,UCAR,UGRO,ULCC,UMC,USAR,VACH,VENU,VIVO,VIVS,VNCE,VOR,WNW,WSHP,XELB,YDES,YQ,ZDAI,ZEPP",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-04-17",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "f18d046fb0e7eb57853977117e723c74bdd80fa1e84aef028dd3c96fe62b0fbf",
+      "membership_sha256": "840c67dc34837e62900fb3d45b1195e76e374340e32931619973509708f95af3",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-04-20",
+        "end": "2026-04-20T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-04-20T08:00:00+00:00",
+        "symbols": "AARD,ABSI,ACH,ACTU,AGPU,AIFF,AMCI,AMTX,ANNA,ARBK,ARMP,ARTL,ARTV,ASTC,ATAI,ATHE,ATOM,ATXG,AVD,BATL,BB,BCAB,BDRX,BEEP,BIRD,BNKK,BOLT,BTBD,BTM,CADL,CATX,CING,CMCT,CMND,CMPS,CODI,CVV,DFSC,DGXX,EBON,EDHL,EDSA,EHGO,ENVB,EOLS,ERAS,EUDA,FCEL,FGI,FLWS,FOFO,GHRS,GLXG,GRCE,GRRR,HBIO,HCAI,HPP,HQ,HTOO,HTZ,ICU,INBS,INTT,INV,JAGU,JLHL,JTAI,KMRK,KYTX,LFMD,LFWD,LGCL,LICN,LRHC,LTRN,LUD,LVLU,LVO,LVWR,LWLG,LZM,MAAS,MOBX,MVO,NEXR,NPT,NRXP,NSRX,NXTC,NXTS,ONDS,ORGN,OWLS,PBM,PCLA,PCSA,PDC,PLUG,PODC,POET,PRLD,PSTV,PTLE,QTTB,RAIN,RAY,RETO,RMSG,ROLR,ROMA,RUBI,RUM,RVYL,SANA,SDST,SEV,SGML,SIFY,SKIL,SKYQ,SLNH,SNBR,SNOA,SPPL,SPRC,SQNS,SST,STTK,SUPX,TGEN,TGL,TROO,TRUG,TVGN,UMAC,VBIX,VBNK,VHC,VMET,VNCE,VRA,VRM,VTIX,WAVE,WCT,WHLR,WIMI,WLDS,WTF,XXII,YDDL,YDES,YQ",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-04-20",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "054ec23d2ec0ea3a7f4344f359786baa5f63bccc90e38f3fdffd84eb012b8ac2",
+      "membership_sha256": "a1be0640d20e65ca13b9118bfa445b3a648a1ca275ca235a2cff0e51c4df4c1e",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-04-21",
+        "end": "2026-04-21T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-04-21T08:00:00+00:00",
+        "symbols": "AEVA,AIFF,ALMU,AMPX,ANNA,ARMP,ARTW,ASTC,ATOM,BATL,BMR,BODI,BRBI,BTM,CLIK,CLOV,CLYM,CNCK,CREX,CRVS,CVKD,DCBO,DNA,DNUT,EDBL,EDSA,EEIQ,EFOI,EGY,ELSE,EUDA,EVH,FCEL,FCUV,FGI,FJET,FRMM,FUSE,GLND,GRPN,GRRR,GVH,HCAI,IMDX,INDO,IPWR,JCTC,JFB,JLHL,JTAI,LAES,LCID,LESL,LICN,LIQT,LOCL,LRHC,LSTA,LVWR,METC,MOB,MOBX,NCEL,NMRA,NOMA,NRGV,NSRX,NVNO,NVTS,OBE,OCC,ODYS,OPEN,OPRX,PALI,PBI,PMAX,POAS,POET,PRLD,QCLS,QNTM,RPD,SATL,SJ,SKYQ,SLDP,SONM,SPRC,SVRE,TRAX,TTGT,TURB,TVGN,TYGO,UGRO,VACH,VELO,VERI,VFS,VTIX,WCT,WVVI,XRTX,ZBAI,ZIP,ZJK",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-04-21",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "f13704e9c498f36ca88c5d4d797f5e00d1168c38469bd0622c583001d8a4cec9",
+      "membership_sha256": "d3eb3b0e4c9bfe396482fbc8608449faf7019fd31ba3274a13a27c6079cc2dfd",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-04-23",
+        "end": "2026-04-23T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-04-23T08:00:00+00:00",
+        "symbols": "ADVB,AHG,AKAN,AMST,ANNA,ARBK,ASTI,ATHR,AUUD,BBGI,BWEN,CAST,CPIX,CSIQ,DCX,DWSN,EFOI,ENVB,EUDA,FTFT,FVCB,GLBS,GLND,INV,JLHL,JYD,KEEL,KLXE,KMRK,KOPN,KOSS,KUST,LESL,LFVN,LNKS,MAAS,MBLY,MNTS,MRLN,NA,NCEL,NCEW,NCT,NNBR,NOK,NSRX,NUCL,NXTS,OCC,ONEG,PAMT,PCLA,PENN,PLSM,PMAX,QS,RDCM,RDZN,REBN,REPL,RMIX,RYOJ,SGHT,SHIM,SHMD,SKLZ,SORA,SPRC,SST,STI,STVN,SUPX,TDIC,TLRY,TOUR,TRT,TZOO,VELO,VIVO,YQ,ZJYL,ZTG",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-04-23",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "b938ba7776cb3ff39850e497e82a1374081435261120690396121bf056d7f340",
+      "membership_sha256": "cd34454eb7de378c3b738ee3b3fb255a205059e7c15172561c274153f34a0b0e",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-04-24",
+        "end": "2026-04-24T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-04-24T08:00:00+00:00",
+        "symbols": "ACTU,ADXN,AGH,AIFF,AKAN,ALMU,ANTA,ASTC,ASYS,ATOM,BDSX,BNC,BOOM,CAST,CGEN,CHSN,CTEV,CTW,CVV,CYH,DFSC,DTCX,DWSN,EFOI,ELPW,ENVB,EOSE,FGI,FIEE,FLX,GOAI,GSIT,GVH,HIMX,HTCO,HUBC,IHRT,IMDX,INDI,INTT,INVE,IPWR,JAGU,KITT,KLXE,KOPN,LEDS,LGCL,LIDR,LOCL,LPTH,LRHC,LTRN,LVWR,LZM,MAAS,MIGI,MOBX,MOVE,MRAM,MSC,MX,NCT,NDLS,NPT,NRXS,NTHI,OGN,ONEG,OPTX,OSTX,PBM,PD,PDC,PLBL,PODC,POET,PPSI,PRLD,QNTM,QS,QUIK,RMAX,ROC,ROLR,ROMA,SHMD,SPRC,SQNS,SST,STI,SVCO,TDIC,THCH,TKLF,TRAK,TROO,TRT,TZOO,VACH,VATE,VIVO,VNCE,VTIX,WHLR,WIMI,WLAC,WTO,XRTX",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-04-24",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "ce4d574077240fa5018be587446119af9ec8867897b80200436aabc0979d6273",
+      "membership_sha256": "365b3c13eb676a2720641eae89a7111f6779407c52e115f0bc7f31b1ed898c46",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-04-27",
+        "end": "2026-04-27T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-04-27T08:00:00+00:00",
+        "symbols": "ABSI,AGEN,AGMB,AHG,AKAN,AMTX,ANTX,AREB,ARTV,ATHE,ATXG,BAFN,BGIN,BIOA,BRLS,BW,CAST,CCEL,CISS,CLF,CLIK,COUR,CRML,CTRM,CUE,CV,DCOY,DCX,DDI,DFSC,DWSN,DXR,EDSA,EFOR,EGG,ELAB,ELPW,ELWT,ENVB,EUDA,EVH,FBYD,FRMM,GLBS,GLND,GMTL,GNLN,GOAI,GRO,HELP,HOVR,HQ,HSDT,HTCO,HYPD,IHRT,IMUX,INDI,INV,INVE,JAGU,JVA,JWEL,JYD,KMRK,LAC,LAW,LFVN,LOCL,LSF,LVLU,LVO,MIGI,MLEC,MNTS,MOB,MRDN,MSW,NCT,NEPH,NEXR,NIVF,NPT,OCG,OGN,OMER,ONEG,PAPL,PLBL,PN,PRE,QNTM,QUIK,REPL,RMAX,RMIX,ROLR,ROMA,RPAY,RUM,RYOJ,RZLT,SCOR,SGMT,SHIM,SKIL,SKLZ,SLNG,SLS,SPRC,SST,STI,SUPX,TDIC,TENX,THRY,TORO,TPCS,TRAK,TRUG,UAMY,UCAR,UEC,VBIX,VS,VWAV,WBX,WSHP,WW,WYY,YAAS,YDDL,ZJK,ZSQR",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-04-27",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "05ebb416a2b47f1b94a37ea65bdea615c962a5056b19ec470b24f6115d197d4c",
+      "membership_sha256": "bc32bb31084f1ac1350837b1f9c4e44e4cab2dbc09d82d407befe5d63e65d244",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-04-28",
+        "end": "2026-04-28T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-04-28T08:00:00+00:00",
+        "symbols": "ACH,ACTU,AGCC,AIOS,AKAN,ARMP,ATER,ATLN,ATPC,BBAI,BBBY,BIAF,BIRD,BIYA,BLRX,BTBD,CMCT,CMPX,COUR,DDI,DRCT,DXR,EDSA,ENVB,FATN,FGBI,FGI,GNLN,GTN.A,IMDX,IOTR,IPST,JFU,JLHL,KOPN,KRKR,LABT,LAW,LIDR,LUD,MAAS,MB,MKDW,MLEC,MSGM,MSLE,MSW,NA,NEXR,NOMA,NXTS,OIO,ONEG,OPRA,PAMT,PHOE,PLAG,PLYX,POET,POLA,PPSI,QNTM,REAX,REBN,RMAX,SBLX,SEGG,SGMT,SKYQ,SNBR,SPCB,SVRE,SWVL,TDTH,TRAX,TROO,UCAR,UDMY,VHC,WAVE,WTF,WYY,ZTG",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-04-28",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "bcfb4de5fde1637053950bd940e66a4307b8254ee1d853616805f78328189d06",
+      "membership_sha256": "4510001f3a36df776963949c24487227a05e92591b517281a3747f71ba46d8e9",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-04-29",
+        "end": "2026-04-29T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-04-29T08:00:00+00:00",
+        "symbols": "AKAN,ANL,ARMP,ASPC,ATCX,ATLN,ATPC,ATXG,AXIL,BIYA,BLDP,BLRX,BRFH,BRLS,BTBD,CAST,CLVT,CVKD,CYCN,DSGN,EDSA,EEIQ,EUDA,EXTR,FATN,FCEL,FVRR,GNLN,GVH,HSPT,IPST,JLHL,KODK,LRHC,MAAS,MB,MIGI,MRDN,MSAI,MSC,NBP,NEO,NOK,PAPL,PLAG,PLUG,PPSI,PRCH,QNRX,RAYA,RDAC,REED,ROMA,RPGL,RYOJ,SAGT,SCLX,SKBL,SKYQ,SONM,SPHL,TEO,THCH,TRAX,TROO,UBXG,UCAR,UMC,VBIX,WTI,XTLB,ZSTK",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-04-29",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "a03a2c8af34aa9c8ecd158d3210118a5a3f69c53b98ac79e9b7e54b1a56c2138",
+      "membership_sha256": "f0cc135a76a94fdb88304bb2b2a3b36f95e66ebc168491f3c9b54fcd723b4de6",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-04-30",
+        "end": "2026-04-30T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-04-30T08:00:00+00:00",
+        "symbols": "ABAT,ABSI,ABTS,ACXP,ADAM,ADUR,AEVA,AIFF,AIOS,AKTX,ALM,ALMU,AMTX,AQMS,AREC,AREN,ARTV,ASIC,ATLX,ATOM,ATRA,AUR,BBGI,BCG,BDSX,BHC,BIYA,BKYI,BNC,BRAG,BRLS,BTCS,BTM,BWEN,CANF,CCCC,CING,CLSK,CRML,CTNT,CUE,CV,CVKD,CVRX,CWH,DARE,DDD,DFSC,DNA,DRTS,DRVN,EDSA,ELPW,EMAT,ERAS,EUDA,FABC,FATN,FF,FIP,FLYX,FMC,FOFO,GDC,GNLN,GRDX,GRNQ,GVH,HCAI,HLIT,HOVR,HSPT,HTCR,HTZ,HURA,IFRX,IHRT,INDI,INSG,INTT,IPST,IPWR,IRD,ISPC,IXHL,JFU,JTAI,KEEL,KOPN,KULR,KZIA,LAC,LAES,LCID,LICN,LSF,LTBR,LTRN,LUD,LWLG,LZM,MARA,MB,MCRP,MICC,MLEC,MNTS,MRAM,MRDN,MSAI,MSLE,MTC,NCEL,NCT,NEXR,NMRA,NRGV,NSRX,NTLA,NVA,NVCR,OCC,ONEG,OPTX,ORN,OWL,PACK,PAMT,PAPL,PBM,PN,PODC,PRLD,PSNL,PSTV,QBTS,QNRX,QUIK,QURE,RBBN,RDZN,REED,RFIL,RILY,RNAZ,RPGL,RUM,RVYL,RYOJ,SABS,SCLX,SDST,SINT,SKBL,SKIL,SKLZ,SLNH,SMR,SNBR,SOGP,SONM,SOTK,SPCB,SPIR,SVRE,TBI,TGEN,THRY,TKNO,TMCR,TMQ,TPST,TRAK,TROO,TRT,TYGO,UAMY,UCAR,UEC,UGRO,UK,UUUU,VELO,VISN,VITL,VIVK,VIVO,VLN,VTIX,VUZI,VWAV,WKHS,WNW,WTF,XRX,XTLB,ZBIO,ZENA",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-04-30",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "4c802a7aeda933221eeff5e620d518f65666fb72f1db3bff903b586968e7d310",
+      "membership_sha256": "f3a280243dd5cb6c1d170ff5fe0bf171d9ed2f152bd5f6523175e8593d816325",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-05-04",
+        "end": "2026-05-04T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-05-04T08:00:00+00:00",
+        "symbols": "ABEO,ABSI,ADVB,AGH,AKTX,AMPG,AMS,ANVS,APVO,ARBB,ARBK,AREN,ARKR,ARMP,ATOS,ATPC,AURA,AURE,BAFN,BAOS,BB,BCAB,BDSX,BEEP,BESS,BRAI,BTGO,BZAI,CABA,CADL,CANF,CCM,CD,CDIO,CERS,CGEM,CHNR,CLNN,CLRO,CNSP,CRE,CRGO,CRML,CRNC,CSHR,CTNM,CVKD,CXDO,DARE,DCX,DETX,DGXX,DOMH,DRCT,EAF,EEIQ,EGHT,ELPW,ESCA,EUDA,FABC,FCHL,FCUV,FGL,FIG,FLYX,GBTG,GDC,GDHG,GENB,GNLN,GRPN,HCAI,HOUR,HSPT,HTCO,HYPD,ILAG,IMDX,IMUX,INDP,INHD,INLF,IOVA,IPST,IPWR,JEM,JLHL,KMRK,KOPN,KSCP,LAES,LWLG,MDV,MNDR,MRDN,MSC,MSS,MTC,MXC,NA,NAUT,NCT,NIVF,NSYS,OCC,PACK,PHOE,PLAG,PLYX,PMAX,PN,PODC,PPSI,QUIK,RAYA,RDAC,RDZN,REPL,RLYB,RNAC,ROMA,RXT,SCLX,SKK,SSM,SYPR,TBCH,TMCR,TRDA,TRON,TRT,TRUG,TVGN,TVRD,UK,UONE,UXIN,VACH,VATE,VEEE,WAVE,WCT,WYFI,WYY,XRX,ZBIO,ZJK,ZJYL,ZSTK",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-05-04",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "19af8b6cf04ad9cf23fce81a2a28716845fb54181b92b13d176b6cd14d1b5992",
+      "membership_sha256": "2b35399fda7f92b7b2f1665e827ccd5c42fce3dc15ea8c54b127775051621138",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-05-08",
+        "end": "2026-05-08T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-05-08T08:00:00+00:00",
+        "symbols": "ACHV,AEHL,AGMB,AIRJ,AIRS,ALXO,AMBO,ANGI,ANGX,ANPA,ARLO,ASTI,ATLX,AVPT,BCAB,BDTX,BESS,BKKT,BNRG,BOLT,BTGO,BUUU,CALY,CCM,CD,CDXS,CLOV,CLPT,CODX,CPIX,CRSR,CSIQ,CTNT,CTW,DCH,DETX,DHX,DMRC,DOMH,EIKN,ELWT,ENHA,EOSE,EVAX,EVTV,FCEL,FJET,FLL,FLWS,FNKO,FOXF,FTCI,GCTS,GNLX,GPRE,GRDX,GRPN,HCHL,HIMX,HLLY,HOVR,IBRX,INO,INV,JAGX,JFU,JLHL,KFS,KMRK,KOPN,KPRX,KRKR,KZIA,LEDS,LICN,LIXT,LNSR,LOCO,LPA,LWLG,LXRX,MASK,MB,MIMI,MKTW,MNTS,MRDN,MRVI,MTEX,MVST,MX,NEPH,NEXM,NRGV,NVAX,NVCT,NVTS,OESX,OFRM,OLOX,OWLT,PLRZ,POET,PPSI,PROF,PRTA,PTLE,PYXS,QUIK,RDAC,RDNW,RDW,REPL,RKT,RMIX,RPGL,RUM,RXT,SABS,SATL,SHIM,SHLS,SHMD,SIDU,SIF,SKK,SKYQ,SLNH,SPCE,SPHL,SPIR,SPT,STFS,STRZ,TC,TE,TMCI,TONX,TRAW,TRAX,UGRO,VELO,VLN,VTIX,WALD,WEST,WFCF,WTF,WW,XRX,ZIP",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-05-08",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    },
+    {
+      "content_sha256": "615649bbe6937fc89a15c1d690d3dd4cb213fb93017ad33686d6890d75c7328f",
+      "membership_sha256": "58b5dbcff14f97b7f066d2124009d9cb5fb9a3e6f57bdf1d4a293b3bd6f9b8f2",
+      "method": "GET",
+      "params": {
+        "adjustment": "raw",
+        "asof": "2026-05-19",
+        "end": "2026-05-19T14:00:00+00:00",
+        "feed": "sip",
+        "limit": 10000,
+        "sort": "asc",
+        "start": "2026-05-19T08:00:00+00:00",
+        "symbols": "ADIL,AGCC,AIIR,AKTX,AMBO,AMBR,AMPG,AMST,APPS,ARMP,ATPC,BDTX,BEEP,BESS,BKKT,BLIV,BVC,CCC,CERS,CMBT,CNEY,CNF,CODX,COHN,CRMT,CRNT,CURR,DARE,DCOY,EDSA,EGG,ENHA,EZGO,FBYD,FGI,FRGT,GCTS,GGR,GO,HYPD,INFU,INM,ISPR,JDZG,JEM,KMRK,KRKR,LEDS,LICN,LIVE,LIXT,LPTH,MAAS,MBRX,MDBH,MENS,MIMI,MINE,MLP,MODD,MOVE,MTC,MTVA,NA,NCT,NEOV,NXPL,NYC,OPTX,PAR,PHOE,PIII,PLYX,PMAX,PURR,QNTM,RERE,RLAY,RLMD,RUBI,RXO,SKLZ,SKYQ,SLE,SMJF,SMWB,SMX,SUGP,SVRN,TDTH,TLSI,TVGN,UK,UP,VACH,VATE,VITL,VNRX,VUZI,WFCF,WNW,WTF,XBP,XELB,XGN,YYAI,ZSQR",
+        "timeframe": "1Min"
+      },
+      "provider": "alpaca",
+      "trading_date": "2026-05-19",
+      "url": "https://data.alpaca.markets/v2/stocks/bars"
+    }
+  ],
+  "runtime": {
+    "PyYAML": "6.0.3",
+    "machine": "x86_64",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "python": "3.12.14",
+    "system": "Linux"
+  },
+  "source_role": "raw candidate price and volume; never rank or split RVOL history",
+  "timestamp_semantics": "bar start; usable only at start plus one minute",
+  "transcript_records_read": false,
+  "workflow": ".github/workflows/candidate-raw-minutes.yml"
+}

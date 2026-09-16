@@ -1,0 +1,2 @@
+Before publication: initial CLI import lacked repository root for scripts.audit_historical_identity_continuity. Added explicit root and retained CLI validation regression.
+Initial focused run: 7 passed, 1 test error. Attempt-ceiling test incorrectly expected a return; inherited capture raises ValueError and writes failed report/inventory in finally. Corrected test to require the exception, zero transport calls and retained failed report. No provider requests.

@@ -1,5 +1,17 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current work: bounded candidate raw-minute capture
+
+September 16: scanner reader `73e91a2` passed full CI `35108918709`.
+The next additive capture derives 30 raw-minute batches from the unchanged
+4,018-case saved acquisition superset. Eight focused tests pass normally and
+optimized, including archive replay and safety boundaries; compilation passes.
+Publication starts exact-code CI and the existing one-use hosted capture /
+independent verifier. Hosted success is not yet claimed. The raw bars enable
+candidate price/volume inputs and paired basis diagnostics; full-population
+split-basis agreement, exact RVOL, float and news remain required.
+See `docs/research/candidate_raw_minutes.md`.
+
 ## Current work: accepted scanner capture and combined dated source reader
 
 September 16: continuation `35105447180` succeeded on `cefb30e3`, following
