@@ -1,5 +1,23 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current work: accepted RVOL source integration and exact-minute acquisition
+
+September 17: hosted integration `35169713629` succeeded on `b7494ec`.
+The full 3,778-case target-volume comparison found 3,770 exact matches and
+eight discrepancies, all retained. The unchanged conservative RVOL filter
+retains 2,103 cases for exact history, reducing downloads by 44.3% of cases.
+Seven source tests passed normally and optimized in the hosted environment.
+
+The next capture binds the original integration ZIP and report seal, requests
+1,500 prior-history batches (105,150 symbol/session observations), and adds
+eight target-minute refreshes for the unresolved NCT/JAGX comparisons. Each
+retained case has exactly fifty prior sessions. It reuses the same-code CI and
+single-use capture/verification lifecycle and existing subscription. The
+workspace recovered; five focused capture tests pass normally and optimized,
+and compilation passes. Parent CI passed 3,049 tests with 73 optional skips.
+Hosted exact-capture success remains pending.
+See `docs/research/candidate_rvol_exact.md`.
+
 ## Current work: accepted coarse RVOL integration and exact-minute preparation
 
 September 17: coarse capture 35164380485 and independent verification passed
