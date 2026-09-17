@@ -1,5 +1,25 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current work: candidate precision explanation and volume projection
+
+September 17: `de5ec099` passed CI `35164380438` (3,028 tests, 73 optional
+skips). RVOL capture `35164380485` passed its exact-code gate and is collecting
+the frozen 1,530 roots; acceptance is not yet claimed.
+
+The additive offline audit preserves the original cent-only result (155
+compatible, 20 off-grid) and a separate post-hoc observed-precision hypothesis
+(nearest 0.001 below $10, 0.01 otherwise). All 175 original price-residual
+cases are compatible with that hypothesis; the other 3,717 nonempty cases
+are exact and 126 remain empty. This is empirical explanation, not vendor
+specification, complete share-basis certification or runtime normalization.
+
+Pure coarse-volume projection and exact completed-bucket comparison helpers
+are ready for the accepted capture. Fourteen focused tests pass normally and
+optimized. No prices, strategy thresholds, risk or order authority changed.
+Next verify the original RVOL capture, compare overlapping target volumes,
+and prepare exact-minute history with unresolved cases retained explicitly.
+See `docs/research/candidate_price_rounding.md`.
+
 ## Current work: source comparison and bounded RVOL history
 
 September 16: `17f8561` passed CI `35163240503` (3,015 tests, 73 optional

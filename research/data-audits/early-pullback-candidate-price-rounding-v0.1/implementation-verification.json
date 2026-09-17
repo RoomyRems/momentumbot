@@ -1,0 +1,62 @@
+{
+  "acquisition_pruning_authorized": false,
+  "audit_files": {
+    "diagnostic.log": {
+      "bytes": 3435,
+      "sha256": "d126cb8ff9f0dc288a3f791e494a20c94514d7c9450381a6e014c0f0ca3eaeb3"
+    },
+    "focused-optimized.log": {
+      "bytes": 2504,
+      "sha256": "db7793cc83d71defa96007e4a3d571d65d10263ccef1746555e0a9d04d0549f6"
+    },
+    "focused.log": {
+      "bytes": 2504,
+      "sha256": "db7793cc83d71defa96007e4a3d571d65d10263ccef1746555e0a9d04d0549f6"
+    },
+    "observed-precision-diagnostic.json.gz": {
+      "bytes": 28847,
+      "sha256": "da7427ab3e687a0f3bff032e32e1eeeb9f43fa3f74ff7e4cedbfb91785eb8606"
+    },
+    "observed-precision.log": {
+      "bytes": 2998,
+      "sha256": "cb622701149e11ab274cec0a3a47e3d319c997b3b9011c20ff73d05d6cf1db63"
+    },
+    "rounding-diagnostic.json.gz": {
+      "bytes": 28634,
+      "sha256": "c7d25ef10988bd081675934c0fe1c36de00ba28cdbf182283c6677baef35960a"
+    }
+  },
+  "compilation_pass": true,
+  "content_sha256": "f8f7dabce90eb2d80f8e5550d7d6d4917117922072fdd898f387f89721a40625",
+  "file_bindings": {
+    "scripts/audit_candidate_price_rounding.py": {
+      "bytes": 3644,
+      "sha256": "5c7e157e13510ef0bf2b2ced6cde0baca162ac4391062411c5109c96abd1e752"
+    },
+    "src/momentumbot/research/candidate_price_rounding.py": {
+      "bytes": 3495,
+      "sha256": "6ad455e1416bd6aed440aee410056358c77dde6bc56d210f187c32735d627da2"
+    },
+    "src/momentumbot/research/candidate_volume_projection.py": {
+      "bytes": 5219,
+      "sha256": "68cd526b658bad8de88de9303e6dafe518903cfa36ea0b67f69e43402d0a40ab"
+    },
+    "tests/test_candidate_price_rounding.py": {
+      "bytes": 4152,
+      "sha256": "6df3339dea07e4ebd5917d19e8362904f493dc68ba2aa6605dab2c16001c8a41"
+    },
+    "tests/test_candidate_volume_projection.py": {
+      "bytes": 3821,
+      "sha256": "1d2c9b0c8be291327f1ca70f065a41f1322ce569efc7855529d1c34883369bea"
+    }
+  },
+  "focused_tests": 14,
+  "normal_pass": true,
+  "optimized_pass": true,
+  "parent_ci_run": 35164380438,
+  "parent_ci_skips": 73,
+  "parent_ci_tests": 3028,
+  "parent_commit": "de5ec099fc189114900fc545167ca79da271eb29",
+  "provider_requests": 0,
+  "runtime_normalization_authorized": false
+}
