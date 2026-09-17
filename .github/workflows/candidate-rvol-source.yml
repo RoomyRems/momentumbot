@@ -1,0 +1,48 @@
+name: Integrate accepted candidate RVOL sources
+on:
+  push:
+    branches: [phase-3-historical-snapshot]
+    paths:
+      - src/momentumbot/research/candidate_rvol_source.py
+      - scripts/audit_candidate_rvol_source.py
+      - scripts/fetch_candidate_rvol_sources.py
+      - tests/test_candidate_rvol_source.py
+      - .github/workflows/candidate-rvol-source.yml
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: early-pullback-candidate-rvol-source-v01
+  cancel-in-progress: false
+env:
+  PYTHONPATH: src:scripts
+  PYTHONDONTWRITEBYTECODE: "1"
+jobs:
+  integrate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/source-runtime
+      - name: Focused source and acquisition-boundary tests
+        run: |
+          mkdir source-output
+          python -m unittest tests.test_candidate_rvol_source -v > source-output/focused.log 2>&1
+          python -O -m unittest tests.test_candidate_rvol_source -v > source-output/focused-optimized.log 2>&1
+      - name: Fetch exact original artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/fetch_candidate_rvol_sources.py
+      - name: Project sources and prepare exact-minute requests offline
+        run: |
+          python -O scripts/audit_candidate_rvol_source.py --coarse-capture source-inputs/coarse.zip --raw-capture source-inputs/raw.zip --split-capture source-inputs/split.zip --output source-output/acquisition-diagnostic.json.gz > source-output/diagnostic.log 2>&1
+      - name: Preserve success or original failure
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: early-pullback-candidate-rvol-source-v0.1-${{ github.run_id }}
+          path: source-output
+          if-no-files-found: error
+          retention-days: 90

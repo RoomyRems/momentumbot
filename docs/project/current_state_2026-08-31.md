@@ -1,5 +1,25 @@
 # MomentumBot checkpoint — 2026-08-31
 
+## Current work: accepted coarse RVOL integration and exact-minute preparation
+
+September 17: coarse capture 35164380485 and independent verification passed
+(1,286,624 bars, 1,543 requests). Parent d6360a5 passed full CI 35165667435
+(3,042 tests, 73 optional skips).
+
+The new reader and offline audit project all fifty prior sessions, compare
+target 15Min volumes with saved split 1Min sums, retain every unresolved
+overlap case, and prepare exact-minute requests using the existing conservative
+completed-bucket RVOL rule. Exact rational arithmetic avoids boundary rounding;
+coarse values remain acquisition-only and no new provider capture is launched.
+
+The workspace disconnected during local verification. Four initial reader
+tests passed; the partial local all-date diagnostic is not a completed result.
+Remaining work moved to a read-only hosted source workflow with seven focused
+normal/optimized tests, byte-pinned existing artifact downloads and one complete
+offline projection. Its final report and full same-commit CI are pending at
+publication. Bind the accepted report seal before launching exact acquisition.
+See docs/research/candidate_rvol_source.md.
+
 ## Current work: candidate precision explanation and volume projection
 
 September 17: `de5ec099` passed CI `35164380438` (3,028 tests, 73 optional
