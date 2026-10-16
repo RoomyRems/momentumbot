@@ -154,6 +154,11 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `docs/agent-workflow/runs/icm-adoption-2026-10-16/04_handoff.md` | product | retained evidence or checkpoint |
 | `docs/agent-workflow/runs/icm-adoption-2026-10-16/CONTEXT.md` | contract | folder contract |
 | `docs/agent-workflow/runs/icm-adoption-2026-10-16/capture-terminal.json` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/rvol-basis-diagnostic-2026-10-16/01_scope.md` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/rvol-basis-diagnostic-2026-10-16/02_change.md` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/rvol-basis-diagnostic-2026-10-16/03_verification.md` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/rvol-basis-diagnostic-2026-10-16/04_handoff.md` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/rvol-basis-diagnostic-2026-10-16/CONTEXT.md` | contract | folder contract |
 | `docs/agent-workflow/status.md` | contract | development workflow specification |
 | `docs/architecture.md` | contract | explanatory specification |
 | `docs/map/AGENTS.md` | catalog | navigation, index or system-map card |
@@ -206,6 +211,7 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `docs/research/candidate_daily_history.md` | contract | research or strategy specification |
 | `docs/research/candidate_price_rounding.md` | contract | research or strategy specification |
 | `docs/research/candidate_raw_minutes.md` | contract | research or strategy specification |
+| `docs/research/candidate_rvol_basis_diagnostic.md` | contract | research or strategy specification |
 | `docs/research/candidate_rvol_coarse.md` | contract | research or strategy specification |
 | `docs/research/candidate_rvol_exact.md` | contract | research or strategy specification |
 | `docs/research/candidate_rvol_exact_source.md` | contract | research or strategy specification |
@@ -486,6 +492,11 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `research/data-audits/early-pullback-candidate-raw-minutes-v0.1/implementation-verification.json` | product | retained evidence or checkpoint |
 | `research/data-audits/early-pullback-candidate-raw-minutes-v0.1/original-consumption.zip` | product | retained evidence or checkpoint |
 | `research/data-audits/early-pullback-candidate-raw-minutes-v0.1/original-verification.zip` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-basis-diagnostic-v0.1/README.md` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-basis-diagnostic-v0.1/audit.log` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-basis-diagnostic-v0.1/diagnostic/basis-diagnostic.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-basis-diagnostic-v0.1/focused-optimized.log` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-basis-diagnostic-v0.1/focused.log` | product | retained evidence or checkpoint |
 | `research/data-audits/early-pullback-candidate-rvol-coarse-v0.1/focused-optimized.log` | product | retained evidence or checkpoint |
 | `research/data-audits/early-pullback-candidate-rvol-coarse-v0.1/focused.log` | product | retained evidence or checkpoint |
 | `research/data-audits/early-pullback-candidate-rvol-coarse-v0.1/implementation-verification.json` | product | retained evidence or checkpoint |
@@ -1321,6 +1332,7 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `scripts/audit_benchmark_symbol_candidates.py` | factory | implementation, verification or configuration |
 | `scripts/audit_candidate_price_basis.py` | factory | implementation, verification or configuration |
 | `scripts/audit_candidate_price_rounding.py` | factory | implementation, verification or configuration |
+| `scripts/audit_candidate_rvol_basis.py` | factory | implementation, verification or configuration |
 | `scripts/audit_candidate_rvol_exact_source.py` | factory | implementation, verification or configuration |
 | `scripts/audit_candidate_rvol_source.py` | factory | implementation, verification or configuration |
 | `scripts/audit_fmp_universe_capability.py` | factory | implementation, verification or configuration |
@@ -1598,6 +1610,7 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `src/momentumbot/research/candidate_daily_history.py` | factory | implementation, verification or configuration |
 | `src/momentumbot/research/candidate_price_rounding.py` | factory | implementation, verification or configuration |
 | `src/momentumbot/research/candidate_raw_minutes.py` | factory | implementation, verification or configuration |
+| `src/momentumbot/research/candidate_rvol_basis_diagnostic.py` | factory | implementation, verification or configuration |
 | `src/momentumbot/research/candidate_rvol_coarse.py` | factory | implementation, verification or configuration |
 | `src/momentumbot/research/candidate_rvol_exact.py` | factory | implementation, verification or configuration |
 | `src/momentumbot/research/candidate_rvol_exact_source.py` | factory | implementation, verification or configuration |
@@ -1820,6 +1833,8 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `tests/test_candidate_daily_history.py` | factory | implementation, verification or configuration |
 | `tests/test_candidate_price_rounding.py` | factory | implementation, verification or configuration |
 | `tests/test_candidate_raw_minutes.py` | factory | implementation, verification or configuration |
+| `tests/test_candidate_rvol_basis_diagnostic.py` | factory | implementation, verification or configuration |
+| `tests/test_candidate_rvol_basis_evidence.py` | factory | implementation, verification or configuration |
 | `tests/test_candidate_rvol_coarse.py` | factory | implementation, verification or configuration |
 | `tests/test_candidate_rvol_exact.py` | factory | implementation, verification or configuration |
 | `tests/test_candidate_rvol_exact_source.py` | factory | implementation, verification or configuration |

@@ -7,8 +7,8 @@ universe: live
 status: verified
 entity: src/momentumbot/research/candidate_rvol_exact.py
 verified_at: 2026-10-16
-verified_commit: b83b5dba644cc237ed1cb41fc10dc59b27c65995
-sources: ["src/momentumbot/research/candidate_rvol_exact.py:38-89", "src/momentumbot/research/candidate_rvol_exact.py:98-163", "src/momentumbot/research/candidate_rvol_source.py:45-80", "src/momentumbot/research/hosted_source_gate.py:15-78", "src/momentumbot/research/candidate_rvol_exact_source.py:29-147", "src/momentumbot/research/candidate_rvol_exact_source.py:163-214"]
+verified_commit: 3cc1ba86d1e0480c468b741e706972dfd843b0c8
+sources: ["src/momentumbot/research/candidate_rvol_exact.py:38-89", "src/momentumbot/research/candidate_rvol_exact.py:98-163", "src/momentumbot/research/candidate_rvol_source.py:45-80", "src/momentumbot/research/hosted_source_gate.py:15-78", "src/momentumbot/research/candidate_rvol_exact_source.py:29-147", "src/momentumbot/research/candidate_rvol_exact_source.py:163-214", "src/momentumbot/research/candidate_rvol_basis_diagnostic.py:28-207"]
 ---
 
 # Bounded source capture
@@ -29,6 +29,12 @@ capture contract. `integrate_case` compares exact and coarse bucket totals,
 withholds disagreements and reuses the existing exact-RVOL calculator and index
 alignment (`candidate_rvol_exact_source.py:29-147,163-214`). Its child evidence
 records source integration separately from the unchanged original capture proof.
+
+The additive basis diagnostic selects sealed failures, revalidates saved pages
+and reproduces their volume disagreements while recording OHLC/trade-count
+comparisons. Compatible request parameters are not adjustment-vintage proof;
+no correction or promotion follows even from a matching comparison
+(`candidate_rvol_basis_diagnostic.py:28-207`).
 
 ## Connected to
 
@@ -57,5 +63,6 @@ records source integration separately from the unchanged original capture proof.
 - [Owning source](../../../src/momentumbot/research/candidate_rvol_exact.py)
 - [Coarse source selection](../../../src/momentumbot/research/candidate_rvol_source.py)
 - [Exact-RVOL source integration](../../../src/momentumbot/research/candidate_rvol_exact_source.py)
+- [Withheld-history diagnostic](../../../docs/research/candidate_rvol_basis_diagnostic.md)
 - [Hosted launch gates](../../../src/momentumbot/research/hosted_source_gate.py)
 - [Bounded-capture movement](../processes/bounded-capture.md)

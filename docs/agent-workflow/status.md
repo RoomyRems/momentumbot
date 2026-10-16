@@ -1,8 +1,8 @@
 ---
 type: status
-status: exact-rvol-source-integrated-with-two-withheld-cases
+status: rvol-history-basis-diagnosed-two-cases-remain-withheld
 observed_at: 2026-10-16
-source_commit: b83b5dba644cc237ed1cb41fc10dc59b27c65995
+source_commit: 3cc1ba86d1e0480c468b741e706972dfd843b0c8
 ---
 
 # Current observed state
@@ -25,18 +25,29 @@ before retention expiry; never rerun this consumed capture merely to recover fil
 
 ## Current development
 
-The [exact-RVOL source work record](runs/exact-rvol-source-2026-10-16/CONTEXT.md)
-owns the current implementation and evidence. The optimized offline audit covers
+The [basis diagnostic](runs/rvol-basis-diagnostic-2026-10-16/CONTEXT.md) is the
+latest work item. It reproduces all 98 withheld historical-session failures:
+856 buckets differ in both OHLC and volume while trade counts and presence
+match. Exact histories were captured September 19 and coarse histories September
+17. Compatible `asof`/split/SIP parameters do not prove a common adjustment
+vintage. No safe correction is established; both cases remain withheld.
+The diagnostic and its source lineage are preserved as additive child evidence.
+
+The previous [exact-RVOL source work record](runs/exact-rvol-source-2026-10-16/CONTEXT.md)
+owns the unchanged integration. Its optimized offline audit covers
 all thirty dates and all 3,309,900 captured bars. It reconciles the eight target
 refreshes and produces 159,079 exact RVOL observations for 2,101 of 2,103 retained
 cases. MGN/2026-03-25 and RUBI/2026-05-19 remain withheld: 48 and 50 historical
 sessions respectively disagree with the coarse source. No fitted rescaling.
 
 The original proof and thirty sealed per-date outputs are preserved in the
-new exact-source audit directory. The
+exact-source audit directory. The
 [verification record](runs/exact-rvol-source-2026-10-16/03_verification.md)
-freezes observed local checks; inspect the published branch head's CI check for
-its hosted acceptance. No provider request or trading-policy change occurred.
+freezes observed local checks. That checkpoint at `901ac7c` passed full CI
+[38963577181](https://github.com/RoomyRems/momentumbot/actions/runs/38963577181):
+3,103 tests, 73 skipped. For the new diagnostic, inspect the published branch
+head's CI result and its [verification record](runs/rvol-basis-diagnostic-2026-10-16/03_verification.md).
+No provider request or trading-policy change occurred in either work item.
 
 [Prior ICM adoption](runs/icm-adoption-2026-10-16/CONTEXT.md) is complete at
 `972e7d5`; its full CI passed 3,090 tests with 73 optional skips. All 111 routes
@@ -44,9 +55,13 @@ and the existing safety boundaries remain preserved.
 
 ## Next research step
 
-Investigate the two withheld historical-volume cases from the saved sources;
-do not treat matching target mornings as proof of historical share-basis agreement.
-Then continue daily/minute price/share-basis, historical float/news, the complete
+The saved-source investigation is complete within its evidence limits. Keep
+MGN/2026-03-25 and RUBI/2026-05-19 quarantined until independent source evidence
+ties target and history to a common basis; neither a fitted scale nor matching
+target mornings establishes that. Continue the saved daily/raw/split basis audit
+across the existing candidate population without case-specific fitting. Fresh
+verification, if required, needs a new bounded registration and fresh authority;
+do not rerun a consumed capture. Then continue historical float/news, the complete
 captured-source scanner adapter and scanner-to-shadow integration only when
 their actual inputs verify. Exact RVOL is a completed input component for the
 ready cases, not a claim of full scanner or discretionary readiness.
