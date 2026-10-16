@@ -4,7 +4,7 @@ MomentumBot is a research-first implementation of Ross Cameron's small-cap momen
 
 **Current scope: deterministic research + backtesting foundation. No live-money trading.**
 
-For a cold-start project map, current checkpoint and experiment protocol, begin with `AGENTS.md` and `docs/project/current_state.md` rather than loading the full repository.
+For a cold start, read [AGENTS.md](AGENTS.md), then [CONTEXT.md](CONTEXT.md). The [current status](docs/agent-workflow/status.md), [source-linked system map](docs/map/CLAUDE.md), and [development workflow](docs/agent-workflow/CONTEXT.md) route to the exact files needed. Earlier checkpoint documents remain preserved history, not current routers.
 
 ## What is implemented
 
@@ -57,7 +57,9 @@ momentumbot backtest path/to/snapshot --profile general-2026
 
 The simulator uses the separate `paper-safe` risk policy by default. The aggressive percentages discussed in small-account challenge videos are research subjects, not the project's paper safety defaults.
 
-## Current gate
+## Historical checkpoint summary
+
+This preserved summary describes an earlier checkpoint. For the latest observed state and next gate, use the [current status record](docs/agent-workflow/status.md).
 
 The ten-session scanner, unchanged Micro-v0.1 replay, retrospective Ross labels and no-retuning component comparison are frozen. The 2026-07-24 through 2026-08-06 context panel now also has a verified deterministic runtime, a frozen label-blind compiled semantic shadow, frozen conservative account-scoped labels and a frozen descriptive component comparison. The campaign ledger, separate main/small paper-safety policy, and account-local chronological composer are mechanically frozen. The prospective account-integration panel covers August 24–September 4, 2026; all ten sessions were registered before completion. Its secret-safe paper-account snapshot path and two-phase account-neutral scanner/Micro trigger-source producer are registered and scheduled, but the first provider runtimes remain unrun. Exact metadata-quote and successful-quote-bound acquisition harnesses are registered; registration itself authorizes no provider call, purchase, or download. The provider-free daily account composer is registered and synthetically rehearsed across the complete parent chain; each real date will emit 12 hash-bound sessions, while fills remain explicitly open until one-minute management inputs exist. The six-cell component and conditional portfolio evaluation is preregistered and cannot open labels before the complete runtime hash freeze. A machine-checked coverage matrix now separates implemented, partial, shadow-only, data-blocked, and missing strategy/discretion domains. No fitted context score or Ross-style aggressive sizing policy was promoted. See `docs/project/current_state.md` for the exact checkpoint and next steps.
 

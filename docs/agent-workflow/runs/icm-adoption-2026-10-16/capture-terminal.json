@@ -1,0 +1,291 @@
+{
+  "observed_at": "2026-10-16",
+  "scope": "Read-only hosted terminal metadata; no new capture or local archive replay.",
+  "source_commit": "53989a5f1637e759a3922980b40f24cbfbaab5fb",
+  "capture_run": {
+    "url": "https://github.com/RoomyRems/momentumbot/actions/runs/35408612330",
+    "id": 35408612330,
+    "head_sha": "53989a5f1637e759a3922980b40f24cbfbaab5fb",
+    "run_attempt": 1,
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-09-19T00:13:34Z",
+    "updated_at": "2026-09-19T00:37:27Z"
+  },
+  "capture_jobs": [
+    {
+      "id": 105803466068,
+      "name": "consume",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-19T00:13:36Z",
+      "completed_at": "2026-09-19T00:24:09Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-09-19T00:13:36Z",
+          "completed_at": "2026-09-19T00:13:37Z"
+        },
+        {
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-09-19T00:13:37Z",
+          "completed_at": "2026-09-19T00:13:39Z"
+        },
+        {
+          "name": "Run ./.github/actions/source-runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-09-19T00:13:39Z",
+          "completed_at": "2026-09-19T00:13:50Z"
+        },
+        {
+          "name": "Require exact-code CI then consume once",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-09-19T00:13:50Z",
+          "completed_at": "2026-09-19T00:24:07Z"
+        },
+        {
+          "name": "Preserve independent preflight",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-09-19T00:24:07Z",
+          "completed_at": "2026-09-19T00:24:08Z"
+        },
+        {
+          "name": "Post Run ./.github/actions/source-runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-09-19T00:24:08Z",
+          "completed_at": "2026-09-19T00:24:08Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-09-19T00:24:08Z",
+          "completed_at": "2026-09-19T00:24:08Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-09-19T00:24:08Z",
+          "completed_at": "2026-09-19T00:24:08Z"
+        }
+      ]
+    },
+    {
+      "id": 105805284981,
+      "name": "capture",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-19T00:24:12Z",
+      "completed_at": "2026-09-19T00:34:34Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-09-19T00:24:13Z",
+          "completed_at": "2026-09-19T00:24:14Z"
+        },
+        {
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-09-19T00:24:14Z",
+          "completed_at": "2026-09-19T00:24:16Z"
+        },
+        {
+          "name": "Run ./.github/actions/source-runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-09-19T00:24:16Z",
+          "completed_at": "2026-09-19T00:24:27Z"
+        },
+        {
+          "name": "Fetch independent capture authority",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-09-19T00:24:27Z",
+          "completed_at": "2026-09-19T00:24:48Z"
+        },
+        {
+          "name": "Capture frozen candidate exact RVOL volumes",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-09-19T00:24:48Z",
+          "completed_at": "2026-09-19T00:34:18Z"
+        },
+        {
+          "name": "Preserve original success or failure",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-09-19T00:34:18Z",
+          "completed_at": "2026-09-19T00:34:32Z"
+        },
+        {
+          "name": "Post Run ./.github/actions/source-runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-09-19T00:34:32Z",
+          "completed_at": "2026-09-19T00:34:33Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-09-19T00:34:33Z",
+          "completed_at": "2026-09-19T00:34:33Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-09-19T00:34:33Z",
+          "completed_at": "2026-09-19T00:34:33Z"
+        }
+      ]
+    },
+    {
+      "id": 105807029132,
+      "name": "verify",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-09-19T00:34:37Z",
+      "completed_at": "2026-09-19T00:37:26Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-09-19T00:35:13Z",
+          "completed_at": "2026-09-19T00:35:14Z"
+        },
+        {
+          "name": "Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-09-19T00:35:14Z",
+          "completed_at": "2026-09-19T00:35:17Z"
+        },
+        {
+          "name": "Run ./.github/actions/source-runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-09-19T00:35:17Z",
+          "completed_at": "2026-09-19T00:35:32Z"
+        },
+        {
+          "name": "Fetch original ZIPs and metadata",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-09-19T00:35:32Z",
+          "completed_at": "2026-09-19T00:35:56Z"
+        },
+        {
+          "name": "Replay original candidate capture and verify complete coverage",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-09-19T00:35:56Z",
+          "completed_at": "2026-09-19T00:37:23Z"
+        },
+        {
+          "name": "Preserve independent verification",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-09-19T00:37:23Z",
+          "completed_at": "2026-09-19T00:37:24Z"
+        },
+        {
+          "name": "Post Run ./.github/actions/source-runtime",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-09-19T00:37:24Z",
+          "completed_at": "2026-09-19T00:37:24Z"
+        },
+        {
+          "name": "Post Run actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-09-19T00:37:24Z",
+          "completed_at": "2026-09-19T00:37:24Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-09-19T00:37:24Z",
+          "completed_at": "2026-09-19T00:37:24Z"
+        }
+      ]
+    }
+  ],
+  "capture_artifacts": [
+    {
+      "id": 10574215845,
+      "name": "early-pullback-candidate-rvol-exact-v0.1-verification-35408612330-1",
+      "size_in_bytes": 643187,
+      "digest": "sha256:28abe4f51d6f30bef687fb348d549b8283e78934bfc949f9ec14be1bb5da661a",
+      "expired": false,
+      "expires_at": "2026-12-18T00:13:34Z"
+    },
+    {
+      "id": 10574105686,
+      "name": "early-pullback-candidate-rvol-exact-v0.1-capture-35408612330-1",
+      "size_in_bytes": 63526941,
+      "digest": "sha256:1c8f6358bdf684e796ed1006ed4d6da49af491523d9b38227a4a2565aad4fc17",
+      "expired": false,
+      "expires_at": "2026-12-18T00:13:34Z"
+    },
+    {
+      "id": 10572969637,
+      "name": "early-pullback-candidate-rvol-exact-v0.1-consumption-35408612330-1",
+      "size_in_bytes": 100153,
+      "digest": "sha256:5af1eb13723f0cbc7148e1590d41b244f8474a093c47da37214f100b074408af",
+      "expired": false,
+      "expires_at": "2026-12-18T00:13:34Z"
+    }
+  ],
+  "ci_run": {
+    "url": "https://github.com/RoomyRems/momentumbot/actions/runs/35408612252",
+    "id": 35408612252,
+    "head_sha": "53989a5f1637e759a3922980b40f24cbfbaab5fb",
+    "run_attempt": 1,
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-09-19T00:13:33Z",
+    "updated_at": "2026-09-19T00:23:51Z"
+  }
+}

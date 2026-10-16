@@ -1,0 +1,143 @@
+{
+  "cards": {
+    "docs/map/objects/causal-scanner.md": {
+      "card_sha256": "41df35552a091628284b4a8f0c38cef18596df46f4ecb1250310d5a2ded719dd",
+      "sources": {
+        "src/momentumbot/causal_scanner_snapshot_v03.py": "91605152a35895d8d370667683e3ff55c1adff99ea94173a6cea490e0d9ec0b0",
+        "src/momentumbot/research/early_pullback_panel_sources_v01.py": "646fb27487f99ce2d256f4630c33b102a50fb74b1819757b2cf69431ebe450a2"
+      },
+      "verified_at": "2026-10-16",
+      "verified_commit": "53989a5f1637e759a3922980b40f24cbfbaab5fb"
+    },
+    "docs/map/objects/context-shadow.md": {
+      "card_sha256": "60263ea8b243ae3c38505c1bb93e9c23488019c56e96f8d0087d5564b0229300",
+      "sources": {
+        "src/momentumbot/research/context_semantic_shadow.py": "d41f4df4b66b4f86c6578bb516dad1916d0c1bc6a85ed489452af28944b0da7d"
+      },
+      "verified_at": "2026-10-16",
+      "verified_commit": "53989a5f1637e759a3922980b40f24cbfbaab5fb"
+    },
+    "docs/map/objects/execution-account.md": {
+      "card_sha256": "f7a2a4fb39f845157be95df52e1e7104c4ef3b81d6634fbc366887c26ec3370d",
+      "sources": {
+        "src/momentumbot/research/early_pullback_panel_account_engine_v01.py": "619fb9c6fc21e9b7f64dda93d9b5978b49e725adeb07f5821f618d046b5a2bd4",
+        "src/momentumbot/research/early_pullback_panel_sources_v01.py": "646fb27487f99ce2d256f4630c33b102a50fb74b1819757b2cf69431ebe450a2",
+        "src/momentumbot/research/prospective_daily_source.py": "3f957335a390680bb898d42281fe95caf08726ea4ef822cea91a776aa1e7d34e",
+        "src/momentumbot/research/sealed_historical_account_replay_v01.py": "b33afa09d4eddcdebd65a5c6d91b6a545cfc6728f9a224310b834816cac02754",
+        "src/momentumbot/research/sealed_historical_micro_runtime_v01.py": "07de118db0cc6f12dad5659bdc6d2c3ad3c8a5405d275df054ef018514c853b9"
+      },
+      "verified_at": "2026-10-16",
+      "verified_commit": "53989a5f1637e759a3922980b40f24cbfbaab5fb"
+    },
+    "docs/map/objects/micro-replay.md": {
+      "card_sha256": "fd2d7e669cf7e4f6535d49dffed917f095c58d80e96a38e6647c53f73c12c7cb",
+      "sources": {
+        "src/momentumbot/micro_replay.py": "128a34318e970539f01ce5454d5c58aa2a375a81f5eb2c30997dcab0170e9cbd",
+        "src/momentumbot/research/early_pullback_panel_sources_v01.py": "646fb27487f99ce2d256f4630c33b102a50fb74b1819757b2cf69431ebe450a2",
+        "src/momentumbot/research/prospective_daily_source.py": "3f957335a390680bb898d42281fe95caf08726ea4ef822cea91a776aa1e7d34e",
+        "src/momentumbot/research/sealed_historical_micro_runtime_v01.py": "07de118db0cc6f12dad5659bdc6d2c3ad3c8a5405d275df054ef018514c853b9"
+      },
+      "verified_at": "2026-10-16",
+      "verified_commit": "53989a5f1637e759a3922980b40f24cbfbaab5fb"
+    },
+    "docs/map/objects/research-evaluation.md": {
+      "card_sha256": "679f5bac09c7c2a4b8957d79928b6273f7cf4f4042f1c3966a6ba9c3d06fbe9c",
+      "sources": {
+        "src/momentumbot/micro_benchmark.py": "2e33564116fd703d8a964e53a0fda06c82f946d0e698ad3fcd115b04cac137cc",
+        "src/momentumbot/research/prospective_account_evaluation.py": "56ccebf7725ef04a797e4b5dead0ecd091ef9e9866290bf6e67b90283a9dd3bd"
+      },
+      "verified_at": "2026-10-16",
+      "verified_commit": "53989a5f1637e759a3922980b40f24cbfbaab5fb"
+    },
+    "docs/map/objects/source-capture.md": {
+      "card_sha256": "8fe9b632bd2f35b00e68fb23d5cfb8e01485f5cba0e2856d527d98f16eb3496c",
+      "sources": {
+        "src/momentumbot/research/candidate_rvol_exact.py": "2877843aedf8aa9fbeee014b0ee7bd3b22f51a840dfde674b506e9b45f8223bc",
+        "src/momentumbot/research/candidate_rvol_source.py": "7e828368f57ec9dd74210df5a4f377a839bac196315ba67cf8ff9819364ed514",
+        "src/momentumbot/research/hosted_source_gate.py": "ad4ccd7160b51628f0980e3ee22a9a424291fe0dbd8692e6700bfea786be0501"
+      },
+      "verified_at": "2026-10-16",
+      "verified_commit": "53989a5f1637e759a3922980b40f24cbfbaab5fb"
+    },
+    "docs/map/objects/workflow-control.md": {
+      "card_sha256": "1069949243699476ef328d22678d149c774f894280fce432049770087f6a1f35",
+      "sources": {
+        ".github/workflows/candidate-rvol-exact.yml": "018f50f6b471ad53b6503afdb682dd22793eacfc7f2c412b7768bf8a47857b62",
+        ".github/workflows/ci.yml": "4f8ecbfd548b86e4bb66e81d1716de0e01abdf72cd6aa9ecade24ce03c329784",
+        "src/momentumbot/research/hosted_source_gate.py": "ad4ccd7160b51628f0980e3ee22a9a424291fe0dbd8692e6700bfea786be0501"
+      },
+      "verified_at": "2026-10-16",
+      "verified_commit": "53989a5f1637e759a3922980b40f24cbfbaab5fb"
+    },
+    "docs/map/processes/account-replay.md": {
+      "card_sha256": "ab8770b3866f4b9cc2dc4b041f7006d8453ac5848b1ea8d15063b19db2b67844",
+      "sources": {
+        "src/momentumbot/research/early_pullback_panel_account_engine_v01.py": "619fb9c6fc21e9b7f64dda93d9b5978b49e725adeb07f5821f618d046b5a2bd4",
+        "src/momentumbot/research/early_pullback_panel_sources_v01.py": "646fb27487f99ce2d256f4630c33b102a50fb74b1819757b2cf69431ebe450a2",
+        "src/momentumbot/research/prospective_daily_source.py": "3f957335a390680bb898d42281fe95caf08726ea4ef822cea91a776aa1e7d34e",
+        "src/momentumbot/research/sealed_historical_account_replay_v01.py": "b33afa09d4eddcdebd65a5c6d91b6a545cfc6728f9a224310b834816cac02754",
+        "src/momentumbot/research/sealed_historical_micro_runtime_v01.py": "07de118db0cc6f12dad5659bdc6d2c3ad3c8a5405d275df054ef018514c853b9"
+      },
+      "verified_at": "2026-10-16",
+      "verified_commit": "53989a5f1637e759a3922980b40f24cbfbaab5fb"
+    },
+    "docs/map/processes/bounded-capture.md": {
+      "card_sha256": "1f18a73789ab9cf6cc7096a3c7a083cecf3c1cfdbc7c89ba03639ba775f49834",
+      "sources": {
+        ".github/workflows/candidate-rvol-exact.yml": "018f50f6b471ad53b6503afdb682dd22793eacfc7f2c412b7768bf8a47857b62",
+        "src/momentumbot/research/candidate_rvol_exact.py": "2877843aedf8aa9fbeee014b0ee7bd3b22f51a840dfde674b506e9b45f8223bc",
+        "src/momentumbot/research/hosted_source_gate.py": "ad4ccd7160b51628f0980e3ee22a9a424291fe0dbd8692e6700bfea786be0501"
+      },
+      "verified_at": "2026-10-16",
+      "verified_commit": "53989a5f1637e759a3922980b40f24cbfbaab5fb"
+    },
+    "docs/map/processes/context-shadow.md": {
+      "card_sha256": "b5ee09589b19a7bde36356ad3906bc4e01366326cfbe1572443738dc88007c36",
+      "sources": {
+        "src/momentumbot/research/context_semantic_shadow.py": "d41f4df4b66b4f86c6578bb516dad1916d0c1bc6a85ed489452af28944b0da7d"
+      },
+      "verified_at": "2026-10-16",
+      "verified_commit": "53989a5f1637e759a3922980b40f24cbfbaab5fb"
+    },
+    "docs/map/processes/legacy-backtest.md": {
+      "card_sha256": "3ccb3b0bb6c7ad56952cbfed23fcc3a59db78393a1daab3a0953e6a81c052982",
+      "sources": {
+        "src/momentumbot/backtest.py": "0f4c9705b230541ea913d19515b2af3e0366f7191e2bd3a028f7d8e63990f705",
+        "src/momentumbot/cli.py": "74733afce6bef0eb8bdf78f40788f0d15a6d881c7a0848b31980c2dd17f36f95"
+      },
+      "verified_at": "2026-10-16",
+      "verified_commit": "53989a5f1637e759a3922980b40f24cbfbaab5fb"
+    },
+    "docs/map/processes/micro-replay.md": {
+      "card_sha256": "b6b0b0cd4738b955cace53d0e11f304d232e35ea4766c3404e16bc681cd57b47",
+      "sources": {
+        "src/momentumbot/micro_replay.py": "128a34318e970539f01ce5454d5c58aa2a375a81f5eb2c30997dcab0170e9cbd",
+        "src/momentumbot/research/early_pullback_panel_sources_v01.py": "646fb27487f99ce2d256f4630c33b102a50fb74b1819757b2cf69431ebe450a2",
+        "src/momentumbot/research/prospective_daily_source.py": "3f957335a390680bb898d42281fe95caf08726ea4ef822cea91a776aa1e7d34e",
+        "src/momentumbot/research/sealed_historical_micro_runtime_v01.py": "07de118db0cc6f12dad5659bdc6d2c3ad3c8a5405d275df054ef018514c853b9"
+      },
+      "verified_at": "2026-10-16",
+      "verified_commit": "53989a5f1637e759a3922980b40f24cbfbaab5fb"
+    },
+    "docs/map/processes/retrospective-evaluation.md": {
+      "card_sha256": "c840b1b0f45d0bf8dd93d8961b368290cc8a5212bf1935f4f674b49a7276bf70",
+      "sources": {
+        "src/momentumbot/micro_benchmark.py": "2e33564116fd703d8a964e53a0fda06c82f946d0e698ad3fcd115b04cac137cc",
+        "src/momentumbot/research/prospective_account_evaluation.py": "56ccebf7725ef04a797e4b5dead0ecd091ef9e9866290bf6e67b90283a9dd3bd"
+      },
+      "verified_at": "2026-10-16",
+      "verified_commit": "53989a5f1637e759a3922980b40f24cbfbaab5fb"
+    },
+    "docs/map/processes/scanner-reconstruction.md": {
+      "card_sha256": "f2fcb8b4db65adf8c0d98a8d99932af08c5be3f8e1dd4e1f77dd6bc4e6818a85",
+      "sources": {
+        "src/momentumbot/causal_scanner_snapshot_v03.py": "91605152a35895d8d370667683e3ff55c1adff99ea94173a6cea490e0d9ec0b0",
+        "src/momentumbot/research/candidate_rvol_exact.py": "2877843aedf8aa9fbeee014b0ee7bd3b22f51a840dfde674b506e9b45f8223bc",
+        "src/momentumbot/research/early_pullback_panel_sources_v01.py": "646fb27487f99ce2d256f4630c33b102a50fb74b1819757b2cf69431ebe450a2"
+      },
+      "verified_at": "2026-10-16",
+      "verified_commit": "53989a5f1637e759a3922980b40f24cbfbaab5fb"
+    }
+  },
+  "version": 1
+}
