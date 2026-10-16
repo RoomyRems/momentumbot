@@ -1,13 +1,14 @@
 {
   "cards": {
     "docs/map/objects/causal-scanner.md": {
-      "card_sha256": "41df35552a091628284b4a8f0c38cef18596df46f4ecb1250310d5a2ded719dd",
+      "card_sha256": "84d6cf54b9848be68b70e50ffddf18c1bed0bb238ecdb0b5c9ba157b2df7cc2e",
       "sources": {
         "src/momentumbot/causal_scanner_snapshot_v03.py": "91605152a35895d8d370667683e3ff55c1adff99ea94173a6cea490e0d9ec0b0",
+        "src/momentumbot/research/candidate_rvol_exact_source.py": "864a5375c35241e1e48397c0e452e01ea2c0eec5c69a809eb153dd52a978e643",
         "src/momentumbot/research/early_pullback_panel_sources_v01.py": "646fb27487f99ce2d256f4630c33b102a50fb74b1819757b2cf69431ebe450a2"
       },
       "verified_at": "2026-10-16",
-      "verified_commit": "53989a5f1637e759a3922980b40f24cbfbaab5fb"
+      "verified_commit": "b83b5dba644cc237ed1cb41fc10dc59b27c65995"
     },
     "docs/map/objects/context-shadow.md": {
       "card_sha256": "60263ea8b243ae3c38505c1bb93e9c23488019c56e96f8d0087d5564b0229300",
@@ -50,14 +51,15 @@
       "verified_commit": "53989a5f1637e759a3922980b40f24cbfbaab5fb"
     },
     "docs/map/objects/source-capture.md": {
-      "card_sha256": "8fe9b632bd2f35b00e68fb23d5cfb8e01485f5cba0e2856d527d98f16eb3496c",
+      "card_sha256": "7d76546b433cf2762f559eef47d13b06be4a0720b66215bbe2ac00368f1816a2",
       "sources": {
         "src/momentumbot/research/candidate_rvol_exact.py": "2877843aedf8aa9fbeee014b0ee7bd3b22f51a840dfde674b506e9b45f8223bc",
+        "src/momentumbot/research/candidate_rvol_exact_source.py": "864a5375c35241e1e48397c0e452e01ea2c0eec5c69a809eb153dd52a978e643",
         "src/momentumbot/research/candidate_rvol_source.py": "7e828368f57ec9dd74210df5a4f377a839bac196315ba67cf8ff9819364ed514",
         "src/momentumbot/research/hosted_source_gate.py": "ad4ccd7160b51628f0980e3ee22a9a424291fe0dbd8692e6700bfea786be0501"
       },
       "verified_at": "2026-10-16",
-      "verified_commit": "53989a5f1637e759a3922980b40f24cbfbaab5fb"
+      "verified_commit": "b83b5dba644cc237ed1cb41fc10dc59b27c65995"
     },
     "docs/map/objects/workflow-control.md": {
       "card_sha256": "1069949243699476ef328d22678d149c774f894280fce432049770087f6a1f35",
@@ -129,14 +131,15 @@
       "verified_commit": "53989a5f1637e759a3922980b40f24cbfbaab5fb"
     },
     "docs/map/processes/scanner-reconstruction.md": {
-      "card_sha256": "f2fcb8b4db65adf8c0d98a8d99932af08c5be3f8e1dd4e1f77dd6bc4e6818a85",
+      "card_sha256": "d80ba63d3e4a13db47286f424bd1625cc57cd0fa7ea4110858d1edc37594137b",
       "sources": {
         "src/momentumbot/causal_scanner_snapshot_v03.py": "91605152a35895d8d370667683e3ff55c1adff99ea94173a6cea490e0d9ec0b0",
         "src/momentumbot/research/candidate_rvol_exact.py": "2877843aedf8aa9fbeee014b0ee7bd3b22f51a840dfde674b506e9b45f8223bc",
+        "src/momentumbot/research/candidate_rvol_exact_source.py": "864a5375c35241e1e48397c0e452e01ea2c0eec5c69a809eb153dd52a978e643",
         "src/momentumbot/research/early_pullback_panel_sources_v01.py": "646fb27487f99ce2d256f4630c33b102a50fb74b1819757b2cf69431ebe450a2"
       },
       "verified_at": "2026-10-16",
-      "verified_commit": "53989a5f1637e759a3922980b40f24cbfbaab5fb"
+      "verified_commit": "b83b5dba644cc237ed1cb41fc10dc59b27c65995"
     }
   },
   "version": 1

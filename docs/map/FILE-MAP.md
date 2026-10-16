@@ -143,6 +143,11 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `docs/agent-workflow/_templates/work-item/verification.md` | factory | reusable template |
 | `docs/agent-workflow/maintenance.md` | contract | development workflow specification |
 | `docs/agent-workflow/runs/CONTEXT.md` | contract | folder contract |
+| `docs/agent-workflow/runs/exact-rvol-source-2026-10-16/01_scope.md` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/exact-rvol-source-2026-10-16/02_change.md` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/exact-rvol-source-2026-10-16/03_verification.md` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/exact-rvol-source-2026-10-16/04_handoff.md` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/exact-rvol-source-2026-10-16/CONTEXT.md` | contract | folder contract |
 | `docs/agent-workflow/runs/icm-adoption-2026-10-16/01_scope.md` | product | retained evidence or checkpoint |
 | `docs/agent-workflow/runs/icm-adoption-2026-10-16/02_change.md` | product | retained evidence or checkpoint |
 | `docs/agent-workflow/runs/icm-adoption-2026-10-16/03_verification.md` | product | retained evidence or checkpoint |
@@ -203,6 +208,7 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `docs/research/candidate_raw_minutes.md` | contract | research or strategy specification |
 | `docs/research/candidate_rvol_coarse.md` | contract | research or strategy specification |
 | `docs/research/candidate_rvol_exact.md` | contract | research or strategy specification |
+| `docs/research/candidate_rvol_exact_source.md` | contract | research or strategy specification |
 | `docs/research/candidate_rvol_source.md` | contract | research or strategy specification |
 | `docs/research/catalyst_interpretation_protocol_v02.md` | contract | research or strategy specification |
 | `docs/research/catalyst_timing_shadow.md` | contract | research or strategy specification |
@@ -484,6 +490,43 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `research/data-audits/early-pullback-candidate-rvol-coarse-v0.1/focused.log` | product | retained evidence or checkpoint |
 | `research/data-audits/early-pullback-candidate-rvol-coarse-v0.1/implementation-verification.json` | product | retained evidence or checkpoint |
 | `research/data-audits/early-pullback-candidate-rvol-coarse-v0.1/original-verification.zip` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/README.md` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/focused-optimized.log` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/focused.log` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration.log` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-03-04.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-03-05.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-03-06.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-03-09.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-03-10.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-03-12.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-03-13.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-03-18.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-03-19.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-03-25.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-03-30.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-04-02.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-04-06.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-04-10.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-04-13.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-04-14.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-04-15.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-04-16.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-04-17.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-04-20.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-04-21.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-04-23.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-04-24.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-04-27.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-04-28.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-04-29.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-04-30.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-05-04.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-05-08.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/2026-05-19.json.gz` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/integration/integration-report.json` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/original-verification.zip` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-rvol-exact-source-v0.1/source-evidence.json` | product | retained evidence or checkpoint |
 | `research/data-audits/early-pullback-candidate-rvol-exact-v0.1/focused-optimized.log` | product | retained evidence or checkpoint |
 | `research/data-audits/early-pullback-candidate-rvol-exact-v0.1/focused.log` | product | retained evidence or checkpoint |
 | `research/data-audits/early-pullback-candidate-rvol-exact-v0.1/implementation-verification.json` | product | retained evidence or checkpoint |
@@ -1278,6 +1321,7 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `scripts/audit_benchmark_symbol_candidates.py` | factory | implementation, verification or configuration |
 | `scripts/audit_candidate_price_basis.py` | factory | implementation, verification or configuration |
 | `scripts/audit_candidate_price_rounding.py` | factory | implementation, verification or configuration |
+| `scripts/audit_candidate_rvol_exact_source.py` | factory | implementation, verification or configuration |
 | `scripts/audit_candidate_rvol_source.py` | factory | implementation, verification or configuration |
 | `scripts/audit_fmp_universe_capability.py` | factory | implementation, verification or configuration |
 | `scripts/audit_historical_identity_continuity.py` | factory | implementation, verification or configuration |
@@ -1372,6 +1416,7 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `scripts/enrich_reference_2026_07_09_with_sec_bulk.py` | factory | implementation, verification or configuration |
 | `scripts/evaluate_prospective_account_panel.py` | factory | implementation, verification or configuration |
 | `scripts/evaluate_sealed_historical_account_conditional_v01.py` | factory | implementation, verification or configuration |
+| `scripts/fetch_candidate_rvol_exact_sources.py` | factory | implementation, verification or configuration |
 | `scripts/fetch_candidate_rvol_sources.py` | factory | implementation, verification or configuration |
 | `scripts/finalize_sec_float_join.py` | factory | implementation, verification or configuration |
 | `scripts/freeze_prospective_opportunities.py` | factory | implementation, verification or configuration |
@@ -1555,6 +1600,7 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `src/momentumbot/research/candidate_raw_minutes.py` | factory | implementation, verification or configuration |
 | `src/momentumbot/research/candidate_rvol_coarse.py` | factory | implementation, verification or configuration |
 | `src/momentumbot/research/candidate_rvol_exact.py` | factory | implementation, verification or configuration |
+| `src/momentumbot/research/candidate_rvol_exact_source.py` | factory | implementation, verification or configuration |
 | `src/momentumbot/research/candidate_rvol_source.py` | factory | implementation, verification or configuration |
 | `src/momentumbot/research/candidate_source_archive.py` | factory | implementation, verification or configuration |
 | `src/momentumbot/research/candidate_volume_projection.py` | factory | implementation, verification or configuration |
@@ -1776,6 +1822,8 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `tests/test_candidate_raw_minutes.py` | factory | implementation, verification or configuration |
 | `tests/test_candidate_rvol_coarse.py` | factory | implementation, verification or configuration |
 | `tests/test_candidate_rvol_exact.py` | factory | implementation, verification or configuration |
+| `tests/test_candidate_rvol_exact_source.py` | factory | implementation, verification or configuration |
+| `tests/test_candidate_rvol_exact_source_evidence.py` | factory | implementation, verification or configuration |
 | `tests/test_candidate_rvol_source.py` | factory | implementation, verification or configuration |
 | `tests/test_candidate_source_archive.py` | factory | implementation, verification or configuration |
 | `tests/test_candidate_volume_projection.py` | factory | implementation, verification or configuration |

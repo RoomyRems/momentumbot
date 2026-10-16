@@ -1,8 +1,8 @@
 ---
 type: status
-status: integration-implemented
+status: exact-rvol-source-integrated-with-two-withheld-cases
 observed_at: 2026-10-16
-source_commit: 53989a5f1637e759a3922980b40f24cbfbaab5fb
+source_commit: b83b5dba644cc237ed1cb41fc10dc59b27c65995
 ---
 
 # Current observed state
@@ -25,22 +25,31 @@ before retention expiry; never rerun this consumed capture merely to recover fil
 
 ## Current development
 
-The owner approved additive ICM adoption on October 15, 2026 (America/Chicago).
-[Work record](runs/icm-adoption-2026-10-16/CONTEXT.md) owns implementation/check results.
-ICM changes navigation and maintenance, not trading policy, provider authority or
-research input bytes.
-Fourteen source-linked cards, workflow contracts and drift checks are implemented;
-36 focused tests passed normally and under optimized Python. Independent review
-closed both findings. The [verification record](runs/icm-adoption-2026-10-16/03_verification.md)
-freezes pre-publication checks; the exact publication commit's GitHub CI check
-owns its hosted acceptance, so inspect that check when resuming.
+The [exact-RVOL source work record](runs/exact-rvol-source-2026-10-16/CONTEXT.md)
+owns the current implementation and evidence. The optimized offline audit covers
+all thirty dates and all 3,309,900 captured bars. It reconciles the eight target
+refreshes and produces 159,079 exact RVOL observations for 2,101 of 2,103 retained
+cases. MGN/2026-03-25 and RUBI/2026-05-19 remain withheld: 48 and 50 historical
+sessions respectively disagree with the coarse source. No fitted rescaling.
+
+The original proof and thirty sealed per-date outputs are preserved in the
+new exact-source audit directory. The
+[verification record](runs/exact-rvol-source-2026-10-16/03_verification.md)
+freezes observed local checks; inspect the published branch head's CI check for
+its hosted acceptance. No provider request or trading-policy change occurred.
+
+[Prior ICM adoption](runs/icm-adoption-2026-10-16/CONTEXT.md) is complete at
+`972e7d5`; its full CI passed 3,090 tests with 73 optional skips. All 111 routes
+and the existing safety boundaries remain preserved.
 
 ## Next research step
 
-Accept and pin the exact capture's original verification evidence in an additive
-source integration; reconcile the eight target-refresh cases and compute exact
-same-time RVOL before claiming scanner readiness. Continue through share-basis,
-float/news and scanner-to-shadow integration only when their actual inputs verify.
+Investigate the two withheld historical-volume cases from the saved sources;
+do not treat matching target mornings as proof of historical share-basis agreement.
+Then continue daily/minute price/share-basis, historical float/news, the complete
+captured-source scanner adapter and scanner-to-shadow integration only when
+their actual inputs verify. Exact RVOL is a completed input component for the
+ready cases, not a claim of full scanner or discretionary readiness.
 Start with [source capture](../map/objects/source-capture.md) and
 [scanner reconstruction](../map/processes/scanner-reconstruction.md).
 

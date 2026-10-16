@@ -7,8 +7,8 @@ universe: live
 status: verified
 entity: src/momentumbot/causal_scanner_snapshot_v03.py
 verified_at: 2026-10-16
-verified_commit: 53989a5f1637e759a3922980b40f24cbfbaab5fb
-sources: ["src/momentumbot/causal_scanner_snapshot_v03.py:39-81", "src/momentumbot/causal_scanner_snapshot_v03.py:183-229", "src/momentumbot/causal_scanner_snapshot_v03.py:350-454", "src/momentumbot/research/early_pullback_panel_sources_v01.py:202-235", "src/momentumbot/research/early_pullback_panel_sources_v01.py:263-326"]
+verified_commit: b83b5dba644cc237ed1cb41fc10dc59b27c65995
+sources: ["src/momentumbot/causal_scanner_snapshot_v03.py:39-81", "src/momentumbot/causal_scanner_snapshot_v03.py:183-229", "src/momentumbot/causal_scanner_snapshot_v03.py:350-454", "src/momentumbot/research/early_pullback_panel_sources_v01.py:202-235", "src/momentumbot/research/early_pullback_panel_sources_v01.py:263-326", "src/momentumbot/research/candidate_rvol_exact_source.py:163-214"]
 ---
 
 # Causal scanner snapshot
@@ -24,6 +24,10 @@ A candidate's displayed price and volume cannot silently share the adjustment ba
 Inputs include full resolved membership, candidate rows, previous closes, split ranking frames, raw candidate frames, exact-RVOL curves, float and news evidence. `build_scanner_snapshot_rows` delegates shared mechanics to v0.2 and then revalidates split consistency (`:183-229`); older modules here are live ancestors, not dead replacements. Artifact construction fixes canonical decision-time/symbol order and source hashes. It explicitly denies universe completeness, full walk-forward eligibility and policy promotion (`:360-454`).
 
 The new-panel adapter remains synthetic: it requires `SYNTHETIC` membership and the synthetic scope (`early_pullback_panel_sources_v01.py:202-235,263-267`). The real captured-source-to-new-panel adapter is a **ghost integration**, not an existing completed production route.
+
+The separate [exact-RVOL source adapter](../../../src/momentumbot/research/candidate_rvol_exact_source.py)
+now produces reconciled minute curves. This is one input component; it does not
+complete the real-source new-panel route or supply missing float/news evidence.
 
 ## Connected to
 

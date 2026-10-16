@@ -6,8 +6,8 @@ cluster: candidate-discovery
 universe: live
 entity: src/momentumbot/causal_scanner_snapshot_v03.py
 verified_at: 2026-10-16
-verified_commit: 53989a5f1637e759a3922980b40f24cbfbaab5fb
-sources: ["src/momentumbot/causal_scanner_snapshot_v03.py:183-229", "src/momentumbot/causal_scanner_snapshot_v03.py:350-454", "src/momentumbot/research/early_pullback_panel_sources_v01.py:202-235", "src/momentumbot/research/early_pullback_panel_sources_v01.py:263-326", "src/momentumbot/research/candidate_rvol_exact.py:87-89"]
+verified_commit: b83b5dba644cc237ed1cb41fc10dc59b27c65995
+sources: ["src/momentumbot/causal_scanner_snapshot_v03.py:183-229", "src/momentumbot/causal_scanner_snapshot_v03.py:350-454", "src/momentumbot/research/early_pullback_panel_sources_v01.py:202-235", "src/momentumbot/research/early_pullback_panel_sources_v01.py:263-326", "src/momentumbot/research/candidate_rvol_exact.py:87-89", "src/momentumbot/research/candidate_rvol_exact_source.py:163-214"]
 status: verified
 consumes: ["docs/map/objects/causal-scanner.md"]
 produces: ["docs/map/objects/causal-scanner.md"]
@@ -33,7 +33,12 @@ Raw displayed prices and split-adjusted gain/rank serve different purposes. Sile
 4. Persist the eligibility/knowledge boundary and revalidate the finished artifact (`:416-454`).
 5. For the new-panel fixture route only, validate synthetic symbols/scope before deriving activations and authenticated Micro triggers (`early_pullback_panel_sources_v01.py:202-235,263-326`).
 
-The captured exact-RVOL source is deliberately **not** listed as an implemented input edge: its registration still disclaims completed exact-RVOL integration (`candidate_rvol_exact.py:87-89`). A real-source adapter remains future work.
+The original capture registration still disclaims completed integration
+(`candidate_rvol_exact.py:87-89`). Its additive exact-source adapter now reconciles
+all supplied target/history inputs and emits exact aligned curves only when
+they agree (`candidate_rvol_exact_source.py:163-214`). This supplies one source
+component; a complete real-source scanner adapter remains future work, including
+daily/minute price/share-basis agreement and historical float/news evidence.
 
 ## If you change this
 
@@ -55,3 +60,4 @@ The captured exact-RVOL source is deliberately **not** listed as an implemented 
 - [Owning source](../../../src/momentumbot/causal_scanner_snapshot_v03.py)
 - [Synthetic binder](../../../src/momentumbot/research/early_pullback_panel_sources_v01.py)
 - [Capture boundary](../../../src/momentumbot/research/candidate_rvol_exact.py)
+- [Exact-RVOL integration](../../../src/momentumbot/research/candidate_rvol_exact_source.py)
