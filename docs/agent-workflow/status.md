@@ -1,14 +1,15 @@
 ---
 type: status
-status: rvol-history-basis-diagnosed-two-cases-remain-withheld
-observed_at: 2026-10-16
-source_commit: 3cc1ba86d1e0480c468b741e706972dfd843b0c8
+status: sources-preserved-daily-input-verified-basis-remains-unverified
+observed_at: 2026-10-17
+source_commit: c6ccce6155d02d3f0868784a9be646d2437698e7
 ---
 
 # Current observed state
 
 The active development branch is `phase-3-historical-snapshot`.
 This record is the current handoff; old checkpoint headings describe their dates.
+For the short completion path, use the [V1 checklist](../project/v1-checklist.md).
 
 ## Research checkpoint
 
@@ -20,13 +21,27 @@ These are observed hosted outcomes, not a new local replay or scanner promotion.
 
 [Terminal metadata](runs/icm-adoption-2026-10-16/capture-terminal.json) records the
 original job and artifact identities. Capture artifacts were unexpired when checked
-and are scheduled to expire December 18, 2026. Preserve accepted source evidence
-before retention expiry; never rerun this consumed capture merely to recover files.
+and are scheduled to expire December 18, 2026. The October 17
+[recovery inventory](runs/source-preservation-daily-2026-10-17/source-preservation.json)
+now records nine saved originals (304,624,592 bytes) and five already Git-backed
+artifacts covering fourteen source references in seven checked proofs. Never
+rerun a consumed capture merely to recover files. Scope is this checked source
+chain, not every historical Actions artifact.
 
 ## Current development
 
-The [basis diagnostic](runs/rvol-basis-diagnostic-2026-10-16/CONTEXT.md) is the
-latest work item. It reproduces all 98 withheld historical-session failures:
+The [source preservation and daily-input work](runs/source-preservation-daily-2026-10-17/CONTEXT.md)
+is the latest work item. Its pinned offline daily reader projects 318,519 bars
+over 30 dates. All 4,018 prior-close witnesses match exactly; 3,904 cases have
+an original fifty-session volume average and 114 remain unavailable. These
+matches do not prove daily/minute adjustment-basis agreement or full-ranking
+coverage. Focused normal and optimized checks passed; inspect the publishing
+descendant's exact full CI result and the linked verification record.
+
+The preceding [basis diagnostic](runs/rvol-basis-diagnostic-2026-10-16/CONTEXT.md)
+passed CI [38975719878](https://github.com/RoomyRems/momentumbot/actions/runs/38975719878)
+at `6af2d8176c2b2066402a0ca7f2404c5e0881220e`: 3,115 tests, 73 skipped,
+compilation passed. It reproduces all 98 withheld historical-session failures:
 856 buckets differ in both OHLC and volume while trade counts and presence
 match. Exact histories were captured September 19 and coarse histories September
 17. Compatible `asof`/split/SIP parameters do not prove a common adjustment
@@ -55,7 +70,7 @@ and the existing safety boundaries remain preserved.
 
 ## Next research step
 
-The saved-source investigation is complete within its evidence limits. Keep
+The exact/coarse withheld-history investigation is complete within its limits. Keep
 MGN/2026-03-25 and RUBI/2026-05-19 quarantined until independent source evidence
 ties target and history to a common basis; neither a fitted scale nor matching
 target mornings establishes that. Continue the saved daily/raw/split basis audit

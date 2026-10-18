@@ -6,9 +6,9 @@ cluster: market-data
 universe: live
 status: verified
 entity: src/momentumbot/research/candidate_rvol_exact.py
-verified_at: 2026-10-16
-verified_commit: 3cc1ba86d1e0480c468b741e706972dfd843b0c8
-sources: ["src/momentumbot/research/candidate_rvol_exact.py:38-89", "src/momentumbot/research/candidate_rvol_exact.py:98-163", "src/momentumbot/research/candidate_rvol_source.py:45-80", "src/momentumbot/research/hosted_source_gate.py:15-78", "src/momentumbot/research/candidate_rvol_exact_source.py:29-147", "src/momentumbot/research/candidate_rvol_exact_source.py:163-214", "src/momentumbot/research/candidate_rvol_basis_diagnostic.py:28-207"]
+verified_at: 2026-10-17
+verified_commit: c6ccce6155d02d3f0868784a9be646d2437698e7
+sources: ["src/momentumbot/research/candidate_rvol_exact.py:38-89", "src/momentumbot/research/candidate_rvol_exact.py:98-163", "src/momentumbot/research/candidate_rvol_source.py:45-80", "src/momentumbot/research/hosted_source_gate.py:15-78", "src/momentumbot/research/candidate_rvol_exact_source.py:29-147", "src/momentumbot/research/candidate_rvol_exact_source.py:163-214", "src/momentumbot/research/candidate_rvol_basis_diagnostic.py:28-207", "src/momentumbot/research/candidate_daily_source.py:21-112"]
 ---
 
 # Bounded source capture
@@ -36,6 +36,15 @@ comparisons. Compatible request parameters are not adjustment-vintage proof;
 no correction or promotion follows even from a matching comparison
 (`candidate_rvol_basis_diagnostic.py:28-207`).
 
+The pinned daily reader reuses the original history projector and last-fifty-session
+average. Its same-session previous-close comparison uses exact values, reports
+missing witnesses explicitly, and never promotes daily/minute basis agreement
+(`candidate_daily_source.py:21-112`). All-date child evidence has 4,018 matching
+closes and 3,904 available volume averages, with 114 unavailable histories.
+The [recovery inventory](../../agent-workflow/runs/source-preservation-daily-2026-10-17/source-preservation.json)
+records nine separately saved originals and five already Git-backed artifacts;
+it does not claim exhaustive preservation of all historical Actions runs.
+
 ## Connected to
 
 - **owns:** Request registration, single-use reference, response state and independent archive proof.
@@ -55,6 +64,7 @@ no correction or promotion follows even from a matching comparison
 | Exact capture runner | Reads the registration; writes bounded capture artifacts |
 | Independent verifier | Reads original bytes; emits provenance proof without provider requests |
 | Exact-RVOL source reader/audit | Reconciles saved sources and emits aligned exact curves or explicit disagreement |
+| Prior-daily reader/audit | Projects authenticated saved history; exact daily-close agreement is not minute-basis proof |
 | Scanner runtime | No direct authorization from these acquisition values |
 | External archive consumers | Unknown; do not move evidence paths on that assumption |
 
@@ -63,6 +73,7 @@ no correction or promotion follows even from a matching comparison
 - [Owning source](../../../src/momentumbot/research/candidate_rvol_exact.py)
 - [Coarse source selection](../../../src/momentumbot/research/candidate_rvol_source.py)
 - [Exact-RVOL source integration](../../../src/momentumbot/research/candidate_rvol_exact_source.py)
+- [Prior-daily source integration](../../../src/momentumbot/research/candidate_daily_source.py)
 - [Withheld-history diagnostic](../../../docs/research/candidate_rvol_basis_diagnostic.md)
 - [Hosted launch gates](../../../src/momentumbot/research/hosted_source_gate.py)
 - [Bounded-capture movement](../processes/bounded-capture.md)

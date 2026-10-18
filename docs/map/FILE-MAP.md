@@ -159,6 +159,14 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `docs/agent-workflow/runs/rvol-basis-diagnostic-2026-10-16/03_verification.md` | product | retained evidence or checkpoint |
 | `docs/agent-workflow/runs/rvol-basis-diagnostic-2026-10-16/04_handoff.md` | product | retained evidence or checkpoint |
 | `docs/agent-workflow/runs/rvol-basis-diagnostic-2026-10-16/CONTEXT.md` | contract | folder contract |
+| `docs/agent-workflow/runs/source-preservation-daily-2026-10-17/01_scope.md` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/source-preservation-daily-2026-10-17/02_change.md` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/source-preservation-daily-2026-10-17/03_verification.md` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/source-preservation-daily-2026-10-17/04_handoff.md` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/source-preservation-daily-2026-10-17/CONTEXT.md` | contract | folder contract |
+| `docs/agent-workflow/runs/source-preservation-daily-2026-10-17/focused-tests-optimized.log` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/source-preservation-daily-2026-10-17/focused-tests.log` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/source-preservation-daily-2026-10-17/source-preservation.json` | product | retained evidence or checkpoint |
 | `docs/agent-workflow/status.md` | contract | development workflow specification |
 | `docs/architecture.md` | contract | explanatory specification |
 | `docs/map/AGENTS.md` | catalog | navigation, index or system-map card |
@@ -202,6 +210,7 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `docs/project/current_state_2026-08-31.md` | product | retained evidence or checkpoint |
 | `docs/project/handoff_2026-08-18.md` | product | retained evidence or checkpoint |
 | `docs/project/progress_2026-09-08.md` | product | retained evidence or checkpoint |
+| `docs/project/v1-checklist.md` | product | retained evidence or checkpoint |
 | `docs/research/account_chronological_integration_v01.md` | contract | research or strategy specification |
 | `docs/research/account_session_snapshot_capture_v01.md` | contract | research or strategy specification |
 | `docs/research/alias_completion.md` | contract | research or strategy specification |
@@ -477,6 +486,8 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `research/data-audits/early-pullback-candidate-daily-history-v0.1/implementation-verification.json` | product | retained evidence or checkpoint |
 | `research/data-audits/early-pullback-candidate-daily-history-v0.1/original-consumption.zip` | product | retained evidence or checkpoint |
 | `research/data-audits/early-pullback-candidate-daily-history-v0.1/original-verification.zip` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-daily-source-v0.1/audit.log` | product | retained evidence or checkpoint |
+| `research/data-audits/early-pullback-candidate-daily-source-v0.1/audit/daily-source-audit.json.gz` | product | retained evidence or checkpoint |
 | `research/data-audits/early-pullback-candidate-price-rounding-v0.1/diagnostic.log` | product | retained evidence or checkpoint |
 | `research/data-audits/early-pullback-candidate-price-rounding-v0.1/focused-optimized.log` | product | retained evidence or checkpoint |
 | `research/data-audits/early-pullback-candidate-price-rounding-v0.1/focused.log` | product | retained evidence or checkpoint |
@@ -1330,6 +1341,7 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `scripts/acquire_sealed_historical_management_exit_inputs_v01.py` | factory | implementation, verification or configuration |
 | `scripts/attribute_sealed_historical_losses_v01.py` | factory | implementation, verification or configuration |
 | `scripts/audit_benchmark_symbol_candidates.py` | factory | implementation, verification or configuration |
+| `scripts/audit_candidate_daily_source.py` | factory | implementation, verification or configuration |
 | `scripts/audit_candidate_price_basis.py` | factory | implementation, verification or configuration |
 | `scripts/audit_candidate_price_rounding.py` | factory | implementation, verification or configuration |
 | `scripts/audit_candidate_rvol_basis.py` | factory | implementation, verification or configuration |
@@ -1608,6 +1620,7 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `src/momentumbot/research/benchmark_suite.py` | factory | implementation, verification or configuration |
 | `src/momentumbot/research/campaign_portfolio.py` | factory | implementation, verification or configuration |
 | `src/momentumbot/research/candidate_daily_history.py` | factory | implementation, verification or configuration |
+| `src/momentumbot/research/candidate_daily_source.py` | factory | implementation, verification or configuration |
 | `src/momentumbot/research/candidate_price_rounding.py` | factory | implementation, verification or configuration |
 | `src/momentumbot/research/candidate_raw_minutes.py` | factory | implementation, verification or configuration |
 | `src/momentumbot/research/candidate_rvol_basis_diagnostic.py` | factory | implementation, verification or configuration |
@@ -1831,6 +1844,7 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `tests/test_build_massive_provisional_universe.py` | factory | implementation, verification or configuration |
 | `tests/test_campaign_portfolio.py` | factory | implementation, verification or configuration |
 | `tests/test_candidate_daily_history.py` | factory | implementation, verification or configuration |
+| `tests/test_candidate_daily_source.py` | factory | implementation, verification or configuration |
 | `tests/test_candidate_price_rounding.py` | factory | implementation, verification or configuration |
 | `tests/test_candidate_raw_minutes.py` | factory | implementation, verification or configuration |
 | `tests/test_candidate_rvol_basis_diagnostic.py` | factory | implementation, verification or configuration |
@@ -2063,6 +2077,7 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `tests/test_select_micro_activity_cohort.py` | factory | implementation, verification or configuration |
 | `tests/test_setup.py` | factory | implementation, verification or configuration |
 | `tests/test_snapshot.py` | factory | implementation, verification or configuration |
+| `tests/test_source_preservation_inventory.py` | factory | implementation, verification or configuration |
 | `tests/test_strategy_coverage.py` | factory | implementation, verification or configuration |
 | `tests/test_strategy_coverage_v02.py` | factory | implementation, verification or configuration |
 | `tests/test_summarize_discretion_heldout_micro_runtime.py` | factory | implementation, verification or configuration |
