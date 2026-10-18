@@ -7,8 +7,8 @@ universe: live
 status: verified
 entity: src/momentumbot/research/candidate_rvol_exact.py
 verified_at: 2026-10-17
-verified_commit: c6ccce6155d02d3f0868784a9be646d2437698e7
-sources: ["src/momentumbot/research/candidate_rvol_exact.py:38-89", "src/momentumbot/research/candidate_rvol_exact.py:98-163", "src/momentumbot/research/candidate_rvol_source.py:45-80", "src/momentumbot/research/hosted_source_gate.py:15-78", "src/momentumbot/research/candidate_rvol_exact_source.py:29-147", "src/momentumbot/research/candidate_rvol_exact_source.py:163-214", "src/momentumbot/research/candidate_rvol_basis_diagnostic.py:28-207", "src/momentumbot/research/candidate_daily_source.py:21-112"]
+verified_commit: 80441944c3ac3ab050d13a5d323c76e76a7ab212
+sources: ["src/momentumbot/research/candidate_rvol_exact.py:38-89", "src/momentumbot/research/candidate_rvol_exact.py:98-163", "src/momentumbot/research/candidate_rvol_source.py:45-80", "src/momentumbot/research/hosted_source_gate.py:15-78", "src/momentumbot/research/candidate_rvol_exact_source.py:29-147", "src/momentumbot/research/candidate_rvol_exact_source.py:163-214", "src/momentumbot/research/candidate_rvol_basis_diagnostic.py:28-207", "src/momentumbot/research/candidate_daily_source.py:21-112", "src/momentumbot/research/candidate_feature_inputs.py:18-111"]
 ---
 
 # Bounded source capture
@@ -46,6 +46,12 @@ records nine separately saved originals and five already Git-backed artifacts;
 it does not claim exhaustive preservation of all historical Actions runs.
 
 ## Connected to
+
+The [joined candidate reader](../../../src/momentumbot/research/candidate_feature_inputs.py)
+consumes those byte-pinned daily/exact reports, preserving the complete daily
+case population and explicit missing or disagreeing curves. Its completed-bar
+helper enforces start plus one minute. It supplies partial inputs only; full
+scanner readiness and float/news remain false (`candidate_feature_inputs.py:18-111`).
 
 - **owns:** Request registration, single-use reference, response state and independent archive proof.
 - **owned-by:** The frozen acquisition contract and [workflow control](workflow-control.md).

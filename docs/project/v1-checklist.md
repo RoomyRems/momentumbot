@@ -8,7 +8,7 @@ replacement for frozen research contracts or the [current status](../agent-workf
 | Milestone | Current state | Completion evidence |
 |---|---|---|
 | Preserve irreplaceable source data | Nine originals saved; fourteen checked references covered with Git-backed evidence | [Recovery inventory](../agent-workflow/runs/source-preservation-daily-2026-10-17/source-preservation.json) |
-| Publish daily-input checkpoint | Focused normal/optimized tests passed; publication/full CI pending at authoring | Exact branch commit and successful full CI |
+| Publish daily-input checkpoint | Complete at `0497dd4`; 3,125 tests, 73 skips and compilation passed | [CI 39085393865](https://github.com/RoomyRems/momentumbot/actions/runs/39085393865) |
 | Complete source inputs | Exact RVOL ready for 2,101/2,103 retained cases; daily-close audit passes; daily/minute basis and historical float/news remain incomplete | Causal source coverage, validated units and explicit unavailable inputs |
 | Connect historical pipeline | Components exist; complete captured-source scanner-to-shadow bridge remains incomplete | One reproducible data → scanner → setup → shadow → simulated execution run |
 | Evaluate actual model shadow | Current shadow is a deterministic compiled rubric, not per-record inference | Frozen model/schema, causal inputs, abstention, logged responses and held-out comparison |
@@ -17,7 +17,9 @@ replacement for frozen research contracts or the [current status](../agent-workf
 
 ## Immediate sequence
 
-1. Finish publication and exact-code CI for the already-tested checkpoint.
+1. Verify publication and exact-code CI for the new candidate input reader;
+   the daily-input checkpoint already passed. The shared daily/RVOL interface
+   now joins 2,101 cases, retaining all other cases with explicit status.
 2. Establish the supported daily/minute basis and historical float/news coverage;
    integrate only verified fields. Keep unsupported cases explicit rather than
    repeatedly fitting them. Exclusions must preserve ranking semantics and be

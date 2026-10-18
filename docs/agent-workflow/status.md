@@ -2,7 +2,7 @@
 type: status
 status: sources-preserved-daily-input-verified-basis-remains-unverified
 observed_at: 2026-10-17
-source_commit: c6ccce6155d02d3f0868784a9be646d2437698e7
+source_commit: 80441944c3ac3ab050d13a5d323c76e76a7ab212
 ---
 
 # Current observed state
@@ -30,13 +30,22 @@ chain, not every historical Actions artifact.
 
 ## Current development
 
+The latest [candidate input integration](runs/candidate-feature-inputs-2026-10-17/CONTEXT.md)
+joins verified previous closes, original fifty-session average volume and exact
+RVOL through one reader. All thirty dates pass: 2,101 joined cases, two withheld
+disagreements and 1,915 cases not retained for exact acquisition, preserving
+all 4,018 daily cases and 159,079 RVOL observations. Completed-bar access enforces
+the one-minute availability offset. Full scanner inputs remain incomplete.
+Focused normal/optimized checks passed; check the publishing descendant's CI.
+
 The [source preservation and daily-input work](runs/source-preservation-daily-2026-10-17/CONTEXT.md)
-is the latest work item. Its pinned offline daily reader projects 318,519 bars
+is the preceding work item. Its pinned offline daily reader projects 318,519 bars
 over 30 dates. All 4,018 prior-close witnesses match exactly; 3,904 cases have
 an original fifty-session volume average and 114 remain unavailable. These
 matches do not prove daily/minute adjustment-basis agreement or full-ranking
-coverage. Focused normal and optimized checks passed; inspect the publishing
-descendant's exact full CI result and the linked verification record.
+coverage. Published checkpoint `0497dd4bdd6674c012f28313e40c32b2eb246691`
+passed [full CI 39085393865](https://github.com/RoomyRems/momentumbot/actions/runs/39085393865):
+3,125 tests in 328.120 seconds, 73 skipped, compilation passed.
 
 The preceding [basis diagnostic](runs/rvol-basis-diagnostic-2026-10-16/CONTEXT.md)
 passed CI [38975719878](https://github.com/RoomyRems/momentumbot/actions/runs/38975719878)

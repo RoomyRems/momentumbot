@@ -143,6 +143,15 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `docs/agent-workflow/_templates/work-item/verification.md` | factory | reusable template |
 | `docs/agent-workflow/maintenance.md` | contract | development workflow specification |
 | `docs/agent-workflow/runs/CONTEXT.md` | contract | folder contract |
+| `docs/agent-workflow/runs/candidate-feature-inputs-2026-10-17/01_scope.md` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/candidate-feature-inputs-2026-10-17/02_change.md` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/candidate-feature-inputs-2026-10-17/03_verification.md` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/candidate-feature-inputs-2026-10-17/04_handoff.md` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/candidate-feature-inputs-2026-10-17/CONTEXT.md` | contract | folder contract |
+| `docs/agent-workflow/runs/candidate-feature-inputs-2026-10-17/focused-optimized.log` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/candidate-feature-inputs-2026-10-17/focused.log` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/candidate-feature-inputs-2026-10-17/integration-report.json` | product | retained evidence or checkpoint |
+| `docs/agent-workflow/runs/candidate-feature-inputs-2026-10-17/integration.log` | product | retained evidence or checkpoint |
 | `docs/agent-workflow/runs/exact-rvol-source-2026-10-16/01_scope.md` | product | retained evidence or checkpoint |
 | `docs/agent-workflow/runs/exact-rvol-source-2026-10-16/02_change.md` | product | retained evidence or checkpoint |
 | `docs/agent-workflow/runs/exact-rvol-source-2026-10-16/03_verification.md` | product | retained evidence or checkpoint |
@@ -1546,6 +1555,7 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `scripts/validate_sealed_historical_source_recovery_v09.py` | factory | implementation, verification or configuration |
 | `scripts/validate_sealed_historical_source_recovery_v10.py` | factory | implementation, verification or configuration |
 | `scripts/validate_vrax_micro_reference.py` | factory | implementation, verification or configuration |
+| `scripts/verify_candidate_feature_inputs.py` | factory | implementation, verification or configuration |
 | `scripts/verify_census_order_repair.py` | factory | implementation, verification or configuration |
 | `scripts/verify_scanner_source_archive.py` | factory | implementation, verification or configuration |
 | `scripts/verify_sealed_historical_account_continuity_v01.py` | factory | implementation, verification or configuration |
@@ -1621,6 +1631,7 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `src/momentumbot/research/campaign_portfolio.py` | factory | implementation, verification or configuration |
 | `src/momentumbot/research/candidate_daily_history.py` | factory | implementation, verification or configuration |
 | `src/momentumbot/research/candidate_daily_source.py` | factory | implementation, verification or configuration |
+| `src/momentumbot/research/candidate_feature_inputs.py` | factory | implementation, verification or configuration |
 | `src/momentumbot/research/candidate_price_rounding.py` | factory | implementation, verification or configuration |
 | `src/momentumbot/research/candidate_raw_minutes.py` | factory | implementation, verification or configuration |
 | `src/momentumbot/research/candidate_rvol_basis_diagnostic.py` | factory | implementation, verification or configuration |
@@ -1845,6 +1856,7 @@ Classification is navigational, never deletion authority. Provisional rows need 
 | `tests/test_campaign_portfolio.py` | factory | implementation, verification or configuration |
 | `tests/test_candidate_daily_history.py` | factory | implementation, verification or configuration |
 | `tests/test_candidate_daily_source.py` | factory | implementation, verification or configuration |
+| `tests/test_candidate_feature_inputs.py` | factory | implementation, verification or configuration |
 | `tests/test_candidate_price_rounding.py` | factory | implementation, verification or configuration |
 | `tests/test_candidate_raw_minutes.py` | factory | implementation, verification or configuration |
 | `tests/test_candidate_rvol_basis_diagnostic.py` | factory | implementation, verification or configuration |
